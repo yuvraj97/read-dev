@@ -1,0 +1,332 @@
+<!DOCTYPE HTML>
+<!--
+    "Thanks to HTML5 UP for this template".
+    Massively by HTML5 UP
+    html5up.net | @ajlkn
+    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+    <head>
+
+        <!--Prism-->
+        <link rel="stylesheet" href="/data/prism/prism.css">
+
+
+
+        <link id="quantml-theme" rel="stylesheet" href="" />
+        <link id="quantml-auth-style" rel="stylesheet" href="">
+        <script src="/data/initialize-css.js"></script>
+
+        <!--KATEX-->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+
+        <!-- The loading of KaTeX is deferred to speed up page rendering -->
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+
+        <!-- To automatically render math in text elements, include the auto-render extension: -->
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+        
+		<title>Orthonormal Vectors</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<noscript><link rel="stylesheet" href="/data/assets/css/noscript.css" /></noscript>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        
+        <link rel="icon" href="/data/icon.png" type="image/png" sizes="16x16">
+
+	</head>   
+    
+    <body style="display: none;">
+
+        <!-- Wrapper -->
+            <div id="wrapper">
+
+                <!-- Header -->
+                    <header id="header">
+                        <a target="_blank" href="https://quantml.org" class="logo image jump-big"><img src="/data/img/cover.png" alt="QuantML.org" /></a>
+                    </header>
+
+                <!-- Nav -->
+                    <nav id="nav">
+                        <ul class="links">
+                            <li class="cover"><a href="/la/"><img src="/data/img/linear-algebra-cover.png" alt="Linear Algebra"></a></li>
+                            <li class="active"><a href="/la/orthonormal-vectors/">Orthonormal Vectors</a></li>
+                        </ul>
+                        <ul class="icons">
+                            <li><a target="_blank" href="https://quantml.org/"><img src="/data/img/icon.png" alt="QuantML"></a></li>
+                            <li><a target="_blank" href="https://join.slack.com/t/quantml-org/shared_invite/zt-hcmbg7fr-jPbVAUT_tjGPaKWU50qMYQ"><img src="/data/img/slack.png" alt="Slack"></a></li>
+                            <li><a target="_blank" href="https://www.linkedin.com/in/yuvraj97/"><img src="/data/img/linkedin.png" alt="LinkedIn"></a></li>
+                            <li><a target="_blank" href="https://github.com/yuvraj97/"><img src="/data/img/github.png" alt="GitHub"></a></li>
+                            <li><a style="cursor: pointer;"><img id="change-theme" src="" alt="Change Theme"></a></li>
+                        </ul>
+                    </nav>
+                <!-- Main -->
+                    <div id="main">
+                        <section class="post">
+<div>
+    <button class="button" onclick="window.location.href = 'least-squares.html';">&#x25C0;&nbsp;&nbsp;Least Squares</button>
+    <button class="button"  style="float: right;" onclick="window.location.href = '/la/eigenvalues-eigenvectors/';">Eigenvalues and Eigenvectors&nbsp;&nbsp;&#x25B6;</button>
+</div><br>
+
+<p>
+<h1 id="orthogonal-matrices">Orthonormal Vectors</h1>
+Say we have a \(m\times n\)  matrix \(Q\), ith columns of \(Q\) is denotes as \(q_i\).<br>
+\[
+Q=\begin{bmatrix}
+ \vdots & \vdots &          & \vdots \\  
+ q_1    &  q_2   & \cdots   &  q_n   \\
+ \vdots & \vdots &          & \vdots \\
+ \end{bmatrix}_{m\times n}
+\]
+And <b>all</b> columns vectors are <b>perpendicular</b> to each other, and <b>all</b> column vectors
+are of <b>unit length</b><br>
+\[
+q_i^Tq_j=\left\{\begin{matrix}
+    0& \text{if }i\neq j\\
+    1& \text{if }i=j \\
+    \end{matrix}\right.
+\]
+equivalently we can say that <span class="bb">\(Q^TQ=\mathcal{I}_{n\times n}\)</span>,<br>
+<div class="math-container ">
+\[
+Q^TQ=
+\begin{bmatrix}
+\cdots q_1 \cdots\\
+\cdots q_2 \cdots\\
+\vdots\\
+\cdots q_n \cdots\\
+\end{bmatrix}
+
+\begin{bmatrix}
+\vdots & \vdots &          & \vdots \\  
+q_1    &  q_2   & \cdots   &  q_n   \\
+\vdots & \vdots &          & \vdots 
+\end{bmatrix}
+\]
+</div>
+
+<div class="math-container ">
+\[
+\Rightarrow
+Q^TQ=
+\begin{bmatrix}
+q_1q_1 & q_1q_2 &  \cdots  & q_1q_n \\  
+q_2q_1 & q_2q_2 &  \cdots  & q_2q_n \\  
+\vdots & \vdots &  \ddots  & \vdots \\  
+q_nq_1 & q_nq_2 &  \cdots  & q_nq_n \\  
+\end{bmatrix}
+\]
+</div>
+
+<div class="math-container ">
+\[
+\Rightarrow
+Q^TQ=
+\begin{bmatrix}
+1       &       0 &  \cdots  & 0 \\  
+0       &       1 &  \cdots   & 0 \\  
+\vdots  & \vdots  &  \ddots  & 0 \\  
+0       &       0 &  \cdots  & 1 \\  
+\end{bmatrix}
+\]
+</div>
+
+<blockquote>    
+\(Q\) is an <b>Orthogonal matrix</b> <b>if</b> \(Q\) is a <b>square matrix</b> 
+</blockquote><br>
+So if \(Q\) is an <b>Orthogonal matrix</b> then,<br>
+<span class="bb">\(Q^TQ=\mathcal{I}\)</span> tells us that <span class="bb">\(Q^T = Q^{-1}\)</span>, So,<br>
+
+<li>If \(Q\) is an <b>Orthogonal matrix</b> then</li>
+
+<div class="math-border">
+\[
+    \begin{matrix}
+        \\    %blank line
+    \quad 
+    
+    % equation
+    \displaystyle Q^T = Q^{-1}
+    %equation
+    
+    \quad\\
+        \\    %blank line
+    \end{matrix}
+\]
+</div><b>Examples of matrices with orthogonal vectors,</b><br>
+<blockquote class="noborder">
+\(
+Q=\begin{bmatrix}
+0 & 0 &  1\\
+1 & 0 &  0\\
+0 & 1 &  0\\
+\end{bmatrix}
+\) here all vectors are orthogonal, unit length and it's an \(3\times 3\) square matrix so it's orthogonal matrix.<br>
+<br>
+\(
+Q=\begin{bmatrix}
+1 & -2 &  2\\
+2 & -1 & -2\\
+2 &  2 &  1\\
+\end{bmatrix}
+\) here all vectors are orthogonal, unit length and it's an \(3\times 3\) square matrix so it's orthogonal matrix.<br><br>
+</blockquote>
+<br>
+
+<h2 id="why-orthogonal">What is the benefit of orthonormal column vector</h2>
+Say we have a \(m\times n\) matrix \(Q\) with <b>orthonormal</b> column vectors .<br>
+Now say we want the projection of a vector (say \(\vec{v}\)) onto the column space of \(Q\).<br>
+Our <b>projection matrix\((P)\)</b> is: <span class="bb">\(P=Q(Q^TQ)^{-1}Q^T\)</span>.<br>
+And projection of vector \(\vec{v}\) onto the column space of \(Q\) is \(P\vec{v}\)<br>
+because \(Q\) has <b>orthonormal</b> column vectors .<br> 
+So <span class="bb">\(Q^TQ=\mathcal{I}\)</span>.<br>
+So our <b>projection matrix\((P)\)</b> becomes \(P=Q\mathcal{I}Q^T\), so.<br>
+
+<li><b>Projection Matrix\((P)\):</b></li>
+
+<div class="math-border">
+\[
+    \begin{matrix}
+        \\    %blank line
+    \quad 
+    
+    % equation
+    \displaystyle P=QQ^T
+    %equation
+    
+    \quad\\
+        \\    %blank line
+    \end{matrix}
+\]
+</div>
+
+<i>(So now we don't have to take the <i>inverse</i>  is \(Q^TQ\))</i><br>We can see the direct benefit of having a matrix with <b>orthonormal column vectors</b> is in <a  href="least-squares.html">least squares</a>.<br>
+<blockquote class="noborder">
+In Least squares we have equation of form \(A^TA\widehat{\mathbb{X}}=A^T\vec{v}\) and if \(A\) has orthonormal column vectors,
+then \(A^TA=\mathcal{I}\) so our equation becomes \(\widehat{\mathbb{X}}=A^T\vec{v}\)<br>
+No need to take \((A^TA)^{-1}\)
+</blockquote>
+<br>
+
+Now let's test the properties of a <b>projection matrix</b>,<br>
+<li><span class="bb">\(P=P^T\)</span></li>
+    <dl><dd>
+    \(P=QQ^T\)<br>
+    \(P^T=(QQ^T)^T = Q^{T^T}Q^T = QQ^T=P\)
+    </dd></dl>
+<li><span class="bb">\(P=P^2\)</span></li>
+    <dl><dd>
+    \(P=QQ^T\)<br>
+    \(P^2=Q(Q^TQ)Q^T=Q\mathcal{I}Q^T=QQ^T\)<br>
+    </dd></dl>
+<br>
+
+<h2 id="gram-schmidt">Gram Schmidt</h2>
+Ok now we know that matrices with <b>orthonormal column vectors</b> are <i>important</i>.<br>
+But if our matrix(with independent column vectors) do not have orthonormal column vectors then how to make them <b>orthonormal column vectors</b>?<br>
+This is where <b>Gram Schmidt</b> came into picture.<br>
+<br>
+First let's look at the smaller picture,<br>
+Say that we have \(2\)  vectors \(\vec{a}\in\mathbb{R}^n\) and \(\vec{b}\in\mathbb{R}^n\).<br>
+We have just \(2\)(non-parallel) vectors, and <b>span</b> of \(2\)(non-parallel) vectors is just a \(2\) dimensional plane.<br>
+<!--Image-->
+What we want is two <b>orthonormal vectors</b>(say \(\vec{q}_a\) and \(\vec{q}_b\)) in this \(2\) dimensional plane.<br>
+Let's took \(\vec{a}\) as our first <b>orthogonal vector</b>, it's easy because it's only one vector.<br>
+So 
+<blockquote>    
+\[\vec{q}_a=\frac{\vec{a}}{\|\vec{a}\|}\]
+</blockquote><br>
+
+Now let's find second <b>orthonormal vectors</b>?<br>
+<b>IDEA</b> is to remove it's direction along \(\vec{q}_a\).<br>
+So first take the projection of \(\vec{b}\) onto the vector space of \(\vec{q}_a\), say this projected 
+\(\vec{b}\) on \(\vec{q}_a\) to be \(\vec{b}_p\).<br>
+Now the vector joining \(\vec{b}\) and \(\vec{b}_p\) is orthogonal to \(\vec{q}_a\), say this vector \(\vec{b}_o\).<br>
+And <span class="bb">\(\vec{b}_p + \vec{b}_o = \vec{b}\)</span> so,<br>
+\(\vec{b}_o = \vec{b}-\vec{b}_p\).<br>
+<a  href="/la/projection/#vector-projection-matrix">Recall</a> our projection matrix\((P)\) of a vector,<br>
+\[\displaystyle P=\frac{\vec{v} \vec{v}^T}{\vec{v}^T\vec{v}}\]
+So projection of \(\vec{b}\) onto the vector space of \(\vec{q}_a\) is <span class="bb">\(\vec{b}_p=P\vec{b}\)</span>,<br>
+\(\displaystyle P\vec{b}=\frac{\vec{q}_a \vec{q}_a^T}{\vec{q}_a^T\vec{q}_a}\vec{b}\).<br>
+\(\displaystyle \Rightarrow \vec{b}_p =\frac{\vec{q}_a \vec{q}_a^T}{\vec{q}_a^T\vec{q}_a}\vec{b}\).<br>
+And \(\vec{q}_a^T\vec{q}_a=1\)<br>
+\(\displaystyle \Rightarrow \vec{b}_p =\vec{q}_a \vec{q}_a^T\vec{b} \).<br>
+<blockquote class="noborder">
+\[\vec{b}_o = \vec{b}-(\vec{q}_a\cdot\vec{b})\vec{q}_a  \]
+And
+\[\vec{q}_b=\frac{\vec{b}_o}{\|\vec{b}_o\|}\]
+</blockquote><br>
+
+And we know that \(\vec{b}\) is <b>perpendicular</b> to \(\vec{q}_a\), and if we think \(\vec{q}_a\) as 
+a matrix with one column then \(\vec{b}_o\) is <b>perpendicular</b> to the <b>column space</b> of 
+\(\vec{q}_a\).<br>
+So \(\vec{b}_o\) is in the Null space of \(\vec{q}_a ^T\) so,<br>
+\(\vec{q}_a^T \vec{b}_o=0\), let's verify it,<br>
+<dl><dd>
+    \[\vec{q}_a^T \left(  \vec{b}-\vec{q}_a \vec{q}_a^T\vec{b}  \right) = 0\]
+    \[\Rightarrow \vec{q}_a^T \vec{b}- (\vec{q}_a^T  \vec{q}_a) \vec{q}_a^T\vec{b}   = 0\]
+    \[\Rightarrow \vec{q}_a^T \vec{b}- \vec{q}_a^T \vec{b} = 0\quad \color{green}{&#10003;}\] 
+</dd></dl>
+Now let's push ourselves a little further now add another vector \(\vec{c}\).<br>
+We got our two <b>orthogonal</b> vectors \(\vec{q}_a\) and \(\vec{q}_b\) and this vector \(\vec{c}\)
+is <b>not</b> in the <b>vector space</b> of \(\vec{q}_a\) and \(\vec{q}_b\), in other words \(\vec{c}\) is
+<b>out</b> of the plane spanned by vector \(\vec{q}_a\) and \(\vec{q}_b\).<br>
+So \(\vec{c}\) gives us access to the \(3\)rd dimension, using this \(\vec{c}\) we need to find a
+vector <b>orthogonal</b> to the <b>vector space</b> of \(\vec{q}_a\) and \(\vec{q}_b\).<br>
+<b>IDEA</b>: first from \(\vec{c}\) remove it's direction along \(\vec{q}_a\) and then remove it's direction
+along \(\vec{q}_b\).
+
+<li>First remove it's direction along \(\vec{q}_a\) </li>
+Let's call this vector \(\vec{c}_{o_{a}}\).<br>
+\(\vec{c}_{o_{a}} = \vec{c} - \frac{\vec{q}_a \vec{q}_a^T}{\vec{q}_a^T\vec{q}_a}\vec{c}\)<br>
+\(\vec{q}_a^T\vec{q}_a=1\)<br>
+\(\Rightarrow \vec{c}_{o_{a}} = \vec{c} - \vec{q}_a \vec{q}_a^T \vec{c}\)<br>
+\(\Rightarrow \vec{c}_{o_{a}} = \vec{c} - (\vec{q}_a\cdot\vec{c})\vec{q}_a\)<br>
+
+<li>Now remove it's direction along \(\vec{q}_a\) </li>
+This is our vector \(\vec{c}_{o}\).<br>
+\(\displaystyle \vec{c}_{o} = \left(\vec{c} - (\vec{q}_a\cdot\vec{c})\vec{q}_a\right) - \frac{\vec{q}_b \vec{q}_b^T}{\vec{q}_b^T\vec{q}_b}\vec{c}\)<br>
+\(\vec{q}_b^T\vec{q}_b=1\)<br>
+\(\displaystyle \Rightarrow \vec{c}_{o} = \left( \vec{c} - (\vec{q}_a\cdot\vec{c})\vec{q}_a\right) - (\vec{q}_b\cdot\vec{c})\vec{q}_b\)<br>
+\(\vec{q}_c=\frac{\vec{c}_o}{\|\vec{c}_o\|}\)<br>
+<br>
+Now we can see a pattern here.<br>
+Say that we have \(n\)(independent) \(( a_1, a_2, \cdots, a_n )\) vectors and we have to find 
+\(n\) <b>orthonormal vectors</b> \(( q_1, q_2, \cdots, q_n )\)  using these \(n\)(independent) vectors.<br>
+we can deduce a pattern above,
+\[\vec{a_i}_o=\vec{a_i}-\sum_{k=1}^{i-1} (\vec{q}_k\cdot\vec{a}_i)\vec{q}_k  \]
+\[\vec{q}_i=\frac{\vec{a_i}_o}{\|\vec{a_i}_o\|}\]
+<br>
+So now we can find <b>orthonormal vectors</b> for any set of independent vectors.<br>
+This is <b>The Gram Schmidt Process</b>.<br>
+</p>
+
+<br>
+<div class="slack-discuss" onclick=" window.open('https://join.slack.com/t/quantml-org/shared_invite/zt-hcmbg7fr-jPbVAUT_tjGPaKWU50qMYQ','_blank')">
+						    Join our Slack <img src="/data/img/slack.png" alt="Slack"> discussion forum
+						</div>
+<br>
+
+<div>
+    <button class="button" onclick="window.location.href = 'least-squares.html';">&#x25C0;&nbsp;&nbsp;Least Squares</button>
+    <button class="button"  style="float: right;" onclick="window.location.href = '/la/eigenvalues-eigenvectors/';">Eigenvalues and Eigenvectors&nbsp;&nbsp;&#x25B6;</button>
+</div><br>
+                        </section>
+                    </div>
+            </div>
+
+        <!-- Scripts -->
+			<script src="/data/assets/js/jquery.min.js"></script>
+			<script src="/data/assets/js/jquery.scrollex.min.js"></script>
+			<script src="/data/assets/js/jquery.scrolly.min.js"></script>
+			<script src="/data/assets/js/browser.min.js"></script>
+			<script src="/data/assets/js/breakpoints.min.js"></script>
+			<script src="/data/assets/js/util.js"></script>
+            <script src="/data/assets/js/main.js"></script>
+            <script src="/data/index.js"></script>
+			<script src="/data/prism/prism.js"></script>
+            <script>setTimeout(() => {document.querySelector('body').style.display="block"}, 0)</script>
+
+    </body>
+</html>

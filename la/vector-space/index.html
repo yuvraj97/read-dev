@@ -1,0 +1,285 @@
+<!DOCTYPE HTML>
+<!--
+    "Thanks to HTML5 UP for this template".
+    Massively by HTML5 UP
+    html5up.net | @ajlkn
+    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+    <head>
+
+        <!--Prism-->
+        <link rel="stylesheet" href="/data/prism/prism.css">
+
+
+        <link id="quantml-theme" rel="stylesheet" href="" />
+        <link id="quantml-auth-style" rel="stylesheet" href="">
+        <script src="/data/initialize-css.js"></script>
+
+        <!--KATEX-->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+
+        <!-- The loading of KaTeX is deferred to speed up page rendering -->
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+
+        <!-- To automatically render math in text elements, include the auto-render extension: -->
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+        
+		<title>Vector Space</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<noscript><link rel="stylesheet" href="/data/assets/css/noscript.css" /></noscript>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        
+        <link rel="icon" href="/data/icon.png" type="image/png" sizes="16x16">
+
+	</head>   
+    
+    <body style="display: none;">
+
+        <!-- Wrapper -->
+            <div id="wrapper">
+
+                <!-- Header -->
+                    <header id="header">
+                        <a target="_blank" href="https://quantml.org" class="logo image jump-big"><img src="/data/img/cover.png" alt="QuantML.org" /></a>
+                    </header>
+
+                <!-- Nav -->
+                    <nav id="nav">
+                        <ul class="links">
+                            <li class="cover"><a href="/la/"><img src="/data/img/linear-algebra-cover.png" alt="Linear Algebra"></a></li>
+                            <li class="active"><a href="/la/vector-space/">Linear Algebra</a></li>
+                        </ul>
+                        <ul class="icons">
+                            <li><a target="_blank" href="https://quantml.org/"><img src="/data/img/icon.png" alt="QuantML"></a></li>
+                            <li><a target="_blank" href="https://join.slack.com/t/quantml-org/shared_invite/zt-hcmbg7fr-jPbVAUT_tjGPaKWU50qMYQ"><img src="/data/img/slack.png" alt="Slack"></a></li>
+                            <li><a target="_blank" href="https://www.linkedin.com/in/yuvraj97/"><img src="/data/img/linkedin.png" alt="LinkedIn"></a></li>
+                            <li><a target="_blank" href="https://github.com/yuvraj97/"><img src="/data/img/github.png" alt="GitHub"></a></li>
+                            <li><a style="cursor: pointer;"><img id="change-theme" src="" alt="Change Theme"></a></li>
+                        </ul>
+                    </nav>
+                <!-- Main -->
+                    <div id="main">
+                        <section class="post">
+<div id="btn-container">
+    <button id="prev-btn" class="button" onclick="window.location.href = '/la/';">&#x25C0;&nbsp;&nbsp; Home</button>
+    <button id="next-btn" class="button"  style="float: right;" onclick="window.location.href = '/la/column-space/';">Column Space&nbsp;&nbsp;&#x25B6;</button>
+</div><br>
+
+<p>
+<h1>Vector space</h1>
+Consider a vector \(\vec{v}\in\mathbb{R}^d\), here \(\vec{v}\) lives in \(d\) dimensional space this space is a <b>vector space</b>.<br>
+For example for \(d=3\),
+<br>
+<img  src="/la/img/1.png" width="557" height="334" alt="">
+<br>
+
+Vector shown in the blue is a vector \(\vec{x}\in\mathbb{R}^3\). All the space surrounding this vector is \(3\)-dimensional vector space.<br>
+
+<details><summary><span class="bb">Code to plot this vector (python)</span></summary>
+<pre><code class="language-python line-numbers">import MultiVariable as mvar
+import numpy as np
+%matplotlib qt
+m = mvar.MultiVariable()
+vector = np.array([[1,1,1]])
+m.plot_3D_vectors(vector)
+## Adjusting axis limits
+m.set_axes_limit((-2,2))
+m.setZ_limit((-0.5,2))
+</code></pre>
+You can get this MultiVariable class <a href="data/MultiVariable.py">HERE</a>
+<hr>
+</details>
+
+<br>
+If we multiply a vector \(\vec{v}\) by a constant say \(c\) then the resulting vector is in direction of \(\vec{v}\) (or in opposite direction).<br>
+Say the resulting vector is \(\vec{v}'\) then we can say \(\vec{v}' = c \vec{v} \) where \(c\in\mathbb{R}\), it is a line along vector \(\vec{v}\).<br>
+Here you can see that \(\vec{v}'\) has it's own space inside that \(d\) dimensional space, it's a vector space inside a vector space.<br>
+Example for \(d=3\)
+<br>
+<img  src="/la/img/2.png" width="557" height="334" alt="">
+<br>
+Here you can see the vector \(\vec{x}\in\mathbb{R}^3\) has it's own vector space that is that line.<br>
+<details><summary><span class="bb">Code To plot this vector (python)</span></summary>
+<pre><code class="language-python line-numbers">import MultiVariable as mvar
+import numpy as np
+%matplotlib qt
+m = mvar.MultiVariable()
+## Here line is defines as [x-start, x-end, y-start, y-end, z-start, z-end]
+lines = np.array([[-2,2,-2,2,-2,2]])
+m.plot_3D_lines(lines)
+vector = np.array([[1,1,1]])
+m.plot_3D_vectors(vector, plot_separately=False)
+## Adjusting axis limits
+m.set_axes_limit((-3,3))
+</code></pre>
+You can get this MultiVariable class <a href="data/MultiVariable.py">HERE</a>
+</details>
+<br>
+Now Consider a plane(passing through origin) inside a \(3\)-dimensional space, so that plane lives inside \(3\)-dimensional vector space, but it has it's own vector space.<br>
+<br>
+<img  src="/la/img/3.png" width="557" height="334" alt="">
+<br>
+<details><summary><span class="bb">Code To plot this plane (python)</span></summary>
+<pre><code class="language-python line-numbers">import MultiVariable as mvar
+import numpy as np
+%matplotlib qt
+
+def f(x,y):
+    return -x -y
+
+m = mvar.MultiVariable()
+m.plot_surface_color_3D(f, plot_separately=True, alpha=0.7)
+</code></pre>
+You can get this MultiVariable class <a href="data/MultiVariable.py">HERE</a>
+<hr>
+</details>
+Here you can see the plane \(x+y+z=0\) has it's own vector space inside \(3\)-dimensional vector space.<br>
+<br>
+
+If we add any two \(d\)-dimensional vectors, we get a \(d\)-dimensional vector as a output.<br>
+Say we have two vectors \(\vec{v}\in\mathbb{R}^d\) and \(\vec{w}\in\mathbb{R}^d\), then if we take there <b>linear</b> combination,
+then that <b>linear</b> combination will have it's own vector space, but what that vector space looks like?<br>
+Well it depends, on how  \(\vec{v}\) and \(\vec{w}\) are oriented.<br>
+<b>Case 1: if \(\vec{v}\) is parallel to \(\vec{w}\)</b><br>
+If \(\vec{v}\) and \(\vec{w}\) are parallel then \(\vec{w}= c \vec{v};\quad c\in\mathbb{R}\), So vector space is just a line.<br>
+Example for \(d=3\):<br>
+Say the vectors are \(\vec{v} = \begin{bmatrix} 1 \\ 1\\ 1\\ \end{bmatrix}\) and \(\vec{w} = \begin{bmatrix} 2 \\ 2\\ 2\\ \end{bmatrix}\)<br>
+<img  src="/la/img/6.png" width="600" height="350" alt=""><br>
+Then the vector space is just a line passing through these vectors.<br>
+<img  src="/la/img/7.png" width="600" height="350" alt=""><br>
+<details><summary><span class="bb">Code To plot this (python)</span></summary>
+<pre><code class="language-python line-numbers">import MultiVariable as mvar
+import numpy as np
+%matplotlib qt
+
+m = mvar.MultiVariable()
+vectors = np.array([
+                    [1,1,1],
+                    [2,2,2]
+                   ])
+origin = np.array([0,0,0])
+m.plot_3D_vectors(vectors, origin, plot_separately=False)
+
+# Structure of lines = [[x-start, x-end, y-start, y-end, z-start, z-end],...]
+lines = np.array([[-2.5,2.5,-2.5,2.5,-2.5,2.5]])
+m.plot_3D_lines(lines, plot_separately=False)
+m.set_axes_limit((-3,3))
+</code></pre>
+You can get this MultiVariable class <a href="data/MultiVariable.py">HERE</a>
+<hr>
+</details>
+
+<br>
+<b>Case 2: if \(\vec{v}\) is not parallel to \(\vec{w}\)</b><br>
+If \(\vec{v}\) and \(\vec{w}\) are not parallel then the vector space of <b>linear</b> combination of \(\vec{v}\) and \(\vec{w}\) is a plane.<br>
+Example for \(d=3\):<br>
+Say the vectors are \(\vec{v} = \begin{bmatrix} 2 \\ -1\\ -1\\ \end{bmatrix}\) and \(\vec{w} = \begin{bmatrix} -1 \\ 2\\ -1\\ \end{bmatrix}\)
+<br>
+<img  src="/la/img/4.png" width="600" height="350" alt=""><br>
+Then the vector space is the plane passing through these vectors.<br>
+<img  src="/la/img/5.png" width="600" height="350" alt=""><br>
+<details><summary><span class="bb">Code To plot this (python)</span></summary>
+<pre><code class="language-python line-numbers">import MultiVariable as mvar
+import numpy as np
+%matplotlib qt
+
+# X + Y + Z = 0
+def f(x,y):
+    return -x -y
+
+m = mvar.MultiVariable(count = 10, x_range=(-2,2), y_range=(-2,2), z_range=(-2,2))
+vectors = np.array([
+                    [2,-1,-1],
+                    [-1,2,-1]
+                   ])
+origin = np.array([0,0,0])
+m.plot_3D_vectors(vectors, origin, plot_separately=False)
+m.plot_surface_lines_3d(f, density = 100, plot_separately=False)
+m.set_axes_limit((-3,3))
+</code></pre>
+You can get this MultiVariable class <a href="data/MultiVariable.py">HERE</a>
+<hr>
+</details>
+<br><br>
+<h2 id="properties">Vector Space Properties</h2>
+So when can we say that a <b>space</b> can be a <b>vector space</b>?<br>
+A space is a <b>vector space</b> if it full fill these conditions:<br>
+<ol>
+<li>If there is a vector in that space and we multiply that vector with a constant \(c\in\mathbb{R}\) then the resulting vector must be in the space</li>
+<li>Say we took two vectors \(\vec{v}\) and \(\vec{w}\) then there sum must be in that space.</li>
+</ol>
+Let's see an example of a space which is <b>not a vector space</b>.<br>
+Think of a 2 dimensional space where \(x\gt0\) and \(y\gt0\)<br>
+<img  src="/la/img/9.png" width="600" height="300" alt=""><br>
+We can add vector safely and we don't go out of the space.<br>
+What about multiplying a constant to a vector, take a vector in that space \(\vec{v}=\begin{bmatrix} 4 \\ 3\\  \end{bmatrix}\).<br>
+<img  src="/la/img/10.png" width="600" height="300" alt=""><br>
+if we multiply \(\vec{v}\)  by \(-1\) then if goes out of space.<br>
+<img  src="/la/img/11.png" width="600" height="300" alt=""><br>
+<details><summary><span class="bb">Code To plot this (python)</span></summary>
+<pre><code class="language-python line-numbers">import MultiVariable as mvar
+import numpy as np
+%matplotlib qt
+
+m = mvar.MultiVariable()
+
+x = np.array([0,  5])
+y1 = np.array([5,5])
+y2 = np.array([0, 0])
+m.fill_between(x, y1, y2, alpha=0.3)
+
+vectors = np.array([
+                    [4,3],
+                    [-4,-3],
+                   ])
+origin = np.array([0,0])
+m.plot_2D_vectors(vectors, origin, plot_separately=False, head_width=0.2, head_length=0.2)
+m.set_axes_limit((-5,5))
+</code></pre>
+You can get this MultiVariable class <a href="data/MultiVariable.py">HERE</a>
+<hr>
+</details>
+So it can't be a vector space.<br>
+<br>
+<blockquote>A <b>vector space</b> must pass through the <b>origin</b>.</blockquote>
+<br>
+Vector space inside a vector space is referred as a subspace.<br>
+Possible subspace of a \(2\)-dimensional space.<br>
+<ol>
+    <li>All \(\mathbb{R}^2\) space</li>
+    <li>All lines passing through origin.</li>
+    <li>Origin itself(\(\vec{0}\))</li>
+</ol>
+</p>
+
+<br>
+<div class="slack-discuss" onclick=" window.open('https://join.slack.com/t/quantml-org/shared_invite/zt-hcmbg7fr-jPbVAUT_tjGPaKWU50qMYQ','_blank')">
+						    Join our Slack <img src="/data/img/slack.png" alt="Slack"> discussion forum
+						</div>
+<br>
+
+<div id="btn-container">
+    <button id="prev-btn" class="button" onclick="window.location.href = '/la/';">&#x25C0;&nbsp;&nbsp; Home</button>
+    <button id="next-btn" class="button"  style="float: right;" onclick="window.location.href = '/la/column-space/';">Column Space&nbsp;&nbsp;&#x25B6;</button>
+</div><br>
+                        </section>
+                    </div>
+            </div>
+
+        <!-- Scripts -->
+			<script src="/data/assets/js/jquery.min.js"></script>
+			<script src="/data/assets/js/jquery.scrollex.min.js"></script>
+			<script src="/data/assets/js/jquery.scrolly.min.js"></script>
+			<script src="/data/assets/js/browser.min.js"></script>
+			<script src="/data/assets/js/breakpoints.min.js"></script>
+			<script src="/data/assets/js/util.js"></script>
+            <script src="/data/assets/js/main.js"></script>
+            <script src="/data/index.js"></script>
+			<script src="/data/prism/prism.js"></script>
+            <script>setTimeout(() => {document.querySelector('body').style.display="block"}, 0)</script>
+
+    </body>
+</html>

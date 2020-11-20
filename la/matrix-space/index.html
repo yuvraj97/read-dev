@@ -1,0 +1,355 @@
+<!DOCTYPE HTML>
+<!--
+    "Thanks to HTML5 UP for this template".
+    Massively by HTML5 UP
+    html5up.net | @ajlkn
+    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+    <head>
+
+        <!--Prism-->
+        <link rel="stylesheet" href="/data/prism/prism.css">
+
+
+        <link id="quantml-theme" rel="stylesheet" href="" />
+        <link id="quantml-auth-style" rel="stylesheet" href="">
+        <script src="/data/initialize-css.js"></script>
+
+        <!--KATEX-->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+
+        <!-- The loading of KaTeX is deferred to speed up page rendering -->
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+
+        <!-- To automatically render math in text elements, include the auto-render extension: -->
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+        
+		<title>Matrix Space</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<noscript><link rel="stylesheet" href="/data/assets/css/noscript.css" /></noscript>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        
+        <link rel="icon" href="/data/icon.png" type="image/png" sizes="16x16">
+
+	</head>   
+    
+    <body style="display: none;">
+
+        <!-- Wrapper -->
+            <div id="wrapper">
+
+                <!-- Header -->
+                    <header id="header">
+                        <a target="_blank" href="https://quantml.org" class="logo image jump-big"><img src="/data/img/cover.png" alt="QuantML.org" /></a>
+                    </header>
+
+                <!-- Nav -->
+                    <nav id="nav">
+                        <ul class="links">
+                            <li class="cover"><a href="/la/"><img src="/data/img/linear-algebra-cover.png" alt="Linear Algebra"></a></li>
+                            <li><a href="/la/fundamental-subspaces/">&#x25C0;</a></li>
+                            <li class="active"><a href="/la/matrix-space/">Matrix Space</a></li>
+                            <li><a href="/la/matrix-space/dim/">DIMENSION AND BASIS</a></li>
+                            <li><a href="/la/matrix-space/ops/">OPERATION ON SUBSPACES</a></li>
+                            <li><a href="/la/matrix-space/ex/">EXAMPLES</a></li>
+                            <li><a href="/la/orthogonal-subspaces/">&#x25B6;</a></li>
+                        </ul>
+                        <ul class="icons">
+                            <li><a target="_blank" href="https://quantml.org/"><img src="/data/img/icon.png" alt="QuantML"></a></li>
+                            <li><a target="_blank" href="https://join.slack.com/t/quantml-org/shared_invite/zt-hcmbg7fr-jPbVAUT_tjGPaKWU50qMYQ"><img src="/data/img/slack.png" alt="Slack"></a></li>
+                            <li><a target="_blank" href="https://www.linkedin.com/in/yuvraj97/"><img src="/data/img/linkedin.png" alt="LinkedIn"></a></li>
+                            <li><a target="_blank" href="https://github.com/yuvraj97/"><img src="/data/img/github.png" alt="GitHub"></a></li>
+                            <li><a style="cursor: pointer;"><img id="change-theme" src="" alt="Change Theme"></a></li>
+                        </ul>
+                    </nav>
+                <!-- Main -->
+                    <div id="main">
+                        <section class="post">
+<div id="btn-container">
+    <button id="prev-btn" class="button" onclick="window.location.href = '/la/fundamental-subspaces/';">&#x25C0;&nbsp;&nbsp;4 fundamental subspaces</button>
+    <button id="next-btn" class="button"  style="float: right;" onclick="window.location.href = '/la/matrix-space/dim/';">DIMENSION AND BASIS&nbsp;&nbsp;&#x25B6;</button>
+</div><br>
+
+<p>
+<h1>Matrix Space</h1>
+<br>
+
+<h4 id="vector-interpretation">Vector Interpretation</h4>
+Our Interpretation of vectors is something like this,<br>
+<blockquote>
+Say we have a vector \(\vec{v}\in\mathbb{R}^3\)<!-- and say  \(\vec{v}=\begin{bmatrix} 1\\2\\3\\ \end{bmatrix}\).--><br>
+then each element of vector \(\vec{v}\) represent an <b>unique</b> axis (say \(x,y\) and \(z\)).<br>
+<i>these axis can be anything your salary, your SAT score, your running speed (anything which can be quantify in a number).</i><br>
+Assume a line passing thrown each element in that vector \(\vec{v}\).<br>
+\[\vec{v}=\begin{bmatrix} \color{red}{\bullet}\\ \color{blue}{\bullet}\\ \color{green}{\bullet}\\ \end{bmatrix}\].<br>
+interpret these (<span style="color:red">red \(\bullet\)</span>, <span >blue \(\bullet\)</span> 
+and <span style="color:green">green \(\bullet\)</span>) dots as real line \(\in\mathbb{R}^1\)
+</blockquote><br>
+<br>
+
+<h4 id="matrix-interpretation">Matrix Interpretation</h4>
+We can use our interpretation of <b>vectors</b> for <b>matrices</b>,<br>
+<blockquote>
+Say we have a \(m\times n\) matrix say \(A\in\mathbb{R}^{m\times n}\)<br>
+then each element of our matrix \(A\) represent an <b>unique</b> axis (say \(u,v,w,\cdots\)).<br>
+<i>These axis can be anything your salary, your SAT score, your average running speed, average temperature in past 20 days, (anything which can be quantify in a number).</i><br>
+Assume a line passing thrown each element in this matrix \(A\).<br>
+<div class="math-container">
+\[A=\begin{bmatrix}
+\color{red}{\bullet} & \color{brown}{\bullet} \\
+\color{green}{\bullet} & \color{blue}{\bullet} \\
+\end{bmatrix}
+\]
+</div>
+interpret these (<span style="color:red">red \(\bullet\)</span>, <span >blue \(\bullet\)</span> 
+, <span style="color:green">green \(\bullet\)</span> and <span style="color:brown">brown \(\bullet\)</span>) 
+dots as real line \(\in\mathbb{R}^1\)
+</blockquote><br>
+<br>
+<h4 id="matrix-as-vector">Vector interpretation of a Matrix</h4>
+We can interpret matrices as vectors.<br>
+<blockquote>
+Say we have a \(2\times 2\) matrix say \(A\in\mathbb{R}^{2\times 2}\)<br>
+<div class="math-container">
+\[A=\begin{bmatrix}
+\color{red}{\bullet} & \color{brown}{\bullet} \\
+\color{green}{\bullet} & \color{blue}{\bullet} \\
+\end{bmatrix}
+\]
+</div>
+We can interpret it as vector say \(\vec{v}\in\mathbb{R}^4\) as,<br>
+\[\vec{v}=\begin{bmatrix} \color{red}{\bullet}\\ \color{brown}{\bullet}\\ \color{green}{\bullet}\\ \color{blue}{\bullet}\\ \end{bmatrix}\].<br>
+</blockquote><br>
+So we can see that our <b>matrices are the vectors</b>.<br>
+<br>
+<h2 id="matrix-space">Matrix space</h2>
+Think of all \(3\times 3\) matrices, there are <b>not</b> any limitation to elements, they can be anything, there are \(\infty\) of them.<br>
+
+<blockquote>These \(3\times 3\) matrices can we written as vectors \(\vec{v}\in\mathbb{R}^9\)</blockquote>
+<br>
+<li>We can add those matrices, and if we add them we got another \(3\times 3\) matrix.</li> 
+<li>We can multiply matrices by a scaler, and if we multiply a scaler to a \(3\times 3\) matrix
+we get another \(3\times 3\) matrix.</li> 
+<li>We can take there linear combinations and the resultant matrix will still be a \(3\times 3\) matrix</li>
+<br>
+
+<blockquote>So the space of all \(3\times 3\) matrices is a <b>vector space</b></blockquote>
+<br>
+
+Let's denote this space of all \(3\times 3\) matrices as \(\mathcal{M}\).<br>
+Now let's see sub spaces of \(\mathcal{M}\).<br>
+<br>
+
+<h4 id="lower-triangular">Lower Triangular</h4>
+All \(3\times 3\) Lower Triangular matrices \(\subset\) All \(3\times 3\) matrices.<br>
+Is the <b>space</b> of all \(3\times 3\) Lower Triangular matrices is a <b>subspace</b> of all \(3\times 3\) matrices<b>?</b><br>
+<blockquote>
+    We know that All \(3\times 3\) Lower Triangular matrices \(\subset\) All \(3\times 3\) matrices, then,<br>
+    Space of all Lower Triangular matrices <b>is a</b> subspace of all \(3\times 3\) matrices if,<br>
+    <li>All Lower Triangular \(3\times 3\) matrices form a <b>vector space</b>?</li>
+</blockquote>
+<br>
+<b>Do all Lower Triangular \(3\times 3\) matrices form a vector space?.</b><br>
+
+<li>We can <b>add</b> two \(3\times 3\) Lower Triangular matrices, we got another \(3\times 3\) Lower Triangular matrix.</li> 
+
+<blockquote>
+<div class="math-container">
+\[
+\begin{bmatrix}
+\mathbb{R}   &           0            & 0 \\
+\mathbb{R}   & \mathbb{R} & 0 \\
+\mathbb{R} & \mathbb{R}  & \mathbb{R} \\
+\end{bmatrix}
++
+\begin{bmatrix}
+\mathbb{R}   &           0            & 0 \\
+\mathbb{R}   & \mathbb{R} & 0 \\
+\mathbb{R} & \mathbb{R}  & \mathbb{R} \\
+\end{bmatrix}
+=
+\begin{bmatrix}
+\mathbb{R}   &           0            & 0 \\
+\mathbb{R}   & \mathbb{R} & 0 \\
+\mathbb{R} & \mathbb{R}  & \mathbb{R} \\
+\end{bmatrix}
+\]
+</div>
+</blockquote>
+
+<li>We can <b>multiply</b> a \(3\times 3\) Lower Triangular matrices by <b>a scaler</b>,
+we get another \(3\times 3\) Lower Triangular matrix.</li> 
+
+<blockquote>
+<div class="math-container">
+\[ C\cdot
+\begin{bmatrix}
+\mathbb{R}   &           0            & 0 \\
+\mathbb{R}   & \mathbb{R} & 0 \\
+\mathbb{R} & \mathbb{R}  & \mathbb{R} \\
+\end{bmatrix}
+=
+\begin{bmatrix}
+\mathbb{R}   &           0            & 0 \\
+\mathbb{R}   & \mathbb{R} & 0 \\
+\mathbb{R} & \mathbb{R}  & \mathbb{R} \\
+\end{bmatrix}
+\]
+</div>
+</blockquote>
+
+<li>We can take there <b>linear combinations</b> and the resultant matrix will still be a \(3\times 3\) matrix</li><blockquote>
+<div class="math-container">
+\[\alpha\cdot
+\begin{bmatrix}
+\mathbb{R}   &           0            & 0 \\
+\mathbb{R}   & \mathbb{R} & 0 \\
+\mathbb{R} & \mathbb{R}  & \mathbb{R} \\
+\end{bmatrix}
++
+\beta\cdot
+\begin{bmatrix}
+\mathbb{R}   &           0            & 0 \\
+\mathbb{R}   & \mathbb{R} & 0 \\
+\mathbb{R} & \mathbb{R}  & \mathbb{R} \\
+\end{bmatrix}
+=
+\begin{bmatrix}
+\mathbb{R}   &           0            & 0 \\
+\mathbb{R}   & \mathbb{R} & 0 \\
+\mathbb{R} & \mathbb{R}  & \mathbb{R} \\
+\end{bmatrix}
+\]
+</div>
+</blockquote>
+
+So collectively we can say that all \(3\times 3\) Lower Triangular matrices forms a <b>vector space</b>.<br>
+So 
+<blockquote>
+The <b>space</b> all \(3\times 3\) Lower Triangular matrices is a <b>subspace</b> of all \(3\times 3\) matrices .<br>
+</blockquote>
+<br>
+<h4 id="symmetric-matrix">Symmetric Matrix</h4>
+All \(3\times 3\) Symmetric matrices \(\subset\) All \(3\times 3\) matrices.<br>
+Is the <b>space</b> of all \(3\times 3\) Symmetric matrices is a <b>subspace</b> of all \(3\times 3\) matrices<b>?</b><br>
+<blockquote>
+    We know that All \(3\times 3\) Symmetric matrices \(\subset\) All \(3\times 3\) matrices, then,<br>
+    Space of all Symmetric matrices <b>is a</b> subspace of all \(3\times 3\) matrices if,<br>
+    <li>All Symmetric \(3\times 3\) matrices form a <b>vector space</b>?</li>
+</blockquote>
+<br>
+<b>Do all Symmetric \(3\times 3\) matrices form a vector space?.</b><br>
+
+<li>We can <b>add</b> two \(3\times 3\) Symmetric matrices, we got another \(3\times 3\) Symmetric matrix.</li> 
+
+<blockquote>
+<div class="math-container">
+\[
+\begin{bmatrix}
+\color{}{\mathbb{R}}   & \color{red}{\mathbb{R}}  & \color{blue}{\mathbb{R}}  \\
+\color{red}{\mathbb{R}}   & \color{}{\mathbb{R}}  & \color{green}{\mathbb{R}}  \\
+\color{blue}{\mathbb{R}}   & \color{green}{\mathbb{R}}  & \color{}{\mathbb{R}}   \\
+\end{bmatrix}
++
+\begin{bmatrix}
+\color{}{\mathbb{R}}   & \color{brown}{\mathbb{R}}  & \color{magenta}{\mathbb{R}} \\
+\color{brown}{\mathbb{R}}   & \color{}{\mathbb{R}}  & \color{orange}{\mathbb{R}} \\
+\color{magenta}{\mathbb{R}}   & \color{orange}{\mathbb{R}}  & \color{}{\mathbb{R}}   \\
+\end{bmatrix}
+=
+\begin{bmatrix}
+\color{}{2\mathbb{R}}                       & \color{red}{\mathbb{R}}+\color{brown}{\mathbb{R}}  & \color{blue}{\mathbb{R}}+\color{magenta}{\mathbb{R}} \\
+\color{red}{\mathbb{R}}+\color{brown}{\mathbb{R}}   & \color{}{2\mathbb{R}}                      & \color{green}{\mathbb{R}}+\color{orange}{\mathbb{R}} \\
+\color{blue}{\mathbb{R}}+\color{magenta}{\mathbb{R}}   & \color{green}{\mathbb{R}}+\color{orange}{\mathbb{R}}  & \color{}{2\mathbb{R}} \\
+\end{bmatrix}
+\]
+</div>
+</blockquote>
+
+<li>We can <b>multiply</b> a \(3\times 3\) Symmetric matrices by <b>a scaler</b>,
+we get another \(3\times 3\) Symmetric matrix.</li> 
+
+<blockquote>
+<div class="math-container">
+\[ C\cdot
+\begin{bmatrix}
+\color{}{\mathbb{R}}   & \color{red}{\mathbb{R}}  & \color{blue}{\mathbb{R}}  \\
+\color{red}{\mathbb{R}}   & \color{}{\mathbb{R}}  & \color{green}{\mathbb{R}}  \\
+\color{blue}{\mathbb{R}}   & \color{green}{\mathbb{R}}  & \color{}{\mathbb{R}}   \\
+\end{bmatrix}
+=
+\begin{bmatrix}
+\color{}{C\cdot\mathbb{R}}   & \color{red}{C\cdot\mathbb{R}}  & \color{blue}{C\cdot\mathbb{R}}  \\
+\color{red}{C\cdot\mathbb{R}}   & \color{}{C\cdot\mathbb{R}}  & \color{green}{C\cdot\mathbb{R}}  \\
+\color{blue}{C\cdot\mathbb{R}}   & \color{green}{C\cdot\mathbb{R}}  & \color{}{C\cdot\mathbb{R}}   \\
+\end{bmatrix}
+\]
+</div>
+</blockquote>
+
+<li>We can take there <b>linear combinations</b> and the resultant matrix will still be a \(3\times 3\) matrix</li><blockquote>
+<div class="math-container">
+\[\alpha\cdot
+\begin{bmatrix}
+\color{}{\mathbb{R}}   & \color{red}{\mathbb{R}}  & \color{blue}{\mathbb{R}}  \\
+\color{red}{\mathbb{R}}   & \color{}{\mathbb{R}}  & \color{green}{\mathbb{R}}  \\
+\color{blue}{\mathbb{R}}   & \color{green}{\mathbb{R}}  & \color{}{\mathbb{R}}   \\
+\end{bmatrix}
++
+\beta\cdot
+\begin{bmatrix}
+\color{}{\mathbb{R}}   & \color{brown}{\mathbb{R}}  & \color{magenta}{\mathbb{R}} \\
+\color{brown}{\mathbb{R}}   & \color{}{\mathbb{R}}  & \color{orange}{\mathbb{R}} \\
+\color{magenta}{\mathbb{R}}   & \color{orange}{\mathbb{R}}  & \color{}{\mathbb{R}}   \\
+\end{bmatrix}
+=
+\begin{bmatrix}
+\color{}{\alpha\cdot\mathbb{R} + \beta\cdot\mathbb{R}}                       & \color{red}{\alpha\cdot\mathbb{R}}+\color{brown}{\beta\cdot\mathbb{R}}  & \color{blue}{\alpha\cdot\mathbb{R}}+\color{magenta}{\beta\cdot\mathbb{R}} \\
+\color{red}{\alpha\cdot\mathbb{R}}+\color{brown}{\beta\cdot\mathbb{R}}   & \color{}{\alpha\cdot\mathbb{R} + \beta\cdot\mathbb{R}}                      & \color{green}{\alpha\cdot\mathbb{R}}+\color{orange}{\beta\cdot\mathbb{R}} \\
+\color{blue}{\alpha\cdot\mathbb{R}}+\color{magenta}{\beta\cdot\mathbb{R}}   & \color{green}{\alpha\cdot\mathbb{R}}+\color{orange}{\beta\cdot\mathbb{R}}  & \color{}{\alpha\cdot\mathbb{R} + \beta\cdot\mathbb{R}} \\
+\end{bmatrix}
+\]
+</div>
+</blockquote>
+
+So collectively we can say that all \(3\times 3\) Symmetric matrices forms a <b>vector space</b>.<br>
+So 
+<blockquote>
+The <b>space</b> all \(3\times 3\) Symmetric matrices is a <b>subspace</b> of all \(3\times 3\) matrices .<br>
+</blockquote><br><blockquote>
+Similarly The <b>space</b> all \(3\times 3\) Diagonal matrices is a <b>subspace</b> of all \(3\times 3\) matrices .<br>
+</blockquote><br>
+<br>
+</p>
+
+<br>
+<div class="slack-discuss" onclick=" window.open('https://join.slack.com/t/quantml-org/shared_invite/zt-hcmbg7fr-jPbVAUT_tjGPaKWU50qMYQ','_blank')">
+						    Join our Slack <img src="/data/img/slack.png" alt="Slack"> discussion forum
+						</div>
+<br>
+
+<div id="btn-container">
+    <button id="prev-btn" class="button" onclick="window.location.href = '/la/fundamental-subspaces/';">&#x25C0;&nbsp;&nbsp;4 fundamental subspaces</button>
+    <button id="next-btn" class="button"  style="float: right;" onclick="window.location.href = '/la/matrix-space/dim/';">DIMENSION AND BASIS&nbsp;&nbsp;&#x25B6;</button>
+</div><br>
+                        </section>
+                    </div>
+            </div>
+
+        <!-- Scripts -->
+			<script src="/data/assets/js/jquery.min.js"></script>
+			<script src="/data/assets/js/jquery.scrollex.min.js"></script>
+			<script src="/data/assets/js/jquery.scrolly.min.js"></script>
+			<script src="/data/assets/js/browser.min.js"></script>
+			<script src="/data/assets/js/breakpoints.min.js"></script>
+			<script src="/data/assets/js/util.js"></script>
+            <script src="/data/assets/js/main.js"></script>
+            <script src="/data/index.js"></script>
+			<script src="/data/prism/prism.js"></script>
+            <script>setTimeout(() => {document.querySelector('body').style.display="block"}, 0)</script>
+
+    </body>
+</html>

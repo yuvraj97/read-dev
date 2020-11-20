@@ -1,0 +1,267 @@
+<!DOCTYPE HTML>
+<!--
+    "Thanks to HTML5 UP for this template".
+    Massively by HTML5 UP
+    html5up.net | @ajlkn
+    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+    <head>
+
+        <!--Prism-->
+        <link rel="stylesheet" href="/data/prism/prism.css">
+
+
+        <link id="quantml-theme" rel="stylesheet" href="" />
+        <link id="quantml-auth-style" rel="stylesheet" href="">
+        <script src="/data/initialize-css.js"></script>
+
+        <!--KATEX-->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+
+        <!-- The loading of KaTeX is deferred to speed up page rendering -->
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+
+        <!-- To automatically render math in text elements, include the auto-render extension: -->
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+        
+		<title>Matrix Space</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<noscript><link rel="stylesheet" href="/data/assets/css/noscript.css" /></noscript>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        
+        <link rel="icon" href="/data/icon.png" type="image/png" sizes="16x16">
+
+	</head>   
+    
+    <body style="display: none;">
+
+        <!-- Wrapper -->
+            <div id="wrapper">
+
+                <!-- Header -->
+                    <header id="header">
+                        <a target="_blank" href="https://quantml.org" class="logo image jump-big"><img src="/data/img/cover.png" alt="QuantML.org" /></a>
+                    </header>
+
+                <!-- Nav -->
+                    <nav id="nav">
+                        <ul class="links">
+                            <li class="cover"><a href="/la/"><img src="/data/img/linear-algebra-cover.png" alt="Linear Algebra"></a></li>
+                            <li><a href="/la/fundamental-subspaces/">&#x25C0;</a></li>
+                            <li><a href="/la/matrix-space/">Matrix Space</a></li>
+                            <li><a href="/la/matrix-space/dim/">DIMENSION AND BASIS</a></li>
+                            <li><a href="/la/matrix-space/ops/">OPERATION ON SUBSPACES</a></li>
+                            <li class="active"><a href="/la/matrix-space/ex/">EXAMPLES</a></li>
+                            <li><a href="/la/orthogonal-subspaces/">&#x25B6;</a></li>
+                        </ul>
+                        <ul class="icons">
+                            <li><a target="_blank" href="https://quantml.org/"><img src="/data/img/icon.png" alt="QuantML"></a></li>
+                            <li><a target="_blank" href="https://join.slack.com/t/quantml-org/shared_invite/zt-hcmbg7fr-jPbVAUT_tjGPaKWU50qMYQ"><img src="/data/img/slack.png" alt="Slack"></a></li>
+                            <li><a target="_blank" href="https://www.linkedin.com/in/yuvraj97/"><img src="/data/img/linkedin.png" alt="LinkedIn"></a></li>
+                            <li><a target="_blank" href="https://github.com/yuvraj97/"><img src="/data/img/github.png" alt="GitHub"></a></li>
+                            <li><a style="cursor: pointer;"><img id="change-theme" src="" alt="Change Theme"></a></li>
+                        </ul>
+                    </nav>
+                <!-- Main -->
+                    <div id="main">
+                        <section class="post">
+<div id="btn-container">
+    <button id="prev-btn" class="button" onclick="window.location.href = '/la/matrix-space/ops/';">&#x25C0;&nbsp;&nbsp;Operation on subspaces</button>
+    <button id="next-btn" class="button"  style="float: right;" onclick="window.location.href = '/la/orthogonal-subspaces/';">Orthogonal Subspaces&nbsp;&nbsp;&#x25B6;</button>
+</div><br>
+
+<p>
+<h2 id="examples">More Examples on Matrix Space</h2>
+<h4 id="ex1">Example 1</h4>
+Consider <b>all</b> \(m\times n\) matrices, here \(n\) and \(m\) are <b>constant</b> 
+(say \(m=5\) and \(n=17\)).<br>
+Let's denote space of <b>all</b> \(m\times n\) matrices by \(\mathcal{M}\).<br>
+Now consider a subset of <b>all</b> \(m\times n\) matrices,<br>
+<blockquote class="noborder">
+    Consider <b>all</b> \(m\times n\) matrices <b>with rank \(=1\)</b>.<br>
+    Let's denote space of <b>all</b> \(m\times n\) matrices <b>with rank \(=1\)</b> by \(\mathcal{Q}\).<br>
+</blockquote>
+<br>
+Is <b>space</b> of <b>all</b> \(m\times n\) matrices <b>with rank \(=1\)</b> \((\mathcal{Q})\) 
+is a <b>subspace</b> of space of <b>all</b> \(m\times n\) matrices \((\mathcal{M})?\)<br>
+Or say Is \((\mathcal{Q})\) a subspace of \((\mathcal{M})?\)<br>
+<blockquote>
+    For \((\mathcal{Q})\) to be a subspace, first it had to be a <b>vector space</b>.<br>
+</blockquote>
+<br>
+So Is \((\mathcal{Q})\) a <b>vector space?</b>
+<blockquote class="noborder">
+    <b>Space</b> of <b>all</b> \(m\times n\) matrices <b>with rank \(=1\)</b> \((\mathcal{Q})\)
+    <b>do not</b> form a <b>vector space</b> of all \(m\times n\) <b>matrices</b>.<br> 
+    <br>
+    <b>But Why?</b><br>
+    
+    Consider two <b>rank</b> \(1\) matrices \(A\in\mathcal{Q}\) and \(B\in\mathcal{Q}\).<br>
+
+    For \(\mathcal{Q}\) to be a <b>vector space</b>, <b>linear combination</b> of 
+    \(A\) and \(B\) must \(\in\mathcal{Q}\).<br>
+
+    Let's consider an example (say \(m=2, n=3\))<br>
+\(A=
+\begin{bmatrix}
+\color{red}{1} & 0 & 0 \\
+0 & 0 & 0 \\
+\end{bmatrix}
+\)
+and
+\(B=
+\begin{bmatrix}
+0 & 0 & 0 \\
+0 & \color{red}{1} & 0 \\
+\end{bmatrix}
+\)<br>
+<br>
+
+Here \(A\) and \(B\) both are rank \(1\) matrices so \(A\in\mathcal{Q}\) and \(B\in\mathcal{Q}\).<br>
+<br>
+
+\(A+B=
+\begin{bmatrix}
+\color{red}{1}  &       0        & 0 \\
+       0        & \color{red}{1} & 0 \\
+\end{bmatrix}
+\)<br>
+\(A\) and \(B\) are rank \(1\) matrices so they \(\in\mathcal{Q}\).<br>
+But \(A+B\) has rank = \(2\).<br>
+\(A+B\) is a linear combination of \(A\) and \(B\) but because  \(A+B\) has rank = \(2\Rightarrow\)
+ \(A+B\notin \mathcal{Q}\).<br>
+So \(\mathcal{Q}\) is not a <b>vector space</b>.
+</blockquote><br>
+<br>
+
+<h4 id="ex2">Example 2</h4>
+Consider <b>all</b> vectors in \(\mathbb{R}^4\)<br>
+Let's denote space of <b>all</b> vectors in \(\mathbb{R}^4\) by \(\mathcal{S}\).<br>
+Now consider a subset of <b>all</b> vectors in \(\mathbb{R}^4\)<br>
+<blockquote class="noborder">
+    Consider <b>all</b> vectors in \(\mathbb{R}^4\) where there elements sum up to \(0\).<br>
+    for example assume a vector \(\vec{v}\in\mathbb{R}^4\).<br>
+    
+    \(\vec{v}=\begin{bmatrix} \color{red}{v_1\in\mathbb{R}}\\ \color{blue}{v_2\in\mathbb{R}}\\ \color{green}{v_3\in\mathbb{R}}\\ \color{brown}{v_4\in\mathbb{R}}\\ \end{bmatrix}\)
+    
+    And we want \( \color{red}{v_1} + \color{blue}{v_2} + \color{green}{v_3} + \color{brown}{v_4} =0 \)<br>
+    
+    Let's denote space of <b>all</b> vectors in \(\mathbb{R}^4\) where there elements sum up to \(0\) by \(\mathcal{Q}\).<br>
+    (So \(\vec{v}\in\mathcal{Q}\))
+</blockquote>
+<br>
+Is <b>space</b> of <b>all</b> vectors in \(\mathbb{R}^4\) where there elements sum up to \(0\) \((\mathcal{Q})\) 
+is a <b>subspace</b> of space of <b>all</b> vectors in \(\mathbb{R}^4\) \((\mathcal{S})?\)<br>
+Or say Is \(\mathcal{Q}\) a subspace of \(\mathcal{S}?\)<br>
+<blockquote class="noborder">
+    <b>Yes</b>, \(\mathcal{Q}\) a subspace of \(\mathcal{S}\).<br>
+    <br>
+    
+    <b>But How?</b>
+    Consider vectors in \(\mathbb{R}^4\) where there elements sum up to \(0\), 
+    \(\vec{v}\in\mathcal{Q}\) and \(\vec{w}\in\mathcal{Q}\).<br>
+
+    For \(\mathcal{Q}\) to be a <b>subspace</b> of \(\mathcal{S}\) <b>linear combination</b> of 
+    \(\vec{v}\) and \(\vec{w}\) must \(\in\mathcal{Q}\).<br>
+
+    \(\vec{v} = \begin{bmatrix} 
+                    v_1\in\mathbb{R}\\ 
+                    v_2\in\mathbb{R}\\ 
+                    v_3\in\mathbb{R}\\ 
+                    v_4\in\mathbb{R}\\ 
+                \end{bmatrix}\),  
+    \(\vec{w} = \begin{bmatrix} 
+                    w_1\in\mathbb{R}\\ 
+                    w_2\in\mathbb{R}\\ 
+                    w_3\in\mathbb{R}\\ 
+                    w_4\in\mathbb{R}\\ 
+                \end{bmatrix}\)<br>
+    There is a constraint on \(\vec{v}\) and \(\vec{w}\), we want elements of \(\vec{v}\) and \(\vec{w}\) 
+    sums to \(0\),
+    \[\sum_{v_i\in\vec{v}}v_i=0 \\
+      \sum_{w_i\in\vec{w}}w_i=0 \\
+    \]
+    
+    Let's take linear combination of \(\vec{v}\) and \(\vec{w}\) and if every linear combination 
+    of \(\vec{v}\) and \(\vec{w}\)  \(\in\mathcal{Q}\) then it's a <b>subspace</b> of <b>all</b> vectors in \(\mathbb{R}^4\).<br>
+    
+    \(\alpha\cdot\vec{v} +\beta\cdot\vec{w} =
+                \alpha\cdot
+                \begin{bmatrix} 
+                    v_1\\ 
+                    v_2\\ 
+                    v_3\\ 
+                    v_4\\ 
+                \end{bmatrix}
+                +
+                \beta\cdot
+                \begin{bmatrix} 
+                    w_1\\ 
+                    w_2\\ 
+                    w_3\\ 
+                    w_4\\ 
+                \end{bmatrix}
+                ;\quad\)
+    \(\alpha\in\mathbb{R}, \beta\in\mathbb{R}\)<br>
+    
+    Say \( \alpha\cdot\vec{v} +\beta\cdot\vec{w} = \vec{r}\)<br>
+    
+    
+    \(\vec{r} =
+                \begin{bmatrix} 
+                    \alpha\cdot v_1 + \beta\cdot w_1 \\
+                    \alpha\cdot v_2 + \beta\cdot w_2 \\
+                    \alpha\cdot v_3 + \beta\cdot w_3 \\
+                    \alpha\cdot v_4 + \beta\cdot w_4 \\
+                \end{bmatrix}
+    \)<br>
+
+    For \(\mathcal{Q}\) to be a <b>subspace</b> of \(\mathcal{S}\),&nbsp; \(r\) must \(\in\mathcal{Q}\).<br>
+    
+    And if \(r\in\mathcal{Q}\) then \[\sum_{r_i\in\vec{r}}r_i=0\]
+    Proof:<br>
+    <div class="math-container">
+    \[\sum_{r_i\in\vec{r}}r_i   =   
+    \alpha\cdot (v_1 + v_2 + v_3 + v_4) + \beta\cdot (w_1 + w_2 + w_3 + w_4)
+    \]
+    </div>
+    \[\sum_{r_i\in\vec{r}}r_i   =   \alpha\cdot (0) + \beta\cdot (0)\]
+    \[\sum_{r_i\in\vec{r}}r_i   =   0\]
+
+    So <b>space</b> of <b>all</b> vectors in \(\mathbb{R}^4\) where there elements sum up to \(0\) \((\mathcal{Q})\) 
+is a <b>subspace</b> of space of <b>all</b> vectors in \(\mathbb{R}^4\) \((\mathcal{S})\)<br>
+</blockquote>
+
+</p>
+
+<br>
+<div class="slack-discuss" onclick=" window.open('https://join.slack.com/t/quantml-org/shared_invite/zt-hcmbg7fr-jPbVAUT_tjGPaKWU50qMYQ','_blank')">
+						    Join our Slack <img src="/data/img/slack.png" alt="Slack"> discussion forum
+						</div>
+<br>
+
+<div id="btn-container">
+    <button id="prev-btn" class="button" onclick="window.location.href = '/la/matrix-space/ops/';">&#x25C0;&nbsp;&nbsp;Operation on subspaces</button>
+    <button id="next-btn" class="button"  style="float: right;" onclick="window.location.href = '/la/orthogonal-subspaces/';">Orthogonal Subspaces&nbsp;&nbsp;&#x25B6;</button>
+</div><br>
+                        </section>
+                    </div>
+            </div>
+
+        <!-- Scripts -->
+			<script src="/data/assets/js/jquery.min.js"></script>
+			<script src="/data/assets/js/jquery.scrollex.min.js"></script>
+			<script src="/data/assets/js/jquery.scrolly.min.js"></script>
+			<script src="/data/assets/js/browser.min.js"></script>
+			<script src="/data/assets/js/breakpoints.min.js"></script>
+			<script src="/data/assets/js/util.js"></script>
+            <script src="/data/assets/js/main.js"></script>
+            <script src="/data/index.js"></script>
+			<script src="/data/prism/prism.js"></script>
+            <script>setTimeout(() => {document.querySelector('body').style.display="block"}, 0)</script>
+
+    </body>
+</html>

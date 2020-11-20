@@ -1,0 +1,361 @@
+<!DOCTYPE HTML>
+<!--
+    "Thanks to HTML5 UP for this template".
+    Massively by HTML5 UP
+    html5up.net | @ajlkn
+    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+
+        <!--Prism-->
+        <link rel="stylesheet" href="/data/prism/prism.css">
+
+        <link id="quantml-theme" rel="stylesheet" href="" />
+        <link id="quantml-auth-style" rel="stylesheet" href="">
+        <script src="/data/initialize-css.js"></script>
+
+        <!--KATEX-->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+
+        <!-- The loading of KaTeX is deferred to speed up page rendering -->
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+
+        <!-- To automatically render math in text elements, include the auto-render extension: -->
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+        
+		<title>Linear Algebra</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<noscript><link rel="stylesheet" href="/data/assets/css/noscript.css" /></noscript>
+
+	</head>	
+	<body style="display: none;">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a target="_blank" href="https://quantml.org" class="logo image jump-big"><img src="/data/img/cover.png" alt="QuantML.org" /></a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+                            <li class="cover active"><a href="/la/"><img src="/data/img/linear-algebra-cover.png" alt="Linear Algebra"></a></li>
+							<li><a href="/la/thanks/">Thanks</a></li>
+						</ul>
+						<ul class="icons">
+                            <li><a target="_blank" href="https://quantml.org/"><img src="/data/img/icon.png" alt="QuantML"></a></li>
+                            <li><a target="_blank" href="https://join.slack.com/t/quantml-org/shared_invite/zt-hcmbg7fr-jPbVAUT_tjGPaKWU50qMYQ"><img src="/data/img/slack.png" alt="Slack"></a></li>
+                            <li><a target="_blank" href="https://www.linkedin.com/in/yuvraj97/"><img src="/data/img/linkedin.png" alt="LinkedIn"></a></li>
+                            <li><a target="_blank" href="https://github.com/yuvraj97/"><img src="/data/img/github.png" alt="GitHub"></a></li>
+                            <li><a style="cursor: pointer;"><img id="change-theme" src="" alt="Change Theme"></a></li>
+
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+					<section class="post">
+						<div class="slack-discuss" onclick=" window.open('https://join.slack.com/t/quantml-org/shared_invite/zt-hcmbg7fr-jPbVAUT_tjGPaKWU50qMYQ','_blank')">
+						    Join our Slack <img src="/data/img/slack.png" alt="Slack"> discussion forum
+						</div>
+						<br>
+					
+                    <h2 style="text-align-last: center;">Table of Content</h2>
+                    
+                    <div id="toc_container">
+                        <ul>
+
+                            <li id="vector-space"><a class="toc-l1" href="/la/vector-space/">\(1)\) Vector Space </a>
+                                <a href="summary//la/vector-space/#popup" class="fa fa-info-circle"></a>
+                                <ul>
+                                    <li><a class="toc-l2" href="/la/vector-space/#main">\(1.0\) &nbsp;&nbsp;&nbsp;&nbsp; Introduction</a></li>
+                                    <li><a class="toc-l2" href="/la/vector-space/#properties">\(1.1\) Vector Space Properties</a></li>
+                                </ul>
+                            </li>
+
+                            <li id="column-space"><a class="toc-l1" href="/la/column-space/">\(2)\) Column Space </a>
+                                <a href="summary//la/column-space/#popup" class="fa fa-info-circle"></a>
+                                <ul>
+                                    <li><a class="toc-l2" href="/la/column-space/#main">\(2.0\) &nbsp;&nbsp;&nbsp;&nbsp; Introduction</a></li>
+                                    <li><a class="toc-l2" href="/la/column-space/#r3">\(2.1\) &nbsp;&nbsp;&nbsp;&nbsp; Example in \(\mathbb{R}^3\)</a></li>
+                                    <li><a class="toc-l2" href="/la/column-space/#r4">\(2.2\) &nbsp;&nbsp;&nbsp;&nbsp; Example in \(\mathbb{R}^4\)</a></li>
+                                    <li><a class="toc-l2" href="/la/column-space/#matrix-notation">\(2.3\) &nbsp;&nbsp;&nbsp;&nbsp; Matrix Notation</a></li>
+                                    <li><a class="toc-l2" href="/la/column-space/#dependency">\(2.4\) &nbsp;&nbsp;&nbsp;&nbsp; Dependency</a></li>
+                                </ul>
+                            </li>
+                            
+                            <li id="null-space"><a class="toc-l1" href="/la/null-space/">\(3)\) Null Space \((A\vec{x}=\vec{0})\)</a>
+                                <a href="summary//la/null-space/#popup" class="fa fa-info-circle"></a>
+                                <ul>
+                                    <li><a class="toc-l2" href="/la/null-space/#main">\(3.0\) &nbsp;&nbsp;&nbsp;&nbsp; Introduction</a></li>
+                                    <li><a class="toc-l2" href="/la/null-space/#r4">\(3.1\) &nbsp;&nbsp;&nbsp;&nbsp; Example in \(\mathbb{R}^4\)</a></li>
+                                    <li><a class="toc-l2" href="/la/null-space/#ax=0">\(3.2\) &nbsp;&nbsp;&nbsp;&nbsp; Is \(A\vec{x}=0\) a vector space?</a></li>
+                                    <li><a class="toc-l2" href="/la/null-space/#elimination">\(3.3\) &nbsp;  Elimination Technique</a></li>
+                                    <li><a class="toc-l2" href="/la/null-space/#pivot-free-columns">\(3.4\) &nbsp;  pivot column/free columns</a></li>
+                                    <li><a class="toc-l2" href="/la/null-space/#special-solution">\(3.5\) &nbsp;  Finding special solution</a></li>
+                                    <li><a class="toc-l2" href="/la/null-space/#num-of-special-sol">\(3.6\) &nbsp;  # special solutions</a></li>
+                                    <li><a class="toc-l2" href="/la/null-space/#rref">\(3.7\) &nbsp; Reduced Row Echelon Form</a></li>
+                                </ul>
+                            </li>
+
+                            <li id="complete-space"><a class="toc-l1" href="/la/complete-space/">\(4)\) Solving \(A\vec{x}=\vec{b}\) </a>
+                                <a href="summary//la/complete-space/#popup" class="fa fa-info-circle"></a>
+                                <ul>
+									<li><a class="toc-l2" href="/la/complete-space/#main">\(4.0\) &nbsp;&nbsp;&nbsp;&nbsp; Introduction</a></li>
+									<li><a class="toc-l2" href="/la/complete-space/#ax=b">\(4.1\) &nbsp;&nbsp;&nbsp;&nbsp; Find \(\vec{x}\) that solves \(A\vec{x}=\vec{b}\)?</a></li>
+									<div style="margin-left: 30px;">
+										<li><a class="toc-l2" href="/la/complete-space/#main">\(4.1.1\) &nbsp; Elimination Technique</a></li>
+									</div>
+                                </ul>
+                            </li>
+							
+                            <li id="rank"><a class="toc-l1" href="/la/rank/">\(5)\) Rank Of a Matrix  </a>
+                                <a href="summary//la/rank/#popup" class="fa fa-info-circle"></a>
+                                <ul>
+									<li><a class="toc-l2" href="/la/rank/#main">\(5.0\) &nbsp;&nbsp;&nbsp;&nbsp; Introduction</a></li>
+									<li><a class="toc-l2" href="/la/rank/#col">\(5.1\) &nbsp;&nbsp;&nbsp;&nbsp; Full column rank matrix</a></li>
+									<li><a class="toc-l2" href="/la/rank/#row">\(5.2\) &nbsp;&nbsp;&nbsp;&nbsp; Full row rank matrix</a></li>
+									<li><a class="toc-l2" href="/la/rank/#full">\(5.3\) &nbsp;&nbsp;&nbsp;&nbsp; Full rank matrix</a></li>
+									<li><a class="toc-l2" href="/la/rank/#dim-basis">\(5.4\) &nbsp;&nbsp;&nbsp;&nbsp; Dimensions and Basis</a></li>
+									<div style="margin-left: 30px;">
+										<li><a class="toc-l3" href="/la/rank/#cs">\(5.4.1\) &nbsp; Column Space</a></li>
+										<li><a class="toc-l3" href="/la/rank/#ns">\(5.4.2\) &nbsp; Null Space</a></li>
+									</div>
+                                </ul>
+                            </li>
+							
+                            <li id="fundamental-subspaces"><a class="toc-l1" href="/la/fundamental-subspaces/">\(6)\) \(\mathbf{4}\) fundamental subspaces </a>
+                                <a href="summary//la/fundamental-subspaces/#popup" class="fa fa-info-circle"></a>
+                                <ul>
+									<li><a class="toc-l2" href="/la/fundamental-subspaces/#main">\(6.0\) &nbsp;&nbsp;&nbsp;&nbsp; Introduction</a></li>
+									<li><a class="toc-l2" href="/la/fundamental-subspaces/#row-space">\(6.1\) &nbsp;&nbsp;&nbsp;&nbsp; Row Space</a></li>
+									<li><a class="toc-l2" href="/la/fundamental-subspaces/#left-null-space">\(6.2\) &nbsp;&nbsp;&nbsp;&nbsp; Left Null Space</a></li>
+									<ul style="margin-top: 10px;">
+										<li id="fundamental-subspaces-dim"><a class="toc-l1" href="/la/fundamental-subspaces/#dim">\(6A)\) &nbsp;&nbsp;&nbsp;&nbsp; Dimensions of fundamental spaces</a> 
+											<a href="summary/fundamental-subspaces-dim.html#popup" class="fa fa-info-circle"></a></li>
+										<ul>
+											<li><a class="toc-l2" href="/la/fundamental-subspaces/#dim-column-space">\(6A.1\) &nbsp;&nbsp;&nbsp;&nbsp;  Dimensions of Column space</a></li>
+											<li><a class="toc-l2" href="/la/fundamental-subspaces/#dim-null-space">\(6A.2\) &nbsp;&nbsp;&nbsp;&nbsp;  Dimensions of Null space</a></li>
+											<li><a class="toc-l2" href="/la/fundamental-subspaces/#dim-row-space">\(6A.3\) &nbsp;&nbsp;&nbsp;&nbsp;  Dimensions of Row space</a></li>
+											<li><a class="toc-l2" href="/la/fundamental-subspaces/#dim-left-null-space">\(6A.4\) &nbsp;&nbsp;&nbsp;&nbsp;  Dimensions of Left Null space</a></li>
+										</ul>											
+									</ul>
+									
+									<ul>
+										<li  id="fundamental-subspaces-basis"><a class="toc-l1" href="/la/fundamental-subspaces/#basis">\(6B)\) &nbsp;&nbsp;&nbsp;&nbsp; Basis of fundamental spaces</a> 
+											<a href="summary/fundamental-subspaces-basis.html#popup" class="fa fa-info-circle"></a></li>
+										<ul>
+											<li><a class="toc-l2" href="/la/fundamental-subspaces/#basis-column">\(6B.1\) &nbsp;&nbsp;&nbsp;&nbsp;  Basis of Column space</a></li>
+											<li><a class="toc-l2" href="/la/fundamental-subspaces/#basis-null">\(6B.2\) &nbsp;&nbsp;&nbsp;&nbsp;  Basis of Null space</a></li>
+											<li><a class="toc-l2" href="/la/fundamental-subspaces/#basis-row">\(6B.3\) &nbsp;&nbsp;&nbsp;&nbsp;  Basis of Row space</a></li>
+											<li><a class="toc-l2" href="/la/fundamental-subspaces/#Basis">\(6B.4\) &nbsp;&nbsp;&nbsp;&nbsp;  Basis of Left Null space</a></li>
+										</ul>											
+									</ul>
+                                </ul>
+                            </li>
+							
+                            <li><a class="toc-l1" href="/la/matrix-space/">\(7)\) Matrix Space  </a>
+                                <a href="summary/matrix.html#popup" class="fa fa-info-circle"></a>
+                                <ul>
+									<li><a class="toc-l2" href="/la/matrix-space/#main">\(7.1\) &nbsp;&nbsp;&nbsp;&nbsp; Matrix</a></li>
+									<li><a class="toc-l2" href="/la/matrix-space/#vector-interpretation">\(7.2\) &nbsp;&nbsp;&nbsp;&nbsp; Vector Interpretation</a></li>
+									<li><a class="toc-l2" href="/la/matrix-space/#matrix-interpretation">\(7.3\) &nbsp;&nbsp;&nbsp;&nbsp; Matrix Interpretation</a></li>
+									<li><a class="toc-l2" href="/la/matrix-space/#matrix-as-vector">\(7.4\) &nbsp;&nbsp;&nbsp;&nbsp; Vector interpretation of a Matrix</a></li>
+									<li><a class="toc-l2" href="/la/matrix-space/#matrix-space">\(7.5\) &nbsp;&nbsp;&nbsp;&nbsp; Matrix space</a></li>
+									<div style="margin-left: 30px;">
+										<li><a class="toc-l3" href="/la/matrix-space/#lower-triangular">\(7.5.1\) &nbsp; Lower Triangular</a></li>
+										<li><a class="toc-l3" href="/la/matrix-space/#symmetric-matrix">\(7.5.2\) &nbsp; Symmetric Matrix</a></li>
+									</div>
+									<ul style="margin-top: 20px;">
+										<li><a class="toc-l1" href="/la/matrix-space/dim/">\(7A)\) Dimensions and Basis</a>
+											<a href="summary/matrix-dim.html#popup" class="fa fa-info-circle"></a>
+											<ul>
+												<li><a class="toc-l2" href="/la/matrix-space/dim/#basis-3x3">\(7A.1\) &nbsp;&nbsp;&nbsp;&nbsp; Basis of all \(3\times 3\) matrices</a></li>
+												<div style="margin-left: 30px;">
+													<li><a class="toc-l3" href="/la/matrix-space/dim/#basis-3x3-up">\(7A.1.1\) &nbsp;&nbsp;&nbsp;&nbsp;  Lower Triangular</a></li>
+													<li><a class="toc-l3" href="/la/matrix-space/dim/#basis-3x3-sym">\(7A.1.1\) &nbsp;&nbsp;&nbsp;&nbsp;  Symmetric Matrix</a></li>
+												</div>
+											</ul>
+										</li>									
+									</ul>
+
+									<ul>
+										<li><a class="toc-l1" href="/la/matrix-space/ops/">\(7B)\) Operations on Subspaces</a>
+											<a href="summary/matrix-ops.html#popup" class="fa fa-info-circle"></a>
+											<ul>
+												<li><a class="toc-l2" href="/la/matrix-space/ops/#intersaction">\(7B.1\) &nbsp;&nbsp;&nbsp;&nbsp; \(\mathcal{S} \cap \mathcal{U}\)</a></li>
+												<li><a class="toc-l2" href="/la/matrix-space/ops/#union">\(7B.2\) &nbsp;&nbsp;&nbsp;&nbsp; \(\mathcal{S} \cup \mathcal{U}\)</a></li>
+												<li><a class="toc-l2" href="/la/matrix-space/ops/#addition">\(7B.3\) &nbsp;&nbsp;&nbsp;&nbsp; \(\mathcal{S} + \mathcal{U}\)</a></li>
+											</ul>
+										</li>									
+									</ul>
+
+									<ul>
+										<li><a class="toc-l1" href="/la/matrix-space/ex/">\(7C)\) More Examples</a>
+											<ul>
+												<li><a class="toc-l2" href="/la/matrix-space/ex/#examples">\(7C.1\) &nbsp;&nbsp;&nbsp;&nbsp; More Examples on Matrix Space</a></li>
+											</ul>
+										</li>									
+									</ul>
+
+									
+                                </ul>
+                            </li>
+
+                            <li id="orthogonal-subspaces"><a class="toc-l1" href="/la/orthogonal-subspaces/">\(8)\) Orthogonal Subspaces </a>
+                                <a href="summary//la/orthogonal-subspaces/#popup" class="fa fa-info-circle"></a>
+                                <ul>
+									<li><a class="toc-l2" href="/la/orthogonal-subspaces/#main">\(8.0\) &nbsp;&nbsp;&nbsp;&nbsp; Introduction</a></li>
+									<li><a class="toc-l2" href="/la/orthogonal-subspaces/#orthogonal-vector">\(8.1\) &nbsp;&nbsp;&nbsp;&nbsp; Orthogonal Vector</a></li>
+									<li><a class="toc-l2" href="/la/orthogonal-subspaces/#orthogonal-subspaces">\(8.2\) &nbsp;&nbsp;&nbsp;&nbsp; Orthogonal Subspaces</a></li>
+									<li><a class="toc-l2" href="/la/orthogonal-subspaces/#row-null">\(8.3\) &nbsp;&nbsp;&nbsp;&nbsp; Row space is orthogonal to null space</a></li>
+									<li><a class="toc-l2" href="/la/orthogonal-subspaces/#column-leftnull">\(8.4\) &nbsp;&nbsp;&nbsp;&nbsp; Column space is orthogonal to left null space</a></li>
+                                </ul>
+                            </li>
+
+                            <li id="projection"><a class="toc-l1" href="/la/projection/">\(9)\) Projection </a>
+                                <a href="summary//la/projection/#popup" class="fa fa-info-circle"></a>
+                                <ul>
+									<li><a class="toc-l2" href="/la/projection/#main">\(9.0\) &nbsp;&nbsp;&nbsp;&nbsp; Introduction</a></li>
+									<li><a class="toc-l2" href="/la/projection/#vec-proj">\(9.1\) &nbsp;&nbsp;&nbsp;&nbsp; Vector Projection</a></li>
+									<div style="margin-left: 30px;">
+										<li><a class="toc-l3" href="/la/projection/#vector-projection-matrix">\(9.1.1\) &nbsp;  Projection Matrix of a vector</a></li>
+									</div>
+									<li><a class="toc-l2" href="/la/projection/#why-project">\(9.2\) &nbsp;&nbsp;&nbsp;&nbsp; Why are we doing projection?</a></li>
+									<li><a class="toc-l2" href="/la/projection/#matrix-projection">\(9.3\) &nbsp;&nbsp;&nbsp;&nbsp; Matrix Projection</a></li>
+									<div style="margin-left: 30px;">
+										<li><a class="toc-l3" href="/la/projection/#matrix-projection-column">\(9.3.1\) &nbsp;  Projection onto the column space of a matrix</a></li>
+									</div>
+									<li><a class="toc-l2" href="/la/least-squares/#main">\(9.4\) &nbsp;&nbsp;&nbsp;&nbsp; Least Squares(Application of projection)</a></li>
+                                </ul>
+                            </li>
+
+                            <li><a class="toc-l1" href="/la/orthonormal-vectors/">\(10)\) Orthonormal column Vectors </a>
+                                <a href="summary//la/orthonormal-vectors/#popup" class="fa fa-info-circle"></a>
+                                <ul>
+									<li><a class="toc-l2" href="/la/orthonormal-vectors/#main">\(10.0\) &nbsp;&nbsp;&nbsp;&nbsp; Introduction</a></li>
+									<li><a class="toc-l2" href="/la/orthonormal-vectors/#why-orthogonal">\(10.1\) &nbsp;&nbsp;&nbsp;&nbsp; What is the benefit of orthonormal column vector</a></li>
+									<li><a class="toc-l2" href="/la/orthonormal-vectors/#gram-schmidt">\(10.2\) &nbsp;&nbsp;&nbsp;&nbsp; Gram Schmidt</a></li>
+                                </ul>
+                            </li>
+
+                            <li id="eigenvalues-eigenvectors"><a class="toc-l1" href="/la/eigenvalues-eigenvectors/">\(11)\) Eigenvalues and Eigenvectors </a>
+                                <a href="summary//la/eigenvalues-eigenvectors/#popup" class="fa fa-info-circle"></a>
+                                <ul>
+									<li><a class="toc-l2" href="/la/eigenvalues-eigenvectors/#main">\(11.0\) &nbsp;&nbsp;&nbsp;&nbsp; Introduction</a></li>
+									<li><a class="toc-l2" href="/la/eigenvalues-eigenvectors/#solving">\(11.1\) &nbsp;&nbsp;&nbsp;&nbsp; Solving \(A\vec{x}=\lambda\vec{x}\)</a></li>
+                                </ul>
+                            </li>
+
+                            <li id="diagonalization"><a class="toc-l1" href="/la/diagonalization/">\(12)\) Diagonalization and Power of a Matrix </a>
+                                <a href="summary//la/diagonalization/#popup" class="fa fa-info-circle"></a>
+                                <ul>
+									<li><a class="toc-l2" href="/la/diagonalization/#main">\(12.1\) &nbsp;&nbsp;&nbsp;&nbsp; Diagonalization of a Matrix</a></li>
+									<li><a class="toc-l2" href="/la/diagonalization/#power">\(12.2\) &nbsp;&nbsp;&nbsp;&nbsp; Power of a matrix</a></li>
+									<li><a class="toc-l2" href="/la/diagonalization/#fibonacci">\(12.3\) &nbsp;&nbsp;&nbsp;&nbsp; Fibonacci example</a></li>
+                                </ul>
+                            </li>
+
+                            <li id="differential-equation"><a class="toc-l1" href="/la/differential-equation/">\(13)\) Differential Equation </a>
+                                <a href="summary//la/differential-equation/#popup" class="fa fa-info-circle"></a>
+                                <ul>
+									<li><a class="toc-l2" href="/la/differential-equation/#main">\(13.1\) &nbsp;&nbsp;&nbsp;&nbsp; Matrix Exponential</a></li>
+									<li><a class="toc-l2" href="/la/differential-equation/#diff">\(13.2\) &nbsp;&nbsp;&nbsp;&nbsp; Differential Equation</a></li>
+									<li><a class="toc-l2" href="/la/differential-equation/#states">\(13.3\) &nbsp;&nbsp;&nbsp;&nbsp; States</a></li>
+                                </ul>
+                            </li>
+
+                            <li id="markov-matrix"><a class="toc-l1" href="/la/markov-matrix/">\(14)\) Markov Matrix & Fourier Series </a>
+                                <a href="summary//la/markov-matrix/#popup" class="fa fa-info-circle"></a>
+                                <ul>
+									<li><a class="toc-l2" href="/la/markov-matrix/#main">\(14.0\) &nbsp;&nbsp;&nbsp;&nbsp; Introduction</a></li>
+									<li><a class="toc-l2" href="/la/markov-matrix/#example">\(14.1\) &nbsp;&nbsp;&nbsp;&nbsp; Example of Markov Matrices</a></li>
+									<li><a class="toc-l2" href="/la/markov-matrix/#expansion">\(14.2\) &nbsp;&nbsp;&nbsp;&nbsp; Expansion with Orthogonal basis</a></li>
+									<li><a class="toc-l2" href="/la/markov-matrix/#fourier">\(14.3\) &nbsp;&nbsp;&nbsp;&nbsp; Fourier Series</a></li>
+                                </ul>
+                            </li>
+
+                            <li id="symmetric-matrices"><a class="toc-l1" href="/la/symmetric-matrices/">\(15)\) Symmetric Matrices Properties </a>
+                                <a href="summary//la/symmetric-matrices/#popup" class="fa fa-info-circle"></a>
+                                <ul>
+									<li><a class="toc-l2" href="/la/symmetric-matrices/#main">\(15.0\) &nbsp;&nbsp;&nbsp;&nbsp; Introduction</a></li>
+									<li><a class="toc-l2" href="/la/symmetric-matrices/#properties">\(15.1\) &nbsp;&nbsp;&nbsp;&nbsp; Properties</a></li>
+                                </ul>
+                            </li>
+
+                            <li id="cmfft"><a class="toc-l1" href="/la/cmfft/">\(16)\) Complex Matrix & Fast Fourier Transform </a>
+                                <a href="summary//la/cmfft/#popup" class="fa fa-info-circle"></a>
+                                <ul>
+									<li><a class="toc-l2" href="/la/cmfft/#main">\(16.1\) &nbsp;&nbsp;&nbsp;&nbsp; Complex Matrices</a></li>
+									<div style="margin-left: 30px;">
+										<li><a class="toc-l3" href="/la/cmfft/#complex-symmetric-matrices">\(16.1.1\) &nbsp;  Complex symmetric matrices</a></li>
+										<li><a class="toc-l3" href="/la/cmfft/#complex-orthogonal-matrices">\(16.1.2\) &nbsp;  Complex Orthogonal Matrices</a></li>
+									</div>
+									<li><a class="toc-l2" href="/la/cmfft/#fft">\(16.2\) &nbsp;&nbsp;&nbsp;&nbsp; Fast Fourier Transform</a></li>
+                                </ul>
+                            </li>
+
+                            <li id="positive-definite-matrices"><a class="toc-l1" href="/la/positive-definite-matrices/">\(17)\) Positive Definite Matrices </a>
+                                <a href="summary//la/positive-definite-matrices/#popup" class="fa fa-info-circle"></a>
+                                <ul>
+									<li><a class="toc-l2" href="/la/positive-definite-matrices/#main">\(17.1\) &nbsp;&nbsp;&nbsp;&nbsp; Properties</a></li>
+									<li><a class="toc-l2" href="/la/positive-definite-matrices/#examples">\(17.2\) &nbsp;&nbsp;&nbsp;&nbsp;  Examples</a></li>
+                                </ul>
+                            </li>
+
+                            <li id="similar-matrices"><a class="toc-l1" href="/la/similar-matrices/">\(18)\) Similar Matrices </a>
+                                <a href="summary//la/similar-matrices/#popup" class="fa fa-info-circle"></a>
+                                <ul>
+									<li><a class="toc-l2" href="/la/similar-matrices/#main">\(18.1\) &nbsp;&nbsp;&nbsp;&nbsp; Properties/Examples </a></li>
+                                </ul>
+                            </li>
+
+                            <li id="svd"><a class="toc-l1" href="/la/svd/">\(19)\) Singular Value Decomposition </a>
+                                <a href="summary//la/svd/#popup" class="fa fa-info-circle"></a>
+                                <ul>
+									<li><a class="toc-l2" href="/la/svd/#main">\(19.0\) &nbsp;&nbsp;&nbsp;&nbsp; Introduction</a></li>
+									<div style="margin-left: 30px;">
+										<li><a class="toc-l3" href="/la/svd/#row-space">\(19.0.1\) &nbsp; Row Space </a></li>
+										<li><a class="toc-l3" href="/la/svd/#null-space">\(19.0.2\) &nbsp; Null Space </a></li>
+										<li><a class="toc-l3" href="/la/svd/#column-space">\(19.0.3\) &nbsp; Column Space </a></li>
+										<li><a class="toc-l3" href="/la/svd/#left-null-space">\(19.0.4\) &nbsp; Left Null Space </a></li>
+										<li><a class="toc-l3" href="/la/svd/#terminologies">\(19.0.5\) &nbsp; Terminologies </a></li>
+									</div>
+									<li><a class="toc-l2" href="/la/svd/#full-svd">\(19.1\) &nbsp;&nbsp;&nbsp;&nbsp; Full SVD </a></li>
+									<li><a class="toc-l2" href="/la/svd/#reduced-svd">\(19.2\) &nbsp;&nbsp;&nbsp;&nbsp; Reduced SVD </a></li>
+									<li><a class="toc-l2" href="/la/svd/#find-U-and-V">\(19.3\) &nbsp;&nbsp;&nbsp;&nbsp; Finding \(V\) and \(U\) Orthonormal matrix </a></li>
+									<div style="margin-left: 30px;">
+										<li><a class="toc-l3" href="/la/svd/#prop-ATA">\(19.3.1\) &nbsp; Row space of \(A\) is same as Row space of \(A^TA\) </a></li>
+										<li><a class="toc-l3" href="/la/svd/#prop-AAT">\(19.3.2\) &nbsp; Column Space of \(A\) is same as Column Space of \(AA^T\) </a></li>
+									</div>
+									<li><a class="toc-l2" href="/la/svd/#V">\(19.4\) &nbsp;&nbsp;&nbsp;&nbsp; Finding orthonormal Row vectors\((V)\) for matrix \(A\) </a></li>
+									<li><a class="toc-l2" href="/la/svd/#U">\(19.5\) &nbsp;&nbsp;&nbsp;&nbsp; Finding orthonormal Column Vectors\((U)\) for matrix \(A\) </a></li>
+									<!--<li><a class="toc-l2" href="/la/svd/#">\(19.1\) &nbsp; Introduction </a></li>-->
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+<!-- QQQ--------------------------------------------------------------------------------------------- -->                        <br><br><br><br><br><br><br><br><br>
+                    </section>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="/data/assets/js/jquery.min.js"></script>
+			<script src="/data/assets/js/jquery.scrollex.min.js"></script>
+			<script src="/data/assets/js/jquery.scrolly.min.js"></script>
+			<script src="/data/assets/js/browser.min.js"></script>
+			<script src="/data/assets/js/breakpoints.min.js"></script>
+			<script src="/data/assets/js/util.js"></script>
+            <script src="/data/assets/js/main.js"></script>
+			<script src="/data/index.js"></script>
+			<script src="/data/prism/prism.js"></script>
+            <script>setTimeout(() => {document.querySelector('body').style.display="block"}, 0)</script>
+
+	</body>
+</html>

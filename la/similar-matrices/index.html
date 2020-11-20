@@ -1,0 +1,211 @@
+<!DOCTYPE HTML>
+<!--
+    "Thanks to HTML5 UP for this template".
+    Massively by HTML5 UP
+    html5up.net | @ajlkn
+    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+    <head>
+
+        <!--Prism-->
+        <link rel="stylesheet" href="/data/prism/prism.css">
+
+
+        <link id="quantml-theme" rel="stylesheet" href="" />
+        <link id="quantml-auth-style" rel="stylesheet" href="">
+        <script src="/data/initialize-css.js"></script>
+
+        <!--KATEX-->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+
+        <!-- The loading of KaTeX is deferred to speed up page rendering -->
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+
+        <!-- To automatically render math in text elements, include the auto-render extension: -->
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+        
+		<title>Similar Matrices</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<noscript><link rel="stylesheet" href="/data/assets/css/noscript.css" /></noscript>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        
+        <link rel="icon" href="/data/icon.png" type="image/png" sizes="16x16">
+
+	</head>   
+    
+    <body style="display: none;">
+
+        <!-- Wrapper -->
+            <div id="wrapper">
+
+                <!-- Header -->
+                    <header id="header">
+                        <a target="_blank" href="https://quantml.org" class="logo image jump-big"><img src="/data/img/cover.png" alt="QuantML.org" /></a>
+                    </header>
+
+                <!-- Nav -->
+                    <nav id="nav">
+                        <ul class="links">
+                            <li class="cover"><a href="/la/"><img src="/data/img/linear-algebra-cover.png" alt="Linear Algebra"></a></li>
+                            <li class="active"><a href="/la/similar-matrices/">Similar Matrices</a></li>
+                        </ul>
+                        <ul class="icons">
+                            <li><a target="_blank" href="https://quantml.org/"><img src="/data/img/icon.png" alt="QuantML"></a></li>
+                            <li><a target="_blank" href="https://join.slack.com/t/quantml-org/shared_invite/zt-hcmbg7fr-jPbVAUT_tjGPaKWU50qMYQ"><img src="/data/img/slack.png" alt="Slack"></a></li>
+                            <li><a target="_blank" href="https://www.linkedin.com/in/yuvraj97/"><img src="/data/img/linkedin.png" alt="LinkedIn"></a></li>
+                            <li><a target="_blank" href="https://github.com/yuvraj97/"><img src="/data/img/github.png" alt="GitHub"></a></li>
+                            <li><a style="cursor: pointer;"><img id="change-theme" src="" alt="Change Theme"></a></li>
+                        </ul>
+                    </nav>
+                <!-- Main -->
+                    <div id="main">
+                        <section class="post">
+<div id="btn-container">
+    <button id="prev-btn" class="button" onclick="window.location.href = '/la/positive-definite-matrices/';">&#x25C0;&nbsp;&nbsp;Positive Definite Matrices</button>
+    <button id="next-btn" class="button"  style="float: right;" onclick="window.location.href = '/la/svd/';">Singular Value Decomposition&nbsp;&nbsp;&#x25B6;</button>
+</div><br>
+
+<p>
+<h2>Similar Matrices</h2>
+Say we have two \(n\times n\) <b>square</b> matrices \(A\) and \(B\).<br>
+\(A\) and \(B\) are <b>similar matrices</b> if there exists some \(M\) such that,<br>
+<div class="math-border">
+\[  \begin{matrix}
+        \\    %blank line
+    \quad 
+    
+    % equation
+    B=M^{-1}AM
+    %equation
+    
+    \quad\\
+        \\    %blank line
+    \end{matrix}
+\]
+</div>
+<blockquote>
+    \(\Lambda\) and \(A\) are similar matrices.
+</blockquote>
+<b>Explanation:</b><br>
+<blockquote class="noborder">
+    Say we have a \(n\times n\) matrix \(A\), \(\vec{x}_1,\vec{x}_2,\cdots,\vec{x}_n\) are eigenvectors of \(A\), and \(\lambda_1, \lambda_2, \cdots, \lambda_n\) are the eigenvalues of \(A\).<br>
+    \(S=\begin{bmatrix}
+    \vdots & \vdots & \cdots & \vdots \\  
+    \vec{x}_{1} & \vec{x}_{2} & \cdots &  \vec{x}_{n}   \\
+    \vdots & \vdots & \cdots & \vdots \\
+    \end{bmatrix},\) 
+    \(\Lambda=\begin{bmatrix}
+    \lambda_1 &     0     & \cdots  &    0    \\  
+    0         & \lambda_2 & \cdots  &    0    \\  
+    \vdots    & \vdots    & \ddots  & \vdots    \\  
+    0         &    0      & \cdots  &    \lambda_n    \\  
+   \end{bmatrix}\)<br>
+   We have seen <a  href="/la/diagonalization/">HERE</a> that,
+   \[ \Lambda =S^{-1}AS\]
+   So, <b>\(\Lambda\) and \(A\) are similar matrices.</b><br>
+   \(A\) has a <b>family</b> of similar matrices and \(\Lambda\) is the best(simplest) similar matrix among them.<br>
+   
+</blockquote><br>
+
+Let's take an example,<br>
+Say \(A= \begin{bmatrix} 2&1\\ 1&2 \end{bmatrix}\)<br>
+Eigenvalues of \(A\) are \(3,1\) so \(\Lambda= \begin{bmatrix} 3&0\\ 0&1 \end{bmatrix}\)<br>
+So \(\begin{bmatrix} 2&1\\ 1&2 \end{bmatrix}\) and \(\begin{bmatrix} 3&0\\ 0&1 \end{bmatrix}\) 
+are similar matrices.<br>
+Let's get another similar matrix using \(B=M^{-1}AM\).<br>
+Let's choose a random full rank(invertible) matrix \(M\) Say \(M= \begin{bmatrix} 1&4\\ 0&1 \end{bmatrix}\)<br>
+So 
+\(\underbrace{\begin{bmatrix} 1&-4\\ 0&1 \end{bmatrix}}_{M^{-1}}
+\underbrace{\begin{bmatrix} 2&1\\ 1&2 \end{bmatrix}}_{A}
+\underbrace{\begin{bmatrix} 1&4\\ 0&1 \end{bmatrix}}_{M}
+=
+\underbrace{\begin{bmatrix} -2&-15\\ 1&6 \end{bmatrix}}_{B}\)<br>
+So \(\begin{bmatrix} 2&1\\ 1&2 \end{bmatrix}\) and \(\begin{bmatrix} -2&-15\\ 1&6 \end{bmatrix}\) are similar matrices.<br>
+<b>Notice</b> that here also eigenvalues are \(3,1\)<br>
+Here we can see that \(\underbrace{\begin{bmatrix} 2&1\\ 1&2 \end{bmatrix}}_{A},\quad\)
+\(\underbrace{\begin{bmatrix} 3&0\\ 0&1 \end{bmatrix}}_{\Lambda},\quad\) and 
+\(\underbrace{\begin{bmatrix} -2&-15\\ 1&6 \end{bmatrix}}_{B}\) have same eigenvalues \(3,1\) we can verify it by
+\(\text{trace}(\cdot) = 4\) and \(\text{det}(\cdot) = 3\)<br>
+<br>
+
+<blockquote>
+    Similar matrices have same <b>eigenvalues</b>
+</blockquote>
+<b>Explanation:</b><br>
+<blockquote class="noborder">
+    Say we have a \(n\times n\) matrices \(A\), \(\vec{x}_1,\vec{x}_2,\cdots,\vec{x}_n\) are eigenvectors of \(A\), and \(\lambda_1, \lambda_2, \cdots, \lambda_n\) are the eigenvalues of \(A\).<br>
+    So \(A\vec{x}_i=\lambda_i \vec{x}\)<br>
+    (\(MM^{-1}=\mathcal{I}_n\))<br>
+    \(A\mathcal{I}_n\vec{x}_i=\lambda_i \vec{x}\)<br>
+    \(AMM^{-1}\vec{x}_i=\lambda_i \vec{x}\)<br>
+    \(\underbrace{(M^{-1}AM)}_{B} M^{-1}\vec{x}_i=\lambda_i M^{-1}\vec{x}\)<br>
+    \(B \underbrace{M^{-1}\vec{x}_i}_{\text{(say) }\vec{v}}=\lambda_i \underbrace{M^{-1}\vec{x}_i}_{\text{(say) }\vec{v}}\)<br>
+    \(M^{-1}\) is just a transformation of \(\vec{x}\) from \(\mathbb{R}^n\) to \(\mathbb{R}^n\)<br>
+    So \(M^{-1}\vec{x}\) is a vector in \(\mathbb{R}^n\)<br>
+    \(B \vec{v}_i=\lambda_i \vec{v}\)<br>
+    So now we can see that <b>eigenvalues</b> of \(B=M^{-1}AM\) is <b>same</b> as <b>eigenvalues</b> of \(A\)<br>
+    And \((\)eigenvectors of \(B)=M^{-1}\)(eigenvectors of \(A\))
+</blockquote><br>
+
+<b>What if we have same eigenvalues</b><br>
+If we don't have all eigenvalues to be <b>different</b> then, there might not be \(n\) independent eigenvectors, so
+the matrix might not be <b>diagonalizable</b>.<br>
+
+<blockquote class="noborder">
+<b>Example</b><br>
+    Say \(A=\begin{bmatrix} 4&0\\ 0&4 \end{bmatrix}\) here eigenvalues are \(4,4\) and 
+    every vector is an eigenvector because all vectors are only scaled by \(4\) \(A\) doesn't change the direction<br>
+    Is there any matrices <b>similar</b> to \(A\)?<br>
+    Say that matrix \(B\) is similar to \(A\).<br>
+    \(B=M^{-1}AM\)<br>
+    \(B=M^{-1}\begin{bmatrix} 4&0\\ 0&4 \end{bmatrix}M\)<br>
+    \(B=4M^{-1}\begin{bmatrix} 1&0\\ 0&1 \end{bmatrix}M\)<br>
+    \(B=4M^{-1}\mathcal{I}M\)<br>
+    \(B=4M^{-1}M\)<br>
+    \(B=4\mathcal{I}\)<br>
+    \(B=\begin{bmatrix} 4&0\\ 0&4 \end{bmatrix}\)<br>
+    So similar matrix for \(A\) is <b>only</b> \(A\) itself.<br>
+</blockquote><br>
+It is <b>not</b> necessary that if our eigenvalues repeat then we can't have similar matrices.
+<blockquote class="noborder">
+    <b>Example</b><br>
+    Say \(A=\begin{bmatrix} 4&1\\ 0&4 \end{bmatrix}\) here eigenvalues are \(4,4\)<br>
+    It has a bunch of similar matrices, like<br>
+    \(\begin{bmatrix} 4&1\\ 0&4 \end{bmatrix},\quad\)
+    \(\begin{bmatrix} 4&0\\ 7&4 \end{bmatrix},\quad\)
+    \(\begin{bmatrix} 7&-2\\ 1&2 \end{bmatrix},\cdots\)
+    these all are similar matrices.
+</blockquote>
+    </p>
+
+<br>
+<div class="slack-discuss" onclick=" window.open('https://join.slack.com/t/quantml-org/shared_invite/zt-hcmbg7fr-jPbVAUT_tjGPaKWU50qMYQ','_blank')">
+						    Join our Slack <img src="/data/img/slack.png" alt="Slack"> discussion forum
+						</div>
+<br>
+
+<div id="btn-container">
+    <button id="prev-btn" class="button" onclick="window.location.href = '/la/positive-definite-matrices/';">&#x25C0;&nbsp;&nbsp;Positive Definite Matrices</button>
+    <button id="next-btn" class="button"  style="float: right;" onclick="window.location.href = '/la/svd/';">Singular Value Decomposition&nbsp;&nbsp;&#x25B6;</button>
+</div><br>
+                        </section>
+                    </div>
+            </div>
+
+        <!-- Scripts -->
+			<script src="/data/assets/js/jquery.min.js"></script>
+			<script src="/data/assets/js/jquery.scrollex.min.js"></script>
+			<script src="/data/assets/js/jquery.scrolly.min.js"></script>
+			<script src="/data/assets/js/browser.min.js"></script>
+			<script src="/data/assets/js/breakpoints.min.js"></script>
+			<script src="/data/assets/js/util.js"></script>
+            <script src="/data/assets/js/main.js"></script>
+            <script src="/data/index.js"></script>
+			<script src="/data/prism/prism.js"></script>
+            <script>setTimeout(() => {document.querySelector('body').style.display="block"}, 0)</script>
+
+    </body>
+</html>

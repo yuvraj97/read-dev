@@ -1,0 +1,256 @@
+<!DOCTYPE HTML>
+<!--
+    "Thanks to HTML5 UP for this template".
+    Massively by HTML5 UP
+    html5up.net | @ajlkn
+    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+    <head>
+
+        <!--Prism-->
+        <link rel="stylesheet" href="/data/prism/prism.css">
+
+
+        <link id="quantml-theme" rel="stylesheet" href="" />
+        <link id="quantml-auth-style" rel="stylesheet" href="">
+        <script src="/data/initialize-css.js"></script>
+
+        <!--KATEX-->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+
+        <!-- The loading of KaTeX is deferred to speed up page rendering -->
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+
+        <!-- To automatically render math in text elements, include the auto-render extension: -->
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+        
+		<title>Matrix Space</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<noscript><link rel="stylesheet" href="/data/assets/css/noscript.css" /></noscript>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        
+        <link rel="icon" href="/data/icon.png" type="image/png" sizes="16x16">
+
+	</head>   
+    
+    <body style="display: none;">
+
+        <!-- Wrapper -->
+            <div id="wrapper">
+
+                <!-- Header -->
+                    <header id="header">
+                        <a target="_blank" href="https://quantml.org" class="logo image jump-big"><img src="/data/img/cover.png" alt="QuantML.org" /></a>
+                    </header>
+
+                <!-- Nav -->
+                    <nav id="nav">
+                        <ul class="links">
+                            <li class="cover"><a href="/la/"><img src="/data/img/linear-algebra-cover.png" alt="Linear Algebra"></a></li>
+                            <li><a href="/la/fundamental-subspaces/">&#x25C0;</a></li>
+                            <li><a href="/la/matrix-space/">Matrix Space</a></li>
+                            <li><a href="/la/matrix-space/dim/">DIMENSION AND BASIS</a></li>
+                            <li class="active"><a href="/la/matrix-space/ops/">OPERATION ON SUBSPACES</a></li>
+                            <li><a href="/la/matrix-space/ex/">EXAMPLES</a></li>
+                            <li><a href="/la/orthogonal-subspaces/">&#x25B6;</a></li>
+                        </ul>
+                        <ul class="icons">
+                            <li><a target="_blank" href="https://quantml.org/"><img src="/data/img/icon.png" alt="QuantML"></a></li>
+                            <li><a target="_blank" href="https://join.slack.com/t/quantml-org/shared_invite/zt-hcmbg7fr-jPbVAUT_tjGPaKWU50qMYQ"><img src="/data/img/slack.png" alt="Slack"></a></li>
+                            <li><a target="_blank" href="https://www.linkedin.com/in/yuvraj97/"><img src="/data/img/linkedin.png" alt="LinkedIn"></a></li>
+                            <li><a target="_blank" href="https://github.com/yuvraj97/"><img src="/data/img/github.png" alt="GitHub"></a></li>
+                            <li><a style="cursor: pointer;"><img id="change-theme" src="" alt="Change Theme"></a></li>
+                        </ul>
+                    </nav>
+                <!-- Main -->
+                    <div id="main">
+                        <section class="post">
+<div id="btn-container">
+    <button id="prev-btn" class="button" onclick="window.location.href = '/la/matrix-space/dim/';">&#x25C0;&nbsp;&nbsp;Dimension and Basis</button>
+    <button id="next-btn" class="button"  style="float: right;" onclick="window.location.href = '/la/matrix-space/ex/';">Examples&nbsp;&nbsp;&#x25B6;</button>
+</div><br>
+
+<p>
+
+<h2 id="op">Operation on subspaces</h2>
+Say \(\mathcal{S}\) denotes the space of <b>all</b> \(3\times 3\) <b>symmetric</b> matrices.<br>
+Say \(\mathcal{U}\) denotes the space of <b>all</b> \(3\times 3\) <b>lower triangular</b> matrices.<br>
+<br>
+<li id="intersaction">\(\mathcal{S}\cap\mathcal{U}\)</li>
+What about <b>all</b> \(3\times 3\) matrices who are <b>lower triangular</b> <b>AND</b> <b>symmetric</b>.<br>
+We are asking for space contain by both \(\mathcal{U}\) <b>AND</b> \(\mathcal{S}\), OR <i>say</i> what is the space of \(\mathcal{S}\cap\mathcal{U}\).<br>
+And it's <b>all</b> \(3\times 3\) <b>Diagonal matrices</b>.<br>
+And what is the <b>dimension</b> of <b>all</b> \(3\times 3\) <b>Diagonal matrices</b>.<br>
+<blockquote>
+    Space of <b>all</b> \(3\times 3\) <b>diagonal matrices</b> is a <b>subspace</b> of <b>all</b> \(3\times 3\) <b>matrices</b>.<br>
+    It has \(3\) independent entities for a \(3\times 3\) matrix.<br>
+    So it's <b>dimension</b> is \(3\).
+</blockquote><br>
+
+<li id="union">\(\mathcal{S}\cup\mathcal{U}\)</li>
+What about matrices who are <b>lower triangular</b> <b>OR</b> <b>symmetric</b>.<br>
+We are asking for space contain by both \(\mathcal{U}\) OR \(\mathcal{S}\),<br>
+Or say what is the space of \(\mathcal{S}\cup\mathcal{U}\).<br>
+<blockquote class="noborder">
+    But <b>all</b> \(3\times 3\) <b>lower triangular</b> <b>OR</b> <b>symmetric</b> matrices <b>do not</b> 
+    form a <b>subspace</b> of <b>all</b> \(3\times 3\) <b>matrices</b>.<br> 
+    <br>
+    
+    <b>But Why?</b><br>
+    Let's say \(\mathcal{Q}=\mathcal{S}\cup\mathcal{U}\)<br>
+    Consider two matrices,<br>
+(symmetric)\(A=
+\begin{bmatrix}
+\color{red}{1}  & \color{red}{1} & 0 \\
+\color{red}{1} & 0 & 0 \\
+0 & 0 & 0 \\
+\end{bmatrix}
+\)
+and
+(lower triangular)\(B=
+\begin{bmatrix}
+0 & 0 & 0 \\
+\color{red}{-1} & 0 & 0 \\
+0 & 0 & 0 \\
+\end{bmatrix}
+\)<br>
+\(A\in\mathcal{Q}\) and \(B\in\mathcal{Q}\) so for \(\mathcal{Q}\) to be a <b>vector space</b>, 
+<b>linear combination</b> of \(A\) and \(B\) must \(\in\mathcal{Q}\).<br>
+\(A+B=
+\begin{bmatrix}
+\color{red}{1}  & \color{red}{1} & 0 \\
+0 & 0 & 0 \\
+0 & 0 & 0 \\
+\end{bmatrix}
+\)<br>
+And \(A+B\) is <b>neither</b> lower triangular and <b>nor</b> symmetric.<br>
+So \(A+B\notin \mathcal{Q}\).<br>
+So \(\mathcal{Q}\) is not a <b>vector space</b>.
+</blockquote><br>
+
+<li is="addition">\(\mathcal{S} + \mathcal{U}\)</li>
+Here we took any matrix in \(\mathcal{S}\) (say \(A\)) and any matrix in \(\mathcal{U}\) (say\(B\)), and <b>add</b> them.<br>
+<blockquote class="noborder">
+You can say it's some sort to linear combinations of space \(\mathcal{S}\) and space \(\mathcal{U}\).<br>
+Say you have a matrix \(A\in\mathcal{S}\) and a matrix \(B\in\mathcal{U}\).<br>
+<li>If \(A\in\mathcal{S}\Rightarrow \alpha\cdot A\in \mathcal{S}\) because \(\mathcal{S}\) is a <b>vector space</b> </li>
+<li>If \(B\in\mathcal{U}\Rightarrow \beta\cdot B\in \mathcal{U}\) because \(\mathcal{U}\) is a <b>vector space</b> </li>
+And \(\alpha\in\mathbb{R}\) and \(\beta\in\mathbb{R}\)<br>
+And we are looking at \(\alpha\cdot A + \beta \cdot B;\quad\) \(\forall A\in\mathcal{S}\) and \(\forall B\in\mathcal{U}\).<br>
+And it's a linear combinations in between elements of \(\mathcal{S}\) and \(\mathcal{U}\).<br>
+</blockquote>
+\(A\in\mathcal{S}\) and \(B\in\mathcal{U}\) and we are looking for \(A+B\).<br>
+<div class="math-container">
+\[
+\begin{bmatrix}
+\color{}{\mathbb{R}}   & \color{red}{\mathbb{R}}  & \color{blue}{\mathbb{R}}  \\
+\color{red}{\mathbb{R}}   & \color{}{\mathbb{R}}  & \color{green}{\mathbb{R}}  \\
+\color{blue}{\mathbb{R}}   & \color{green}{\mathbb{R}}  & \color{}{\mathbb{R}}   \\
+\end{bmatrix}
++
+\begin{bmatrix}
+\mathbb{R}   &           0            & 0 \\
+\mathbb{R}   & \mathbb{R} & 0 \\
+\mathbb{R} & \mathbb{R}  & \mathbb{R} \\
+\end{bmatrix}
+=
+\begin{bmatrix}
+\color{}{2\mathbb{R}}                       & \color{red}{\mathbb{R}}  & \color{blue}{\mathbb{R}}  \\
+\color{red}{\mathbb{R}}+\color{}{\mathbb{R}}   & \color{}{2\mathbb{R}}                      & \color{green}{\mathbb{R}}  \\
+\color{blue}{\mathbb{R}}+\color{}{\mathbb{R}}   & \color{green}{\mathbb{R}}+\color{}{\mathbb{R}}  & \color{}{2\mathbb{R}} \\
+\end{bmatrix}
+\]
+</div>
+
+equivalently,<br>
+
+<div class="math-container">
+\[
+\begin{bmatrix}
+\color{}{\mathbb{R}}   & \color{red}{\mathbb{R}}  & \color{blue}{\mathbb{R}}  \\
+\color{red}{\mathbb{R}}   & \color{}{\mathbb{R}}  & \color{green}{\mathbb{R}}  \\
+\color{blue}{\mathbb{R}}   & \color{green}{\mathbb{R}}  & \color{}{\mathbb{R}}   \\
+\end{bmatrix}
++
+\begin{bmatrix}
+\mathbb{R}   &           0            & 0 \\
+\mathbb{R}   & \mathbb{R} & 0 \\
+\mathbb{R} & \mathbb{R}  & \mathbb{R} \\
+\end{bmatrix}
+=
+\begin{bmatrix}
+\mathbb{R}   & \color{red}{\mathbb{R}}  & \color{blue}{\mathbb{R}}  \\
+\mathbb{R}   & \mathbb{R}               & \color{green}{\mathbb{R}}  \\
+\mathbb{R}   & \mathbb{R}               & \mathbb{R} \\
+\end{bmatrix}
+\]
+</div>
+
+now there is no boundation so,<br>
+<div class="math-container">
+\[
+\begin{bmatrix}
+\color{}{\mathbb{R}}   & \color{red}{\mathbb{R}}  & \color{blue}{\mathbb{R}}  \\
+\color{red}{\mathbb{R}}   & \color{}{\mathbb{R}}  & \color{green}{\mathbb{R}}  \\
+\color{blue}{\mathbb{R}}   & \color{green}{\mathbb{R}}  & \color{}{\mathbb{R}}   \\
+\end{bmatrix}
++
+\begin{bmatrix}
+\mathbb{R}   &           0            & 0 \\
+\mathbb{R}   & \mathbb{R} & 0 \\
+\mathbb{R} & \mathbb{R}  & \mathbb{R} \\
+\end{bmatrix}
+=
+\begin{bmatrix}
+\mathbb{R}   & \mathbb{R}  & \mathbb{R}  \\
+\mathbb{R}   & \mathbb{R}  & \mathbb{R}  \\
+\mathbb{R}   & \mathbb{R}  & \mathbb{R} \\
+\end{bmatrix}
+\]
+</div>
+
+Here we have \(9\) independent entities for a \(3\times 3\) matrix.<br>
+So it has \(9\) <b>Basis</b> and \(9\) <b>Dimensions</b>.<br>
+
+We can also see it by a beautiful formula.<br>
+<blockquote>
+<div class="math-container">
+    \( \text{dim}(\mathcal{S}) + \text{dim}(\mathcal{U}) = 
+    \text{dim}(\mathcal{S}\cap\mathcal{U}) + \text{dim}(\mathcal{S} + \mathcal{U})\)
+</div>
+</blockquote>
+(That is \(6 + 6 = 3 + 9\))<br>
+<br>
+</p>
+
+<br>
+<div class="slack-discuss" onclick=" window.open('https://join.slack.com/t/quantml-org/shared_invite/zt-hcmbg7fr-jPbVAUT_tjGPaKWU50qMYQ','_blank')">
+						    Join our Slack <img src="/data/img/slack.png" alt="Slack"> discussion forum
+						</div>
+<br>
+
+<div id="btn-container">
+    <button id="prev-btn" class="button" onclick="window.location.href = '/la/matrix-space/dim/';">&#x25C0;&nbsp;&nbsp;Dimension and Basis</button>
+    <button id="next-btn" class="button"  style="float: right;" onclick="window.location.href = '/la/matrix-space/ex/';">Examples&nbsp;&nbsp;&#x25B6;</button>
+</div><br>
+                        </section>
+                    </div>
+            </div>
+
+        <!-- Scripts -->
+			<script src="/data/assets/js/jquery.min.js"></script>
+			<script src="/data/assets/js/jquery.scrollex.min.js"></script>
+			<script src="/data/assets/js/jquery.scrolly.min.js"></script>
+			<script src="/data/assets/js/browser.min.js"></script>
+			<script src="/data/assets/js/breakpoints.min.js"></script>
+			<script src="/data/assets/js/util.js"></script>
+            <script src="/data/assets/js/main.js"></script>
+            <script src="/data/index.js"></script>
+			<script src="/data/prism/prism.js"></script>
+            <script>setTimeout(() => {document.querySelector('body').style.display="block"}, 0)</script>
+
+    </body>
+</html>

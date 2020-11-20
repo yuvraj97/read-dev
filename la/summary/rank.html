@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<!--Code By Webdevtrick ( https://webdevtrick.com )-->
+<html lang="en" >
+<head>
+
+        <!--Prism-->
+        <link rel="stylesheet" href="/data/prism/prism.css">
+    <!--MathJax-->
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        config: ["MMLorHTML.js"],
+        extensions: ["mml2jax.js"],
+        jax: ["input/MathML"]
+    });
+
+    </script>
+    <script type="text/javascript" async
+    src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+
+    <!-- Adding a scrollbar in math formula-->
+    <style>
+        .math-container {
+        overflow-x: auto;
+        display: block;
+    }
+    </style>
+
+    <meta charset="UTF-8">
+            <link id="quantml-theme" rel="stylesheet" href="" />
+        <link id="quantml-auth-style" rel="stylesheet" href="">
+        <script src="/data/initialize-css.js"></script>
+
+        <!--KATEX-->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+
+        <!-- The loading of KaTeX is deferred to speed up page rendering -->
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+
+        <!-- To automatically render math in text elements, include the auto-render extension: -->
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+        
+		<title>Summary</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<noscript><link rel="stylesheet" href="/data/assets/css/noscript.css" /></noscript>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="stylesheet" href="../../data/assets/css/popupcard.css">
+<link rel="icon" href="/data/icon.png" type="image/png" sizes="16x16">
+
+
+	</head><body>
+
+<div class="container" id="popup">
+    <div class="modal">
+        <div class="details">
+            <p class="description">
+            <b>Rank</b> of a \(m\times n\) matrix \(A\) of rank \(r\)<br>
+            </p>
+        </div>
+        
+        <p class="txt">
+            A <b>rank</b> is the number of pivots of matrix \(A\).<br>
+            So we have \(n\) column vectors in \(\mathbb{R}^m\), and there are \((n-r)\) (dependent)column vectors which we can get by the linear combination of other \(r\) (independent)column vectors.<br>
+            \(\bullet\)&nbsp; <b>#</b> pivots can't be \(\gt\) <b>#</b> rows (\(m\)), so \(r\leq m\)<br>
+            \(\bullet\)&nbsp; <b>#</b> pivots can't be \(\gt\) <b>#</b> columns (\(n\)), so \(r\leq n\)<br>
+            <br>
+            <u><a style="color:red" href="rank-full-col.html#popup">Full column rank matrix(<i>summary</i>)</a></u>  &nbsp;&rarr; <br>
+            <u><a style="color:red" href="rank-full-row.html#popup">Full row rank matrix(<i>summary</i>)</a></u>  &nbsp;&rarr; <br>
+            <u><a style="color:red" href="rank-full.html#popup">Full rank matrix(<i>summary</i>)</a></u>  &nbsp;&rarr; <br>
+            <u><a style="color:red" href="rank-dim-basis.html#popup">Dimensions and Basis(<i>summary</i>)</a></u> &nbsp;&rarr; <br>
+            <u><a style="color:red" href="../rank.html#main">Visit Chapter</a></u> &nbsp;&rarr; <br>
+            
+        </p>
+        <br>        
+        <!--<button class="btn" onclick="window.location.href = '../complete-space.html';">Visit Chapter &rarr;</button>-->
+        <button style="float: right;" class="btn" onclick="window.location.href = 'rank-full-col.html#popup';">Full column rank matrix &nbsp;&rarr;&nbsp;</button>
+
+        <a href="../index.html#rank" class="link-2"></a>
+
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,214 @@
+<!DOCTYPE HTML>
+<!--
+    "Thanks to HTML5 UP for this template".
+    Massively by HTML5 UP
+    html5up.net | @ajlkn
+    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+    <head>
+
+        <!--Prism-->
+        <link rel="stylesheet" href="/data/prism/prism.css">
+
+
+        <link id="quantml-theme" rel="stylesheet" href="" />
+        <link id="quantml-auth-style" rel="stylesheet" href="">
+        <script src="/data/initialize-css.js"></script>
+
+        <!--KATEX-->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+
+        <!-- The loading of KaTeX is deferred to speed up page rendering -->
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+
+        <!-- To automatically render math in text elements, include the auto-render extension: -->
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+        
+		<title>Least Squares(Application of projection)</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<noscript><link rel="stylesheet" href="/data/assets/css/noscript.css" /></noscript>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        
+        <link rel="icon" href="/data/icon.png" type="image/png" sizes="16x16">
+
+	</head>   
+    
+    <body style="display: none;">
+
+        <!-- Wrapper -->
+            <div id="wrapper">
+
+                <!-- Header -->
+                    <header id="header">
+                        <a target="_blank" href="https://quantml.org" class="logo image jump-big"><img src="/data/img/cover.png" alt="QuantML.org" /></a>
+                    </header>
+
+                <!-- Nav -->
+                    <nav id="nav">
+                        <ul class="links">
+                            <li class="cover"><a href="/la/"><img src="/data/img/linear-algebra-cover.png" alt="Linear Algebra"></a></li>
+                            <li><a href="/la/projection/">Projection</a></li>
+                            <li class="active"><a href="/la/least-squares/">Least Squares(Application of projection)</a></li>
+                        </ul>
+                        <ul class="icons">
+                            <li><a target="_blank" href="https://quantml.org/"><img src="/data/img/icon.png" alt="QuantML"></a></li>
+                            <li><a target="_blank" href="https://join.slack.com/t/quantml-org/shared_invite/zt-hcmbg7fr-jPbVAUT_tjGPaKWU50qMYQ"><img src="/data/img/slack.png" alt="Slack"></a></li>
+                            <li><a target="_blank" href="https://www.linkedin.com/in/yuvraj97/"><img src="/data/img/linkedin.png" alt="LinkedIn"></a></li>
+                            <li><a target="_blank" href="https://github.com/yuvraj97/"><img src="/data/img/github.png" alt="GitHub"></a></li>
+                            <li><a style="cursor: pointer;"><img id="change-theme" src="" alt="Change Theme"></a></li>
+                        </ul>
+                    </nav>
+                <!-- Main -->
+                    <div id="main">
+                        <section class="post">
+<div id="btn-container">
+    <button id="prev-btn" class="button" onclick="window.location.href = '/la/projection/';">&#x25C0;&nbsp;&nbsp;Projection</button>
+    <button id="next-btn" class="button"  style="float: right;" onclick="window.location.href = '/la/orthonormal-vectors/';">Orthogonal Matrices&nbsp;&nbsp;&#x25B6;</button>
+</div><br>
+
+<p>
+<h1>Least Squares</h1>
+<h4 od="vec-proj">(Application of projection)</h4>
+<br>
+Recall our <a  href="/la/projection/#example">previous example</a>, here we have a 
+system of equation <span class="bb">\(\mathbb{A}\mathbb{X}=\mathbb{Y}\)</span>.<br>
+let's take an example, suppose we have \(3\) points (in form of \(a_1,a_2\)) \((1,1),(2,2),(3,2)\).<br>
+Our objective is to get a best possible linear function for \(a_2\), say that function be \(f\).<br>
+our function might not give exact \(a_2\) that corresponds to \(a_1\) but it will give us best possible 
+approximation for \(a_2\).<br>
+The simplest linear function is <span class="bb">\(a_2 = f(a_1) = x_1 + a_1 x_2\)</span>.<br>
+here \(x_1, x_2\) are our parameters
+(unknown)<br>
+Our observations says,<br>
+\(f=x_1 + 1 x_2 =1\),<br>
+\(f=x_1 + 2 x_2 =2\),<br>
+\(f=x_1 + 3 x_2 =2\),<br>
+We can also write it as,<br>
+\(
+\underbrace{\begin{bmatrix}
+1 & 1 \\
+1 & 2 \\
+1 & 3 \\
+\end{bmatrix}}_{\mathbb{A}}
+\underbrace{\begin{bmatrix}
+x_1\\
+x_2\\
+\end{bmatrix}}_{\mathbb{X}}
+=
+\underbrace{\begin{bmatrix}
+1\\
+2\\
+2\\
+\end{bmatrix}}_{\mathbb{Y}}
+\).<br>
+\(\mathbb{A}\mathbb{X}=\mathbb{Y}\)<br>
+So we want to find the <b>linear combinations</b> of column vectors of \(\mathbb{A}\) that gives us
+\(\mathbb{Y}\), but \(\mathbb{Y}\) does not lives in the <b>column space</b> of \(\mathbb{A}\).<br>
+So now we will find a vector \(\widehat{\mathbb{Y}}\) in the <b>column space</b> of \(\mathbb{A}\)
+that is <b>closest</b> to \(\mathbb{Y}\), here closeness is determined by the <b>Euclidean distance</b> between 
+\(\mathbb{Y}\) and \(\widehat{\mathbb{Y}}\).<br>
+So instead we will solve,<br>
+<span class="bb">\(\mathbb{A}\widehat{\mathbb{X}}=\widehat{\mathbb{Y}}\)</span><br>
+<i>(And \(\widehat{\mathbb{X}}\) is just a way to tell that our solution is an estimate of exact solution)</i>.<br>
+\(\widehat{\mathbb{Y}}\) lives in the <b>column space</b> of \(\mathbb{A}\), <b>and</b> \(\mathbb{Y}\)
+is out of the <b>column space</b> of \(\mathbb{A}\), so<br>
+The vector \(\mathbb{Y} - \widehat{\mathbb{Y}}\) is perpendicular to the <b>column space</b> of \(\mathbb{A}\).<br>
+\(\Rightarrow \mathbb{Y} - \widehat{\mathbb{Y}}\) is in the <b>Null space</b> of \(\mathbb{A}^T\).<br>
+\(\Rightarrow \mathbb{A}^T(\mathbb{Y} - \widehat{\mathbb{Y}})=0\) and we know that \(\widehat{\mathbb{Y}}=\mathbb{A}\widehat{\mathbb{X}}\).<br>
+\(\Rightarrow \mathbb{A}^T(\mathbb{Y} - \mathbb{A}\widehat{\mathbb{X}})=0\)<br>
+\(\Rightarrow \mathbb{A}^T\mathbb{A}\widehat{\mathbb{X}}=\mathbb{A}^T \mathbb{Y}\)<br>
+
+\(\mathbb{A}^T\mathbb{A}=
+\begin{bmatrix}
+3 &  6 \\
+6 & 14 \\
+\end{bmatrix},\quad\)
+\(\mathbb{A}^T\mathbb{Y}=
+\begin{bmatrix}
+ 5\\
+11\\
+\end{bmatrix},\quad\)
+Now we have so solve,<br>
+\(
+\begin{bmatrix}
+3 &  6 \\
+6 & 14 \\
+\end{bmatrix}
+\begin{bmatrix}
+x_1\\
+x_2\\
+\end{bmatrix}
+=
+\begin{bmatrix}
+ 5\\
+11\\
+\end{bmatrix}
+\)<br>
+We can write it as,<br>
+\(3x_1 +  6x_2 = 5\)<br>
+\(6x_1 + 14x_2 = 11\)<br>
+By solving we get \(x_1=2/3\) and \(x_2=1/2\)<br>
+
+So our function \(f(a_1) = x_1 + a_1 x_2\) becomes, 
+\[f(a_1) = \frac{2}{3} + \frac{1}{2}a_1\]
+
+Let's take a look at our estimate for our \(3\) data points and it's error(which is \(a_2 - \hat{a_2}\)).<br>
+<li>For \((a_1,a_2)=(1,1)\)</li>
+<dl><dd>
+    \(\hat{a_2} = \frac{2}{3} + \frac{1}{2}(1)=\frac{7}{6}\)<br>
+    \(e_1= 1 - \frac{7}{6} = -\frac{1}{6}\)
+</dd></dl>
+<li>For \((a_1,a_2)=(2,2)\)</li>
+<dl><dd>
+    \(\hat{a_2} = \frac{2}{3} + \frac{1}{2}(2)=\frac{5}{3}\)<br>
+    \(e_2= 2 - \frac{5}{3}= \frac{1}{3}\)
+</dd></dl>
+<li>For \((a_1,a_2)=(3,2)\)</li>
+<dl><dd>
+    \(\hat{a_2} = \frac{2}{3} + \frac{1}{2}(3)=\frac{13}{6}\)<br>
+    \(e_3= 2 - \frac{13}{6} = -\frac{1}{6}\)
+</dd></dl>
+
+Now represent our estimate and errors as vector,<br>
+\( \widehat{\mathbb{Y}} = \begin{bmatrix} \frac{7}{6}\\ \frac{5}{3} \\ \frac{13}{6} \\ \end{bmatrix} ,\quad\)
+\( e=\mathbb{Y}-\widehat{\mathbb{Y}} = \begin{bmatrix} -\frac{1}{6}\\ \frac{1}{3} \\ -\frac{1}{6} \\ \end{bmatrix} \)<br>
+As we discussed above that \( \widehat{\mathbb{Y}} \) is in <b>column space</b> of \(\mathbb{A}\) 
+and \(\mathbb{Y}-\widehat{\mathbb{Y}}\) is <b>perpendicular</b> to that <b>column space</b>.<br>
+We can now see it in this example.<br>
+First notice that dot product of \(\mathbb{Y}\) and \(\mathbb{Y}-\widehat{\mathbb{Y}}\) is \(0\).<br>
+\(\mathbb{Y}\cdot(\mathbb{Y}-\widehat{\mathbb{Y}})=\mathbb{Y}^T(\mathbb{Y}-\widehat{\mathbb{Y}})=0\)<br>
+As we said that <span class="bb">\(\mathbb{Y}-\widehat{\mathbb{Y}}\)</span> is <b>perpendicular</b> to the whole <b>column space</b>,
+you can took any <b>linear combinations</b> of the columns of \(\mathbb{A}\) it will be 
+<b>perpendicular</b> to <span class="bb">\(\mathbb{Y}-\widehat{\mathbb{Y}}\)</span>.<br></p>
+
+<br>
+<div class="slack-discuss" onclick=" window.open('https://join.slack.com/t/quantml-org/shared_invite/zt-hcmbg7fr-jPbVAUT_tjGPaKWU50qMYQ','_blank')">
+						    Join our Slack <img src="/data/img/slack.png" alt="Slack"> discussion forum
+						</div>
+<br>
+
+<div id="btn-container">
+    <button id="prev-btn" class="button" onclick="window.location.href = '/la/projection/';">&#x25C0;&nbsp;&nbsp;Projection</button>
+    <button id="next-btn" class="button"  style="float: right;" onclick="window.location.href = '/la/orthonormal-vectors/';">Orthogonal Matrices&nbsp;&nbsp;&#x25B6;</button>
+</div><br>
+                        </section>
+                    </div>
+            </div>
+
+        <!-- Scripts -->
+			<script src="/data/assets/js/jquery.min.js"></script>
+			<script src="/data/assets/js/jquery.scrollex.min.js"></script>
+			<script src="/data/assets/js/jquery.scrolly.min.js"></script>
+			<script src="/data/assets/js/browser.min.js"></script>
+			<script src="/data/assets/js/breakpoints.min.js"></script>
+			<script src="/data/assets/js/util.js"></script>
+            <script src="/data/assets/js/main.js"></script>
+            <script src="/data/index.js"></script>
+			<script src="/data/prism/prism.js"></script>
+            <script>setTimeout(() => {document.querySelector('body').style.display="block"}, 0)</script>
+
+    </body>
+</html>

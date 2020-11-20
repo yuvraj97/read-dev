@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<!--Code By Webdevtrick ( https://webdevtrick.com )-->
+<html lang="en" >
+<head>
+
+        <!--Prism-->
+        <link rel="stylesheet" href="/data/prism/prism.css">
+    <!--MathJax-->
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        config: ["MMLorHTML.js"],
+        extensions: ["mml2jax.js"],
+        jax: ["input/MathML"]
+    });
+
+    </script>
+    <script type="text/javascript" async
+    src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+
+    <!-- Adding a scrollbar in math formula-->
+    <style>
+        .math-container {
+        overflow-x: auto;
+        display: block;
+    }
+    </style>
+
+    <meta charset="UTF-8">
+            <link id="quantml-theme" rel="stylesheet" href="" />
+        <link id="quantml-auth-style" rel="stylesheet" href="">
+        <script src="/data/initialize-css.js"></script>
+
+        <!--KATEX-->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+
+        <!-- The loading of KaTeX is deferred to speed up page rendering -->
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+
+        <!-- To automatically render math in text elements, include the auto-render extension: -->
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+        
+		<title>Summary</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<noscript><link rel="stylesheet" href="/data/assets/css/noscript.css" /></noscript>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="stylesheet" href="../../data/assets/css/popupcard.css">
+<link rel="icon" href="/data/icon.png" type="image/png" sizes="16x16">
+
+
+	</head><body>
+
+<div class="container" id="popup">
+    <div class="modal">
+        <div class="details">
+            <p class="description">
+            <b>Null Space</b> of a Matrix \(A \quad \left( \color{blue}{N(A)} \right)\)<br>
+            </p>
+        </div>
+        
+        <p class="txt">
+            Say that shape of matrix \(A\) is \(m\times n\) , \(A\in\mathbb{R}^{m\times n}\).<br>
+            <br>
+            <span>\(\bullet\)&nbsp; <i><u>For a matrix say \(A\) the <b>Null space</b> is the space of all \(\vec{x}\) that solves \(A\vec{x}=\vec{0}\)</u></i>.<br></span>
+            <br>
+            \(\bullet\)&nbsp; <b>Null space</b> is a <b>vectors space</b>.<br>
+            
+            <p style="margin-left: 20px" class="txt">
+                There might be some <b>dependent column vectors</b> in matrix \(A\), 
+                if there are some <b>dependent column vectors</b> then,<br>
+       
+                \(\bullet\)&nbsp; If there are \(k\) <b>dependent column vectors</b> then our <b>Null Space</b> 
+                \(\in\mathbb{R}^k\).<br>
+                
+                \(\bullet\)&nbsp; If there is <b>not</b> any <b>dependent column vectors</b> then the <b>Null Space</b> 
+                is just the \(\vec{0}\)(zero vector), because \(\vec{x}=\vec{0}\) solves \(A\vec{x}=\vec{0}\).<br>
+
+                \(\bullet\)&nbsp; <b>Null Space</b> of \(A\) is <i>orthogonal</i> to the <b>Row Space</b> of \(A\).
+            </p>
+
+        </p>
+        <br>        
+        <button class="btn" onclick="window.location.href = '../null-space.html';">Visit Chapter &rarr;</button>
+
+        <a href="../index.html#null-space" class="link-2"></a>
+
+    </div>
+</div>
+</body>
+</html>

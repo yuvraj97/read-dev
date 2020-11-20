@@ -1,0 +1,264 @@
+<!DOCTYPE HTML>
+<!--
+    "Thanks to HTML5 UP for this template".
+    Massively by HTML5 UP
+    html5up.net | @ajlkn
+    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+    <head>
+
+        <!--Prism-->
+        <link rel="stylesheet" href="/data/prism/prism.css">
+
+
+        <link id="quantml-theme" rel="stylesheet" href="" />
+        <link id="quantml-auth-style" rel="stylesheet" href="">
+        <script src="/data/initialize-css.js"></script>
+
+        <!--KATEX-->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+
+        <!-- The loading of KaTeX is deferred to speed up page rendering -->
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+
+        <!-- To automatically render math in text elements, include the auto-render extension: -->
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+        
+		<title>Rank of a Matrix</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<noscript><link rel="stylesheet" href="/data/assets/css/noscript.css" /></noscript>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        
+        <link rel="icon" href="/data/icon.png" type="image/png" sizes="16x16">
+
+	</head>   
+    
+    <body style="display: none;">
+
+        <!-- Wrapper -->
+            <div id="wrapper">
+
+                <!-- Header -->
+                    <header id="header">
+                        <a target="_blank" href="https://quantml.org" class="logo image jump-big"><img src="/data/img/cover.png" alt="QuantML.org" /></a>
+                    </header>
+
+                <!-- Nav -->
+                    <nav id="nav">
+                        <ul class="links">
+                            <li class="cover"><a href="/la/"><img src="/data/img/linear-algebra-cover.png" alt="Linear Algebra"></a></li>
+                            <li class="active"><a href="/la/complete-space/">Rank of a Matrix</a></li>
+                        </ul>
+                        <ul class="icons">
+                            <li><a target="_blank" href="https://quantml.org/"><img src="/data/img/icon.png" alt="QuantML"></a></li>
+                            <li><a target="_blank" href="https://join.slack.com/t/quantml-org/shared_invite/zt-hcmbg7fr-jPbVAUT_tjGPaKWU50qMYQ"><img src="/data/img/slack.png" alt="Slack"></a></li>
+                            <li><a target="_blank" href="https://www.linkedin.com/in/yuvraj97/"><img src="/data/img/linkedin.png" alt="LinkedIn"></a></li>
+                            <li><a target="_blank" href="https://github.com/yuvraj97/"><img src="/data/img/github.png" alt="GitHub"></a></li>
+                            <li><a style="cursor: pointer;"><img id="change-theme" src="" alt="Change Theme"></a></li>
+                        </ul>
+                    </nav>
+                <!-- Main -->
+                    <div id="main">
+                        <section class="post">
+<div id="btn-container">
+    <button id="prev-btn" class="button" onclick="window.location.href = '/la/complete-space/';">&#x25C0;&nbsp;&nbsp;Solving \(A\vec{x}=\vec{b}\)</button>
+    <button id="next-btn" class="button"  style="float: right;" onclick="window.location.href = '/la/fundamental-subspaces/';">4 fundamental subspaces&nbsp;&nbsp;&#x25B6;</button>
+</div><br>
+
+<p>
+<h2>Rank of matrices</h2>
+Consider a \(m\times n\) matrix \(A\) of rank \(r\).<br>
+So we have \(n\) column vectors in \(\mathbb{R}^m\), and there are \((n-r)\) column vectors which we can get by the linear combination of other \(r\) column vectors.<br>
+We describe rank as number of pivots of a matrix.<br>
+<blockquote>
+<b>#</b> pivots can't be \(\gt\) <b>#</b> rows (\(m\)), so \(r\leq m\)<br>
+<b>#</b> pivots can't be \(\gt\) <b>#</b> columns (\(n\)), so \(r\leq n\)<br>
+</blockquote><br>
+
+<h3 id="col">&#x25B6; &nbsp;Full column rank matrix</h3>
+<dl><dd>
+
+Consider a \(m\times n\) matrix \(A\) of rank \(r\) and \(m\gt n\).<br>
+Here \(\text{Rank}(A)=r=n\) it means that all of the column vectors are independent, <b>#</b> pivots \(=n\) \(\Rightarrow\) <b>#</b> free column vectors \(=0\).<br>
+<blockquote class="noborder">
+<b>Can we always get a solution, can we always find \(x\) such that \(A\vec{x}=\vec{b}\) for every \(\vec{b}\)?</b><br>
+Here in \(A\) we have \(n\) independent vectors in \(\mathbb{R}^m\) and \(m\gt n\),
+to fill a \(m\) dimensional space we alteast need \(m\) independent vectors, but we had \(n\) independent vectors
+and \(n\lt m\) so we don't have enough vectors to fill \(\mathbb{R}^m\).<br>
+Linear combination of \(n\) independent vectors can't give us a space in \(\mathbb{R}^m\)<br>
+So we can't get every vector \(\vec{b}\) by the linear combinations of those independent vectors.<br>
+So answer is <b>No</b> we can't get every \(\vec{b}\).
+</blockquote>
+
+We have no free vectors here so <b>Null Space</b> of \(A\) is just \(\vec{0}\), so \(A\vec{x}=\vec{0}\) has only one solution that is \(\vec{x}=\vec{0}\)<br>
+Complete solution of \(A\vec{x}=\vec{b}\) is \(\vec{x}=\vec{x}_p+\vec{x}_n=\vec{x}_p+\vec{0}=\vec{x}_p\)<br>
+<blockquote>
+So complete solution is just a single vector \(\vec{x}_p\) <b>if it exists</b>.<br>
+<b>#</b> solution = \(\left\{\begin{matrix}
+1 & \text{ if there is a solution} \\
+0 & \text{ otherwise} \\
+\end{matrix}\right.\)
+</blockquote><br>
+Example:<br>
+\(A = \begin{bmatrix}
+1 & 4\\
+2 & 3\\
+3 & 2\\
+4 & 1\\
+\end{bmatrix}\)<br>
+<blockquote class="noborder">
+<b>Can we always get a solution, can we always find \(x\) such that \(A\vec{x}=\vec{b}\) for every \(\vec{b}\)?</b><br>
+Here in \(A\) we have \(2\) vectors in \(\mathbb{R}^4\).<br>
+and linear combination of \(2\) vector can give us a space in \(\mathbb{R}^2\) so we can only get those \(\vec{b}\)
+which are in the linear combination(plane) of those two vectors.<br>
+possible \(\vec{b}\) is \(\vec{b}= \alpha\begin{bmatrix} 1\\2\\3\\4\\ \end{bmatrix}  +\beta\begin{bmatrix} 4\\3\\2\\1\\ \end{bmatrix};\quad\) \(\alpha,\beta\in\mathbb{R}\)
+<br>
+So answer is <b>No</b> we can't get every \(\vec{b}\)
+</blockquote>
+row reduced echelon form is \(\begin{bmatrix}
+\fbox{1} & 0 \\
+0 & \fbox{1} \\
+0 & 0 \\
+0 & 0 \\
+\end{bmatrix} = \begin{bmatrix} I_{2\times2}\\0 \end{bmatrix}  \)<br>
+So <b>#</b> of pivots are \(2\)<br>
+</dd></dl><br>
+<h3 id="row">&#x25B6; &nbsp;Full row rank matrix</h3>
+<dl><dd>
+Consider a \(m\times n\) matrix \(A\) of rank \(r\) and \(m\lt n\).<br>
+Here \(\text{Rank}(A)=r=m\) now all of the column vectors are not independent, <b>#</b> pivots \(=m\) \(\Rightarrow\) <b>#</b> free column vectors \(=n-r\).<br>
+<blockquote class="noborder">
+<b>Can we always get a solution, can we always find \(x\) such that \(A\vec{x}=\vec{b}\) for every \(\vec{b}\)?</b><br>
+Here in \(A\) we have \(m\) independent vectors in \(\mathbb{R}^m\), so we have enough vectors to fill \(\mathbb{R}^m\).<br>
+Linear combination of \(m\) independent vectors can give us a space in \(\mathbb{R}^m\)<br>
+So we can get every vector \(\vec{b}\) by the linear combinations of those independent vectors.<br>
+So answer is <b>Yes</b> we can get every \(\vec{b}\).
+</blockquote>
+
+Here we have \(n-r\) free vectors so <b>Null Space</b> of \(A\) is in \(\mathbb{R}^{n-r}\).<br>
+<blockquote>
+<b>#</b> solutions are \(\infty\)
+</blockquote><br>
+Example:<br>
+\(A = \begin{bmatrix}
+1 & 2 & 3 & 4 \\
+4 & 3 & 2 & 1 \\
+\end{bmatrix}\)<br>
+<blockquote class="noborder">
+<b>Can we always get a solution, can we always find \(x\) such that \(A\vec{x}=\vec{b}\) for every \(\vec{b}\)?</b><br>
+Here in \(A\) we have \(4\) vectors in \(\mathbb{R}^2\) and out of those \(2\) vectors are independent.<br>
+And linear combination of \(2\) independent vector can give us a space in \(\mathbb{R}^2\).
+So we covered the whole \(2\)-dimensional space.<br>
+So answer is <b>Yes</b> we can get every \(\vec{b}\).
+</blockquote>
+row reduced echelon form is \(\begin{bmatrix}
+\fbox{1} &      0   & -1 & -2 \\
+    0    & \fbox{1} &  2 &  3 \\
+\end{bmatrix} = \begin{bmatrix} I_{2\times2} & F_{2\times2} \end{bmatrix}  \)<br>
+So <b>#</b> of pivots are \(2\)<br>
+</dd></dl><br>
+<h3 id="full">&#x25B6; &nbsp;Full rank matrix</h3>
+<dl><dd>
+Consider a \(m\times n\) matrix \(A\) of rank \(r\) and \(m = n\).<br>
+Here \(\text{Rank}(A)=r=n\) it means that all of the column vectors are independent, <b>#</b> pivots \(=n\) \(\Rightarrow\) <b>#</b> free column vectors \(=0\).<br>
+<blockquote class="noborder">
+<b>Can we always get a solution, can we always find \(x\) such that \(A\vec{x}=\vec{b}\) for every \(\vec{b}\)?</b><br>
+Here in \(A\) we have \(n\) independent vectors in \(\mathbb{R}^n\), so we have enough vectors to fill \(\mathbb{R}^n\).<br>
+Linear combination of \(n\) independent vectors can give us a space in \(\mathbb{R}^n\)<br>
+So we can get every vector \(\vec{b}\) by the linear combinations of those independent vectors.<br>
+So answer is <b>Yes</b> we can get every \(\vec{b}\).
+</blockquote>
+
+We have no free vectors here so <b>Null Space</b> of \(A\) is just \(\vec{0}\), so \(A\vec{x}=\vec{0}\) has only one solution that is \(\vec{x}=\vec{0}\)<br>
+<blockquote>
+<b>#</b> solutions = \(1\)<br>
+row reduced echelon form of \(A\) is \(I_{n\times n}\)
+</blockquote><br>
+</dd></dl>
+<br>
+<h2 id="dim-basis">Dimensions and Basis</h2>
+Say we have a matrix \(A_{m\times n}\in\mathbb{R}^{m\times n}\)<br>
+<br>
+
+<h3 id="cs">&#x25B6; &nbsp;Column Space</h3>
+<dl><dd>
+We know that the column space of matrix \(A\) lives in \(R^{m}\).<br>
+
+But what are the <b>basis</b> for that <b>column space?</b><br>
+<blockquote class="noborder">
+    <b>Basis</b> are those <b>(minimum)</b> vectors whose linear combination gives us the desired space.<br>
+    for example, for space of \(R^2\), linear combinations of any <u>\(2\)</u> <b>non-parallel(independent)</b> 
+    vectors will give us \(R^2\).
+</blockquote>
+So 
+<blockquote>
+The <b>basis</b> for <b>column space</b> are those <b>(independent)pivot columns</b>
+</blockquote>
+
+What is the <b>Dimension</b> of <b>column space?</b><br>
+<blockquote>
+    Number of dimensions are defined by it's <b>basis vectors</b> so, Number of dimensions 
+    \(=\) number of pivot columns \(=\) rank\((r)\) so,<br>
+    <b># Dimensions</b> \(= r\)
+</blockquote>
+<br>    
+</dd></dl><h3 id="ns">&#x25B6; &nbsp;Null Space</h3>
+
+<dl><dd>
+Null space of matrix \(A\) also lives in \(R^{m}\).<br>
+
+<blockquote class="noborder">
+Recall those <b>free variables</b> of matrix \(A\), <b>free variables</b> are the dependent  
+column vectors of matrix \(A\), these free variables gives us the <b>special solutions</b>  
+and linear combination of those <b>special solutions</b> gives us our <b>Null space.</b><br>
+</blockquote>
+
+What are the <b>basis</b> for that <b>Null space?</b><br>
+<blockquote>
+    We discussed that <b>Null space</b> is the linear combination of those <b>special solutions</b> so,<br>
+    The <b>basis</b> for <b>Null space</b> are those <b>special solutions.</b>
+</blockquote>
+
+What is the <b>Dimension</b> of <b>Null space?</b><br>
+<blockquote>
+    Number of dimensions are defined by it's <b>basis vectors</b> so, Number of dimensions 
+    \(=\) number of <b>special solution</b> and we discussed in <b>Null Space</b> section that,
+    Number of <b>special solution</b> are \(n-r\).<br>
+    <b># Dimensions</b> \(= n-r\)
+</blockquote>
+
+</dd></dl>
+
+</p>
+
+<br>
+<div class="slack-discuss" onclick=" window.open('https://join.slack.com/t/quantml-org/shared_invite/zt-hcmbg7fr-jPbVAUT_tjGPaKWU50qMYQ','_blank')">
+						    Join our Slack <img src="/data/img/slack.png" alt="Slack"> discussion forum
+						</div>
+<br>
+
+<div id="btn-container">
+    <button id="prev-btn" class="button" onclick="window.location.href = '/la/complete-space/';">&#x25C0;&nbsp;&nbsp;Solving \(A\vec{x}=\vec{b}\)</button>
+    <button id="next-btn" class="button"  style="float: right;" onclick="window.location.href = '/la/fundamental-subspaces/';">4 fundamental subspaces&nbsp;&nbsp;&#x25B6;</button>
+</div><br>
+                        </section>
+                    </div>
+            </div>
+
+        <!-- Scripts -->
+			<script src="/data/assets/js/jquery.min.js"></script>
+			<script src="/data/assets/js/jquery.scrollex.min.js"></script>
+			<script src="/data/assets/js/jquery.scrolly.min.js"></script>
+			<script src="/data/assets/js/browser.min.js"></script>
+			<script src="/data/assets/js/breakpoints.min.js"></script>
+			<script src="/data/assets/js/util.js"></script>
+            <script src="/data/assets/js/main.js"></script>
+            <script src="/data/index.js"></script>
+			<script src="/data/prism/prism.js"></script>
+            <script>setTimeout(() => {document.querySelector('body').style.display="block"}, 0)</script>
+
+    </body>
+</html>
