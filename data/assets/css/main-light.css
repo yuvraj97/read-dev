@@ -57,27 +57,27 @@ table th {
     color: rgb(0, 39, 155) !important;
 } */
 #nav ul.links li a:hover {
-    color: inherit !important;
+    /* color: inherit !important; */
     background-color: rgba(0, 61, 97, 0.15);
 }
 #nav ul.links li.active {
-    background-color: unset;
+    background-color: #fff;
 }
 #nav ul.links li.active a {
-    color: #1e252d;
+    /* color: #000; */
 }
 #nav ul.links li.active a:hover {
-    color: inherit;
-    background-color: #fff;
+    /* color: inherit; */
+    /* background-color: #fff; */
 }
 #main {
     background-color: #fff;
-    /* color: ; */
+    color: rgb(0, 0, 0, 0.87);
 }
 #navPanelToggle.alt {
     background-color: rgba(255, 255, 255, 0.875);
     box-shadow: 0 0.125rem 0.75rem 0 rgba(30, 37, 45, 0.25);
-    color: #212931;
+    color: rgb(0, 0, 0, 0.87);
 }
 #navPanelToggle.alt:hover {
     background-color: #fff;
@@ -138,7 +138,7 @@ table th {
 /* Table of content [END] */
 
 .button {
-    /* color: ; */
+    color: #000;
     background-color: transparent;
 }
 .button:hover, .button:focus {
@@ -150,8 +150,7 @@ summary span {
 summary span:hover, summary span:focus {
     /* border-style: solid; */
     color: rgb(0, 39, 155) !important;
-    border-bottom: solid 1px rgb(0, 39, 155);
-    
+    border-bottom: solid 1px rgb(0, 39, 155);    
 }
 .bb {
     background-color: #f6f8fa;
@@ -181,16 +180,9 @@ summary span:hover, summary span:focus {
     box-shadow: .2rem .2rem 1.0rem .2rem #467AAC;
 }
 .math-border{
-    margin-left: auto;
-    margin-right: auto;
     border: 2px solid blue;
-    width: fit-content;
-    max-width: 95%;
     color: blue;
-    padding: 10px;
-    padding-left: 20px;
-    padding-right: 20px;
-}
+ }
 .math-border.dim{
     border: 1.5px solid black;
 }

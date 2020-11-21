@@ -57,18 +57,18 @@ table th {
     color: rgb(0, 39, 155) !important;
 } */
 #nav ul.links li a:hover {
-    color: rgb(255, 255, 255, 0.90) !important;
+    /* color: rgb(255, 255, 255, 0.90) !important; */
     background-color: rgba(255, 255, 255, 0.1);
 }
 #nav ul.links li.active {
     background-color: #121212;
 }
 #nav ul.links li.active a {
-    color:rgb(255, 255, 255, 0.87);
+    /* color:rgb(255, 255, 255, 0.87); */
 }
 #nav ul.links li.active a:hover {
-    color: red;
-    background-color: inherit;
+    /* color:rgb(255, 255, 255, 0.87); */
+    /* background-color: inherit; */
 }
 #main {
     background-color: #121212;
@@ -152,12 +152,6 @@ summary span:hover, summary span:focus {
     color:rgba(255, 180, 100, 1) !important;
     border-bottom: solid 1.5px rgba(255, 180, 100, 1);
 }
-
-.math-container {
-    overflow-x: auto;
-    overflow-y: hidden;
-    display: block;
-}
 .bb {
     background-color: rgb(255,255,255, 0.1);
     border: 1px rgb(194, 199, 204) solid;
@@ -186,16 +180,9 @@ summary span:hover, summary span:focus {
     box-shadow: .2rem .2rem 1.0rem .2rem rgb(255, 255, 255, 0.8);
 }
 .math-border{
-    margin-left: auto;
-    margin-right: auto;
     border: 2px solid blue;
-    width: fit-content;
-    max-width: 95%;
     color: blue;
-    padding: 10px;
-    padding-left: 20px;
-    padding-right: 20px;
-}
+ }
 .math-border.dim{
     border: 1.5px solid black;
 }
