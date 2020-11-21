@@ -12,6 +12,7 @@
         <link rel="stylesheet" href="/data/prism/prism.css">
 
 
+        <link rel="stylesheet" href="/data/assets/css/main.css">
         <link id="quantml-theme" rel="stylesheet" href="" />
         <link id="quantml-auth-style" rel="stylesheet" href="">
         <script src="/data/initialize-css.js"></script>
@@ -69,15 +70,19 @@
 </div><br>
 
 <p>
-<h2>Positive Definite Matrices</h2>
-<br>
-<h3 id="properties">Properties of Positive Definite Matrices</h3>
+<h1 id="properties">Properties of Positive Definite Matrices</h1>
 Say we have a \(n\times n\) matrix \(A\) then \(A\) is <b>Positive Definite Matrix</b> if <b>any</b> 
 of the below condition is satisfies,<br>
+<blockquote>
 \(1.\) All the <i>eigenvalues</i> are <b>positive</b>.<br>
+</blockquote>
+<blockquote class="noborder">
 \(\quad\lambda_1\gt 0,\lambda_2\gt 0,\cdots,\lambda_n\gt 0\)<br>
+</blockquote>
 
+<blockquote>
 \(2.\) All <b>leading</b> determinants are <b>positive</b>.<br>
+</blockquote>
 <blockquote class="noborder">
 For Example:<br>
 Say we have a \(3\times 3\) matrix \(A\)
@@ -109,24 +114,26 @@ a_{11}
 \right)\gt 0\)
 </blockquote>
 
+<blockquote>
 \(3.\) All pivots are <b>positive</b>.<br>
+</blockquote>
 
+<blockquote>
 \(4.\) A \(n\times n\) matrix say \(A\) is Positive Definite Matrix, if
+</blockquote>
 <div class="math-border">
 \[  \begin{matrix}
-        \\    %blank line
-    \quad 
-    
+
     % equation
     \vec{x}^TA\vec{x}\gt 0;\quad\forall x\in\mathbb{R}^n \char`\\ \vec{0}
     %equation
-    
-    \quad\\
-        \\    %blank line
+
     \end{matrix}
 \]
 </div>
-<b>More interesting properties of positive definite matrices</b><br>
+<br>
+
+<h2>More interesting properties of positive definite matrices</h2>
 <li>If a \(n\times n\) matrix \(A\) is a <i>positive definite matrix</i> then \(A^{-1}\) is also <i>positive definite matrix</i></li>
 &nbsp;&nbsp;&nbsp;&nbsp;<b>Proof:</b><br>
 <blockquote class="noborder">
@@ -189,11 +196,8 @@ Now equate \(\displaystyle \frac{\partial f(x_1,x_2)}{\partial x_1}=0\)<br>
 <div class="math-border">
 \[
     \begin{matrix}
-        \\    %blank line
-    \quad 
-    4x_1+12x_2=0
-    \quad\\
-        \\    %blank line
+4x_1+12x_2=0
+
     \end{matrix}
     \quad\tag{\color{red}{1}}
 \]
@@ -207,11 +211,8 @@ Now equate \(\displaystyle \frac{\partial f(x_1,x_2)}{\partial x_1}=0\)<br>
 <div class="math-border">
 \[
     \begin{matrix}
-        \\    %blank line
-    \quad 
-    12x_1 + 38x_2=0
-    \quad\\
-        \\    %blank line
+12x_1 + 38x_2=0
+
     \end{matrix}
     \quad\tag{\color{red}{2}}
 \]
@@ -279,11 +280,8 @@ Now equate \(\displaystyle \frac{\partial f(x_1,x_2)}{\partial x_1}=0\)<br>
 <div class="math-border">
 \[
     \begin{matrix}
-        \\    %blank line
-    \quad 
-    4x_1+12x_2=0
-    \quad\\
-        \\    %blank line
+4x_1+12x_2=0
+
     \end{matrix}
     \quad\tag{\color{red}{1}}
 \]
@@ -297,11 +295,8 @@ Now equate \(\displaystyle \frac{\partial f(x_1,x_2)}{\partial x_1}=0\)<br>
 <div class="math-border">
 \[
     \begin{matrix}
-        \\    %blank line
-    \quad 
-    12x_1 + 14x_2=0
-    \quad\\
-        \\    %blank line
+12x_1 + 14x_2=0
+
     \end{matrix}
     \quad\tag{\color{red}{2}}
 \]
@@ -349,10 +344,9 @@ Recommended reading<br>
 -->
 </p>
 
-<br>
 <div class="slack-discuss" onclick=" window.open('https://join.slack.com/t/quantml-org/shared_invite/zt-hcmbg7fr-jPbVAUT_tjGPaKWU50qMYQ','_blank')">
-						    Join our Slack <img src="/data/img/slack.png" alt="Slack"> discussion forum
-						</div>
+    Join our Slack <img src="/data/img/slack.png" alt="Slack"> discussion forum
+</div>
 <br>
 
 <div id="btn-container">

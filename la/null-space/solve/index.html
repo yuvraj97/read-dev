@@ -12,6 +12,7 @@
         <link rel="stylesheet" href="/data/prism/prism.css">
 
 
+        <link rel="stylesheet" href="/data/assets/css/main.css">
         <link id="quantml-theme" rel="stylesheet" href="" />
         <link id="quantml-auth-style" rel="stylesheet" href="">
         <script src="/data/initialize-css.js"></script>
@@ -51,9 +52,9 @@
                         <ul class="links">
                             <li class="cover"><a href="/la/"><img src="/data/img/linear-algebra-cover.png" alt="Linear Algebra"></a></li>
                             <li><a href="/la/null-space/">Null Space</a></li>
-                            <li><a href="null-space-part2.html">Echelon Form, pivot/free columns</a></li>
-                            <li class="active"><a href="null-space-part3.html">Solve \(A\vec{x}=0\)</a></li>
-                            <li><a href="null-space-part4.html">Reduced Row Echelon Form</a></li>
+                            <li><a href="/la/null-space/echelon-form/">Echelon Form</a></li>
+                            <li class="active"><a href="/la/null-space/solve/">Solve \(A\vec{x}=0\)</a></li>
+                            <li><a href="/la/null-space/reduced-row-echelon-form/">RREF</a></li>
                         </ul>
                         <ul class="icons">
                             <li><a target="_blank" href="https://quantml.org/"><img src="/data/img/icon.png" alt="QuantML"></a></li>
@@ -67,15 +68,15 @@
                     <div id="main">
                         <section class="post">
 <div id="btn-container">
-    <button id="prev-btn" class="button" onclick="window.location.href = 'null-space-part2.html';">&#x25C0;&nbsp;&nbsp; Echelon Form, pivot/free columns</button>
-    <button id="next-btn" class="button"  style="float: right;" onclick="window.location.href = 'null-space-part4.html';">Reduced Row Echelon Form&nbsp;&nbsp;&#x25B6;</button>
+    <button id="prev-btn" class="button" onclick="window.location.href = '/la/null-space/echelon-form/';">&#x25C0;&nbsp;&nbsp; Echelon Form, pivot/free columns</button>
+    <button id="next-btn" class="button"  style="float: right;" onclick="window.location.href = '/la/null-space/reduced-row-echelon-form/';">Reduced Row Echelon Form&nbsp;&nbsp;&#x25B6;</button>
 </div><br>
 
 <p>
-    <a href="null-space-part2.html" >Previously</a> we saw how to get 
+    <a href="/la/null-space/echelon-form/" >Previously</a> we saw how to get 
     <b>echelon form, pivot/free column vectors</b> of a matrix say \(A\).<br>
     Now let's find \(\vec{x}\) that solves \(A\vec{x}=\vec{0}\)<br>
-    <h2>Solve \(A\vec{x}=0\)</h2>
+    <h1>Solve \(A\vec{x}=0\)</h1>
     (say) \(A=\begin{bmatrix}
     \fbox{1} & 2 & 2 & 2\\
     0 & 0 & \fbox{2} & 4\\
@@ -100,7 +101,7 @@
     = \begin{bmatrix}  0\\0\\0\\  \end{bmatrix}\)<br>
     
     Let's see \(2\) approaches to achieve it.<br>
-    <h4>\(\text{Approach } 1\)</h4>
+    <h3>\(\text{Approach } 1\)</h3>
     <blockquote class="noborder">
     So we have system of equation:<br>
     \(\begin{matrix}
@@ -127,7 +128,7 @@
     \(\Rightarrow x= \begin{bmatrix} 2\\0\\-2\\1\\ \end{bmatrix}\)<br>
     </blockquote><br>
     
-    <h4>\(\text{Approach } 2\)</h4>
+    <h3>\(\text{Approach } 2\)</h3>
     <blockquote class="noborder">
     \(A'\vec{x}= \begin{bmatrix}
     \fbox{1} & \lambda_1*2 &    2     & \lambda_2*2\\
@@ -165,7 +166,7 @@
     <span id="num-of-special-sol"></span>
     <blockquote>Null Space is the linear combination of all <b>special</b> solutions.</blockquote>
     <br>
-    <h3>But how many special solutions are there?</h3>
+    <h2>But how many special solutions are there?</h2>
     Say there are \(k\) dependent column vectors in our matrix \(A\), then as we discussed we craft these special solution such that we consider
     one dependent vector at a time.<br>
     So 
@@ -179,28 +180,21 @@
     
     Then the Null space of \(A\) is linear combinations of these \(n-r\) special solution.<br>
     <blockquote>For a matrix \(A\in\mathbb{R}^{m\times n}\) with \(\text{Rank}(A)=r\), Null Space is a vector space in \(\mathbb{R}^{n-r}\)</blockquote>
-    <br>
-    
-    
 </p>
     
-<br>
 <div class="slack-discuss" onclick=" window.open('https://join.slack.com/t/quantml-org/shared_invite/zt-hcmbg7fr-jPbVAUT_tjGPaKWU50qMYQ','_blank')">
-						    Join our Slack <img src="/data/img/slack.png" alt="Slack"> discussion forum
-						</div>
+    Join our Slack <img src="/data/img/slack.png" alt="Slack"> discussion forum
+</div>
 <br>
 
     <div>
-        <button class="button" onclick="window.location.href = 'null-space-part2.html';">&#x25C0;&nbsp;&nbsp; Echelon Form, pivot/free columns</button>
-        <button id="next-btn" class="button"  style="float: right;" onclick="window.location.href = 'null-space-part4.html';">Reduced Row Echelon Form&nbsp;&nbsp;&#x25B6;</button>
+        <button id="prev-btn" class="button" onclick="window.location.href = '/la/null-space/echelon-form/';">&#x25C0;&nbsp;&nbsp; Echelon Form, pivot/free columns</button>
+        <button id="next-btn" class="button"  style="float: right;" onclick="window.location.href = '/la/null-space/reduced-row-echelon-form/';">Reduced Row Echelon Form&nbsp;&nbsp;&#x25B6;</button>
     </div><br>
                             </section>
                         </div>
                 </div>
-                <!-- Highlight all -->
-                <script type="text/javascript">
-                    SyntaxHighlighter.all()
-                </script>
+
 
 
             <!-- Scripts -->

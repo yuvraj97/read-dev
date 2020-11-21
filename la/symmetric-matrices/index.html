@@ -12,6 +12,7 @@
         <link rel="stylesheet" href="/data/prism/prism.css">
 
 
+        <link rel="stylesheet" href="/data/assets/css/main.css">
         <link id="quantml-theme" rel="stylesheet" href="" />
         <link id="quantml-auth-style" rel="stylesheet" href="">
         <script src="/data/initialize-css.js"></script>
@@ -69,7 +70,7 @@
 </div><br>
 
 <p>
-<h2>Symmetric Matrices</h2>
+<h1>Symmetric Matrices</h1>
 
 Say we have a \(n\times n\) matrix \(A\) and <span class="bb">\(a_{ij}\in\mathbb{R}\)</span>.<br>
 \(A\) is <b>symmetric</b> if <span class="bb">\(A=A^T\)</span><br>
@@ -80,8 +81,8 @@ a_{11} & \color{red}{a_{12}} & \cdots & \color{blue}{a_{1n}} \\
 \color{blue}{a_{n1}} & \color{darkgreen}{a_{n2}} & \cdots & a_{nn} \\
 \end{bmatrix}  \\ \quad \\
 a_{ij}=a_{ji}\]
-<span id="properties"><b>Properties of a Symmetric matrix</b>,</span><br>
-<blockquote>\(1.\quad\) Eigenvalues of a symmetric matrix are <b>real</b></blockquote>
+<h2 id="properties">Properties of Symmetric matrices</h2>
+<blockquote>\(1.\quad\) Eigenvalues of symmetric matrices are <b>real</b></blockquote>
 <!--<hr style="width:50%;height:3px;border:none;color:#fff;background-color:#d8d8d8;" />-->
 <b>Explanation:</b><br>
 <blockquote class="noborder">
@@ -114,8 +115,8 @@ a_{ij}=a_{ji}\]
     It is only possible if complex part of \(\lambda\) is \(0\) so <i>eigenvalues</i> are indeed Real.  <span style="float: right;">✅</span>
 </dd><br>
 </blockquote><br>
-<br>
-<blockquote id="p2" style="background-color:#ECF1F6;  border-left-color:#467AAC">\(2.\quad\) For a symmetric matrix we can get <b>orthonormal</b> eigenvectors</blockquote>
+
+<blockquote id="p2">\(2.\quad\) For a symmetric matrix we can get <b>orthonormal</b> eigenvectors</blockquote>
 <!--<hr style="width:50%;height:3px;border:none;color:#fff;background-color:#d8d8d8;" />-->
 <b>Explanation:</b><br>
 <blockquote class="noborder">
@@ -129,21 +130,17 @@ q_1    &  q_2   & \cdots   &  q_n   \\
 \end{bmatrix}\]
 So <span class="bb">\(A=Q\Lambda Q^{-1}\)</span> we discussed it <a  href="/la/diagonalization/">HERE</a><br>
 And because \(Q\) is an orthonormal matrix so <span class="bb">\(Q^{-1}=Q^T\)</span> we discussed it <a  href="/la/orthonormal-vectors/">HERE</a> so,<br>
-<h3>
+<h2>
 <div class="math-border">
 \[  \begin{matrix}
-        \\    %blank line
-    \quad 
-    
+
     % equation
     A=Q\Lambda Q^{T}
     %equation
-    
-    \quad\\
-        \\    %blank line
+
     \end{matrix}
 \]
-</div></h3>
+</div></h2>
 So we can write it as,<br>
 <div class="math-container">
 \[A=
@@ -170,15 +167,11 @@ So we can write it as,<br>
 So,
 <div class="math-border">
 \[  \begin{matrix}
-        \\    %blank line
-    \quad 
-    
+
     % equation
     \displaystyle A=\lambda_1q_1q_1^T + \lambda_2q_2q_2^T + \cdots + \lambda_nq_nq_n^T
     %equation
-    
-    \quad\\
-        \\    %blank line
+
     \end{matrix}
 \]
 </div>
@@ -205,19 +198,17 @@ And for a Symmetric matrix,<br>
 
 </dd></dl>
 </blockquote><br>
-<br>
 
-<h4 id="pos-def">Positive Definite Symmetric Matrices</h4>
+<h2 id="pos-def">Positive Definite Symmetric Matrices</h2>
 <b>Facts:</b><br>
 For a Symmetric Matrix to be Positive Definite all <i>eigenvalues</i> must be <b>positive</b>.<br>
 If all <i>eigenvalues</i> are <b>positive</b> then all <i>pivots</i> are also positive.<br>
 For a Symmetric Matrix to be Positive Definite all <i>leading determinant</i> must be <b>positive</b>.<br>
 </p>
 
-<br>
 <div class="slack-discuss" onclick=" window.open('https://join.slack.com/t/quantml-org/shared_invite/zt-hcmbg7fr-jPbVAUT_tjGPaKWU50qMYQ','_blank')">
-						    Join our Slack <img src="/data/img/slack.png" alt="Slack"> discussion forum
-						</div>
+    Join our Slack <img src="/data/img/slack.png" alt="Slack"> discussion forum
+</div>
 <br>
 
 <div id="btn-container">

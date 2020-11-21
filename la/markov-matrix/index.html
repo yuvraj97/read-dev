@@ -13,6 +13,7 @@
     
 
 
+        <link rel="stylesheet" href="/data/assets/css/main.css">
         <link id="quantml-theme" rel="stylesheet" href="" />
         <link id="quantml-auth-style" rel="stylesheet" href="">
         <script src="/data/initialize-css.js"></script>
@@ -70,7 +71,7 @@
 </div><br>
 
 <p>
-<h2>Markov Matrix</h2>
+<h1>Markov Matrix</h1>
 
 A \(n\times n\) matrix whose elements are <b>non-negative</b> and every column vector sums to \(1\) 
 is known as <b>Markov Matrix</b>(aka <b>stochastic matrix</b>).<br>
@@ -176,18 +177,15 @@ Now say that <i>eigenvalues</i> of \(M\) is \(\lambda_1\) and \(\lambda_2\) and 
 So,<br>
 <div class="math-container math-border">
 \[  \begin{matrix}
-        \\    %blank line
-    \quad 
-    
+
     % equation
     \displaystyle \vec{u}_{t=k}=c_1\lambda_1^k\vec{u}_{t=0} + c_2\lambda_2^k\vec{u}_{t=0} 
     %equation
-    
-    \quad\\
-        \\    %blank line
+
     \end{matrix}
 \]
 </div>
+<br>
 
 <h2 id="expansion">Expansion with Orthogonal basis</h2>
 Say that we are in \(n\) dimensional space and \(\vec{q}_1, \vec{q}_2, \cdots, \vec{q}_n\) are the <b>basis</b> for that \(n\) dimensional space.<br>
@@ -209,15 +207,11 @@ so take dot product w.r.t. \(x_1\).<br>
 \(\Rightarrow x_1=\vec{v}^T\vec{q}_1\)<br>
 <div class="math-container math-border">
 \[  \begin{matrix}
-        \\    %blank line
-    \quad 
-    
+
     % equation
     \displaystyle x_i=\vec{v}^T\vec{q}_i;\quad\forall i\in\{1,2,\cdots, n\}
     %equation
-    
-    \quad\\
-        \\    %blank line
+
     \end{matrix}
 \]
 </div>
@@ -243,21 +237,17 @@ We can also write it in matrix form,<br>
 \(\Rightarrow \underbrace{Q^TQ}_{\mathcal{I}}\vec{x}=Q^T\vec{v}\)<br>
 <div class="math-border">
 \[  \begin{matrix}
-        \\    %blank line
-    \quad 
-    
+
     % equation
     \displaystyle \vec{x}=Q^T\vec{v}
     %equation
-    
-    \quad\\
-        \\    %blank line
+
     \end{matrix}
 \]
 </div>
 <br>
 
-<h2 id="fourier">Fourier Series</h2>
+<h1 id="fourier">Fourier Series</h1>
 <div class="math-container">
 \[f(x)=a_0 1+a_1\cos(x)+b_1\sin(x)+a_2\cos(2x)+b_2\sin(2x)+\cdots\]
 </div>
@@ -278,15 +268,11 @@ Here our space is \(\infty\) dimensional<br>
     And a dot product of two functions say \(f\) and \(g\) with interval \([0,2\pi]\) is defined as.<br>
     <div class="math-border">
     \[  \begin{matrix}
-            \\    %blank line
-        \quad 
-        
+            
         % equation
          f\cdot g=\int_{0}^{2\pi}f(x)g(x)dx
         %equation
-        
-        \quad\\
-            \\    %blank line
+
         \end{matrix}
     \]
     </div>
@@ -313,25 +299,20 @@ First let's see how to find \(a_1\)?<br>
 So,
 <div class="math-border">
 \[  \begin{matrix}
-        \\    %blank line
-    \quad 
-    
+
     % equation
     a_1=\frac{1}{\pi}\int_{0}^{2\pi}f(x)\cos(x)
     %equation
-    
-    \quad\\
-        \\    %blank line
+
     \end{matrix}
 \]
 </div>
 Similarly we can find rest of \(a_i\)'s
 </p>
 
-<br>
 <div class="slack-discuss" onclick=" window.open('https://join.slack.com/t/quantml-org/shared_invite/zt-hcmbg7fr-jPbVAUT_tjGPaKWU50qMYQ','_blank')">
-						    Join our Slack <img src="/data/img/slack.png" alt="Slack"> discussion forum
-						</div>
+    Join our Slack <img src="/data/img/slack.png" alt="Slack"> discussion forum
+</div>
 <br>
 
 <div id="btn-container">

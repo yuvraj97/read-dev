@@ -12,6 +12,7 @@
         <link rel="stylesheet" href="/data/prism/prism.css">
 
 
+        <link rel="stylesheet" href="/data/assets/css/main.css">
         <link id="quantml-theme" rel="stylesheet" href="" />
         <link id="quantml-auth-style" rel="stylesheet" href="">
         <script src="/data/initialize-css.js"></script>
@@ -70,7 +71,6 @@
 
 <p>
 <h1>4 fundamental subspaces</h1>
-<br>
 
 Our \(4\) fundamental subspaces are,<br>
 <li><a  href="/la/complete-space/">Column Space\((C(A))\)</a></li>
@@ -97,12 +97,11 @@ So <b>Row space</b> of matrix \(A\) is the Column Space of matrix \(A^T\).<br>
 Say we have a \(m\times n\) matrix \(A\).<br>
 Then <b>Left Null Space</b> is the Null Space of \(A^T\), so, <br>
 <blockquote>For a matrix \(A\) the <b>Left Null space</b> is the space of all \(\vec{x}\) that solves \(A^T\vec{x}=\vec{0}\)</blockquote><br>
+
+<h1 id="dim">Dimensions of fundamental spaces</h1>
 <br>
 
-<h2 id="dim">Dimensions of fundamental spaces</h2>
-<br>
-
-<h4 id="dim-column-space">Dimensions of Column space</h4>
+<h2 id="dim-column-space">Dimensions of Column space</h2>
 Say we have a \(m\times n\) matrix \(A\) and \(\text{Rank}(A)=r\).<br>
 Here we have \(n\) columns and each column have \(m\) components.<br>
 <blockquote>
@@ -115,9 +114,8 @@ The <b>Column space</b> of \(A\) is spanned by these \(r\) <b>independent column
 So then dimension of the <b>column space</b> is \(r\).<br>
 \[\text{dim }C(A)=r\]
 </blockquote><br>
-<br>
 
-<h4 id="dim-null-space">Dimensions of Null space</h4>
+<h2 id="dim-null-space">Dimensions of Null space</h2>
 Say we have a \(m\times n\) matrix \(A\) and \(\text{Rank}(A)=r\).<br>
 For matrix \(A\) the <b>Null space</b> is the space of all \(\vec{x}\) that solves \(A\vec{x}=\vec{0}\).<br>
 <blockquote>
@@ -131,9 +129,8 @@ The <b>Null space</b> is spanned by these \(n-r\) <b>dependent column vector</b>
 So then dimension of the <b>null space</b> of matrix \(A\) is \(n-r\).<br>
 \[\text{dim }N(A)=n-r\]
 </blockquote><br>
-<br>
 
-<h4 id="dim-row-space">Dimensions of Row space</h4>
+<h2 id="dim-row-space">Dimensions of Row space</h2>
 Say we have a \(m\times n\) matrix \(A\) and \(\text{Rank}(A)=r\).<br>
 Here we have \(m\) rows and each row have \(n\) components.<br>
 <blockquote>
@@ -150,9 +147,8 @@ the <b>Column space</b> of \(A^T\) is spanned by these \(r\) <b>independent colu
 So then dimension of the <b>row space</b> of matrix \(A\) is \(r\).<br>
 \[\text{dim }C(A^T)=r\]
 </blockquote><br>
-<br>
 
-<h4 id="dim-left-null-space">Dimensions of Left Null space</h4>
+<h2 id="dim-left-null-space">Dimensions of Left Null space</h2>
 Say we have a \(m\times n\) matrix \(A\) and \(\text{Rank}(A)=r\).<br>
 For a matrix \(A\) the <b>Left Null space</b> is the space of all \(\vec{x}\) that solves \(A^T\vec{x}=\vec{0}\).<br>
 <blockquote>
@@ -171,10 +167,10 @@ So then dimension of the <b>left null space</b> is \(m-r\).<br>
 <br><img  src="/la/img/fundamental-subspaces.png" width="447" height="357" alt=""><br>
 <br>
 
-<h2 id="basis">Basis of fundamental spaces</h2>
+<h1 id="basis">Basis of fundamental spaces</h1>
 <br>
 
-<h4 id="basis-column">Basis of Column space</h4>
+<h2 id="basis-column">Basis of Column space</h2>
 Say we have a \(m\times n\) matrix \(A\) and \(\text{Rank}(A)=r\).<br>
 <blockquote>
 Here we have \(r\) <b>independent columns</b> in \(A\).<br>
@@ -183,7 +179,7 @@ And these <b>independent columns</b> are the basis of <b>Column space</b>.
 We talked about <b>Basis of Column space</b> <a  href="/la/rank/#cs">[HERE]</a><br>
 <br>
 
-<h4 id="basis-null">Basis of Null space</h4>
+<h2 id="basis-null">Basis of Null space</h2>
 Say we have a \(m\times n\) matrix \(A\) and \(\text{Rank}(A)=r\).<br>
 <blockquote>
 Here we have \(n-r\) <b>special solutions</b>.<br>
@@ -192,7 +188,7 @@ And these <b>special solutions</b> are the basis of <b>Null space</b>.
 We talked about <b>Basis of Null space</b> <a  href="/la/rank/#ns">[HERE]</a><br>
 <br>
 
-<h4 id="basis-row">Basis of Row space</h4>
+<h2 id="basis-row">Basis of Row space</h2>
 Say we have a \(m\times n\) matrix \(A\) and \(\text{Rank}(A)=r\).<br>
 <blockquote>
 \(\text{Rank}(A)=r\Rightarrow\) \(\text{Rank}(A^T)=r\) so here we have \(r\) 
@@ -228,7 +224,7 @@ So our basis are
 \(\begin{bmatrix} 0\\1\\1\\0\\ \end{bmatrix}\)
 </dd></dl>
 
-<h4 id="basis-left-null">Basis of Left Null space</h4>
+<h2 id="basis-left-null">Basis of Left Null space</h2>
 Say we have a \(m\times n\) matrix \(A\) and \(\text{Rank}(A)=r\).<br>
 For matrix \(A\) the <b>Left Null space</b> is the space of all \(\vec{x}\) that solves \(A^T\vec{x}=\vec{0}\).<br>
 When we reduce \(A\) in <b>reduced row echelon form</b>, then <b># zero</b> rows are \(m-r\).<br>
@@ -294,13 +290,11 @@ So our <b>left null space</b> is,<br>
 \quad c\in\mathbb{R}\]
 
 </dd></dl>
-<br><br>
 </p>
 
-<br>
 <div class="slack-discuss" onclick=" window.open('https://join.slack.com/t/quantml-org/shared_invite/zt-hcmbg7fr-jPbVAUT_tjGPaKWU50qMYQ','_blank')">
-						    Join our Slack <img src="/data/img/slack.png" alt="Slack"> discussion forum
-						</div>
+    Join our Slack <img src="/data/img/slack.png" alt="Slack"> discussion forum
+</div>
 <br>
 
 <div id="btn-container">

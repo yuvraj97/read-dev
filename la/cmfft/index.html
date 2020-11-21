@@ -12,6 +12,7 @@
         <link rel="stylesheet" href="/data/prism/prism.css">
 
 
+        <link rel="stylesheet" href="/data/assets/css/main.css">
         <link id="quantml-theme" rel="stylesheet" href="" />
         <link id="quantml-auth-style" rel="stylesheet" href="">
         <script src="/data/initialize-css.js"></script>
@@ -67,7 +68,7 @@
 </div><br>
 
 <p>
-<h2>Complex Matrices</h2>
+<h1>Complex Matrices</h1>
 
 Say we have a vector \(\vec{z}\in\mathbb{C}^n\) here elements of \(\vec{z}\) are complex, \(z_i=a_i+ib_i\)<br>
  \(\vec{z}=\begin{bmatrix} z_1\\z_2\\ \vdots \\z_n\\  \end{bmatrix}\) how can we find the length of vector \(\vec{z}\)<br>
@@ -76,7 +77,7 @@ Say we have a vector \(\vec{z}\in\mathbb{C}^n\) here elements of \(\vec{z}\) are
     \(\|z_i\|=\|\overline{z_i}\|\|z_i\|\)<br>
     \(\|z_i\|=(a_i - ib_i)(a_i + ib_i)\)<br>
     \(\|z_i\|=a_i^2 + b_i^2\)<br>
-</blockquote><br>
+</blockquote>
 We can get the magnitude of \(\vec{z}\) by taking dot product \(\vec{z}\cdot\vec{z}\), but how to take the dot product of of two complex vectors.<br>
 <blockquote class="noborder">
     We can <b>not</b> compute dot product like \(\vec{z}\cdot\vec{z}=\vec{z}^T\vec{z}\)<br>
@@ -86,15 +87,11 @@ We can get the magnitude of \(\vec{z}\) by taking dot product \(\vec{z}\cdot\vec
     Magnitude of a complex vector is given as,<br>
     <div class="math-border">
     \[\begin{matrix}
-            \\    %blank line
-        \quad 
-        
+            
         % equation
         \|\mathbf{z}\|=\mathbf{z}\cdot\mathbf{z}=\mathbf{\overline{z}}^T\mathbf{z};\quad \mathbf{z}\in\mathbb{C}^n
         %equation
-        
-        \quad\\
-            \\    %blank line
+
         \end{matrix}
     \]
     </div>
@@ -110,40 +107,32 @@ We can get the magnitude of \(\vec{z}\) by taking dot product \(\vec{z}\cdot\vec
 <b>Dot product</b> between two complex vector say \(\mathbf{u},\mathbf{v} \in\mathbb{C}^n\) is given as.<br>
 <div class="math-border">
 \[  \begin{matrix}
-        \\    %blank line
-    \quad 
-    
+
     % equation
     \mathbf{u}\cdot\mathbf{v}=\mathbf{\overline{u}}^T\mathbf{v}=\mathbf{u}^H\mathbf{v};\quad \mathbf{u},\mathbf{v}\in\mathbb{C}^n
     %equation
-    
-    \quad\\
-        \\    %blank line
+
     \end{matrix}
 \]
 </div><br>
 
-<h3 id="complex-symmetric-matrices">Complex symmetric matrices</h3>
+<h2 id="complex-symmetric-matrices">Complex symmetric matrices</h2>
 What we have seen for symmetric matrix is \(A^T=A\) but it's only true if all the elements of \(A\) are <b>Real</b>.<br>
 A <b>Complex matrix</b> is <i>symmetric</i> if 
 <div class="math-border">
 \[  \begin{matrix}
-        \\    %blank line
-    \quad 
-    
+
     % equation
     \overline{A}^T=A
     %equation
-    
-    \quad\\
-        \\    %blank line
+
     \end{matrix}
 \]
 </div>
 And these matrices are known as <b>Hermitian matrices</b>.<br>
 <br>
 
-<h3 id="complex-orthogonal-matrices">Complex Orthogonal Matrices</h3>
+<h2 id="complex-orthogonal-matrices">Complex Orthogonal Matrices</h2>
 Say we have an orthogonal matrix \(Q\in\mathbb{C}^{n\times n}\) whose column vectors are perpendicular to each other.<br>
 \[Q=\begin{bmatrix}
 \vdots & \vdots &          & \vdots \\  
@@ -160,15 +149,11 @@ q_1    &  q_2   & \cdots   &  q_n   \\
 And we can also say,<br>
 <div class="math-border">
 \[  \begin{matrix}
-        \\    %blank line
-    \quad 
-    
+
     % equation
     \overline{Q}^TQ=Q^HQ=\mathcal{I}
     %equation
-    
-    \quad\\
-        \\    %blank line
+
     \end{matrix}
 \]
 </div>
@@ -181,15 +166,11 @@ Now assume we have \(n\) samples \((f_0,f_2,\cdots,f_{n-1})\) from a signal \(f\
 Using these \(n\) samples we want to approximate the there fourier coefficient \((\hat{f}_0, \hat{f}_1, \cdots , \hat{f}_{n-1})\).<br>
 <div class="math-border">
 \[  \begin{matrix}
-        \\    %blank line
-    \quad 
-    
+
     % equation
     \displaystyle \hat{f}_k=\sum_{j=0}^{n-1}f_j \exp\left(\frac{-i2\pi jk}{n}\right)
     %equation
-    
-    \quad\\
-        \\    %blank line
+
     \end{matrix}
 \]
 </div>
@@ -197,15 +178,11 @@ Using these \(n\) samples we want to approximate the there fourier coefficient \
 Say, 
 <div class="math-border">
 \[  \begin{matrix}
-        \\    %blank line
-    \quad 
-    
+
     % equation
     \displaystyle \omega_n=\exp\left(\frac{i2\pi}{n}\right)
     %equation
-    
-    \quad\\
-        \\    %blank line
+
     \end{matrix}
 \]
 </div>
@@ -228,15 +205,11 @@ We can rewrite the above equations as,<br>
     <b>DFT matrix</b> is an <b>Orthogonal Matrix</b>, all <b>column vectors</b> are <b>orthogonal</b> to each other.
     <div class="math-border">
     \[  \begin{matrix}
-            \\    %blank line
-        \quad 
-        
+            
         % equation
         \overline{F}_n^TF_n=F_n^HF_n=\mathcal{I}_n
         %equation
-        
-        \quad\\
-            \\    %blank line
+
         \end{matrix}
     \]
     </div>
@@ -248,9 +221,7 @@ This problem is solved by <b>Fast Fourier Transform</b><br>
 <b>IDEA</b> behind <b>FFT</b> is we can write \(F_n\) as,<br>
 <div class="math-border">
 \[\begin{matrix}
-        \\    %blank line
-    \quad 
-    
+
     % equation
     F_n = 
     \begin{bmatrix} \mathcal{I}_{n/2} & -D_{n/2}\\
@@ -261,9 +232,7 @@ This problem is solved by <b>Fast Fourier Transform</b><br>
     \end{bmatrix}
     P_n
     %equation
-    
-    \quad\\
-        \\    %blank line
+
     \end{matrix}
 \]
 </div>
@@ -304,10 +273,9 @@ So here <b>FFT</b> is more then \(200x\) faster then <b>DFT</b><!--
     https://youtu.be/E8HeD-MUrjY?list=PLMrJAkhIeNNRjxJ_sMtJ02geqw_-vuB7O
 --></p>
 
-<br>
 <div class="slack-discuss" onclick=" window.open('https://join.slack.com/t/quantml-org/shared_invite/zt-hcmbg7fr-jPbVAUT_tjGPaKWU50qMYQ','_blank')">
-						    Join our Slack <img src="/data/img/slack.png" alt="Slack"> discussion forum
-						</div>
+    Join our Slack <img src="/data/img/slack.png" alt="Slack"> discussion forum
+</div>
 <br>
 
 <div id="btn-container">

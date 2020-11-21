@@ -23,6 +23,7 @@
 
 
 
+        <link rel="stylesheet" href="/data/assets/css/main.css">
         <link id="quantml-theme" rel="stylesheet" href="" />
         <link id="quantml-auth-style" rel="stylesheet" href="">
         <script src="/data/initialize-css.js"></script>
@@ -62,7 +63,7 @@
                         <ul class="links">
                             <li class="cover"><a href="/la/"><img src="/data/img/linear-algebra-cover.png" alt="Linear Algebra"></a></li>
                             <li class="active"><a href="/la/projection/">Projection</a></li>
-                            <li><a href="least-squares.html">Least Squares(Application of projection)</a></li>
+                            <li><a href="/la/least-squares/">Least Squares(Application of projection)</a></li>
                         </ul>
                         <ul class="icons">
                             <li><a target="_blank" href="https://quantml.org/"><img src="/data/img/icon.png" alt="QuantML"></a></li>
@@ -75,15 +76,15 @@
                 <!-- Main -->
                     <div id="main">
                         <section class="post">
-<div>
-    <button class="button" onclick="window.location.href = '/la/orthogonal-subspaces/';">&#x25C0;&nbsp;&nbsp;Orthogonal Subspaces</button>
-    <button class="button"  style="float: right;" onclick="window.location.href = 'least-squares.html';">Least Squares&nbsp;&nbsp;&#x25B6;</button>
+<div id="btn-container">
+    <button id="prev-btn" class="button" onclick="window.location.href = '/la/orthogonal-subspaces/';">&#x25C0;&nbsp;&nbsp;Orthogonal Subspaces</button>
+    <button id="next-btn" class="button"  style="float: right;" onclick="window.location.href = '/la/least-squares/';">Least Squares&nbsp;&nbsp;&#x25B6;</button>
 </div><br>
 
 <p>
-<h1>Projection</h1>
+<!-- <h1>Projection</h1> -->
 
-<h2 id="vec-proj">Vector Projection</h2>
+<h1 id="vec-proj">Vector Projection</h1>
 
 <img src="/la/img/proj-0.png" width="184" height="136" alt="" style="float:right">
 Say that we have two vector <span class="bb">\(\vec{v}\in\mathbb{R}^2\)</span> and <span class="bb">\(\vec{u}\in\mathbb{R}^2\)</span>.<br>
@@ -95,7 +96,7 @@ But let's first ask what is the space of \(\vec{v}\)?<br>
     We are asking for the space of <b>a single vector</b>, a single vector can only give us a
     space in \(\mathbb{R}\) which is a <b>line</b>.<br>
     So the <b>span</b> of \(\vec{v}\) is \(C\vec{v};\quad C\in\mathbb{R}\) 
-</blockquote><br>
+</blockquote>
 Now we have to find a vector <b>closest</b> to \(\vec{w}\) in the <b>vector space</b> of \(\vec{v}\).<br>
 Let's call this <b>closest</b> vector as \(\vec{p}\), 
 this \(\vec{p}\) is the projection of \(\vec{w}\) on \(\vec{v}\).<br>
@@ -115,7 +116,7 @@ So,<br>
 \[\Rightarrow x=\frac{\vec{v}^T \vec{w}}{\vec{v}^T\vec{v}} \in\mathbb{R}\]
 <b>Projection</b> of \(\vec{w}\) on \(\vec{v}\) is <span class="bb">\(\vec{p}=\vec{v}x\)</span><br>
 <br>
-<h3 id="vector-projection-matrix">Projection Matrix of a vector</h3>
+<h1 id="vector-projection-matrix">Projection Matrix of a vector</h1>
 Say we have a vector <span class="bb">\(\vec{v}\in\mathbb{R}^n\)</span> now we want a <b>matrix</b> that gives us projection 
 of <b>any</b> vector onto this vector \(\vec{v}\), we call this matrix a <b>projection matrix</b>.<br>
 Say this projected vector on \(\vec{v}\) be \(\vec{p}\).<br>
@@ -127,16 +128,13 @@ As we discussed above,<br>
 Projection matrix\((P)\) of a vector \(\vec{v}\) is
 
 <div class="math-border">
-\[    \begin{matrix}
-        \\    %blank line
-    \quad 
-    
+\[    
+    \begin{matrix}
+
     % equation
     \displaystyle P=\frac{\vec{v}\ \vec{v}^T}{\vec{v}^T\vec{v}} 
     %equation
-    
-    \quad\\
-        \\    %blank line
+
     \end{matrix}
 \]
 </div>
@@ -144,20 +142,20 @@ Projection matrix\((P)\) of a vector \(\vec{v}\) is
 <li>Columns of \(P\) is the <b>linear combinations</b> of \(\vec{v}\), so </li>
 <blockquote>    
 Column space of \(P\) is the vector space of \(\vec{v}\).<br>
-</blockquote><br>
+</blockquote>
 
 <li>We have our <b>Projection matrix</b>\((P)\) we can take <b>projection</b> of any vector 
 \(\vec{w}\) on \(\vec{v}\) by evaluating \(P\vec{w}\)</li>
 <blockquote>    
 In \(P\vec{w}\) we are taking the <b>linear combination</b> of \(\vec{v}\) so the resultant 
 projection of \(\vec{w}\) on \(\vec{v}\) lives in the <b>vector space</b> of \(\vec{v}\).<br>
-</blockquote><br>
+</blockquote>
 
 <li>What about the <b>rank</b> of \(P\)?</li>
 <blockquote>    
 Rank of \(P\) is \(1\).<br>
 Because all the columns of \(P\) is the <b>linear combination</b> of a <b>single vector</b> \(\vec{v}\).
-</blockquote><br>
+</blockquote>
 
 <li>Is \(P\) <b>symmetric</b>?</li>
 \(\displaystyle P= \frac{\vec{v} \vec{v}^T}{\vec{v}^T\vec{v}} \)<br>
@@ -167,7 +165,7 @@ Because all the columns of \(P\) is the <b>linear combination</b> of a <b>single
 So \(P\) is symmetric.
 <blockquote>    
 \[P=P^T\]
-</blockquote><br>
+</blockquote>
 
 <li>What if we apply the projection of a vector \(\vec{w}\) on \(\vec{v}\) <b>twice</b>?</li>
 When we apply the <b>projection</b> first time, we land in the <b>vector space</b> of \(\vec{v}\).<br>
@@ -180,7 +178,7 @@ So we can say that
 \[P^2=P\]
 </blockquote><br>
 <br>
-<h2 id="why-project">Why are we doing projection?</h2>
+<h1 id="why-project">Why are we doing projection?</h1>
 Ok we can find the projection of a vector on another vector, <b>but why</b> are we projecting the
 vector in the first place?<br>
 <b>What is the benefit of projecting a vector?</b><br>
@@ -259,9 +257,8 @@ is <b>closest</b> to \(\mathbb{Y}\)
 We can get this \(\widehat{\mathbb{Y}}\) by taking the <b>projection</b> of \(\mathbb{Y}\)
 onto the <b>column space</b> of \(\mathbb{A}\)
 </blockquote><br>
-<br>
 
-<h2 id="matrix-projection">Matrix Projection</h2>
+<h1 id="matrix-projection">Matrix Projection</h1>
 Say that we have a \(m\times n\) matrix <span class="bb">\(\mathbb{A}\in\mathbb{R}^{m\times n}\)</span> and a vector 
 <span class="bb">\(\vec{v}\in\mathbb{R}^n\)</span>.<br>
 Then <b>projection</b> of a vector \(\vec{v}\) on a matrix \(\mathbb{A}\) <i>generally</i> means <b>projection</b>
@@ -276,9 +273,8 @@ Projection of a vector \(\vec{v}\) on the,<br>
 <li><b>column space</b> of matrix \(\mathbb{A}\)</li>
 collectively gives us back our vector \(\vec{v}\)
 </blockquote><br>
-<br>
 
-<h3 id="matrix-projection-column">Projection onto the column space of a matrix</h3>
+<h2 id="matrix-projection-column">Projection onto the column space of a matrix</h2>
 Recall our <a  href="/la/projection/#example">previous example</a>, 
 here we have a system of equation <span class="bb">\(\mathbb{A}\mathbb{X}=\mathbb{Y}\)</span> where there is <b>no solution</b>.<br>
 Here problem was that there are <b>high chance</b> that \(\mathbb{Y}\) does <b>not</b> lives in <b>column space</b> of \(\mathbb{A}\), 
@@ -303,16 +299,13 @@ where \(\vec{a},\) \(\vec{b}\) and \(\vec{c}\) are the column vector of \(\mathb
 We can write it as,<br>
 
 <div class="math-border">
-\[    \begin{matrix}
-        \\    %blank line
-    \quad 
-    
+\[    
+    \begin{matrix}
+
     % equation
     \displaystyle \mathbb{A}^T(\mathbb{Y} - \widehat{\mathbb{Y}})=0
     %equation
-    
-    \quad\\
-        \\    %blank line
+
     \end{matrix}
 \]
 </div>
@@ -331,16 +324,13 @@ So \(\mathbb{Y} - \widehat{\mathbb{Y}}\) is  <b>perpendicular</b> to the <b>colu
 \(\Rightarrow \mathbb{A}^T\mathbb{A}\widehat{\mathbb{X}}=\mathbb{A}^T \mathbb{Y}\)<br>
 
 <div class="math-border">
-\[    \begin{matrix}
-        \\    %blank line
-    \quad 
-    
+\[    
+    \begin{matrix}
+
     % equation
     \displaystyle \widehat{\mathbb{X}}=\left(\mathbb{A}^T\mathbb{A}\right)^{-1}\mathbb{A}^T \mathbb{Y}
     %equation
-    
-    \quad\\
-        \\    %blank line
+
     \end{matrix}
 \]
 </div>
@@ -351,16 +341,13 @@ Our <b>projection</b> of \(\mathbb{Y}\) on the columnn space of \(\mathbb{A}\) i
 <li>Projection\((\widehat{\mathbb{Y}})\) of \(\mathbb{Y}\) on the <b>column space</b> of \(\mathbb{A}\):</li>
 
 <div class="math-border">
-\[    \begin{matrix}
-        \\    %blank line
-    \quad 
-    
+\[    
+    \begin{matrix}
+
     % equation
     \displaystyle \widehat{\mathbb{Y}}=\mathbb{A}\left(\mathbb{A}^T\mathbb{A}\right)^{-1}\mathbb{A}^T \mathbb{Y}
     %equation
-    
-    \quad\\
-        \\    %blank line
+
     \end{matrix}
 \]
 </div>
@@ -369,16 +356,13 @@ Our <b>projection</b> of \(\mathbb{Y}\) on the columnn space of \(\mathbb{A}\) i
 So our <b>Projection Matrix</b> is, 
 
 <div class="math-border">
-\[    \begin{matrix}
-        \\    %blank line
-    \quad 
-    
+\[    
+    \begin{matrix}
+
     % equation
     \displaystyle P=\mathbb{A}\left(\mathbb{A}^T\mathbb{A}\right)^{-1}\mathbb{A}^T
     %equation
-    
-    \quad\\
-        \\    %blank line
+
     \end{matrix}
 \]
 </div>
@@ -405,7 +389,6 @@ So we can say that
 <blockquote>    
 \[P^2=P\]
 </blockquote><br>
-<br>
 Let's look at the extreme cases,<br>
 Suppose we want to take projection of a vector \(\vec{b}\) in the <b>column space</b> of a matrix \(\mathbb{A}\).<br>
 
@@ -442,15 +425,14 @@ Suppose we want to take projection of a vector \(\vec{b}\) in the <b>column spac
 </dd></dl>
 </p>
 
-<br>
 <div class="slack-discuss" onclick=" window.open('https://join.slack.com/t/quantml-org/shared_invite/zt-hcmbg7fr-jPbVAUT_tjGPaKWU50qMYQ','_blank')">
-						    Join our Slack <img src="/data/img/slack.png" alt="Slack"> discussion forum
-						</div>
+    Join our Slack <img src="/data/img/slack.png" alt="Slack"> discussion forum
+</div>
 <br>
 
-<div>
-    <button class="button" onclick="window.location.href = '/la/orthogonal-subspaces/';">&#x25C0;&nbsp;&nbsp;Orthogonal Subspaces</button>
-    <button class="button"  style="float: right;" onclick="window.location.href = 'least-squares.html';">Least Squares&nbsp;&nbsp;&#x25B6;</button></div><br>
+<div id="btn-container">
+    <button id="prev-btn" class="button" onclick="window.location.href = '/la/orthogonal-subspaces/';">&#x25C0;&nbsp;&nbsp;Orthogonal Subspaces</button>
+    <button id="next-btn" class="button"  style="float: right;" onclick="window.location.href = '/la/least-squares/';">Least Squares&nbsp;&nbsp;&#x25B6;</button></div><br>
                         </section>
                     </div>
             </div>

@@ -12,6 +12,7 @@
         <link rel="stylesheet" href="/data/prism/prism.css">
 
 
+        <link rel="stylesheet" href="/data/assets/css/main.css">
         <link id="quantml-theme" rel="stylesheet" href="" />
         <link id="quantml-auth-style" rel="stylesheet" href="">
         <script src="/data/initialize-css.js"></script>
@@ -51,9 +52,9 @@
                         <ul class="links">
                             <li class="cover"><a href="/la/"><img src="/data/img/linear-algebra-cover.png" alt="Linear Algebra"></a></li>
                             <li><a href="/la/null-space/">Null Space</a></li>
-                            <li><a href="null-space-part2.html">Echelon Form, pivot/free columns</a></li>
-                            <li><a href="null-space-part3.html">Solve \(A\vec{x}=0\)</a></li>
-                            <li class="active"><a href="null-space-part4.html">Reduced Row Echelon Form</a></li>
+                            <li><a href="/la/null-space/echelon-form/">Echelon Form</a></li>
+                            <li><a href="/la/null-space/solve/">Solve \(A\vec{x}=0\)</a></li>
+                            <li class="active"><a href="/la/null-space/reduced-row-echelon-form/">RREF</a></li>
                         </ul>
                         <ul class="icons">
                             <li><a target="_blank" href="https://quantml.org/"><img src="/data/img/icon.png" alt="QuantML"></a></li>
@@ -67,16 +68,16 @@
                     <div id="main">
                         <section class="post">
 <div id="btn-container">
-    <button id="prev-btn" class="button" onclick="window.location.href = 'null-space-part3.html';">&#x25C0;&nbsp;&nbsp; Solve \(A\vec{x}=0\)</button>
+    <button id="prev-btn" class="button" onclick="window.location.href = '/la/null-space/solve/';">&#x25C0;&nbsp;&nbsp; Solve \(A\vec{x}=0\)</button>
     <button id="next-btn" class="button"  style="float: right;" onclick="window.location.href = '/la/complete-space/';">Solving \(A\vec{x}=\vec{b}\)&nbsp;&nbsp;&#x25B6;</button>
 </div><br>
 
 <p>
-    <a href="null-space-part2.html" >Previously</a> we saw how to get 
+    <a href="/la/null-space/echelon-form/" >Previously</a> we saw how to get 
     <b>echelon form, pivot/free column vectors</b> of a matrix say \(A\) also saw how to solve \(A\vec{x}=0\).<br>
     Now let's push it little further and see the <b>reduce row echelon form</b> of our matrix \(A\).<br>
 
-    <h2 id="rref">Reduced Row Echelon Form</h2>
+    <h1 id="rref">Reduced Row Echelon Form</h1>
     In <b>reduced row echelon form</b> we use elimination and make all elements \(0\) above and below <b>pivot</b> elements.<br>
     We saw the <b>echelon form</b> of \(A=\begin{bmatrix}
     1 & 2 & 2 & 2\\
@@ -220,28 +221,21 @@
     \(\begin{bmatrix} -2\\1\\0\\0\\ \end{bmatrix} \) and
     \(\begin{bmatrix} 2\\0\\-2\\1\\ \end{bmatrix}\)<br>
     \(x=\alpha \begin{bmatrix} -2\\1\\0\\0\\ \end{bmatrix} + \beta \begin{bmatrix} 2\\0\\-2\\1\\ \end{bmatrix};\quad\) \(\alpha,\beta\in\mathbb{R}\)<br>
-    <br>
-    
-    
     </p>
     
-<br>
 <div class="slack-discuss" onclick=" window.open('https://join.slack.com/t/quantml-org/shared_invite/zt-hcmbg7fr-jPbVAUT_tjGPaKWU50qMYQ','_blank')">
-						    Join our Slack <img src="/data/img/slack.png" alt="Slack"> discussion forum
-						</div>
+    Join our Slack <img src="/data/img/slack.png" alt="Slack"> discussion forum
+</div>
 <br>
 
     <div>
-        <button class="button" onclick="window.location.href = 'null-space-part3.html';">&#x25C0;&nbsp;&nbsp; Solve \(A\vec{x}=0\)</button>
+        <button id="prev-btn" class="button" onclick="window.location.href = '/la/null-space/solve/';">&#x25C0;&nbsp;&nbsp; Solve \(A\vec{x}=0\)</button>
         <button id="next-btn" class="button"  style="float: right;" onclick="window.location.href = '/la/complete-space/';">Solving \(A\vec{x}=\vec{b}\)&nbsp;&nbsp;&#x25B6;</button>
     </div><br>
                             </section>
                         </div>
                 </div>
-                <!-- Highlight all -->
-                <script type="text/javascript">
-                    SyntaxHighlighter.all()
-                </script>
+
 
 
             <!-- Scripts -->

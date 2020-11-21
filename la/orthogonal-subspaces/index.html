@@ -12,6 +12,7 @@
         <link rel="stylesheet" href="/data/prism/prism.css">
 
 
+        <link rel="stylesheet" href="/data/assets/css/main.css">
         <link id="quantml-theme" rel="stylesheet" href="" />
         <link id="quantml-auth-style" rel="stylesheet" href="">
         <script src="/data/initialize-css.js"></script>
@@ -69,27 +70,27 @@
 </div><br>
 
 <p>
-<h2>Orthogonal Subspaces</h2>
-Recall our \(4\) <a style="color:#0000EE;" href="/la/fundamental-subspaces/#main">fundamental subspaces</a> that are,<br>
-<li><a style="color:#0000EE;" href="/la/complete-space/">Column Space\((C(A))\)</a></li>
-<li><a style="color:#0000EE;" href="/la/null-space/">Null Space\((N(A))\)</a></li>
-<li><a style="color:#0000EE;" href="/la/fundamental-subspaces/#row-space">Row Space\((C(A^T))\)</a></li>
-<li><a style="color:#0000EE;" href="/la/fundamental-subspaces/#left-null-space">Left Null Space\((N(A^T))\)</a></li><br>
+<h1>Orthogonal Subspaces</h1>
+Recall our \(4\) <a href="/la/fundamental-subspaces/#main">fundamental subspaces</a> that are,<br>
+<li><a href="/la/complete-space/">Column Space\((C(A))\)</a></li>
+<li><a href="/la/null-space/">Null Space\((N(A))\)</a></li>
+<li><a href="/la/fundamental-subspaces/#row-space">Row Space\((C(A^T))\)</a></li>
+<li><a href="/la/fundamental-subspaces/#left-null-space">Left Null Space\((N(A^T))\)</a></li><br>
 <img  src="/la/img/fundamental-subspaces2.png" width="447" height="357" alt=""><br>
 <br>
 
-<h2 id="orthogonal-vector">Orthogonal Vector</h2>
+<h1 id="orthogonal-vector">Orthogonal Vector</h1>
 Orthogonal means perpendicular, say we have two \(n\) dimensional vectors,<br>
 \(\vec{v}=   \begin{bmatrix} v_1\\v_1\\\vdots\\v_n\\ \end{bmatrix}   \in\mathbb{R}^n\) and 
 \(\vec{w}=   \begin{bmatrix} w_1\\w_1\\\vdots\\w_n\\ \end{bmatrix}   \in\mathbb{R}^n\)
 then they are orthogonal if,<br>
 \[\vec{v}\cdot \vec{w}=0\]
 OR
-\[\vec{v}^T \vec{w}=0\]<br>
-<blockquote>\(\vec{0}\) is orthogonal to every vector.</blockquote><br> 
+\[\vec{v}^T \vec{w}=0\]
+<blockquote>\(\vec{0}\) is orthogonal to every vector.</blockquote>
 <br>
 
-<b id="pythagoras">Pythagoras right angles triangle</b> 
+<h2 id="pythagoras">Pythagoras right angles triangle</h2> 
 <blockquote class="noborder">
     Say we have two \(n\) dimensional vectors 
     \(\vec{x}=   \begin{bmatrix} x_1\\x_1\\\vdots\\x_n\\ \end{bmatrix}   \in\mathbb{R}^n\) and 
@@ -98,7 +99,7 @@ OR
     then the vectors \(\vec{x}, \vec{y}, \vec{x}+\vec{y}\) form a right angles triangle if, \(\vec{x}\) and
     \(\vec{y}\) are <b>orthogonal</b> <b>IF</b>.<br>
     \[\vec{x}^T \vec{y}=0\]
-    According to <a style="color:#0000EE;" href="https://en.wikipedia.org/wiki/Pythagorean_theorem">Pythagorean theorem</a>,<br>
+    According to <a href="https://en.wikipedia.org/wiki/Pythagorean_theorem">Pythagorean theorem</a>,<br>
     \( \|\vec{x}\|^2 + \|\vec{y}^2\| =\|\vec{x}+\vec{y}\|^2;\quad\)\(\color{red}{\text{if }\vec{x} \text{ and } \vec{y} \text{ are orthogonal}}\)<br>
 
     <DL><DD>
@@ -136,14 +137,14 @@ OR
 </blockquote><br>
 <br>
 
-<h2 id="orthogonal-subspaces">Orthogonal Subspaces</h2>
+<h1 id="orthogonal-subspaces">Orthogonal Subspaces</h1>
 We do understand orthogonal vectors, but what are orthogonal subspaces.<br>
 What is it meant for two subspaces to be orthogonal?<br>
 Let's consider two subspaces \(\mathbb{S}\)  and \(\mathbb{U}\).<br>
 \(\mathbb{S}\)  and \(\mathbb{U}\)  are orthogonal if,
 <blockquote class="noborder">
 Every vectors in \(\mathbb{S}\) is orthogonal to every vectors in \(\mathbb{U}\).
-</blockquote><br>
+</blockquote>
 
 <b>Example,</b>
 <blockquote class="noborder">
@@ -153,14 +154,13 @@ consider two vectors,<br>
 \(\vec{x}_{XY}=   \begin{bmatrix} 1\\1\\0\\ \end{bmatrix}   \in\mathbb{R}^n\), 
 \(\vec{y}_{YZ}=   \begin{bmatrix} 0\\1\\1\\ \end{bmatrix}   \in\mathbb{R}^n\)<br>
 and \(\vec{x}_{XY}\cdot\vec{y}_{YZ}\neq 0\) so they are not orthogonal to each other.
-</blockquote><br>
+</blockquote>
 
 <blockquote>
 If two subspaces meet on some vector then they are <b>not</b> orthogonal, except \(\vec{0}\).
 </blockquote><br>
-<br>
 
-<h3 id="row-null">Row space is orthogonal to null space</h3>
+<h2 id="row-null">Row space is orthogonal to null space</h2>
 
 Say that we have a \(m\times n\) matrix \(A\), then, <br>
 All vectors say \(\vec{x}\) is in the <b>null space</b> if \(A\vec{x}=\vec{0}\)<br>
@@ -200,12 +200,13 @@ then we can say that <b>Row space</b> is <b>orthogonal</b> to <b>Null space</b>.
     \(\Rightarrow c_ir_i^Tx=0;\quad \forall\ i=\{1,2,\cdots,m\}\) and \(c_i\in\mathbb{R}\)<br>
     so any combination of \(c_ir_i^Tx=0\).<br>
     So we can see that <b>linear combinations</b> of <b>row vectors</b> are orthogonal to \(\vec{x}\in N(A)\).<br>
-</blockquote><br>
+</blockquote>
 
 <blockquote>
     Now we can say that <b>Row space</b> is <b>orthogonal</b> to <b>Null space</b>.<br>
 </blockquote><br>
-<br><h3 id="column-leftnull">Column space is orthogonal to left null space</h3>
+
+<h2 id="column-leftnull">Column space is orthogonal to left null space</h2>
 
 Say that we have a \(m\times n\) matrix \(A\), then, <br>
 All vectors say \(\vec{x}\) is in the <b>left null space</b> if \(A^T\vec{x}=\vec{0}\)<br>
@@ -244,7 +245,7 @@ then we can say that <b>column space</b> is <b>orthogonal</b> to <b>left null sp
     \(\Rightarrow \alpha_ic_i^Tx=0;\quad \forall\ i=\{1,2,\cdots,n\}\) and \(\alpha_i\in\mathbb{R}\)<br>
     so any combination of \(\alpha_ic_i^Tx=0\).<br>
     So we can see that <b>linear combinations</b> of <b>column vectors</b> are orthogonal to \(\vec{x}\in N(A^T)\).<br>
-</blockquote><br>
+</blockquote>
 
 <blockquote>
     Now we can say that <b>Column space</b> is <b>orthogonal</b> to <b>Left null space</b>.<br>
@@ -252,10 +253,9 @@ then we can say that <b>column space</b> is <b>orthogonal</b> to <b>left null sp
 
 </p>
 
-<br>
 <div class="slack-discuss" onclick=" window.open('https://join.slack.com/t/quantml-org/shared_invite/zt-hcmbg7fr-jPbVAUT_tjGPaKWU50qMYQ','_blank')">
-						    Join our Slack <img src="/data/img/slack.png" alt="Slack"> discussion forum
-						</div>
+    Join our Slack <img src="/data/img/slack.png" alt="Slack"> discussion forum
+</div>
 <br>
 
 <div id="btn-container">

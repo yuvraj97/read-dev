@@ -12,6 +12,7 @@
         <link rel="stylesheet" href="/data/prism/prism.css">
 
 
+        <link rel="stylesheet" href="/data/assets/css/main.css">
         <link id="quantml-theme" rel="stylesheet" href="" />
         <link id="quantml-auth-style" rel="stylesheet" href="">
         <script src="/data/initialize-css.js"></script>
@@ -69,20 +70,16 @@
 </div><br>
 
 <p>
-<h2>Similar Matrices</h2>
+<h1>Similar Matrices</h1>
 Say we have two \(n\times n\) <b>square</b> matrices \(A\) and \(B\).<br>
 \(A\) and \(B\) are <b>similar matrices</b> if there exists some \(M\) such that,<br>
 <div class="math-border">
 \[  \begin{matrix}
-        \\    %blank line
-    \quad 
-    
+
     % equation
     B=M^{-1}AM
     %equation
-    
-    \quad\\
-        \\    %blank line
+
     \end{matrix}
 \]
 </div>
@@ -150,9 +147,11 @@ Here we can see that \(\underbrace{\begin{bmatrix} 2&1\\ 1&2 \end{bmatrix}}_{A},
     And \((\)eigenvectors of \(B)=M^{-1}\)(eigenvectors of \(A\))
 </blockquote><br>
 
-<b>What if we have same eigenvalues</b><br>
+<h3>What if we have same eigenvalues ?</h3>
+<blockquote>
 If we don't have all eigenvalues to be <b>different</b> then, there might not be \(n\) independent eigenvectors, so
-the matrix might not be <b>diagonalizable</b>.<br>
+the matrix might not be <b>diagonalizable</b>.
+</blockquote>
 
 <blockquote class="noborder">
 <b>Example</b><br>
@@ -169,7 +168,10 @@ the matrix might not be <b>diagonalizable</b>.<br>
     \(B=\begin{bmatrix} 4&0\\ 0&4 \end{bmatrix}\)<br>
     So similar matrix for \(A\) is <b>only</b> \(A\) itself.<br>
 </blockquote><br>
+
+<blockquote>
 It is <b>not</b> necessary that if our eigenvalues repeat then we can't have similar matrices.
+</blockquote>
 <blockquote class="noborder">
     <b>Example</b><br>
     Say \(A=\begin{bmatrix} 4&1\\ 0&4 \end{bmatrix}\) here eigenvalues are \(4,4\)<br>
@@ -181,10 +183,9 @@ It is <b>not</b> necessary that if our eigenvalues repeat then we can't have sim
 </blockquote>
     </p>
 
-<br>
 <div class="slack-discuss" onclick=" window.open('https://join.slack.com/t/quantml-org/shared_invite/zt-hcmbg7fr-jPbVAUT_tjGPaKWU50qMYQ','_blank')">
-						    Join our Slack <img src="/data/img/slack.png" alt="Slack"> discussion forum
-						</div>
+    Join our Slack <img src="/data/img/slack.png" alt="Slack"> discussion forum
+</div>
 <br>
 
 <div id="btn-container">

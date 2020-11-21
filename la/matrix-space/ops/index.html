@@ -12,6 +12,7 @@
         <link rel="stylesheet" href="/data/prism/prism.css">
 
 
+        <link rel="stylesheet" href="/data/assets/css/main.css">
         <link id="quantml-theme" rel="stylesheet" href="" />
         <link id="quantml-auth-style" rel="stylesheet" href="">
         <script src="/data/initialize-css.js"></script>
@@ -50,12 +51,10 @@
                     <nav id="nav">
                         <ul class="links">
                             <li class="cover"><a href="/la/"><img src="/data/img/linear-algebra-cover.png" alt="Linear Algebra"></a></li>
-                            <li><a href="/la/fundamental-subspaces/">&#x25C0;</a></li>
                             <li><a href="/la/matrix-space/">Matrix Space</a></li>
-                            <li><a href="/la/matrix-space/dim/">DIMENSION AND BASIS</a></li>
-                            <li class="active"><a href="/la/matrix-space/ops/">OPERATION ON SUBSPACES</a></li>
-                            <li><a href="/la/matrix-space/ex/">EXAMPLES</a></li>
-                            <li><a href="/la/orthogonal-subspaces/">&#x25B6;</a></li>
+                            <li><a href="/la/matrix-space/dim/">Dimension and Basis</a></li>
+                            <li class="active"><a href="/la/matrix-space/ops/">Operation on Subspaces</a></li>
+                            <li><a href="/la/matrix-space/ex/">Examples</a></li>
                         </ul>
                         <ul class="icons">
                             <li><a target="_blank" href="https://quantml.org/"><img src="/data/img/icon.png" alt="QuantML"></a></li>
@@ -75,7 +74,7 @@
 
 <p>
 
-<h2 id="op">Operation on subspaces</h2>
+<h1 id="op">Operation on subspaces</h1>
 Say \(\mathcal{S}\) denotes the space of <b>all</b> \(3\times 3\) <b>symmetric</b> matrices.<br>
 Say \(\mathcal{U}\) denotes the space of <b>all</b> \(3\times 3\) <b>lower triangular</b> matrices.<br>
 <br>
@@ -146,9 +145,9 @@ And it's a linear combinations in between elements of \(\mathcal{S}\) and \(\mat
 <div class="math-container">
 \[
 \begin{bmatrix}
-\color{}{\mathbb{R}}   & \color{red}{\mathbb{R}}  & \color{blue}{\mathbb{R}}  \\
-\color{red}{\mathbb{R}}   & \color{}{\mathbb{R}}  & \color{green}{\mathbb{R}}  \\
-\color{blue}{\mathbb{R}}   & \color{green}{\mathbb{R}}  & \color{}{\mathbb{R}}   \\
+            \mathbb{R}   & \color{red}{\mathbb{R}}  & \color{blue}{\mathbb{R}}  \\
+\color{red}{\mathbb{R}}   &             \mathbb{R}  & \color{green}{\mathbb{R}}  \\
+\color{blue}{\mathbb{R}}   & \color{green}{\mathbb{R}}  &             \mathbb{R}   \\
 \end{bmatrix}
 +
 \begin{bmatrix}
@@ -158,9 +157,9 @@ And it's a linear combinations in between elements of \(\mathcal{S}\) and \(\mat
 \end{bmatrix}
 =
 \begin{bmatrix}
-\color{}{2\mathbb{R}}                       & \color{red}{\mathbb{R}}  & \color{blue}{\mathbb{R}}  \\
-\color{red}{\mathbb{R}}+\color{}{\mathbb{R}}   & \color{}{2\mathbb{R}}                      & \color{green}{\mathbb{R}}  \\
-\color{blue}{\mathbb{R}}+\color{}{\mathbb{R}}   & \color{green}{\mathbb{R}}+\color{}{\mathbb{R}}  & \color{}{2\mathbb{R}} \\
+            2\mathbb{R}                       & \color{red}{\mathbb{R}}  & \color{blue}{\mathbb{R}}  \\
+\color{red}{\mathbb{R}}+            \mathbb{R}   &             2\mathbb{R}                      & \color{green}{\mathbb{R}}  \\
+\color{blue}{\mathbb{R}}+            \mathbb{R}   & \color{green}{\mathbb{R}}+            \mathbb{R}  &             2\mathbb{R} \\
 \end{bmatrix}
 \]
 </div>
@@ -170,9 +169,9 @@ equivalently,<br>
 <div class="math-container">
 \[
 \begin{bmatrix}
-\color{}{\mathbb{R}}   & \color{red}{\mathbb{R}}  & \color{blue}{\mathbb{R}}  \\
-\color{red}{\mathbb{R}}   & \color{}{\mathbb{R}}  & \color{green}{\mathbb{R}}  \\
-\color{blue}{\mathbb{R}}   & \color{green}{\mathbb{R}}  & \color{}{\mathbb{R}}   \\
+            \mathbb{R}   & \color{red}{\mathbb{R}}  & \color{blue}{\mathbb{R}}  \\
+\color{red}{\mathbb{R}}   &             \mathbb{R}  & \color{green}{\mathbb{R}}  \\
+\color{blue}{\mathbb{R}}   & \color{green}{\mathbb{R}}  &             \mathbb{R}   \\
 \end{bmatrix}
 +
 \begin{bmatrix}
@@ -193,9 +192,9 @@ now there is no boundation so,<br>
 <div class="math-container">
 \[
 \begin{bmatrix}
-\color{}{\mathbb{R}}   & \color{red}{\mathbb{R}}  & \color{blue}{\mathbb{R}}  \\
-\color{red}{\mathbb{R}}   & \color{}{\mathbb{R}}  & \color{green}{\mathbb{R}}  \\
-\color{blue}{\mathbb{R}}   & \color{green}{\mathbb{R}}  & \color{}{\mathbb{R}}   \\
+            \mathbb{R}   & \color{red}{\mathbb{R}}  & \color{blue}{\mathbb{R}}  \\
+\color{red}{\mathbb{R}}   &             \mathbb{R}  & \color{green}{\mathbb{R}}  \\
+\color{blue}{\mathbb{R}}   & \color{green}{\mathbb{R}}  &             \mathbb{R}   \\
 \end{bmatrix}
 +
 \begin{bmatrix}
@@ -223,13 +222,11 @@ We can also see it by a beautiful formula.<br>
 </div>
 </blockquote>
 (That is \(6 + 6 = 3 + 9\))<br>
-<br>
 </p>
 
-<br>
 <div class="slack-discuss" onclick=" window.open('https://join.slack.com/t/quantml-org/shared_invite/zt-hcmbg7fr-jPbVAUT_tjGPaKWU50qMYQ','_blank')">
-						    Join our Slack <img src="/data/img/slack.png" alt="Slack"> discussion forum
-						</div>
+    Join our Slack <img src="/data/img/slack.png" alt="Slack"> discussion forum
+</div>
 <br>
 
 <div id="btn-container">

@@ -12,6 +12,7 @@
         <link rel="stylesheet" href="/data/prism/prism.css">
 
 
+        <link rel="stylesheet" href="/data/assets/css/main.css">
         <link id="quantml-theme" rel="stylesheet" href="" />
         <link id="quantml-auth-style" rel="stylesheet" href="">
         <script src="/data/initialize-css.js"></script>
@@ -74,7 +75,7 @@ We <a href="/la/vector-space/">discussed</a> that a space is a <b>vector space</
 But what is this Column space? We know what is space, but what we meant by <b>Column</b>?<br>
 Here <b>Column</b> is referring to Column of a <b>matrix</b>.<br>
 <br>
-<h3 id="r3">Example in \(\mathbb{R}^3\)</h3>
+<h2 id="r3">Example in \(\mathbb{R}^3\)</h2>
 Consider a matrix
 \(A=\begin{bmatrix}
 1 & 2\\
@@ -91,11 +92,11 @@ So
 Column space of matrix \(A\) is defined by the <b>vector space</b> of these vectors \(\vec{u},\vec{v}\) and
 vector space of \(\vec{u},\vec{v}\) is all the <b>linear</b> combinations of
 vectors  \(\vec{u}\) and \(\vec{v}\).
-</blockquote> <br>
+</blockquote>
 How does that <b>vector space</b> look like?<br>
 <blockquote class="noborder">
 Here we can see \(\vec{u}\) and \(\vec{v}\) are non-parallel vectors so vector space of \(\vec{u}\) and \(\vec{v}\) is a <b>plane</b>.
-</blockquote><br>
+</blockquote>
 <details><summary><span class="bb">Equation of plane</span></summary>
 <div class="bb">
 General equation of plane is \(ax+by+cz+d=0\) we know this plane passes through origin so \(d=0\), and
@@ -127,7 +128,7 @@ You can get this MultiVariable class <a href="data/MultiVariable.py">HERE</a>
 <hr>
 </details>
 <br>
-<h3 id="r4">Example in \(\mathbb{R}^4\)</h3>
+<h2 id="r4">Example in \(\mathbb{R}^4\)</h2>
 Consider a matrix
 \(A=\begin{bmatrix}
 1 & 1 & 2\\
@@ -142,7 +143,7 @@ So
 Column space of matrix \(A\) is defined by the <b>vector space</b> of these vectors \(\vec{u},\vec{v},\vec{w}\) and
 vector space of \(\vec{u},\vec{v},\vec{w}\) is all the <b>linear</b> combinations of
 vectors  \(\vec{u},\vec{v}\) and \(\vec{w}\).
-</blockquote><br>
+</blockquote>
 How does that <b>vector space</b> look like?<br>
 <details>
 <summary><span class="bb">Does it fill the whole \(4\)-dimensional space?</span></summary>
@@ -179,7 +180,6 @@ How does that <b>vector space</b> look like?<br>
 </details>
 
 <blockquote>Column space of a matrix \(A\) is defined by all the <b>linear</b> combinations of it's column vectors.</blockquote>
-<br>
 Here we will denote the column space of matrix \(A\) as \(\mathbf{C}(A)\)<br>
 <br>
 <h2 id="matrix-notation">Matrix Notation</h2>
@@ -263,7 +263,7 @@ For \(\vec{b}=\begin{bmatrix} 1 \\ 4 \\ 6 \\  8 \\ \end{bmatrix} \quad \) \(\vec
 Now you can see that the \(\vec{b}\) that <b>can solve</b> this system of equation is the \(\vec{b}\) that is <b>in the</b> column space of matrix \(A\).<br>
 So \(\vec{b}\) is the linear combination of columns of matrix \(A\)<br>
 <br>
-<h3 id="dependency">Dependency</h3>
+<h2 id="dependency">Dependency</h2>
 You can see that in our matrix
 \(A=\begin{bmatrix}
 1 & 1 & 2\\
@@ -284,22 +284,20 @@ So say \(A'=\begin{bmatrix}
 4 & 8 \\
 \end{bmatrix}\)<br>
 Then \(A'\vec{x}\) will also give all possible \(\vec{b}\) that \(A\vec{x}\) can.<br>
-</blockquote><br>
+</blockquote>
 So we can say that
 <blockquote>
     Column space of \(A\) and \(A'\) are same, \(\mathbf{C}(A) = \mathbf{C}(A')\)
 </blockquote>
-<br>
 
 But we can't drop two columns from \(A\) because any two columns in our matrix \(A\) are independent of each other.<br>
 So we can say that Column space of matrix \(A\) is a \(2\)-dimensional subspace inside \(4\)-dimensional space.
 
 </p>
 
-<br>
 <div class="slack-discuss" onclick=" window.open('https://join.slack.com/t/quantml-org/shared_invite/zt-hcmbg7fr-jPbVAUT_tjGPaKWU50qMYQ','_blank')">
-						    Join our Slack <img src="/data/img/slack.png" alt="Slack"> discussion forum
-						</div>
+    Join our Slack <img src="/data/img/slack.png" alt="Slack"> discussion forum
+</div>
 <br>
 
 <div id="btn-container">

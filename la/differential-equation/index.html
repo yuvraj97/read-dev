@@ -13,6 +13,7 @@
     
 
 
+        <link rel="stylesheet" href="/data/assets/css/main.css">
         <link id="quantml-theme" rel="stylesheet" href="" />
         <link id="quantml-auth-style" rel="stylesheet" href="">
         <script src="/data/initialize-css.js"></script>
@@ -75,7 +76,7 @@
     If you spot an error then please tell me about that error in our discussion form.<br>
 </blockquote>
 <p>
-<h2>Matrix Exponential</h2>
+<h1>Matrix Exponential</h1>
 Before we dive into <b>Differential Equation</b> first let's see what meant by <b>Matrix Exponential</b>.<br>
 We are familiar with <a  href="https://en.wikipedia.org/wiki/Taylor_series#Exponential_function">power series of \(e^{x}\) .</a><br>
 \[e^x=1+x+\frac{x^2}{2!}+\frac{x^3}{3!}+\cdots\]
@@ -185,7 +186,7 @@ Then power series of \(e^A\) is,<br>
 
 <br>
 
-<h2 id="diff">Differential Equation</h2>
+<h1 id="diff">Differential Equation</h1>
 We have a vector \(\vec{u}=    \begin{bmatrix} u_1\\u_2\\\vdots\\u_n \end{bmatrix}\in\mathbb{R}^n\) and a \(n\times n\) matrix \(A\).<br>
 \(\vec{u}(t_0)=\vec{u}_0\)<br>
 And we want to solve a differential equation,<br>
@@ -351,7 +352,8 @@ We also discussed that \(\displaystyle e^{At}=Se^{(\Lambda t)}S^{-1}\) so,<br>
 \(\vec{u}(t)=cSe^{(\Lambda t)}S^{-1}\vec{x}\)<br>
 And we can get the value of \(c\) using initial condition \(\vec{u}(t_0)=\vec{u}_0\) so,<br>
 <div class="math-border">
-\[  \begin{matrix}
+\[
+    \begin{matrix}
         \\    %blank line
     \quad 
     
@@ -361,12 +363,13 @@ And we can get the value of \(c\) using initial condition \(\vec{u}(t_0)=\vec{u}
     
     \quad\\
         \\    %blank line
-    \end{matrix}_{\quad✅}
+    \end{matrix}_{\quad\quad✅}
 \]
 </div>
 </blockquote>
 
-<h3 id="states">States</h3>
+<br>
+<h1 id="states">States</h1>
 <div class="math-container">
 \[\vec{u}(t) = C_1e^{\lambda_1 t}\vec{x}_1 + C_2e^{\lambda_2 t}\vec{x}_2 + \cdots + C_ne^{\lambda_n t}\vec{x}_n\]
 </div>
@@ -401,7 +404,7 @@ So we can say that for a blow-up \(\exists \lambda_k \gt 0 ;\quad k\in\{1,2,3,\c
 </dd></dl>
 </p>
 
-<br>
+
 <div class="slack-discuss" onclick=" window.open('https://join.slack.com/t/quantml-org/shared_invite/zt-hcmbg7fr-jPbVAUT_tjGPaKWU50qMYQ','_blank')">
 						    Join our Slack <img src="/data/img/slack.png" alt="Slack"> discussion forum
 						</div>

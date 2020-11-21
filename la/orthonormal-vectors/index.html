@@ -13,6 +13,7 @@
 
 
 
+        <link rel="stylesheet" href="/data/assets/css/main.css">
         <link id="quantml-theme" rel="stylesheet" href="" />
         <link id="quantml-auth-style" rel="stylesheet" href="">
         <script src="/data/initialize-css.js"></script>
@@ -64,9 +65,9 @@
                 <!-- Main -->
                     <div id="main">
                         <section class="post">
-<div>
-    <button class="button" onclick="window.location.href = 'least-squares.html';">&#x25C0;&nbsp;&nbsp;Least Squares</button>
-    <button class="button"  style="float: right;" onclick="window.location.href = '/la/eigenvalues-eigenvectors/';">Eigenvalues and Eigenvectors&nbsp;&nbsp;&#x25B6;</button>
+<div id="btn-container">
+    <button id="prev-btn" class="button" onclick="window.location.href = '/la/least-squares/';">&#x25C0;&nbsp;&nbsp;Least Squares</button>
+    <button id="next-btn" class="button"  style="float: right;" onclick="window.location.href = '/la/eigenvalues-eigenvectors/';">Eigenvalues and Eigenvectors&nbsp;&nbsp;&#x25B6;</button>
 </div><br>
 
 <p>
@@ -134,7 +135,7 @@ Q^TQ=
 
 <blockquote>    
 \(Q\) is an <b>Orthogonal matrix</b> <b>if</b> \(Q\) is a <b>square matrix</b> 
-</blockquote><br>
+</blockquote>
 So if \(Q\) is an <b>Orthogonal matrix</b> then,<br>
 <span class="bb">\(Q^TQ=\mathcal{I}\)</span> tells us that <span class="bb">\(Q^T = Q^{-1}\)</span>, So,<br>
 
@@ -143,15 +144,11 @@ So if \(Q\) is an <b>Orthogonal matrix</b> then,<br>
 <div class="math-border">
 \[
     \begin{matrix}
-        \\    %blank line
-    \quad 
-    
+
     % equation
     \displaystyle Q^T = Q^{-1}
     %equation
-    
-    \quad\\
-        \\    %blank line
+
     \end{matrix}
 \]
 </div><b>Examples of matrices with orthogonal vectors,</b><br>
@@ -188,20 +185,16 @@ So our <b>projection matrix\((P)\)</b> becomes \(P=Q\mathcal{I}Q^T\), so.<br>
 <div class="math-border">
 \[
     \begin{matrix}
-        \\    %blank line
-    \quad 
-    
+
     % equation
     \displaystyle P=QQ^T
     %equation
-    
-    \quad\\
-        \\    %blank line
+
     \end{matrix}
 \]
 </div>
 
-<i>(So now we don't have to take the <i>inverse</i>  is \(Q^TQ\))</i><br>We can see the direct benefit of having a matrix with <b>orthonormal column vectors</b> is in <a  href="least-squares.html">least squares</a>.<br>
+<i>(So now we don't have to take the <i>inverse</i>  is \(Q^TQ\))</i><br>We can see the direct benefit of having a matrix with <b>orthonormal column vectors</b> is in <a  href="/la/least-squares/">least squares</a>.<br>
 <blockquote class="noborder">
 In Least squares we have equation of form \(A^TA\widehat{\mathbb{X}}=A^T\vec{v}\) and if \(A\) has orthonormal column vectors,
 then \(A^TA=\mathcal{I}\) so our equation becomes \(\widehat{\mathbb{X}}=A^T\vec{v}\)<br>
@@ -302,15 +295,14 @@ So now we can find <b>orthonormal vectors</b> for any set of independent vectors
 This is <b>The Gram Schmidt Process</b>.<br>
 </p>
 
-<br>
 <div class="slack-discuss" onclick=" window.open('https://join.slack.com/t/quantml-org/shared_invite/zt-hcmbg7fr-jPbVAUT_tjGPaKWU50qMYQ','_blank')">
-						    Join our Slack <img src="/data/img/slack.png" alt="Slack"> discussion forum
-						</div>
+    Join our Slack <img src="/data/img/slack.png" alt="Slack"> discussion forum
+</div>
 <br>
 
-<div>
-    <button class="button" onclick="window.location.href = 'least-squares.html';">&#x25C0;&nbsp;&nbsp;Least Squares</button>
-    <button class="button"  style="float: right;" onclick="window.location.href = '/la/eigenvalues-eigenvectors/';">Eigenvalues and Eigenvectors&nbsp;&nbsp;&#x25B6;</button>
+<div id="btn-container">
+    <button id="prev-btn" class="button" onclick="window.location.href = '/la/least-squares/';">&#x25C0;&nbsp;&nbsp;Least Squares</button>
+    <button id="next-btn" class="button"  style="float: right;" onclick="window.location.href = '/la/eigenvalues-eigenvectors/';">Eigenvalues and Eigenvectors&nbsp;&nbsp;&#x25B6;</button>
 </div><br>
                         </section>
                     </div>

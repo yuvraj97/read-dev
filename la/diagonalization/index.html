@@ -13,6 +13,7 @@
     
 
 
+        <link rel="stylesheet" href="/data/assets/css/main.css">
         <link id="quantml-theme" rel="stylesheet" href="" />
         <link id="quantml-auth-style" rel="stylesheet" href="">
         <script src="/data/initialize-css.js"></script>
@@ -70,7 +71,7 @@
 </div><br>
 
 <p>
-<h2>Diagonalization of a Matrix</h2>
+<h1>Diagonalization of a Matrix</h1>
 Say that we have a \(n\times n\) matrix \(A\) with 
 \(n\) <b>independent</b> <i>eigenvectors</i> (say \(\vec{x}_1,\vec{x}_2,\cdots,\vec{x}_n\)).<br>
 We put these <i>eigenvectors</i> (\(\vec{x}_1,\vec{x}_2,\cdots,\vec{x}_n\)) in a matrix (say \(S\)).<br>
@@ -127,15 +128,11 @@ because \(S\) has independent columns so \(S^{-1}\) exists, so<br>
 <div class="math-border">
     \[
         \begin{matrix}
-            \\    %blank line
-        \quad 
-        
+            
         % equation
         \displaystyle \Lambda =S^{-1}AS
         %equation
-        
-        \quad\\
-            \\    %blank line
+
         \end{matrix}
     \]
 </div>
@@ -146,21 +143,17 @@ We can also get a factorization of \(A\)<br>
 <div class="math-border">
     \[
         \begin{matrix}
-            \\    %blank line
-        \quad 
-        
+            
         % equation
         \displaystyle A=S\Lambda S^{-1}
         %equation
-        
-        \quad\\
-            \\    %blank line
+
         \end{matrix}
     \]
 </div><br>
 <br>
 
-<h2 id="power">Power of a matrix</h2>
+<h1 id="power">Power of a matrix</h1>
 Now let's see how \(A=S\Lambda S^{-1}\) helps us in calculating \(A^k\) for \(k=\{1,2,3,\cdots\}\)<br>
 We know that,<br>
 \[A\vec{x}_i=\lambda_i\vec{x}_i;\quad 
@@ -190,21 +183,16 @@ where,
  0         &    0      & \cdots  &    \lambda_n^2    \\  
 \end{bmatrix}\)
 </blockquote>
-<br>
 Now we can get formula for \(k^{\text{th}}\) power of \(A\).<br>
 
 <div class="math-border">
     \[
         \begin{matrix}
-            \\    %blank line
-        \quad 
-        
+            
         % equation
         \displaystyle A^k = S\Lambda^k S^{-1}
         %equation
-        
-        \quad\\
-            \\    %blank line
+
         \end{matrix}
     \]
 </div><br><blockquote>
@@ -212,21 +200,21 @@ So <i>eigenvectors</i> of \(A^k\) remains same as the <i>eigenvectors</i> of \(A
 But <i>eigenvalues</i> of \(A^k\) becomes \(\lambda^k\).<br>
 </blockquote>
 So now we can find power of matrices quickly, if we have the eigenvectors<i>(independent)</i> of that matrix.<br>
-<br>
+
 
 When we call a matrix \(A\) <b>stable</b>?<br>
 <blockquote>
 A matrix \(A\) is <b>stable</b> if \(A^k\to 0\) as \(k\to\infty\).<br>
 And \(A^k\to 0\) as \(k\to\infty\) <b>if</b>,<br>
 \(|\lambda_i| \lt 1;\quad\) \(\forall\ i\in\{1,2,\cdots n\}\)
-</blockquote><br>
+</blockquote>
 
 When a matrix \(A\) is <b>Diagonalizable?</b><br>
 <blockquote>
 <b>Diagonalizable</b> matrix has \(n\) <b>independent eigenvectors</b>.<br>
 So \(A\) is <b>diagonalizable</b> if, all \(\lambda\)'s are different.<br>
 \(\lambda_i\neq\lambda_j;\quad \forall \ i\neq j\)<br>
-</blockquote><br>
+</blockquote>
 
 <blockquote>
 If all the <i>eigenvalues</i> are different then all the <i>eigenvectors</i> are <b>independent</b>.<br>
@@ -247,7 +235,7 @@ But there is only <b>one</b> <i>eigenvalue</i> and that is \(1\).
 </blockquote><br>
 <br>
 
-<h2><span class="bb">\(\vec{u}_{k+1}=A\vec{u}_k\)</span></h2>
+<h1><span class="bb">\(\vec{u}_{k+1}=A\vec{u}_k\)</span></h1>
 Say we have a vector \(\vec{u}_0\) and a matrix(<b>non-singular</b>) \(A\), with \(n\) <b>independent</b> <i>eigenvectors</i>.<br>
 We iteratively apply transformation \(A\) on \(\vec{u}_0\).<br>
 \[\vec{u}_{k+1}=A\vec{u}_k\]
@@ -255,7 +243,7 @@ We iteratively apply transformation \(A\) on \(\vec{u}_0\).<br>
 \(\vec{u}_2=A^2\vec{u}_0\)<br>
 \(\vec{u}_k=A^k\vec{u}_0\)<br>
 <br>
-<b>How can we find \(\vec{u}_k\) for an arbitrary large \(k\).</b><br>
+<h3>How can we find \(\vec{u}_k\) for an arbitrary large \(k\).</h3>
 \(\vec{u}\) lives in the column space of \(A\), and \(A\) has \(n\) <b>independent</b> <i>eigenvectors</i>
 so we can say that \(\vec{u}\) lives in the vector space spanned by these <i>eigenvectors</i>.<br>
 so \(\vec{u}\) is the <b>linear combination</b> of these <i>eigenvectors</i>.<br>
@@ -283,22 +271,18 @@ So,<br>
 <div class="math-border">
     \[
         \begin{matrix}
-            \\    %blank line
-        \quad 
-        
+            
         % equation
         \displaystyle \vec{u}_k = A^{k}\vec{u}_0=\Lambda^k S\ \vec{c}
         %equation
-        
-        \quad\\
-            \\    %blank line
+
         \end{matrix}
     \]
 </div><br>
 
 <br>
 
-<h4 id="fibonacci">Fibonacci example</h4>
+<h2 id="fibonacci">Fibonacci example</h2>
 Fibonacci sequence: \(0,1,1,2,3,5,\cdots\)<br>
 How can we find \(F_k\) for an arbitrary large \(k\).<br>
 <span class="bb">\(F_{k+2}=F_{k+1}+F_k\)</span><br>
@@ -372,15 +356,11 @@ So,<br>
 <div class="math-border">
     \[
         \begin{matrix}
-            \\    %blank line
-        \quad 
-        
+            
         % equation
         \displaystyle F_k=\frac{1}{\sqrt{5}}\left(   \left(\frac{1+\sqrt{5}}{2}\right)^k - \left(\frac{1-\sqrt{5}}{2}\right)^k  \right)
         %equation
-        
-        \quad\\
-            \\    %blank line
+
         \end{matrix}
     \]
 </div>
@@ -396,10 +376,9 @@ Anti Symmetric matrix will give us pure Complex eigenvalue, and
 -->
 </p>
 
-<br>
 <div class="slack-discuss" onclick=" window.open('https://join.slack.com/t/quantml-org/shared_invite/zt-hcmbg7fr-jPbVAUT_tjGPaKWU50qMYQ','_blank')">
-						    Join our Slack <img src="/data/img/slack.png" alt="Slack"> discussion forum
-						</div>
+    Join our Slack <img src="/data/img/slack.png" alt="Slack"> discussion forum
+</div>
 <br>
 
 <div id="btn-container">

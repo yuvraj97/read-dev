@@ -12,6 +12,7 @@
         <link rel="stylesheet" href="/data/prism/prism.css">
 
 
+        <link rel="stylesheet" href="/data/assets/css/main.css">
         <link id="quantml-theme" rel="stylesheet" href="" />
         <link id="quantml-auth-style" rel="stylesheet" href="">
         <script src="/data/initialize-css.js"></script>
@@ -63,28 +64,24 @@
                 <!-- Main -->
                     <div id="main">
                         <section class="post">
-<div>    
-    <button class="button" onclick="window.location.href = '/la/similar-matrices/';">&#x25C0;&nbsp;&nbsp;Similar Matrices</button>
-    <button style="float: right;" onclick="location.href = 'https://quantml.org/';"><img style="margin-top: 7px; " src="/data/icon.png" alt="logo" width="30" height="30"></button>
+<div id="btn-container">
+    <button id="prev-btn" class="button" onclick="window.location.href = '/la/similar-matrices/';">&#x25C0;&nbsp;&nbsp;Similar Matrices</button>
+    <button id="next-btn" class="button"  style="float: right;" onclick="window.location.href = 'https://read.quantml.org/stats/';">Statistics &nbsp; <img style="-webkit-transform: translateY(0.5rem); transform: translateY(0.5rem);" src="/data/icon.png" alt="logo" width="25px" height="25px"></button>
 </div><br>
 
 <p>
-<h2>Singular Value Decomposition</h2>
+<h1>Singular Value Decomposition</h1>
 <blockquote class="noborder">
 <a  href="/la/diagonalization/">Previously</a> we have seen that for <b>\(n\times n\)</b> 
 matrix (say\(A\)) with \(n\) independent eigenvectors factorization is,
 <div class="math-border">
 \[\color{blue}{
     \begin{matrix}
-        \\    %blank line
-    \quad 
-    
+
     % equation
     A=S\Lambda S^{-1}
     %equation
-    
-    \quad\\
-        \\    %blank line
+
     \end{matrix}
     }
 \]
@@ -95,38 +92,30 @@ matrix \(A\) are <b>orthogonal</b> then \(Q^{-1}=Q^T\), then the factorization i
 <div class="math-border">
 \[\color{blue}{
     \begin{matrix}
-        \\    %blank line
-    \quad 
-    
+
     % equation
     A=Q\Lambda Q^{T}
     %equation
-    
-    \quad\\
-        \\    %blank line
+
     \end{matrix}
     }
 \]
 </div>
 But generally eigenvectors are not orthogonal.
-</blockquote><BR>
+</blockquote>
 
 <b>Singular Value Decomposition(SVD)</b> is a factorization of <b>any</b> \(m\times n\) matrix.<br>
-<h3><div class="math-border">
+<h2><div class="math-border">
     \[\color{blue}{
     \begin{matrix}
-        \\    %blank line
-    \quad 
-    
+
     % equation
     A=U\Sigma V^T
     %equation
-    
-    \quad\\
-        \\    %blank line
+
     \end{matrix}
     }\]
-</div></h3>
+</div></h2>
 Say that we have a \(m\times n\) matrix \(A\) and \(\text{Rank}(A)=r\),<br>
 \[A_{m\times n}=\begin{bmatrix}
 a_{11} & a_{12} & \cdots & a_{1n} \\  
@@ -173,7 +162,8 @@ when we transform that vector  \(\vec{v}\in\mathbb{R}^n\) using matrix \(A\), \(
     (<i>we can get them using <a  href="/la/orthonormal-vectors/#gram-schmidt">Gram Schmidt</a> method, 
     but here we will use \(A^TA\) to get them we will discuss it below)</i><br>
     (say) our <b>orthonormal</b> basis vector for <b>Row Space</b> are <span class="bb">\(\color{red}{\vec{v}_1,\vec{v}_2,\cdots,\vec{v}_r}\)</span>.<br>
-</blockquote><br>
+</blockquote>
+
 <li id="null-space"><b><span style="color: brown;">Null Space</span></b> \(\color{brown}{(N(A))}\) (Orthonormal Basis vectors of Null Space)</li>
 <blockquote>
     <b><span style="color: brown;">Null Space</span></b> is perpendicular to <b>Row Space</b>(we talked about orthogonal subspaces <a  href="/la/orthogonal-subspaces/">HERE</a>), 
@@ -183,7 +173,7 @@ when we transform that vector  \(\vec{v}\in\mathbb{R}^n\) using matrix \(A\), \(
     \((n-r)\)-dimensional vector space we need \(n-r\) independent basis vectors in Null Space.<br>    
     (we don't need to find basis vectors for SVD we discuss it below in Column Space\((C(A))\) section )<br>
     (say) our <b>orthonormal</b> basis vector for <b>Null Space</b> are \(\color{brown}{\vec{v}_{r+1},\vec{v}_{r+2},\cdots,\vec{v}_n}\).<br>
-</blockquote><br>
+</blockquote>
 
 <li id="column-space"><b><span >Column Space</span></b> \(\color{blue}{(C(A))}\) (Map the Orthonormal Basis vectors from the <b>Row Space</b> to <b>Column Space</b>)</li>
 <blockquote>
@@ -193,15 +183,11 @@ when we transform that vector  \(\vec{v}\in\mathbb{R}^n\) using matrix \(A\), \(
     <div class="math-border math-container dim">
     \[
         \begin{matrix}
-            \\    %blank line
-        \quad 
-        
+            
         % equation
         A\color{red}{\vec{v}_i}=\color{blue}{\sigma_i\vec{u}_i};\quad\forall i\in\{1,2,\cdots,r\}
         %equation
-        
-        \quad\\
-            \\    %blank line
+
         \end{matrix}
     \]
     </div>
@@ -212,15 +198,11 @@ when we transform that vector  \(\vec{v}\in\mathbb{R}^n\) using matrix \(A\), \(
     <div class="math-border math-container dim">
     \[
         \begin{matrix}
-            \\    %blank line
-        \quad 
-        
+            
         % equation
         A\color{red}{\vec{v}_i}=\color{darkgreen}{\vec{0}};\quad\forall i\in\{r+1,r+2,\cdots,n\}
         %equation
-        
-        \quad\\
-            \\    %blank line
+
         \end{matrix}
     \]
     </div>
@@ -232,7 +214,7 @@ when we transform that vector  \(\vec{v}\in\mathbb{R}^n\) using matrix \(A\), \(
     <b>But wait <u>WHY</u> all \(\vec{u}_i\)'s are perpendicular to each other?</b><br>
     we discussed it below in \(A^TA\) section.
 
-</blockquote><br>
+</blockquote>
 
 <li id="left-null-space"><b><span style="color: darkgreen;">Left Null Space</span></b> \((N(A^T))\) (Map the Orthonormal Basis vectors from the <b>Null Space</b> to <b>Left Null Space</b>)</li>
 <blockquote>
@@ -242,7 +224,7 @@ when we transform that vector  \(\vec{v}\in\mathbb{R}^n\) using matrix \(A\), \(
     So the space spanned by vectors in Left Null Space is \((m-r)\)-dimensional  vector space<b>(Null Space)</b>, so to span this whole 
     \((m-r)\)-dimensional vector space we need \(m-r\) independent basis vectors in Left Null Space.<br>
     (say) our <b>orthonormal</b> basis vector for <b>Left Null Space</b> are \(\color{darkgreen}{\vec{u}_{r+1},\vec{u}_{r+2},\cdots,\vec{u}_n}\).<br>
-</blockquote><br>
+</blockquote>
 <b id="terminologies"> Terminologies </b><br>
 Say <span class="bb">\(\color{red}{\vec{v}_1,\vec{v}_2,\cdots,\vec{v}_r}\)</span> are Orthonormal Basis vectors for <b><span style="color: red;">Row Space</span></b> \((C(A^T))\),<br>
 and <span class="bb">\(\color{brown}{\vec{v}_{r+1},\vec{v}_{r+2},\cdots,\vec{v}_n}\)</span> are Orthonormal Basis vectors for <b><span style="color: brown;">Null Space</span></b> \((N(A^T))\)<br>
@@ -306,20 +288,17 @@ Mapping from \(\mathbb{R}^n\) to \(\mathbb{R}^m\) is,<br>
 <div class="math-border">
 \[\color{blue}{
     \begin{matrix}
-        \\    %blank line
-    \quad 
-    
+
     % equation
     A\vec{v}_i=\sigma_i\vec{u}_i;\quad\forall i\in\{1,2,\cdots,n\}
     %equation
-    
-    \quad\\
-        \\    %blank line
+
     \end{matrix}
     }
 \]
 </div>
 We can Write it as,
+<div class="math-container">
 \[A\underbrace{\begin{bmatrix}
 \vdots & \vdots &          & \vdots \\  
 \vec{v}_1    &  \vec{v}_2   & \cdots   &  \vec{v}_n   \\
@@ -344,6 +323,7 @@ We can Write it as,
 \\
 \mathbf{0}_{(n-r)\times r} & \mathbf{0}_{(n-r)\times (n-r)}
 \end  {bmatrix}}_{ \Sigma'_{n\times n} }\]
+</div>
 So,
 \[
     AV'_{n\times n}=U'_{m\times n}\Sigma'_{n\times n}
@@ -421,15 +401,11 @@ So,
     <div class="math-border">
     \[\color{blue}{
         \begin{matrix}
-            \\    %blank line
-        \quad 
-        
+            
         % equation
         A_{m\times n}V_{n\times n}=U_{m\times m}\Sigma_{m\times n}
         %equation
-        
-        \quad\\
-            \\    %blank line
+
         \end{matrix}
         }
     \]
@@ -503,15 +479,11 @@ So,
     <div class="math-border">
     \[\color{blue}{
         \begin{matrix}
-            \\    %blank line
-        \quad 
-        
+            
         % equation
         A_{m\times n}V_{n\times r}=U_{m\times r}\Sigma_{r\times r}
         %equation
-        
-        \quad\\
-            \\    %blank line
+
         \end{matrix}
         }
     \]
@@ -531,15 +503,11 @@ To achieve it we need \(V\) to be square matrix so we have to use <b>Full SVD</b
 <div class="math-border">
 \[\color{blue}{
     \begin{matrix}
-        \\    %blank line
-    \quad 
-    
+
     % equation
     A_{m\times n}=U_{m\times m}\Sigma_{m\times n}V_{n\times n}^{T}
     %equation
-    
-    \quad\\
-        \\    %blank line
+
     \end{matrix}
     }
 \]
@@ -548,7 +516,8 @@ To achieve it we need \(V\) to be square matrix so we have to use <b>Full SVD</b
 Everything looks good <b>but</b> how to find these \(V\) and \(U\) <b>Orthonormal</b> matrix.<br>
 <blockquote>
     <b><u>IDEA:</u></b> to find the \(V\) and \(U\) are the Matrices \(A^TA\) and \(AA^T\)
-</blockquote><br><blockquote>
+</blockquote>
+<blockquote>
     <li><span style="color: red;">Row space</span> of \(A\) is same as <span style="color: red;">Row space</span> of \(A^TA\).</li>
     <i>It is easy to find the basis for <span style="color: red;">Row space</span> of \(A^TA\), so rather than finding
     basis for <span style="color: red;">Row space</span> of \(A\) we will find basis for <span style="color: red;">Row space</span> of \(A^TA\)</i>
@@ -623,8 +592,10 @@ Now we can say that <span >Column Space</span> of \(A\) is same as
 <br>
 \((AA^T)^T=AA^T \Rightarrow AA^T\) is symmetric matrix, so <br>
 <span >Column Space</span> of \(AA^T=\) <span style="color: red;">Row Space</span> of \(AA^T=\) <span >Column Space</span> of \(A\)<br>
-</blockquote><br>
-<br><h2 id="V">Finding orthonormal Row vectors\((V)\) for matrix \(A\)</h2>
+</blockquote>
+<br>
+
+<h2 id="V">Finding orthonormal Row vectors\((V)\) for matrix \(A\)</h2>
 
     We discussed that <span style="color: red;">Row space</span> of \(A\) is same as <span style="color: red;">Row space</span> of \(A^TA\).<br>
     So we need to find orthonormal Row vectors for matrix \(A^TA\).<br>
@@ -703,14 +674,14 @@ Now we can say that <span >Column Space</span> of \(A\) is same as
         Remember that in Full SVD we said that \(\text{Rank}(A)=m\) so there must be \(n-m\) dependent row vectors.
         and these \(\mathbf{0}\) matrices are negating those dependent vectors.<br>
         
-    <br>    <blockquote>
+    <blockquote>
         <a  href="/la/symmetric-matrices/#p2">Remember \([A=Q\Lambda Q^T]\)</a> where \(A\) is symmetric matrix.<br>
     </blockquote>
     \(A^TA\) is a symmetric matrix, so
     <blockquote>
         Columns of \(V\) are <b>eigenvectors</b> of matrix \(A^TA\),  and \(\sigma_i^2\) are the \(i^{th}\) <b>eigenvalue</b> of matrix \(A^TA\)
     </blockquote><br>
-<br><h2 id="U">Finding orthonormal Column Vectors\((U)\) for matrix \(A\)</h2>
+    <h2 id="U">Finding orthonormal Column Vectors\((U)\) for matrix \(A\)</h2>
 
     We discussed that <span >Column Space</span> of \(A\) is same as <span >Column Space</span> of \(AA^T\).<br>
     So we need to find orthonormal Column vectors for matrix \(AA^T\).<br>
@@ -784,14 +755,13 @@ Now we can say that <span >Column Space</span> of \(A\) is same as
     </blockquote>
 
 </p>
-<br>
 <div class="slack-discuss" onclick=" window.open('https://join.slack.com/t/quantml-org/shared_invite/zt-hcmbg7fr-jPbVAUT_tjGPaKWU50qMYQ','_blank')">
-						    Join our Slack <img src="/data/img/slack.png" alt="Slack"> discussion forum
-						</div>
+    Join our Slack <img src="/data/img/slack.png" alt="Slack"> discussion forum
+</div>
 <br>
 <div id="btn-container">
     <button id="prev-btn" class="button" onclick="window.location.href = '/la/positive-definite-matrices/';">&#x25C0;&nbsp;&nbsp;Positive Definite Matrices</button>
-    <button style="float: right;" onclick="location.href = 'https://quantml.org/';"><img style="margin-top: 7px; " src="/data/icon.png" alt="logo" width="30" height="30"></button>
+    <button id="next-btn" class="button"  style="float: right;" onclick="window.location.href = 'https://read.quantml.org/stats/';">Statistics &nbsp; <img style="-webkit-transform: translateY(0.5rem); transform: translateY(0.5rem);" src="/data/icon.png" alt="logo" width="25px" height="25px"></button>
 </div><br>
 
                         </section>

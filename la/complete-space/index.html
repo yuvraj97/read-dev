@@ -12,6 +12,7 @@
         <link rel="stylesheet" href="/data/prism/prism.css">
 
 
+        <link rel="stylesheet" href="/data/assets/css/main.css">
         <link id="quantml-theme" rel="stylesheet" href="" />
         <link id="quantml-auth-style" rel="stylesheet" href="">
         <script src="/data/initialize-css.js"></script>
@@ -97,7 +98,7 @@ must lie in the column space of \(A\). So<br>
     \(A\vec{x}=\vec{b}\) is solvable if \(\vec{b}\) lies in the column space of \(A\)
 </blockquote><br>
 
-<h3 id="ax=b">How can we find all the \(\vec{x}\) that solves \(A\vec{x}=\vec{b}\)?</h3>
+<h2 id="ax=b">How can we find all the \(\vec{x}\) that solves \(A\vec{x}=\vec{b}\)?</h2>
 Let's find <b>a</b> solution for \(A\vec{x}=\vec{b}\)<br>
 Now we have to find a <b>particular</b> \(\vec{x}\) that solves \(A\vec{x}=\vec{b}\), say this <b>particular</b> solution be \(\vec{x}_p\)<br>
 Our matrix is \(A=\begin{bmatrix}
@@ -176,7 +177,7 @@ and iteratively we set one free variable to \(1\) and all other free variables t
 By this we create multiple special solutions and each special solution consider a particular free column vector.<br>
 Then we took linear combination of all of those <b>special solutions</b>.<br>
 </blockquote>
-<br>
+
 Now here what we are doing is, we aren't considering any of the free column vector, because our Null space had already considered them for us.<br>
 Now say \(\vec{x}_n\) represent the Null Space of matrix \(A\), so \(A\vec{x}=0;\quad x\in x_n\)<br>
 \(\vec{x}_n\) represents a vector space(it's not a single vector), it's a linear combination of bunch of vectors.<br>
@@ -193,7 +194,7 @@ So \(\vec{x}_p\) is just shifting the Null Space in it's direction.<br>
 And when \(\vec{x}_p\) shifts the Null space then the shifted space is no longer in contact with <b>origin</b>, so the
 resultant space \(\vec{x}_p+\vec{x}_n\) is <b>not a subspace</b>.<br>
 </blockquote>
-<br>
+
 As we derived Null space of \(A\) in <a  href="/la/null-space/">Null space</a> section.<br>
 \(\vec{x}_n=\alpha \begin{bmatrix} -2\\1\\0\\0\\ \end{bmatrix} + \beta \begin{bmatrix} 2\\0\\-2\\1\\ \end{bmatrix};\quad\) \(\alpha,\beta\in\mathbb{R}\)<br>
 So complete solution for our example is:<br>
@@ -204,14 +205,11 @@ So complete solution for our example is:<br>
 <blockquote class="noborder">
 So the solution space of \(A\vec{x}_p= \begin{bmatrix} 1\\5\\6\\ \end{bmatrix}\) is a plane in \(\mathbb{R}^4   \).<br>
 </blockquote>
-<br>
-
 </p>
 
-<br>
 <div class="slack-discuss" onclick=" window.open('https://join.slack.com/t/quantml-org/shared_invite/zt-hcmbg7fr-jPbVAUT_tjGPaKWU50qMYQ','_blank')">
-						    Join our Slack <img src="/data/img/slack.png" alt="Slack"> discussion forum
-						</div>
+    Join our Slack <img src="/data/img/slack.png" alt="Slack"> discussion forum
+</div>
 <br>
 
 <div id="btn-container">

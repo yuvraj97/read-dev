@@ -12,6 +12,7 @@
         <link rel="stylesheet" href="/data/prism/prism.css">
 
 
+        <link rel="stylesheet" href="/data/assets/css/main.css">
         <link id="quantml-theme" rel="stylesheet" href="" />
         <link id="quantml-auth-style" rel="stylesheet" href="">
         <script src="/data/initialize-css.js"></script>
@@ -69,7 +70,7 @@
 </div><br>
 
 <p>
-<h2>Rank of matrices</h2>
+<h1>Rank of matrices</h1>
 Consider a \(m\times n\) matrix \(A\) of rank \(r\).<br>
 So we have \(n\) column vectors in \(\mathbb{R}^m\), and there are \((n-r)\) column vectors which we can get by the linear combination of other \(r\) column vectors.<br>
 We describe rank as number of pivots of a matrix.<br>
@@ -78,7 +79,7 @@ We describe rank as number of pivots of a matrix.<br>
 <b>#</b> pivots can't be \(\gt\) <b>#</b> columns (\(n\)), so \(r\leq n\)<br>
 </blockquote><br>
 
-<h3 id="col">&#x25B6; &nbsp;Full column rank matrix</h3>
+<h2 id="col">&#x25B6; &nbsp;Full column rank matrix</h2>
 <dl><dd>
 
 Consider a \(m\times n\) matrix \(A\) of rank \(r\) and \(m\gt n\).<br>
@@ -102,7 +103,7 @@ So complete solution is just a single vector \(\vec{x}_p\) <b>if it exists</b>.<
 0 & \text{ otherwise} \\
 \end{matrix}\right.\)
 </blockquote><br>
-Example:<br>
+<b>Example:</b><br>
 \(A = \begin{bmatrix}
 1 & 4\\
 2 & 3\\
@@ -126,7 +127,7 @@ row reduced echelon form is \(\begin{bmatrix}
 \end{bmatrix} = \begin{bmatrix} I_{2\times2}\\0 \end{bmatrix}  \)<br>
 So <b>#</b> of pivots are \(2\)<br>
 </dd></dl><br>
-<h3 id="row">&#x25B6; &nbsp;Full row rank matrix</h3>
+<h2 id="row">&#x25B6; &nbsp;Full row rank matrix</h2>
 <dl><dd>
 Consider a \(m\times n\) matrix \(A\) of rank \(r\) and \(m\lt n\).<br>
 Here \(\text{Rank}(A)=r=m\) now all of the column vectors are not independent, <b>#</b> pivots \(=m\) \(\Rightarrow\) <b>#</b> free column vectors \(=n-r\).<br>
@@ -142,7 +143,7 @@ Here we have \(n-r\) free vectors so <b>Null Space</b> of \(A\) is in \(\mathbb{
 <blockquote>
 <b>#</b> solutions are \(\infty\)
 </blockquote><br>
-Example:<br>
+<b>Example:</b><br>
 \(A = \begin{bmatrix}
 1 & 2 & 3 & 4 \\
 4 & 3 & 2 & 1 \\
@@ -160,7 +161,7 @@ row reduced echelon form is \(\begin{bmatrix}
 \end{bmatrix} = \begin{bmatrix} I_{2\times2} & F_{2\times2} \end{bmatrix}  \)<br>
 So <b>#</b> of pivots are \(2\)<br>
 </dd></dl><br>
-<h3 id="full">&#x25B6; &nbsp;Full rank matrix</h3>
+<h2 id="full">&#x25B6; &nbsp;Full rank matrix</h2>
 <dl><dd>
 Consider a \(m\times n\) matrix \(A\) of rank \(r\) and \(m = n\).<br>
 Here \(\text{Rank}(A)=r=n\) it means that all of the column vectors are independent, <b>#</b> pivots \(=n\) \(\Rightarrow\) <b>#</b> free column vectors \(=0\).<br>
@@ -178,12 +179,11 @@ We have no free vectors here so <b>Null Space</b> of \(A\) is just \(\vec{0}\), 
 row reduced echelon form of \(A\) is \(I_{n\times n}\)
 </blockquote><br>
 </dd></dl>
-<br>
-<h2 id="dim-basis">Dimensions and Basis</h2>
+<h1 id="dim-basis">Dimensions and Basis</h1>
 Say we have a matrix \(A_{m\times n}\in\mathbb{R}^{m\times n}\)<br>
 <br>
 
-<h3 id="cs">&#x25B6; &nbsp;Column Space</h3>
+<h2 id="cs">&#x25B6; &nbsp;Column Space</h2>
 <dl><dd>
 We know that the column space of matrix \(A\) lives in \(R^{m}\).<br>
 
@@ -205,7 +205,7 @@ What is the <b>Dimension</b> of <b>column space?</b><br>
     <b># Dimensions</b> \(= r\)
 </blockquote>
 <br>    
-</dd></dl><h3 id="ns">&#x25B6; &nbsp;Null Space</h3>
+</dd></dl><h2 id="ns">&#x25B6; &nbsp;Null Space</h2>
 
 <dl><dd>
 Null space of matrix \(A\) also lives in \(R^{m}\).<br>
@@ -234,10 +234,9 @@ What is the <b>Dimension</b> of <b>Null space?</b><br>
 
 </p>
 
-<br>
 <div class="slack-discuss" onclick=" window.open('https://join.slack.com/t/quantml-org/shared_invite/zt-hcmbg7fr-jPbVAUT_tjGPaKWU50qMYQ','_blank')">
-						    Join our Slack <img src="/data/img/slack.png" alt="Slack"> discussion forum
-						</div>
+    Join our Slack <img src="/data/img/slack.png" alt="Slack"> discussion forum
+</div>
 <br>
 
 <div id="btn-container">

@@ -12,6 +12,7 @@
         <link rel="stylesheet" href="/data/prism/prism.css">
 
 
+        <link rel="stylesheet" href="/data/assets/css/main.css">
         <link id="quantml-theme" rel="stylesheet" href="" />
         <link id="quantml-auth-style" rel="stylesheet" href="">
         <script src="/data/initialize-css.js"></script>
@@ -50,12 +51,10 @@
                     <nav id="nav">
                         <ul class="links">
                             <li class="cover"><a href="/la/"><img src="/data/img/linear-algebra-cover.png" alt="Linear Algebra"></a></li>
-                            <li><a href="/la/fundamental-subspaces/">&#x25C0;</a></li>
                             <li><a href="/la/matrix-space/">Matrix Space</a></li>
-                            <li class="active"><a href="/la/matrix-space/dim/">DIMENSION AND BASIS</a></li>
-                            <li><a href="/la/matrix-space/ops/">OPERATION ON SUBSPACES</a></li>
-                            <li><a href="/la/matrix-space/ex/">EXAMPLES</a></li>
-                            <li><a href="/la/orthogonal-subspaces/">&#x25B6;</a></li>
+                            <li class="active"><a href="/la/matrix-space/dim/">Dimension and Basis</a></li>
+                            <li><a href="/la/matrix-space/ops/">Operation on Subspaces</a></li>
+                            <li><a href="/la/matrix-space/ex/">Examples</a></li>
                         </ul>
                         <ul class="icons">
                             <li><a target="_blank" href="https://quantml.org/"><img src="/data/img/icon.png" alt="QuantML"></a></li>
@@ -74,8 +73,8 @@
 </div><br>
 
 <p>
-<h2 id="dim-basis">Dimension and Basis</h2>
-<h4 id="basis-3x3">Basis of all \(3\times 3\) matrices</h4>
+<h1 id="dim-basis">Dimension and Basis</h1>
+<h2 id="basis-3x3">Basis of all \(3\times 3\) matrices</h2>
 Our matrix space is something like,
 <blockquote>
 \[
@@ -149,7 +148,6 @@ So there are \(9\) <b>basis</b>,<br>
 \end{bmatrix}
 \]
 </blockquote>
-<br>
 
 <blockquote>We can get <b>any</b> \(3\times 3\) matrix by the <b>linear combination</b> of these \(9\) matri<b>ces</b></blockquote>
 <br>
@@ -158,7 +156,7 @@ What is the Dimension of all \(3\times 3\) matrix?<br>
 <blockquote>
 There are \(9\) <b>basis</b> and by there linear combination we can get all other matrices.<br>
 So Dimension of all \(3\times 3\) matrices is \(9\).<br>
-</blockquote><br><h4 id="basis-3x3-up">Basis of all \(3\times 3\) Lower Triangular matrices</h4>
+</blockquote><br><h2 id="basis-3x3-up">Basis of all \(3\times 3\) Lower Triangular matrices</h2>
 Our matrix space is something like,<br>
 <blockquote>
 \[
@@ -222,15 +220,15 @@ What is the Dimension of all \(3\times 3\) Lower Triangular matrix?<br>
 There are \(6\) <b>basis</b> and by there linear combination we can get all other Lower Triangular matrices.<br>
 So Dimension of all \(3\times 3\) Lower Triangular matrices is \(6\).<br>
 </blockquote><br>
-<h4 id="basis-3x3-sym">Basis of all \(3\times 3\) Symmetric matrices</h4>
+<h2 id="basis-3x3-sym">Basis of all \(3\times 3\) Symmetric matrices</h2>
 Our matrix space is something like,<br>
 
 <blockquote>
 \[
 \begin{bmatrix}
-\color{}{\mathbb{R}}   & \color{red}{\mathbb{R}}  & \color{blue}{\mathbb{R}}  \\
-\color{red}{\mathbb{R}}   & \color{}{\mathbb{R}}  & \color{green}{\mathbb{R}}  \\
-\color{blue}{\mathbb{R}}   & \color{green}{\mathbb{R}}  & \color{}{\mathbb{R}}   \\
+            \mathbb{R}   & \color{red}{\mathbb{R}}  & \color{blue}{\mathbb{R}}  \\
+\color{red}{\mathbb{R}}   &             \mathbb{R}  & \color{green}{\mathbb{R}}  \\
+\color{blue}{\mathbb{R}}   & \color{green}{\mathbb{R}}  &             \mathbb{R}   \\
 \end{bmatrix}
 \]
 </blockquote>
@@ -287,14 +285,12 @@ What is the Dimension of all \(3\times 3\) Symmetric matrix?<br>
 <blockquote>
 There are \(6\) <b>basis</b> and by there linear combination we can get all other Symmetric matrices.<br>
 So Dimension of all \(3\times 3\) Symmetric matrices is \(6\).<br>
-</blockquote><br>
-<br>
+</blockquote>
 </p>
 
-<br>
 <div class="slack-discuss" onclick=" window.open('https://join.slack.com/t/quantml-org/shared_invite/zt-hcmbg7fr-jPbVAUT_tjGPaKWU50qMYQ','_blank')">
-						    Join our Slack <img src="/data/img/slack.png" alt="Slack"> discussion forum
-						</div>
+    Join our Slack <img src="/data/img/slack.png" alt="Slack"> discussion forum
+</div>
 <br>
 
 <div id="btn-container">

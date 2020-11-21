@@ -13,6 +13,7 @@
 
 
 
+        <link rel="stylesheet" href="/data/assets/css/main.css">
         <link id="quantml-theme" rel="stylesheet" href="" />
         <link id="quantml-auth-style" rel="stylesheet" href="">
         <script src="/data/initialize-css.js"></script>
@@ -52,9 +53,9 @@
                         <ul class="links">
                             <li class="cover"><a href="/la/"><img src="/data/img/linear-algebra-cover.png" alt="Linear Algebra"></a></li>
                             <li class="active"><a href="/la/null-space/">Null Space</a></li>
-                            <li><a href="null-space-part2.html">Echelon Form, pivot/free columns</a></li>
-                            <li><a href="null-space-part3.html">Solve \(A\vec{x}=0\)</a></li>
-                            <li><a href="null-space-part4.html">Reduced Row Echelon Form</a></li>
+                            <li><a href="/la/null-space/echelon-form/">Echelon Form</a></li>
+                            <li><a href="/la/null-space/solve/">Solve \(A\vec{x}=0\)</a></li>
+                            <li><a href="/la/null-space/reduced-row-echelon-form/">RREF</a></li>
                         </ul>
                         <ul class="icons">
                             <li><a target="_blank" href="https://quantml.org/"><img src="/data/img/icon.png" alt="QuantML"></a></li>
@@ -69,7 +70,7 @@
                         <section class="post">
 <div id="btn-container">
     <button id="prev-btn" class="button" onclick="window.location.href = '/la/column-space/';">&#x25C0;&nbsp;&nbsp; Column space</button>
-    <button id="next-btn" class="button"  style="float: right;" onclick="window.location.href = 'null-space-part2.html';">Echelon Form, pivot/free columns&nbsp;&nbsp;&#x25B6;</button>
+    <button id="next-btn" class="button"  style="float: right;" onclick="window.location.href = '/la/null-space/echelon-form/';">Echelon Form, pivot/free columns&nbsp;&nbsp;&#x25B6;</button>
 </div><br>
 
 <p>
@@ -78,7 +79,7 @@ We discussed <a  href="/la/column-space/">column space</a> of a matrix \(A\) as 
 <b>Null space</b> is completely different thing.<br>
 <blockquote>For a matrix say \(A\) the <b>Null space</b> is the space of all \(\vec{x}\) that solves \(A\vec{x}=\vec{0}\)</blockquote>
 <br>
-<h3 id="r4">Example in \(\mathbb{R}^4\)</h3>
+<h2 id="r4">Example in \(\mathbb{R}^4\)</h2>
 Consider a matrix
 \(A=\begin{bmatrix}
 1 & 1 & 2\\
@@ -139,19 +140,18 @@ We need to show:<br>
         So \(\vec{w}\) is also in Null space.
     </li>
 </ol>
-<b>This confirms that Null Space is a vector space.</b><br><br>
+<b>This confirms that Null Space is a vector space.</b>
 
 </p>
 
-<br>
 <div class="slack-discuss" onclick=" window.open('https://join.slack.com/t/quantml-org/shared_invite/zt-hcmbg7fr-jPbVAUT_tjGPaKWU50qMYQ','_blank')">
-						    Join our Slack <img src="/data/img/slack.png" alt="Slack"> discussion forum
-						</div>
+    Join our Slack <img src="/data/img/slack.png" alt="Slack"> discussion forum
+</div>
 <br>
 
 <div id="btn-container">
     <button id="prev-btn" class="button" onclick="window.location.href = '/la/column-space/';">&#x25C0;&nbsp;&nbsp; Column space</button>
-    <button id="next-btn" class="button"  style="float: right;" onclick="window.location.href = 'null-space-part2.html';">Echelon Form, pivot/free columns&nbsp;&nbsp;&#x25B6;</button>
+    <button id="next-btn" class="button"  style="float: right;" onclick="window.location.href = '/la/null-space/echelon-form/';">Echelon Form, pivot/free columns&nbsp;&nbsp;&#x25B6;</button>
 </div><br>
                         </section>
                     </div>
