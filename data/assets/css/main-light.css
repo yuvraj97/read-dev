@@ -26,13 +26,22 @@ hr {
     border-bottom-color: rgb(0, 39, 155, 0.4);
 }
 table tbody tr {
-    border-color: #eee;
+    border-color: #000;
 }
 table tbody tr:nth-child(2n + 1) {
     background-color: rgb(0, 0, 0, 0.1);
 }
 table th {
     color: rgb(0, 39, 155);
+}
+table thead {
+    border-bottom-color: #000;
+}
+table tfoot {
+    border-top-color: #000;
+}
+table.alt tbody tr td {
+    border-color: #000;
 }
 #wrapper > .bg {
     background-color: #212931;
@@ -72,6 +81,9 @@ table th {
 }
 #main {
     background-color: #fff;
+    color: rgb(0, 0, 0, 0.87);
+}
+#navPanelToggle {
     color: rgb(0, 0, 0, 0.87);
 }
 #navPanelToggle.alt {
@@ -140,6 +152,7 @@ table th {
 .button {
     color: #000;
     background-color: transparent;
+    border: 2.8px #0073b1 solid;
 }
 .button:hover, .button:focus {
     background-color: rgb(0, 115, 177, 0.1);

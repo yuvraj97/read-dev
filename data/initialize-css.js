@@ -5,7 +5,7 @@ currTheme = localStorage.getItem("quantmlTheme")
 theme = document.getElementById('quantml-theme')
 auththeme = document.getElementById('quantml-auth-style')
 if(currTheme == "light"){
-	theme.href ="/data/assets/css/main.css"
+	theme.href ="/data/assets/css/main-light.css"
 	auththeme.href = "/data/auth/authStyle.css"
 }
 else if(currTheme == "dark") {

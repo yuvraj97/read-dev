@@ -34,6 +34,15 @@ table tbody tr:nth-child(2n + 1) {
 table th {
     color: rgba(255, 180, 100) ;
 }
+table thead {
+    border-bottom-color: #eee;
+}
+table tfoot {
+    border-top-color: #eee;
+}
+table.alt tbody tr td {
+    border-color: #eee;
+}
 #wrapper > .bg {
     background-color: #000;
     background-image: linear-gradient(to right, rgb(15, 15, 15) 0%, rgb(150, 150, 150) 50%, rgb(15, 15, 15) 100%);
@@ -65,13 +74,19 @@ table th {
 }
 #nav ul.links li.active a {
     /* color:rgb(255, 255, 255, 0.87); */
+    color: white;
 }
 #nav ul.links li.active a:hover {
     /* color:rgb(255, 255, 255, 0.87); */
-    /* background-color: inherit; */
+    background-color: inherit;
+    border-bottom-color: #121212;
+    cursor: default;
 }
 #main {
     background-color: #121212;
+    color: rgb(255, 255, 255, 0.87);
+}
+#navPanelToggle {
     color: rgb(255, 255, 255, 0.87);
 }
 #navPanelToggle.alt {
@@ -140,6 +155,7 @@ table th {
 .button {
     color: rgb(255, 255, 255, 0.90);
     background-color: rgb(255, 255, 255, 0.05);
+    border: 2.8px #0073b1 solid;
 }
 .button:hover, .button:focus {
     background-color: rgb(255,255,255, 0.2);
