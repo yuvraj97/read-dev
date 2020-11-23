@@ -53,31 +53,23 @@ if(currentTheme == "light"){
 	}
 }
 
-function coverLocation(){
-	if(currentTheme == "light"){
-		return "/data/img/cover.png"
-	} else if(currentTheme == "dark"){
-		return "/data/img-dark/cover.png"
-	}	
-}
-
-
 // Set Next-Prev btn width
 setTimeout (()=>{
 	prev = document.querySelectorAll('#prev-btn')
 	next = document.querySelectorAll('#next-btn')
-	btnWidth = document.getElementById('btn-container').offsetWidth
-	if(prev.length != 0 && prev[0].offsetWidth + next[0].offsetWidth > btnWidth) {
-		prev[0].style.display="block";
-		prev[1].style.display="block";
-		next[0].style.display="block";
-		next[1].style.display="block";
-		prev[0].style.width="100%";
-		prev[1].style.width="100%";
-		next[0].style.width="100%";
-		next[1].style.width="100%";
-		next[0].style.marginTop="5px"
-		next[1].style.marginTop="5px"
-		
+	if(prev.length!=0){
+		btnWidth = document.getElementById('btn-container').offsetWidth
+		if(prev.length != 0 && prev[0].offsetWidth + next[0].offsetWidth > btnWidth) {
+			prev[0].style.display="block";
+			prev[1].style.display="block";
+			next[0].style.display="block";
+			next[1].style.display="block";
+			prev[0].style.width="100%";
+			prev[1].style.width="100%";
+			next[0].style.width="100%";
+			next[1].style.width="100%";
+			next[0].style.marginTop="5px"
+			next[1].style.marginTop="5px"
+		}
 	}
 }, 100)

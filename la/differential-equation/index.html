@@ -10,10 +10,9 @@
 
         <!--Prism-->
         <link rel="stylesheet" href="/data/prism/prism.css">
-    
-
 
         <link rel="stylesheet" href="/data/assets/css/main.css">
+        <link rel="stylesheet" href="/data/auth/authStyle.css">
         <link id="quantml-theme" rel="stylesheet" href="" />
         <link id="quantml-auth-style" rel="stylesheet" href="">
 
@@ -28,12 +27,10 @@
         
 		<title>DIFFERENTIAL EQUATION</title>
 		<meta charset="utf-8" />
+        <link rel="icon" href="/data/icon.png" type="image/png" sizes="16x16">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<noscript><link rel="stylesheet" href="/data/assets/css/main-light.css" /></noscript>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
         
-        <link rel="icon" href="/data/icon.png" type="image/png" sizes="16x16">
 
 	</head>   
     
@@ -44,7 +41,7 @@
 
                 <!-- Header -->
                     <header id="header">
-                        <a target="_blank" href="https://quantml.org" class="logo image jump-big"><img src="/data/img/cover.png" alt="QuantML.org" /></a>
+                        <a href="https://quantml.org" class="logo image jump-big"><img id="quantml-cover" src="/data/img/cover.png" alt="QuantML.org" /></a>
                     </header>
 
                 <!-- Nav -->
@@ -54,8 +51,8 @@
                             <li class="active"><a href="/la/differential-equation/">Differential Equation</a></li>
                         </ul>
                         <ul class="icons">
-                            <li><a target="_blank" href="https://quantml.org/"><img src="/data/img/icon.png" alt="QuantML"></a></li>
-                            <li><a target="_blank" href="https://join.slack.com/t/quantml-org/shared_invite/zt-hcmbg7fr-jPbVAUT_tjGPaKWU50qMYQ"><img src="/data/img/slack.png" alt="Slack"></a></li>
+                            <li><a target="_blank" href="https://quantml.org/"><img src="/data/icon.png" alt="QuantML"></a></li>
+                            <li><a target="_blank" href="https://join.slack.com/t/quantml-org/shared_invite/zt-jffw86bo-6M260iyt1q2MgBma9elewg"><img src="/data/img/slack.png" alt="Slack"></a></li>
                             <li><a target="_blank" href="https://www.linkedin.com/in/yuvraj97/"><img src="/data/img/linkedin.png" alt="LinkedIn"></a></li>
                             <li><a target="_blank" href="https://github.com/yuvraj97/"><img src="/data/img/github.png" alt="GitHub"></a></li>
                             <li><a style="cursor: pointer;"><img id="change-theme" src="" alt="Change Theme"></a></li>
@@ -81,7 +78,7 @@ We are familiar with <a  href="https://en.wikipedia.org/wiki/Taylor_series#Expon
 \[e^x=1+x+\frac{x^2}{2!}+\frac{x^3}{3!}+\cdots\]
 Now say we have a \(n\times n\) matrix \(A\) and we want to find \(e^{A}\)<br>
 Then power series of \(e^A\) is,<br>
-<div class="math-border">
+<div class="l1 border">
 \[
     \begin{matrix}
         \\    %blank line
@@ -104,12 +101,12 @@ Then power series of \(e^A\) is,<br>
     \(\frac{d}{dt}e^{tA}=\frac{d}{dt}\left(\mathcal{I}_n+tA+\frac{(tA)^2}{2!}+\frac{(tA)^3}{3!}+\cdots\right)\)<br>
     </div>
     <div style="padding-bottom: 5px;" class="math-container">
-    \(\frac{d}{dt}e^{tA}=\color{red}{\mathbb{0}_n}+A+t(A)^2+\frac{t^2(A)^3}{2!}+\frac{t^3(A)^4}{3!}+\cdots\)<br>
+    \(\frac{d}{dt}e^{tA}=\mathbb{0}_n+A+t(A)^2+\frac{t^2(A)^3}{2!}+\frac{t^3(A)^4}{3!}+\cdots\)<br>
     </div>
     <div class="math-container">
     \(\frac{d}{dt}e^{tA}=A\left(\mathcal{I}_n+t(A)+\frac{t^2(A)^2}{2!}+\frac{t^3(A)^3}{3!}+\cdots\right)\)<br>
     </div>
-    <div class="math-border">
+    <div class="l1 border">
     \[
         \begin{matrix}
             \\    %blank line
@@ -139,7 +136,7 @@ Then power series of \(e^A\) is,<br>
     We <a  href="/la/eigenvalues-eigenvectors/">discussed</a> that \(A\vec{x}=\lambda\vec{x}\)<br>
     And we also <a  href="/la/diagonalization/">discussed</a> that \(A^k\vec{x}=\lambda^k\vec{x}\) so,<br>
     \(\Rightarrow e^{tA}\vec{x}=\mathcal{I}_n\vec{x}+t\lambda\vec{x}+\frac{t^2\lambda^2}{2!}\vec{x}+\frac{t^3\lambda^3}{3!}\vec{x}+\cdots\) so,<br>
-    <div class="math-border">
+    <div class="l1 border">
     \[
         \begin{matrix}
             \\    %blank line
@@ -165,7 +162,7 @@ Then power series of \(e^A\) is,<br>
     \(\frac{d}{dt}e^{\lambda t}\vec{x}=\lambda e^{\lambda t}\vec{x}\)<br>
     \(\Rightarrow \frac{d}{dt}e^{\lambda t}\vec{x}=e^{\lambda t}\underbrace{\lambda\vec{x}}_{=A\vec{x}}\)<br>
 
-    <div class="math-border">
+    <div class="l1 border">
     \[
         \begin{matrix}
             \\    %blank line
@@ -200,7 +197,7 @@ Say that the <i>eigenvectors</i> of \(A\) are \(\vec{x}_1,\vec{x}_2,\cdots, \vec
 And say the <i>eigenvalues</i> of \(A\) are \(\lambda_1,\lambda_2 ,\cdots, \lambda_n\) so,<br>
 
 Then the solution for \(\vec{u}\) is,<br>
-<div class="math-container math-border">
+<div class="math-container l1 border">
 \[  \begin{matrix}
         \\    %blank line
     \quad 
@@ -253,7 +250,7 @@ c_2\begin{bmatrix} 1\\-1\\ \end{bmatrix}
 =\begin{bmatrix} 1\\0\\ \end{bmatrix}\)<br>
 By solving we get \(c_1=c_2=\frac{1}{3}\)<br>
 So solution is,<br>
-<div class="math-border">
+<div class="l1 border">
 \[  \begin{matrix}
         \\    %blank line
     \quad 
@@ -274,7 +271,7 @@ So solution is,<br>
 
 <h2 id="If-A-is-diagonalizable">If \(A\) is Diagonalizable</h2>
 If \(A\) is diagonalizable then, 
-<div class="math-border">
+<div class="l1 border">
 \[  \begin{matrix}
         \\    %blank line
     \quad 
@@ -319,7 +316,7 @@ Where the columns of matrix \(S\) are eigenvectors of \(A\).<br>
     \(\Rightarrow e^{At}=S\left(\mathcal{I}_n+\Lambda t+\frac{t^2 \Lambda^2}{2!}+\frac{t^3 \Lambda^3}{3!}+\cdots\right)S^{-1}\)
     </div>
     So,
-    <div class="math-border">
+    <div class="l1 border">
     \[  \begin{matrix}
             \\    %blank line
         \quad 
@@ -350,7 +347,7 @@ And as we discussed above \(\displaystyle e^{\lambda t}\vec{x}=e^{At}\vec{x}\) s
 We also discussed that \(\displaystyle e^{At}=Se^{(\Lambda t)}S^{-1}\) so,<br>
 \(\vec{u}(t)=cSe^{(\Lambda t)}S^{-1}\vec{x}\)<br>
 And we can get the value of \(c\) using initial condition \(\vec{u}(t_0)=\vec{u}_0\) so,<br>
-<div class="math-border">
+<div class="l1 border">
 \[
     \begin{matrix}
         \\    %blank line
@@ -404,7 +401,7 @@ So we can say that for a blow-up \(\exists \lambda_k \gt 0 ;\quad k\in\{1,2,3,\c
 </p>
 
 
-<div class="slack-discuss" onclick=" window.open('https://join.slack.com/t/quantml-org/shared_invite/zt-hcmbg7fr-jPbVAUT_tjGPaKWU50qMYQ','_blank')">
+<div class="slack-discuss" onclick=" window.open('https://join.slack.com/t/quantml-org/shared_invite/zt-jffw86bo-6M260iyt1q2MgBma9elewg','_blank')">
 						    Join our Slack <img src="/data/img/slack.png" alt="Slack"> discussion forum
 						</div>
 <br>

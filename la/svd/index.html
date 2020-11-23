@@ -13,6 +13,7 @@
 
 
         <link rel="stylesheet" href="/data/assets/css/main.css">
+        <link rel="stylesheet" href="/data/auth/authStyle.css">
         <link id="quantml-theme" rel="stylesheet" href="" />
         <link id="quantml-auth-style" rel="stylesheet" href="">
 
@@ -27,12 +28,10 @@
         
 		<title>Singular Value Decomposition</title>
 		<meta charset="utf-8" />
+        <link rel="icon" href="/data/icon.png" type="image/png" sizes="16x16">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<noscript><link rel="stylesheet" href="/data/assets/css/main-light.css" /></noscript>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
         
-        <link rel="icon" href="/data/icon.png" type="image/png" sizes="16x16">
 
 	</head>   
     
@@ -43,7 +42,7 @@
 
                 <!-- Header -->
                     <header id="header">
-                        <a target="_blank" href="https://quantml.org" class="logo image jump-big"><img src="/data/img/cover.png" alt="QuantML.org" /></a>
+                        <a href="https://quantml.org" class="logo image jump-big"><img id="quantml-cover" src="/data/img/cover.png" alt="QuantML.org" /></a>
                     </header>
 
                 <!-- Nav -->
@@ -53,8 +52,8 @@
                             <li class="active"><a href="/la/svd/">Singular Value Decomposition</a></li>
                         </ul>
                         <ul class="icons">
-                            <li><a target="_blank" href="https://quantml.org/"><img src="/data/img/icon.png" alt="QuantML"></a></li>
-                            <li><a target="_blank" href="https://join.slack.com/t/quantml-org/shared_invite/zt-hcmbg7fr-jPbVAUT_tjGPaKWU50qMYQ"><img src="/data/img/slack.png" alt="Slack"></a></li>
+                            <li><a target="_blank" href="https://quantml.org/"><img src="/data/icon.png" alt="QuantML"></a></li>
+                            <li><a target="_blank" href="https://join.slack.com/t/quantml-org/shared_invite/zt-jffw86bo-6M260iyt1q2MgBma9elewg"><img src="/data/img/slack.png" alt="Slack"></a></li>
                             <li><a target="_blank" href="https://www.linkedin.com/in/yuvraj97/"><img src="/data/img/linkedin.png" alt="LinkedIn"></a></li>
                             <li><a target="_blank" href="https://github.com/yuvraj97/"><img src="/data/img/github.png" alt="GitHub"></a></li>
                             <li><a style="cursor: pointer;"><img id="change-theme" src="" alt="Change Theme"></a></li>
@@ -73,8 +72,8 @@
 <blockquote class="noborder">
 <a  href="/la/diagonalization/">Previously</a> we have seen that for <b>\(n\times n\)</b> 
 matrix (say\(A\)) with \(n\) independent eigenvectors factorization is,
-<div class="math-border">
-\[\color{blue}{
+<div class="l1 border">
+\[
     \begin{matrix}
 
     % equation
@@ -82,14 +81,13 @@ matrix (say\(A\)) with \(n\) independent eigenvectors factorization is,
     %equation
 
     \end{matrix}
-    }
 \]
 </div>
 <a  href="/la/orthonormal-vectors/">Previously</a> we have seen that if eigenvectors of
 matrix \(A\) are <b>orthogonal</b> then \(Q^{-1}=Q^T\), then the factorization is,<br>
 (We discussed it in detail <a  href="/la/symmetric-matrices/">HERE</a>)
-<div class="math-border">
-\[\color{blue}{
+<div class="l1 border">
+\[
     \begin{matrix}
 
     % equation
@@ -97,15 +95,14 @@ matrix \(A\) are <b>orthogonal</b> then \(Q^{-1}=Q^T\), then the factorization i
     %equation
 
     \end{matrix}
-    }
 \]
 </div>
 But generally eigenvectors are not orthogonal.
 </blockquote>
 
 <b>Singular Value Decomposition(SVD)</b> is a factorization of <b>any</b> \(m\times n\) matrix.<br>
-<h2><div class="math-border">
-    \[\color{blue}{
+<h2><div class="l1 border">
+\[
     \begin{matrix}
 
     % equation
@@ -113,7 +110,7 @@ But generally eigenvectors are not orthogonal.
     %equation
 
     \end{matrix}
-    }\]
+\]
 </div></h2>
 Say that we have a \(m\times n\) matrix \(A\) and \(\text{Rank}(A)=r\),<br>
 \[A_{m\times n}=\begin{bmatrix}
@@ -130,7 +127,7 @@ a_{m1} & a_{m2} & \cdots & a_{mn} \\
 </blockquote><br> <!--\(\text{Rank}(A)=r\)-->
 
 <div style="padding-bottom: 15%;">
-<img style="float: right; max-width: 100%;" src="/la/img/fundamental-subspaces2.png" width="50%" height="50%" alt="">
+<img style="float: right; max-width: 100%;" src="/la/img/fundamental-subspaces.png" width="50%" height="50%" alt="">
 The <b>row space</b> is in \(\mathbb{R}^n\), here our row vectors are,<br>
 \(\begin{bmatrix} a_{11} \\ a_{12} \\ \vdots \\ a_{1n}  \end{bmatrix}\in\mathbb{R}^n\), 
 \(\begin{bmatrix} a_{21} \\ a_{22} \\ \vdots \\ a_{2n}  \end{bmatrix}\in\mathbb{R}^n\), 
@@ -150,9 +147,9 @@ when we transform that vector  \(\vec{v}\in\mathbb{R}^n\) using matrix \(A\), \(
 \(\vec{u}=\vec{u}_p+\vec{u}_n\) <a  href="/la/complete-space/">[Reference]</a>
 </blockquote>
 
-<li id="row-space"><b><span style="color: red;">Row space</span></b> \(\color{red}{(C(A^T))}\) (Gather Orthonormal Basis vectors for Row Space)</li>
+<li id="row-space"><b><span class="l1">Row space</span></b> <span class="l1">\((C(A^T))\)</span> (Gather Orthonormal Basis vectors for Row Space)</li>
 <blockquote>
-    <span style="color: red;">Row vectors</span> lives in \(n\)-dimensional vector space.<br>
+    <span class="l1">Row vectors</span> lives in \(n\)-dimensional vector space.<br>
     \(\text{Rank}(A)=r\) so we have \(r\) independent row vectors.<br>
     So the space spanned by row vectors is \(r\)-dimensional  vector space<b>(Row Space)</b>, so to span this whole 
     \(r\)-dimensional vector space we need \(r\) independent <b>basis vectors</b>.<br>
@@ -160,31 +157,31 @@ when we transform that vector  \(\vec{v}\in\mathbb{R}^n\) using matrix \(A\), \(
     
     (<i>we can get them using <a  href="/la/orthonormal-vectors/#gram-schmidt">Gram Schmidt</a> method, 
     but here we will use \(A^TA\) to get them we will discuss it below)</i><br>
-    (say) our <b>orthonormal</b> basis vector for <b>Row Space</b> are <span class="bb">\(\color{red}{\vec{v}_1,\vec{v}_2,\cdots,\vec{v}_r}\)</span>.<br>
+    (say) our <b>orthonormal</b> basis vector for <b>Row Space</b> are <span class="bb l1">\(\vec{v}_1,\vec{v}_2,\cdots,\vec{v}_r\)</span>.<br>
 </blockquote>
 
-<li id="null-space"><b><span style="color: brown;">Null Space</span></b> \(\color{brown}{(N(A))}\) (Orthonormal Basis vectors of Null Space)</li>
+<li id="null-space"><b><span class="l4">Null Space \((N(A))\)</span></b> (Orthonormal Basis vectors of Null Space)</li>
 <blockquote>
-    <b><span style="color: brown;">Null Space</span></b> is perpendicular to <b>Row Space</b>(we talked about orthogonal subspaces <a  href="/la/orthogonal-subspaces/">HERE</a>), 
+    <b><span class="l4">Null Space</span></b> is perpendicular to <b>Row Space</b>(we talked about orthogonal subspaces <a  href="/la/orthogonal-subspaces/">HERE</a>), 
     so every vector in Null Space is perpendicular to Row Space.<br>
     \(\text{Rank}(A)=r\) so we have \(n-r\) dependent(free) row vectors.<br>
     So the space spanned by vectors in Null Space is \((n-r)\)-dimensional  vector space<b>(Null Space)</b>, so to span this whole 
     \((n-r)\)-dimensional vector space we need \(n-r\) independent basis vectors in Null Space.<br>    
     (we don't need to find basis vectors for SVD we discuss it below in Column Space\((C(A))\) section )<br>
-    (say) our <b>orthonormal</b> basis vector for <b>Null Space</b> are \(\color{brown}{\vec{v}_{r+1},\vec{v}_{r+2},\cdots,\vec{v}_n}\).<br>
+    (say) our <b>orthonormal</b> basis vector for <b>Null Space</b> are <span class="bb l4">\(\vec{v}_{r+1},\vec{v}_{r+2},\cdots,\vec{v}_n\)</span>.<br>
 </blockquote>
 
-<li id="column-space"><b><span >Column Space</span></b> \(\color{blue}{(C(A))}\) (Map the Orthonormal Basis vectors from the <b>Row Space</b> to <b>Column Space</b>)</li>
+<li id="column-space"><b><span class="l2">Column Space \((C(A))\)</span></b> (Map the Orthonormal Basis vectors from the <b>Row Space</b> to <b>Column Space</b>)</li>
 <blockquote>
-    After we got our orthonormal basis vector for <b>Row Space</b> \(\color{blue}{\vec{v}_1,\vec{v}_2,\cdots,\vec{v}_n}\), 
+    After we got our orthonormal basis vector for <b>Row Space</b> <span class="bb l2">\(\vec{v}_1,\vec{v}_2,\cdots,\vec{v}_n\)</span>, 
     we map them to the <b>Column Space</b> using matrix \(A\).<br>
     \(\text{Rank}(A)=r\) so,<br>
-    <div class="math-border math-container dim">
+    <div class="l1 border math-container dim">
     \[
         \begin{matrix}
             
         % equation
-        A\color{red}{\vec{v}_i}=\color{blue}{\sigma_i\vec{u}_i};\quad\forall i\in\{1,2,\cdots,r\}
+        A\vec{v}_i=\sigma_i\vec{u}_i;\quad\forall i\in\{1,2,\cdots,r\}
         %equation
 
         \end{matrix}
@@ -192,14 +189,14 @@ when we transform that vector  \(\vec{v}\in\mathbb{R}^n\) using matrix \(A\), \(
     </div>
 
     For \(i\in\{1,2,\cdots,r\}\) \(A\) maps \(\vec{v}_i\) to \(\sigma_i\vec{u}_i\) then we normalize it to get \(\vec{u}_i\)(unit vector), \(\sigma_i\) is the length of \(A\vec{v}_i\).<br>
-    Now we got the <b>orthonormal basis vector</b> for our column space <span class="bb">\(\color{blue}{\vec{u}_1,\vec{u}_2,\cdots,\vec{u}_r}\)</span><br>
+    Now we got the <b>orthonormal basis vector</b> for our column space <span class="bb l2">\(\vec{u}_1,\vec{u}_2,\cdots,\vec{u}_r\)</span><br>
     <br>
-    <div class="math-border math-container dim">
+    <div class="l1 border math-container dim">
     \[
         \begin{matrix}
             
         % equation
-        A\color{red}{\vec{v}_i}=\color{darkgreen}{\vec{0}};\quad\forall i\in\{r+1,r+2,\cdots,n\}
+        A\vec{v}_i=\vec{0};\quad\forall i\in\{r+1,r+2,\cdots,n\}
         %equation
 
         \end{matrix}
@@ -207,7 +204,7 @@ when we transform that vector  \(\vec{v}\in\mathbb{R}^n\) using matrix \(A\), \(
     </div>
 
     For \(i\in\{r+1,r+2,\cdots,n\}\)  \(\vec{v}_i\) lives in the <b>Null Space</b> of \(A\)<br>
-    So <span class="bb">\(\color{darkgreen}{\vec{u}_{r+1},\vec{u}_{r+2},\cdots,\vec{u}_n}\)</span> are all \(\vec{0}\)<br>
+    So <span class="bb l3">\(\vec{u}_{r+1},\vec{u}_{r+2},\cdots,\vec{u}_n\)</span> are all \(\vec{0}\)<br>
     <br>
 
     <b>But wait <u>WHY</u> all \(\vec{u}_i\)'s are perpendicular to each other?</b><br>
@@ -215,33 +212,33 @@ when we transform that vector  \(\vec{v}\in\mathbb{R}^n\) using matrix \(A\), \(
 
 </blockquote>
 
-<li id="left-null-space"><b><span style="color: darkgreen;">Left Null Space</span></b> \((N(A^T))\) (Map the Orthonormal Basis vectors from the <b>Null Space</b> to <b>Left Null Space</b>)</li>
+<li id="left-null-space"><b><span class="l3">Left Null Space \((N(A^T))\)</span></b> (Map the Orthonormal Basis vectors from the <b>Null Space</b> to <b>Left Null Space</b>)</li>
 <blockquote>
-    <b><span style="color: darkgreen;">Left Null Space</span></b> is perpendicular to <b>Column Space</b>(we talked about orthogonal subspaces <a  href="/la/orthogonal-subspaces/">HERE</a>), 
+    <b><span class="l3">Left Null Space</span></b> is perpendicular to <b>Column Space</b>(we talked about orthogonal subspaces <a  href="/la/orthogonal-subspaces/">HERE</a>), 
     so every vector in Left Null Space is perpendicular to Column Space.<br>
     \(\text{Rank}(A)=r\) so we have \(m-r\) dependent(free) column vectors.<br>
     So the space spanned by vectors in Left Null Space is \((m-r)\)-dimensional  vector space<b>(Null Space)</b>, so to span this whole 
     \((m-r)\)-dimensional vector space we need \(m-r\) independent basis vectors in Left Null Space.<br>
-    (say) our <b>orthonormal</b> basis vector for <b>Left Null Space</b> are \(\color{darkgreen}{\vec{u}_{r+1},\vec{u}_{r+2},\cdots,\vec{u}_n}\).<br>
+    (say) our <b>orthonormal</b> basis vector for <b>Left Null Space</b> are <span class="bb l3">\(\vec{u}_{r+1},\vec{u}_{r+2},\cdots,\vec{u}_n\)</span>.<br>
 </blockquote>
 <b id="terminologies"> Terminologies </b><br>
-Say <span class="bb">\(\color{red}{\vec{v}_1,\vec{v}_2,\cdots,\vec{v}_r}\)</span> are Orthonormal Basis vectors for <b><span style="color: red;">Row Space</span></b> \((C(A^T))\),<br>
-and <span class="bb">\(\color{brown}{\vec{v}_{r+1},\vec{v}_{r+2},\cdots,\vec{v}_n}\)</span> are Orthonormal Basis vectors for <b><span style="color: brown;">Null Space</span></b> \((N(A^T))\)<br>
+Say <span class="bb l1">\(\vec{v}_1,\vec{v}_2,\cdots,\vec{v}_r\)</span> are Orthonormal Basis vectors for <b><span class="l1">Row Space \((C(A^T))\) </span></b>,<br>
+and <span class="bb l4">\(\vec{v}_{r+1},\vec{v}_{r+2},\cdots,\vec{v}_n\)</span> are Orthonormal Basis vectors for <b><span class="l4">Null Space \((N(A^T))\)</span></b><br>
 <div class="math-container">
 (say) \(\mathbf{V}'=
     \begin{bmatrix}
 
-    \color{red}{\begin{matrix}
+    \begin{matrix}
     \vdots    & \vdots    &          & \vdots       \\  
     \vec{v}_1 & \vec{v}_2 & \cdots   &  \vec{v}_r   \\
     \vdots    & \vdots    &          & \vdots 
-    \end{matrix}}
+    \end{matrix}
     &
-    \color{brown}{\begin{matrix}
+    \begin{matrix}
     \vdots          & \vdots        &          & \vdots \\
     \vec{v}_{r+1}   & \vec{v}_{r+2} & \cdots   & \vec{v}_n \\
     \vdots    & \vdots    &          & \vdots 
-    \end{matrix}}
+    \end{matrix}
 
     \end{bmatrix}_{n\times n}
 \)<br>
@@ -250,17 +247,17 @@ and <span class="bb">\(\color{brown}{\vec{v}_{r+1},\vec{v}_{r+2},\cdots,\vec{v}_
 (say) \(\mathbf{U}'=
     \begin{bmatrix}
 
-    \color{blue}{\begin{matrix}
+    \begin{matrix}
     \vdots    & \vdots    &          & \vdots       \\  
     \vec{u}_1 & \vec{u}_2 & \cdots   &  \vec{u}_r   \\
     \vdots    & \vdots    &          & \vdots 
-    \end{matrix}}
+    \end{matrix}
     &
-    \color{darkgreen}{\begin{matrix}
+    \begin{matrix}
     \vdots          & \vdots        &          & \vdots \\
     \vec{u}_{r+1}   & \vec{u}_{r+2} & \cdots   & \vec{u}_n \\
     \underbrace{\vdots}_{=\vec{0}} & \underbrace{\vdots}_{=\vec{0}} & & \underbrace{\vdots}_{=\vec{0}}
-    \end{matrix}}
+    \end{matrix}
 
     \end{bmatrix}_{m\times n}
 \)<br>
@@ -284,8 +281,8 @@ and <span class="bb">\(\color{brown}{\vec{v}_{r+1},\vec{v}_{r+2},\cdots,\vec{v}_
 </div><br>
 
 Mapping from \(\mathbb{R}^n\) to \(\mathbb{R}^m\) is,<br>
-<div class="math-border">
-\[\color{blue}{
+<div class="l1 border">
+\[
     \begin{matrix}
 
     % equation
@@ -293,7 +290,6 @@ Mapping from \(\mathbb{R}^n\) to \(\mathbb{R}^m\) is,<br>
     %equation
 
     \end{matrix}
-    }
 \]
 </div>
 We can Write it as,
@@ -368,7 +364,7 @@ So,
             AV'_{n\times n}=U'_{m\times n}\Sigma'_{n\times n}
         \]
 
-    And as we discussed above that \(\color{darkgreen}{\vec{u}_{r+1},\vec{u}_{r+2},\cdots,\vec{u}_n}\) are all \(\vec{0}\), 
+    And as we discussed above that <span class="l3">\(\vec{u}_{r+1},\vec{u}_{r+2},\cdots,\vec{u}_n\)</span> are all \(\vec{0}\), 
     so we can discard those vectors from our equation so now our equation will become,<br>
 
     <div class="math-container">
@@ -397,8 +393,8 @@ So,
         \end  {bmatrix}}_{ \Sigma_{m\times n} }\]
     </div>
     So,
-    <div class="math-border">
-    \[\color{blue}{
+    <div class="l1 border">
+    \[
         \begin{matrix}
             
         % equation
@@ -406,7 +402,7 @@ So,
         %equation
 
         \end{matrix}
-        }
+      
     \]
     </div>
     This equation is what we call <b>Full SVD</b>
@@ -450,7 +446,7 @@ So,
             AV'_{n\times n}=U'_{m\times n}\Sigma'_{n\times n}
         \]
 
-    And as we discussed above that \(\color{darkgreen}{\vec{v}_{r+1},\vec{u}_{r+2},\cdots,\vec{u}_n}\) are all \(\vec{0}\), 
+    And as we discussed above that <span class="l3">\(\vec{v}_{r+1},\vec{u}_{r+2},\cdots,\vec{u}_n\)</span> are all \(\vec{0}\), 
     so these vectors are redundant we can discard those vectors from our equation so now our equation will become,<br>
 
     <div class="math-container">
@@ -475,16 +471,14 @@ So,
         \end  {bmatrix}}_{ \Sigma_{r\times r} }\]
     </div>
     So,
-    <div class="math-border">
-    \[\color{blue}{
-        \begin{matrix}
+    <div class="l1 border">
+    \[  \begin{matrix}
             
         % equation
         A_{m\times n}V_{n\times r}=U_{m\times r}\Sigma_{r\times r}
         %equation
 
         \end{matrix}
-        }
     \]
     </div>
     This equation is what we call <b>Reduced SVD</b>
@@ -499,16 +493,14 @@ Once we got those \(V\) and \(U\) <b>Orthonormal</b> matrix then we can find \(A
 And because \(V\) is an orthogonal matrix so we know that \(V^{-1}=V^T\)<br>
 To achieve it we need \(V\) to be square matrix so we have to use <b>Full SVD</b> method, then we get<br>
 
-<div class="math-border">
-\[\color{blue}{
-    \begin{matrix}
+<div class="l1 border">
+\[  \begin{matrix}
 
     % equation
     A_{m\times n}=U_{m\times m}\Sigma_{m\times n}V_{n\times n}^{T}
     %equation
 
     \end{matrix}
-    }
 \]
 </div>
 <span id="find-U-and-V"></span>
@@ -517,9 +509,9 @@ Everything looks good <b>but</b> how to find these \(V\) and \(U\) <b>Orthonorma
     <b><u>IDEA:</u></b> to find the \(V\) and \(U\) are the Matrices \(A^TA\) and \(AA^T\)
 </blockquote>
 <blockquote>
-    <li><span style="color: red;">Row space</span> of \(A\) is same as <span style="color: red;">Row space</span> of \(A^TA\).</li>
-    <i>It is easy to find the basis for <span style="color: red;">Row space</span> of \(A^TA\), so rather than finding
-    basis for <span style="color: red;">Row space</span> of \(A\) we will find basis for <span style="color: red;">Row space</span> of \(A^TA\)</i>
+    <li><span class="l1">Row space</span> of \(A\) is same as <span class="l1">Row space</span> of \(A^TA\).</li>
+    <i>It is easy to find the basis for <span class="l1">Row space</span> of \(A^TA\), so rather than finding
+    basis for <span class="l1">Row space</span> of \(A\) we will find basis for <span class="l1">Row space</span> of \(A^TA\)</i>
 </blockquote>
 
 <blockquote class="noborder">
@@ -538,27 +530,27 @@ a_{21} & a_{22} & \cdots &  a_{2n}   \\
 a_{m1} & a_{m2} & \cdots & a_{mn} \\
 \end{bmatrix}\)<br>
 
-Here we can see that we are mapping the <span style="color: red;">row vectors</span> of \(A\) onto 
-the <span style="color: red;">Row Space</span> of \(A^T\).<br>
+Here we can see that we are mapping the <span class="l1">row vectors</span> of \(A\) onto 
+the <span class="l1">Row Space</span> of \(A^T\).<br>
 
 And if \(\text{Rank}(A)=r\) then \(\Rightarrow \text{Rank}(A^T)=r\) so \(A\) and \(A^T\) both are 
-\(r\)-dimensions <span style="color: red;">Row Space</span>.<br>
+\(r\)-dimensions <span class="l1">Row Space</span>.<br>
 
-So when we map <span style="color: red;">row vector</span> of \(A\) onto the <span style="color: red;">Row Space</span> 
-of \(A^T\) then the resulting <span style="color: red;">Row Space</span> also has \(r\)-dimensions, so we can say that \(\text{Rank}(A^TA)=r\)<br>
+So when we map <span class="l1">row vector</span> of \(A\) onto the <span class="l1">Row Space</span> 
+of \(A^T\) then the resulting <span class="l1">Row Space</span> also has \(r\)-dimensions, so we can say that \(\text{Rank}(A^TA)=r\)<br>
 
-Now we can say that <span style="color: red;">Row Space</span> of \(A\) is same as 
-<span style="color: red;">Row Space</span> of \(A^TA\).<br>
+Now we can say that <span class="l1">Row Space</span> of \(A\) is same as 
+<span class="l1">Row Space</span> of \(A^TA\).<br>
 <br>
 \((A^TA)^T=A^TA \Rightarrow A^TA\) is symmetric matrix, so <br>
-<span style="color: red;">Row Space</span> of \(A^TA=\) <span >Column Space</span> of \(A^TA=\) <span style="color: red;">Row Space</span> of \(A\)<br>  
+<span class="l1">Row Space</span> of \(A^TA=\) <span class="l2">Column Space</span> of \(A^TA=\) <span class="l1">Row Space</span> of \(A\)<br>  
 
 </blockquote><br>
 
 <blockquote>
-    <li><span >Column Space</span> of \(A\) is same as <span >Column Space</span> of \(AA^T\)</li>
-    <i>It is easy to find the basis for <span >Column Space</span> of \(AA^T\), so rather than finding
-    basis for <span >Column Space</span> of \(A\) we will find basis for <span >Column Space</span> of \(AA^T\)</i>
+    <li><span class="l2">Column Space</span> of \(A\) is same as <span class="l2">Column Space</span> of \(AA^T\)</li>
+    <i>It is easy to find the basis for <span class="l2">Column Space</span> of \(AA^T\), so rather than finding
+    basis for <span class="l2">Column Space</span> of \(A\) we will find basis for <span class="l2">Column Space</span> of \(AA^T\)</i>
 </blockquote>
 
 <blockquote class="noborder">
@@ -578,25 +570,25 @@ a_{1n} & a_{2n} & \cdots & a_{mn} \\
 \end{bmatrix}\)<br>
 
 Here we can see that we are mapping the <span >column vectors</span> of \(A^T\) onto 
-the <span >Column Space</span> of \(A\).<br>
+the <span class="l2">Column Space</span> of \(A\).<br>
 
 And if \(\text{Rank}(A)=r\) then \(\Rightarrow \text{Rank}(A^T)=r\) so \(A\) and \(A^T\) both are 
-\(r\)-dimensions <span >Column Space</span>.<br>
+\(r\)-dimensions <span class="l2">Column Space</span>.<br>
 
-So when we map <span >column vector</span> of \(A^T\) onto the <span >Column Space</span> 
-of \(A\) then the resulting <span >Column Space</span> also has \(r\)-dimensions, so we can say that \(\text{Rank}(AA^T)=r\)<br>
+So when we map <span >column vector</span> of \(A^T\) onto the <span class="l2">Column Space</span> 
+of \(A\) then the resulting <span class="l2">Column Space</span> also has \(r\)-dimensions, so we can say that \(\text{Rank}(AA^T)=r\)<br>
 
-Now we can say that <span >Column Space</span> of \(A\) is same as 
-<span >Column Space</span> of \(AA^T\).<br>
+Now we can say that <span class="l2">Column Space</span> of \(A\) is same as 
+<span class="l2">Column Space</span> of \(AA^T\).<br>
 <br>
 \((AA^T)^T=AA^T \Rightarrow AA^T\) is symmetric matrix, so <br>
-<span >Column Space</span> of \(AA^T=\) <span style="color: red;">Row Space</span> of \(AA^T=\) <span >Column Space</span> of \(A\)<br>
+<span class="l2">Column Space</span> of \(AA^T=\) <span class="l1">Row Space</span> of \(AA^T=\) <span class="l2">Column Space</span> of \(A\)<br>
 </blockquote>
 <br>
 
 <h2 id="V">Finding orthonormal Row vectors\((V)\) for matrix \(A\)</h2>
 
-    We discussed that <span style="color: red;">Row space</span> of \(A\) is same as <span style="color: red;">Row space</span> of \(A^TA\).<br>
+    We discussed that <span class="l1">Row space</span> of \(A\) is same as <span class="l1">Row space</span> of \(A^TA\).<br>
     So we need to find orthonormal Row vectors for matrix \(A^TA\).<br>
 
     \(A_{m\times n}=U_{m\times m}\Sigma_{m\times n}V_{n\times n}^{T}\)<br>
@@ -682,7 +674,7 @@ Now we can say that <span >Column Space</span> of \(A\) is same as
     </blockquote><br>
     <h2 id="U">Finding orthonormal Column Vectors\((U)\) for matrix \(A\)</h2>
 
-    We discussed that <span >Column Space</span> of \(A\) is same as <span >Column Space</span> of \(AA^T\).<br>
+    We discussed that <span class="l2">Column Space</span> of \(A\) is same as <span class="l2">Column Space</span> of \(AA^T\).<br>
     So we need to find orthonormal Column vectors for matrix \(AA^T\).<br>
 
     \(A_{m\times n}=U_{m\times m}\Sigma_{m\times n}V_{n\times n}^{T}\)<br>
@@ -754,7 +746,7 @@ Now we can say that <span >Column Space</span> of \(A\) is same as
     </blockquote>
 
 </p>
-<div class="slack-discuss" onclick=" window.open('https://join.slack.com/t/quantml-org/shared_invite/zt-hcmbg7fr-jPbVAUT_tjGPaKWU50qMYQ','_blank')">
+<div class="slack-discuss" onclick=" window.open('https://join.slack.com/t/quantml-org/shared_invite/zt-jffw86bo-6M260iyt1q2MgBma9elewg','_blank')">
     Join our Slack <img src="/data/img/slack.png" alt="Slack"> discussion forum
 </div>
 <br>

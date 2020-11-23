@@ -13,6 +13,7 @@
 
 
         <link rel="stylesheet" href="/data/assets/css/main.css">
+        <link rel="stylesheet" href="/data/auth/authStyle.css">
         <link id="quantml-theme" rel="stylesheet" href="" />
         <link id="quantml-auth-style" rel="stylesheet" href="">
 
@@ -27,12 +28,10 @@
         
 		<title>Positive Definite Matrices</title>
 		<meta charset="utf-8" />
+        <link rel="icon" href="/data/icon.png" type="image/png" sizes="16x16">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<noscript><link rel="stylesheet" href="/data/assets/css/main-light.css" /></noscript>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
         
-        <link rel="icon" href="/data/icon.png" type="image/png" sizes="16x16">
 
 	</head>   
     
@@ -43,7 +42,7 @@
 
                 <!-- Header -->
                     <header id="header">
-                        <a target="_blank" href="https://quantml.org" class="logo image jump-big"><img src="/data/img/cover.png" alt="QuantML.org" /></a>
+                        <a href="https://quantml.org" class="logo image jump-big"><img id="quantml-cover" src="/data/img/cover.png" alt="QuantML.org" /></a>
                     </header>
 
                 <!-- Nav -->
@@ -53,8 +52,8 @@
                             <li class="active"><a href="/la/positive-definite-matrices/">Positive Definite Matrices</a></li>
                         </ul>
                         <ul class="icons">
-                            <li><a target="_blank" href="https://quantml.org/"><img src="/data/img/icon.png" alt="QuantML"></a></li>
-                            <li><a target="_blank" href="https://join.slack.com/t/quantml-org/shared_invite/zt-hcmbg7fr-jPbVAUT_tjGPaKWU50qMYQ"><img src="/data/img/slack.png" alt="Slack"></a></li>
+                            <li><a target="_blank" href="https://quantml.org/"><img src="/data/icon.png" alt="QuantML"></a></li>
+                            <li><a target="_blank" href="https://join.slack.com/t/quantml-org/shared_invite/zt-jffw86bo-6M260iyt1q2MgBma9elewg"><img src="/data/img/slack.png" alt="Slack"></a></li>
                             <li><a target="_blank" href="https://www.linkedin.com/in/yuvraj97/"><img src="/data/img/linkedin.png" alt="LinkedIn"></a></li>
                             <li><a target="_blank" href="https://github.com/yuvraj97/"><img src="/data/img/github.png" alt="GitHub"></a></li>
                             <li><a style="cursor: pointer;"><img id="change-theme" src="" alt="Change Theme"></a></li>
@@ -120,7 +119,7 @@ a_{11}
 <blockquote>
 \(4.\) A \(n\times n\) matrix say \(A\) is Positive Definite Matrix, if
 </blockquote>
-<div class="math-border">
+<div class="l1 border">
 \[  \begin{matrix}
 
     % equation
@@ -152,7 +151,7 @@ a_{11}
     \(\vec{x}^TA\vec{x}\gt 0;\quad\forall x\in\mathbb{R}^n \char`\\ \vec{0}\)"</i><br>
     We know that \(A\) is positive definite matrix so \(\vec{x}^TA\vec{x}\gt 0;\quad\forall x\in\mathbb{R}^n \char`\\ \vec{0}\)<br>
     We know that \(B\) is positive definite matrix so \(\vec{x}^TB\vec{x}\gt 0;\quad\forall x\in\mathbb{R}^n \char`\\ \vec{0}\)<br>
-    For \(A+B\) to be <i>positive definite matrix</i> we need \(\color{blue}{\vec{x}^T(A+B)\vec{x}\gt 0;\quad\forall x\in\mathbb{R}^n \char`\\ \vec{0}}\)<br>
+    For \(A+B\) to be <i>positive definite matrix</i> we need <span class="l2">\(\vec{x}^T(A+B)\vec{x}\gt 0;\quad\forall x\in\mathbb{R}^n \char`\\ \vec{0}\)</span><br>
     \(\vec{x}^T(A+B)\vec{x}\) = \(\underbrace{\vec{x}^TA\vec{x}}_{(\gt 0;\forall x\in\mathbb{R}^n \char`\\ \vec{0})} + \underbrace{\vec{x}^TB\vec{x}}_{(\gt 0;\forall x\in\mathbb{R}^n \char`\\ \vec{0})}\)<br>
     \(\Rightarrow \vec{x}^T(A+B)\vec{x}\gt 0;\quad\forall x\in\mathbb{R}^n \char`\\ \vec{0}\)<br>
     So by property \(5\) we can say that <i>"\(A + B\) is a <b>Positive Definite Matrix</b>"</i>
@@ -161,7 +160,7 @@ a_{11}
 <li>Say we have a \(m\times n\) matrix \(A\) and \(\text{Rank}(A)=n\) then \(A^TA\) is a <i>positive definite matrix</i></li>
 &nbsp;&nbsp;&nbsp;&nbsp;<b>Proof:</b><br>
 <blockquote class="noborder">
-    For \(A^TA\) to be a <i>positive definite matrix</i> we need, \(\color{blue}{\vec{x}^T(A^TA)\vec{x}\gt 0;\quad\forall x\in\mathbb{R}^n \char`\\ \vec{0}}\)<br>
+    For \(A^TA\) to be a <i>positive definite matrix</i> we need, <span class="l2">\(\vec{x}^T(A^TA)\vec{x}\gt 0;\quad\forall x\in\mathbb{R}^n \char`\\ \vec{0}\)</span><br>
     \(\vec{x}^T(A^TA)\vec{x}=(\vec{x}^TA^T)(A\vec{x})\)<br>
     \(\Rightarrow \vec{x}^T(A^TA)\vec{x}=(A\vec{x})^T(A\vec{x})\)<br>
     Here \(A\vec{x}\) is a vector in \(\mathbb{R}^n\), so \((A\vec{x})^T(A\vec{x})=\|A\vec{x}\|^2\) <br>
@@ -192,7 +191,7 @@ Let's find the critical points,<br>
 \displaystyle \frac{\partial f(x_1,x_2)}{\partial x_1}=&\displaystyle 4x_1+12x_2
 \end{matrix} \]
 Now equate \(\displaystyle \frac{\partial f(x_1,x_2)}{\partial x_1}=0\)<br>
-<div class="math-border">
+<div class="l1 border">
 \[
     \begin{matrix}
 4x_1+12x_2=0
@@ -207,7 +206,7 @@ Now equate \(\displaystyle \frac{\partial f(x_1,x_2)}{\partial x_1}=0\)<br>
 \displaystyle \frac{\partial f(x_1,x_2)}{\partial x_2}=&\displaystyle 12x_1 + 38x_2
 \end{matrix} \]
 Now equate \(\displaystyle \frac{\partial f(x_1,x_2)}{\partial x_1}=0\)<br>
-<div class="math-border">
+<div class="l1 border">
 \[
     \begin{matrix}
 12x_1 + 38x_2=0
@@ -276,7 +275,7 @@ Let's find the critical points,<br>
 \displaystyle \frac{\partial f(x_1,x_2)}{\partial x_1}=&\displaystyle 4x_1+12x_2
 \end{matrix} \]
 Now equate \(\displaystyle \frac{\partial f(x_1,x_2)}{\partial x_1}=0\)<br>
-<div class="math-border">
+<div class="l1 border">
 \[
     \begin{matrix}
 4x_1+12x_2=0
@@ -291,7 +290,7 @@ Now equate \(\displaystyle \frac{\partial f(x_1,x_2)}{\partial x_1}=0\)<br>
 \displaystyle \frac{\partial f(x_1,x_2)}{\partial x_2}=&\displaystyle 12x_1 + 14x_2
 \end{matrix} \]
 Now equate \(\displaystyle \frac{\partial f(x_1,x_2)}{\partial x_1}=0\)<br>
-<div class="math-border">
+<div class="l1 border">
 \[
     \begin{matrix}
 12x_1 + 14x_2=0
@@ -343,7 +342,7 @@ Recommended reading<br>
 -->
 </p>
 
-<div class="slack-discuss" onclick=" window.open('https://join.slack.com/t/quantml-org/shared_invite/zt-hcmbg7fr-jPbVAUT_tjGPaKWU50qMYQ','_blank')">
+<div class="slack-discuss" onclick=" window.open('https://join.slack.com/t/quantml-org/shared_invite/zt-jffw86bo-6M260iyt1q2MgBma9elewg','_blank')">
     Join our Slack <img src="/data/img/slack.png" alt="Slack"> discussion forum
 </div>
 <br>

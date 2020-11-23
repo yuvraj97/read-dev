@@ -2,7 +2,7 @@
     background-color:rgb(255,255,255, 0.1);
 }
 body {
-    background-color: #000;
+    background-color: rgb(45, 45, 45);
 }
 a {
     color:rgba(255, 180, 100, 1);
@@ -17,13 +17,13 @@ strong, b {
     color: rgb(255, 255, 255, 0.90);
 }
 h1, h2, h3, h4, h5, h6 {
-    color: rgb(255, 255, 255, 0.95);
+    color: rgb(207, 210, 214);
 }
 blockquote {
-    border-left-color: #eee;
+    border-left-color: rgb(207, 210, 214);
 }
 hr {
-    border-bottom-color: rgb(255,255,255,0.5);
+    border-bottom-color: rgb(207, 210, 214);
 }
 table tbody tr {
     border-color: rgb(255, 255, 255, 0.8);
@@ -35,30 +35,30 @@ table th {
     color: rgba(255, 180, 100) ;
 }
 table thead {
-    border-bottom-color: #eee;
+    border-bottom-color: rgb(207, 210, 214);
 }
 table tfoot {
-    border-top-color: #eee;
+    border-top-color: rgb(207, 210, 214);
 }
 table.alt tbody tr td {
-    border-color: #eee;
+    border-color: rgb(207, 210, 214);
 }
 #wrapper > .bg {
-    background-color: #000;
-    background-image: linear-gradient(to right, rgb(15, 15, 15) 0%, rgb(150, 150, 150) 50%, rgb(15, 15, 15) 100%);
+    background-color: rgb(45, 45, 45);
+    background-image: linear-gradient(to right, rgb(25, 25, 25) 0%, rgb(60, 60, 60) 50%, rgb(25, 25, 25) 100%);
 }
 @media screen and (orientation: portrait) {
     #wrapper > .bg {
-        background-image: linear-gradient(to top, #121212 80%, rgb(255, 255, 255,0.6) 100%);
+        background-image: linear-gradient(to top, rgb(45, 45, 45) 80%, rgb(0,0,0) 100%);
     }
 }
 #nav {
-    color: rgb(255, 255, 255, 0.87);
+    color: rgb(231, 232, 235);
     background-image: none;
-    background-color: rgb(0, 0, 0, 0.2);
+    background-color: rgb(0, 0, 0, 0.4);
 }
 #nav a {
-    color: rgb(255, 255, 255, 0.87);
+    color: rgb(231, 232, 235);
     border-bottom-color: rgba(255, 255, 255, 0.5);
 }
 /* #nav a:hover {
@@ -70,20 +70,20 @@ table.alt tbody tr td {
     background-color: rgba(255, 255, 255, 0.1);
 }
 #nav ul.links li.active {
-    background-color: #121212;
+    background-color: rgb(45, 45, 45);
 }
 #nav ul.links li.active a {
     /* color:rgb(255, 255, 255, 0.87); */
-    color: white;
+    color: rgb(231, 232, 235);
 }
 #nav ul.links li.active a:hover {
     /* color:rgb(255, 255, 255, 0.87); */
     background-color: inherit;
-    border-bottom-color: #121212;
+    border-bottom-color: rgb(45, 45, 45);
     cursor: default;
 }
 #main {
-    background-color: #121212;
+    background-color: rgb(45, 45, 45);
     color: rgb(255, 255, 255, 0.87);
 }
 #navPanelToggle {
@@ -98,7 +98,7 @@ table.alt tbody tr td {
     background-color: rgba(100, 100, 100);
 }
 #navPanel {
-    background: #121212;
+    background: rgb(45, 45, 45);
     color:rgb(255, 255, 255, 0.87);
 }
 #navPanel .links li {
@@ -108,7 +108,7 @@ table.alt tbody tr td {
     color:rgb(255, 255, 255, 0.87);
 }
 #navPanel ul.links li.active {
-    background-color: rgb(255, 255, 255, 0.1);
+    background-color: rgb(61, 61, 61);
 }
 
 /* CUSTOM SCROLLBAR [START] */
@@ -153,12 +153,12 @@ table.alt tbody tr td {
 /* Table of content [END] */
 
 .button {
-    color: rgb(255, 255, 255, 0.90);
-    background-color: rgb(255, 255, 255, 0.05);
-    border: 2.8px #0073b1 solid;
+    color: rgb(207, 210, 214);
+    background-color: transparent;
+    border: 2.8px rgb(255,255,255, 0.3) solid;
 }
 .button:hover, .button:focus {
-    background-color: rgb(255,255,255, 0.2);
+    background-color: rgb(207, 210, 214, 0.05);
 }
 summary span {
     color:rgba(255, 180, 100, 1);
@@ -173,7 +173,7 @@ summary span:hover, summary span:focus {
     border: 1px rgb(194, 199, 204) solid;
 }
 .login-logout-join {
-    background-color: #121212;
+    background-color: rgb(45, 45, 45);
     color: rgb(255, 255, 255, 0.90);
 }
 .login-logout-join:hover, .login-logout-join:focus {
@@ -189,16 +189,28 @@ summary span:hover, summary span:focus {
 }
 /* SLACK DISCUSSION BUTTON WIDE */
 .slack-discuss {
-    box-shadow: .1rem .1rem 0.5rem .1rem rgb(255, 255, 255, 0.7);
+    box-shadow: .05rem .05rem 0.4rem .05rem rgb(255, 255, 255, 0.7);
     color: rgb(255, 255, 255, 0.87); 
 }
 .slack-discuss:hover {
-    box-shadow: .2rem .2rem 1.0rem .2rem rgb(255, 255, 255, 0.8);
+    box-shadow: .05rem .05rem 0.5rem .1rem rgb(255, 255, 255, 0.7);
 }
-.math-border{
-    border: 2px solid blue;
-    color: blue;
- }
-.math-border.dim{
+.l2 {
+    color: rgb(150, 206, 255);
+}
+.l1 {
+    color: rgb(255, 150, 150);
+}
+.l3 {
+    color: rgb(150, 255, 150);
+}
+.l4 {
+    color: rgb(255, 255, 200);
+}
+.l1.border{
+    border: 2px solid rgb(60, 164, 255);
+    color: rgb(60, 164, 255);
+}
+.math.border.dim{
     border: 1.5px solid black;
 }

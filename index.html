@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<<!--
+<!--
     "Thanks to HTML5 UP for this template".
     Massively by HTML5 UP
     html5up.net | @ajlkn
@@ -7,14 +7,13 @@
 -->
 <html>
 	<head>
-
-        <!--Prism-->
-        <link rel="stylesheet" href="/data/prism/prism.css">
-
         <link rel="stylesheet" href="/data/assets/css/main.css">
+        <link rel="stylesheet" href="/data/auth/authStyle.css">
         <link id="quantml-theme" rel="stylesheet" href="" />
         <link id="quantml-auth-style" rel="stylesheet" href="">
-
+        <link rel="stylesheet" href="/style.css">
+        <link id="quantml-style-theme" rel="stylesheet" href="">
+        
         <!--KATEX-->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
 
@@ -26,6 +25,7 @@
         
 		<title>QuantML</title>
 		<meta charset="utf-8" />
+        <link rel="icon" href="/data/icon.png" type="image/png" sizes="16x16">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<noscript><link rel="stylesheet" href="/data/assets/css/main-light.css" /></noscript>
         
@@ -38,20 +38,19 @@
 
 		 		<!-- Header -->
 					<header id="header">
-						<a href="https://quantml.org" class="logo image"><img src="img/cover.png" alt="QuantML.org" ></a>
+						<a href="https://quantml.org" class="logo image jump-big"><img id="quantml-cover" src="/data/img/cover.png" alt="QuantML.org" /></a>
 					</header>
 
 				<!-- Nav -->
                 <nav id="nav">
 						<ul class="links">
-                            <li class="cover"><a href="/la/"><img src="/data/img/linear-algebra-cover.png" alt="Linear Algebra"></a></li>
-							<li class="active"><a href="./"><img style="margin-top: 20px;" src="img/cover.png" alt="QuantML" width="118.3px" height="24.7px"></a></li>
-                            <li><a style="color: black; font-size: 14px;" href="about/">About</a></li>
-                            <li><a style="color: black; font-size: 14px;" href="donate/">Donate</a></li>
+                            <li class="active"><a href="/"><img class="quantml-navbar" src="/data/img/cover.png" alt="QuantML" width="131.44px" height="27.44px"></a></li>
+                            <li><a href="/about/">About</a></li>
+                            <li><a href="/donate/">Donate</a></li>
                         </ul>
                         <ul class="icons">
-                            <li><a target="_blank" href="https://quantml.org/"><img src="/data/img/icon.png" alt="QuantML"></a></li>
-                            <li><a target="_blank" href="https://join.slack.com/t/quantml-org/shared_invite/zt-hcmbg7fr-jPbVAUT_tjGPaKWU50qMYQ"><img src="/data/img/slack.png" alt="Slack"></a></li>
+                            <li><a target="_blank" href="https://quantml.org/"><img src="/data/icon.png" alt="QuantML"></a></li>
+                            <li><a target="_blank" href="https://join.slack.com/t/quantml-org/shared_invite/zt-jffw86bo-6M260iyt1q2MgBma9elewg"><img src="/data/img/slack.png" alt="Slack"></a></li>
                             <li><a target="_blank" href="https://www.linkedin.com/in/yuvraj97/"><img src="/data/img/linkedin.png" alt="LinkedIn"></a></li>
                             <li><a target="_blank" href="https://github.com/yuvraj97/"><img src="/data/img/github.png" alt="GitHub"></a></li>
                             <li><a style="cursor: pointer;"><img id="change-theme" src="" alt="Change Theme"></a></li>
@@ -65,31 +64,31 @@
                         <div class="row">
                             <div class="column">
                               <div class="book">
-                                <div class="book-info">
-                                    <img style="float: right;" src="img/icon.png" alt="logo" width="40" height="40">
-                                    <h2>Linear Algebra</h2>
-                                    <p style="margin-bottom: 10px;"><img src="img/theory.png" alt="Theory" width="18%" height="18%"></p> 
+                                    <h2 style="margin-bottom: 5px;">Linear Algebra</h2>
+                                    <div style="line-height: 45px; display: inline-table; width: 100%;">
+                                        <img style="border-radius: 5px;" src="/data/img/theory.png" alt="Theory" width="65px" height="28px">
+                                    </div> 
                                     <p>Inspired by <a target="_blank" href="https://ocw.mit.edu/">MIT OCW</a>'s <br>
                                     <a target="_blank" href="https://ocw.mit.edu/courses/mathematics/18-06sc-linear-algebra-fall-2011/">18.06sc Linear Algebra</a><br>
                                     [by Professor <a target="_blank" href="http://www-math.mit.edu/~gs/">Gilbert Strang</a>]</p>
                                     <br>
-                                    <div style="margin-top: 20px;"><a href="https://read.quantml.org/la/"><button class="btn jump">Read Now</button></a></div>
-                                </div>
+                                    <div style="margin-top: 20px;"><a href="/la/"><button class="button btn jump">Read Now</button></a></div>
                               </div>
                             </div>
                           
                             <div class="column">
                                 <div class="book">
-                                    <div class="book-info">
-                                        <img style="float: right;" src="img/icon.png" alt="logo" width="40" height="40">
                                         <h2 style="margin-bottom: 5px;">Statistics</h2>
-                                        <p style="margin-bottom: 10px;"><img src="img/theory.png" alt="Theory" width="18%" height="18%"> <img src="img/python.png" alt="Python" width="30%" height="30%"> <img src="img/julia.png" alt="julia" width="20%" height="20%"></p> 
+                                        <div style="line-height: 35px; display: inline-table; width: 100%;">
+                                            <img style="border-radius: 5px;" src="/data/img/theory.png" alt="Theory" width="65px" height="28px"> &nbsp;
+                                            <img style="-webkit-transform: translateY(-0.3rem);transform: translateY(-0.3rem);" src="/data/img/python.png" alt="Python" width="78px" height="20px"> &nbsp;
+                                            <img src="/data/img/julia.png" alt="julia" width="53px" height="33px">
+                                        </div> 
                                         <p>Inspired by <a target="_blank" href="https://micromasters.mit.edu/">MITx</a>'s<br>
                                         <a target="_blank" href="https://www.edx.org/course/fundamentals-of-statistics">18.6501x Fundamentals of Statistics</a><br>
                                         [by Professor <a target="_blank" href="http://www-math.mit.edu/~rigollet/">Philippe Rigollet</a>]</p>
                                         <br>
-                                        <div style="margin-top: 20px;"><button class="btn-disabled">Coming Soon</button></div>
-                                        </div>
+                                        <div style="margin-top: 20px;"><button class="button btn disabled">Coming Soon</button></div>
                                   </div>
                             </div>
                         </div>
@@ -108,8 +107,8 @@
 			<script src="/data/assets/js/breakpoints.min.js"></script>
 			<script src="/data/assets/js/util.js"></script>
             <script src="/data/assets/js/main.js"></script>
-			<script src="/data/initialize-css.js"></script>
+            <script src="/data/initialize-css.js"></script>
+            <script>if(localStorage.getItem("quantmlTheme")=="light"){document.getElementById('quantml-style-theme').href="/style-light.css"} else {document.getElementById('quantml-style-theme').href="/style-dark.css"}</script>
             <script src="/data/index.js"></script>
-			<script src="/data/prism/prism.js"></script>
             <script>setTimeout(() => {document.querySelector('body').style.display="block"}, 0)</script>
 

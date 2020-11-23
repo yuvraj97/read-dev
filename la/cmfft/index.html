@@ -13,6 +13,7 @@
 
 
         <link rel="stylesheet" href="/data/assets/css/main.css">
+        <link rel="stylesheet" href="/data/auth/authStyle.css">
         <link id="quantml-theme" rel="stylesheet" href="" />
         <link id="quantml-auth-style" rel="stylesheet" href="">
 
@@ -27,12 +28,10 @@
         
 		<title>Complex Matrices & Fast Fourier Transform</title>
 		<meta charset="utf-8" />
+        <link rel="icon" href="/data/icon.png" type="image/png" sizes="16x16">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<noscript><link rel="stylesheet" href="/data/assets/css/main-light.css" /></noscript>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
         
-        <link rel="icon" href="/data/icon.png" type="image/png" sizes="16x16">
 	</head>   
     <body style="display: none">
 
@@ -41,7 +40,7 @@
 
                 <!-- Header -->
                     <header id="header">
-                        <a target="_blank" href="https://quantml.org" class="logo image jump-big"><img src="/data/img/cover.png" alt="QuantML.org" /></a>
+                        <a href="https://quantml.org" class="logo image jump-big"><img id="quantml-cover" src="/data/img/cover.png" alt="QuantML.org" /></a>
                     </header>
 
                 <!-- Nav -->
@@ -51,8 +50,8 @@
                             <li class="active"><a href="/la/cmfft/">Complex Matrices & Fast Fourier Transform</a></li>
                         </ul>
                         <ul class="icons">
-                            <li><a target="_blank" href="https://quantml.org/"><img src="/data/img/icon.png" alt="QuantML"></a></li>
-                            <li><a target="_blank" href="https://join.slack.com/t/quantml-org/shared_invite/zt-hcmbg7fr-jPbVAUT_tjGPaKWU50qMYQ"><img src="/data/img/slack.png" alt="Slack"></a></li>
+                            <li><a target="_blank" href="https://quantml.org/"><img src="/data/icon.png" alt="QuantML"></a></li>
+                            <li><a target="_blank" href="https://join.slack.com/t/quantml-org/shared_invite/zt-jffw86bo-6M260iyt1q2MgBma9elewg"><img src="/data/img/slack.png" alt="Slack"></a></li>
                             <li><a target="_blank" href="https://www.linkedin.com/in/yuvraj97/"><img src="/data/img/linkedin.png" alt="LinkedIn"></a></li>
                             <li><a target="_blank" href="https://github.com/yuvraj97/"><img src="/data/img/github.png" alt="GitHub"></a></li>
                             <li><a style="cursor: pointer;"><img id="change-theme" src="" alt="Change Theme"></a></li>
@@ -84,7 +83,7 @@ We can get the magnitude of \(\vec{z}\) by taking dot product \(\vec{z}\cdot\vec
     But we can clearly see that the magnitude of \(\vec{z}\) is <b>not</b> \(0\)<br>
     <br>
     Magnitude of a complex vector is given as,<br>
-    <div class="math-border">
+    <div class="l1 border">
     \[\begin{matrix}
             
         % equation
@@ -104,7 +103,7 @@ We can get the magnitude of \(\vec{z}\) by taking dot product \(\vec{z}\cdot\vec
 
 \(\mathbf{\overline{z}}^T\mathbf{z}\) is also written as \(\mathbf{z}^H\mathbf{z}\) we pronounce it as <i>"z Hermitian z"</i>.<br>
 <b>Dot product</b> between two complex vector say \(\mathbf{u},\mathbf{v} \in\mathbb{C}^n\) is given as.<br>
-<div class="math-border">
+<div class="l1 border">
 \[  \begin{matrix}
 
     % equation
@@ -118,7 +117,7 @@ We can get the magnitude of \(\vec{z}\) by taking dot product \(\vec{z}\cdot\vec
 <h2 id="complex-symmetric-matrices">Complex symmetric matrices</h2>
 What we have seen for symmetric matrix is \(A^T=A\) but it's only true if all the elements of \(A\) are <b>Real</b>.<br>
 A <b>Complex matrix</b> is <i>symmetric</i> if 
-<div class="math-border">
+<div class="l1 border">
 \[  \begin{matrix}
 
     % equation
@@ -146,7 +145,7 @@ q_1    &  q_2   & \cdots   &  q_n   \\
     \end{matrix}\right.
 \]
 And we can also say,<br>
-<div class="math-border">
+<div class="l1 border">
 \[  \begin{matrix}
 
     % equation
@@ -163,7 +162,7 @@ We <a href="/la/markov-matrix/#fourier" >discussed</a> about <b>Fourier Series</
 \[f(x)=a_0 1+a_1\cos(x)+b_1\sin(x)+a_2\cos(2x)+b_2\sin(2x)+\cdots\]
 Now assume we have \(n\) samples \((f_0,f_2,\cdots,f_{n-1})\) from a signal \(f\), we only have some realizations of \(f\) so we can only have a <b>Discrete Fourier Transform</b>  .<br>
 Using these \(n\) samples we want to approximate the there fourier coefficient \((\hat{f}_0, \hat{f}_1, \cdots , \hat{f}_{n-1})\).<br>
-<div class="math-border">
+<div class="l1 border">
 \[  \begin{matrix}
 
     % equation
@@ -175,7 +174,7 @@ Using these \(n\) samples we want to approximate the there fourier coefficient \
 </div>
 \[f_k=\frac{1}{n}\left(\sum_{j=0}^{n-1}\hat{f}_j \exp\left(\frac{   i2\pi jk}{n}\right)\right)\]
 Say, 
-<div class="math-border">
+<div class="l1 border">
 \[  \begin{matrix}
 
     % equation
@@ -202,7 +201,7 @@ We can rewrite the above equations as,<br>
 <li>Phase of \(\hat{f}_i\)  tells us the phase of the \(i^{th}\)  \(\sin\) and \(\cos\).<br></li><br>
 <blockquote>
     <b>DFT matrix</b> is an <b>Orthogonal Matrix</b>, all <b>column vectors</b> are <b>orthogonal</b> to each other.
-    <div class="math-border">
+    <div class="l1 border">
     \[  \begin{matrix}
             
         % equation
@@ -218,7 +217,7 @@ Now the problem is this matrix multiplication, time complexity of this matrix mu
 for a matrix of size \(1024\times 1024\) then it requires \(‭1,048,576‬\) multiplications.<br>
 This problem is solved by <b>Fast Fourier Transform</b><br>
 <b>IDEA</b> behind <b>FFT</b> is we can write \(F_n\) as,<br>
-<div class="math-border">
+<div class="l1 border">
 \[\begin{matrix}
 
     % equation
@@ -272,7 +271,7 @@ So here <b>FFT</b> is more then \(200x\) faster then <b>DFT</b><!--
     https://youtu.be/E8HeD-MUrjY?list=PLMrJAkhIeNNRjxJ_sMtJ02geqw_-vuB7O
 --></p>
 
-<div class="slack-discuss" onclick=" window.open('https://join.slack.com/t/quantml-org/shared_invite/zt-hcmbg7fr-jPbVAUT_tjGPaKWU50qMYQ','_blank')">
+<div class="slack-discuss" onclick=" window.open('https://join.slack.com/t/quantml-org/shared_invite/zt-jffw86bo-6M260iyt1q2MgBma9elewg','_blank')">
     Join our Slack <img src="/data/img/slack.png" alt="Slack"> discussion forum
 </div>
 <br>

@@ -140,7 +140,7 @@ sup {
 blockquote {
     border-left: solid 4px;
     margin: 10px 0 10px 0;
-    padding: 0.5rem 0 0.5rem 2rem;
+    padding: 0.5rem 2rem 0.5rem 2rem;
 }
 hr {
     border: 0;
@@ -527,6 +527,7 @@ table.alt tbody tr:first-child td {
 }
 #main > .post {
     padding: 6rem 8rem 6rem 8rem;
+    bottom: 0px;
 }
 #main > .post.featured {
     text-align: center;
@@ -538,7 +539,7 @@ table.alt tbody tr:first-child td {
 }
 @media screen and (max-width: 736px) {
     #main > .post {
-        padding: 4rem 2rem 2rem 2rem;
+        padding: 0.5rem 2rem 2rem 2rem;
     }
 }
 #main > .posts {
@@ -825,7 +826,7 @@ table.alt tbody tr:first-child td {
 ::-webkit-scrollbar {
     width: 5px;
     height: 5px;
-  }
+}
   
   /* Track */
   ::-webkit-scrollbar-track {
@@ -853,15 +854,15 @@ table.alt tbody tr:first-child td {
 
 .fa {
     padding-left: 5px;
-    font-size:24px;
+    font-size:22px;
     border-bottom: none;
-    -webkit-transform: translateY(-0.1rem); 
-    transform: translateY(-0.1rem);
+    /* -webkit-transform: translateY(-0.1rem); 
+    transform: translateY(-0.1rem); */
 
 }
 .fa:hover{
-    border-bottom-style: dotted;
-    border-bottom-width: 2px;
+    border-bottom: none;
+    cursor: pointer;
 }
 
 /* Table of content [END] */
@@ -920,7 +921,7 @@ summary span {
 }
 @media screen and (max-width: 980px) {
     .login-logout-join {
-        border: 2.5px solid #0073b1;
+        border: 2.5px solid #0073b1; /* Change IT */
         margin-top: 20px;
         width: 100%;
         display: block;
@@ -956,10 +957,6 @@ summary span {
     margin-right: 2px;
     border-bottom: none;
  }
- .python-logo:hover, .python-logo:focus,
- .python-logo img:hover, .python-logo img:focus {
-     /* border-bottom: none; */
- }
 
 .julia-logo, .julia-logo img {
     width: 53px;
@@ -967,11 +964,6 @@ summary span {
     -webkit-transform: translateY(0.3rem); 
     transform: translateY(0.3rem);
     border-bottom: none;
-}
-.julia-logo img:hover, .julia-logo img:focus {
-    /* -webkit-transform: translateY(-0.05rem);
-    transform: translateY(-0.05rem); */
-    /* border-bottom: none; */
 }
 
 .loading {
@@ -1018,7 +1010,6 @@ summary span {
     font-weight: 600;
     /* font-size: 16px; */
     text-align: center;
-    box-shadow: .1rem .1rem 0.5rem .1rem #467AAC;
     width: 100%;
     cursor: pointer;
     border-radius: 20px;
@@ -1033,25 +1024,19 @@ summary span {
     transform: translateY(0.4rem);
 }
 
-.slack-discuss:hover {
-    box-shadow: .2rem .2rem 1.0rem .2rem #467AAC;
-}
-
 .post > img {
     max-width: 100%;
 }
 
-.math-border{
+.l1.border{
     margin-left: auto;
     margin-right: auto;
-    border: 2px solid blue;
     width: fit-content;
     max-width: 95%;
-    color: blue; /* Change IT */
     padding: 10px;
     padding-left: 20px;
     padding-right: 20px;
 }
-.math-border.dim{
+.math.border.dim{
     border: 1.5px solid black;
 }

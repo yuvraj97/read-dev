@@ -2,10 +2,10 @@
     background-color:#ECF1F6;
 }
 body {
-    background-color: white;
+    background-color: #fff;
 }
 a {
-    color: royalblue;
+    color: #0033cc;
     border-bottom-color: rgba(33, 41, 49, 0.5);
 }
 a:hover {
@@ -81,7 +81,7 @@ table.alt tbody tr td {
 }
 #main {
     background-color: #fff;
-    color: rgb(0, 0, 0, 0.87);
+    color: #222;
 }
 #navPanelToggle {
     color: rgb(0, 0, 0, 0.87);
@@ -112,17 +112,17 @@ table.alt tbody tr td {
 
   /* Track */
   ::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 5px #003d61; 
+    box-shadow: inset 0 0 15px #003d61; 
   }
    
   /* Handle */
   ::-webkit-scrollbar-thumb {
-    background: rgb(0, 61, 97, 0.65);
+    background: rgb(255,255,255, 0.7);
   }
   
   /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
-    background: rgb(0, 61, 97, 0.8);
+    background: rgb(255,255,255, 0.8);
   }
 
 /* CUSTOM SCROLLBAR [END] */
@@ -186,16 +186,28 @@ summary span:hover, summary span:focus {
 }
 /* SLACK DISCUSSION BUTTON WIDE */
 .slack-discuss {
-    box-shadow: .1rem .1rem 0.5rem .1rem #467AAC;
+    box-shadow: .05rem .05rem 0.4rem .05rem #467AAC;
     color: #0073b1; 
 }
 .slack-discuss:hover {
-    box-shadow: .2rem .2rem 1.0rem .2rem #467AAC;
+    box-shadow: .05rem .05rem 0.5rem .1rem #467AAC;
 }
-.math-border{
-    border: 2px solid blue;
-    color: blue;
- }
-.math-border.dim{
+.l1 {
+    color: darkred;
+}
+.l2 {
+    color: royalblue;
+}
+.l3 {
+    color: darkgreen;
+}
+.l4 {
+    color: darkorchid;
+}
+.l1.border{
+    border: 2px solid rgb(60, 164, 255);
+    color: rgb(60, 164, 255);
+}
+.math.border.dim{
     border: 1.5px solid black;
 }

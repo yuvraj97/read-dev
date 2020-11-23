@@ -14,6 +14,7 @@
 
 
         <link rel="stylesheet" href="/data/assets/css/main.css">
+        <link rel="stylesheet" href="/data/auth/authStyle.css">
         <link id="quantml-theme" rel="stylesheet" href="" />
         <link id="quantml-auth-style" rel="stylesheet" href="">
 
@@ -28,12 +29,10 @@
         
 		<title>Diagonalization of a Matrix</title>
 		<meta charset="utf-8" />
+        <link rel="icon" href="/data/icon.png" type="image/png" sizes="16x16">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<noscript><link rel="stylesheet" href="/data/assets/css/main-light.css" /></noscript>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
         
-        <link rel="icon" href="/data/icon.png" type="image/png" sizes="16x16">
 
 	</head>   
     
@@ -44,7 +43,7 @@
 
                 <!-- Header -->
                     <header id="header">
-                        <a target="_blank" href="https://quantml.org" class="logo image jump-big"><img src="/data/img/cover.png" alt="QuantML.org" /></a>
+                        <a href="https://quantml.org" class="logo image jump-big"><img id="quantml-cover" src="/data/img/cover.png" alt="QuantML.org" /></a>
                     </header>
 
                 <!-- Nav -->
@@ -54,8 +53,8 @@
                             <li class="active"><a href="/la/diagonalization/">Diagonalization of a Matrix</a></li>
                         </ul>
                         <ul class="icons">
-                            <li><a target="_blank" href="https://quantml.org/"><img src="/data/img/icon.png" alt="QuantML"></a></li>
-                            <li><a target="_blank" href="https://join.slack.com/t/quantml-org/shared_invite/zt-hcmbg7fr-jPbVAUT_tjGPaKWU50qMYQ"><img src="/data/img/slack.png" alt="Slack"></a></li>
+                            <li><a target="_blank" href="https://quantml.org/"><img src="/data/icon.png" alt="QuantML"></a></li>
+                            <li><a target="_blank" href="https://join.slack.com/t/quantml-org/shared_invite/zt-jffw86bo-6M260iyt1q2MgBma9elewg"><img src="/data/img/slack.png" alt="Slack"></a></li>
                             <li><a target="_blank" href="https://www.linkedin.com/in/yuvraj97/"><img src="/data/img/linkedin.png" alt="LinkedIn"></a></li>
                             <li><a target="_blank" href="https://github.com/yuvraj97/"><img src="/data/img/github.png" alt="GitHub"></a></li>
                             <li><a style="cursor: pointer;"><img id="change-theme" src="" alt="Change Theme"></a></li>
@@ -107,7 +106,8 @@ Let's calculate \(AS\)<br>
  \vdots & \vdots & \cdots & \vdots \\
  \end{bmatrix}\)<br>
 
-\(\Rightarrow AS = \begin{bmatrix}
+ <div class="math-container">
+\[\Rightarrow AS = \begin{bmatrix}
  \vdots & \vdots & \cdots & \vdots \\  
  \vec{x}_{1} & \vec{x}_{2} & \cdots & \vec{x}_{n}   \\
  \vdots & \vdots & \cdots & \vdots \\
@@ -118,13 +118,13 @@ Let's calculate \(AS\)<br>
  \vdots    & \vdots    & \ddots  & \vdots    \\  
  0         &    0      & \cdots  &    \lambda_n    \\  
 \end{bmatrix}}_{\text{say }\Lambda}
- \)<br>
+ \]</div>
  </blockquote>
 
 <span class="bb">\(AS=S\Lambda\)</span><br>
 because \(S\) has independent columns so \(S^{-1}\) exists, so<br>
 
-<div class="math-border">
+<div class="l1 border">
     \[
         \begin{matrix}
             
@@ -139,7 +139,7 @@ because \(S\) has independent columns so \(S^{-1}\) exists, so<br>
 This is <b>Diagonalization</b>.<br>
 
 We can also get a factorization of \(A\)<br>
-<div class="math-border">
+<div class="l1 border">
     \[
         \begin{matrix}
             
@@ -184,7 +184,7 @@ where,
 </blockquote>
 Now we can get formula for \(k^{\text{th}}\) power of \(A\).<br>
 
-<div class="math-border">
+<div class="l1 border">
     \[
         \begin{matrix}
             
@@ -267,7 +267,7 @@ So we can say that,<br>
  \end{bmatrix};\quad\)
 \(\vec{c}=\begin{bmatrix} c_1\\c_2\\ \vdots \\c_n \end{bmatrix}\)<br>
 So,<br>
-<div class="math-border">
+<div class="l1 border">
     \[
         \begin{matrix}
             
@@ -326,7 +326,9 @@ So we can say that,<br>
 \(\Rightarrow A\vec{u}_0=c_1\lambda_1\vec{x}_1+c_2\lambda_2\vec{x}_2\)<br>
 So,<br>
 <blockquote>
+    <div class="math-container">
 \[\vec{u}_k=A^{k}\vec{u}_0=c_1\left(\frac{1+\sqrt{5}}{2}\right)^{k}\vec{x}_1+c_2\left(\frac{1-\sqrt{5}}{2}\right)^{k}\vec{x}_2\]
+</div>
 </blockquote><br>
 Now let's find \(c_1,c_2\).<br>
 we know \(\vec{u}_0=\begin{bmatrix} F_{1}\\F_0\\ \end{bmatrix}\)<br>
@@ -352,7 +354,7 @@ So,<br>
 \[F_k=\frac{\lambda_1^k - \lambda_2^k}{\lambda_1-\lambda_2}\]
 \(\lambda_1 = \frac{1+\sqrt{5}}{2}\) and \(\lambda_2 = \frac{1-\sqrt{5}}{2}\) so<br>
 
-<div class="math-border">
+<div class="l1 border math-container">
     \[
         \begin{matrix}
             
@@ -375,7 +377,7 @@ Anti Symmetric matrix will give us pure Complex eigenvalue, and
 -->
 </p>
 
-<div class="slack-discuss" onclick=" window.open('https://join.slack.com/t/quantml-org/shared_invite/zt-hcmbg7fr-jPbVAUT_tjGPaKWU50qMYQ','_blank')">
+<div class="slack-discuss" onclick=" window.open('https://join.slack.com/t/quantml-org/shared_invite/zt-jffw86bo-6M260iyt1q2MgBma9elewg','_blank')">
     Join our Slack <img src="/data/img/slack.png" alt="Slack"> discussion forum
 </div>
 <br>

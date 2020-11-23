@@ -245,7 +245,6 @@ function loadContent(chapterID){
         data = localStorage.getItem(chapterID)
         writeData(data)
     }
-    
 }
 
 function writeData(data){

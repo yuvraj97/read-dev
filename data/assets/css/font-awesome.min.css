@@ -4,8 +4,7 @@
  */
      @font-face {
     font-family: "FontAwesome";
-    /* src:    url("../fonts/fontawesome-webfont.eot?v=4.7.0"); */
-    src:    url("../fonts/fontawesome-webfont.ttf") format("truetype");
+    src:    url("fontawesome-webfont.ttf") format("truetype");
     font-weight: normal;
     font-style: normal;
 }
@@ -26,4 +25,7 @@
 .fa-reorder:before,
 .fa-bars:before {
     content: "\f0c9";
+}
+.fa-info-circle:before {
+    content: "\f05a";
 }

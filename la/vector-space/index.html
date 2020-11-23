@@ -13,6 +13,7 @@
 
 
         <link rel="stylesheet" href="/data/assets/css/main.css">
+        <link rel="stylesheet" href="/data/auth/authStyle.css">
         <link id="quantml-theme" rel="stylesheet" href="" />
         <link id="quantml-auth-style" rel="stylesheet" href="">
 
@@ -27,12 +28,10 @@
         
 		<title>Vector Space</title>
 		<meta charset="utf-8" />
+        <link rel="icon" href="/data/icon.png" type="image/png" sizes="16x16">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<noscript><link rel="stylesheet" href="/data/assets/css/main-light.css" /></noscript>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
         
-        <link rel="icon" href="/data/icon.png" type="image/png" sizes="16x16">
 
 	</head>   
     
@@ -43,7 +42,7 @@
 
                 <!-- Header -->
                     <header id="header">
-                        <a target="_blank" href="https://quantml.org" class="logo image jump-big"><img src="/data/img/cover.png" alt="QuantML.org" /></a>
+                        <a href="https://quantml.org" class="logo image jump-big"><img id="quantml-cover" src="/data/img/cover.png" alt="QuantML.org" /></a>
                     </header>
 
                 <!-- Nav -->
@@ -53,8 +52,8 @@
                             <li class="active"><a href="/la/vector-space/">Vector Space</a></li>
                         </ul>
                         <ul class="icons">
-                            <li><a target="_blank" href="https://quantml.org/"><img src="/data/img/icon.png" alt="QuantML"></a></li>
-                            <li><a target="_blank" href="https://join.slack.com/t/quantml-org/shared_invite/zt-hcmbg7fr-jPbVAUT_tjGPaKWU50qMYQ"><img src="/data/img/slack.png" alt="Slack"></a></li>
+                            <li><a target="_blank" href="https://quantml.org/"><img src="/data/icon.png" alt="QuantML"></a></li>
+                            <li><a target="_blank" href="https://join.slack.com/t/quantml-org/shared_invite/zt-jffw86bo-6M260iyt1q2MgBma9elewg"><img src="/data/img/slack.png" alt="Slack"></a></li>
                             <li><a target="_blank" href="https://www.linkedin.com/in/yuvraj97/"><img src="/data/img/linkedin.png" alt="LinkedIn"></a></li>
                             <li><a target="_blank" href="https://github.com/yuvraj97/"><img src="/data/img/github.png" alt="GitHub"></a></li>
                             <li><a style="cursor: pointer;"><img id="change-theme" src="" alt="Change Theme"></a></li>
@@ -89,7 +88,7 @@ m.plot_3D_vectors(vector)
 m.set_axes_limit((-2,2))
 m.setZ_limit((-0.5,2))
 </code></pre>
-You can get this MultiVariable class <a href="data/MultiVariable.py">HERE</a>
+You can get this MultiVariable class <a href="/la/MultiVariable.py">HERE</a>
 <hr>
 </details>
 
@@ -115,7 +114,7 @@ m.plot_3D_vectors(vector, plot_separately=False)
 ## Adjusting axis limits
 m.set_axes_limit((-3,3))
 </code></pre>
-You can get this MultiVariable class <a href="data/MultiVariable.py">HERE</a>
+You can get this MultiVariable class <a href="/la/MultiVariable.py">HERE</a>
 </details>
 <br>
 Now Consider a plane(passing through origin) inside a \(3\)-dimensional space, so that plane lives inside \(3\)-dimensional vector space, but it has it's own vector space.<br>
@@ -133,7 +132,7 @@ def f(x,y):
 m = mvar.MultiVariable()
 m.plot_surface_color_3D(f, plot_separately=True, alpha=0.7)
 </code></pre>
-You can get this MultiVariable class <a href="data/MultiVariable.py">HERE</a>
+You can get this MultiVariable class <a href="/la/MultiVariable.py">HERE</a>
 <hr>
 </details>
 Here you can see the plane \(x+y+z=0\) has it's own vector space inside \(3\)-dimensional vector space.<br>
@@ -168,7 +167,7 @@ lines = np.array([[-2.5,2.5,-2.5,2.5,-2.5,2.5]])
 m.plot_3D_lines(lines, plot_separately=False)
 m.set_axes_limit((-3,3))
 </code></pre>
-You can get this MultiVariable class <a href="data/MultiVariable.py">HERE</a>
+You can get this MultiVariable class <a href="/la/MultiVariable.py">HERE</a>
 <hr>
 </details>
 
@@ -200,7 +199,7 @@ m.plot_3D_vectors(vectors, origin, plot_separately=False)
 m.plot_surface_lines_3d(f, density = 100, plot_separately=False)
 m.set_axes_limit((-3,3))
 </code></pre>
-You can get this MultiVariable class <a href="data/MultiVariable.py">HERE</a>
+You can get this MultiVariable class <a href="/la/MultiVariable.py">HERE</a>
 <hr>
 </details>
 <br><br>
@@ -239,7 +238,7 @@ origin = np.array([0,0])
 m.plot_2D_vectors(vectors, origin, plot_separately=False, head_width=0.2, head_length=0.2)
 m.set_axes_limit((-5,5))
 </code></pre>
-You can get this MultiVariable class <a href="data/MultiVariable.py">HERE</a>
+You can get this MultiVariable class <a href="/la/MultiVariable.py">HERE</a>
 <hr>
 </details>
 So it can't be a vector space.<br>
@@ -255,7 +254,7 @@ Possible subspace of a \(2\)-dimensional space.<br>
 </ol>
 </p>
 
-<div class="slack-discuss" onclick=" window.open('https://join.slack.com/t/quantml-org/shared_invite/zt-hcmbg7fr-jPbVAUT_tjGPaKWU50qMYQ','_blank')">
+<div class="slack-discuss" onclick=" window.open('https://join.slack.com/t/quantml-org/shared_invite/zt-jffw86bo-6M260iyt1q2MgBma9elewg','_blank')">
     Join our Slack <img src="/data/img/slack.png" alt="Slack"> discussion forum
 </div>
 <br>

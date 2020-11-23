@@ -6,7 +6,7 @@ theme = document.getElementById('quantml-theme')
 auththeme = document.getElementById('quantml-auth-style')
 if(currTheme == "light"){
 	theme.href ="/data/assets/css/main-light.css"
-	auththeme.href = "/data/auth/authStyle.css"
+	auththeme.href = "/data/auth/authStyle-light.css"
 }
 else if(currTheme == "dark") {
 	theme.href = "/data/assets/css/main-dark.css"

@@ -14,6 +14,7 @@
 
 
         <link rel="stylesheet" href="/data/assets/css/main.css">
+        <link rel="stylesheet" href="/data/auth/authStyle.css">
         <link id="quantml-theme" rel="stylesheet" href="" />
         <link id="quantml-auth-style" rel="stylesheet" href="">
 
@@ -28,12 +29,10 @@
         
 		<title>Markov Matrix and Fourier Series</title>
 		<meta charset="utf-8" />
+        <link rel="icon" href="/data/icon.png" type="image/png" sizes="16x16">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<noscript><link rel="stylesheet" href="/data/assets/css/main-light.css" /></noscript>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
         
-        <link rel="icon" href="/data/icon.png" type="image/png" sizes="16x16">
 
 	</head>   
     
@@ -44,7 +43,7 @@
 
                 <!-- Header -->
                     <header id="header">
-                        <a target="_blank" href="https://quantml.org" class="logo image jump-big"><img src="/data/img/cover.png" alt="QuantML.org" /></a>
+                        <a href="https://quantml.org" class="logo image jump-big"><img id="quantml-cover" src="/data/img/cover.png" alt="QuantML.org" /></a>
                     </header>
 
                 <!-- Nav -->
@@ -54,8 +53,8 @@
                             <li class="active"><a href="/la/complete-space/">Markov Matrix and Fourier Series</a></li>
                         </ul>
                         <ul class="icons">
-                            <li><a target="_blank" href="https://quantml.org/"><img src="/data/img/icon.png" alt="QuantML"></a></li>
-                            <li><a target="_blank" href="https://join.slack.com/t/quantml-org/shared_invite/zt-hcmbg7fr-jPbVAUT_tjGPaKWU50qMYQ"><img src="/data/img/slack.png" alt="Slack"></a></li>
+                            <li><a target="_blank" href="https://quantml.org/"><img src="/data/icon.png" alt="QuantML"></a></li>
+                            <li><a target="_blank" href="https://join.slack.com/t/quantml-org/shared_invite/zt-jffw86bo-6M260iyt1q2MgBma9elewg"><img src="/data/img/slack.png" alt="Slack"></a></li>
                             <li><a target="_blank" href="https://www.linkedin.com/in/yuvraj97/"><img src="/data/img/linkedin.png" alt="LinkedIn"></a></li>
                             <li><a target="_blank" href="https://github.com/yuvraj97/"><img src="/data/img/github.png" alt="GitHub"></a></li>
                             <li><a style="cursor: pointer;"><img id="change-theme" src="" alt="Change Theme"></a></li>
@@ -174,7 +173,7 @@ Say that we know \(u_{t=0}\) and we want to find \(u_{t=100}\) then we have to c
 for large \(M\) it's impractical to compute.<br>
 Now say that <i>eigenvalues</i> of \(M\) is \(\lambda_1\) and \(\lambda_2\) and <i>eigenvectos</i> of \(M\) is \(x_1\) and \(x_2\)<br>
 So,<br>
-<div class="math-container math-border">
+<div class="math-container l1 border">
 \[  \begin{matrix}
 
     % equation
@@ -204,7 +203,7 @@ so take dot product w.r.t. \(x_1\).<br>
 \(\vec{v}^T\vec{q}_1=x_1\underbrace{\vec{q}_1^T\vec{q}_1}_{=1} + x_2\underbrace{\vec{q}_2^T\vec{q}_1}_{=0} + \cdots + x_n\underbrace{\vec{q}_n^T\vec{q}_1}_{=0}\)
 </div>
 \(\Rightarrow x_1=\vec{v}^T\vec{q}_1\)<br>
-<div class="math-container math-border">
+<div class="math-container l1 border">
 \[  \begin{matrix}
 
     % equation
@@ -234,7 +233,7 @@ We can also write it in matrix form,<br>
 </div>
 \(\Rightarrow Q\vec{x}=\vec{v}\)<br>
 \(\Rightarrow \underbrace{Q^TQ}_{\mathcal{I}}\vec{x}=Q^T\vec{v}\)<br>
-<div class="math-border">
+<div class="l1 border">
 \[  \begin{matrix}
 
     % equation
@@ -265,7 +264,7 @@ Here our space is \(\infty\) dimensional<br>
     Vectors have some set of values like \(\vec{v}= \begin{bmatrix} v_1\\ \vdots \\v_n\\  \end{bmatrix}\).<br>
     But a function has a range of values like for \(\cos(x)\) range is \([0,2\pi]\).<br>
     And a dot product of two functions say \(f\) and \(g\) with interval \([0,2\pi]\) is defined as.<br>
-    <div class="math-border">
+    <div class="l1 border">
     \[  \begin{matrix}
             
         % equation
@@ -296,7 +295,7 @@ First let's see how to find \(a_1\)?<br>
 \(\Rightarrow \int_{0}^{2\pi}f(x)\cos(x)  =a_1\pi\)<br>
 \(\Rightarrow \int_{0}^{2\pi}f(x)\cos(x)  =a_1\pi\)<br>
 So,
-<div class="math-border">
+<div class="l1 border">
 \[  \begin{matrix}
 
     % equation
@@ -309,7 +308,7 @@ So,
 Similarly we can find rest of \(a_i\)'s
 </p>
 
-<div class="slack-discuss" onclick=" window.open('https://join.slack.com/t/quantml-org/shared_invite/zt-hcmbg7fr-jPbVAUT_tjGPaKWU50qMYQ','_blank')">
+<div class="slack-discuss" onclick=" window.open('https://join.slack.com/t/quantml-org/shared_invite/zt-jffw86bo-6M260iyt1q2MgBma9elewg','_blank')">
     Join our Slack <img src="/data/img/slack.png" alt="Slack"> discussion forum
 </div>
 <br>
