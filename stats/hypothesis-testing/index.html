@@ -28,10 +28,9 @@
         <link rel="icon" href="/data/icon.png" type="image/png" sizes="16x16">
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
         
-        <noscript><link rel="stylesheet" href="/data/assets/css/noscript.css" /></noscript>
-
+        
     </head>
-    <body class="is-preload" style="display: none;">
+    <body style="display: none;">
 
         <!-- Wrapper -->
             <div id="wrapper">
@@ -84,12 +83,12 @@ There are two ways to board a plane:
     <li>
         <b>Rear to front(R2F):</b><br>
         In this case we start boarding from the rear seats to the front seats.<br>
-        <div class="new_image"><img src="/stats/img/R2F.png" width="593" height="153" alt=""></div>
+        <img style="width: 100%;" src="/stats/img/R2F.png" width="593" height="153" alt="">
     </li>
     <li>
         <b>WilMA(Window,Middle,Aisle):</b><br>
         In this case we first board the Windows seats, then the Middle seats and then Aisle.<br>
-        <div class="new_image"><img src="/stats/img/WilMA.png" width="593" height="153" alt=""></div>
+        <img style="width: 100%;" src="/stats/img/WilMA.png" width="593" height="153" alt="">
     </li>
 </ol>
 First we collect data for these two methods, say we have data from 2 airlines: <b>airline1</b>(it follows <b>R2F</b>), <b>airlines2</b>(it follows <b>WilMA</b>)<br>
@@ -136,7 +135,7 @@ Now what we want to answer is "are those boarding time are same or one is better
 <details open>
     <summary><span class="bb" style="color: royalblue; background-color: lightyellow; cursor:pointer;">But why not answer "\(\text{Is } \mu_X=\mu_Y\)\(\text{ or }\)\(\mu_X \neq \mu_Y \)" </span></summary>
     <blockquote>
-        <div class="new_image"><img src="/stats/img/hypothesis-ex-parametric-model.png" width="170" height="150" style="float: right" alt=""></div>
+        <img style="width: 100%;" src="/stats/img/hypothesis-ex-parametric-model.png" width="170" height="150" style="float: right" alt="">
         Here we are trying to claim that WilMA is better then R2F, and <b>status quo</b> (\(\mu_X=\mu_Y \)) says before collecting the data there is no reason to believe that one is better then other.<br>
         Here we ruling out \(\mu_X\lt\mu_Y \) from our parameter space \((\mathbb{P_\theta})_{\theta\in\Theta}\), so that we can get more out of our data.<br>
     </blockquote>

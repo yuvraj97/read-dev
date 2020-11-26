@@ -7,7 +7,12 @@
 -->
 <html>
     <head>        
-      
+
+        <script>
+            var nextPage = "/stats/law-of-large-numbers-&-central-limit-theorem/";
+            var prevPage = "/stats/"
+        </script>
+
         <link rel="stylesheet" href="/data/assets/css/main.css">
         <link rel="stylesheet" href="/data/auth/authStyle.css">
         <link id="quantml-theme" rel="stylesheet" href="" />
@@ -26,11 +31,10 @@
         <meta charset="utf-8" />
         <link rel="icon" href="/data/icon.png" type="image/png" sizes="16x16">
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-        <noscript><link rel="stylesheet" href="/data/assets/css/noscript.css" /></noscript>
-
+        
     </head>
 
-    <body class="is-preload" style="display: none;">
+    <body style="display: none;">
 
         <!-- Wrapper -->
             <div id="wrapper">
@@ -66,8 +70,8 @@
                         <section class="post paragraph">
                             <section id="paragraph" class="post">
 <div class='buttons'>
-    <button class="button jump" onclick="window.location.href = '/stats/';">&#x25C0;&nbsp;&nbsp; Home</button>
-    <button class="button jump"  style="float: right;" onclick="window.location.href = './law-of-large-numbers-&-central-limit-theorem/';">LLN & CLT&nbsp;&nbsp;&#x25B6;</button>
+    <button class="button jump" onclick="prevPageBtn()">&#x25C0;&nbsp;&nbsp; Home</button>
+    <button class="button jump"  style="float: right;" onclick="nextPageBtn()">LLN & CLT&nbsp;&nbsp;&#x25B6;</button>
 </div><br>
 
 <h1 id="goals">Goals <a style="color: rgb(20, 57, 168);" href="#goals"><i class="fa fa-link" aria-hidden="true"></i></a></h1>
@@ -78,21 +82,21 @@ After this chapter, we will be able to formulate a real-life situation in mathem
 <br>
 
 <h1 id="why">Why do we want to do statistics? <a style="color: rgb(20, 57, 168);" href="#why"><i class="fa fa-link" aria-hidden="true"></i></a></h1>
-Now let's see where do <i>statistics</i> shows in real-life.<br>
+Now let's see where <i>statistics</i> is used in real-life.<br>
 <b>For example</b>, see this <a  href="https://www.nytimes.com/interactive/2018/07/18/upshot/nike-vaporfly-shoe-strava.html">New York Times article</a>, 
 here it is claimed that,
 <blockquote>
     "These $250 running shoes will make you run faster"</i>
 </blockquote>
-They claim to have <b>500,000</b> running time for different shoes.<br>
-And what we are trying to understand here is that, Is <b>500,000</b> running time is sufficient number? 
-what if there are <b>5Million</b> or say <b>50Million</b>!<br>
+They claim to have <b>500,000</b> data points  of running time for different shoes.<br>
+And what we are trying to understand here is that, Are <b>500,000</b> data points sufficient? 
+What if there are <b>5Million</b> or say <b>50Million</b>!<br>
 <br>
 
-<b style="font-size: larger;">Data</b> comes from a <b>random process</b>
-They <b>aren't</b> just a <i>sequence of numbers</i><br>
-And <span title="Here we are talking about our Data"><u>those</u></span>
- numbers are representative of that <b>random process</b>.
+<b style="font-size: larger;">Data</b> comes from a <b>random process</b>, 
+They <b>aren't</b> just a <i>sequence of numbers</i>, 
+and <span title="Here we are talking about our Data"><u>those</u></span>
+ numbers are representative of that <b>random process</b>. <br>
 The goal of statistics is to <span title="Extrapolation is the process of finding a value outside a data set. It could even be said that it helps predict the future!"><u>extrapolate</u></span> from a finite number of data to what we can get if we had an \(\infty\) amount of observation. If we have an \(\infty\) amount of data we can describe a random process (but there still be some randomness), and this process helps us to make a prediction.<br>
 To understand randomness, we need <b><i>Probability</i></b>(it's also prerequisite for <b>Statistics</b>).<br>
 <br>
@@ -101,33 +105,57 @@ To understand randomness, we need <b><i>Probability</i></b>(it's also prerequisi
 
 
 <h1 id="probability">Probability <a style="color: rgb(20, 57, 168);" href="#probability"><i class="fa fa-link" aria-hidden="true"></i></a></h1>
-<span title="In probability"><u>Here</u></span> we have a description of a <b>random process</b> and we are asked about the outcome from that random process, like <b>expectation, probability distribution, etc</b>.<br>
+<span title="In probability"><u>Here</u></span>, we have a description of a <b>random process</b> and we are asked about the outcome from that random process, like <b>expectation, probability distribution, etc</b>.<br>
 Now the <b>question</b> is where does <b>Statistics</b> fit in all of this<b>?</b>.<br>
-We don't need statistics to understand that, <i>A fair die has a \(\frac{1}{6}\) chance to outcome a 1</i> 
-OR <i>A fair coin has a \(\frac{1}{2}\) chance to outcome a heads</i>.<br>
+We don't need statistics to understand that, <i>a fair die has \(\frac{1}{6}\) chance to outcome a 1</i> 
+OR <i>a fair coin has \(\frac{1}{2}\) chance to outcome a heads</i>.<br>
 <blockquote>
 <b>But</b> what if we don't know about that <b>random process</b>, then we need <b>statistics</b> to figure it out.
 </blockquote>
-What if the coin isn't fair?, then we start flipping a coin, collecting the number of heads and tails, and then we would try to see that probability is converging to maybe 1/2.
+What if the coin isn't fair?<br> 
+We flip a coin, collect the number of <b>Heads</b> and <b>Tails</b> and then we would try to see that probability is converging to maybe 1/2.
 <br><br>
 Sometimes there is <b>real</b> randomness like a biased coin, measurement error,  etc.<br>
-Sometimes there is <b>no </b>randomness, this is where most of the randomness comes from. There is no randomness in there (people don't think of themselves acting randomly), there is a huge component that we <b>don't understand</b>, when we talk about genes we are trying to predict personalized medicines based on gene profiles, gene profile tells a lot about some disease, they don't tell us everything. So there are things that we don't understand, it's just not accessible to us.<br>
+Sometimes there is <b>no </b>randomness, this is where most of the randomness comes from,<br>
+<blockquote class="noborder">
+    <b>Example:</b> <br>
+    Say we have \(4\) types of food "<b>Pizza</b>","<b>Pasta</b>", "<b>Hamburger</b>" and "<b>Rice</b>". <br>
+    We want to predict a person's favorite food among these \(4\). <br>
+    To achieve it we want some parameters like their <b>Age</b>, <b>Gender</b>, <b>Locality</b>, etc. <br>
+    There are soo many parameters we can't even think about, so we <b>can't</b> tell their favorite food with \(100\%\) certainty. <br>
+    So we pick parameters that we can collect and based on them we can give our prediction.
+</blockquote>
+So there is a huge component that we <b>don't understand</b>. <br> 
+When we talk about genes we are trying to predict personalized medicines based on gene profiles. Gene profile tells a lot about some disease but not everything. So there are things that we don't understand, it's just not accessible to us.<br>
 <br>
 
 <h1 id="modeling">Statistical Modeling <a style="color: rgb(20, 57, 168);" href="#modeling"><i class="fa fa-link" aria-hidden="true"></i></a></h1>
-Think of a Complicated process what we do is we split this Complicated process into two parts, first is Simple process this is what we do understand about the process, and another one is random noise this is the thing that we don't understand.
-<br> 
+What will we do when we encounter a Complicated situation? <br>
+We split the Complicated process into two parts, First is a <b>simple process</b> that we are able to understand, about the process, and the other one is <b>Random Noise</b> that we are not able to understand.<br>
+<blockquote class="noborder">
+    Say we want to travel from <b>Tokyo</b> to <b>India</b>, so what should we do?<br>
+    We book our tickets, pack our bags, then head over to India.<br>
+    That is what we know, but what we don't know is.<br>
+    <li>What if seats are already full.</li>
+    <li>What if our cab malfunctions.</li>
+    <li>What if the flight gets delayed.</li>
+    
+    There is no certainty of these events happening, but there is a possibility.
+    These events are what we are referring to, as <b>Random Noise</b>.
+</blockquote>
 <blockquote>
     <b>Complicated Process \(\equiv\) Simple Process + Random Noise</b>
 </blockquote>
-Good Modeling consists in choosing (plausible) simple process and noise distribution.<br>
+<blockquote>
+Good Modeling consists in choosing (plausible) simple process and noise distribution.
+</blockquote>
 <br>
 
-<hr style="width: 100%; height: 1px">
+<hr>
 
-<div class="new_image">
-<img id='dogma' src="/stats/img/dogma.png" alt="Central Dogma of Probability and Statistics"><br>
-</div>
+
+<img id='dogma' style="width: 100%;" src="/stats/img/dogma.png" alt="Central Dogma of Probability and Statistics">
+
 
 <span title="The image showed just above"><u>This</u></span> is the Central <span title="a principle laid down by an authority as incontrovertibly true."><u>Dogma</u></span> of probability and statistics, So what it's saying is:
 <blockquote>
@@ -198,25 +226,19 @@ Coming up with a model consists of making assumptions on what those \(R_i\)'s ar
 \(2.\quad\) Each \(R_i\) is a Bernoulli(we will see it later) with parameter \(p\)<br>
 \(3.\quad\) \(R_1,R_2,...,R_n\) are mutually independent<br>
 
-<br>
-
-Remember that dogma we showed <a href="#dogma">above.</a><br>
-<blockquote>
-    If you knew the <b>truth</b>(Random Process) you can generate how the observation looks like.
+<blockquote class="noborder align-center">
+Now let's see some Simulation, choose your language of choice,<br>
+<a href="/stats/introduction/python/"><img src="/data/img/python.png" alt="Python" width="75px" height="20px"></a> &nbsp;,&nbsp;
+<a href="/stats/introduction/julia/"><img src="/data/img/julia.png" alt="Julia" width="53px" height="33px"></a>
 </blockquote>
-And we want to go from <b>observation</b> to the <b>truth</b>(Random Process).<br>
-Now let's focus on the <b>probability</b> to <b>statistics</b> part.<br>
-So first we will generate a population of 5000 kissing couples artificially using our computers (or say python).<br>
-Now we choose a true proportion \(p\), and if we took two different values of \(p\) like:\(p=0.35%\), \(p=0.65%\). We generate data separately for those \(p\)'s<br>
-And then we generate 1000 samples of 124 couples, So here we are doing the experiment 1000 times, so we have 1000 samples then we create a histogram from those samples.<br>
-</p>
+<br>
 
 <div class="slack-discuss" onclick=" window.open('https://join.slack.com/t/quantml-org/shared_invite/zt-jffw86bo-6M260iyt1q2MgBma9elewg','_blank')">
     Join our Slack <img src="/data/img/slack.png" alt="Slack"> discussion forum
 </div><br>  
 <div class='buttons'>
-    <button class="button jump" onclick="window.location.href = '/stats/';">&#x25C0;&nbsp;&nbsp; Home</button>
-    <button class="button jump"  style="float: right;" onclick="window.location.href = './law-of-large-numbers-&-central-limit-theorem/';">LLN & CLT&nbsp;&nbsp;&#x25B6;</button>
+    <button class="button jump" onclick="prevPageBtn()">&#x25C0;&nbsp;&nbsp; Home</button>
+    <button class="button jump"  style="float: right;" onclick="nextPageBtn()">LLN & CLT&nbsp;&nbsp;&#x25B6;</button>
 </div><br>
 
 
@@ -288,12 +310,6 @@ And then we generate 1000 samples of 124 couples, So here we are doing the exper
 </div>
         
 <!--=============== SETTINGS[END] ===============-->
-
-    
-
-    
-    
-
 
                     </section>
                     </div>

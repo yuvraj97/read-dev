@@ -28,10 +28,9 @@
         <link rel="icon" href="/data/icon.png" type="image/png" sizes="16x16">
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
         
-        <noscript><link rel="stylesheet" href="/data/assets/css/noscript.css" /></noscript>
-
+        
     </head>
-    <body class="is-preload" style="display: none;">
+    <body style="display: none;">
 
         <!-- Wrapper -->
             <div id="wrapper">
@@ -136,7 +135,7 @@ I_plugin=get_plugin_ci(lambda_hat,alpha,n)
 print(I_plugin)
 </pre></div>
 <blockquote><div class="math-container">\(\text{O/P:}\quad\quad[0.1763039808802351, 0.29072364724375954]\)</div></blockquote>
-<hr style="width: 100%; height: 1px">
+<hr>
 </details>
 <p>
     If we run this experiment multiple times then each experiment has it's own CI, and \(1-\alpha\) proportion of those CIs contains true parameter
@@ -193,9 +192,9 @@ alpha = 0.05 # 1- alpha is the level of confidence
 run_simulation(true_lambda,alpha,n,no_of_experiments=50)
 </pre></div><br>
 \(\text{O/P:}\)<br>
-<img src="/stats/img/ci.png" width="384" height="287" alt=""><br>
+<img style="width: 100%;" src="/stats/img/ci.png" width="384" height="287" alt=""><br>
 Here the blue CIs are those which contains the true parameter and red one do <b>not</b> contain the true parameter, vertical line denotes our true parameter and black dots indicate \(\overline{T}_n\) of each CI.
-<hr style="width: 100%; height: 1px">
+<hr>
 </details>
 
 <button class="accordion">\(\text{Discussion}\)</button>

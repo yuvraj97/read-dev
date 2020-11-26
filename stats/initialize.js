@@ -1,9 +1,24 @@
+// PAGINATION [START]
+
+function prevPageBtn(){
+    window.location.href = prevPage;
+}
+
+function nextPageBtn(){
+    window.location.href = nextPage;
+}
+
+// PAGINATION [END]
+
+
+// Setting Font-Size [START]
+
 function getFontSize(){
-    return parseInt(localStorage.getItem('paragraph-font-size'))
+    return parseInt(localStorage.getItem('paragraph-font-size'));
 }
 
 function incrementFontSize(){
-    localStorage.setItem('paragraph-font-size', parseInt(localStorage.getItem('paragraph-font-size')) + 1)
+    localStorage.setItem('paragraph-font-size', parseInt(localStorage.getItem('paragraph-font-size')) + 1);
 }
 
 function decrementFontSize(){
@@ -11,7 +26,7 @@ function decrementFontSize(){
 }
 
 function setFontSize(){
-    document.getElementById('paragraph').style.fontSize = localStorage.getItem('paragraph-font-size') + "px"
+    document.getElementById('paragraph').style.fontSize = localStorage.getItem('paragraph-font-size') + "px";
 }
 
 function showSettings(){
@@ -22,9 +37,11 @@ function showSettings(){
 
 if(localStorage.getItem('paragraph-font-size') == null){
     if(screen.width < 500){
-        localStorage.setItem('paragraph-font-size', "14")
+        localStorage.setItem('paragraph-font-size', "14");
     } else {
-        localStorage.setItem('paragraph-font-size', "16")
+        localStorage.setItem('paragraph-font-size', "16");
     }
 }
 setFontSize()
+
+// Setting Font-Size [END]

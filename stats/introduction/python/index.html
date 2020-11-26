@@ -11,6 +11,10 @@
         <!--Prism-->
         <link rel="stylesheet" href="/data/prism/prism.css">
 
+        <script>
+            var nextPage = "/stats/law-of-large-numbers-&-central-limit-theorem/";
+            var prevPage = "/stats/"
+        </script>
         
         <link rel="stylesheet" href="/data/assets/css/main.css">
         <link rel="stylesheet" href="/data/auth/authStyle.css">
@@ -30,11 +34,10 @@
         <meta charset="utf-8" />
         <link rel="icon" href="/data/icon.png" type="image/png" sizes="16x16">
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-        <noscript><link rel="stylesheet" href="/data/assets/css/noscript.css" /></noscript>
-
+        
     </head>
 
-    <body class="is-preload" style="display: none;">
+    <body style="display: none;">
 
         <!-- Wrapper -->
             <div id="wrapper">
@@ -60,19 +63,31 @@
                             <li style="display: none;" id="login-button"><button id="login-btn-width" class="login-logout-join" >Login &nbsp; <img src="/data/img/patreon.png" alt="Patreon"></button></li>
                             <li style="display: none;" id="join-button"><button onclick=" window.open('https://www.patreon.com/quantml','_blank')" id="join-btn-width" class="login-logout-join" >Join &nbsp; <img src="/data/img/patreon.png" alt="Patreon"></button></li>
                             <li style="display: none;" id="logout-button"><button id="logout-btn-width" class="login-logout-join" >Logout &nbsp; <img src="/data/img/patreon.png" alt="Logout"></button></li>
-                            <li><a style="cursor: pointer;"><img id="change-theme" src="" alt="Change Theme"></a></li>
+                            <li title="Change Theme"><a style="cursor: pointer;"><img id="change-theme" src="" alt="Change Theme"></a></li>
                             <li title="Settings" class="settings jump"><img onclick="showSettings()" src="/data/img/setings.png" alt="Settings" width="25px" height="25px">
                         </ul>
                     </nav>
 
-
                 <!-- Main -->
                     <div id="main">
-                        <section class="post">
+                        <section class="post paragraph">
 <div class='buttons'>
-    <button class="button jump" onclick="window.location.href = '/stats/';">&#x25C0;&nbsp;&nbsp; Home</button>
-    <button class="button jump"  style="float: right;" onclick="window.location.href = '/stats/law-of-large-numbers-&-central-limit-theorem/';">LLN & CLT&nbsp;&nbsp;&#x25B6;</button>
+    <button class="button jump" onclick="prevPageBtn()">&#x25C0;&nbsp;&nbsp; Home</button>
+    <button class="button jump"  style="float: right;" onclick="nextPageBtn()">LLN & CLT&nbsp;&nbsp;&#x25B6;</button>
 </div><br>
+
+Remember that dogma we showed <a href="/stats/introduction/#dogma">previously.</a><br>
+<blockquote>
+    If you knew the <b>truth</b>(Random Process) you can generate how the observation looks like.
+</blockquote>
+
+
+<!-- And we want to go from <b>observation</b> to the <b>truth</b>(Random Process).<br>
+Now let's focus on the <b>probability</b> to <b>statistics</b> part.<br>
+So first we will generate a population of 5000 kissing couples artificially using our computers (or say python).<br>
+Now we choose a true proportion \(p\), and if we took two different values of \(p\) like:\(p=0.35%\), \(p=0.65%\). We generate data separately for those \(p\)'s<br>
+And then we generate 1000 samples of 124 couples, So here we are doing the experiment 1000 times, so we have 1000 samples then we create a histogram from those samples.<br>
+</p> -->
 
 <pre><code class="language-python line-numbers">
 import numpy as np
@@ -110,15 +125,15 @@ for i in range(0,1000):
 plt.hist(estimators, histtype='bar', rwidth=0.95)
 </code></pre>
     
-    <img width="100%" src="/stats/img/kiss-ex-hist.png" alt="kiss-ex-hist"><br>
+<img width="100%" style="width: 100%;" src="/stats/img/kiss-ex-hist.png" alt="kiss-ex-hist"><br>
     
 
 <div class="slack-discuss" onclick=" window.open('https://join.slack.com/t/quantml-org/shared_invite/zt-jffw86bo-6M260iyt1q2MgBma9elewg','_blank')">
     Join our Slack <img src="/data/img/slack.png" alt="Slack"> discussion forum
 </div><br>
 <div class='buttons'>
-    <button class="button jump" onclick="window.location.href = '/stats/';">&#x25C0;&nbsp;&nbsp; Home</button>
-    <button class="button jump"  style="float: right;" onclick="window.location.href = '/stats/law-of-large-numbers-&-central-limit-theorem/';">LLN & CLT&nbsp;&nbsp;&#x25B6;</button>
+    <button class="button jump" onclick="prevPageBtn()">&#x25C0;&nbsp;&nbsp; Home</button>
+    <button class="button jump"  style="float: right;" onclick="nextPageBtn()">LLN & CLT&nbsp;&nbsp;&#x25B6;</button>
 </div><br>
 
 
@@ -194,8 +209,6 @@ plt.hist(estimators, histtype='bar', rwidth=0.95)
                     </section>
                     </div>
             </div>
-           
-
 
         <!-- Scripts -->
             <script src="/data/assets/js/jquery.min.js"></script>
