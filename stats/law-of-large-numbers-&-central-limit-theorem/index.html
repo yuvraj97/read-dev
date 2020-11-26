@@ -1,0 +1,247 @@
+<!DOCTYPE HTML>
+<!--
+    "Thanks to HTML5 UP for this template".
+    Massively by HTML5 UP
+    html5up.net | @ajlkn
+    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+    <head>
+
+        
+        <link rel="stylesheet" href="/data/assets/css/main.css">
+        <link rel="stylesheet" href="/data/auth/authStyle.css">
+        <link id="quantml-theme" rel="stylesheet" href="" />
+        <link id="quantml-auth-style" rel="stylesheet" href="">
+
+        <!--KATEX-->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+
+        <!-- The loading of KaTeX is deferred to speed up page rendering -->
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+
+        <!-- To automatically render math in text elements, include the auto-render extension: -->
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+                
+        <title>Law of Large Numbers and Central Limit Theorem</title>
+        <meta charset="utf-8" />
+        <link rel="icon" href="/data/icon.png" type="image/png" sizes="16x16">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        
+        <noscript><link rel="stylesheet" href="/data/assets/css/noscript.css" /></noscript>
+
+    </head>
+    <body class="is-preload" style="display: none;">
+
+        <!-- Wrapper -->
+            <div id="wrapper">
+
+                <!-- Header -->
+                <header id="header">
+                    <a href="https://quantml.org" class="logo image jump-big"><img id="quantml-cover" src="/data/img/cover.png" alt="QuantML.org" /></a>
+                </header>
+
+                <!-- Nav -->
+                    <nav id="nav">
+                        <ul class="links">
+                            <li class="cover"><a href="/stats/"><img src="/data/img/STATISTICS-cover.png" alt="STATISTICS"></a></li>
+                            <li><a href="intro.html">Introduction</a></li>
+                            <li class="active"><a href="/stats/law-of-large-numbers-&-central-limit-theorem/">LLN/CLT</a></li>
+                            <li><a href="hoeffding.html">Hoeffding's Ineq.</a></li>
+                            <li><a href="gauss.html">Gaussian Dist.</a></li>
+                            <li><a href="convergence.html">Convergence</a></li>
+                            <li><a href="inference.html">&#x25B6;</a></li>
+                        </ul>
+                        <ul class="icons">
+                            <li><a target="_blank" href="https://quantml.org/"><img src="/data/icon.png" alt="QuantML"></a></li>
+                            <li><a target="_blank" href="https://join.slack.com/t/quantml-org/shared_invite/zt-jffw86bo-6M260iyt1q2MgBma9elewg"><img src="/data/img/slack.png" alt="Slack"></a></li>
+                            <li><a target="_blank" href="https://www.linkedin.com/in/yuvraj97/"><img src="/data/img/linkedin.png" alt="LinkedIn"></a></li>
+                            <li><a target="_blank" href="https://github.com/yuvraj97/"><img src="/data/img/github.png" alt="GitHub"></a></li>
+                            <li style="display: none;" id="login-button"><button id="login-btn-width" class="login-logout-join" >Login &nbsp; <img src="/data/img/patreon.png" alt="Patreon"></button></li>
+                            <li style="display: none;" id="join-button"><button onclick=" window.open('https://www.patreon.com/quantml','_blank')" id="join-btn-width" class="login-logout-join" >Join &nbsp; <img src="/data/img/patreon.png" alt="Patreon"></button></li>
+                            <li style="display: none;" id="logout-button"><button id="logout-btn-width" class="login-logout-join" >Logout &nbsp; <img src="/data/img/patreon.png" alt="Logout"></button></li>
+                            <li><a style="cursor: pointer;"><img id="change-theme" src="" alt="Change Theme"></a></li>
+                            <li title="Settings" class="settings jump"><img onclick="showSettings()" src="/data/img/setings.png" alt="Settings" width="25px" height="25px">
+                        </ul>
+                    </nav>
+
+
+                <!-- Main -->
+                    <div id="main">
+                        <section class="post">
+<div class='buttons'>
+    <button class="button jump" onclick="window.location.href = 'intro.html';">&#x25C0;&nbsp;&nbsp; Intro</button>
+    <button class="button jump"  style="float: right;" onclick="window.location.href = 'hoeffding.html';">Hoeffding&nbsp;&nbsp;&#x25B6;</button>
+</div><br>
+<p>
+
+<b>Probability</b> is an essential part of statistics.<br>
+On one hand we have <b>truth </b>a data generating process, and in other we have a partial <b>observation</b> of it.<br>
+Like in previous <a  href="intro.html#kiss_ex">kiss example</a>, we have a population of 5000 out of which (say) 35% of them turns their head to the right while kissing, and we randomly select 124 out of those 5000.<br>
+<div class="'new_image">
+<img id='dogma' src="/stats/img/dogma.png" alt="Central Dogma of Probability and Statistics"><br>
+</div>
+Averages arises a lot of the times in Statistics, we replace expectation by averages Law of Large numbers justifies it.<br>
+<br><br>
+
+<h2 id="lln">Law of large numbers(LLN)<a style="color: rgb(20, 57, 168);" href="#lln"><i class="fa fa-link" aria-hidden="true"></i></a></h2>
+Say we have \(n\) observations. <br>
+\(X,X_1,X_2,X_3,....,X_n\) be <b>i.i.d</b> random varibles, and <span class="bb"> \(\mathbb{E}[X]=\mu\)</span>
+\[\overline{X}_n:=\frac{1}{n}\sum _{i=1}^ n X_ i \xrightarrow [n\to \infty ]{\mathbb{P},\mbox{ a.s.}} \mu\]<br>
+\(:=\quad\) this symbol means <b>"by definition"</b><br>
+\(\mathbb{P}\quad\) it means <b>"in Probability"</b><br>
+\(\mbox{a.s.}\quad\) it means <b>"almost surely"</b><br>
+Law of large numbers are of two types:
+<ol>
+    <li>
+        <b>Weak</b> law of large numbers:
+        \[\overline{X}_n:=\frac{1}{n}\sum _{i=1}^ n X_ i \xrightarrow [n\to \infty ]{\mathbb{P}} \mu\]<br>
+    </li>
+    <li>
+        <b>Strong</b> law of large numbers:
+        \[\overline{X}_n:=\frac{1}{n}\sum _{i=1}^ n X_ i \xrightarrow [n\to \infty ]{\mbox{ a.s.}} \mu\]<br>
+    </li>
+</ol>
+<blockquote style="background-color:#ECF1F6;  border-left-color:#467AAC">
+<b>Note:</b> \(\mbox{ a.s.}\) implies \(\mathbb{P}\)
+</blockquote>
+<br>
+So Law of large numbers says if we have large enough Sample size then our estimator \(\overline{X}_n\) and real parameter \(\mu\) are close, but how much close, we don't know!<br>
+We know \(\overline{X}_n \xrightarrow [n\to \infty] {} \mu\)<br>
+We can think it as:<br>
+\[ \left|\overline{X}_n -\mu \right| \propto \frac{1}{f(n)} \]
+
+where \(f(n)\) is an increasing function <span title="with respect to"><u>w.r.t.</u></span> \(n\).<br>
+So as \(f(n)\) increaseas \(\left|\overline{X}_n -\mu\right| \) decreases.<br>
+We want a function \(f(n)\)  that increases fastly w.r.t. \(n\) .<br>
+\(log(log(n))\) increases very slowly so it's no use for us.<br>
+Let's see what <b>CLT</b> says about \(f(n)\)<br>
+<br><br>
+
+<h2 id="clt">Central Limit Theorem(CLT)<a style="color: rgb(20, 57, 168);" href="#clt"><i class="fa fa-link" aria-hidden="true"></i></a></h2>
+Say we have \(n\) observations \(X,X_1,X_2,X_3,....,X_n\) be \(i.i.d\) random varibles,<br>
+<span class="bb"> \(\mathbb{E}[X]=\mu\)</span>  and <span class="bb"> \(Var(X)=\sigma^2\) </span><br>
+\[\sqrt{n}\, \frac{\overline{X}_n-\mu }{\sigma } \xrightarrow [n\to \infty ]{(d)} \mathcal{N}(0,1) \]<br>
+\(\mathcal{N}(0,1) \) is <a target="_blank"  href="summary/gauss.html#popup">Gaussian  distribution</a> with mean = \(0\) and variance = \(1\),<br>
+\((d)\): it shows <b>convergence in distribution</b><br>
+<br>
+<b>We will come to it later for now, we only need to know this formula.</b><br>
+<br>
+
+If we draw a standard gaussian  \(\mathcal{N}(0,1) \) (say) \(Z\) then with probability \(0.9974\quad\)  \(Z\in [-3,3]\)<br>
+\(P(-3\leq Z\leq3)=0.9974\quad\) we can calculate it <a target="_blank" href="https://www.mathportal.org/calculators/statistics-calculator/normal-distribution-calculator.php">here</a><br>
+So \(Z\) is almost in between -3 and 3<br>
+And we know that :<br>
+\[\sqrt{n}\, \frac{\overline{X}_n-\mu }{\sigma } \xrightarrow [n\to \infty ]{(d)} \mathcal{N}(0,1) \]<br>
+And we say that \(-3\leq\mathcal{N}(0,1)\leq3\)<br>
+So:<br>
+\[
+-3\leq \sqrt{n}\, \frac{\overline{X}_n-\mu }{\sigma }  \leq3 \\
+\Rightarrow  \left|\sqrt{n}\, \frac{\overline{X}_n-\mu }{\sigma } \right| \leq 3    \\
+\Rightarrow \left| \overline{X}_n-\mu  \right| \leq \frac{3\sigma}{\sqrt{n}}
+\]<br>
+<span id="sqrt-n">So according to CLT \(f(n)=\sqrt{n}\)</span><br>
+<blockquote style="background-color:#ECF1F6;  border-left-color:#467AAC">
+<b>Rule of thumb to apply CLT</b>: when \(n\geq 30\) then \(\sqrt{n}\, \frac{\overline{X}_n-\mu }{\sigma } \xrightarrow []{(d)} \mathcal{N}(0,1) \)
+</blockquote>
+</p>
+
+<div class="slack-discuss" onclick=" window.open('https://join.slack.com/t/quantml-org/shared_invite/zt-jffw86bo-6M260iyt1q2MgBma9elewg','_blank')">
+    Join our Slack <img src="/data/img/slack.png" alt="Slack"> discussion forum
+</div><br>
+<div class='buttons'>
+    <button class="button jump" onclick="window.location.href = 'intro.html';">&#x25C0;&nbsp;&nbsp; Intro</button>
+    <button class="button jump"  style="float: right;" onclick="window.location.href = 'hoeffding.html';">Hoeffding&nbsp;&nbsp;&#x25B6;</button>
+</div><br>
+<!--=================== MODELS ===================-->
+
+<!--=============== LOGIN MODEL[START] ===============-->
+<div id="login-model" class="modal">
+    <form class="modal-content animate" id="login-form">
+    
+        <a class="close" style="float: right; padding-top: 0%; padding-bottom: 0%;" onclick="document.getElementById('login-model').style.display='none'">X</a>
+        <div class="container" style="margin: 1rem; margin-bottom: -1rem">
+        <label for="email"><b>Email Address</b></label>
+        <input id="login-email" onkeypress="emailAddressIsValidated();setDisplay('network-request-failed', 'none');" class="loginInput" ref="emailRef"  type="email" placeholder="Enter Email Address" name="email" required>
+        <div id="login-error-msg" class="error-msg">
+            <img style="float: left;" src="/data/auth/error.png" alt="!" width="50px" height="50px">
+            <div style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);">Invalid Email Address</div>
+        </div>
+        <div id="login-email-user-not-found" class="warn-msg"></div>
+        <label for="psw"><b>Password</b></label>
+        <input id="login-password" onkeypress="passwordIsValidated();setDisplay('network-request-failed', 'none');" class="loginInput" type="password" placeholder="Enter Password" name="psw" required>
+        <div id="password-error-msg" class="error-msg">
+            <img style="float: left;" src="/data/auth/error.png" alt="!" width="50px" height="50px">
+            <div style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);">Incorrect Password</div>
+        </div>
+
+        <div style="display: none;" id="network-request-failed" class="error-msg">
+            <img style="float: left;" src="/data/auth/error.png" alt="!" width="50px" height="50px">
+            <div style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);">Internet Connection Error</div>
+        </div>
+            
+        <button class="form-buttons login-button" type="submit">
+            <span id="login-button-text">Login</span>
+        </button>
+        <button id="forgot-password" class="form-buttons forgot-button">
+            <span id="forgot-button-text">Forgot Password</span>
+        </button>
+        </div>
+        <br>
+    </form>
+    </div>
+<!--=============== LOGIN MODEL[END] ===============-->
+
+<!--=============== Password Reset Link Sent MODEL[START] ===============-->
+
+<div id="password-reset-link-sent-model" class="modal">
+    <div class="modal-content animate" id="login-form">    
+        <a class="close" style="float: right; padding-top: 0%; padding-bottom: 0%;" onclick="document.getElementById('password-reset-link-sent-model').style.display='none'">X</a>
+        <div class="container" style="margin: 1rem;">
+<span id='password-reset-link-sent-txt'></span>
+        <button onclick="document.getElementById('password-reset-link-sent-model').style.display='none'" class="form-buttons login-button">OK</button>
+        </div>
+    </div>
+</div>
+        
+<!--=============== Password Reset Link Sent MODEL[END] ===============-->
+
+<!--=============== SETTINGS[START] ===============-->
+
+<div id="settings-model" class="modal">
+    <div class="modal-content animate">
+        <a class="close" style="float: right; padding-top: 0%; padding-bottom: 0%;" onclick="document.getElementById('settings-model').style.display='none'">X</a>
+        <div class="container settings" style="margin: 1rem;">
+            Font size &nbsp; 
+            <button style="font-size: 18px;" class="button" onclick="incrementFontSize();setFontSize()">+</button> 
+            <button style="font-size: 18px;" class="button" onclick="decrementFontSize();setFontSize()">-</button>
+            <br>
+        </div>
+    </div>
+</div>
+        
+<!--=============== SETTINGS[END] ===============-->
+
+                    </section>
+                    </div>
+            </div>
+       <!-- Scripts -->
+            <script src="/data/assets/js/jquery.min.js"></script>
+            <script src="/data/assets/js/jquery.scrollex.min.js"></script>
+            <script src="/data/assets/js/jquery.scrolly.min.js"></script>
+            <script src="/data/assets/js/browser.min.js"></script>
+            <script src="/data/assets/js/breakpoints.min.js"></script>
+            <script src="/data/assets/js/util.js"></script>
+            <script src="/data/assets/js/main.js"></script>
+			<script src="/data/initialize-css.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-app.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-auth.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-firestore.js"></script>
+            <script src="/data/auth/auth.js"></script>
+            <script src="/data/index.js"></script>
+            <script src="/stats/initialize.js"></script>
+            <script>setTimeout(() => {document.querySelector('body').style.display="block"}, 0)</script>
+
+    </body>
+</html>

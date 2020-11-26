@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<!--Code By Webdevtrick ( https://webdevtrick.com )-->
+<html lang="en" >
+<head>
+        <!--KATEX-->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+
+        <!-- The loading of KaTeX is deferred to speed up page rendering -->
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+
+        <!-- To automatically render math in text elements, include the auto-render extension: -->
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+
+
+    <meta charset="UTF-8">
+    <title>Summary</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="stylesheet" href="/data/assets/css/popupcard.css">
+</head>
+<body>
+
+<div class="container" id="popup">
+    <div class="modal">
+        <div class="details">
+            <p class="description">
+            <b>Delta Method</b><br>
+            </p>
+        </div>
+
+    <p class="txt">
+        Say we have \(n\) observation \(X_1,X_2,....,X_n \stackrel{iid}{\sim } X\), \(\ \theta\) is the parameter and \(\hat{\theta}_n\) is estimator of \(\theta\)<br>
+        Assume:<br>
+            &#x25B6; \(\hat{\theta}_n\) is <b>consistent:</b> 
+                \(\hat{\theta}_n \xrightarrow [n\to \infty ]{\mathbb{P,\text{ a.s.}}} \theta\)<br>
+            &#x25B6; \(\hat{\theta}_n\) is <b>asymptotically normal:</b> 
+                \(\sqrt{n} (\hat{\theta}_n-\theta ) \xrightarrow [n\to \infty ]{(d)} \mathcal{N}(0,\sigma^2)\)\(\quad ;\theta\in\mathbb{R},\sigma^2 \gt 0\)<br>
+            &#x25B6; \(g:\mathbb{R}\mapsto \mathbb{R}\) be continuously differentiable(it means \(g'\) is continuous) at the point \(\theta\)<br>
+        Then:<br>
+        \[\sqrt{n} \left(g(\hat{\theta}_n)-g(\theta)\right) \xrightarrow [n\to \infty ]{(d)} \mathcal{N}\left(0,(g'(\theta))^2\sigma^2\right)\]
+    
+    </p>
+
+    <div class='buttons'>
+        <button class="btn" style="float: right;" onclick="window.location.href = '../delta.html';">Visit Chapter&nbsp;&nbsp;&#x25B6;</button>
+    </div>
+        <a href="../#ci" class="link-2"></a>
+
+    </div>
+</div>
+
+</body>
+</html>
+  
+  
+  
+  

@@ -1,0 +1,1128 @@
+<!DOCTYPE HTML>
+<!--
+    "Thanks to HTML5 UP for this template".
+    Massively by HTML5 UP
+    html5up.net | @ajlkn
+    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+    <head>
+
+        
+        <link rel="stylesheet" href="/data/assets/css/main.css">
+        <link rel="stylesheet" href="/data/auth/authStyle.css">
+        <link id="quantml-theme" rel="stylesheet" href="" />
+        <link id="quantml-auth-style" rel="stylesheet" href="">
+
+        <!--KATEX-->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+
+        <!-- The loading of KaTeX is deferred to speed up page rendering -->
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+
+        <!-- To automatically render math in text elements, include the auto-render extension: -->
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+        <title>Gaussian Distribution</title>
+        <meta charset="utf-8" />
+        <link rel="icon" href="/data/icon.png" type="image/png" sizes="16x16">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        
+        <noscript><link rel="stylesheet" href="/data/assets/css/noscript.css" /></noscript>
+
+    </head>
+    <body class="is-preload" style="display: none;">
+
+        <!-- Wrapper -->
+            <div id="wrapper">
+
+                <!-- Header -->
+                <header id="header">
+                    <a href="https://quantml.org" class="logo image jump-big"><img id="quantml-cover" src="/data/img/cover.png" alt="QuantML.org" /></a>
+                </header>
+
+                <!-- Nav -->
+                    <nav id="nav">
+                        <ul class="links">
+                            <li class="cover"><a href="/stats/"><img src="/data/img/STATISTICS-cover.png" alt="STATISTICS"></a></li>
+                            <li><a href="intro.html">Introduction</a></li>
+                            <li><a href="/stats/law-of-large-numbers-&-central-limit-theorem/">LLN/CLT</a></li>
+                            <li><a href="hoeffding.html">Hoeffding's Ineq.</a></li>
+                            <li class="active"><a href="gauss.html">Gaussian Dist.</a></li>
+                            <li><a href="convergence.html">Convergence</a></li>
+                            <li><a href="inference.html">&#x25B6;</a></li>
+                        </ul>
+                        <ul class="icons">
+                            <li><a target="_blank" href="https://quantml.org/"><img src="/data/icon.png" alt="QuantML"></a></li>
+                            <li><a target="_blank" href="https://join.slack.com/t/quantml-org/shared_invite/zt-jffw86bo-6M260iyt1q2MgBma9elewg"><img src="/data/img/slack.png" alt="Slack"></a></li>
+                            <li><a target="_blank" href="https://www.linkedin.com/in/yuvraj97/"><img src="/data/img/linkedin.png" alt="LinkedIn"></a></li>
+                            <li><a target="_blank" href="https://github.com/yuvraj97/"><img src="/data/img/github.png" alt="GitHub"></a></li>
+                            <li style="display: none;" id="login-button"><button id="login-btn-width" class="login-logout-join" >Login &nbsp; <img src="/data/img/patreon.png" alt="Patreon"></button></li>
+                            <li style="display: none;" id="join-button"><button onclick=" window.open('https://www.patreon.com/quantml','_blank')" id="join-btn-width" class="login-logout-join" >Join &nbsp; <img src="/data/img/patreon.png" alt="Patreon"></button></li>
+                            <li style="display: none;" id="logout-button"><button id="logout-btn-width" class="login-logout-join" >Logout &nbsp; <img src="/data/img/patreon.png" alt="Logout"></button></li>
+                            <li><a style="cursor: pointer;"><img id="change-theme" src="" alt="Change Theme"></a></li>
+                            <li title="Settings" class="settings jump"><img onclick="showSettings()" src="/data/img/setings.png" alt="Settings" width="25px" height="25px">
+                        </ul>
+                    </nav>
+
+
+                <!-- Main -->
+                    <div id="main">
+                        <section class="post">
+<div class='buttons'>
+    <button class="button jump" onclick="window.location.href = 'hoeffding.html';">&#x25C0;&nbsp;&nbsp; Hoeffding</button>
+    <button class="button jump"  style="float: right;" onclick="window.location.href = 'convergence.html';">Convergence&nbsp;&nbsp;&#x25B6;</button>
+</div><br>
+<p>  
+<span id="main"></span>
+<div  style="font-family: inherit;" class="table-wrapper">
+    <table style="font-family: Open Sans">
+        <tr>
+            <td>Notation</td>
+            <td>\(\mathcal{N}(\mu,\sigma^2)\)</td>
+            <td>Here \(\mu\) and \(\sigma^2\) are parameters<br>Where \(-\infty &lt \mu &lt +\infty\)<br>And \(\sigma^2 \gt \infty\)</td>
+        </tr>
+        <tr>
+            <td>PDF</td>
+            <td>\[f(x)=\frac{1}{\sigma \sqrt{2\pi }} \exp \left(-\frac{(x-\mu )^2}{2 \sigma ^2}\right)\]</td>
+            <td>\(-\infty \lt x \lt \infty\)</td>
+        </tr>
+        <tr>
+            <td>CDF</td>
+            <td>\[F(x)=\frac{1}{\sigma \sqrt{2\pi }} \int_{-\infty}^{x}\exp \left(-\frac{(t-\mu )^2}{2 \sigma ^2}\right)dt\]</td>
+            <td>There is no closed form for CDF</td>
+        </tr>
+    </table>
+</div>
+<div class="'new_image">
+    <img src="/stats/img/gauss_1_plot.png" width="549" height="404" alt="">
+</div>
+<span id="py"></span>
+<details>
+    <summary><span class="bb" style="color: royalblue; background-color: lightyellow; cursor:pointer;">Python code to plot this distribution</span></summary>
+    <pre  class="brush: python">
+        import numpy as np
+        import matplotlib.pyplot as plt
+        def gaussian_plot(mu,sigma,x_left_limit=-10,x_right_limit=30, partitions=1000):
+            x_axis = np.linspace(x_left_limit, x_right_limit, partitions)
+            y_axis = (1/(sigma*np.sqrt(2*np.pi))) * np.exp(-((x_axis-mu)**2)/(2*sigma**2))
+            plt.plot(x_axis,y_axis,label="N("+str(mu)+","+str(sigma)+")")
+            plt.legend()
+            plt.show()
+
+        gaussian_plot(0,1)
+        gaussian_plot(10,4)
+    </pre>
+</details>
+<br>
+
+<h2 id="gauss_properties">Properties of Gaussian<a style="color: rgb(20, 57, 168);" href="#gauss_properties"><i class="fa fa-link" aria-hidden="true"></i></a></h2>
+Gaussians are invariant under affine(linear) transformation, it means when we do a linear transformation of a Gaussian random variable it remains a Gaussian random variable. <br>
+Like if <span class="bb">\(X\sim\mathcal{N}(\mu,\sigma^2)\)</span> and <span class="bb">\(Y=aX+b\)</span> then <span class="bb">\(Y\sim\mathcal{N}(a\mu+b,a^2\sigma^2)\)</span>
+<details open>
+    <summary><span class="bb" style="color: royalblue; background-color: lightyellow; cursor:pointer;">Explanation</span></summary>
+    <blockquote> 
+        <div class="math-container">
+        \(\mathbb{E}[Y] =\mathbb{E}[aX+b] \\
+        \mathbb{E}[Y] =\mathbb{E}[aX]+b  \quad; \text{by linearity of expectation} \\
+        \mathbb{E}[Y] =a\mathbb{E}[X] +b  \\
+        \mathbb{E}[Y] = a\mu+b          \\
+        Var(Y) = Var(aX+b)  \\
+        Var(Y) = Var(aX) \\
+        Var(Y) =a^2Var(X) \\
+        Var(Y) =a^2\sigma^2\)
+        </div>
+    </blockquote>
+</details><br>
+
+<h3 id="standardization">Standardization (Normalization)<a style="color: rgb(20, 57, 168);" href="#standardization"><i class="fa fa-link" aria-hidden="true"></i></a></h3>
+As we know that CDF of Gaussian distribution has no close form, so we can't solve it by hand. So we need a computer to do it for us. But the problem is, there are so many Gaussian r.v. with different \(\mu\) and \(\sigma^2\).<br>
+The solution for this is Standardization. by it we can convert any Gaussian r.v. to a Standard Gaussian r.v \(\mathcal{N}(0,1)\).<br>
+If \(X\sim\mathcal{N}(\mu,\sigma^2)\) then:<br>
+<div class="math-container">
+\[X-\mu\sim\mathcal{N}(0,\sigma^2) \\
+   \frac{X-\mu}{\sigma}\sim\mathcal{N}(0,1) \\
+   \Rightarrow Z=\frac{X-\mu}{\sigma}\sim\mathcal{N}(0,1)
+\]
+</div>
+
+Now we can compute probabilities for any Gaussian distribution:
+<div class="math-container">
+\[\mathbb{P}\left(u\lt X\lt v\right)=\mathbb{P}\left(\frac{u-\mu}{\sigma} \lt Z \lt \frac{v-\mu}{\sigma}\right)\]
+</div>
+
+<h3 id="symmetry">Symmetry<a style="color: rgb(20, 57, 168);" href="#symmetry"><i class="fa fa-link" aria-hidden="true"></i></a></h3>
+Any Gaussian r.v. with mean\((\mu)=0\) is symmetric<br>
+If \(X\sim \mathcal{N}(0,\sigma^2)\) then \(-X\) has the same distribution as \(X\)<br>
+\(\Rightarrow -X \sim \mathcal{N}(0,\sigma^2)\)<br>
+<br><br>
+
+<h3 id="gauss_table">Gaussian Probability Table<a style="color: rgb(20, 57, 168);" href="#gauss_table"><i class="fa fa-link" aria-hidden="true"></i></a></h3>
+So as we know that CDF of a gaussian has no close form, therefore we use tables to get those CDF's.<br>
+The table given below gives us CDF of a Standard Gaussian r.v. \(\mathcal{N}(0,1)\)<br>
+CDF of \(\mathcal{N}(0,1)=\Phi(x)\)<br>
+<div class="math-container">
+\[\Phi(x)=\mathbb{P}(\mathcal{N}(0,1) \leq x)=\frac{1}{\sqrt{2\pi }} \int_{-\infty}^{x}\exp \left(-\frac{t^2}{2}\right)dt\]
+</div>
+
+<span  style="font-size: larger; font-family: inherit;">\(\text{Table for }\Phi(x)\)</span>
+    <div class="new_image">
+    <img style="display:block; margin-left:auto; margin-right:auto;" src="/stats/img/std-normal.png" width="400" height="140" alt=""><br>
+    </div>
+    <div  style="font-family: inherit;" class="table-wrapper">
+    <table style="height:20em; overflow-y:scroll; display:block">
+    <tr>
+    <th><i>z</i></th>
+    <th>+0.00</th>
+    <th>+0.01</th>
+    <th>+0.02</th>
+    <th>+0.03</th>
+    <th>+0.04</th>
+
+    <th>+0.05</th>
+    <th>+0.06</th>
+    <th>+0.07</th>
+    <th>+0.08</th>
+    <th>+0.09
+    </th></tr>
+    <tr>
+    <th>0.0
+    </th>
+    <td>0.50000</td>
+    <td>0.50399</td>
+    <td>0.50798</td>
+    <td>0.51197</td>
+    <td>0.51595</td>
+    <td>0.51994</td>
+    <td>0.52392</td>
+    <td>0.52790</td>
+    <td>0.53188</td>
+    <td>0.53586</td></tr>
+    <tr>
+    <th>0.1
+    </th>
+    <td>0.53983</td>
+    <td>0.54380</td>
+    <td>0.54776</td>
+    <td>0.55172</td>
+    <td>0.55567</td>
+    <td>0.55966</td>
+    <td>0.56360</td>
+    <td>0.56749</td>
+    <td>0.57142</td>
+    <td>0.57535
+    </td></tr>
+    <tr>
+    <th>0.2
+    </th>
+    <td>0.57926</td>
+    <td>0.58317</td>
+    <td>0.58706</td>
+    <td>0.59095</td>
+    <td>0.59483</td>
+    <td>0.59871</td>
+    <td>0.60257</td>
+    <td>0.60642</td>
+    <td>0.61026</td>
+    <td>0.61409
+    </td></tr>
+    <tr>
+    <th>0.3
+    </th>
+    <td>0.61791</td>
+    <td>0.62172</td>
+    <td>0.62552</td>
+    <td>0.62930</td>
+    <td>0.63307</td>
+    <td>0.63683</td>
+    <td>0.64058</td>
+    <td>0.64431</td>
+    <td>0.64803</td>
+    <td>0.65173
+    </td></tr>
+    <tr>
+    <th>0.4
+    </th>
+    <td>0.65542</td>
+    <td>0.65910</td>
+    <td>0.66276</td>
+    <td>0.66640</td>
+    <td>0.67003</td>
+    <td>0.67364</td>
+    <td>0.67724</td>
+    <td>0.68082</td>
+    <td>0.68439</td>
+    <td>0.68793
+    </td></tr>
+    <tr>
+    </tr>
+    <tr>
+    <th>0.5
+    </th>
+    <td>0.69146</td>
+    <td>0.69497</td>
+    <td>0.69847</td>
+    <td>0.70194</td>
+    <td>0.70540</td>
+    <td>0.70884</td>
+    <td>0.71226</td>
+    <td>0.71566</td>
+    <td>0.71904</td>
+    <td>0.72240
+    </td></tr>
+    <tr>
+    <th>0.6
+    </th>
+    <td>0.72575</td>
+    <td>0.72907</td>
+    <td>0.73237</td>
+    <td>0.73565</td>
+    <td>0.73891</td>
+    <td>0.74215</td>
+    <td>0.74537</td>
+    <td>0.74857</td>
+    <td>0.75175</td>
+    <td>0.75490
+    </td></tr>
+    <tr>
+    <th>0.7
+    </th>
+    <td>0.75804</td>
+    <td>0.76115</td>
+    <td>0.76424</td>
+    <td>0.76730</td>
+    <td>0.77035</td>
+    <td>0.77337</td>
+    <td>0.77637</td>
+    <td>0.77935</td>
+    <td>0.78230</td>
+    <td>0.78524
+    </td></tr>
+    <tr>
+    <th>0.8
+    </th>
+    <td>0.78814</td>
+    <td>0.79103</td>
+    <td>0.79389</td>
+    <td>0.79673</td>
+    <td>0.79955</td>
+    <td>0.80234</td>
+    <td>0.80511</td>
+    <td>0.80785</td>
+    <td>0.81057</td>
+    <td>0.81327
+    </td></tr>
+    <tr>
+    <th>0.9
+    </th>
+    <td>0.81594</td>
+    <td>0.81859</td>
+    <td>0.82121</td>
+    <td>0.82381</td>
+    <td>0.82639</td>
+    <td>0.82894</td>
+    <td>0.83147</td>
+    <td>0.83398</td>
+    <td>0.83646</td>
+    <td>0.83891
+    </td></tr>
+    <tr>
+    </tr>
+    <tr>
+    <th>1.0
+    </th>
+    <td>0.84134</td>
+    <td>0.84375</td>
+    <td>0.84614</td>
+    <td>0.84849</td>
+    <td>0.85083</td>
+    <td>0.85314</td>
+    <td>0.85543</td>
+    <td>0.85769</td>
+    <td>0.85993</td>
+    <td>0.86214
+    </td></tr>
+    <tr>
+    <th>1.1
+    </th>
+    <td>0.86433</td>
+    <td>0.86650</td>
+    <td>0.86864</td>
+    <td>0.87076</td>
+    <td>0.87286</td>
+    <td>0.87493</td>
+    <td>0.87698</td>
+    <td>0.87900</td>
+    <td>0.88100</td>
+    <td>0.88298
+    </td></tr>
+    <tr>
+    <th>1.2
+    </th>
+    <td>0.88493</td>
+    <td>0.88686</td>
+    <td>0.88877</td>
+    <td>0.89065</td>
+    <td>0.89251</td>
+    <td>0.89435</td>
+    <td>0.89617</td>
+    <td>0.89796</td>
+    <td>0.89973</td>
+    <td>0.90147
+    </td></tr>
+    <tr>
+    <th>1.3
+    </th>
+    <td>0.90320</td>
+    <td>0.90490</td>
+    <td>0.90658</td>
+    <td>0.90824</td>
+    <td>0.90988</td>
+    <td>0.91149</td>
+    <td>0.91308</td>
+    <td>0.91466</td>
+    <td>0.91621</td>
+    <td>0.91774
+    </td></tr>
+    <tr>
+    <th>1.4
+    </th>
+    <td>0.91924</td>
+    <td>0.92073</td>
+    <td>0.92220</td>
+    <td>0.92364</td>
+    <td>0.92507</td>
+    <td>0.92647</td>
+    <td>0.92785</td>
+    <td>0.92922</td>
+    <td>0.93056</td>
+    <td>0.93189
+    </td></tr>
+    <tr>
+    </tr>
+    <tr>
+    <th>1.5
+    </th>
+    <td>0.93319</td>
+    <td>0.93448</td>
+    <td>0.93574</td>
+    <td>0.93699</td>
+    <td>0.93822</td>
+    <td>0.93943</td>
+    <td>0.94062</td>
+    <td>0.94179</td>
+    <td>0.94295</td>
+    <td>0.94408
+    </td></tr>
+    <tr>
+    <th>1.6
+    </th>
+    <td>0.94520</td>
+    <td>0.94630</td>
+    <td>0.94738</td>
+    <td>0.94845</td>
+    <td>0.94950</td>
+    <td>0.95053</td>
+    <td>0.95154</td>
+    <td>0.95254</td>
+    <td>0.95352</td>
+    <td>0.95449
+    </td></tr>
+    <tr>
+    <th>1.7
+    </th>
+    <td>0.95543</td>
+    <td>0.95637</td>
+    <td>0.95728</td>
+    <td>0.95818</td>
+    <td>0.95907</td>
+    <td>0.95994</td>
+    <td>0.96080</td>
+    <td>0.96164</td>
+    <td>0.96246</td>
+    <td>0.96327
+    </td></tr>
+    <tr>
+    <th>1.8
+    </th>
+    <td>0.96407</td>
+    <td>0.96485</td>
+    <td>0.96562</td>
+    <td>0.96638</td>
+    <td>0.96712</td>
+    <td>0.96784</td>
+    <td>0.96856</td>
+    <td>0.96926</td>
+    <td>0.96995</td>
+    <td>0.97062
+    </td></tr>
+    <tr>
+    <th>1.9
+    </th>
+    <td>0.97128</td>
+    <td>0.97193</td>
+    <td>0.97257</td>
+    <td>0.97320</td>
+    <td>0.97381</td>
+    <td>0.97441</td>
+    <td>0.97500</td>
+    <td>0.97558</td>
+    <td>0.97615</td>
+    <td>0.97670
+    </td></tr>
+    <tr>
+    </tr>
+    <tr>
+    <th>2.0
+    </th>
+    <td>0.97725</td>
+    <td>0.97778</td>
+    <td>0.97831</td>
+    <td>0.97882</td>
+    <td>0.97932</td>
+    <td>0.97982</td>
+    <td>0.98030</td>
+    <td>0.98077</td>
+    <td>0.98124</td>
+    <td>0.98169
+    </td></tr>
+    <tr>
+    <th>2.1
+    </th>
+    <td>0.98214</td>
+    <td>0.98257</td>
+    <td>0.98300</td>
+    <td>0.98341</td>
+    <td>0.98382</td>
+    <td>0.98422</td>
+    <td>0.98461</td>
+    <td>0.98500</td>
+    <td>0.98537</td>
+    <td>0.98574
+    </td></tr>
+    <tr>
+    <th>2.2
+    </th>
+    <td>0.98610</td>
+    <td>0.98645</td>
+    <td>0.98679</td>
+    <td>0.98713</td>
+    <td>0.98745</td>
+    <td>0.98778</td>
+    <td>0.98809</td>
+    <td>0.98840</td>
+    <td>0.98870</td>
+    <td>0.98899
+    </td></tr>
+    <tr>
+    <th>2.3
+    </th>
+    <td>0.98928</td>
+    <td>0.98956</td>
+    <td>0.98983</td>
+    <td>0.99010</td>
+    <td>0.99036</td>
+    <td>0.99061</td>
+    <td>0.99086</td>
+    <td>0.99111</td>
+    <td>0.99134</td>
+    <td>0.99158
+    </td></tr>
+    <tr>
+    <th>2.4
+    </th>
+    <td>0.99180</td>
+    <td>0.99202</td>
+    <td>0.99224</td>
+    <td>0.99245</td>
+    <td>0.99266</td>
+    <td>0.99286</td>
+    <td>0.99305</td>
+    <td>0.99324</td>
+    <td>0.99343</td>
+    <td>0.99361
+    </td></tr>
+    <tr>
+    </tr>
+    <tr>
+    <th>2.5
+    </th>
+    <td>0.99379</td>
+    <td>0.99396</td>
+    <td>0.99413</td>
+    <td>0.99430</td>
+    <td>0.99446</td>
+    <td>0.99461</td>
+    <td>0.99477</td>
+    <td>0.99492</td>
+    <td>0.99506</td>
+    <td>0.99520
+    </td></tr>
+    <tr>
+    <th>2.6
+    </th>
+    <td>0.99534</td>
+    <td>0.99547</td>
+    <td>0.99560</td>
+    <td>0.99573</td>
+    <td>0.99585</td>
+    <td>0.99598</td>
+    <td>0.99609</td>
+    <td>0.99621</td>
+    <td>0.99632</td>
+    <td>0.99643
+    </td></tr>
+    <tr>
+    <th>2.7
+    </th>
+    <td>0.99653</td>
+    <td>0.99664</td>
+    <td>0.99674</td>
+    <td>0.99683</td>
+    <td>0.99693</td>
+    <td>0.99702</td>
+    <td>0.99711</td>
+    <td>0.99720</td>
+    <td>0.99728</td>
+    <td>0.99736
+    </td></tr>
+    <tr>
+    <th>2.8
+    </th>
+    <td>0.99744</td>
+    <td>0.99752</td>
+    <td>0.99760</td>
+    <td>0.99767</td>
+    <td>0.99774</td>
+    <td>0.99781</td>
+    <td>0.99788</td>
+    <td>0.99795</td>
+    <td>0.99801</td>
+    <td>0.99807
+    </td></tr>
+    <tr>
+    <th>2.9
+    </th>
+    <td>0.99813</td>
+    <td>0.99819</td>
+    <td>0.99825</td>
+    <td>0.99831</td>
+    <td>0.99836</td>
+    <td>0.99841</td>
+    <td>0.99846</td>
+    <td>0.99851</td>
+    <td>0.99856</td>
+    <td>0.99861
+    </td></tr>
+    <tr>
+    </tr>
+    <tr>
+    <th>3.0
+    </th>
+    <td>0.99865</td>
+    <td>0.99869</td>
+    <td>0.99874</td>
+    <td>0.99878</td>
+    <td>0.99882</td>
+    <td>0.99886</td>
+    <td>0.99889</td>
+    <td>0.99893</td>
+    <td>0.99896</td>
+    <td>0.99900
+    </td></tr>
+    <tr>
+    <th>3.1
+    </th>
+    <td>0.99903</td>
+    <td>0.99906</td>
+    <td>0.99910</td>
+    <td>0.99913</td>
+    <td>0.99916</td>
+    <td>0.99918</td>
+    <td>0.99921</td>
+    <td>0.99924</td>
+    <td>0.99926</td>
+    <td>0.99929
+    </td></tr>
+    <tr>
+    <th>3.2
+    </th>
+    <td>0.99931</td>
+    <td>0.99934</td>
+    <td>0.99936</td>
+    <td>0.99938</td>
+    <td>0.99940</td>
+    <td>0.99942</td>
+    <td>0.99944</td>
+    <td>0.99946</td>
+    <td>0.99948</td>
+    <td>0.99950
+    </td></tr>
+    <tr>
+    <th>3.3
+    </th>
+    <td>0.99952</td>
+    <td>0.99953</td>
+    <td>0.99955</td>
+    <td>0.99957</td>
+    <td>0.99958</td>
+    <td>0.99960</td>
+    <td>0.99961</td>
+    <td>0.99962</td>
+    <td>0.99964</td>
+    <td>0.99965
+    </td></tr>
+    <tr>
+    <th>3.4
+    </th>
+    <td>0.99966</td>
+    <td>0.99968</td>
+    <td>0.99969</td>
+    <td>0.99970</td>
+    <td>0.99971</td>
+    <td>0.99972</td>
+    <td>0.99973</td>
+    <td>0.99974</td>
+    <td>0.99975</td>
+    <td>0.99976
+    </td></tr>
+    <tr>
+    </tr>
+    <tr>
+    <th>3.5
+    </th>
+    <td>0.99977</td>
+    <td>0.99978</td>
+    <td>0.99978</td>
+    <td>0.99979</td>
+    <td>0.99980</td>
+    <td>0.99981</td>
+    <td>0.99981</td>
+    <td>0.99982</td>
+    <td>0.99983</td>
+    <td>0.99983
+    </td></tr>
+    <tr>
+    <th>3.6
+    </th>
+    <td>0.99984</td>
+    <td>0.99985</td>
+    <td>0.99985</td>
+    <td>0.99986</td>
+    <td>0.99986</td>
+    <td>0.99987</td>
+    <td>0.99987</td>
+    <td>0.99988</td>
+    <td>0.99988</td>
+    <td>0.99989
+    </td></tr>
+    <tr>
+    <th>3.7
+    </th>
+    <td>0.99989</td>
+    <td>0.99990</td>
+    <td>0.99990</td>
+    <td>0.99990</td>
+    <td>0.99991</td>
+    <td>0.99991</td>
+    <td>0.99992</td>
+    <td>0.99992</td>
+    <td>0.99992</td>
+    <td>0.99992
+    </td></tr>
+    <tr>
+    <th>3.8
+    </th>
+    <td>0.99993</td>
+    <td>0.99993</td>
+    <td>0.99993</td>
+    <td>0.99994</td>
+    <td>0.99994</td>
+    <td>0.99994</td>
+    <td>0.99994</td>
+    <td>0.99995</td>
+    <td>0.99995</td>
+    <td>0.99995
+    </td></tr>
+    <tr>
+    <th>3.9
+    </th>
+    <td>0.99995</td>
+    <td>0.99995</td>
+    <td>0.99996</td>
+    <td>0.99996</td>
+    <td>0.99996</td>
+    <td>0.99996</td>
+    <td>0.99996</td>
+    <td>0.99996</td>
+    <td>0.99997</td>
+    <td>0.99997
+    </td></tr>
+    <tr>
+    </tr>
+    <tr>
+    <th>4.0
+    </th>
+    <td>0.99997</td>
+    <td>0.99997</td>
+    <td>0.99997</td>
+    <td>0.99997</td>
+    <td>0.99997</td>
+    <td>0.99997</td>
+    <td>0.99998</td>
+    <td>0.99998</td>
+    <td>0.99998</td>
+    <td>0.99998
+    </td></tr></table>
+    </div>
+    Source: <a  href="https://en.wikipedia.org/wiki/Standard_normal_table#Cumulative">https://en.wikipedia.org/wiki/Standard_normal_table#Cumulative</a>
+
+<br><br>
+
+<b>How to read the table:</b><br>
+The first 2 digits represent a row and 3rd digit represents a column.<br>
+<br>
+<span id="examples"></span>
+<b>Examples</b>
+<ul>
+    <li>
+        <span id="ex_1"></span>
+        Say that we want to calculate \(\Phi(0.07)\)<br>
+        then first 2 digits "\(0.0\)" of <b>0.0</b>7 gives us row number 1, and 3rd digit "\(7\)" gives us column number 8, so \(\Phi(0.07) = 0.52790\)<br>
+        <div style="font-family: inherit;" class="table-wrapper">
+        <table>
+            <tr>
+            <th><i>z</i></th>
+            <th>+0.00</th>
+            <th>+0.01</th>
+            <th>+0.02</th>
+            <th>+0.03</th>
+            <th>+0.04</th>
+
+            <th>+0.05</th>
+            <th>+0.06</th>
+            <th bgcolor="#00FF00">+0.07</th>
+            <th>+0.08</th>
+            <th>+0.09</th></tr>
+            <tr>
+            <th>0.0</th>
+            <td>0.50000</td>
+            <td>0.50399</td>
+            <td>0.50798</td>
+            <td>0.51197</td>
+            <td>0.51595</td>
+            <td>0.51994</td>
+            <td>0.52392</td>
+            <td bgcolor="#00FF00">0.52790</td>
+            <td>0.53188</td>
+            <td>0.53586</td>
+        </tr></table></div>
+        <br>
+    </li>
+    <li>
+        <span id="ex_2"></span>
+        Now say that we want to calculate \(\Phi(1.26)\)<br>
+        then first 2 digits "\(1.2\)" of <b>1.2</b>6 gives us row number 17, and 3rd digit "\(6\)" gives us column number 7, so \(\Phi(1.26) = 0.89617\)<br>
+            <div style="font-family: inherit;" class="table-wrapper">
+            <table>
+            <tr>
+            <th><i>z</i></th>
+            <th>+0.00</th>
+            <th>+0.01</th>
+            <th>+0.02</th>
+            <th>+0.03</th>
+            <th>+0.04</th>
+
+            <th>+0.05</th>
+            <th bgcolor="#00FF00">+0.06</th>
+            <th>+0.07</th>
+            <th>+0.08</th>
+            <th>+0.09
+            </th></tr>
+            <tr>
+            <th>1.2
+            </th>
+            <td>0.88493</td>
+            <td>0.88686</td>
+            <td>0.88877</td>
+            <td>0.89065</td>
+            <td>0.89251</td>
+            <td>0.89435</td>
+            <td bgcolor="#00FF00">0.89617</td>
+            <td>0.89796</td>
+            <td>0.89973</td>
+            <td>0.90147
+            </td></tr></table></div>
+            <br>
+    </li>
+    <li>
+        <span id="ex_3"></span>
+        Now we can also find \(\mathbb{P}( 0.07 \leq \mathcal{N}(0,1) \leq  1.26)\):
+        <details>
+            <summary><span class="bb" style="color: royalblue; background-color: lightyellow; cursor:pointer;">See solution</span></summary>
+            <div class="math-container">
+                <blockquote>
+                    \(\mathbb{P}( 0.07 \leq \mathcal{N}(0,1) \leq  1.26)=\) \(\mathbb{P}(\mathcal{N}(0,1) \leq  1.26)-\mathbb{P}(\mathcal{N}(0,1) \leq  0.07)\) \(=0.89617 - 0.5279=0.36827\)</blockquote>
+            </div>
+        </details>
+        <br>
+    </li>
+    <li>
+        <span id="ex_4"></span>
+        Now let's calculate \(\Phi(-0.07) = \mathbb{P}(\mathcal{N}(0,1) \leq -0.07)\)<br>
+        <details>
+            <summary><span class="bb" style="color: royalblue; background-color: lightyellow; cursor:pointer;">See solution</span></summary>
+            <div class="math-container">
+            <blockquote>
+                Say \(Z=\mathcal{N}(0,1)\)<br>
+                \(\mathbb{P}(Z \leq -0.07)=\mathbb{P}(-Z \geq 0.07)\)<br>
+                And \(\mathbb{P}(-Z \geq 0.07)=\mathbb{P}(Z \geq 0.07)\) <b>;by symmetry</b><br>
+                \(\mathbb{P}(Z \geq 0.07)= 1- \mathbb{P}(Z \leq 0.07)\)<br>
+                \(\mathbb{P}(Z \geq 0.07)= 1- \Phi(0.07)\)<br>
+                \(\mathbb{P}(Z \geq 0.07)= 1- 0.52790=0.4721\)<br>
+                \(\Rightarrow \Phi(-0.07)=0.4721\)
+            </blockquote>
+            </div>
+        </details>
+        <br>
+    </li>
+    <li>
+        <span id="ex_5"></span>
+        Now let's calculate \(\mathbb{P}(|\mathcal{N}(0,1)| \gt 0.07)\)<br>
+        <details>
+            <summary><span class="bb" style="color: royalblue; background-color: lightyellow; cursor:pointer;">See solution</span></summary>
+            <blockquote>
+                <div class="math-container">
+                Say \(Z=\mathcal{N}(0,1)\)<br>
+                \(\mathbb{P}(|Z| \gt 0.07)=\mathbb{P}(Z \gt 0.07 \cup Z \lt -0.07)=\) &nbsp;\( \mathbb{P}(Z \gt 0.07)+\mathbb{P}(Z\lt -0.07)  \)<br>
+                And
+                <ul>
+                    <li>
+                        \(\mathbb{P}(Z \gt 0.07) =1-\mathbb{P}(Z \leq 0.07)=\) &nbsp;\(1-\Phi(0.07)=\) &nbsp;\(1 - 0.5279=0.4721\)
+                    </li>
+                    <li>
+                        \(\mathbb{P}(Z\lt -0.07)=\Phi(-0.07)\) and we calculated above and \(\Phi(-0.07)=0.4721\)
+                    </li>
+                </ul>
+                So:<br>
+                \(\mathbb{P}(|Z| \gt 0.07)=0.4721+0.4721=0.9442\)<br>
+                And we can say that:<br>
+                \(\mathbb{P}(|Z| \gt x)= 2(1-\Phi(x)) \)
+                </div>
+            </blockquote>
+        </details>
+        <br>
+    </li>
+    <li>
+        <span id="ex_6"></span>
+        Say \(  X\sim \mathcal{N}(70,36)  \) now calculate \(\mathbb{P}(X>80)\)<br>
+        <details>
+            <summary><span class="bb" style="color: royalblue; background-color: lightyellow; cursor:pointer;">See solution</span></summary>
+            <blockquote>
+                <div class="math-container">
+                Say \(Z=\mathcal{N}(0,1)\)<br>
+                \(  \mathbb{P}(X\gt 80)  =\mathbb{P}(X-70 \gt 80-70)\)<br>
+                \(\Rightarrow  \mathbb{P}(X\gt 80)  =\mathbb{P}(\frac{X-70}{6} \gt \frac{80-70}{6})\)<br>
+                \(\Rightarrow  \mathbb{P}(X\gt 80)  =\mathbb{P}(       Z       \gt 1.66)\)<br>
+                <ul>
+                    <li>
+                        \( \mathbb{P}(Z \gt 1.66)=1 - \mathbb{P}(Z \leq 1.66)  \)<br>
+                        \(\Rightarrow \mathbb{P}(Z \gt 3.33) = 1-0.95154 = 0.04846 \)
+                    </li>
+                </ul>
+                \(\Rightarrow  \mathbb{P}(X\gt 80) = 0.04846 \)
+                </div>
+            </blockquote>
+        </details>
+        <br>
+    </li>
+    <li>
+        <span id="ex_7"></span>
+        Say \(X\sim \mathcal{N}(70,36)\) now we have to find \(x\) such that \(\mathbb{P}(X\leq x)=80\%\)<br>
+        Now we have to read the table backward.
+        <details>
+            <summary><span class="bb" style="color: royalblue; background-color: lightyellow; cursor:pointer;">See solution</span></summary>
+            <blockquote>
+                <div class="math-container">
+                Say \(Z=\mathcal{N}(0,1)\)<br>
+                \(  \mathbb{P}(X\leq x)  =0.8\)<br>
+                \(\Rightarrow  \mathbb{P}(X-70\leq x-70) =0.8\)<br>
+                \(\Rightarrow  \mathbb{P}\left(\frac{X-70}{6}\leq \frac{x-70}{6}\right) =0.8\)<br>
+                \(\Rightarrow  \mathbb{P}\left(Z \leq \frac{x-70}{6}\right) =0.8\)<br>
+                \(\Rightarrow  \Phi\left( \frac{x-70}{6}\right) =0.8\)<br>
+
+                <div  style="font-family: inherit;" class="table-wrapper">
+                <table>
+                <tr>
+                <th><i>z</i></th>
+                <th>+0.00</th>
+                <th>+0.01</th>
+                <th>+0.02</th>
+                <th>+0.03</th>
+                <th>+0.04</th>
+
+                <th bgcolor="#00FF00">+0.05</th>
+                <th>+0.06</th>
+                <th>+0.07</th>
+                <th>+0.08</th>
+                <th>+0.09</th></tr>
+                <tr>
+                <th>0.8
+                </th>
+                <td>0.78814</td>
+                <td>0.79103</td>
+                <td>0.79389</td>
+                <td>0.79673</td>
+                <td>0.79955</td>
+                <td bgcolor="#00FF00">0.80234</td>
+                <td>0.80511</td>
+                <td>0.80785</td>
+                <td>0.81057</td>
+                <td>0.81327</td></tr>
+                </table></div>
+
+                <ul>
+                    <li>
+                        \(\Phi(0.85)=0.80\)
+                    </li>
+                </ul>
+                \(\Rightarrow \frac{x-70}{6}=0.85\)<br>
+                \(\Rightarrow x=75.1\)
+                </div>
+            </blockquote>
+        </details>
+        <br>
+    </li>
+</ul>
+
+<h3 id="quantiles">Quantiles<a style="color: rgb(20, 57, 168);" href="#quantiles"><i class="fa fa-link" aria-hidden="true"></i></a></h3>
+Here we have to find a number \(q_\alpha\) or say the quantile of order \(1- \alpha\) of a r.v. \(X\) such that the
+CDF of \(X\) at \(q_\alpha\) is:<br>
+\(F(q_\alpha)=\mathbb{P}(X \leq q_\alpha)=1-\alpha\)<br>
+Here we are just reading the table backward, So we are just computing \(F^{-1}(x)\)<br>
+<br>
+Some important quantiles of \(Z\sim \mathcal{N}(0,1)\):
+<span id="imp-quantiles"></span>
+<div  style="font-family: inherit;" class="table-wrapper">
+    <table>
+    <tr>
+    <th>\(\alpha\)</th>
+    <th>\(2.5\%\)</th>
+    <th>\(5\%\)</th>
+    <th>\(10\%\)</th>
+    </tr>
+    <tr>
+    <th>\(q_\alpha\)</th>
+    <td>1.96</td>
+    <td>1.65</td>
+    <td>1.28</td>
+    </tr>
+    </table>
+</div>
+<br>
+\(\mathbb{P}(|Z| \gt 1.96)=5\%\)
+<div class="'new_image">
+    <img src="/stats/img/2.5.png" width="499" height="290" alt="">
+</div>
+</p>
+
+<div class="slack-discuss" onclick=" window.open('https://join.slack.com/t/quantml-org/shared_invite/zt-jffw86bo-6M260iyt1q2MgBma9elewg','_blank')">
+    Join our Slack <img src="/data/img/slack.png" alt="Slack"> discussion forum
+</div><br>
+<div class='buttons'>
+    <button class="button jump" onclick="window.location.href = 'hoeffding.html';">&#x25C0;&nbsp;&nbsp; Hoeffding</button>
+    <button class="button jump"  style="float: right;" onclick="window.location.href = 'convergence.html';">Convergence&nbsp;&nbsp;&#x25B6;</button>
+</div><br>
+<!--=================== MODELS ===================-->
+
+<!--=============== LOGIN MODEL[START] ===============-->
+<div id="login-model" class="modal">
+    <form class="modal-content animate" id="login-form">
+    
+        <a class="close" style="float: right; padding-top: 0%; padding-bottom: 0%;" onclick="document.getElementById('login-model').style.display='none'">X</a>
+        <div class="container" style="margin: 1rem; margin-bottom: -1rem">
+        <label for="email"><b>Email Address</b></label>
+        <input id="login-email" onkeypress="emailAddressIsValidated();setDisplay('network-request-failed', 'none');" class="loginInput" ref="emailRef"  type="email" placeholder="Enter Email Address" name="email" required>
+        <div id="login-error-msg" class="error-msg">
+            <img style="float: left;" src="/data/auth/error.png" alt="!" width="50px" height="50px">
+            <div style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);">Invalid Email Address</div>
+        </div>
+        <div id="login-email-user-not-found" class="warn-msg"></div>
+        <label for="psw"><b>Password</b></label>
+        <input id="login-password" onkeypress="passwordIsValidated();setDisplay('network-request-failed', 'none');" class="loginInput" type="password" placeholder="Enter Password" name="psw" required>
+        <div id="password-error-msg" class="error-msg">
+            <img style="float: left;" src="/data/auth/error.png" alt="!" width="50px" height="50px">
+            <div style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);">Incorrect Password</div>
+        </div>
+
+        <div style="display: none;" id="network-request-failed" class="error-msg">
+            <img style="float: left;" src="/data/auth/error.png" alt="!" width="50px" height="50px">
+            <div style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);">Internet Connection Error</div>
+        </div>
+            
+        <button class="form-buttons login-button" type="submit">
+            <span id="login-button-text">Login</span>
+        </button>
+        <button id="forgot-password" class="form-buttons forgot-button">
+            <span id="forgot-button-text">Forgot Password</span>
+        </button>
+        </div>
+        <br>
+    </form>
+    </div>
+<!--=============== LOGIN MODEL[END] ===============-->
+
+<!--=============== Password Reset Link Sent MODEL[START] ===============-->
+
+<div id="password-reset-link-sent-model" class="modal">
+    <div class="modal-content animate" id="login-form">    
+        <a class="close" style="float: right; padding-top: 0%; padding-bottom: 0%;" onclick="document.getElementById('password-reset-link-sent-model').style.display='none'">X</a>
+        <div class="container" style="margin: 1rem;">
+<span id='password-reset-link-sent-txt'></span>
+        <button onclick="document.getElementById('password-reset-link-sent-model').style.display='none'" class="form-buttons login-button">OK</button>
+        </div>
+    </div>
+</div>
+        
+<!--=============== Password Reset Link Sent MODEL[END] ===============-->
+
+<!--=============== SETTINGS[START] ===============-->
+
+<div id="settings-model" class="modal">
+    <div class="modal-content animate">
+        <a class="close" style="float: right; padding-top: 0%; padding-bottom: 0%;" onclick="document.getElementById('settings-model').style.display='none'">X</a>
+        <div class="container settings" style="margin: 1rem;">
+            Font size &nbsp; 
+            <button style="font-size: 18px;" class="button" onclick="incrementFontSize();setFontSize()">+</button> 
+            <button style="font-size: 18px;" class="button" onclick="decrementFontSize();setFontSize()">-</button>
+            <br>
+        </div>
+    </div>
+</div>
+        
+<!--=============== SETTINGS[END] ===============-->
+
+                    </section>
+
+</div>
+
+                    </div>
+       <!-- Scripts -->
+            <script src="/data/assets/js/jquery.min.js"></script>
+            <script src="/data/assets/js/jquery.scrollex.min.js"></script>
+            <script src="/data/assets/js/jquery.scrolly.min.js"></script>
+            <script src="/data/assets/js/browser.min.js"></script>
+            <script src="/data/assets/js/breakpoints.min.js"></script>
+            <script src="/data/assets/js/util.js"></script>
+            <script src="/data/assets/js/main.js"></script>
+			<script src="/data/initialize-css.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-app.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-auth.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-firestore.js"></script>
+            <script src="/data/auth/auth.js"></script>
+            <script src="/data/index.js"></script>
+            <script src="/stats/initialize.js"></script>
+            <script>setTimeout(() => {document.querySelector('body').style.display="block"}, 0)</script>
+
+    </body>
+</html>

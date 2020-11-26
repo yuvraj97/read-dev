@@ -11,8 +11,8 @@ input {
 }
 
 .error-msg{
-  border: 2px solid red;
-  background-color: rgb(44, 0, 0);
+  border: 2px solid rgb(255, 0, 0, 0.7);
+  background-color: rgb(255, 0, 0, 0.05);
 }
 
 .warn-border {
@@ -49,31 +49,30 @@ input {
 /* Set a style for all buttons */
 
 .login-button {
-  background-color: rgb(210, 210, 255);
+  background-color: rgb(0, 115, 177, 0.2);
 	border:2px rgb(0, 115, 177) solid;
-  color: rgb(0, 0, 150);
+  color: rgb(230, 230, 255);
 }
 
 .login-button:hover {
-  opacity: 1;
-  background-color: rgb(230, 230, 255);
+  background-color: rgb(0, 115, 177, 0.4);
   /* -webkit-transform: translateX(.4rem); transform: translateX(.4rem); */
 }
 
 .forgot-button {
-  background-color: rgb(255, 210, 210);
+  background-color: rgb(255, 0, 0, 0.2);
 	border:2px rgb(255, 0, 0) solid;
-  color: rgb(100, 0, 0);
+  color: rgb(255, 230, 230);
 }
 
 .forgot-button:hover {
-  background-color: rgb(255, 230, 230);
+  background-color: rgb(255, 0, 0, 0.4);
 }
 
 
 /* The Modal (background) */
 .modal {
-  background-color: rgba(255,255,255,0.1); /* Black w/ opacity */
+  background-color: rgba(255,255,255,0.05); /* Black w/ opacity */
 }
 
 /* Modal Content/Box */

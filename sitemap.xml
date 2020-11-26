@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>https://read.quantml.org/</loc>
+  <lastmod>2020-11-24T20:30:17+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://read.quantml.org/about/</loc>
+  <lastmod>2020-11-24T20:30:17+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://read.quantml.org/donate/</loc>
+  <lastmod>2020-11-24T20:30:17+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://read.quantml.org/la/</loc>
+  <lastmod>2020-11-24T20:30:17+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://read.quantml.org/la/thanks/</loc>
+  <lastmod>2020-11-24T20:30:17+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://read.quantml.org/la/vector-space/</loc>
+  <lastmod>2020-11-24T20:30:17+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://read.quantml.org/la/column-space/</loc>
+  <lastmod>2020-11-24T20:30:17+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://read.quantml.org/la/null-space/</loc>
+  <lastmod>2020-11-24T20:30:17+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://read.quantml.org/la/complete-space/</loc>
+  <lastmod>2020-11-24T20:30:17+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://read.quantml.org/la/rank/</loc>
+  <lastmod>2020-11-24T20:30:17+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://read.quantml.org/la/fundamental-subspaces/</loc>
+  <lastmod>2020-11-24T20:30:17+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://read.quantml.org/la/matrix-space/</loc>
+  <lastmod>2020-11-24T20:30:17+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://read.quantml.org/la/matrix-space/dim/</loc>
+  <lastmod>2020-11-24T20:30:17+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://read.quantml.org/la/matrix-space/ops/</loc>
+  <lastmod>2020-11-24T20:30:17+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://read.quantml.org/la/matrix-space/ex/</loc>
+  <lastmod>2020-11-24T20:30:17+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://read.quantml.org/la/orthogonal-subspaces/</loc>
+  <lastmod>2020-11-24T20:30:17+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://read.quantml.org/la/projection/</loc>
+  <lastmod>2020-11-24T20:30:17+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://read.quantml.org/la/least-squares/</loc>
+  <lastmod>2020-11-24T20:30:17+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://read.quantml.org/la/orthonormal-vectors/</loc>
+  <lastmod>2020-11-24T20:30:17+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://read.quantml.org/la/eigenvalues-eigenvectors/</loc>
+  <lastmod>2020-11-24T20:30:17+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://read.quantml.org/la/diagonalization/</loc>
+  <lastmod>2020-11-24T20:30:17+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://read.quantml.org/la/differential-equation/</loc>
+  <lastmod>2020-11-24T20:30:17+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://read.quantml.org/la/markov-matrix/</loc>
+  <lastmod>2020-11-24T20:30:17+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://read.quantml.org/la/symmetric-matrices/</loc>
+  <lastmod>2020-11-24T20:30:17+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://read.quantml.org/la/cmfft/</loc>
+  <lastmod>2020-11-24T20:30:17+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://read.quantml.org/la/positive-definite-matrices/</loc>
+  <lastmod>2020-11-24T20:30:17+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://read.quantml.org/la/similar-matrices/</loc>
+  <lastmod>2020-11-24T20:30:17+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://read.quantml.org/la/svd/</loc>
+  <lastmod>2020-11-24T20:30:17+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://read.quantml.org/la/thanks/.</loc>
+  <lastmod>2020-11-24T20:30:17+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://read.quantml.org/la/null-space/echelon-form/</loc>
+  <lastmod>2020-11-24T20:30:17+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://read.quantml.org/la/null-space/solve/</loc>
+  <lastmod>2020-11-24T20:30:17+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://read.quantml.org/la/null-space/reduced-row-echelon-form/</loc>
+  <lastmod>2020-11-24T20:30:17+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+
+
+</urlset>

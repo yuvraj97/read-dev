@@ -1,0 +1,318 @@
+<!DOCTYPE HTML>
+<!--
+    "Thanks to HTML5 UP for this template".
+    Massively by HTML5 UP
+    html5up.net | @ajlkn
+    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+    <head>
+
+        
+        <link rel="stylesheet" href="/data/assets/css/main.css">
+        <link rel="stylesheet" href="/data/auth/authStyle.css">
+        <link id="quantml-theme" rel="stylesheet" href="" />
+        <link id="quantml-auth-style" rel="stylesheet" href="">
+
+        <!--KATEX-->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+
+        <!-- The loading of KaTeX is deferred to speed up page rendering -->
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+
+        <!-- To automatically render math in text elements, include the auto-render extension: -->
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+        <title>p-value</title>
+        <meta charset="utf-8" />
+        <link rel="icon" href="/data/icon.png" type="image/png" sizes="16x16">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        
+        <noscript><link rel="stylesheet" href="/data/assets/css/noscript.css" /></noscript>
+
+    </head>
+    <body class="is-preload" style="display: none;">
+
+        <!-- Wrapper -->
+            <div id="wrapper">
+
+                <!-- Header -->
+                <header id="header">
+                    <a href="https://quantml.org" class="logo image jump-big"><img id="quantml-cover" src="/data/img/cover.png" alt="QuantML.org" /></a>
+                </header>
+
+                <!-- Nav -->
+                    <nav id="nav">
+                        <ul class="links">
+                            <li class="cover"><a href="/stats/"><img src="/data/img/STATISTICS-cover.png" alt="STATISTICS"></a></li>
+                           <li><a href="hypothesis.html">&#x25C0;</a></li>
+                           <li class="active"><a href="p-value.html">\(\text{p-value}\)</a></li>
+                           <li><a href="example.html">Example</a></li>
+                           <li><a href="goal.html">&#x25B6;</a></li>
+                        </ul>
+                        <ul class="icons">
+                            <li><a target="_blank" href="https://quantml.org/"><img src="/data/icon.png" alt="QuantML"></a></li>
+                            <li><a target="_blank" href="https://join.slack.com/t/quantml-org/shared_invite/zt-jffw86bo-6M260iyt1q2MgBma9elewg"><img src="/data/img/slack.png" alt="Slack"></a></li>
+                            <li><a target="_blank" href="https://www.linkedin.com/in/yuvraj97/"><img src="/data/img/linkedin.png" alt="LinkedIn"></a></li>
+                            <li><a target="_blank" href="https://github.com/yuvraj97/"><img src="/data/img/github.png" alt="GitHub"></a></li>
+                            <li style="display: none;" id="login-button"><button id="login-btn-width" class="login-logout-join" >Login &nbsp; <img src="/data/img/patreon.png" alt="Patreon"></button></li>
+                            <li style="display: none;" id="join-button"><button onclick=" window.open('https://www.patreon.com/quantml','_blank')" id="join-btn-width" class="login-logout-join" >Join &nbsp; <img src="/data/img/patreon.png" alt="Patreon"></button></li>
+                            <li style="display: none;" id="logout-button"><button id="logout-btn-width" class="login-logout-join" >Logout &nbsp; <img src="/data/img/patreon.png" alt="Logout"></button></li>
+                            <li><a style="cursor: pointer;"><img id="change-theme" src="" alt="Change Theme"></a></li>
+                            <li title="Settings" class="settings jump"><img onclick="showSettings()" src="/data/img/setings.png" alt="Settings" width="25px" height="25px">
+                        </ul>
+                    </nav>
+
+
+                <!-- Main -->
+                    <div id="main">
+                        <section class="post">
+<div class='buttons'>
+    <button class="button jump" onclick="window.location.href = 'statistical-test.html';">&#x25C0;&nbsp;&nbsp;Statistical Test</button>
+    <button class="button jump"  style="float: right;" onclick="window.location.href = 'example.html';">Example&nbsp;&nbsp;&#x25B6;</button>
+</div><br>
+<p>
+<!--&#120793;-->
+In Type \(1\) Error we are specifying a level (say \(\alpha\) ) and then testing that <i>"can we reject the test at level \(\alpha\)"</i>.<br>
+If we can reject the test at a level say \(5\%\) what about rejecting it at a level \(1\%\) or \(2\%\) or \(10\%\) ... .<br>
+If we have a some notion for <b>minimum</b> level at which we can reject the null hypothesis<b>(</b>assuming that null hypothesis is true<b>)</b>, then we can answer for all of those questions.<br>
+<br>
+What we are currently doing is we are specifying a level \(\alpha\) and based on that level we are finding a <b>cut-off</b> for our <b>test statistics</b> beyond
+which we can reject the null hypothesis.<br>
+And here we want to find <b>minimum</b> level at which we can reject the null hypothesis, so we are finding a <b>cut-off</b> for our
+level \(\alpha\).<br>
+And this <b>minimum</b> level is known as \(\text{p-value}\).<br>
+So.
+<blockquote>
+   Asymptotic \(\text{ p-value }\) of a test \(\psi_\alpha\) is the <b>smallest asymptotic</b> level \(\alpha\)
+   at which our test \(\psi_\alpha\) rejects the null hypothesis \(H_0\).<br>
+</blockquote>
+\(\text{ p-value }\) is the <b>smallest level</b> at which we can <b>reject the null hypothesis</b>.<br>
+So if we go a little <b>above</b> the \(\text{ p-value }\) we <b>reject the null hypothesis</b>, and <b>below</b> it we <b>fail to reject the null hypothesis</b>.<br>
+<br>
+<blockquote>
+\(\text{ p-value }\) is <b>not</b> <b>Type 1 Error</b>, it will be more clear when we talk about <i>"What if \(\text{ p-value }\) \(\to 0 \) "</i> below.
+</blockquote>
+
+<b>The smaller the \(\text{ p-value }\), more confidently we can reject the null hypothesis \(H_0\)</b><br>
+<br>
+
+<hr style="width: 50%; height: 1px">
+<h3 style="font-family: inherit;" id="p-value=0">What if \(\text{ p-value }\) \(\to 0\)</h3>
+For <b>Type \(1\) Error</b>, &nbsp; <b>we decide</b> our level \(\alpha\)
+<blockquote>
+If <b>we decide</b> level \(\alpha \to 0\) then we reject less and less.<br>
+If <b>we decide</b> that accepted maximum Type \(1\) Error is \(0\) then we never reject the null hypothesis,
+remember our <a  href="statistical-test.html#criminal-trial">Criminal Trial example</a> where we discuss
+what does Type \(1\) Error \(=0\) looks like.<br>
+So if <b>we make</b> level extremely small then we have to go with that <b>dumb</b> test which always fails to reject.<br>
+</blockquote>
+<br>
+<b>But</b> here we are saying that <i>"The smaller the \(\text{ p-value }\), more confidently we can reject the null hypothesis \(H_0\)"</i><br>
+So we don't have any problem for an extremely small level(\(\text{ p-value }\)), even we are saying it's good to be as small, <b>buy why?</b><br>
+<br>
+Because in Type 1 error <b>we decides</b> what our level \(\alpha\) will be and <b>based on our decision</b> we make a test \(\psi_\alpha\).<br>
+So for an (asymptotically) Normally distributed <b>test statistics</b> \(T_n\), if <b>we decide</b> that maximum accepted
+Type \(1\) Error is \(0\) So \(\alpha=0\) (this is our decision), then we have no choice but to choose \(\infty,-\infty\) as boundaries for our test \(\psi_\alpha\).<br>
+So we have no choice but to, <b>never reject the null</b> \(H_0\).<br>
+<br>
+
+But in \(\text{ p-value }\) we don't decide any level a priory.<br>
+Our <b>sample</b>(data \(X_1,\cdots,X_n\)) itself decides a level (which we call \(\text{ p-value }\)).<br>
+<br>
+<span id="coin-toss-example"></span>
+Recall our <a  href="statistical-test.html#coin-toss-example">Coin Toss Example</a>
+<blockquote>
+Here we reject if there is a discrepancy between \(p\) and \(\hat{p}_n\) (estimator of \(p\))<br>
+(remember here we assume that the null hypothesis is true.)<br>
+<b>Say</b> that our test statistics is  \(T_n = \sqrt{n}\frac{\hat{p}_n-p}{\sqrt{p(1-p)}}\)<br>
+(It was not the same test statistics as in our previous <a  href="statistical-test.html#coin-toss-example">Coin Toss Example</a>
+, but I needed this test statistics for more clear explanation, I changed the test \(\psi\) accordingly).<br>
+\(T_n\) is (asymptotically) Normally distributed <b>test statistics</b>.<br>
+</blockquote>
+
+In our coin toss example <b>according to our data</b> \(X_1,\cdots,X_n\) when will we reject the null Hypothesis<b>?</b><br>
+<blockquote>
+We reject the null hypothesis if our test statistics \(|T_n|\) is greater then something.<br>
+\(\psi = &#120793;\{|T_n|\gt C\};\quad C\in\mathbb{R}^+\)<br>
+We have a realization of a test statistics say \(T_n'=T_n(X_1\cdots X_n)\)<br>
+</blockquote>
+
+According to our <b>data</b>, what is the <b>minimum</b> level (\(\text{ p-value }\)) at which we reject the null hypothesis<b>?</b><br>
+<blockquote>
+    We reject the null if any test statistics \(|T_n|\) if greater then \(|T_n'|\) .<br>
+    (remember according to our assumption null is true, so this is an error).<br>
+    so \[\text{ p-value }=\mathbb{P}_{\theta\in\Theta_0}\left(  |T_n| \gt |T_n'| \right)\]
+    and because \(T_n\) is (asymptotically) Normally distributed.<br>
+    \[\text{ p-value }=\mathbb{P}_{\theta\in\Theta_0}\left(  |Z| \gt |T_n'| \right);\quad Z\sim \mathcal{N}(0,1)\]
+    <img src="/stats/img/p-val.png" width="587" height="341" alt="">
+</blockquote>
+
+Now we can see that \(\text{ p-value }\) is decided by our sample.<br>
+So a very small \(\text{ p-value }\) means that our test stastics \(|T_n|\) is very large, which is very unlikely to happen <i>"by a chance"</i>
+so very small \(\text{ p-value }\) gives us a very strong <b>evidence</b> <b>against</b> the null hypothesis.<br>
+<br>
+
+After we get our \(\text{ p-value }\), we just need a <b>threshold</b> for the \(\text{ p-value }\), beyond which we reject the null hypothesis.<br>
+For our <a  href="statistical-test.html#coin-toss-example">Coin Toss Example</a> say <b>we choose</b>
+a threshold of \(5\%\).<br>
+So it we get \(\text{ p-value }\) below \(0.05\) we <b>reject</b> the null hypothesis, otherwise we <b>fail to reject</b> the null hypothesis.<br>
+
+
+<br>
+<hr style="width: 100%; height: 1px">
+<details>
+<summary><a ><span style="cursor:pointer;">If you are curious why is there a little inconsistency in Test statistics</span></summary>
+<blockquote>
+Here we take \(T_n = \sqrt{n}\frac{\hat{p}_n-p}{\sqrt{p(1-p)}}\) where as in <a  href="statistical-test.html#coin-toss-example">Coin Toss Example</a>
+we took \(T_n = \sqrt{n}\frac{|\hat{p}_n-p|}{\sqrt{p(1-p)}}\)<br>
+We should have taken \(T_n = \sqrt{n}\frac{|\hat{p}_n-p|}{\sqrt{p(1-p)}}\)<br>
+But I don't want to introduce <a  href="https://en.wikipedia.org/wiki/Folded_normal_distribution">Folded Normal Distribution</a><br>
+\(|Z|\sim\)Folded Normal Distribution, where \(Z\sim\mathcal{N}(\mu,\sigma^2)\)<br>
+</blockquote>
+</details>
+<br>
+<b>Recomended reading</b><br>
+
+<a  href="https://stats.stackexchange.com/a/130772/283316">https://stats.stackexchange.com/a/130772/283316</a>  (Excellent explanation of p-value in plain English)<br>
+
+
+<br>
+Share more in the discussion box below.
+
+</p>
+<button class="accordion">\(\text{Discussion}\)</button>
+<div class="panel">
+    <script src="https://utteranc.es/client.js"
+        repo="yuvraj97/stats.github.io"
+        issue-term="hypothesis-p-value-discussion"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+    </script>
+</div>
+<button class="accordion">\(\text{Put up a question}\)</button>
+<div class="panel">
+    <script src="https://utteranc.es/client.js"
+        repo="yuvraj97/stats.github.io"
+        issue-term="hypothesis-p-value-questions"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+    </script>
+</div>
+<div class="slack-discuss" onclick=" window.open('https://join.slack.com/t/quantml-org/shared_invite/zt-jffw86bo-6M260iyt1q2MgBma9elewg','_blank')">
+    Join our Slack <img src="/data/img/slack.png" alt="Slack"> discussion forum
+</div><br>
+<div class='buttons'>
+    <button class="button jump" onclick="window.location.href = 'statistical-test.html';">&#x25C0;&nbsp;&nbsp;Statistical Test</button>
+    <button class="button jump"  style="float: right;" onclick="window.location.href = 'example.html';">Example&nbsp;&nbsp;&#x25B6;</button>
+</div><br>
+<!--=================== MODELS ===================-->
+
+<!--=============== LOGIN MODEL[START] ===============-->
+<div id="login-model" class="modal">
+    <form class="modal-content animate" id="login-form">
+    
+        <a class="close" style="float: right; padding-top: 0%; padding-bottom: 0%;" onclick="document.getElementById('login-model').style.display='none'">X</a>
+        <div class="container" style="margin: 1rem; margin-bottom: -1rem">
+        <label for="email"><b>Email Address</b></label>
+        <input id="login-email" onkeypress="emailAddressIsValidated();setDisplay('network-request-failed', 'none');" class="loginInput" ref="emailRef"  type="email" placeholder="Enter Email Address" name="email" required>
+        <div id="login-error-msg" class="error-msg">
+            <img style="float: left;" src="/data/auth/error.png" alt="!" width="50px" height="50px">
+            <div style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);">Invalid Email Address</div>
+        </div>
+        <div id="login-email-user-not-found" class="warn-msg"></div>
+        <label for="psw"><b>Password</b></label>
+        <input id="login-password" onkeypress="passwordIsValidated();setDisplay('network-request-failed', 'none');" class="loginInput" type="password" placeholder="Enter Password" name="psw" required>
+        <div id="password-error-msg" class="error-msg">
+            <img style="float: left;" src="/data/auth/error.png" alt="!" width="50px" height="50px">
+            <div style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);">Incorrect Password</div>
+        </div>
+
+        <div style="display: none;" id="network-request-failed" class="error-msg">
+            <img style="float: left;" src="/data/auth/error.png" alt="!" width="50px" height="50px">
+            <div style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);">Internet Connection Error</div>
+        </div>
+            
+        <button class="form-buttons login-button" type="submit">
+            <span id="login-button-text">Login</span>
+        </button>
+        <button id="forgot-password" class="form-buttons forgot-button">
+            <span id="forgot-button-text">Forgot Password</span>
+        </button>
+        </div>
+        <br>
+    </form>
+    </div>
+<!--=============== LOGIN MODEL[END] ===============-->
+
+<!--=============== Password Reset Link Sent MODEL[START] ===============-->
+
+<div id="password-reset-link-sent-model" class="modal">
+    <div class="modal-content animate" id="login-form">    
+        <a class="close" style="float: right; padding-top: 0%; padding-bottom: 0%;" onclick="document.getElementById('password-reset-link-sent-model').style.display='none'">X</a>
+        <div class="container" style="margin: 1rem;">
+<span id='password-reset-link-sent-txt'></span>
+        <button onclick="document.getElementById('password-reset-link-sent-model').style.display='none'" class="form-buttons login-button">OK</button>
+        </div>
+    </div>
+</div>
+        
+<!--=============== Password Reset Link Sent MODEL[END] ===============-->
+
+<!--=============== SETTINGS[START] ===============-->
+
+<div id="settings-model" class="modal">
+    <div class="modal-content animate">
+        <a class="close" style="float: right; padding-top: 0%; padding-bottom: 0%;" onclick="document.getElementById('settings-model').style.display='none'">X</a>
+        <div class="container settings" style="margin: 1rem;">
+            Font size &nbsp; 
+            <button style="font-size: 18px;" class="button" onclick="incrementFontSize();setFontSize()">+</button> 
+            <button style="font-size: 18px;" class="button" onclick="decrementFontSize();setFontSize()">-</button>
+            <br>
+        </div>
+    </div>
+</div>
+        
+<!--=============== SETTINGS[END] ===============-->
+
+                    </section>
+</div>
+<br><br>
+
+                    </div>
+           <script>
+            var acc = document.getElementsByClassName("accordion");
+            var i;
+
+            for (i = 0; i < acc.length; i++) {
+                acc[i].addEventListener("click", function() {
+                    this.classList.toggle("active");
+                    var panel = this.nextElementSibling;
+                    if (panel.style.maxHeight) {
+                        panel.style.maxHeight = null;
+                    } else {
+                        panel.style.maxHeight = panel.scrollHeight + "px";
+                    }
+                });
+            }
+            </script>
+        <!-- Scripts -->
+            <script src="/data/assets/js/jquery.min.js"></script>
+            <script src="/data/assets/js/jquery.scrollex.min.js"></script>
+            <script src="/data/assets/js/jquery.scrolly.min.js"></script>
+            <script src="/data/assets/js/browser.min.js"></script>
+            <script src="/data/assets/js/breakpoints.min.js"></script>
+            <script src="/data/assets/js/util.js"></script>
+            <script src="/data/assets/js/main.js"></script>
+			<script src="/data/initialize-css.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-app.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-auth.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-firestore.js"></script>
+            <script src="/data/auth/auth.js"></script>
+            <script src="/data/index.js"></script>
+            <script src="/stats/initialize.js"></script>
+            <script>setTimeout(() => {document.querySelector('body').style.display="block"}, 0)</script>
+    </body>
+</html>

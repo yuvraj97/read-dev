@@ -1,5 +1,6 @@
 function initializeGuide(){
-    if(screen.width <= 980){
+    // if(screen.width <= 980){
+    if(window.innerWidth <= 980){
         document.getElementById('login-btn-width').style.width="100%";
         document.getElementById('join-btn-width').style.width="100%";
         document.getElementById('logout-btn-width').style.width="100%";
@@ -21,7 +22,12 @@ function initializeGuide(){
 }
 
 function setDisplay(ID, disp){
-    document.getElementById(ID).style.display=disp;
+    element = document.getElementById(ID)
+    if(element != null){
+        element.style.display=disp;
+    } else {
+        console.log(ID, "is missing!")
+    }
 }
 
 function getDisplay(){
@@ -34,7 +40,11 @@ function getDisplay(){
 
 function clearModelOnBackgroundClick(){
     // Get the modal
-    var modal = [document.getElementById('login-model'), document.getElementById('enter-otp-model')];
+    var modal = [
+        document.getElementById('login-model'), 
+        document.getElementById('enter-otp-model'),
+        document.getElementById('settings-model')
+    ];
 
     // When the user clicks anywhere outside of the modal, close it
     window.onclick = function(event) {
@@ -158,7 +168,12 @@ loginForm.addEventListener('submit', (e) => {
     const email = loginForm['login-email'].value;
     const password = loginForm['login-password'].value;
     const loginButtonText = document.getElementById('login-button-text');
-    loginButtonText.innerHTML = `Login &nbsp; <img style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);" src="/data/auth/login-loading-tp.gif" alt="..." width="30px" height="30px"/>`
+    if(localStorage.getItem("quantmlTheme")=="light"){
+        var src = "/data/img/loading-login.gif";
+    } else {
+        var src = "/data/img-dark/loading-login.gif";
+    }
+    loginButtonText.innerHTML = 'Login &nbsp; <img style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);" src='+ src +' alt="..." width="30px" height="30px"/>'
     auth.signInWithEmailAndPassword(email, password).then(cred => {
         // console.log(cred.user);
         setDisplay('login-model', 'none');
@@ -204,7 +219,12 @@ forgotPassword.addEventListener('click',(e) => {
     const email = loginForm['login-email'].value;
     // console.log("Forgot Password")
     const forgotButtonText = document.getElementById('forgot-button-text');
-    forgotButtonText.innerHTML = `Forgot Password &nbsp; <img style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);" src="/data/auth/forgot-password-loading-tp.gif" alt="..." width="30px" height="30px"/>`
+    if(localStorage.getItem("quantmlTheme")=="light"){
+        var src = "/data/img/loading-forgot.gif";
+    } else {
+        var src = "/data/img-dark/loading-forgot.gif";
+    }
+    forgotButtonText.innerHTML = 'Forgot Password &nbsp; <img style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);" src='+ src +' alt="..." width="30px" height="30px"/>'
     auth.sendPasswordResetEmail(email).then(() => {
         // console.log("Sending Reset Password Link");
         forgotButtonText.innerHTML = 'Forgot Password'

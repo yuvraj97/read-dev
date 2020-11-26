@@ -1,0 +1,237 @@
+<!DOCTYPE HTML>
+<!--
+    "Thanks to HTML5 UP for this template".
+    Massively by HTML5 UP
+    html5up.net | @ajlkn
+    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+    <head>
+
+        
+        <link rel="stylesheet" href="/data/assets/css/main.css">
+        <link rel="stylesheet" href="/data/auth/authStyle.css">
+        <link id="quantml-theme" rel="stylesheet" href="" />
+        <link id="quantml-auth-style" rel="stylesheet" href="">
+
+        <!--KATEX-->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+
+        <!-- The loading of KaTeX is deferred to speed up page rendering -->
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+
+        <!-- To automatically render math in text elements, include the auto-render extension: -->
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+        <title>Inference</title>
+        <meta charset="utf-8" />
+        <link rel="icon" href="/data/icon.png" type="image/png" sizes="16x16">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        
+        <noscript><link rel="stylesheet" href="/data/assets/css/noscript.css" /></noscript>
+
+    </head>
+    <body class="is-preload" style="display: none;">
+
+        <!-- Wrapper -->
+            <div id="wrapper">
+
+                <!-- Header -->
+                <header id="header">
+                    <a href="https://quantml.org" class="logo image jump-big"><img id="quantml-cover" src="/data/img/cover.png" alt="QuantML.org" /></a>
+                </header>
+                <!-- Nav -->
+                    <nav id="nav">
+                        <ul class="links">
+                            <li class="cover"><a href="/stats/"><img src="/data/img/STATISTICS-cover.png" alt="STATISTICS"></a></li>
+                            <li><a href="intro.html">&#x25C0;</a></li>
+                            <li class="active"><a href="inference.html">Inference</a></li>
+                            <li><a href="modeling.html">Statistical modeling</a></li>
+                            <li><a href="identifiability.html">Identifiability</a></li>
+                            <li><a href="estimation.html">&#x25B6;</a></li>
+                        </ul>
+                        <ul class="icons">
+                            <li><a target="_blank" href="https://quantml.org/"><img src="/data/icon.png" alt="QuantML"></a></li>
+                            <li><a target="_blank" href="https://join.slack.com/t/quantml-org/shared_invite/zt-jffw86bo-6M260iyt1q2MgBma9elewg"><img src="/data/img/slack.png" alt="Slack"></a></li>
+                            <li><a target="_blank" href="https://www.linkedin.com/in/yuvraj97/"><img src="/data/img/linkedin.png" alt="LinkedIn"></a></li>
+                            <li><a target="_blank" href="https://github.com/yuvraj97/"><img src="/data/img/github.png" alt="GitHub"></a></li>
+                            <li style="display: none;" id="login-button"><button id="login-btn-width" class="login-logout-join" >Login &nbsp; <img src="/data/img/patreon.png" alt="Patreon"></button></li>
+                            <li style="display: none;" id="join-button"><button onclick=" window.open('https://www.patreon.com/quantml','_blank')" id="join-btn-width" class="login-logout-join" >Join &nbsp; <img src="/data/img/patreon.png" alt="Patreon"></button></li>
+                            <li style="display: none;" id="logout-button"><button id="logout-btn-width" class="login-logout-join" >Logout &nbsp; <img src="/data/img/patreon.png" alt="Logout"></button></li>
+                            <li><a style="cursor: pointer;"><img id="change-theme" src="" alt="Change Theme"></a></li>
+                            <li title="Settings" class="settings jump"><img onclick="showSettings()" src="/data/img/setings.png" alt="Settings" width="25px" height="25px">
+                        </ul>
+                    </nav>
+
+
+                <!-- Main -->
+                    <div id="main">
+                        <section class="post">
+<div class='buttons'>
+    <button class="button jump" onclick="window.location.href = 'convergence.html';">&#x25C0;&nbsp;&nbsp; Convergence</button>
+    <button class="button jump"  style="float: right;" onclick="window.location.href = 'modeling.html';">Statistical modeling&nbsp;&nbsp;&#x25B6;</button>
+</div><br>
+
+<p>
+
+<p><b><span style="font-size: 30px" id="goal">G</span>oal</b> of this chapter is to introduce us to this <b>Trinity of statistical inference</b>:
+
+<h3 style="font-family: inherit;" id='estimation'>Estimation</h3>
+Here we get a single number, to estimate the parameter of the distribution.<br>
+<b>For example</b>, in our <a  href="intro.html#kiss_ex">kiss example</a> the estimator of the proportion \(p\) of couples that turn there head to the right is \(\hat{p}=\overline{R}_n\) and according to our example \(\overline{R}_n=64.5\%\)<br>
+We knew that \(\overline{R}_n\) is an estimator of \(p\) but is \(64.5\%\) also an estimator of \(p?\)<br>
+Well, we think of estimators as <b>random variables</b> rather than <b>some numbers</b>.<br>
+Now the question arises:<br>
+Why <b>random variables</b> rather than <b>numbers</b>?<br>
+So the answer is because we want to assess the performance, we can't assess it's performance if it's just a number (it will be cleared later when we talk about <b><a  href="ci.html">confidence interval</a></b>)<br>
+<br>
+
+<h3 style="font-family: inherit;" id='ci'>Confidence Intervals</h3>
+Now we have our estimator we can now talk about our <b>confidence intervals</b>.<br>
+When we estimate our <b>parameter</b>, then there is some <b>error</b> associated with our <b>estimator</b>.<br>
+Confidence interval gives us an <b>interval</b> where our estimator might be present with some <b>level of confidence</b>.<br>
+<b>Like </b>say we estimate our estimator to be \(= 0.645\) and we say "\([0.56,0.73]\) is a \(95\%\) confidence interval for our estimator".<br>
+Notice that we have a confidence level of \(95\%\) So it might be possible if we perform the same experiment then our estimator falls outside of the confidence interval.<br>
+And also notice that each experiment has it's own confidence interval because they might have different values for the estimator (we will see it later when we talk about <a  href="ci.html">confidence interval</a>)<br>
+<br>
+<h3 style="font-family: inherit;" id='hypothesis'>Hypothesis testing</h3>
+It's <b>important</b> if we want to make a discovery.<br>
+Using hypothesis testing we can make a statement like:<br>
+"We find statistical evidence that more couples turn their head to the right when kissing"<br>
+So here we are dealing with a <b>YES</b> or <b>NO</b> answer type questions.<br>
+Like "Yes, we find statistical evidence" or "No, we didn't find statistical evidence"<br>
+
+<br><br>
+So this is the Trinity.<br>
+But before it, we need to have an understanding of <a  href="modeling.html">statistical modeling</a>
+</p>
+<button class="accordion">\(\text{Discussion}\)</button>
+<div class="panel">
+    <script src="https://utteranc.es/client.js"
+        repo="yuvraj97/stats.github.io"
+        issue-term="inference-inference-discussion"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+    </script>
+</div>
+<button class="accordion">\(\text{Put up a question}\)</button>
+<div class="panel">
+    <script src="https://utteranc.es/client.js"
+        repo="yuvraj97/stats.github.io"
+        issue-term="inference-inference-questions"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+    </script>
+</div>
+<div class="slack-discuss" onclick=" window.open('https://join.slack.com/t/quantml-org/shared_invite/zt-jffw86bo-6M260iyt1q2MgBma9elewg','_blank')">
+    Join our Slack <img src="/data/img/slack.png" alt="Slack"> discussion forum
+</div><br>
+<div class='buttons'>
+    <button class="button jump" onclick="window.location.href = 'convergence.html';">&#x25C0;&nbsp;&nbsp; Convergence</button>
+    <button class="button jump"  style="float: right;" onclick="window.location.href = 'modeling.html';">Statistical modeling&nbsp;&nbsp;&#x25B6;</button>
+</div><br>
+<!--=================== MODELS ===================-->
+
+<!--=============== LOGIN MODEL[START] ===============-->
+<div id="login-model" class="modal">
+    <form class="modal-content animate" id="login-form">
+    
+        <a class="close" style="float: right; padding-top: 0%; padding-bottom: 0%;" onclick="document.getElementById('login-model').style.display='none'">X</a>
+        <div class="container" style="margin: 1rem; margin-bottom: -1rem">
+        <label for="email"><b>Email Address</b></label>
+        <input id="login-email" onkeypress="emailAddressIsValidated();setDisplay('network-request-failed', 'none');" class="loginInput" ref="emailRef"  type="email" placeholder="Enter Email Address" name="email" required>
+        <div id="login-error-msg" class="error-msg">
+            <img style="float: left;" src="/data/auth/error.png" alt="!" width="50px" height="50px">
+            <div style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);">Invalid Email Address</div>
+        </div>
+        <div id="login-email-user-not-found" class="warn-msg"></div>
+        <label for="psw"><b>Password</b></label>
+        <input id="login-password" onkeypress="passwordIsValidated();setDisplay('network-request-failed', 'none');" class="loginInput" type="password" placeholder="Enter Password" name="psw" required>
+        <div id="password-error-msg" class="error-msg">
+            <img style="float: left;" src="/data/auth/error.png" alt="!" width="50px" height="50px">
+            <div style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);">Incorrect Password</div>
+        </div>
+
+        <div style="display: none;" id="network-request-failed" class="error-msg">
+            <img style="float: left;" src="/data/auth/error.png" alt="!" width="50px" height="50px">
+            <div style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);">Internet Connection Error</div>
+        </div>
+            
+        <button class="form-buttons login-button" type="submit">
+            <span id="login-button-text">Login</span>
+        </button>
+        <button id="forgot-password" class="form-buttons forgot-button">
+            <span id="forgot-button-text">Forgot Password</span>
+        </button>
+        </div>
+        <br>
+    </form>
+    </div>
+<!--=============== LOGIN MODEL[END] ===============-->
+
+<!--=============== Password Reset Link Sent MODEL[START] ===============-->
+
+<div id="password-reset-link-sent-model" class="modal">
+    <div class="modal-content animate" id="login-form">    
+        <a class="close" style="float: right; padding-top: 0%; padding-bottom: 0%;" onclick="document.getElementById('password-reset-link-sent-model').style.display='none'">X</a>
+        <div class="container" style="margin: 1rem;">
+<span id='password-reset-link-sent-txt'></span>
+        <button onclick="document.getElementById('password-reset-link-sent-model').style.display='none'" class="form-buttons login-button">OK</button>
+        </div>
+    </div>
+</div>
+        
+<!--=============== Password Reset Link Sent MODEL[END] ===============-->
+
+<!--=============== SETTINGS[START] ===============-->
+
+<div id="settings-model" class="modal">
+    <div class="modal-content animate">
+        <a class="close" style="float: right; padding-top: 0%; padding-bottom: 0%;" onclick="document.getElementById('settings-model').style.display='none'">X</a>
+        <div class="container settings" style="margin: 1rem;">
+            Font size &nbsp; 
+            <button style="font-size: 18px;" class="button" onclick="incrementFontSize();setFontSize()">+</button> 
+            <button style="font-size: 18px;" class="button" onclick="decrementFontSize();setFontSize()">-</button>
+            <br>
+        </div>
+    </div>
+</div>
+        
+<!--=============== SETTINGS[END] ===============-->
+
+                    </section>
+</div>
+<br><br>
+
+                    </div>
+                    <!--
+                    <script src="https://utteranc.es/client.js"
+                            repo=""
+                            issue-term=""
+                            theme="github-light"
+                            crossorigin="anonymous"
+                            async>
+                    </script>
+                    -->
+
+       <!-- Scripts -->
+            <script src="/data/assets/js/jquery.min.js"></script>
+            <script src="/data/assets/js/jquery.scrollex.min.js"></script>
+            <script src="/data/assets/js/jquery.scrolly.min.js"></script>
+            <script src="/data/assets/js/browser.min.js"></script>
+            <script src="/data/assets/js/breakpoints.min.js"></script>
+            <script src="/data/assets/js/util.js"></script>
+            <script src="/data/assets/js/main.js"></script>
+			<script src="/data/initialize-css.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-app.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-auth.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-firestore.js"></script>
+            <script src="/data/auth/auth.js"></script>
+            <script src="/data/index.js"></script>
+            <script src="/stats/initialize.js"></script>
+            <script>setTimeout(() => {document.querySelector('body').style.display="block"}, 0)</script>
+
+    </body>
+</html>

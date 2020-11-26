@@ -1,0 +1,251 @@
+<!DOCTYPE HTML>
+<!--
+    "Thanks to HTML5 UP for this template".
+    Massively by HTML5 UP
+    html5up.net | @ajlkn
+    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+    <head>
+
+        
+        <link rel="stylesheet" href="/data/assets/css/main.css">
+        <link rel="stylesheet" href="/data/auth/authStyle.css">
+        <link id="quantml-theme" rel="stylesheet" href="" />
+        <link id="quantml-auth-style" rel="stylesheet" href="">
+
+        <!--KATEX-->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+
+        <!-- The loading of KaTeX is deferred to speed up page rendering -->
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+
+        <!-- To automatically render math in text elements, include the auto-render extension: -->
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+        <title>Estimation</title>
+        <meta charset="utf-8" />
+        <link rel="icon" href="/data/icon.png" type="image/png" sizes="16x16">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        
+        <noscript><link rel="stylesheet" href="/data/assets/css/noscript.css" /></noscript>
+
+    </head>
+    <body class="is-preload" style="display: none;">
+
+        <!-- Wrapper -->
+            <div id="wrapper">
+
+                <!-- Header -->
+                <header id="header">
+                    <a href="https://quantml.org" class="logo image jump-big"><img id="quantml-cover" src="/data/img/cover.png" alt="QuantML.org" /></a>
+                </header>
+
+                <!-- Nav -->
+                    <nav id="nav">
+                        <ul class="links">
+                            <li class="cover"><a href="/stats/"><img src="/data/img/STATISTICS-cover.png" alt="STATISTICS"></a></li>
+                            <li><a href="inference.html">&#x25C0;</a></li>
+                            <li class="active"><a href="estimation.html">Estimation</a></li>
+                            <li><a href="bias.html">Bias,Variance,Quadratic Risk</a></li>
+                            <li><a href="ci.html">&#x25B6;</a></li>
+                        </ul>
+                        <ul class="icons">
+                            <li><a target="_blank" href="https://quantml.org/"><img src="/data/icon.png" alt="QuantML"></a></li>
+                            <li><a target="_blank" href="https://join.slack.com/t/quantml-org/shared_invite/zt-jffw86bo-6M260iyt1q2MgBma9elewg"><img src="/data/img/slack.png" alt="Slack"></a></li>
+                            <li><a target="_blank" href="https://www.linkedin.com/in/yuvraj97/"><img src="/data/img/linkedin.png" alt="LinkedIn"></a></li>
+                            <li><a target="_blank" href="https://github.com/yuvraj97/"><img src="/data/img/github.png" alt="GitHub"></a></li>
+                            <li style="display: none;" id="login-button"><button id="login-btn-width" class="login-logout-join" >Login &nbsp; <img src="/data/img/patreon.png" alt="Patreon"></button></li>
+                            <li style="display: none;" id="join-button"><button onclick=" window.open('https://www.patreon.com/quantml','_blank')" id="join-btn-width" class="login-logout-join" >Join &nbsp; <img src="/data/img/patreon.png" alt="Patreon"></button></li>
+                            <li style="display: none;" id="logout-button"><button id="logout-btn-width" class="login-logout-join" >Logout &nbsp; <img src="/data/img/patreon.png" alt="Logout"></button></li>
+                            <li><a style="cursor: pointer;"><img id="change-theme" src="" alt="Change Theme"></a></li>
+                            <li title="Settings" class="settings jump"><img onclick="showSettings()" src="/data/img/setings.png" alt="Settings" width="25px" height="25px">
+                        </ul>
+                    </nav>
+
+
+                <!-- Main -->
+                    <div id="main">
+                        <section class="post">
+<div class='buttons'>
+    <button class="button jump" onclick="window.location.href = 'identifiability.html';">&#x25C0;&nbsp;&nbsp;Identifiability</button>
+    <button class="button jump"  style="float: right;" onclick="window.location.href = 'bias.html';">Bias&nbsp;&nbsp;&#x25B6;</button>
+</div><br>
+
+<p>
+<span id="main"></span>
+When we encounter a Statistical inference problem first thing we encounter is <b>Estimation</b>,
+we gather our data \((X_1,\cdots,X_n)\), if our model is <b>well specified</b> then it comes from a particular family of distribution,
+and if our model is also <b>identifiable</b> then we can estimate it.<br>
+
+Definitions:
+<ul>
+    <li>
+        <b>Statistic</b> is any measurable function \(f(X_1,\cdots,X_n)\) of the <b>sample</b><br>
+        for example: \(\overline{X}_n,\ \text{max}_i X_i,\ X_n,\ \overline{X}_ne^{X_1},\) median, variance \(,\cdots\)<br>
+
+        <ul style="list-style-type: circle">
+            <li>
+                 Rule of thumb: if you can compute if (once given data) it's measurable
+            </li>
+        </ul>
+    </li>
+    <li>
+        Estimator of \(\theta\) is <b>any</b> statistics whose expression does <b>not</b> depends on the parameter \(\theta\)
+    </li>
+    <li>
+         Once we have an estimator \(\hat{\theta}_n\), we go further for it's properties.<br>
+         <span id="properties"><b>Properties:</b></span>
+         <ol>
+             <li>
+                As we collect more and more <b>data</b>, we want our estimator \(\hat{\theta}_n\) to be close to the true parameter \(\theta\).<br>
+                Estimator \(\hat{\theta}_n\) of \(\theta\) is <b>consistent</b> if:<br>
+                \[\hat{\theta}_n \xrightarrow [n\to \infty ]{\mathbb{P,\text{ a.s.}}} \theta\]
+             </li>
+             <li>
+                Estimator \(\hat{\theta}_n\) of \(\theta\) is <b>asymptotically normal</b> if:
+                \[\sqrt{n} (\hat{\theta}_n-\theta ) \xrightarrow [n\to \infty ]{(d)} \mathcal{N}(0,\sigma^2)\]
+                And the quantity \(\sigma^2\) is called <b>asymptotic variance</b> of \(\hat{\theta}_n\)
+             </li>
+         </ol>
+    </li>
+</ul>
+
+</p>
+
+<button class="accordion">\(\text{Discussion}\)</button>
+<div class="panel">
+    <script src="https://utteranc.es/client.js"
+        repo="yuvraj97/stats.github.io"
+        issue-term="estimation-estimation-discussion"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+    </script>
+</div>
+<button class="accordion">\(\text{Put up a question}\)</button>
+<div class="panel">
+    <script src="https://utteranc.es/client.js"
+        repo="yuvraj97/stats.github.io"
+        issue-term="estimation-estimation-questions"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+    </script>
+</div>
+<div class="slack-discuss" onclick=" window.open('https://join.slack.com/t/quantml-org/shared_invite/zt-jffw86bo-6M260iyt1q2MgBma9elewg','_blank')">
+    Join our Slack <img src="/data/img/slack.png" alt="Slack"> discussion forum
+</div><br>
+<div class='buttons'>
+    <button class="button jump" onclick="window.location.href = 'identifiability.html';">&#x25C0;&nbsp;&nbsp;Identifiability</button>
+    <button class="button jump"  style="float: right;" onclick="window.location.href = 'bias.html';">Bias&nbsp;&nbsp;&#x25B6;</button>
+</div><br>
+<!--=================== MODELS ===================-->
+
+<!--=============== LOGIN MODEL[START] ===============-->
+<div id="login-model" class="modal">
+    <form class="modal-content animate" id="login-form">
+    
+        <a class="close" style="float: right; padding-top: 0%; padding-bottom: 0%;" onclick="document.getElementById('login-model').style.display='none'">X</a>
+        <div class="container" style="margin: 1rem; margin-bottom: -1rem">
+        <label for="email"><b>Email Address</b></label>
+        <input id="login-email" onkeypress="emailAddressIsValidated();setDisplay('network-request-failed', 'none');" class="loginInput" ref="emailRef"  type="email" placeholder="Enter Email Address" name="email" required>
+        <div id="login-error-msg" class="error-msg">
+            <img style="float: left;" src="/data/auth/error.png" alt="!" width="50px" height="50px">
+            <div style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);">Invalid Email Address</div>
+        </div>
+        <div id="login-email-user-not-found" class="warn-msg"></div>
+        <label for="psw"><b>Password</b></label>
+        <input id="login-password" onkeypress="passwordIsValidated();setDisplay('network-request-failed', 'none');" class="loginInput" type="password" placeholder="Enter Password" name="psw" required>
+        <div id="password-error-msg" class="error-msg">
+            <img style="float: left;" src="/data/auth/error.png" alt="!" width="50px" height="50px">
+            <div style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);">Incorrect Password</div>
+        </div>
+
+        <div style="display: none;" id="network-request-failed" class="error-msg">
+            <img style="float: left;" src="/data/auth/error.png" alt="!" width="50px" height="50px">
+            <div style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);">Internet Connection Error</div>
+        </div>
+            
+        <button class="form-buttons login-button" type="submit">
+            <span id="login-button-text">Login</span>
+        </button>
+        <button id="forgot-password" class="form-buttons forgot-button">
+            <span id="forgot-button-text">Forgot Password</span>
+        </button>
+        </div>
+        <br>
+    </form>
+    </div>
+<!--=============== LOGIN MODEL[END] ===============-->
+
+<!--=============== Password Reset Link Sent MODEL[START] ===============-->
+
+<div id="password-reset-link-sent-model" class="modal">
+    <div class="modal-content animate" id="login-form">    
+        <a class="close" style="float: right; padding-top: 0%; padding-bottom: 0%;" onclick="document.getElementById('password-reset-link-sent-model').style.display='none'">X</a>
+        <div class="container" style="margin: 1rem;">
+<span id='password-reset-link-sent-txt'></span>
+        <button onclick="document.getElementById('password-reset-link-sent-model').style.display='none'" class="form-buttons login-button">OK</button>
+        </div>
+    </div>
+</div>
+        
+<!--=============== Password Reset Link Sent MODEL[END] ===============-->
+
+<!--=============== SETTINGS[START] ===============-->
+
+<div id="settings-model" class="modal">
+    <div class="modal-content animate">
+        <a class="close" style="float: right; padding-top: 0%; padding-bottom: 0%;" onclick="document.getElementById('settings-model').style.display='none'">X</a>
+        <div class="container settings" style="margin: 1rem;">
+            Font size &nbsp; 
+            <button style="font-size: 18px;" class="button" onclick="incrementFontSize();setFontSize()">+</button> 
+            <button style="font-size: 18px;" class="button" onclick="decrementFontSize();setFontSize()">-</button>
+            <br>
+        </div>
+    </div>
+</div>
+        
+<!--=============== SETTINGS[END] ===============-->
+
+                    </section>
+</div>
+<br><br>
+
+                    </div>
+           <script>
+            var acc = document.getElementsByClassName("accordion");
+            var i;
+
+            for (i = 0; i < acc.length; i++) {
+                acc[i].addEventListener("click", function() {
+                    this.classList.toggle("active");
+                    var panel = this.nextElementSibling;
+                    if (panel.style.maxHeight) {
+                        panel.style.maxHeight = null;
+                    } else {
+                        panel.style.maxHeight = panel.scrollHeight + "px";
+                    }
+                });
+            }
+            </script>
+        <!-- Scripts -->
+            <script src="/data/assets/js/jquery.min.js"></script>
+            <script src="/data/assets/js/jquery.scrollex.min.js"></script>
+            <script src="/data/assets/js/jquery.scrolly.min.js"></script>
+            <script src="/data/assets/js/browser.min.js"></script>
+            <script src="/data/assets/js/breakpoints.min.js"></script>
+            <script src="/data/assets/js/util.js"></script>
+            <script src="/data/assets/js/main.js"></script>
+			<script src="/data/initialize-css.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-app.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-auth.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-firestore.js"></script>
+            <script src="/data/auth/auth.js"></script>
+            <script src="/data/index.js"></script>
+            <script src="/stats/initialize.js"></script>
+            <script>setTimeout(() => {document.querySelector('body').style.display="block"}, 0)</script>
+            
+    </body>
+</html>

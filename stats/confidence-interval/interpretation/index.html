@@ -1,0 +1,335 @@
+<!DOCTYPE HTML>
+<!--
+    "Thanks to HTML5 UP for this template".
+    Massively by HTML5 UP
+    html5up.net | @ajlkn
+    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+    <head>
+
+        
+        <link rel="stylesheet" href="/data/assets/css/main.css">
+        <link rel="stylesheet" href="/data/auth/authStyle.css">
+        <link id="quantml-theme" rel="stylesheet" href="" />
+        <link id="quantml-auth-style" rel="stylesheet" href="">
+
+        <!--KATEX-->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+
+        <!-- The loading of KaTeX is deferred to speed up page rendering -->
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+
+        <!-- To automatically render math in text elements, include the auto-render extension: -->
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+        <title>Confidence Interval</title>
+        <meta charset="utf-8" />
+        <link rel="icon" href="/data/icon.png" type="image/png" sizes="16x16">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        
+        <noscript><link rel="stylesheet" href="/data/assets/css/noscript.css" /></noscript>
+
+    </head>
+    <body class="is-preload" style="display: none;">
+
+        <!-- Wrapper -->
+            <div id="wrapper">
+
+                <!-- Header -->
+                <header id="header">
+                    <a href="https://quantml.org" class="logo image jump-big"><img id="quantml-cover" src="/data/img/cover.png" alt="QuantML.org" /></a>
+                </header>
+
+                <!-- Nav -->
+                    <nav id="nav">
+                        <ul class="links">
+                            <li class="cover"><a href="/stats/"><img src="/data/img/STATISTICS-cover.png" alt="STATISTICS"></a></li>
+                        <li><a href="estimation.html">&#x25C0;</a></li>
+                           <li><a href="ci.html">Confidence Interval</a></li>
+                           <li><a href="delta.html">Delta Method</a></li>
+                           <li class="active"><a href="interpretation.html">Interpretation of CI</a></li>
+                           <li><a href="hypothesis.html">&#x25B6;</a></li>
+                        </ul>
+                        <ul class="icons">
+                            <li><a target="_blank" href="https://quantml.org/"><img src="/data/icon.png" alt="QuantML"></a></li>
+                            <li><a target="_blank" href="https://join.slack.com/t/quantml-org/shared_invite/zt-jffw86bo-6M260iyt1q2MgBma9elewg"><img src="/data/img/slack.png" alt="Slack"></a></li>
+                            <li><a target="_blank" href="https://www.linkedin.com/in/yuvraj97/"><img src="/data/img/linkedin.png" alt="LinkedIn"></a></li>
+                            <li><a target="_blank" href="https://github.com/yuvraj97/"><img src="/data/img/github.png" alt="GitHub"></a></li>
+                            <li style="display: none;" id="login-button"><button id="login-btn-width" class="login-logout-join" >Login &nbsp; <img src="/data/img/patreon.png" alt="Patreon"></button></li>
+                            <li style="display: none;" id="join-button"><button onclick=" window.open('https://www.patreon.com/quantml','_blank')" id="join-btn-width" class="login-logout-join" >Join &nbsp; <img src="/data/img/patreon.png" alt="Patreon"></button></li>
+                            <li style="display: none;" id="logout-button"><button id="logout-btn-width" class="login-logout-join" >Logout &nbsp; <img src="/data/img/patreon.png" alt="Logout"></button></li>
+                            <li><a style="cursor: pointer;"><img id="change-theme" src="" alt="Change Theme"></a></li>
+                            <li title="Settings" class="settings jump"><img onclick="showSettings()" src="/data/img/setings.png" alt="Settings" width="25px" height="25px">
+                        </ul>
+                    </nav>
+
+
+                <!-- Main -->
+                    <div id="main">
+                        <section class="post">
+<div class='buttons'>
+    <button class="button jump" onclick="window.location.href = 'delta.html';">&#x25C0;&nbsp;&nbsp;Delta Method</button>
+    <button class="button jump"  style="float: right;" onclick="window.location.href = 'hypothesis.html';">Hypothesis Testing&nbsp;&nbsp;&#x25B6;</button>
+</div><br>
+<p>
+<!--&#120793;-->
+<span id="main"></span>
+<b>Interpretation of asymptotic confidence interval:</b><br>
+<a href="ci.html#T">Remember <b>The T</b>  example</a><br>
+Using <a href="delta.html">delta method</a> we said:<br>
+For \(\alpha\in (0,1)\) and \(n\to\infty\)<br>
+<div class="math-container">
+\[\mathbb{P}\left(|\hat{\lambda}-\lambda|\leq \frac{\lambda q_{\alpha/2}}{\sqrt{n}}\right)\approx 1-\alpha\]
+</div>
+Now assume we observe \(n=64\) <b>T</b>'s and get an average waiting time(inter-arrival time) of \(\overline{T}_n=6.23\) minutes then with \(\alpha=5\%\) our asymptotic CI for \(\lambda\) is:<br>
+\(\mathcal{I}_{\text{solve}}=[0.13,0.21]\)<br>
+<br>
+But what is the meaning of an asymptotic <b>confidence interval</b>?<br>
+<dl><dd>
+    This CI what we saw is just a realization of a CI of one-single experiment.<br>
+    We can perform same experiment which (might) give us different \(\overline{T}_n\) which lead us to different CI.<br>
+    If we perform this experiment over and over again (as our number of experiments \(\to \infty\)) then \(1-\alpha\) proportion of those CI includes the true parameter (say \(\lambda\)).
+</dd></dl>
+</p>
+<details open>
+    <summary><span style="cursor:pointer;" id="py-one">Here is a python code snippet to simulate this scenario (to come up with a <b>CI of one-single experiment</b>)</span></summary>
+<div  style="height:25em; overflow-y:scroll; display:block">
+<pre  class="brush: python" >
+import numpy as np
+from scipy.stats import norm
+
+# This function will give us 'n' iid randomly distributed exponential random variables
+def get_exp_data(_lambda,n):
+    data=np.random.exponential(1/_lambda,n)
+    return data
+
+# This function estimates lambda_hat: estimator of lambda
+def estimate_lambda(data):
+    T_n_bar = np.mean(data)
+    lambda_hat = 1/T_n_bar
+    return lambda_hat
+
+# This function returns plug-in confidence interval for lambda
+def get_plugin_ci(lambda_hat,alpha,n):
+    alpha_2=alpha/2
+    q_alpha_2=norm.ppf(alpha_2)
+    l=lambda_hat-q_alpha_2*lambda_hat/np.sqrt(n)
+    r=lambda_hat+q_alpha_2*lambda_hat/np.sqrt(n)
+    return sorted([l,r])
+
+true_lambda=0.23  # This is our true parameter
+n = 64 # This is number of samples
+alpha = 0.05 # 1- alpha is the level of confidence
+
+# Now this is our probability to statistics part remember that dogma
+data = get_exp_data(true_lambda,n)
+
+# Now we have gathered our data
+# Now pretend that we don't knew the true parameter
+# Now we will do statistics to probability part (estimate the parameter (lambda))
+lambda_hat = estimate_lambda(data)
+
+# Now we build error bars (asymptotic confidence interval)
+# Currently we will focus on I_{plug-in}
+I_plugin=get_plugin_ci(lambda_hat,alpha,n)
+print(I_plugin)
+</pre></div>
+<blockquote><div class="math-container">\(\text{O/P:}\quad\quad[0.1763039808802351, 0.29072364724375954]\)</div></blockquote>
+<hr style="width: 100%; height: 1px">
+</details>
+<p>
+    If we run this experiment multiple times then each experiment has it's own CI, and \(1-\alpha\) proportion of those CIs contains true parameter
+</p>
+<details open>
+    <summary><span style="cursor:pointer;" id="py-multi">Here is a python code snippet to simulate this scenario.</span></summary>
+<div  style="height:25em; overflow-y:scroll; display:block">
+<pre  class="brush: python" >
+import numpy as np
+from scipy.stats import norm
+import matplotlib.pyplot as plt
+
+def get_exp_data(_lambda,n):
+    data=np.random.exponential(1/_lambda,n)
+    return data
+
+def estimate_lambda(data):
+    T_n_bar = np.mean(data)
+    lambda_hat = 1/T_n_bar
+    return lambda_hat
+
+def get_plugin_ci(lambda_hat,alpha,n):
+    alpha_2=alpha/2
+    q_alpha_2=norm.ppf(alpha_2)
+    l=lambda_hat-q_alpha_2*lambda_hat/np.sqrt(n)
+    r=lambda_hat+q_alpha_2*lambda_hat/np.sqrt(n)
+    return sorted([l,r])
+
+def run_simulation(true_lambda,alpha,n,no_of_experiments=100):
+    ci_s=[]
+    for _ in range(no_of_experiments):
+        data = get_exp_data(true_lambda,n)
+        lambda_hat = estimate_lambda(data)
+        I_plugin = get_plugin_ci(lambda_hat,alpha,n)
+        ci_s.append(I_plugin)
+    for i in range(no_of_experiments):
+        l,r=ci_s[i]
+        x=[l,r]
+        y=[i+1,i+1]
+        if(true_lambda &lt; r and true_lambda &gt; l): #these CIs do contains true parameter lambda
+            plt.plot(x,y,'b')
+        else:                               #these CIs do **not** contains true parameter lambda
+            plt.plot(x,y,'r')
+        plt.plot(np.mean(ci_s[i]),i+1,marker='.',color='black')
+    x=true_lambda,true_lambda
+    y=[0,no_of_experiments+1]
+    plt.plot(x,y)
+    plt.show()
+
+true_lambda=0.25  # This is our true parameter
+n = 64 # This is number of samples
+alpha = 0.05 # 1- alpha is the level of confidence
+
+run_simulation(true_lambda,alpha,n,no_of_experiments=50)
+</pre></div><br>
+\(\text{O/P:}\)<br>
+<img src="/stats/img/ci.png" width="384" height="287" alt=""><br>
+Here the blue CIs are those which contains the true parameter and red one do <b>not</b> contain the true parameter, vertical line denotes our true parameter and black dots indicate \(\overline{T}_n\) of each CI.
+<hr style="width: 100%; height: 1px">
+</details>
+
+<button class="accordion">\(\text{Discussion}\)</button>
+<div class="panel">
+    <script src="https://utteranc.es/client.js"
+        repo="yuvraj97/stats.github.io"
+        issue-term="estimation-inter-discussion"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+    </script>
+</div>
+<button class="accordion">\(\text{Put up a question}\)</button>
+<div class="panel">
+    <script src="https://utteranc.es/client.js"
+        repo="yuvraj97/stats.github.io"
+        issue-term="estimation-inter-questions"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+    </script>
+</div>
+<div class="slack-discuss" onclick=" window.open('https://join.slack.com/t/quantml-org/shared_invite/zt-jffw86bo-6M260iyt1q2MgBma9elewg','_blank')">
+    Join our Slack <img src="/data/img/slack.png" alt="Slack"> discussion forum
+</div><br>
+<div class='buttons'>
+    <button class="button jump" onclick="window.location.href = 'delta.html';">&#x25C0;&nbsp;&nbsp;Delta Method</button>
+    <button class="button jump"  style="float: right;" onclick="window.location.href = 'hypothesis.html';">Hypothesis Testing&nbsp;&nbsp;&#x25B6;</button>
+</div><br>
+<!--=================== MODELS ===================-->
+
+<!--=============== LOGIN MODEL[START] ===============-->
+<div id="login-model" class="modal">
+    <form class="modal-content animate" id="login-form">
+    
+        <a class="close" style="float: right; padding-top: 0%; padding-bottom: 0%;" onclick="document.getElementById('login-model').style.display='none'">X</a>
+        <div class="container" style="margin: 1rem; margin-bottom: -1rem">
+        <label for="email"><b>Email Address</b></label>
+        <input id="login-email" onkeypress="emailAddressIsValidated();setDisplay('network-request-failed', 'none');" class="loginInput" ref="emailRef"  type="email" placeholder="Enter Email Address" name="email" required>
+        <div id="login-error-msg" class="error-msg">
+            <img style="float: left;" src="/data/auth/error.png" alt="!" width="50px" height="50px">
+            <div style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);">Invalid Email Address</div>
+        </div>
+        <div id="login-email-user-not-found" class="warn-msg"></div>
+        <label for="psw"><b>Password</b></label>
+        <input id="login-password" onkeypress="passwordIsValidated();setDisplay('network-request-failed', 'none');" class="loginInput" type="password" placeholder="Enter Password" name="psw" required>
+        <div id="password-error-msg" class="error-msg">
+            <img style="float: left;" src="/data/auth/error.png" alt="!" width="50px" height="50px">
+            <div style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);">Incorrect Password</div>
+        </div>
+
+        <div style="display: none;" id="network-request-failed" class="error-msg">
+            <img style="float: left;" src="/data/auth/error.png" alt="!" width="50px" height="50px">
+            <div style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);">Internet Connection Error</div>
+        </div>
+            
+        <button class="form-buttons login-button" type="submit">
+            <span id="login-button-text">Login</span>
+        </button>
+        <button id="forgot-password" class="form-buttons forgot-button">
+            <span id="forgot-button-text">Forgot Password</span>
+        </button>
+        </div>
+        <br>
+    </form>
+    </div>
+<!--=============== LOGIN MODEL[END] ===============-->
+
+<!--=============== Password Reset Link Sent MODEL[START] ===============-->
+
+<div id="password-reset-link-sent-model" class="modal">
+    <div class="modal-content animate" id="login-form">    
+        <a class="close" style="float: right; padding-top: 0%; padding-bottom: 0%;" onclick="document.getElementById('password-reset-link-sent-model').style.display='none'">X</a>
+        <div class="container" style="margin: 1rem;">
+<span id='password-reset-link-sent-txt'></span>
+        <button onclick="document.getElementById('password-reset-link-sent-model').style.display='none'" class="form-buttons login-button">OK</button>
+        </div>
+    </div>
+</div>
+        
+<!--=============== Password Reset Link Sent MODEL[END] ===============-->
+
+<!--=============== SETTINGS[START] ===============-->
+
+<div id="settings-model" class="modal">
+    <div class="modal-content animate">
+        <a class="close" style="float: right; padding-top: 0%; padding-bottom: 0%;" onclick="document.getElementById('settings-model').style.display='none'">X</a>
+        <div class="container settings" style="margin: 1rem;">
+            Font size &nbsp; 
+            <button style="font-size: 18px;" class="button" onclick="incrementFontSize();setFontSize()">+</button> 
+            <button style="font-size: 18px;" class="button" onclick="decrementFontSize();setFontSize()">-</button>
+            <br>
+        </div>
+    </div>
+</div>
+        
+<!--=============== SETTINGS[END] ===============-->
+
+                    </section>
+</div>
+<br><br>
+
+                    </div>
+           <script>
+            var acc = document.getElementsByClassName("accordion");
+            var i;
+
+            for (i = 0; i < acc.length; i++) {
+                acc[i].addEventListener("click", function() {
+                    this.classList.toggle("active");
+                    var panel = this.nextElementSibling;
+                    if (panel.style.maxHeight) {
+                        panel.style.maxHeight = null;
+                    } else {
+                        panel.style.maxHeight = panel.scrollHeight + "px";
+                    }
+                });
+            }
+            </script>
+        <!-- Scripts -->
+            <script src="/data/assets/js/jquery.min.js"></script>
+            <script src="/data/assets/js/jquery.scrollex.min.js"></script>
+            <script src="/data/assets/js/jquery.scrolly.min.js"></script>
+            <script src="/data/assets/js/browser.min.js"></script>
+            <script src="/data/assets/js/breakpoints.min.js"></script>
+            <script src="/data/assets/js/util.js"></script>
+            <script src="/data/assets/js/main.js"></script>
+			<script src="/data/initialize-css.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-app.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-auth.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-firestore.js"></script>
+            <script src="/data/auth/auth.js"></script>
+            <script src="/data/index.js"></script>
+            <script src="/stats/initialize.js"></script>
+            <script>setTimeout(() => {document.querySelector('body').style.display="block"}, 0)</script>
+    </body>
+</html>

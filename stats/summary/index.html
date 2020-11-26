@@ -1,0 +1,609 @@
+<!DOCTYPE HTML>
+<!--
+    "Thanks to HTML5 UP for this template".
+    Massively by HTML5 UP
+    html5up.net | @ajlkn
+    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+    <head>
+        
+        <link rel="stylesheet" href="/data/assets/css/main.css">
+        <link rel="stylesheet" href="/data/auth/authStyle.css">
+        <link id="quantml-theme" rel="stylesheet" href="" />
+        <link id="quantml-auth-style" rel="stylesheet" href="">
+
+        <title>Summary</title>
+        <meta charset="utf-8" />
+        <link rel="icon" href="/data/icon.png" type="image/png" sizes="16x16">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        
+        <noscript><link rel="stylesheet" href="/data/assets/css/noscript.css" /></noscript>
+
+        <!--KATEX-->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+
+        <!-- The loading of KaTeX is deferred to speed up page rendering -->
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+
+        <!-- To automatically render math in text elements, include the auto-render extension: -->
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+        <!-- Adding a scrollbar in math formula-->
+
+
+</head>
+    <body class="is-preload" style="display: none;">
+
+        <!-- Wrapper -->
+            <div id="wrapper">
+                <!-- Header -->
+                <header id="header">
+                    <a href="https://quantml.org" class="logo image jump-big"><img id="quantml-cover" src="/data/img/cover.png" alt="QuantML.org" /></a>
+                </header>
+
+                <!-- Nav -->
+                    <nav id="nav">
+                        <ul class="links">
+                            <li class="cover"><a href="/stats/"><img src="/data/img/STATISTICS-cover.png" alt="STATISTICS"></a></li>
+                            <li class="active"><a href=".">Summary</a></li>
+                            <li><a href="../thanks/">Thanks</a></li>
+                        </ul>
+                        <ul class="icons">
+                            <li><a target="_blank" href="https://quantml.org/"><img src="/data/icon.png" alt="QuantML"></a></li>
+                            <li><a target="_blank" href="https://join.slack.com/t/quantml-org/shared_invite/zt-jffw86bo-6M260iyt1q2MgBma9elewg"><img src="/data/img/slack.png" alt="Slack"></a></li>
+                            <li><a target="_blank" href="https://www.linkedin.com/in/yuvraj97/"><img src="/data/img/linkedin.png" alt="LinkedIn"></a></li>
+                            <li><a target="_blank" href="https://github.com/yuvraj97/"><img src="/data/img/github.png" alt="GitHub"></a></li>
+                            <li style="display: none;" id="login-button"><button id="login-btn-width" class="login-logout-join" >Login &nbsp; <img src="/data/img/patreon.png" alt="Patreon"></button></li>
+                            <li style="display: none;" id="join-button"><button onclick=" window.open('https://www.patreon.com/quantml','_blank')" id="join-btn-width" class="login-logout-join" >Join &nbsp; <img src="/data/img/patreon.png" alt="Patreon"></button></li>
+                            <li style="display: none;" id="logout-button"><button id="logout-btn-width" class="login-logout-join" >Logout &nbsp; <img src="/data/img/patreon.png" alt="Logout"></button></li>
+                            <li><a style="cursor: pointer;"><img id="change-theme" src="" alt="Change Theme"></a></li>
+                            <li title="Settings" class="settings jump"><img onclick="showSettings()" src="/data/img/setings.png" alt="Settings" width="25px" height="25px">
+                        </ul>
+    				</nav>
+                <!-- Main -->
+                    <div id="main">
+                        <section class="post">
+    						<details open>
+    							<summary><b><span class="details-title">Distribution</span></b></summary>
+                                <ul>
+                                    <details  id="dist-unif">
+    							        <summary><span class="bb">Uniform Distribution</span></summary>
+                                        <div  class="table-wrapper">
+                                        <table style="font-family: Open Sans">
+                                            <tr>
+                                                <td>Notation</td>
+                                                <td>\(Unif([a,b])\)</td>
+                                                <td>Here \(a,b\) are parameters<br>Where \(-\infty &lt a &lt b &lt +\infty\)</td>
+                                            </tr>
+                                            <tr>
+                                                <td>PDF</td>
+                                                <td>\(\left\{\begin{matrix}
+                                                 \frac{1}{b-a}&; \text{for all x}\in [a,b] \\
+                                                 0& \text{otherwise}
+                                                \end{matrix}\right. \)</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Mean</td>
+                                                <td>\(\frac{a+b}{2}\)</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Median</td>
+                                                <td>\(\frac{a+b}{2}\)</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Varience</td>
+                                                <td>\(\frac{(b-a)^2}{12}\)</td>
+                                            </tr>
+
+                                        </table>
+                                    </div>
+
+                                </details>
+                                <details id="dist-ber">
+    							<summary><span class="bb">Bernoulli Distribution</span></summary>
+                                <div class="table-wrapper">
+                                    <table style="font-family: Open Sans">
+                                        <tr>
+                                            <td>Notation</td>
+                                            <td>\(Ber(p)\)</td>
+                                            <td>\(0&ltp&lt1\)</td>
+                                        </tr>
+                                        <tr>
+                                            <td>PDF</td>
+                                            <td>\(p^X(1-p)^{1-X}\)</td>
+                                            <td>Here \(X\) is the random variable</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Mean</td>
+                                            <td>\(p\)</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>Varience</td>
+                                            <td>\(p(1-p)\)</td>
+                                        </tr>
+
+
+                                    </table>
+                                </div>
+                                </details>
+                                <details id="dist-bin">
+    							<summary><span class="bb">Binomial Distribution</span></summary>
+                                    <div class="table-wrapper">
+
+                                    <table style="font-family: Open Sans">
+                                        <tr>
+                                            <td>Notation</td>
+                                            <td>\(Bin(n,p)\)</td>
+                                            <td>\(n\in\{0,1,2,...\}\) ; number of trials<br>
+                                            \(p\in(0,1)\); it's probability of success for each trial</td>
+                                        </tr>
+                                        <tr>
+                                            <td>PMF</td>
+                                            <td>\(\begin{pmatrix}
+                                                n\\
+                                                k
+                                                \end{pmatrix}
+                                                p^k(1-p)^{n-k}\)</td>
+                                            <td>\(k\) is number of successes<br>
+                                            \(k\in\{0,1,...,n\}\)</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Mean</td>
+                                            <td>\(np\)</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>Varience</td>
+                                            <td>\(np(1-p)\)</td>
+                                        </tr>
+
+
+                                    </table>
+                                </div>
+                                </details>
+                                <details id="dist-geo">
+    							<summary><span class="bb">Geometric Distribution</span></summary>
+                                    <div class="table-wrapper">
+                                    <table style="font-family: Open Sans">
+                                        <tr>
+                                            <td>Notation</td>
+                                            <td>\(Geo(p)\)</td>
+                                            <td>\(p\) is the success probability<br>
+                                            \(0 &lt p &lt 1\)</td>
+                                        </tr>
+                                        <tr>
+                                            <td>PMF</td>
+                                            <td>\((1-p)^{k-1}p\)</td>
+                                            <td>\(k\) is number of failures<br>
+                                            \(k\in\{0,1,2,3,...\}\)</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Mean</td>
+                                            <td>\(\frac{1}{p}\)</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>Varience</td>
+                                            <td>\(\frac{1-p}{p^2}\)</td>
+                                        </tr>
+
+
+                                    </table>
+                                </div>
+                                </details>
+
+                               <details id="dist-beta">
+    							<summary><span class="bb">Beta Distribution</span></summary>
+
+                                    <div class="table-wrapper">
+
+                                    <table style="font-family: Open Sans">
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Notation</td>
+                                            <td>\(Beta(\alpha,\beta)\)</td>
+                                            <td>\(\alpha &gt0\ and\ \beta &gt 0\)</td>
+                                        </tr>
+                                        <tr>
+                                            <td>PDF</td>
+                                            <td>\(C\times x^{(\alpha-1)}(1-x)^{(\beta-1)}\mathbb{1}(x\in[0,1]) \)</td>
+                                            <td>\(C\) is a constant</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>Mean</td>
+                                            <td>\(\frac{\alpha}{\alpha+\beta}\)</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>Varience</td>
+                                            <td>\(\frac{\alpha\beta}{(\alpha+\beta)^2(\alpha+\beta+1)}\)</td>
+                                        </tr>
+
+
+                                    </table>
+                                    </div>
+                               </details>
+                                <details id="dist-gauss">
+    							        <summary><span class="bb">Gaussian Distribution</span></summary>
+                                        <div  class="table-wrapper">
+                                        <table style="font-family: Open Sans">
+                                            <tr>
+                                                <td>Notation</td>
+                                                <td>\(\mathcal{N}(\mu,\sigma^2)\)</td>
+                                                <td>Here \(\mu,\sigma^2\) are parameters<br>Where \(-\infty &lt \mu &lt +\infty\) and \(\sigma^2 \gt 0\)</td>
+                                            </tr>
+                                            <tr>
+                                                <td>PDF</td>
+                                                <td>\[f(x)=\frac{1}{\sigma \sqrt{2\pi }} \exp \left(-\frac{(x-\mu )^2}{2 \sigma ^2}\right)\]</td>
+                                                <td>\(-\infty \lt x \lt \infty\)</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Mean</td>
+                                                <td>\(\mu\)</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Varience</td>
+                                                <td>\(\sigma^2\)</td>
+                                            </tr>
+
+                                        </table>
+                                    </div>
+
+                                </details>
+                                <details id="dist-exp">
+    							        <summary><span class="bb">Exponential Distribution</span></summary>
+                                        <div  class="table-wrapper">
+                                        <table style="font-family: Open Sans">
+                                            <tr>
+                                                <td>Notation</td>
+                                                <td>\(Exp(\lambda)\)</td>
+                                                <td>Here \(\lambda\) is parameters<br>Where \(\lambda \gt 0\)</td>
+                                            </tr>
+                                            <tr>
+                                                <td>PDF</td>
+                                                <td>\[\lambda e^{-\lambda t}\]</td>
+                                                <td>\(t \gt 0\)</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Mean</td>
+                                                <td>\(\frac{1}{\lambda}\)</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Varience</td>
+                                                <td>\(\frac{1}{\lambda^2}\)</td>
+                                            </tr>
+
+                                        </table>
+                                    </div>
+
+                                </details>
+                                </ul>
+    						</details>
+
+                            <hr style="width: 100%; height: 1px">
+                            <a style="float: right;" href="index/intro/./law-of-large-numbers-&-central-limit-theorem/#lln" class="button">Visit Chapter</a>
+                            <details open>
+    						    <summary><b><span class="details-title" id="lln">Law of large numbers(LLN)</span></b></summary>
+                                Say we have \(n\) observations. <br>
+                                \(X,X_1,X_2,X_3,....,X_n\) be <b>i.i.d</b> random varibles, and \(\mathbb{E}[X]=\mu\)
+                                Then:
+                                \[\overline{X}_n:=\frac{1}{n}\sum _{i=1}^ n X_ i \xrightarrow [n\to \infty ]{\mathbb{P},\mbox{ a.s.}} \mu\]
+
+                            </details>
+
+                            <hr style="width: 100%; height: 1px">
+                            <a style="float: right;" href="index/intro/./law-of-large-numbers-&-central-limit-theorem/#clt" class="button">Visit Chapter</a>
+
+                            <details open>
+                                <summary><b><span class="details-title" id="clt">Central Limit Theorem(CLT)</span></b></summary>
+                                Say we have \(n\) observations \(X,X_1,X_2,X_3,....,X_n\) be \(i.i.d\) random varibles, \(\mathbb{E}[X]=\mu\) and \(Var(X)=\sigma^2\)<br>
+                                \[\sqrt{n} \frac{\overline{X}_n-\mu }{\sigma } \xrightarrow [n\to \infty ]{(d)} \mathcal{N}(0,1) \]
+                                equivalently:
+                                \[\sqrt{n} (\overline{X}_n-\mu ) \xrightarrow [n\to \infty ]{(d)} \mathcal{N}(0,\sigma^2) \]
+                                And the quantity \(\sigma^2\) is called <b>asymptotic variance</b> of \(\overline{X}_n\)
+                            </details>
+
+                            <hr style="width: 100%; height: 1px">
+                            <a style="float: right;" href="index/intro/hoeffding.html" class="button">Visit Chapter</a>
+                            <details open>
+                                <summary><b><span class="details-title" id="hoeffding">Hoeffding's inequality</span></b></summary>
+                                Say that we have \(n\) i.i.d. random variables, \(X_1,X_2,....,X_n \stackrel{iid}{\sim } X\), such that \(\mathbb{E}[X]=\mu\) and<br>
+                                \(X \in [a,b]\) <b>almost surely</b><br>
+                                Then according to Hoeffding's inequality:
+                                <div class="math-container">
+                                \[\mathbb{P}\left(\left|\overline{X}_n -\mathbb{E}[X]\right| \geq \epsilon \right) \leq 2 \exp\left(-\frac{2n\epsilon ^2}{(b-a)^2}\right)\quad \forall\epsilon >0\]
+                                </div>
+                            </details>
+
+                            <hr style="width: 100%; height: 1px">
+                            <a style="float: right;" href="index/intro/convergence.html#modes" class="button">Visit Chapter</a>
+                            <details open>
+                                <summary><b><span class="details-title">Modes of Convergence:</span></b></summary>
+                                <ul>
+                                    <li>
+                                        <b>Almost surely \((\text{a.s.})\) convergence:</b><br>
+                                        A sequence of random variables \(X_1,X_2,X_3,\cdots\) is defined on a sample space \(S\).
+                                        Here each \(X_n\) is a function that maps \(S\) to \(\mathbb{R}\)
+                                        and this sequence converges <b>almost surely</b> to a random variable \(X\) if:
+                                        <div class="math-container">
+                                        \[\mathbb{P}\left( \left\{s \in S: X_n(s) \xrightarrow [n\to \infty ]{} X(s)\right\}\right)=1\]
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <b>Convergence in probability:</b><br>
+                                        A sequence of random variables \(X_1,X_2,X_3,\cdots\) converges to a random variable \(X\):<br>
+                                        \(X_n \xrightarrow [n\to \infty ]{\mathbb{P}} X\quad\) <b>iff:</b>
+                                        <div class="math-container">
+                                        \[\mathbb{P}\left[ \left| X_n - X \right| \geq \varepsilon \right] \xrightarrow [n\to \infty ]{} 0,\quad\forall\varepsilon \gt 0 \]
+                                        </div>
+                                        <blockquote>Almost surely \((\text{a.s.})\) convergence \(\Rightarrow\) Convergence in probability</blockquote>
+                                    </li>
+                                    <li>
+                                        <b>Convergence in distribution:</b><br>
+                                        Assume a sequence of random variables \(X_1,X_2,X_3,\cdots\)<br>
+                                        We used Convergence in distribution in <a href="./law-of-large-numbers-&-central-limit-theorem/#clt">CLT</a>.<br>
+                                        Say \(F_{X_n}(x)\): CDF of \(X_n\) and \(F_{X}(x)\): CDF of \(X\) then:<br>
+                                        \(X_n \xrightarrow [n\to \infty ]{(d)} X\quad\) <b>iff:</b>
+                                        <div class="math-container">
+                                        \[F_{X_n}(x) \xrightarrow [n\to \infty ]{} F_{X}(x)\]
+                                        </div>
+                                                <blockquote>Convergence in probability \(\Rightarrow\) Convergence in distribution</blockquote>
+                                    </li>
+                                </ul>
+                            </details>
+
+                            <hr style="width: 100%; height: 1px">
+                            <a style="float: right;" href="index/intro/convergence.html#slutsky" class="button">Visit Chapter</a>
+                            <details open>
+                                <summary><b><span class="details-title">Slutsky's Theorem:</span></b></summary>
+                                Assume we have two sequences of random variables \(T_n\) and \(U_n\) and assume:<br>
+                                \(T_n \xrightarrow [n\to \infty]{(d)} T\quad\) and \(\quad\)  \(U_n \xrightarrow [n\to \infty ]{\mathbb{P}} u\)<br>
+                                Where \(T\) is a r.v. and \(u\) is a deterministic number \(  \mathbb{P}(U=u)=1  \) Then:
+                                <ul>
+                                    <li>\(T_n + U_n \xrightarrow [n\to \infty ]{(d)} T + u\)<br><br></li>
+                                    <li>\(T_n U_n \xrightarrow [n\to \infty ]{(d)} Tu\)<br><br></li>
+                                    <li>\(\displaystyle {\frac{T_n}{U_n} \xrightarrow [n\to \infty ]{(d)} \frac{T}{u}}\quad\) if \(U \neq 0\)</li>
+                                </ul>
+                            </details>
+
+                            <hr style="width: 100%; height: 1px">
+                            <a style="float: right;" href="index/intro/convergence.html#cmt" class="button">Visit Chapter</a>
+                            <details open>
+                                <summary><b><span class="details-title">Continuous Mapping Theorem</span></b></summary>
+                                Say we have a sequence of random variables \(T_n\) and assume:
+                                \(T_n \xrightarrow [n\to \infty ]{\mbox{ a.s.}/\mathbb{P}/(d)} T\)<br>
+                                Then according to continuous mapping theorem, if \(f\) is a continuous function then:<br>
+                                \(f(T_n) \xrightarrow [n\to \infty ]{\mbox{ a.s.}/\mathbb{P}/(d)} f(T)\)<br>
+                            </details>
+
+                            <hr style="width: 100%; height: 1px">
+                            <a style="float: right;" href="index/inference/modeling.html#models" class="button">Visit Chapter</a>
+                            <details open>
+                                <summary><b><span class="details-title">Parametric, nonparametric and semiparametric models</span></b></summary>
+                                <ul>
+                                    <li>
+                                        When our statistical model is <b>well specified</b> means \(\exists\theta \) such that \(\mathbb{P}=\mathbb{P}_\theta\), where \(\theta\) is our true parameter and the parameter space \(\Theta \in \mathbb{R}^d;d\geq 1\) <b>then</b> the model is called  <b>Parametric</b>
+                                    </li>
+                                    <li>
+                                        When our parameter space \(\Theta\) is \(\infty\) dimensional, (say we have a <b>space</b> of all of the probability distribution), these kind of models are called <i><b>nonparametric</b></i>
+                                    </li>
+                                    <li>
+                                        If our \(\Theta\) has two components \(\Theta=\Theta_1\times \Theta_2\) where \(\Theta_1\) is finite dimensional and \(\Theta_2\) is \(\infty\) dimensional
+                                        So here we have two things to learn, one of then is finite dimensional and another one is \(\infty\) dimensional, these kinds of models are called <b><i>semiparametric</i></b> models.<br>
+                                    </li>
+                                </ul>
+                            <b>Rule of thumb</b>: Our sample space should <b>not</b> depend on the parameter
+                            </details>
+                            <hr style="width: 100%; height: 1px">
+                            <a style="float: right;" href="index/inference/identifiability.html" class="button">Visit Chapter</a>
+                            <details open>
+                                <summary><b><span class="details-title">Identifiability</span></b></summary>
+                                The parameter \(\theta\) is identifiable iff it's map \(\theta \in \Theta \mapsto \mathbb{P}_\theta\) is injective.<br>
+                                By <b>injectivity,</b> we can say that if we have two parameters say \(\theta\) and \(\theta'\) and if \(\theta\neq \theta'\) then it implies that we have two different distributions \(\mathbb{P}_\theta\neq\mathbb{P}_{\theta'}\)
+                            </details>
+
+                            <hr style="width: 100%; height: 1px">
+                            <a style="float: right;" href="index/estimation/estimation.html" class="button">Visit Chapter</a>
+                            <details open>
+                                <summary><b><span class="details-title">Estimator</span></b></summary>
+                                To do estimation our model must be <b>well specified</b> and <b>identifiable</b><br>
+                                Estimator \(\hat{\theta}_n\) of \(\theta\) is <b>consistent</b> if: \(\hat{\theta}_n \xrightarrow [n\to \infty ]{\mathbb{P,\text{ a.s.}}} \theta\)<br>
+                                Estimator \(\hat{\theta}_n\) of \(\theta\) is <b>asymptotically normal</b> if:  \(\sqrt{n} (\hat{\theta}_n-\theta ) \xrightarrow [n\to \infty ]{(d)} \mathcal{N}(0,\sigma^2)\)<br>
+                                And the quantity \(\sigma^2\) is called <b>asymptotic variance</b> of \(\hat{\theta}_n\)
+                                <ul>
+                                    <br>
+                                    <li>
+                                        Bias of an estimator \(\hat{\theta}_n\) of \(\theta\):<br>
+                                        \(\text{bias}( \hat{\theta}_n ) = \mathbb{E}[ \hat{\theta}_n ] - \theta \) and \(\text{bias}=0 \Rightarrow \hat{\theta}_n\) is an <b>unbiased</b> estimator<br>
+                                    </li>
+                                    <br>
+                                    <li>
+                                        Quadratic Risk \(R\left(  \hat{\theta}_n \right)\) of an estimator \(\hat{\theta}_n\) of \(\theta\):<br>
+                                        <ul>
+                                            <br>
+                                            <li>
+                                            \( R \left(  \hat{\theta}_n \right) = \mathbb{E} \left[  \left(  \hat{\theta}_n - \theta   \right)^2   \right] \)
+                                            </li>
+                                            <br>
+                                            <li>
+                                            \( R \left(  \hat{\theta}_n \right) = Var\left(\hat{\theta}_n\right) + \text{bias}^2\left(\hat{\theta}_n\right) \)
+                                            </li>
+                                        </ul>
+
+                                    </li>
+                                </ul>
+                            </details>
+
+                            <hr style="width: 100%; height: 1px">
+                            <a style="float: right;" href="index/estimation/bias.html#jensen" class="button">Visit Chapter</a>
+                            <details open>
+                                <summary><b><span class="details-title">Jensen's Inequality</span></b></summary>
+                                According to Jensen's Inequality, a function \(f\) which is:<br>
+                                <ol>
+                                    <li>
+                                        Convex:<br>
+                                        For a convex function the chord is always above the function so:<br>
+                                        \(E[f(X)] \geq f(E[X])\)
+                                    </li>
+                                    <li>
+                                        Concave:<br>
+                                        For a concave function the chord is always below the function so:<br>
+                                        \(E[f(X)] \leq f(E[X])\)
+                                    </li>
+                                </ol>
+                            </details>
+
+                            <hr style="width: 100%; height: 1px">
+                            <a style="float: right;" href="index/estimation/ci.html#ci" class="button">Visit Chapter</a>
+                            <details open>
+                                <summary><b><span class="details-title">Asymptotic Confidence Interval</span></b></summary>
+                                Asymptotic Confidence Interval (C.I.) for \(\theta\) of level \( 1-\alpha \) is any <b>random</b> interval \(\mathcal{I}\) it depends on our data \((X_1,\cdots,X_n)\) and it do <b>not</b> depends on \(\theta\) (which is unknown)<br>
+                                <div class="math-container">
+                                \[\lim_{n\to\infty}\mathbb{P}_\theta[\theta\in\mathcal{I}]\geq 1-\alpha\]
+                                </div>
+                                Say that estimator of \(\theta\) is \(\hat{\theta}_n\)<br>
+                                And \(\hat{\theta}_n \xrightarrow [n\to \infty ]{\mathbb{P},\mbox{ a.s.}} \theta\)
+                                <div class="math-container">
+                                    \[\lim_{n\to\infty}\mathbb{P}\left( \theta\in \left[  \hat{\theta}_n - q_{\frac{\alpha}{2}} \sqrt{\text{Var}(\hat{\theta}_n)}, \hat{\theta}_n + q_{\frac{\alpha}{2}} \sqrt{\text{Var}(\hat{\theta}_n)} \right]\right) = 1-\alpha\]
+                                </div>
+                                3 Ways to find asymptotic CI:
+                                <ul>
+                                    <li>
+                                        <b>Conservative Bound:</b><br>
+                                        Here we took maximum length of CI,  say \(m\) is the maximum variance of \(\hat{\theta}_n\)<br>
+                                        \(m=\text{max}_{\theta\in\Theta}\text{Var}(\hat{\theta}_n)\)<br>
+                                        <div class="math-container">
+                                        \[\mathcal{I}_{\text{conservative}}=\left[  \hat{\theta}_n - q_{\frac{\alpha}{2}} \sqrt{m} , \hat{\theta}_n + q_{\frac{\alpha}{2}} \sqrt{m}  \right]\]
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <b>Solving an equation for the parameter:</b><br>
+                                        Here we solve:
+                                        <div class="math-container">
+                                            \[\hat{\theta}_n - q_{\frac{\alpha}{2}} \sqrt{\text{Var}(\hat{\theta}_n)} \leq \theta \leq  \hat{\theta}_n + q_{\frac{\alpha}{2}} \sqrt{\text{Var}(\hat{\theta}_n)}\]
+                                        </div>
+                                        And find two values for \(\theta\): \(\theta_1\lt\theta_2\) and our CI will be:<br>
+                                        \[\mathcal{I}_{\text{solve}}=[\theta_1,\theta_2]\]
+                                    </li>
+                                    <li>
+                                        <b>Plug-in:</b><br>
+                                        Using <a href="index/intro/convergence.html#slutsky">Slutsky's Theorem</a>:<br>
+                                        <div class="math-container">
+                                            \[\mathcal{I}_{\text{plug-in}}=\left[  \hat{\theta}_n - q_{\frac{\alpha}{2}} \sqrt{\text{Var}(\hat{\theta}_n)|_{\theta=\hat{\theta}}}, \hat{\theta}_n + q_{\frac{\alpha}{2}} \sqrt{\text{Var}(\hat{\theta}_n)|_{\theta=\hat{\theta}}} \right]\]
+                                        </div>
+                                    </li>
+
+                                </ul>
+                            </details>
+
+                            <hr style="width: 100%; height: 1px">
+                            <a style="float: right;" href="index/estimation/delta.html" class="button">Visit Chapter</a>
+                            <details open>
+                                <summary><b><span class="details-title">Delta method</span></b></summary>
+                                Say we have \(n\) observation \(X_1,X_2,....,X_n \stackrel{iid}{\sim } X\), \(\ \theta\) is the parameter and \(\hat{\theta}_n\) is estimator of \(\theta\)<br>
+                                Assume:
+                                <ul>
+                                    <li>\(\hat{\theta}_n\) is <b>consistent:</b> \(\hat{\theta}_n \xrightarrow [n\to \infty ]{\mathbb{P,\text{ a.s.}}} \theta\)</li>
+                                    <li>\(\hat{\theta}_n\) is <b>asymptotically normal:</b> <div class="math-container">\(\sqrt{n} (\hat{\theta}_n-\theta ) \xrightarrow [n\to \infty ]{(d)} \mathcal{N}(0,\sigma^2)\)\(\quad ;\theta\in\mathbb{R},\sigma^2 \gt 0\)</div></li>
+                                    <li>\(g:\mathbb{R}\mapsto \mathbb{R}\) be continuously differentiable(it means \(g'\) is continuous) at the point \(\theta\)</li>
+                                </ul>
+                                Then:<br>
+                                \[\sqrt{n} \left(g(\hat{\theta}_n)-g(\theta)\right) \xrightarrow [n\to \infty ]{(d)} \mathcal{N}\left(0,(g'(\theta))^2\sigma^2\right)\]
+                            </details>
+
+<!--=================== MODELS ===================-->
+
+<!--=============== LOGIN MODEL[START] ===============-->
+<div id="login-model" class="modal">
+    <form class="modal-content animate" id="login-form">
+    
+        <a class="close" style="float: right; padding-top: 0%; padding-bottom: 0%;" onclick="document.getElementById('login-model').style.display='none'">X</a>
+        <div class="container" style="margin: 1rem; margin-bottom: -1rem">
+        <label for="email"><b>Email Address</b></label>
+        <input id="login-email" onkeypress="emailAddressIsValidated();setDisplay('network-request-failed', 'none');" class="loginInput" ref="emailRef"  type="email" placeholder="Enter Email Address" name="email" required>
+        <div id="login-error-msg" class="error-msg">
+            <img style="float: left;" src="/data/auth/error.png" alt="!" width="50px" height="50px">
+            <div style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);">Invalid Email Address</div>
+        </div>
+        <div id="login-email-user-not-found" class="warn-msg"></div>
+        <label for="psw"><b>Password</b></label>
+        <input id="login-password" onkeypress="passwordIsValidated();setDisplay('network-request-failed', 'none');" class="loginInput" type="password" placeholder="Enter Password" name="psw" required>
+        <div id="password-error-msg" class="error-msg">
+            <img style="float: left;" src="/data/auth/error.png" alt="!" width="50px" height="50px">
+            <div style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);">Incorrect Password</div>
+        </div>
+
+        <div style="display: none;" id="network-request-failed" class="error-msg">
+            <img style="float: left;" src="/data/auth/error.png" alt="!" width="50px" height="50px">
+            <div style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);">Internet Connection Error</div>
+        </div>
+            
+        <button class="form-buttons login-button" type="submit">
+            <span id="login-button-text">Login</span>
+        </button>
+        <button id="forgot-password" class="form-buttons forgot-button">
+            <span id="forgot-button-text">Forgot Password</span>
+        </button>
+        </div>
+        <br>
+    </form>
+    </div>
+<!--=============== LOGIN MODEL[END] ===============-->
+
+<!--=============== Password Reset Link Sent MODEL[START] ===============-->
+
+<div id="password-reset-link-sent-model" class="modal">
+    <div class="modal-content animate" id="login-form">    
+        <a class="close" style="float: right; padding-top: 0%; padding-bottom: 0%;" onclick="document.getElementById('password-reset-link-sent-model').style.display='none'">X</a>
+        <div class="container" style="margin: 1rem;">
+<span id='password-reset-link-sent-txt'></span>
+        <button onclick="document.getElementById('password-reset-link-sent-model').style.display='none'" class="form-buttons login-button">OK</button>
+        </div>
+    </div>
+</div>
+        
+<!--=============== Password Reset Link Sent MODEL[END] ===============-->
+
+<!--=============== SETTINGS[START] ===============-->
+
+<div id="settings-model" class="modal">
+    <div class="modal-content animate">
+        <a class="close" style="float: right; padding-top: 0%; padding-bottom: 0%;" onclick="document.getElementById('settings-model').style.display='none'">X</a>
+        <div class="container settings" style="margin: 1rem;">
+            Font size &nbsp; 
+            <button style="font-size: 18px;" class="button" onclick="incrementFontSize();setFontSize()">+</button> 
+            <button style="font-size: 18px;" class="button" onclick="decrementFontSize();setFontSize()">-</button>
+            <br>
+        </div>
+    </div>
+</div>
+        
+<!--=============== SETTINGS[END] ===============-->
+
+                    </section>
+                    </div>
+            </div>
+        <!-- Scripts -->
+            <script src="/data/assets/js/jquery.min.js"></script>
+            <script src="/data/assets/js/jquery.scrollex.min.js"></script>
+            <script src="/data/assets/js/jquery.scrolly.min.js"></script>
+            <script src="/data/assets/js/browser.min.js"></script>
+            <script src="/data/assets/js/breakpoints.min.js"></script>
+            <script src="/data/assets/js/util.js"></script>
+            <script src="/data/assets/js/main.js"></script>
+			<script src="/data/initialize-css.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-app.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-auth.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-firestore.js"></script>
+            <script src="/data/auth/auth.js"></script>
+            <script src="/data/index.js"></script>
+            <script src="/stats/initialize.js"></script>
+            <script>setTimeout(() => {document.querySelector('body').style.display="block"}, 0)</script>
+    </body>
+</html>

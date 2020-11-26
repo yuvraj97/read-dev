@@ -41,7 +41,7 @@ if(currentTheme == "dark"){
 
 // Set images according to Theme
 images = document.querySelectorAll('img')
-if(currentTheme == "light"){
+if(currentTheme == "light" && document.getElementById('quantml-cover').src.indexOf("/img-dark/")!=-1){
 	for (let index = 0; index < images.length; index++) {
 		// console.log(images[index].src,"->", images[index].src.replace("/img-dark/","/img/"))
 		images[index].src = images[index].src.replace("/img-dark/","/img/")

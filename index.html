@@ -7,6 +7,8 @@
 -->
 <html>
 	<head>
+
+
         <link rel="stylesheet" href="/data/assets/css/main.css">
         <link rel="stylesheet" href="/data/auth/authStyle.css">
         <link id="quantml-theme" rel="stylesheet" href="" />
@@ -29,6 +31,15 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<noscript><link rel="stylesheet" href="/data/assets/css/main-light.css" /></noscript>
         
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-LRSK4V6G1M"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-LRSK4V6G1M');
+</script>
 	</head>
 
 	<body style="display: none">
@@ -53,6 +64,7 @@
                             <li><a target="_blank" href="https://join.slack.com/t/quantml-org/shared_invite/zt-jffw86bo-6M260iyt1q2MgBma9elewg"><img src="/data/img/slack.png" alt="Slack"></a></li>
                             <li><a target="_blank" href="https://www.linkedin.com/in/yuvraj97/"><img src="/data/img/linkedin.png" alt="LinkedIn"></a></li>
                             <li><a target="_blank" href="https://github.com/yuvraj97/"><img src="/data/img/github.png" alt="GitHub"></a></li>
+                            <li><button onclick=" window.open('https://www.patreon.com/quantml','_blank')" class="login-logout-join" >Join &nbsp; <img src="/data/img/patreon.png" alt="Join"></button></li>
                             <li><a style="cursor: pointer;"><img id="change-theme" src="" alt="Change Theme"></a></li>
                         </ul>
     				</nav>
@@ -62,8 +74,8 @@
 					<section class="post">
                         <h1 style="text-align-last: center;">Guides</h1>
                         <div class="row">
-                            <div class="column">
-                              <div class="book">
+                            <div  class="column">
+                              <div id="la-guide" class="book">
                                     <h2 style="margin-bottom: 5px;">Linear Algebra</h2>
                                     <div style="line-height: 45px; display: inline-table; width: 100%;">
                                         <img style="border-radius: 5px;" src="/data/img/theory.png" alt="Theory" width="65px" height="28px">
@@ -71,13 +83,15 @@
                                     <p>Inspired by <a target="_blank" href="https://ocw.mit.edu/">MIT OCW</a>'s <br>
                                     <a target="_blank" href="https://ocw.mit.edu/courses/mathematics/18-06sc-linear-algebra-fall-2011/">18.06sc Linear Algebra</a><br>
                                     [by Professor <a target="_blank" href="http://www-math.mit.edu/~gs/">Gilbert Strang</a>]</p>
-                                    <br>
-                                    <div style="margin-top: 20px;"><a href="/la/"><button class="button btn jump">Read Now</button></a></div>
+                                    <br><br>
+                                    <div class="early-access-div" >
+                                         <a href="/la/"><button style="bottom: 30px;" id="la-guide-read-now" class="button btn jump">Read Now</button></a>
+                                    </div>
                               </div>
                             </div>
                           
                             <div class="column">
-                                <div class="book">
+                                <div id="stats-guide" class="book">
                                         <h2 style="margin-bottom: 5px;">Statistics</h2>
                                         <div style="line-height: 35px; display: inline-table; width: 100%;">
                                             <img style="border-radius: 5px;" src="/data/img/theory.png" alt="Theory" width="65px" height="28px"> &nbsp;
@@ -88,7 +102,10 @@
                                         <a target="_blank" href="https://www.edx.org/course/fundamentals-of-statistics">18.6501x Fundamentals of Statistics</a><br>
                                         [by Professor <a target="_blank" href="http://www-math.mit.edu/~rigollet/">Philippe Rigollet</a>]</p>
                                         <br>
-                                        <div style="margin-top: 20px;"><button class="button btn disabled">Coming Soon</button></div>
+                                        <div id="early-access-div" class="early-access-div">
+                                        <button id="comming-soon" style="float: right; bottom: 30px;" class="button btn disabled">Coming Soon</button>
+                                        <a style="border-bottom: none;" href="/stats/"><button id="early-access" class="button btn jump">Get early access &nbsp; <img class="patreon-logo" src="/data/img/patreon.png" alt="Patreon"></button></a>
+                                        </div>
                                   </div>
                             </div>
                         </div>
@@ -110,5 +127,31 @@
             <script src="/data/initialize-css.js"></script>
             <script>if(localStorage.getItem("quantmlTheme")=="light"){document.getElementById('quantml-style-theme').href="/style-light.css"} else {document.getElementById('quantml-style-theme').href="/style-dark.css"}</script>
             <script src="/data/index.js"></script>
+            <script>
+                setTimeout(() => {
+                    earlyAccess = document.getElementById('early-access')
+                    commingSoon = document.getElementById('comming-soon')
+                    earlyAccessDiv = document.getElementById('early-access-div')
+                    if(earlyAccess.offsetWidth + commingSoon.offsetWidth > earlyAccessDiv.offsetWidth){
+                        earlyAccess.style.width = "100%";
+                        commingSoon.style.width = "100%";
+                        earlyAccess.style.marginTop = "12px";
+                        
+                        
+                        laReadNowBtn = document.getElementById('la-guide-read-now')
+                        laReadNowBtn.style.width="80%"
+                        laReadNowBtn.style.right = "10%"
+                        // laReadNowBtn.style.bottom = "30px"
+                    }
+
+
+                    laGuide = document.getElementById('la-guide');
+                    statsGuide = document.getElementById('stats-guide');
+                    if(laGuide.offsetHeight < statsGuide.offsetHeight && document.querySelector('body').offsetWidth > 736){
+                        laGuide.style.height = String(statsGuide.offsetHeight) + "px"
+                    }
+                }, 100)
+    
+            </script>
             <script>setTimeout(() => {document.querySelector('body').style.display="block"}, 0)</script>
 

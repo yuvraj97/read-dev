@@ -75,9 +75,9 @@
 	border: none;
 	border-radius: 50px;
 	font-size: 16px;
-	position: absolute;
-	bottom: 30px;
-	right: 30px;
+	/* position: absolute; */
+	/* bottom: 30px;
+	right: 30px; */
 	letter-spacing: 1px;
 	cursor: pointer;
 }
@@ -105,4 +105,15 @@
 	color: royalblue;
 	-webkit-transform: translateY(-.2rem);
 			transform: translateY(-.2rem);
+}
+
+.early-access-div{
+	width: 100%;
+	display: absolute;
+	/* background-color: black; */
+}
+
+#la-guide-read-now{
+	position: absolute;
+	right: 30px;
 }
