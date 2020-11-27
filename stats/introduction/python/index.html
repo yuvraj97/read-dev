@@ -12,7 +12,7 @@
         <link rel="stylesheet" href="/data/prism/prism.css">
 
         <script>
-            var nextPage = "/stats/law-of-large-numbers-&-central-limit-theorem/";
+            var nextPage = "/stats/lln-clt/";
             var prevPage = "/stats/"
         </script>
         
@@ -56,8 +56,8 @@
                             <li class="julia"><a href="/stats/introduction/julia/"><img src="/data/img/julia.png" alt="Julia"></a></li>
                         </ul>
                         <ul class="icons">
-                            <li><a target="_blank" href="https://quantml.org/"><img src="/data/icon.png" alt="QuantML"></a></li>
-                            <li><a target="_blank" href="https://join.slack.com/t/quantml-org/shared_invite/zt-jffw86bo-6M260iyt1q2MgBma9elewg"><img src="/data/img/slack.png" alt="Slack"></a></li>
+                            <li><a target="_blank" href="https://app.quantml.org/stats/"><img src="/data/img/app.png" alt="App"></a></li>
+                            <li><a target="_blank" href="https://join.slack.com/t/quantml-org/shared_invite/zt-jffw86bo-6M260iyt1q2MgBma9elewg"><img class="whiteback" src="/data/img/slack.png" alt="Slack"></a></li>
                             <li><a target="_blank" href="https://www.linkedin.com/in/yuvraj97/"><img src="/data/img/linkedin.png" alt="LinkedIn"></a></li>
                             <li><a target="_blank" href="https://github.com/yuvraj97/"><img src="/data/img/github.png" alt="GitHub"></a></li>
                             <li style="display: none;" id="login-button"><button id="login-btn-width" class="login-logout-join" >Login &nbsp; <img src="/data/img/patreon.png" alt="Patreon"></button></li>
@@ -76,19 +76,122 @@
     <button class="button jump"  style="float: right;" onclick="nextPageBtn()">LLN & CLT&nbsp;&nbsp;&#x25B6;</button>
 </div><br>
 
-Remember that dogma we showed <a href="/stats/introduction/#dogma">previously.</a><br>
-<blockquote>
-    If you knew the <b>truth</b>(Random Process) you can generate how the observation looks like.
+<h1>Scenario</h1>
+<blockquote class="noborder">
+Say we have a <b>Room</b> full of <span class="l1">Red balls</span> and <span class="l2">Blue balls</span>. <br>
+We want to determine proportion of <span class="l1">Red balls</span> and <span class="l2">Blue balls</span> in that <b>Room</b>,
+But we can't count all the Balls in the Room there are too many of them. <br>
+So we took a small sample of <b>Balls</b> from that <b>Room</b>, and find the proportion of <span class="l1">Red balls</span> and <span class="l2">Blue balls</span> in that <b>Sample</b>,
+and hope that proportion we just estimate is somewhat near the <b>True proportion</b>(for the whole room). <br>
 </blockquote>
+<br>
 
+Remember that dogma we showed <a href="/stats/introduction/#dogma">previously.</a><br>
+<img id='dogma' class="full-size-img" src="/stats/img/dogma.png" alt="Central Dogma of Probability and Statistics">
+<!-- <blockquote>
+    If you knew the <b>truth</b>(Random Process) you can generate how the observation looks like.
+</blockquote> -->
 
+<h1>Truth</h1>
+Let's first define the underlying truth, say that currently the <b>Room</b> is holding 
+<span class="l1">\(40\%\)</span> of <span class="l1">Red Balls</span> and 
+<span class="l2">\(60\%\)</span> of <span class="l2">Blue Balls</span>. <br>
+<blockquote>Note that we do <b>not</b> know this proportion, our intent is to find this proportion</blockquote>
+
+Say we denote 
+<span class="l1">Red Balls</span> by <span class="l1">1</span>  and
+<span class="l2">Blue Balls</span> by <span class="l2">0</span> <br>
+<br>
+
+<h1>Probability</h1>
+We use probability to generate our data using the <b>Truth</b> we defined above. <br>
+Now let's create a <b>Population</b> in this case it's, <i>all the balls in the Room</i>. <br>
+(In this example we are creating \(5000\) Balls and <span class="l1">\(40\%\)</span> of then are <span class="l1">Red balls</span> )
+
+<pre><code class="language-python line-numbers"># First of all import the libraries
+import numpy as np
+import matplotlib.pyplot as plt
+
+N = 5000
+true_proportion_for_red = 0.40
+
+population = np.zeros(shape=N, dtype=int)
+population[0:int(true_proportion_for_red*N)] = 1
+np.random.shuffle(population)
+</code></pre>    
+
+Now we had filled the room with
+<span class="l1">\(40\%\)</span> of <span class="l1">Red Balls</span> and 
+<span class="l2">\(60\%\)</span> of <span class="l2">Blue Balls</span>. <br>
+<br>
+
+<h1>Observation</h1>
+As we can see Room is full of \(5000\) Balls, and we can't count them all to find out the proportion of 
+<span class="l1">Red Balls</span> and 
+<span class="l2">Blue Balls</span>,
+so we took a sample out of those \(5000\) balls, and then we find the proportion of 
+<span class="l1">Red Balls</span> and 
+<span class="l2">Blue Balls</span>
+in that small sample. <br>
+So let's took a sample of \(n=300\) balls. <br>
+<pre data-start="11"><code class="language-python line-numbers">n=300
+sample = np.random.choice(population,n)
+</code></pre>
+Now we got our <b>sample</b> of \(300\) balls. <br>
+These \(300\) observations (\(X_1,\cdots,X_{300}\)) are what we call <b>Random Variables</b>. <br>
+<br>
+
+<h1>Statistics</h1>
+So now we have our sample of \(300\) balls, let's start finding an estimate for 
+<span class="l1">Red Balls</span> proportion and 
+<span class="l2">Blue Balls</span> proportion. <br>
+To find the proportion of <span class="l1">Red Balls</span> we count number of <span class="l1">Red Balls</span> 
+then we divide it by total number of balls (i.e. \(300\)). <br>
+
+<span class="l1">\(\hat{p}\)</span>: our estimate for proportion of <span class="l1">Red Balls</span> denoted by \(1\). <br>
+<span class="l2">\(\hat{q}\)</span>: out estimate for proportion of <span class="l2">Blue Balls (0)</span> denoted by \(0\). <br>
+
+\[ \hat{p} = \frac{1}{300}\sum_{i=0}^{300}X_i\]
+\[ \hat{q} = 1-\hat{p} \]
+
+<pre data-start="13"><code class="language-python line-numbers">p_hat = sample.sum()/n
+q_hat = 1- p_hat
+</code></pre>
+<span class="bb"><b>p_hat</b></span> is our estimate of for proportion of <span class="l1">Red Balls</span> (\(\hat{p}\)).<br>
+
+This is a single simulation if we perform this simulation multiple times we can get some insights for the <b>distribution</b> of our <b>Random variable</b> \(\hat{p}\). <br>
+<br>
+
+<h2>Multiple simulations</h2>
+<pre><code class="language-python line-numbers">import numpy as np
+import matplotlib.pyplot as plt
+n_simulations = 1000    # Number of simulations
+N = 5000                # population size
+n = 300                 # sample size
+p = 0.40                # True proportion of red balls
+estimators = []         # Here we store estimates of every simulation
+
+# population: all 5000 balls
+population = np.zeros(shape=N, dtype=int)
+population[0:int(p*N)] = 1
+np.random.shuffle(population)
+
+for _ in range(n_simulations):
+    # extract sample from population
+    sample = np.random.choice(population,n)
+    estimators.append(sum(sample)/n)
+plt.xlabel("Proportion of Red balls")
+plt.ylabel("Counts")
+plt.hist(estimators, histtype='bar', rwidth=0.95)
+</code></pre>
+<img class="full-size-img" src="/stats/img/introduction/ball-hist.png" alt="histogram image">
 <!-- And we want to go from <b>observation</b> to the <b>truth</b>(Random Process).<br>
 Now let's focus on the <b>probability</b> to <b>statistics</b> part.<br>
 So first we will generate a population of 5000 kissing couples artificially using our computers (or say python).<br>
 Now we choose a true proportion \(p\), and if we took two different values of \(p\) like:\(p=0.35%\), \(p=0.65%\). We generate data separately for those \(p\)'s<br>
 And then we generate 1000 samples of 124 couples, So here we are doing the experiment 1000 times, so we have 1000 samples then we create a histogram from those samples.<br>
 </p> -->
-
+<!-- <br><br><br><br><br>
 <pre><code class="language-python line-numbers">
 import numpy as np
 import matplotlib.pyplot as plt
@@ -126,8 +229,8 @@ plt.hist(estimators, histtype='bar', rwidth=0.95)
 </code></pre>
     
 <img width="100%" style="width: 100%;" src="/stats/img/kiss-ex-hist.png" alt="kiss-ex-hist"><br>
-    
-
+     -->
+<br><br>
 <div class="slack-discuss" onclick=" window.open('https://join.slack.com/t/quantml-org/shared_invite/zt-jffw86bo-6M260iyt1q2MgBma9elewg','_blank')">
     Join our Slack <img src="/data/img/slack.png" alt="Slack"> discussion forum
 </div><br>

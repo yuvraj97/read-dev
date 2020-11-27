@@ -51,8 +51,8 @@
                             <li><a href="hypothesis.html">&#x25B6;</a></li>
                         </ul>
                         <ul class="icons">
-                            <li><a target="_blank" href="https://quantml.org/"><img src="/data/icon.png" alt="QuantML"></a></li>
-                            <li><a target="_blank" href="https://join.slack.com/t/quantml-org/shared_invite/zt-jffw86bo-6M260iyt1q2MgBma9elewg"><img src="/data/img/slack.png" alt="Slack"></a></li>
+                            <li><a target="_blank" href="https://app.quantml.org/stats/"><img src="/data/img/app.png" alt="App"></a></li>
+                            <li><a target="_blank" href="https://join.slack.com/t/quantml-org/shared_invite/zt-jffw86bo-6M260iyt1q2MgBma9elewg"><img class="whiteback" src="/data/img/slack.png" alt="Slack"></a></li>
                             <li><a target="_blank" href="https://www.linkedin.com/in/yuvraj97/"><img src="/data/img/linkedin.png" alt="LinkedIn"></a></li>
                             <li><a target="_blank" href="https://github.com/yuvraj97/"><img src="/data/img/github.png" alt="GitHub"></a></li>
                             <li style="display: none;" id="login-button"><button id="login-btn-width" class="login-logout-join" >Login &nbsp; <img src="/data/img/patreon.png" alt="Patreon"></button></li>
@@ -107,7 +107,7 @@ Recall our <a  href="intro.html#kiss_ex">kiss example</a><br>
         \(\text{var}(\hat{p})=\frac{p(1-p)}{n}\)
 	</li>
 	<li>
-		Using <a  href="/stats/law-of-large-numbers-&-central-limit-theorem/#clt">CLT</a><br>
+		Using <a  href="/stats/lln-clt/#clt">CLT</a><br>
 		<div class="math-container">
 			\[\sqrt{n}\frac{\overline{R}_n-p}{\sqrt{p(1-p)}}\xrightarrow [n\to \infty ]{(d)}\mathcal{N}(0,1) \]
             equivalently:
@@ -228,7 +228,7 @@ Here we did not make anything conservative, we just took the equations and solve
 So: \[\lim_{n\to\infty}\mathbb{P}(p \in \mathcal{I}_{\text{solve}})=1-\alpha\]
 
 <h4 style="font-family: inherit;" id='i-plugin'>3. Plug-in</h4>
-        Using <a  href="/stats/law-of-large-numbers-&-central-limit-theorem/#lln">LLN</a>: \(\hat{p}_n=\overline{R}_n \xrightarrow [n\to \infty ]{\mathbb{P},\mbox{ a.s.}} p \)<br>
+        Using <a  href="/stats/lln-clt/#lln">LLN</a>: \(\hat{p}_n=\overline{R}_n \xrightarrow [n\to \infty ]{\mathbb{P},\mbox{ a.s.}} p \)<br>
         We know that by CLT: \[\sqrt{n}\frac{\overline{R}_n-p}{\sqrt{p(1-p)}}\xrightarrow [n\to \infty ]{(d)}\mathcal{N}(0,1)\]
         Then by <a  href="convergence.html#slutsky">Slutsky's Theorem</a> we have: \[\sqrt{n}\frac{\overline{R}_n-p}{\sqrt{\hat{p}(1-\hat{p})}}\xrightarrow [n\to \infty ]{(d)}\mathcal{N}(0,1)\]
         <details open>
@@ -240,8 +240,8 @@ So: \[\lim_{n\to\infty}\mathbb{P}(p \in \mathcal{I}_{\text{solve}})=1-\alpha\]
               \Rightarrow \sqrt{n}\frac{\overline{R}_n-p}{\sqrt{\hat{p}(1-\hat{p})}} \xrightarrow [n\to \infty ]{(d)} \mathcal{N}(0,1)
             \]
             </div>
-            LLN: <a  href="/stats/law-of-large-numbers-&-central-limit-theorem/#lln">Law of large numbers</a><br>
-            CLT: <a  href="/stats/law-of-large-numbers-&-central-limit-theorem/#clt">Central limit theorem</a><br>
+            LLN: <a  href="/stats/lln-clt/#lln">Law of large numbers</a><br>
+            CLT: <a  href="/stats/lln-clt/#clt">Central limit theorem</a><br>
             CMT: <a  href="convergence.html#cmt">Continuous mapping theorem</a>
             </blockquote>
         </details>
@@ -403,7 +403,7 @@ So a natural estimate of \(\lambda\) is: \[\hat{\lambda}=\frac{1}{\overline{T}_n
     <summary><span class="bb" style="color: royalblue; background-color: lightyellow; cursor:pointer;">What about consistency of \(\hat{\lambda}\)?</span></summary>
     <blockquote>
         Yes, it's a consistence estimator.<br>
-        By the <a  href="/stats/law-of-large-numbers-&-central-limit-theorem/#lln">LLN:</a><br>
+        By the <a  href="/stats/lln-clt/#lln">LLN:</a><br>
         \[\overline{T}_n:=\frac{1}{n}\sum _{i=1}^ n T_ i \xrightarrow [n\to \infty ]{\mathbb{P},\mbox{ a.s.}} \frac{1}{\lambda}\]
         And by <a  href="convergence.html#cmt">Continuous mapping theorem</a>:<br>
         \(f(\overline{T}_n) \xrightarrow [n\to \infty ]{\mbox{ a.s.}/\mathbb{P}/(d)} f(\frac{1}{\lambda})\)<br>
@@ -421,14 +421,14 @@ So a natural estimate of \(\lambda\) is: \[\hat{\lambda}=\frac{1}{\overline{T}_n
 
     </blockquote>
 </details>
-By the <a  href="/stats/law-of-large-numbers-&-central-limit-theorem/#lln">LLN:</a>
+By the <a  href="/stats/lln-clt/#lln">LLN:</a>
 \[\overline{T}_n:=\frac{1}{n}\sum _{i=1}^ n T_ i \xrightarrow [n\to \infty ]{\mathbb{P},\mbox{ a.s.}} \frac{1}{\lambda}\]
 Then by <a  href="convergence.html#cmt">Continuous mapping theorem</a>:<br>
 \(f(\overline{T}_n) \xrightarrow [n\to \infty ]{\mbox{ a.s.}/\mathbb{P}/(d)} f(\frac{1}{\lambda})\)<br>
 Here \(f(x)=1/x\) So:
 \[\hat{\lambda}=\frac{1}{\overline{T}_n} \xrightarrow [n\to \infty ]{\mbox{ a.s.}/\mathbb{P}/(d)} \lambda\]
 also \(\mathbb{E}[\overline{T}_n]=\frac{1}{\lambda}\) and \(\text{var}[\overline{T}_n]=\frac{1}{\lambda^2}\)
-Then By <a  href="/stats/law-of-large-numbers-&-central-limit-theorem/#clt">CLT</a>
+Then By <a  href="/stats/lln-clt/#clt">CLT</a>
 \[\sqrt{n}\left(  \overline{T}_n-\frac{1}{\lambda} \right)   \xrightarrow [n\to \infty ]{} \mathcal{N}\left(0,\frac{1}{\lambda^2}\right) \]
 But this is <b>not</b> what we want<b>!</b><br>
 We want to estimate \(\lambda\) not \(\frac{1}{\lambda}\) so we want CLT on estimator of \(\lambda\) that is \(\hat{\lambda}\)<br>

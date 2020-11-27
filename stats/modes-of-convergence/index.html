@@ -46,15 +46,15 @@
                         <ul class="links">
                             <li class="cover"><a href="/stats/"><img src="/data/img/STATISTICS-cover.png" alt="STATISTICS"></a></li>
                             <li><a href="intro.html">Introduction</a></li>
-                            <li><a href="/stats/law-of-large-numbers-&-central-limit-theorem/">LLN/CLT</a></li>
+                            <li><a href="/stats/lln-clt/">LLN/CLT</a></li>
                             <li><a href="hoeffding.html">Hoeffding's Ineq.</a></li>
                             <li><a href="gauss.html">Gaussian Dist.</a></li>
                             <li class="active"><a href="convergence.html">Convergence</a></li>
                             <li><a href="inference.html">&#x25B6;</a></li>
                         </ul>
                         <ul class="icons">
-                            <li><a target="_blank" href="https://quantml.org/"><img src="/data/icon.png" alt="QuantML"></a></li>
-                            <li><a target="_blank" href="https://join.slack.com/t/quantml-org/shared_invite/zt-jffw86bo-6M260iyt1q2MgBma9elewg"><img src="/data/img/slack.png" alt="Slack"></a></li>
+                            <li><a target="_blank" href="https://app.quantml.org/stats/"><img src="/data/img/app.png" alt="App"></a></li>
+                            <li><a target="_blank" href="https://join.slack.com/t/quantml-org/shared_invite/zt-jffw86bo-6M260iyt1q2MgBma9elewg"><img class="whiteback" src="/data/img/slack.png" alt="Slack"></a></li>
                             <li><a target="_blank" href="https://www.linkedin.com/in/yuvraj97/"><img src="/data/img/linkedin.png" alt="LinkedIn"></a></li>
                             <li><a target="_blank" href="https://github.com/yuvraj97/"><img src="/data/img/github.png" alt="GitHub"></a></li>
                             <li style="display: none;" id="login-button"><button id="login-btn-width" class="login-logout-join" >Login &nbsp; <img src="/data/img/patreon.png" alt="Patreon"></button></li>
@@ -136,7 +136,7 @@ There are 3 modes of convergence:
         <h3>Convergence in distribution<a style="color: rgb(20, 57, 168);" href="#dist"><i class="fa fa-link" aria-hidden="true"></i></a></h3>
         Almost surely \((\text{a.s.})\) convergence and Convergence in probability they both maps a random sequence to a real number \((\mathbb{R})\)<br>
         But Convergence in distribution doesn't maps to real numbers \((\mathbb{R})\), but it says  that the <b>distribution</b> of \(X_n\) converges to the <b>distribution</b> of \(X\) as \(n\to\infty\)<br>
-        We used Convergence in distribution in <a  href="/stats/law-of-large-numbers-&-central-limit-theorem/#clt">CLT</a>.<br>
+        We used Convergence in distribution in <a  href="/stats/lln-clt/#clt">CLT</a>.<br>
         Say \(F_{X_n}(x)\): CDF of \(X_n\) and \(F_{X}(x)\): CDF of \(X\) then:<br>
         \(X_n \xrightarrow [n\to \infty ]{(d)} X\quad\) <b>iff:</b>
         <div class="math-container">
@@ -201,7 +201,7 @@ Then according to continuous mapping theorem, if \(f\) is a continuous function 
 <b>Examples:</b><br>
 <ul>
     <li>
-        Remember the <a  href="hoeffding.html#kiss_ex_convergence">kiss example</a>, by <a  href="/stats/law-of-large-numbers-&-central-limit-theorem/#lln">LLN</a> \(\overline{R}_n  \xrightarrow [n\to \infty ]{\mathbb{P},\mbox{ a.s.}} p\).<br>
+        Remember the <a  href="hoeffding.html#kiss_ex_convergence">kiss example</a>, by <a  href="/stats/lln-clt/#lln">LLN</a> \(\overline{R}_n  \xrightarrow [n\to \infty ]{\mathbb{P},\mbox{ a.s.}} p\).<br>
         <br>
         And by <b>Continuous Mapping Theorem:</b> for any continuous function \(f,\quad\) \[f(\overline{R}_n)  \xrightarrow [n\to \infty ]{\mathbb{P},\mbox{ a.s.}} f(p)\]<br>
         For example:<br>
@@ -211,7 +211,7 @@ Then according to continuous mapping theorem, if \(f\) is a continuous function 
         </blockquote>
     </li>
     <li>
-        Remember the <a  href="hoeffding.html#kiss_ex_convergence">kiss example</a>, by <a  href="/stats/law-of-large-numbers-&-central-limit-theorem/#clt">CLT</a> \(\sqrt{n}\frac{\overline{R}_n - p }{\sqrt{p(1-p)}} \xrightarrow [n\to \infty ]{(d)} \mathcal{N}(0,1) \)<br>
+        Remember the <a  href="hoeffding.html#kiss_ex_convergence">kiss example</a>, by <a  href="/stats/lln-clt/#clt">CLT</a> \(\sqrt{n}\frac{\overline{R}_n - p }{\sqrt{p(1-p)}} \xrightarrow [n\to \infty ]{(d)} \mathcal{N}(0,1) \)<br>
         equivalently:<br>
         \(\sqrt{n}(\overline{R}_n - p) \xrightarrow [n\to \infty ]{(d)} \mathcal{N}(0,p(1-p))\)<br>
         And by <b>Continuous Mapping Theorem:</b> for any continuous function \(f,\quad\) \[f\left(  \sqrt{n}(\overline{R}_n - p) \right) \xrightarrow [n\to \infty ]{(d)} f\left(\mathcal{N}(0,p(1-p))\right)\]<br>

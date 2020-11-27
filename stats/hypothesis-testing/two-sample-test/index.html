@@ -52,8 +52,8 @@
                            <li><a href="p-value.html">&#x25B6;</a></li>
                         </ul>
                         <ul class="icons">
-                            <li><a target="_blank" href="https://quantml.org/"><img src="/data/icon.png" alt="QuantML"></a></li>
-                            <li><a target="_blank" href="https://join.slack.com/t/quantml-org/shared_invite/zt-jffw86bo-6M260iyt1q2MgBma9elewg"><img src="/data/img/slack.png" alt="Slack"></a></li>
+                            <li><a target="_blank" href="https://app.quantml.org/stats/"><img src="/data/img/app.png" alt="App"></a></li>
+                            <li><a target="_blank" href="https://join.slack.com/t/quantml-org/shared_invite/zt-jffw86bo-6M260iyt1q2MgBma9elewg"><img class="whiteback" src="/data/img/slack.png" alt="Slack"></a></li>
                             <li><a target="_blank" href="https://www.linkedin.com/in/yuvraj97/"><img src="/data/img/linkedin.png" alt="LinkedIn"></a></li>
                             <li><a target="_blank" href="https://github.com/yuvraj97/"><img src="/data/img/github.png" alt="GitHub"></a></li>
                             <li style="display: none;" id="login-button"><button id="login-btn-width" class="login-logout-join" >Login &nbsp; <img src="/data/img/patreon.png" alt="Patreon"></button></li>
@@ -170,7 +170,7 @@ If it's indeed <b>true</b> that <b>at most</b> \(1/3\) of all Americans get <b>a
 <li>Our true proportion \(p=1/3\)</li>
 <li>\(\mathbb{E}[X_i]=p\)</li>
 <li>variance: \(\text{var}(X_i) =\frac{p(1-p) }{n}\)<br></li>
-<li>by <a  href="/stats/law-of-large-numbers-&-central-limit-theorem/#clt">CLT</a>:
+<li>by <a  href="/stats/lln-clt/#clt">CLT</a>:
 \(\sqrt{n}\frac{\overline{X}_n-0.33}{0.33(1-0.33)}\sim \mathcal{N}(0,1)\)<br></li>
 Now if we have a sample and we calculate \(\overline{X}_n\) then \(\sqrt{n}\frac{\overline{X}_n-0.33}{0.33(1-0.33)}\) should be a plausible number according to std. normal.<br>
 Like if we got \(\sqrt{n}\frac{\overline{X}_n-0.33}{0.33(1-0.33)} = 100\) this is very unlikely for \(\mathcal{N}(0,1)\) to take a value 100.<br>
@@ -203,7 +203,7 @@ we have \(\overline{X}_n=23/50=0.46\)<br>
 <li>Our true proportion \(p=0.5\)</li>
 <li>\(\mathbb{E}[X_i]=p\)</li>
 <li>variance: \(\text{var}(X_i) =\frac{p(1-p) }{n}\)<br></li>
-<li>by <a  href="/stats/law-of-large-numbers-&-central-limit-theorem/#clt">CLT</a>:
+<li>by <a  href="/stats/lln-clt/#clt">CLT</a>:
 \(\sqrt{n}\frac{\overline{X}_n-0.5}{0.5(1-0.5)}\sim \mathcal{N}(0,1)\)<br></li>
 Now if we have a sample and we calculate \(\overline{X}_n\) then \(\sqrt{n}\frac{\overline{X}_n-0.5}{0.5(1-0.5)}\) should be a plausible number according to std. normal.<br>
 </ul>

@@ -51,8 +51,8 @@
                             <li><a href="hypothesis.html">&#x25B6;</a></li>
                         </ul>
                         <ul class="icons">
-                            <li><a target="_blank" href="https://quantml.org/"><img src="/data/icon.png" alt="QuantML"></a></li>
-                            <li><a target="_blank" href="https://join.slack.com/t/quantml-org/shared_invite/zt-jffw86bo-6M260iyt1q2MgBma9elewg"><img src="/data/img/slack.png" alt="Slack"></a></li>
+                            <li><a target="_blank" href="https://app.quantml.org/stats/"><img src="/data/img/app.png" alt="App"></a></li>
+                            <li><a target="_blank" href="https://join.slack.com/t/quantml-org/shared_invite/zt-jffw86bo-6M260iyt1q2MgBma9elewg"><img class="whiteback" src="/data/img/slack.png" alt="Slack"></a></li>
                             <li><a target="_blank" href="https://www.linkedin.com/in/yuvraj97/"><img src="/data/img/linkedin.png" alt="LinkedIn"></a></li>
                             <li><a target="_blank" href="https://github.com/yuvraj97/"><img src="/data/img/github.png" alt="GitHub"></a></li>
                             <li style="display: none;" id="login-button"><button id="login-btn-width" class="login-logout-join" >Login &nbsp; <img src="/data/img/patreon.png" alt="Patreon"></button></li>
@@ -87,7 +87,7 @@ By Taylor expansion:<br>
 <div class="math-container">
 \(g(\hat{\theta}_n)-g(\theta) = \underbrace{(\hat{\theta}_n-\theta)}_{\sim\frac{1}{\sqrt{n}}}g'(\theta)+\frac{1}{2}\underbrace{(\hat{\theta}_n-\theta)^2}_{\sim\frac{1}{n}}g''(\omega)\)  \(\quad; \omega\in\left[\hat{\theta}_n,\theta\right]\)<br>
 <br>
-\(\hat{\theta}_n-\theta\approx \frac{1}{\sqrt{n}}\) we proved it <a href="/stats/law-of-large-numbers-&-central-limit-theorem/#sqrt-n">HERE</a><br>
+\(\hat{\theta}_n-\theta\approx \frac{1}{\sqrt{n}}\) we proved it <a href="/stats/lln-clt/#sqrt-n">HERE</a><br>
 \(\Rightarrow g(\hat{\theta}_n)-g(\theta) \approx (\hat{\theta}_n-\theta) g'(\theta)\quad\) as \(n\to\infty\)<br>
 <br>
 \(\Rightarrow \sqrt{n} \left(g(\hat{\theta}_n)-g(\theta)\right) \approx \underbrace{\sqrt{n} (\hat{\theta}_n-\theta)}_{\xrightarrow [n\to \infty ]{(d)} \mathcal{N}(0,\sigma^2)} g'(\theta)\quad\) as \(n\to\infty\)<br>
