@@ -6,6 +6,20 @@ function isInputRequires(){
 		return false
 	}
 }
+function loadScript(path, onload){
+    script = document.createElement('script');
+    script.src = path;
+    // script.onload = ()=>{console.log(path)}
+    document.body.appendChild(script);
+}
+
+function loadCSS(path, fonload){
+	link = document.createElement('link');
+	link.rel="stylesheet"
+	link.href = path
+	// onload=fonload
+	document.head.appendChild(link);
+}
 
 setTimeout(() => {
 

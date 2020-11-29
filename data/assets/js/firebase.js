@@ -1,30 +1,23 @@
 // Load Firebase JS
 setTimeout(() => {
-    script = document.createElement('script');
-    script.src = '/data/assets/js/firebase-app.js';
-    document.body.appendChild(script);
+    
+    loadScript('/data/assets/js/firebase-app.js')
     
     setTimeout(() => {
-        script = document.createElement('script');
-        script.src = '/data/assets/js/firebase-auth.js';
-        document.body.appendChild(script);
+        loadScript('/data/assets/js/firebase-auth.js')
     
         setTimeout(() => {
 
-            script = document.createElement('script');
-            script.src = '/data/assets/js/firebase-firestore.js';
-            document.body.appendChild(script);        
+            loadScript('/data/assets/js/firebase-firestore.js')
 
             setTimeout(()=>{
-                script = document.createElement('script');
-                script.src = '/data/auth/auth.js';
-                document.body.appendChild(script);    
+                loadScript('/data/auth/auth.js')
                 console.log("AUTH LOADED")
-            }, 500)        
+            }, 200)        
             console.log(".store LOADED")
-        }, 100)
+        }, 200)
         console.log(".auth LOADED")
-    }, 100)
+    }, 200)
 
     console.log(".app LOADED")
 }, 100)
