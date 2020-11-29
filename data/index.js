@@ -1,3 +1,34 @@
+function changeTheme() {
+	currentTheme = localStorage.getItem("quantmlTheme");
+	if(currentTheme == "light"){
+		console.log("Light2Dark");
+		changeThemeCSS("dark")
+		loadCorrectThemeImages("dark")
+		localStorage.setItem("quantmlTheme", "dark");
+	}
+	else if (currentTheme == "dark"){
+		console.log("Dark2Light");
+		changeThemeCSS("light")
+		loadCorrectThemeImages("light")
+		localStorage.setItem("quantmlTheme", "light");
+	}
+}
+
+function loadCorrectThemeImages(currentTheme){
+	images = document.querySelectorAll('img')
+	if(currentTheme == "light" && document.getElementById('quantml-cover').src.indexOf("/img-dark/")!=-1){
+		for (let index = 0; index < images.length; index++) {
+			// console.log(images[index].src,"->", images[index].src.replace("/img-dark/","/img/"))
+			images[index].src = images[index].src.replace("/img-dark/","/img/")
+		}
+	} else if(currentTheme == "dark"){
+		for (let index = 0; index < images.length; index++) {
+			// console.log(images[index].src,"->", images[index].src.replace("/img/","/img-dark/"))
+			images[index].src = images[index].src.replace("/img/","/img-dark/")
+		}
+	}	
+}
+
 function isInputRequires(){
 	loginModal = document.getElementById('login-model')
 	if(typeof(loginModal) !="undefined" && loginModal.style.display=="block"){
@@ -20,6 +51,8 @@ function loadCSS(path, fonload){
 	// onload=fonload
 	document.head.appendChild(link);
 }
+
+loadCorrectThemeImages(localStorage.getItem("quantmlTheme"));
 
 setTimeout(() => {
 
