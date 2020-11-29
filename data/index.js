@@ -55,6 +55,21 @@ function loadCSS(path, fonload){
 loadCorrectThemeImages(localStorage.getItem("quantmlTheme"));
 
 setTimeout(() => {
+navBarIconsHead = document.getElementById('nav-bar-icons-head')
+navBarIconsFoot = document.getElementById('nav-bar-icons-foot')
+navBarIconsFoot.innerHTML = navBarIconsHead.innerHTML = `<li><a target="_blank" href="https://app.quantml.org/stats/"><img src="/data/img/app.png" alt="App"></a></li>
+<li><a target="_blank" href="https://join.slack.com/t/quantml-org/shared_invite/zt-jffw86bo-6M260iyt1q2MgBma9elewg"><img class="whiteback" src="/data/img/slack.png" alt="Slack"></a></li>
+<li><a target="_blank" href="https://www.linkedin.com/in/yuvraj97/"><img src="/data/img/linkedin.png" alt="LinkedIn"></a></li>
+<li><a target="_blank" href="https://github.com/yuvraj97/"><img src="/data/img/github.png" alt="GitHub"></a></li>
+<li style="display: none;" id="login-button"><button id="login-btn-width" class="login-logout-join" >Login &nbsp; <img src="/data/img/patreon.png" alt="Patreon"></button></li>
+<li style="display: none;" id="join-button"><button onclick=" window.open('https://www.patreon.com/quantml','_blank')" id="join-btn-width" class="login-logout-join" >Join &nbsp; <img src="/data/img/patreon.png" alt="Patreon"></button></li>
+<li style="display: none;" id="logout-button"><button id="logout-btn-width" class="login-logout-join" >Logout &nbsp; <img src="/data/img/patreon.png" alt="Logout"></button></li>
+<li title="Change Theme"><a style="cursor: pointer;"><img id="change-theme" src="" alt="Change Theme"></a></li>
+<li title="Settings" class="settings jump"><img onclick="showSettings()" src="/data/img/setings.png" alt="Settings" width="25px" height="25px">
+`
+}, 50)
+
+setTimeout(() => {
 
 	// initialize website variables
 	let check = false;
