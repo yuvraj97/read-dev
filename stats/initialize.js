@@ -1,11 +1,3 @@
-if(notDesktop) {
-    document.querySelectorAll('#desktop-mode').forEach((element,index)=>{element.style.display="none"})
-    document.querySelectorAll('#mobile-mode').forEach((element,index)=>{element.style.display="block"})
-} else {
-    document.querySelectorAll('#desktop-mode').forEach((element,index)=>{element.style.display="block"})
-    document.querySelectorAll('#mobile-mode').forEach((element,index)=>{element.style.display="none"})
-}
-
 // PAGINATION [START]
 
 function prevPageBtn(){

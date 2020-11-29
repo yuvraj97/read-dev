@@ -250,10 +250,10 @@ forgotPassword.addEventListener('click',(e) => {
 
 function loadContent(chapterID){
     var data = ""
-    // retreve data
+    // retrieve data
     if(!localStorage.hasOwnProperty(chapterID)){
         db.collection('Statistics-Guide').doc(chapterID).get().then(snapshot => {
-            console.log("retreiving...")
+            // console.log("retreiving...")
             data = snapshot.data().Content;
             localStorage.setItem(chapterID, data);
             writeData(data);
@@ -261,7 +261,7 @@ function loadContent(chapterID){
         });
     }
     else {
-        console.log("Already retreved")
+        // console.log("Already retreved")
         data = localStorage.getItem(chapterID)
         writeData(data)
     }
