@@ -1,4 +1,4 @@
-# [Law of Large Numbers](https://yuvraj97.github.io/stats.github.io/data/index/intro/./lln-clt/#lln) Simulation
+# [Law of Large Numbers](https://yuvraj97.github.io/stats.github.io/data/index/intro/./lln/#lln) Simulation
 Here I simulated the Law of Large Numbers and shown that average → 𝜇 as n → ∞  
 Here I had shown LLN for,  
 - Normal Distribution  N(𝜇,𝜎) 

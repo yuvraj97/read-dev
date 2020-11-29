@@ -1019,7 +1019,10 @@ summary span {
     max-width: 100%;
 }
 
-.l1.border{
+.l1.border, 
+.l2.border, 
+.l3.border, 
+.l4.border{
     margin-left: auto;
     margin-right: auto;
     width: fit-content;

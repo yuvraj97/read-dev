@@ -7,6 +7,11 @@
 -->
 <html>
     <head>
+
+         <script>
+            var arrowLeftPage = "/stats/"
+            var arrowRightPage = "/stats/thanks/"
+        </script>
         
         <link rel="stylesheet" href="/data/assets/css/main.css">
         <link rel="stylesheet" href="/data/auth/authStyle.css">
@@ -62,7 +67,7 @@
     				</nav>
                 <!-- Main -->
                     <div id="main">
-                        <section class="post">
+                        <section id="paragraph" class="post">
     						<details open>
     							<summary><b><span class="details-title">Distribution</span></b></summary>
                                 <ul>
@@ -286,18 +291,18 @@
     						</details>
 
                             <hr>
-                            <a style="float: right;" href="index/intro/./lln-clt/#lln" class="button">Visit Chapter</a>
+                            <a style="float: right;" href="index/intro/./lln/#lln" class="button">Visit Chapter</a>
                             <details open>
     						    <summary><b><span class="details-title" id="lln">Law of large numbers(LLN)</span></b></summary>
                                 Say we have \(n\) observations. <br>
                                 \(X,X_1,X_2,X_3,....,X_n\) be <b>i.i.d</b> random varibles, and \(\mathbb{E}[X]=\mu\)
                                 Then:
-                                \[\overline{X}_n:=\frac{1}{n}\sum _{i=1}^ n X_ i \xrightarrow [n\to \infty ]{\mathbb{P},\mbox{ a.s.}} \mu\]
+                                \[\overline{X}_n:=\frac{1}{n}\sum _{i=1}^ n X_ i \xrightarrow [n\to \infty ]{\mathbb{P},\text{ a.s.}} \mu\]
 
                             </details>
 
                             <hr>
-                            <a style="float: right;" href="index/intro/./lln-clt/#clt" class="button">Visit Chapter</a>
+                            <a style="float: right;" href="index/intro/./lln/#clt" class="button">Visit Chapter</a>
 
                             <details open>
                                 <summary><b><span class="details-title" id="clt">Central Limit Theorem(CLT)</span></b></summary>
@@ -346,7 +351,7 @@
                                     <li>
                                         <b>Convergence in distribution:</b><br>
                                         Assume a sequence of random variables \(X_1,X_2,X_3,\cdots\)<br>
-                                        We used Convergence in distribution in <a href="./lln-clt/#clt">CLT</a>.<br>
+                                        We used Convergence in distribution in <a href="./lln/#clt">CLT</a>.<br>
                                         Say \(F_{X_n}(x)\): CDF of \(X_n\) and \(F_{X}(x)\): CDF of \(X\) then:<br>
                                         \(X_n \xrightarrow [n\to \infty ]{(d)} X\quad\) <b>iff:</b>
                                         <div class="math-container">
@@ -376,9 +381,9 @@
                             <details open>
                                 <summary><b><span class="details-title">Continuous Mapping Theorem</span></b></summary>
                                 Say we have a sequence of random variables \(T_n\) and assume:
-                                \(T_n \xrightarrow [n\to \infty ]{\mbox{ a.s.}/\mathbb{P}/(d)} T\)<br>
+                                \(T_n \xrightarrow [n\to \infty ]{\text{ a.s.}/\mathbb{P}/(d)} T\)<br>
                                 Then according to continuous mapping theorem, if \(f\) is a continuous function then:<br>
-                                \(f(T_n) \xrightarrow [n\to \infty ]{\mbox{ a.s.}/\mathbb{P}/(d)} f(T)\)<br>
+                                \(f(T_n) \xrightarrow [n\to \infty ]{\text{ a.s.}/\mathbb{P}/(d)} f(T)\)<br>
                             </details>
 
                             <hr>
@@ -467,7 +472,7 @@
                                 \[\lim_{n\to\infty}\mathbb{P}_\theta[\theta\in\mathcal{I}]\geq 1-\alpha\]
                                 </div>
                                 Say that estimator of \(\theta\) is \(\hat{\theta}_n\)<br>
-                                And \(\hat{\theta}_n \xrightarrow [n\to \infty ]{\mathbb{P},\mbox{ a.s.}} \theta\)
+                                And \(\hat{\theta}_n \xrightarrow [n\to \infty ]{\mathbb{P},\text{ a.s.}} \theta\)
                                 <div class="math-container">
                                     \[\lim_{n\to\infty}\mathbb{P}\left( \theta\in \left[  \hat{\theta}_n - q_{\frac{\alpha}{2}} \sqrt{\text{Var}(\hat{\theta}_n)}, \hat{\theta}_n + q_{\frac{\alpha}{2}} \sqrt{\text{Var}(\hat{\theta}_n)} \right]\right) = 1-\alpha\]
                                 </div>
@@ -576,9 +581,18 @@
         <a class="close" style="float: right; padding-top: 0%; padding-bottom: 0%;" onclick="document.getElementById('settings-model').style.display='none'">X</a>
         <div class="container settings" style="margin: 1rem;">
             Font size &nbsp; 
-            <button style="font-size: 18px;" class="button" onclick="incrementFontSize();setFontSize()">+</button> 
-            <button style="font-size: 18px;" class="button" onclick="decrementFontSize();setFontSize()">-</button>
-            <br>
+            <button style="height: 30px;" class="button" onclick="incrementFontSize();setFontSize()">+</button> 
+            <button style="height: 30px;" class="button" onclick="decrementFontSize();setFontSize()">-</button>
+            <button style="height: 30px; font-weight: 400;" class="button" onclick="resetFontSize();setFontSize()">Reset</button>
+            <DIV id="desktop-mode">
+                <br><br>
+                <hr>
+                Press <span class="bb">D</span> to change theme. <br>
+                Press <span class="bb">&larr;</span> to go to previous page. <br>
+                Press <span class="bb">&rarr;</span> to go to next page. <br>
+                Press <span class="bb">+</span> to increase font size. <br>
+                Press <span class="bb">-</span> to decrease font size. <br>
+            </DIV>
         </div>
     </div>
 </div>
@@ -589,6 +603,13 @@
                     </div>
             </div>
         <!-- Scripts -->
+                        <script>
+                var modal = [
+                    document.getElementById("login-model"),
+                    document.getElementById("password-reset-link-sent-model"),
+                    document.getElementById("settings-model")
+                ]
+            </script>
             <script src="/data/assets/js/jquery.min.js"></script>
             <script src="/data/assets/js/jquery.scrollex.min.js"></script>
             <script src="/data/assets/js/jquery.scrolly.min.js"></script>

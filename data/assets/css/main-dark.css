@@ -14,7 +14,7 @@ a:hover {
     color:rgba(255, 180, 100, 0.8) !important;
 }
 strong, b {
-    color: rgb(207, 210, 214);
+    color: rgb(231, 232, 235);
 }
 h1, h2, h3, h4, h5, h6 {
     color: rgb(207, 210, 214);
@@ -173,7 +173,7 @@ summary span:hover, summary span:focus {
     border-bottom: solid 1.5px rgba(255, 180, 100, 1);
 }
 .bb {
-    background-color: rgb(255,255,255, 0.1);
+    background-color: rgb(0, 0, 0, 0.07);
     border: 1px rgb(194, 199, 204) solid;
 }
 .login-logout-join {
@@ -206,22 +206,14 @@ summary span:hover, summary span:focus {
 .slack-discuss:hover {
     box-shadow: .05rem .05rem 0.5rem .1rem rgb(255, 255, 255, 0.7);
 }
-.l1 {
-    color: rgb(255, 150, 150);
-}
-.l2 {
-    color: rgb(150, 206, 255);
-}
-.l3 {
-    color: rgb(150, 255, 150);
-}
-.l4 {
-    color: rgb(255, 255, 200);
-}
-.l1.border{
-    border: 2px solid rgb(60, 164, 255);
-    color: rgb(60, 164, 255);
-}
+.l1 {    color: rgb(255, 150, 150);     }
+.l2 {    color: rgb(150, 206, 255);     }
+.l3 {    color: rgb(150, 255, 150);     }
+.l4 {    color: rgb(255, 255, 200);     }
+.l1.border{    border: 2px solid rgb(255, 150, 150);    }
+.l2.border{    border: 2px solid rgb(150, 206, 255);    }
+.l3.border{    border: 2px solid rgb(150, 255, 150);    }
+.l4.border{    border: 2px solid rgb(255, 255, 200);    }
 .math.border.dim{
     border: 1.5px solid black;
 }

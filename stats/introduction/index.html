@@ -9,8 +9,10 @@
     <head>        
 
         <script>
-            var nextPage = "/stats/lln-clt/";
+            var nextPage = "/stats/lln/";
             var prevPage = "/stats/"
+            var arrowLeftPage = "/stats/"
+            var arrowRightPage = "python/"
         </script>
 
         <link rel="stylesheet" href="/data/assets/css/main.css">
@@ -48,7 +50,7 @@
                     <nav id="nav">
                         <ul class="links">
                             <li class="cover"><a href="/stats/"><img src="/data/img/STATISTICS-cover.png" alt="STATISTICS"></a></li>
-                            <li class="active title"><a href="/stats/introduction/">Introduction</a></li>
+                            <li class="active title"><a>Introduction</a></li>
                             <li class="python"><a href="/stats/introduction/python/"><img src="/data/img/python.png" alt="Python"></a></li>
                             <li class="julia"><a href="/stats/introduction/julia/"><img src="/data/img/julia.png" alt="Julia"></a></li>
                         </ul>
@@ -67,8 +69,7 @@
 
                 <!-- Main -->
                     <div id="main">
-                        <section class="post paragraph">
-                            <section id="paragraph" class="post">
+                        <section id="paragraph" class="post">
 <div class='buttons'>
     <button class="button jump" onclick="prevPageBtn()">&#x25C0;&nbsp;&nbsp; Home</button>
     <button class="button jump"  style="float: right;" onclick="nextPageBtn()">LLN & CLT&nbsp;&nbsp;&#x25B6;</button>
@@ -81,7 +82,7 @@
 After this chapter, we will be able to formulate a real-life situation in mathematics by selecting an appropriate statistical model.<br>
 <br>
 
-<h1 id="why">Why do we want to do statistics? <a style="color: rgb(20, 57, 168);" href="#why"><i class="fa fa-link" aria-hidden="true"></i></a></h1>
+<h1 id="why">Why statistics? <a style="color: rgb(20, 57, 168);" href="#why"><i class="fa fa-link" aria-hidden="true"></i></a></h1>
 Now let's see where <i>statistics</i> is used in real-life.<br>
 <b>For example</b>, see this <a  href="https://www.nytimes.com/interactive/2018/07/18/upshot/nike-vaporfly-shoe-strava.html">New York Times article</a>, 
 here it is claimed that,
@@ -147,7 +148,7 @@ We split the Complicated process into two parts, First is a <b>simple process</b
     <b>Complicated Process \(\equiv\) Simple Process + Random Noise</b>
 </blockquote>
 <blockquote>
-Good Modeling consists in choosing (plausible) simple process and noise distribution.
+Good Modeling consists of choosing (plausible) simple process and noise distribution.
 </blockquote>
 <br>
 
@@ -157,28 +158,28 @@ Good Modeling consists in choosing (plausible) simple process and noise distribu
 <img id='dogma' class="full-size-img" src="/stats/img/dogma.png" alt="Central Dogma of Probability and Statistics">
 
 
-<span title="The image showed just above"><u>This</u></span> is the Central <span title="a principle laid down by an authority as incontrovertibly true."><u>Dogma</u></span> of probability and statistics, So what it's saying is:
+<span title="The image showed just above"><u>This</u></span> is the Central <span title="a principle laid down by an authority as incontrovertibly true."><u>Dogma</u></span> of probability and statistics, so it implies:
 <blockquote>
-We have a <b>truth</b>(Random Process) that generates <b>data</b>, and <b>probability</b> will tell us what our data look like.
+We have a <b>truth</b>(Random Process) that generates <b>data</b> and <b>probability</b> will tell us what our data look like.
 </blockquote>
 For example:
 Say that we have our fair coin as <b>truth</b>, <span title="or say, we don't know the underlying pattern by which this sequence of heads and tails is emerging"><u>we don't know how it generates the sequence of heads and tails</u></span>, all we see is a (random) sequence of heads and tails.<br>
-And if we don't know anything about the coin (like is it fair or not) it's the purpose of <b>statistics</b>, here we try to recover <b>truth</b> from <b>data</b><br>
+If we don't know anything about the coin (like is it fair or not), <b>statistics</b> will be useful. Here we try to recover <b>truth</b> from <b>data</b>.<br>
 <br>
 
 <h1 id="kiss_ex">The Kiss Example<a style="color: rgb(20, 57, 168);" href="#kiss_ex"><i class="fa fa-link" aria-hidden="true"></i></a></h1>
 Source: <a  href="https://www.nature.com/articles/421711a">https://www.nature.com/articles/421711a</a><br>
-So the question here is, <i>"do people have a preference of turning their head to the right when kissing?"</i><br>
+So the question here is, <i>"Do people have a preference of turning their head to the right when kissing?"</i><br>
 According to the author, the study concludes:<br>
 
 <blockquote>A neonatal right-side preference makes a surprising romantic reappearance later in life.</blockquote>
-Data is very simple, a person goes out and records whether people turn their head, to the left or right.<br>
-Now we want to do some <b>modeling</b>, So how can we tackle this problem?<br>
-Now if a person collected data and (say) 90% of them turn their head to the right. then it's an indication that peoples do have a preference of turning their head to the right.<br>
-But how to decide the <b>cutoff</b> (beyond which we can say Yes people do have a preference of turning their head to the right)?<br>
-What if the data states that 51% of them turn their head to the right. then Can we say that it is an indication that peoples do have a preference of turning their head to the right?<br>
+Data is very simple, a person goes out and records whether people turn their head to the left or right.<br>
+So how can we tackle this problem?<br>
+Now if a person collected data and (say) 90% of them turn their head to the right, then it's an indication that peoples do have a preference of turning their head to the right.<br>
+But how to decide the <b>cutoff</b> (beyond which we can say 'Yes' people do have a preference of turning their head to the right)?<br>
+What if the data states that 51% of them turn their head to the right, then can we say it is an indication that peoples do have a preference of turning their head to the right?<br>
 
-What we want, is to understand the true proportion of people turning there head to the right, in the entire population of the world.<br>
+What we want is to understand the true proportion of people turning there head to the right, in the entire population of the world.<br>
 <br>
 
 <h1 id="statistical-experiment">Statistical experiment<a style="color: rgb(20, 57, 168);" href="#statistical-experiment"><i class="fa fa-link" aria-hidden="true"></i></a></h1>
@@ -213,7 +214,7 @@ Another way to present this problem is, for \(n=124\) What is the minimum number
 \(\sum^n_{i=1}R_i\) is the number of \(1's\) so if I have \(80\ 1's\) in the sequence then \(\sum^n_{i=1}R_i=80\)<br>
 \(\hat{p}\) is <b>Sample average \(\overline{R}_n\)</b><br>
 
-Ok we got an estimator but what is it's <b>Accuracy</b>, how good is it,what does the accuracy even <b>mean? </b>
+Ok we got an estimator but what is it's <b>Accuracy</b>, how good is it, what does the accuracy even <b>mean? </b>
 Accuracy of our estimator \(\hat{p}\) depends on <b>true</b> \(p\) which we don't even know.
 We want to know how close is \(\hat{p}\)  to <b>true</b> \(p\) this is where <b>randomness</b> comes into play.
 We think of \(R_i\) as random variables so that \(\hat{p}\) is also a random variable.
@@ -221,7 +222,7 @@ Now this random variable (\(\hat{p}\)) will tend to take some values \(\in [0,1]
 <br>
 
 <h1 id="assumptions">Modeling assumptions<a style="color: rgb(20, 57, 168);" href="#assumptions"><i class="fa fa-link" aria-hidden="true"></i></a></h1>
-Coming up with a model consists of making assumptions on what those \(R_i\)'s are, So here are the assumptions that we made:<br>
+Coming up with a model that consists of making assumptions on what those \(R_i\)'s are. So here are the assumptions that we made:<br>
 \(1.\quad\) Each \(R_i\) is a random variable.<br>
 \(2.\quad\) Each \(R_i\) is a Bernoulli(we will see it later) with parameter \(p\)<br>
 \(3.\quad\) \(R_1,R_2,...,R_n\) are mutually independent<br>
@@ -231,7 +232,7 @@ Now let's see some Simulation, choose your language of choice,<br>
 <a href="/stats/introduction/python/"><img src="/data/img/python.png" alt="Python" width="75px" height="20px"></a> &nbsp;,&nbsp;
 <a href="/stats/introduction/julia/"><img src="/data/img/julia.png" alt="Julia" width="53px" height="33px"></a>
 <br>
-<a href="https://app.quantml.org/stats/">Launch Statistics App <img src="/data/img/app.png" alt="launch" width="30px" height="30px"></a>
+<a target="=_blank" href="https://app.quantml.org/stats/">Launch Statistics App <img src="/data/img/app.png" alt="launch" width="30px" height="30px"></a>
 </blockquote>
 <br>
 
@@ -304,9 +305,18 @@ Now let's see some Simulation, choose your language of choice,<br>
         <a class="close" style="float: right; padding-top: 0%; padding-bottom: 0%;" onclick="document.getElementById('settings-model').style.display='none'">X</a>
         <div class="container settings" style="margin: 1rem;">
             Font size &nbsp; 
-            <button style="font-size: 18px;" class="button" onclick="incrementFontSize();setFontSize()">+</button> 
-            <button style="font-size: 18px;" class="button" onclick="decrementFontSize();setFontSize()">-</button>
-            <br>
+            <button style="height: 30px;" class="button" onclick="incrementFontSize();setFontSize()">+</button> 
+            <button style="height: 30px;" class="button" onclick="decrementFontSize();setFontSize()">-</button>
+            <button style="height: 30px; font-weight: 400;" class="button" onclick="resetFontSize();setFontSize()">Reset</button>
+            <DIV id="desktop-mode">
+                <br><br>
+                <hr>
+                Press <span class="bb">D</span> to change theme. <br>
+                Press <span class="bb">&larr;</span> to go to previous page. <br>
+                Press <span class="bb">&rarr;</span> to go to next page. <br>
+                Press <span class="bb">+</span> to increase font size. <br>
+                Press <span class="bb">-</span> to decrease font size. <br>
+            </DIV>
         </div>
     </div>
 </div>
@@ -318,6 +328,13 @@ Now let's see some Simulation, choose your language of choice,<br>
             </div>
 
         <!-- Scripts -->
+                        <script>
+                var modal = [
+                    document.getElementById("login-model"),
+                    document.getElementById("password-reset-link-sent-model"),
+                    document.getElementById("settings-model")
+                ]
+            </script>
             <script src="/data/assets/js/jquery.min.js"></script>
             <script src="/data/assets/js/jquery.scrollex.min.js"></script>
             <script src="/data/assets/js/jquery.scrolly.min.js"></script>

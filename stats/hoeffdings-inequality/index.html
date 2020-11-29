@@ -46,7 +46,7 @@
                         <ul class="links">
                             <li class="cover"><a href="/stats/"><img src="/data/img/STATISTICS-cover.png" alt="STATISTICS"></a></li>
                             <li><a href="intro.html">Introduction</a></li>
-                            <li><a href="/stats/lln-clt/">LLN/CLT</a></li>
+                            <li><a href="/stats/lln/">LLN/CLT</a></li>
                             <li class="active"><a href="hoeffding.html">Hoeffding's Ineq.</a></li>
                             <li><a href="gauss.html">Gaussian Dist.</a></li>
                             <li><a href="convergence.html">Convergence</a></li>
@@ -68,9 +68,9 @@
 
                 <!-- Main -->
                     <div id="main">
-                        <section class="post">
+                        <section id="paragraph" class="post">
 <div class='buttons'>
-    <button class="button jump" onclick="window.location.href = '/stats/lln-clt/';">&#x25C0;&nbsp;&nbsp; LLN & CLT</button>
+    <button class="button jump" onclick="window.location.href = '/stats/lln/';">&#x25C0;&nbsp;&nbsp; LLN & CLT</button>
     <button class="button jump"  style="float: right;" onclick="window.location.href = 'gauss.html';">Gaussian&nbsp;&nbsp;&#x25B6;</button>
 </div><br>
 
@@ -117,7 +117,7 @@ It's true for all \(n\), and for \(C\) large enough it behaves like a Gaussian.<
     <li id="lln">
         <h3>Law of Large Numbers(LLN)</h3>
         <blockquote>
-        \[\overline{R}_n  \xrightarrow [n\to \infty ]{\mathbb{P},\mbox{ a.s.}} p\]
+        \[\overline{R}_n  \xrightarrow [n\to \infty ]{\mathbb{P},\text{ a.s.}} p\]
         \(\overline{R}_n\quad\) is the average of people that turn there head to the right.<br>
         \(p\quad\) it's the actual proportion of people that turn there head to the right.<br>
         So according to LLN as \(n\) becomes larger \(\overline{X}_n\) converges to \(p\quad\) OR (say) \(\overline{R}_n\) become a <b>consistent</b> estimator.<br>
@@ -167,7 +167,7 @@ So Hoeffding's inequality is more <b>conservative</b> then CLT <b>but</b> it's a
     Join our Slack <img src="/data/img/slack.png" alt="Slack"> discussion forum
 </div><br>
 <div class='buttons'>
-    <button class="button jump" onclick="window.location.href = '/stats/lln-clt/';">&#x25C0;&nbsp;&nbsp; LLN & CLT</button>
+    <button class="button jump" onclick="window.location.href = '/stats/lln/';">&#x25C0;&nbsp;&nbsp; LLN & CLT</button>
     <button class="button jump"  style="float: right;" onclick="window.location.href = 'gauss.html';">Gaussian&nbsp;&nbsp;&#x25B6;</button>
 </div><br><!--=================== MODELS ===================-->
 
@@ -229,9 +229,18 @@ So Hoeffding's inequality is more <b>conservative</b> then CLT <b>but</b> it's a
         <a class="close" style="float: right; padding-top: 0%; padding-bottom: 0%;" onclick="document.getElementById('settings-model').style.display='none'">X</a>
         <div class="container settings" style="margin: 1rem;">
             Font size &nbsp; 
-            <button style="font-size: 18px;" class="button" onclick="incrementFontSize();setFontSize()">+</button> 
-            <button style="font-size: 18px;" class="button" onclick="decrementFontSize();setFontSize()">-</button>
-            <br>
+            <button style="height: 30px;" class="button" onclick="incrementFontSize();setFontSize()">+</button> 
+            <button style="height: 30px;" class="button" onclick="decrementFontSize();setFontSize()">-</button>
+            <button style="height: 30px; font-weight: 400;" class="button" onclick="resetFontSize();setFontSize()">Reset</button>
+            <DIV id="desktop-mode">
+                <br><br>
+                <hr>
+                Press <span class="bb">D</span> to change theme. <br>
+                Press <span class="bb">&larr;</span> to go to previous page. <br>
+                Press <span class="bb">&rarr;</span> to go to next page. <br>
+                Press <span class="bb">+</span> to increase font size. <br>
+                Press <span class="bb">-</span> to decrease font size. <br>
+            </DIV>
         </div>
     </div>
 </div>
@@ -242,6 +251,13 @@ So Hoeffding's inequality is more <b>conservative</b> then CLT <b>but</b> it's a
                     </div>
             </div>
        <!-- Scripts -->
+                        <script>
+                var modal = [
+                    document.getElementById("login-model"),
+                    document.getElementById("password-reset-link-sent-model"),
+                    document.getElementById("settings-model")
+                ]
+            </script>
             <script src="/data/assets/js/jquery.min.js"></script>
             <script src="/data/assets/js/jquery.scrollex.min.js"></script>
             <script src="/data/assets/js/jquery.scrolly.min.js"></script>

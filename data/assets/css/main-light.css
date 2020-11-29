@@ -206,22 +206,15 @@ summary span:hover, summary span:focus {
 .slack-discuss:hover {
     box-shadow: .05rem .05rem 0.5rem .1rem #467AAC;
 }
-.l1 {
-    color: darkred;
-}
-.l2 {
-    color: royalblue;
-}
-.l3 {
-    color: darkgreen;
-}
-.l4 {
-    color: darkorchid;
-}
-.l1.border{
-    border: 2px solid rgb(60, 164, 255);
-    color: rgb(60, 164, 255);
-}
+.l1 {    color: darkred;        }
+.l2 {    color: royalblue;      }
+.l3 {    color: darkgreen;      }
+.l4 {    color: darkorchid;     }
+.l1.border{    border: 2px solid darkred }
+.l2.border{    border: 2px solid royalblue }
+.l3.border{    border: 2px solid darkgreen }
+.l4.border{    border: 2px solid darkorchid }
+
 .math.border.dim{
     border: 1.5px solid black;
 }

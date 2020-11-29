@@ -1,8 +1,4 @@
-// Change Theme
-const changeTheme = document.getElementById('change-theme');
-changeTheme.addEventListener('click',(e) => {    
-	e.preventDefault();
-	window.location.reload();
+function changeTheme() {
 	var cssFiles = document.getElementsByTagName("link");
 	main_css = "";
     for (var i=0; i<cssFiles	.length; i++){
@@ -17,25 +13,32 @@ changeTheme.addEventListener('click',(e) => {
 		console.log("Light2Dark");
 		localStorage.setItem("quantmlTheme", "dark");
 		href = href.replace("main.css", "main-dark.css");
-		changeTheme.src = changeTheme.src.replace("/img/","/img-dark/");
+		changeThemeBtn.src = changeThemeBtn.src.replace("/img/","/img-dark/");
 	}
 	else if (currTheme == "dark"){
 		console.log("Dark2Light");
 		localStorage.setItem("quantmlTheme", "light");
 		href = href.replace("main-dark.css", "main.css");
-		changeTheme.src = changeTheme.src.replace("/img-dark/","/img/");
+		changeThemeBtn.src = changeThemeBtn.src.replace("/img-dark/","/img/");
 	}
 	main_css.href = href;
-	
+	window.location.reload();
+}
+
+// Change Theme
+const changeThemeBtn = document.getElementById('change-theme');
+changeThemeBtn.addEventListener('click',(e) => {    
+	e.preventDefault();
+	changeTheme()
 });
 
 // Set Theme icon
 currentTheme = localStorage.getItem("quantmlTheme");
 if(currentTheme == "light"){
-	changeTheme.src = "/data/img/change-theme.png"
+	changeThemeBtn.src = "/data/img/change-theme.png"
 }
 if(currentTheme == "dark"){
-	changeTheme.src = "/data/img-dark/change-theme.png"
+	changeThemeBtn.src = "/data/img-dark/change-theme.png"
 }
 
 
@@ -73,3 +76,26 @@ setTimeout (()=>{
 		}
 	}
 }, 100)
+
+
+// Change Theme on pressing 'D'
+
+document.onkeydown = function(evt) {
+	evt = evt || window.event;
+	// console.log(evt.code)
+	if(evt.code == "Escape" && typeof(modal) !="undefined" ) {
+		for (let idx = 0; idx < modal.length; idx++) {
+			modal[idx].style.display = "none";
+		}
+	} else if(evt.code == "KeyD"){
+		changeTheme()
+	} else if(evt.code == "ArrowRight" && typeof(arrowRightPage) !="undefined" ){
+		window.location.href = arrowRightPage
+	} else if(evt.code == "ArrowLeft" && typeof(arrowLeftPage) !="undefined" ){
+		window.location.href = arrowLeftPage
+	} else if(evt.code == "NumpadAdd"){
+		incrementFontSize();setFontSize()
+	} else if(evt.code == "NumpadSubtract"){
+		decrementFontSize();setFontSize()
+	}
+}

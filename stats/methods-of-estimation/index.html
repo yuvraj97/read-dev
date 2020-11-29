@@ -66,7 +66,7 @@
 
                 <!-- Main -->
                     <div id="main">
-                        <section class="post">
+                        <section id="paragraph" class="post">
 <div class='buttons'>
 <!--    <button class="button jump" onclick="window.location.href = 'p-value.html';">&#x25C0;&nbsp;&nbsp;\(\text{p-value}\)</button>  -->
     <button class="button jump"  style="float: right;" onclick="window.location.href = 'total-variation-distance.html';">Total Variation Distance&nbsp;&nbsp;&#x25B6;</button>
@@ -101,14 +101,14 @@ here we parameterized the <i>"probability of flipping a head"</i> as \(p\)<br>
 <li><b><a  href="estimation.html">Estimate</a></b> the parameter</li>
 <dl><dd>
 Now we had out <b>Statistical Model</b> now we want to <b>estimate</b> our <b>parameter</b>.<br>
-We used <b>average</b> as our estimation technique, it is justified by the <b><a  href="/stats/lln-clt/#lln">Law of Large numbers</a></b>.<br>
+We used <b>average</b> as our estimation technique, it is justified by the <b><a  href="/stats/lln/#lln">Law of Large numbers</a></b>.<br>
 Once we find the parameter (and if our parameter if identifiable) then we can get it's distribution.<br>
 </dd></dl>
 
 <li><b><a  href="ci.html">Confidence Interval</a></b> for our estimate</li>
 <dl><dd>
 After getting our estimate we find a <b>range</b> with some <b>confidence</b>, our estimator is in this range.<br>
-<b><a  href="/stats/lln-clt/#lln">Central limit theorem</a></b> helps us to find that range, and what CLT do 
+<b><a  href="/stats/lln/#lln">Central limit theorem</a></b> helps us to find that range, and what CLT do 
 is it give us an estimate of distribution of our data.<br>
 </dd></dl>
 
@@ -205,9 +205,18 @@ Here in <b>Methods of Estimation</b> we will see various methods to <b>estimate<
         <a class="close" style="float: right; padding-top: 0%; padding-bottom: 0%;" onclick="document.getElementById('settings-model').style.display='none'">X</a>
         <div class="container settings" style="margin: 1rem;">
             Font size &nbsp; 
-            <button style="font-size: 18px;" class="button" onclick="incrementFontSize();setFontSize()">+</button> 
-            <button style="font-size: 18px;" class="button" onclick="decrementFontSize();setFontSize()">-</button>
-            <br>
+            <button style="height: 30px;" class="button" onclick="incrementFontSize();setFontSize()">+</button> 
+            <button style="height: 30px;" class="button" onclick="decrementFontSize();setFontSize()">-</button>
+            <button style="height: 30px; font-weight: 400;" class="button" onclick="resetFontSize();setFontSize()">Reset</button>
+            <DIV id="desktop-mode">
+                <br><br>
+                <hr>
+                Press <span class="bb">D</span> to change theme. <br>
+                Press <span class="bb">&larr;</span> to go to previous page. <br>
+                Press <span class="bb">&rarr;</span> to go to next page. <br>
+                Press <span class="bb">+</span> to increase font size. <br>
+                Press <span class="bb">-</span> to decrease font size. <br>
+            </DIV>
         </div>
     </div>
 </div>
@@ -236,6 +245,13 @@ Here in <b>Methods of Estimation</b> we will see various methods to <b>estimate<
             }
             </script>
         <!-- Scripts -->
+                        <script>
+                var modal = [
+                    document.getElementById("login-model"),
+                    document.getElementById("password-reset-link-sent-model"),
+                    document.getElementById("settings-model")
+                ]
+            </script>
             <script src="/data/assets/js/jquery.min.js"></script>
             <script src="/data/assets/js/jquery.scrollex.min.js"></script>
             <script src="/data/assets/js/jquery.scrolly.min.js"></script>

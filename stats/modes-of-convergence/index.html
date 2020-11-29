@@ -46,7 +46,7 @@
                         <ul class="links">
                             <li class="cover"><a href="/stats/"><img src="/data/img/STATISTICS-cover.png" alt="STATISTICS"></a></li>
                             <li><a href="intro.html">Introduction</a></li>
-                            <li><a href="/stats/lln-clt/">LLN/CLT</a></li>
+                            <li><a href="/stats/lln/">LLN/CLT</a></li>
                             <li><a href="hoeffding.html">Hoeffding's Ineq.</a></li>
                             <li><a href="gauss.html">Gaussian Dist.</a></li>
                             <li class="active"><a href="convergence.html">Convergence</a></li>
@@ -68,7 +68,7 @@
 
                 <!-- Main -->
                     <div id="main">
-                        <section class="post">
+                        <section id="paragraph" class="post">
 <div class='buttons'>
     <button class="button jump" onclick="window.location.href = 'gauss.html';">&#x25C0;&nbsp;&nbsp; Gaussian</button>
     <button class="button jump"  style="float: right;" onclick="window.location.href = 'inference.html';">Inference&nbsp;&nbsp;&#x25B6;</button>
@@ -113,10 +113,10 @@ There are 3 modes of convergence:
         <div class="math-container">
             \(\mathbb{P}\left( \left\{s \in S: X_n(s) \xrightarrow [n\to \infty ]{} X(s)\right\}\right)=1\)<br>
         </div><br>
-        So in this example \(X_n \xrightarrow [n\to \infty ]{\mbox{ a.s.}}X\)
+        So in this example \(X_n \xrightarrow [n\to \infty ]{\text{ a.s.}}X\)
         </blockquote>
         <br>
-        So \(X_n \xrightarrow [n\to \infty ]{\mbox{ a.s.}} X\quad\) <b>iff:</b>
+        So \(X_n \xrightarrow [n\to \infty ]{\text{ a.s.}} X\quad\) <b>iff:</b>
         <div class="math-container">
         \[\mathbb{P}\left( \left\{s \in S: X_n(s) \xrightarrow [n\to \infty ]{} X(s)\right\}\right)=1\]
         </div>
@@ -129,20 +129,20 @@ There are 3 modes of convergence:
         <div class="math-container">
         \[\mathbb{P}\left[ \left| X_n - X \right| \geq \varepsilon \right] \xrightarrow [n\to \infty ]{} 0,\quad\forall\varepsilon \gt 0 \]
         </div>
-        <blockquote style="background-color:#ECF1F6;  border-left-color:#467AAC">Almost surely \((\text{a.s.})\) convergence \(\Rightarrow\) Convergence in probability</blockquote>
+        <blockquote>Almost surely \((\text{a.s.})\) convergence \(\Rightarrow\) Convergence in probability</blockquote>
         <br>
     </li>
     <li id="dist">
         <h3>Convergence in distribution<a style="color: rgb(20, 57, 168);" href="#dist"><i class="fa fa-link" aria-hidden="true"></i></a></h3>
         Almost surely \((\text{a.s.})\) convergence and Convergence in probability they both maps a random sequence to a real number \((\mathbb{R})\)<br>
         But Convergence in distribution doesn't maps to real numbers \((\mathbb{R})\), but it says  that the <b>distribution</b> of \(X_n\) converges to the <b>distribution</b> of \(X\) as \(n\to\infty\)<br>
-        We used Convergence in distribution in <a  href="/stats/lln-clt/#clt">CLT</a>.<br>
+        We used Convergence in distribution in <a  href="/stats/lln/#clt">CLT</a>.<br>
         Say \(F_{X_n}(x)\): CDF of \(X_n\) and \(F_{X}(x)\): CDF of \(X\) then:<br>
         \(X_n \xrightarrow [n\to \infty ]{(d)} X\quad\) <b>iff:</b>
         <div class="math-container">
         \[F_{X_n}(x) \xrightarrow [n\to \infty ]{} F_{X}(x)\]
         </div>
-        <blockquote style="background-color:#ECF1F6;  border-left-color:#467AAC">Convergence in probability \(\Rightarrow\) Convergence in distribution</blockquote>
+        <blockquote>Convergence in probability \(\Rightarrow\) Convergence in distribution</blockquote>
     </li>
 </ol>
 
@@ -160,17 +160,17 @@ so adding, multiplying or dividing the <b>distributions</b> doesn't make any sen
 </blockquote>
 <br>
 Now assume we have two sequences of random variables \(T_n\) and \(U_n\) and assume:<br>
-\(T_n \xrightarrow [n\to \infty ]{\mbox{ a.s.}/\mathbb{P}} T\quad\) and \(\quad\)  \(U_n \xrightarrow [n\to \infty ]{\mbox{ a.s.}/\mathbb{P}} U\)<br>
+\(T_n \xrightarrow [n\to \infty ]{\text{ a.s.}/\mathbb{P}} T\quad\) and \(\quad\)  \(U_n \xrightarrow [n\to \infty ]{\text{ a.s.}/\mathbb{P}} U\)<br>
 Then
 <ul>
     <li>
-        \(T_n + U_n \xrightarrow [n\to \infty ]{\mbox{ a.s.}/\mathbb{P}} T + U\)<br><br>
+        \(T_n + U_n \xrightarrow [n\to \infty ]{\text{ a.s.}/\mathbb{P}} T + U\)<br><br>
     </li>
     <li>
-        \(T_n U_n \xrightarrow [n\to \infty ]{\mbox{ a.s.}/\mathbb{P}} TU\)<br><br>
+        \(T_n U_n \xrightarrow [n\to \infty ]{\text{ a.s.}/\mathbb{P}} TU\)<br><br>
     </li>
     <li>
-        \(\displaystyle {\frac{T_n}{U_n} \xrightarrow [n\to \infty ]{\mbox{ a.s.}/\mathbb{P}} \frac{T}{U}}\quad\) if \(U \neq 0\)
+        \(\displaystyle {\frac{T_n}{U_n} \xrightarrow [n\to \infty ]{\text{ a.s.}/\mathbb{P}} \frac{T}{U}}\quad\) if \(U \neq 0\)
     </li>
 </ul>
 <hr>
@@ -195,23 +195,23 @@ Where \(T\) is a r.v. and \(u\) is a deterministic number \(  \mathbb{P}(U=u)=1 
 
 <h2 id="cmt">Continuous Mapping Theorem<a style="color: rgb(20, 57, 168);" href="#cmt"><i class="fa fa-link" aria-hidden="true"></i></a></h2>
 Say we have a sequence of random variables \(T_n\) and assume:
-\(T_n \xrightarrow [n\to \infty ]{\mbox{ a.s.}/\mathbb{P}/(d)} T\)<br>
+\(T_n \xrightarrow [n\to \infty ]{\text{ a.s.}/\mathbb{P}/(d)} T\)<br>
 Then according to continuous mapping theorem, if \(f\) is a continuous function then:<br>
-\(f(T_n) \xrightarrow [n\to \infty ]{\mbox{ a.s.}/\mathbb{P}/(d)} f(T)\)<br>
+\(f(T_n) \xrightarrow [n\to \infty ]{\text{ a.s.}/\mathbb{P}/(d)} f(T)\)<br>
 <b>Examples:</b><br>
 <ul>
     <li>
-        Remember the <a  href="hoeffding.html#kiss_ex_convergence">kiss example</a>, by <a  href="/stats/lln-clt/#lln">LLN</a> \(\overline{R}_n  \xrightarrow [n\to \infty ]{\mathbb{P},\mbox{ a.s.}} p\).<br>
+        Remember the <a  href="hoeffding.html#kiss_ex_convergence">kiss example</a>, by <a  href="/stats/lln/#lln">LLN</a> \(\overline{R}_n  \xrightarrow [n\to \infty ]{\mathbb{P},\text{ a.s.}} p\).<br>
         <br>
-        And by <b>Continuous Mapping Theorem:</b> for any continuous function \(f,\quad\) \[f(\overline{R}_n)  \xrightarrow [n\to \infty ]{\mathbb{P},\mbox{ a.s.}} f(p)\]<br>
+        And by <b>Continuous Mapping Theorem:</b> for any continuous function \(f,\quad\) \[f(\overline{R}_n)  \xrightarrow [n\to \infty ]{\mathbb{P},\text{ a.s.}} f(p)\]<br>
         For example:<br>
         <blockquote>
             \(f(x)=1/x\quad\forall x \gt 0\quad\) So<br>
-            \(\frac{1}{\overline{R}_n}  \xrightarrow [n\to \infty ]{\mathbb{P},\mbox{ a.s.}} \frac{1}{p}\quad\forall x \gt 0\)
+            \(\frac{1}{\overline{R}_n}  \xrightarrow [n\to \infty ]{\mathbb{P},\text{ a.s.}} \frac{1}{p}\quad\forall x \gt 0\)
         </blockquote>
     </li>
     <li>
-        Remember the <a  href="hoeffding.html#kiss_ex_convergence">kiss example</a>, by <a  href="/stats/lln-clt/#clt">CLT</a> \(\sqrt{n}\frac{\overline{R}_n - p }{\sqrt{p(1-p)}} \xrightarrow [n\to \infty ]{(d)} \mathcal{N}(0,1) \)<br>
+        Remember the <a  href="hoeffding.html#kiss_ex_convergence">kiss example</a>, by <a  href="/stats/lln/#clt">CLT</a> \(\sqrt{n}\frac{\overline{R}_n - p }{\sqrt{p(1-p)}} \xrightarrow [n\to \infty ]{(d)} \mathcal{N}(0,1) \)<br>
         equivalently:<br>
         \(\sqrt{n}(\overline{R}_n - p) \xrightarrow [n\to \infty ]{(d)} \mathcal{N}(0,p(1-p))\)<br>
         And by <b>Continuous Mapping Theorem:</b> for any continuous function \(f,\quad\) \[f\left(  \sqrt{n}(\overline{R}_n - p) \right) \xrightarrow [n\to \infty ]{(d)} f\left(\mathcal{N}(0,p(1-p))\right)\]<br>
@@ -287,9 +287,18 @@ Then according to continuous mapping theorem, if \(f\) is a continuous function 
         <a class="close" style="float: right; padding-top: 0%; padding-bottom: 0%;" onclick="document.getElementById('settings-model').style.display='none'">X</a>
         <div class="container settings" style="margin: 1rem;">
             Font size &nbsp; 
-            <button style="font-size: 18px;" class="button" onclick="incrementFontSize();setFontSize()">+</button> 
-            <button style="font-size: 18px;" class="button" onclick="decrementFontSize();setFontSize()">-</button>
-            <br>
+            <button style="height: 30px;" class="button" onclick="incrementFontSize();setFontSize()">+</button> 
+            <button style="height: 30px;" class="button" onclick="decrementFontSize();setFontSize()">-</button>
+            <button style="height: 30px; font-weight: 400;" class="button" onclick="resetFontSize();setFontSize()">Reset</button>
+            <DIV id="desktop-mode">
+                <br><br>
+                <hr>
+                Press <span class="bb">D</span> to change theme. <br>
+                Press <span class="bb">&larr;</span> to go to previous page. <br>
+                Press <span class="bb">&rarr;</span> to go to next page. <br>
+                Press <span class="bb">+</span> to increase font size. <br>
+                Press <span class="bb">-</span> to decrease font size. <br>
+            </DIV>
         </div>
     </div>
 </div>
@@ -300,6 +309,13 @@ Then according to continuous mapping theorem, if \(f\) is a continuous function 
                     </div>
             </div>
        <!-- Scripts -->
+                        <script>
+                var modal = [
+                    document.getElementById("login-model"),
+                    document.getElementById("password-reset-link-sent-model"),
+                    document.getElementById("settings-model")
+                ]
+            </script>
             <script src="/data/assets/js/jquery.min.js"></script>
             <script src="/data/assets/js/jquery.scrollex.min.js"></script>
             <script src="/data/assets/js/jquery.scrolly.min.js"></script>

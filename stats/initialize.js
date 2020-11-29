@@ -1,3 +1,11 @@
+if(notDesktop) {
+    document.querySelectorAll('#desktop-mode').forEach((element,index)=>{element.style.display="none"})
+    document.querySelectorAll('#mobile-mode').forEach((element,index)=>{element.style.display="block"})
+} else {
+    document.querySelectorAll('#desktop-mode').forEach((element,index)=>{element.style.display="block"})
+    document.querySelectorAll('#mobile-mode').forEach((element,index)=>{element.style.display="none"})
+}
+
 // PAGINATION [START]
 
 function prevPageBtn(){
@@ -25,6 +33,14 @@ function decrementFontSize(){
     localStorage.setItem('paragraph-font-size', parseInt(localStorage.getItem('paragraph-font-size')) - 1)
 }
 
+function resetFontSize(){
+    if(screen.width < 500){
+        localStorage.setItem('paragraph-font-size', "14");
+    } else {
+        localStorage.setItem('paragraph-font-size', "16");
+    }
+}
+
 function setFontSize(){
     document.getElementById('paragraph').style.fontSize = localStorage.getItem('paragraph-font-size') + "px";
 }
@@ -36,12 +52,6 @@ function showSettings(){
 }
 
 if(localStorage.getItem('paragraph-font-size') == null){
-    if(screen.width < 500){
-        localStorage.setItem('paragraph-font-size', "14");
-    } else {
-        localStorage.setItem('paragraph-font-size', "16");
-    }
+    resetFontSize()
 }
 setFontSize()
-
-// Setting Font-Size [END]

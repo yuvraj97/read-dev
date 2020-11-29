@@ -66,7 +66,7 @@
 
                 <!-- Main -->
                     <div id="main">
-                        <section class="post">
+                        <section id="paragraph" class="post">
 <div class='buttons'>
     <button class="button jump" onclick="window.location.href = 'bias.html';">&#x25C0;&nbsp;&nbsp;Bias</button>
     <button class="button jump"  style="float: right;" onclick="window.location.href = 'delta.html';">Delta&nbsp;&nbsp;&#x25B6;</button>
@@ -107,7 +107,7 @@ Recall our <a  href="intro.html#kiss_ex">kiss example</a><br>
         \(\text{var}(\hat{p})=\frac{p(1-p)}{n}\)
 	</li>
 	<li>
-		Using <a  href="/stats/lln-clt/#clt">CLT</a><br>
+		Using <a  href="/stats/lln/#clt">CLT</a><br>
 		<div class="math-container">
 			\[\sqrt{n}\frac{\overline{R}_n-p}{\sqrt{p(1-p)}}\xrightarrow [n\to \infty ]{(d)}\mathcal{N}(0,1) \]
             equivalently:
@@ -228,7 +228,7 @@ Here we did not make anything conservative, we just took the equations and solve
 So: \[\lim_{n\to\infty}\mathbb{P}(p \in \mathcal{I}_{\text{solve}})=1-\alpha\]
 
 <h4 style="font-family: inherit;" id='i-plugin'>3. Plug-in</h4>
-        Using <a  href="/stats/lln-clt/#lln">LLN</a>: \(\hat{p}_n=\overline{R}_n \xrightarrow [n\to \infty ]{\mathbb{P},\mbox{ a.s.}} p \)<br>
+        Using <a  href="/stats/lln/#lln">LLN</a>: \(\hat{p}_n=\overline{R}_n \xrightarrow [n\to \infty ]{\mathbb{P},\text{ a.s.}} p \)<br>
         We know that by CLT: \[\sqrt{n}\frac{\overline{R}_n-p}{\sqrt{p(1-p)}}\xrightarrow [n\to \infty ]{(d)}\mathcal{N}(0,1)\]
         Then by <a  href="convergence.html#slutsky">Slutsky's Theorem</a> we have: \[\sqrt{n}\frac{\overline{R}_n-p}{\sqrt{\hat{p}(1-\hat{p})}}\xrightarrow [n\to \infty ]{(d)}\mathcal{N}(0,1)\]
         <details open>
@@ -240,8 +240,8 @@ So: \[\lim_{n\to\infty}\mathbb{P}(p \in \mathcal{I}_{\text{solve}})=1-\alpha\]
               \Rightarrow \sqrt{n}\frac{\overline{R}_n-p}{\sqrt{\hat{p}(1-\hat{p})}} \xrightarrow [n\to \infty ]{(d)} \mathcal{N}(0,1)
             \]
             </div>
-            LLN: <a  href="/stats/lln-clt/#lln">Law of large numbers</a><br>
-            CLT: <a  href="/stats/lln-clt/#clt">Central limit theorem</a><br>
+            LLN: <a  href="/stats/lln/#lln">Law of large numbers</a><br>
+            CLT: <a  href="/stats/lln/#clt">Central limit theorem</a><br>
             CMT: <a  href="convergence.html#cmt">Continuous mapping theorem</a>
             </blockquote>
         </details>
@@ -403,12 +403,12 @@ So a natural estimate of \(\lambda\) is: \[\hat{\lambda}=\frac{1}{\overline{T}_n
     <summary><span class="bb" style="color: royalblue; background-color: lightyellow; cursor:pointer;">What about consistency of \(\hat{\lambda}\)?</span></summary>
     <blockquote>
         Yes, it's a consistence estimator.<br>
-        By the <a  href="/stats/lln-clt/#lln">LLN:</a><br>
-        \[\overline{T}_n:=\frac{1}{n}\sum _{i=1}^ n T_ i \xrightarrow [n\to \infty ]{\mathbb{P},\mbox{ a.s.}} \frac{1}{\lambda}\]
+        By the <a  href="/stats/lln/#lln">LLN:</a><br>
+        \[\overline{T}_n:=\frac{1}{n}\sum _{i=1}^ n T_ i \xrightarrow [n\to \infty ]{\mathbb{P},\text{ a.s.}} \frac{1}{\lambda}\]
         And by <a  href="convergence.html#cmt">Continuous mapping theorem</a>:<br>
-        \(f(\overline{T}_n) \xrightarrow [n\to \infty ]{\mbox{ a.s.}/\mathbb{P}/(d)} f(\frac{1}{\lambda})\)<br>
+        \(f(\overline{T}_n) \xrightarrow [n\to \infty ]{\text{ a.s.}/\mathbb{P}/(d)} f(\frac{1}{\lambda})\)<br>
         Here \(f(x)=1/x\) So:<br>
-        \[\frac{1}{\overline{T}_n} \xrightarrow [n\to \infty ]{\mbox{ a.s.}/\mathbb{P}/(d)} \lambda\]
+        \[\frac{1}{\overline{T}_n} \xrightarrow [n\to \infty ]{\text{ a.s.}/\mathbb{P}/(d)} \lambda\]
 
     </blockquote>
 </details>
@@ -421,14 +421,14 @@ So a natural estimate of \(\lambda\) is: \[\hat{\lambda}=\frac{1}{\overline{T}_n
 
     </blockquote>
 </details>
-By the <a  href="/stats/lln-clt/#lln">LLN:</a>
-\[\overline{T}_n:=\frac{1}{n}\sum _{i=1}^ n T_ i \xrightarrow [n\to \infty ]{\mathbb{P},\mbox{ a.s.}} \frac{1}{\lambda}\]
+By the <a  href="/stats/lln/#lln">LLN:</a>
+\[\overline{T}_n:=\frac{1}{n}\sum _{i=1}^ n T_ i \xrightarrow [n\to \infty ]{\mathbb{P},\text{ a.s.}} \frac{1}{\lambda}\]
 Then by <a  href="convergence.html#cmt">Continuous mapping theorem</a>:<br>
-\(f(\overline{T}_n) \xrightarrow [n\to \infty ]{\mbox{ a.s.}/\mathbb{P}/(d)} f(\frac{1}{\lambda})\)<br>
+\(f(\overline{T}_n) \xrightarrow [n\to \infty ]{\text{ a.s.}/\mathbb{P}/(d)} f(\frac{1}{\lambda})\)<br>
 Here \(f(x)=1/x\) So:
-\[\hat{\lambda}=\frac{1}{\overline{T}_n} \xrightarrow [n\to \infty ]{\mbox{ a.s.}/\mathbb{P}/(d)} \lambda\]
+\[\hat{\lambda}=\frac{1}{\overline{T}_n} \xrightarrow [n\to \infty ]{\text{ a.s.}/\mathbb{P}/(d)} \lambda\]
 also \(\mathbb{E}[\overline{T}_n]=\frac{1}{\lambda}\) and \(\text{var}[\overline{T}_n]=\frac{1}{\lambda^2}\)
-Then By <a  href="/stats/lln-clt/#clt">CLT</a>
+Then By <a  href="/stats/lln/#clt">CLT</a>
 \[\sqrt{n}\left(  \overline{T}_n-\frac{1}{\lambda} \right)   \xrightarrow [n\to \infty ]{} \mathcal{N}\left(0,\frac{1}{\lambda^2}\right) \]
 But this is <b>not</b> what we want<b>!</b><br>
 We want to estimate \(\lambda\) not \(\frac{1}{\lambda}\) so we want CLT on estimator of \(\lambda\) that is \(\hat{\lambda}\)<br>
@@ -524,9 +524,18 @@ This will be covered in <a  href="delta.html#T">Delta Method</a>.
         <a class="close" style="float: right; padding-top: 0%; padding-bottom: 0%;" onclick="document.getElementById('settings-model').style.display='none'">X</a>
         <div class="container settings" style="margin: 1rem;">
             Font size &nbsp; 
-            <button style="font-size: 18px;" class="button" onclick="incrementFontSize();setFontSize()">+</button> 
-            <button style="font-size: 18px;" class="button" onclick="decrementFontSize();setFontSize()">-</button>
-            <br>
+            <button style="height: 30px;" class="button" onclick="incrementFontSize();setFontSize()">+</button> 
+            <button style="height: 30px;" class="button" onclick="decrementFontSize();setFontSize()">-</button>
+            <button style="height: 30px; font-weight: 400;" class="button" onclick="resetFontSize();setFontSize()">Reset</button>
+            <DIV id="desktop-mode">
+                <br><br>
+                <hr>
+                Press <span class="bb">D</span> to change theme. <br>
+                Press <span class="bb">&larr;</span> to go to previous page. <br>
+                Press <span class="bb">&rarr;</span> to go to next page. <br>
+                Press <span class="bb">+</span> to increase font size. <br>
+                Press <span class="bb">-</span> to decrease font size. <br>
+            </DIV>
         </div>
     </div>
 </div>
@@ -555,6 +564,13 @@ This will be covered in <a  href="delta.html#T">Delta Method</a>.
             }
             </script>
         <!-- Scripts -->
+                        <script>
+                var modal = [
+                    document.getElementById("login-model"),
+                    document.getElementById("password-reset-link-sent-model"),
+                    document.getElementById("settings-model")
+                ]
+            </script>
             <script src="/data/assets/js/jquery.min.js"></script>
             <script src="/data/assets/js/jquery.scrollex.min.js"></script>
             <script src="/data/assets/js/jquery.scrolly.min.js"></script>

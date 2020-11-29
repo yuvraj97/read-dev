@@ -66,7 +66,7 @@
 
                 <!-- Main -->
                     <div id="main">
-                        <section class="post">
+                        <section id="paragraph" class="post">
 <div class='buttons'>
     <button class="button jump" onclick="window.location.href = 'ci.html';">&#x25C0;&nbsp;&nbsp;Confidence Interval</button>
     <button class="button jump"  style="float: right;" onclick="window.location.href = 'interpretation.html';">Interpretation of CI&nbsp;&nbsp;&#x25B6;</button>
@@ -87,7 +87,7 @@ By Taylor expansion:<br>
 <div class="math-container">
 \(g(\hat{\theta}_n)-g(\theta) = \underbrace{(\hat{\theta}_n-\theta)}_{\sim\frac{1}{\sqrt{n}}}g'(\theta)+\frac{1}{2}\underbrace{(\hat{\theta}_n-\theta)^2}_{\sim\frac{1}{n}}g''(\omega)\)  \(\quad; \omega\in\left[\hat{\theta}_n,\theta\right]\)<br>
 <br>
-\(\hat{\theta}_n-\theta\approx \frac{1}{\sqrt{n}}\) we proved it <a href="/stats/lln-clt/#sqrt-n">HERE</a><br>
+\(\hat{\theta}_n-\theta\approx \frac{1}{\sqrt{n}}\) we proved it <a href="/stats/lln/#sqrt-n">HERE</a><br>
 \(\Rightarrow g(\hat{\theta}_n)-g(\theta) \approx (\hat{\theta}_n-\theta) g'(\theta)\quad\) as \(n\to\infty\)<br>
 <br>
 \(\Rightarrow \sqrt{n} \left(g(\hat{\theta}_n)-g(\theta)\right) \approx \underbrace{\sqrt{n} (\hat{\theta}_n-\theta)}_{\xrightarrow [n\to \infty ]{(d)} \mathcal{N}(0,\sigma^2)} g'(\theta)\quad\) as \(n\to\infty\)<br>
@@ -105,7 +105,7 @@ By Taylor expansion:<br>
 <dl><dd>
 <span id="T"></span>
 <a  href="ci.html#T">Remember <b>The T</b>  example</a><br>
-\(\hat{\lambda}=\frac{1}{\overline{T}_n} \xrightarrow [n\to \infty ]{\mbox{ a.s.}/\mathbb{P}/(d)} \lambda\)<br>
+\(\hat{\lambda}=\frac{1}{\overline{T}_n} \xrightarrow [n\to \infty ]{\text{ a.s.}/\mathbb{P}/(d)} \lambda\)<br>
 There we saw:
 <div class="math-container">
     \[\sqrt{n}\left(  \overline{T}_n-\frac{1}{\lambda} \right)   \xrightarrow [n\to \infty ]{d} \mathcal{N}\left(0,\frac{1}{\lambda^2}\right)\]
@@ -253,9 +253,18 @@ We have 3 ways to get the CI:
         <a class="close" style="float: right; padding-top: 0%; padding-bottom: 0%;" onclick="document.getElementById('settings-model').style.display='none'">X</a>
         <div class="container settings" style="margin: 1rem;">
             Font size &nbsp; 
-            <button style="font-size: 18px;" class="button" onclick="incrementFontSize();setFontSize()">+</button> 
-            <button style="font-size: 18px;" class="button" onclick="decrementFontSize();setFontSize()">-</button>
-            <br>
+            <button style="height: 30px;" class="button" onclick="incrementFontSize();setFontSize()">+</button> 
+            <button style="height: 30px;" class="button" onclick="decrementFontSize();setFontSize()">-</button>
+            <button style="height: 30px; font-weight: 400;" class="button" onclick="resetFontSize();setFontSize()">Reset</button>
+            <DIV id="desktop-mode">
+                <br><br>
+                <hr>
+                Press <span class="bb">D</span> to change theme. <br>
+                Press <span class="bb">&larr;</span> to go to previous page. <br>
+                Press <span class="bb">&rarr;</span> to go to next page. <br>
+                Press <span class="bb">+</span> to increase font size. <br>
+                Press <span class="bb">-</span> to decrease font size. <br>
+            </DIV>
         </div>
     </div>
 </div>
@@ -284,6 +293,13 @@ We have 3 ways to get the CI:
             }
             </script>
         <!-- Scripts -->
+                        <script>
+                var modal = [
+                    document.getElementById("login-model"),
+                    document.getElementById("password-reset-link-sent-model"),
+                    document.getElementById("settings-model")
+                ]
+            </script>
             <script src="/data/assets/js/jquery.min.js"></script>
             <script src="/data/assets/js/jquery.scrollex.min.js"></script>
             <script src="/data/assets/js/jquery.scrolly.min.js"></script>
