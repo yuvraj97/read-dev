@@ -8,11 +8,11 @@ function changeThemeCSS(currentTheme){
 	auththeme = document.getElementById('quantml-auth-style')
 	if(currentTheme == "light"){
 		theme.href ="/data/assets/css/main-light.css"
-		auththeme.href = "/data/auth/authStyle-light.css"
+		auththeme.href = "/data/assets/css/authStyle-light.css"
 	}
 	else if(currentTheme == "dark") {
 		theme.href = "/data/assets/css/main-dark.css"
-		auththeme.href = "/data/auth/authStyle-dark.css"
+		auththeme.href = "/data/assets/css/authStyle-dark.css"
 	}	
 }
 

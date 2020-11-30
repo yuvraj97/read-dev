@@ -1,13 +1,13 @@
 function changeTheme() {
 	currentTheme = localStorage.getItem("quantmlTheme");
 	if(currentTheme == "light"){
-		console.log("Light2Dark");
+		// console.log("Light2Dark");
 		changeThemeCSS("dark")
 		loadCorrectThemeImages("dark")
 		localStorage.setItem("quantmlTheme", "dark");
 	}
 	else if (currentTheme == "dark"){
-		console.log("Dark2Light");
+		// console.log("Dark2Light");
 		changeThemeCSS("light")
 		loadCorrectThemeImages("light")
 		localStorage.setItem("quantmlTheme", "light");
@@ -37,10 +37,10 @@ function isInputRequires(){
 		return false
 	}
 }
-function loadScript(path, onload){
+function loadScript(path, fonload){
     script = document.createElement('script');
     script.src = path;
-    // script.onload = ()=>{console.log(path)}
+    if(typeof(fonload)!="undefined"){script.onload = fonload}
     document.body.appendChild(script);
 }
 
@@ -48,7 +48,7 @@ function loadCSS(path, fonload){
 	link = document.createElement('link');
 	link.rel="stylesheet"
 	link.href = path
-	// onload=fonload
+	if(typeof(fonload)!="undefined"){script.onload = fonload}
 	document.head.appendChild(link);
 }
 

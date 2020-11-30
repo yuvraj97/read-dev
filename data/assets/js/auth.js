@@ -98,14 +98,14 @@ db.settings({timestampsInSnapshots: true});
 // Listen For Auth Status Change
 auth.onAuthStateChanged(user=>{
     if(user) {
-        console.log('Logged In :)');
+        // console.log('Logged In :)');
         setDisplay('login-button','none');
         setDisplay('join-button','none');
         setDisplay('logout-button',getDisplay());
         setDisplay('secrets',getDisplay());
         setDisplay('login-require','none');
     } else {
-        console.log('Logged Out!');
+        // console.log('Logged Out!');
         setDisplay('login-button',getDisplay());
         setDisplay('join-button',getDisplay());
         setDisplay('logout-button','none');
