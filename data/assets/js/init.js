@@ -29,6 +29,32 @@ function clearModelOnBackgroundClick(modal){
     }
 }
 
+
+function fullyLoaded(){
+    console.log("fullyLoaded")
+    // Set Next-Prev btn width
+	prev = document.querySelectorAll('#prev-btn')
+	next = document.querySelectorAll('#next-btn')
+	console.log(prev)
+	if(prev.length!=0){
+		btnWidth = document.getElementById('btn-container').offsetWidth
+		console.log(prev[0].offsetWidth , next[0].offsetWidth , btnWidth)
+		if(prev[0].offsetWidth + next[0].offsetWidth > btnWidth) {
+			prev[0].style.display="block";
+			prev[1].style.display="block";
+			next[0].style.display="block";
+			next[1].style.display="block";
+			prev[0].style.width="100%";
+			prev[1].style.width="100%";
+			next[0].style.width="100%";
+			next[1].style.width="100%";
+			next[0].style.marginTop="5px"
+			next[1].style.marginTop="5px"
+		}
+	}
+}
+
+
 // Close Navbar
 document.getElementById('close-navbar').addEventListener('click',()=>{
     document.querySelector('body').classList.remove('is-navPanel-visible');

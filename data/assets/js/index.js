@@ -19,12 +19,12 @@ function loadCorrectThemeImages(currentTheme){
 	if(currentTheme == "light" && document.getElementById('quantml-cover').src.indexOf("/img-dark/")!=-1){
 		for (let index = 0; index < images.length; index++) {
 			// console.log(images[index].src,"->", images[index].src.replace("/img-dark/","/img/"))
-			images[index].src = images[index].src.replace("/img-dark/","/img/")
+			if(images[index].id!="pre-loading"){images[index].src = images[index].src.replace("/img-dark/","/img/")}
 		}
 	} else if(currentTheme == "dark"){
 		for (let index = 0; index < images.length; index++) {
 			// console.log(images[index].src,"->", images[index].src.replace("/img/","/img-dark/"))
-			images[index].src = images[index].src.replace("/img/","/img-dark/")
+			if(images[index].id!="pre-loading"){images[index].src = images[index].src.replace("/img/","/img-dark/")}
 		}
 	}	
 }
@@ -61,15 +61,20 @@ loadCorrectThemeImages(localStorage.getItem("quantmlTheme"));
 setTimeout(() => {
 	navBarIconsHead = document.getElementById('nav-bar-icons-head')
 	navBarIconsFoot = document.getElementById('nav-bar-icons-foot')
-	navBarIconsFoot.innerHTML = navBarIconsHead.innerHTML = `<li><a target="_blank" href="https://app.quantml.org/stats/"><img src="/data/img/app.png" alt="App"></a></li>
-	<li><a target="_blank" href="https://join.slack.com/t/quantml-org/shared_invite/zt-jffw86bo-6M260iyt1q2MgBma9elewg"><img class="whiteback" src="/data/img/slack.png" alt="Slack"></a></li>
-	<li><a target="_blank" href="https://www.linkedin.com/in/yuvraj97/"><img src="/data/img/linkedin.png" alt="LinkedIn"></a></li>
-	<li><a target="_blank" href="https://github.com/yuvraj97/"><img src="/data/img/github.png" alt="GitHub"></a></li>
-	<li style="display: none;" id="login-button"><button id="login-btn-width" class="login-logout-join" >Login <img src="/data/img/patreon.png" alt="Patreon"></button></li>
-	<li style="display: none;" id="join-button"><button onclick=" window.open('https://www.patreon.com/quantml','_blank')" id="join-btn-width" class="login-logout-join" >Join <img src="/data/img/patreon.png" alt="Patreon"></button></li>
-	<li style="display: none;" id="logout-button"><button id="logout-btn-width" class="login-logout-join" >Logout <img src="/data/img/patreon.png" alt="Logout"></button></li>
-	<li title="Change Theme"><a style="cursor: pointer;"><img id="change-theme" src="/data/img/change-theme.png" alt="Change Theme"></a></li>
-	<li title="Settings" class="settings jump"><img onclick="showSettings()" src="/data/img/setings.png" alt="Settings" width="25px" height="25px">
+	if(localStorage.getItem("quantmlTheme")=="light"){
+		imgsrc = "/data/img/"
+	} else {
+		imgsrc = "/data/img-dark/"
+	}
+	navBarIconsFoot.innerHTML = navBarIconsHead.innerHTML = `<li><a target="_blank" href="https://app.quantml.org/stats/"><img src="${imgsrc}app.png" alt="App"></a></li>
+	<li><a target="_blank" href="https://join.slack.com/t/quantml-org/shared_invite/zt-jffw86bo-6M260iyt1q2MgBma9elewg"><img class="whiteback" src="${imgsrc}slack.png" alt="Slack"></a></li>
+	<li><a target="_blank" href="https://www.linkedin.com/in/yuvraj97/"><img src="${imgsrc}linkedin.png" alt="LinkedIn"></a></li>
+	<li><a target="_blank" href="https://github.com/yuvraj97/"><img src="${imgsrc}github.png" alt="GitHub"></a></li>
+	<li style="display: none;" id="login-button"><button id="login-btn-width" class="login-logout-join" >Login <img src="${imgsrc}patreon.png" alt="Patreon"></button></li>
+	<li style="display: none;" id="join-button"><button onclick=" window.open('https://www.patreon.com/quantml','_blank')" id="join-btn-width" class="login-logout-join" >Join <img src="${imgsrc}patreon.png" alt="Patreon"></button></li>
+	<li style="display: none;" id="logout-button"><button id="logout-btn-width" class="login-logout-join" >Logout <img src="${imgsrc}patreon.png" alt="Logout"></button></li>
+	<li title="Change Theme"><a style="cursor: pointer;"><img id="change-theme" src="${imgsrc}change-theme.png" alt="Change Theme"></a></li>
+	<li title="Settings" class="settings jump"><img onclick="showSettings()" src="${imgsrc}setings.png" alt="Settings" width="25px" height="25px">
 	`
 }, 50)
 
@@ -100,25 +105,6 @@ setTimeout(() => {
 		changeTheme()
 	});
 
-	// Set Next-Prev btn width
-	prev = document.querySelectorAll('#prev-btn')
-	next = document.querySelectorAll('#next-btn')
-	if(prev.length!=0){
-		btnWidth = document.getElementById('btn-container').offsetWidth
-		if(prev.length != 0 && prev[0].offsetWidth + next[0].offsetWidth > btnWidth) {
-			prev[0].style.display="block";
-			prev[1].style.display="block";
-			next[0].style.display="block";
-			next[1].style.display="block";
-			prev[0].style.width="100%";
-			prev[1].style.width="100%";
-			next[0].style.width="100%";
-			next[1].style.width="100%";
-			next[0].style.marginTop="5px"
-			next[1].style.marginTop="5px"
-		}
-	}
-	
 }, 500)
 
 // ***************************************************************
