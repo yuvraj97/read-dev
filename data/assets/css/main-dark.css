@@ -43,12 +43,12 @@ table tfoot {
 table.alt tbody tr td {
     border-color: rgb(207, 210, 214);
 }
-#wrapper  {
+#wrapper > .bg {
     background-color: rgb(45, 45, 45);
     background-image: linear-gradient(to right, rgb(25, 25, 25) 0%, rgb(60, 60, 60) 50%, rgb(25, 25, 25) 100%);
 }
 @media screen and (orientation: portrait) {
-    #wrapper  {
+    #wrapper > .bg {
         background-image: linear-gradient(to top, rgb(45, 45, 45) 80%, rgb(0,0,0) 100%);
     }
 }

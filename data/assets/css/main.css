@@ -294,6 +294,8 @@ table.alt tbody tr:first-child td {
     position: relative;
     z-index: 1;
     overflow: hidden;
+}
+#wrapper > .bg {
     position: absolute;
     top: 0;
     left: 0;
@@ -309,13 +311,13 @@ table.alt tbody tr:first-child td {
     transform-style: preserve-3d;
     will-change: transform;
 }
-#wrapper {
+#wrapper > .bg.fixed {
     position: fixed;
     width: 100vw;
     height: 100vh;
 }
 @media screen and (orientation: portrait) {
-    #wrapper {
+    #wrapper > .bg {
         background-size: auto, auto, auto 175%;
     }
 }
