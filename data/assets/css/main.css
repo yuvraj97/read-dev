@@ -372,6 +372,9 @@ table.alt tbody tr:first-child td {
         padding-bottom: 3rem;
     }
 }
+nav {
+    /* padding-top: 15px; */
+}
 #nav {
     display: -moz-flex;
     display: -webkit-flex;
@@ -606,7 +609,7 @@ table.alt tbody tr:first-child td {
         padding: 2rem 2rem 0.1rem 2rem;
     }
 }
-@media screen and (max-width: 480px) {
+@media screen and (orientation: portrait) {
     #main {
         width: 100%;
     }
@@ -628,6 +631,7 @@ table.alt tbody tr:first-child td {
     padding: 0.375rem 1.25rem;
     text-transform: uppercase;
     z-index: 10001;
+    cursor: pointer;
 }
 #navPanelToggle:before {
     -moz-osx-font-smoothing: grayscale;
@@ -765,14 +769,14 @@ table.alt tbody tr:first-child td {
     cursor: pointer;
     display: block;
     height: 3.25rem;
-    line-height: 3.25rem;
-    padding-right: 1.25rem;
+    padding: 0%;
+    margin: 0px;
     position: absolute;
     right: 0;
-    text-align: right;
+    text-align: center;
     top: 0;
     vertical-align: middle;
-    width: 7rem;
+    width: 4rem;
 }
 #navPanel .close:before {
     -moz-osx-font-smoothing: grayscale;

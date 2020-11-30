@@ -1,10 +1,9 @@
 function setDisplay(ID, disp){
-    element = document.getElementById(ID)
-    if(element != null){
-        element.style.display=disp;
-    } else {
-        console.log(ID, "is missing!")
-    }
+    elements = document.querySelectorAll('#'+ID)
+    elements.forEach((element,index)=>{
+            element.style.display=disp;
+    })
+    if(elements.length == 0) { console.log(ID, "is missing!") }
 }
 
 function getDisplay(){
@@ -18,7 +17,7 @@ function getDisplay(){
 function clearModelOnBackgroundClick(modal){
     // When the user clicks anywhere outside of the modal, close it
     window.onclick = function(event) {
-        console.log(event.target)
+        // console.log(event.target)
         for (let idx = 0; idx < modal.length; idx++) {
             if (event.target == modal[idx]) {
                 modal[idx].style.display = "none";
@@ -29,17 +28,6 @@ function clearModelOnBackgroundClick(modal){
         }
     }
 }
-
-// Set Navbar Login-Logout-Join width
-setTimeout(()=>{
-      // if(screen.width <= 980){
-        if(window.innerWidth <= 980){
-            document.getElementById('login-btn-width').style.width="100%";
-            document.getElementById('join-btn-width').style.width="100%";
-            document.getElementById('logout-btn-width').style.width="100%";
-        }      
-}, 200)
-
 
 var modal = [
     document.getElementById("login-model"),
