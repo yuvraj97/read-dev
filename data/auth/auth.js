@@ -1,13 +1,5 @@
 function initializeGuide(){
-    // if(screen.width <= 980){
-    if(window.innerWidth <= 980){
-        document.getElementById('login-btn-width').style.width="100%";
-        document.getElementById('join-btn-width').style.width="100%";
-        document.getElementById('logout-btn-width').style.width="100%";
-    }
-
-    clearModelOnBackgroundClick();
-
+    
     const loginButton = document.querySelector('#login-button');
     loginButton.addEventListener('click', (e) => {
         e.preventDefault();
@@ -19,41 +11,6 @@ function initializeGuide(){
     emailAddressIsValidated()
     passwordIsValidated()
     
-}
-
-function setDisplay(ID, disp){
-    element = document.getElementById(ID)
-    if(element != null){
-        element.style.display=disp;
-    } else {
-        console.log(ID, "is missing!")
-    }
-}
-
-function getDisplay(){
-    if(screen.width <= 980){
-        return "block";
-    } else {
-        return "";
-    }
-}
-
-function clearModelOnBackgroundClick(){
-    // Get the modal
-    var modal = [
-        document.getElementById('login-model'), 
-        document.getElementById('enter-otp-model'),
-        document.getElementById('settings-model')
-    ];
-
-    // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function(event) {
-        for (let idx = 0; idx < modal.length; idx++) {
-            if (event.target == modal[idx]) {
-                modal[idx].style.display = "none";
-            }            
-        }
-    }
 }
 
 function networkRequestFailed(){

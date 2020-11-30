@@ -13,7 +13,7 @@ setTimeout(() => {
             setTimeout(()=>{
                 loadScript('/data/auth/auth.js')
                 console.log("AUTH LOADED")
-            }, 200)        
+            }, 500)
             console.log(".store LOADED")
         }, 200)
         console.log(".auth LOADED")
