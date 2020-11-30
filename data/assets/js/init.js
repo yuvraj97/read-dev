@@ -29,14 +29,6 @@ function clearModelOnBackgroundClick(modal){
     }
 }
 
-var modal = [
-    document.getElementById("login-model"),
-    document.getElementById("password-reset-link-sent-model"),
-    document.getElementById("settings-model")
-]
-
-clearModelOnBackgroundClick(modal)
-
 // Close Navbar
 document.getElementById('close-navbar').addEventListener('click',()=>{
     document.querySelector('body').classList.remove('is-navPanel-visible');
