@@ -1,11 +1,13 @@
 function initializeGuide(){
     
-    const loginButton = document.querySelector('#login-button');
-    loginButton.addEventListener('click', (e) => {
-        e.preventDefault();
-        document.querySelector('body').classList.remove('is-navPanel-visible');
-        document.getElementById('login-model').style.display='block';
-    });
+    const loginButton = document.querySelectorAll('#login-button');
+    loginButton.forEach((element,index)=>{
+            element.addEventListener('click', (e) => {
+                e.preventDefault();
+                document.querySelector('body').classList.remove('is-navPanel-visible');
+                document.getElementById('login-model').style.display='block';
+            });        
+    })
     
     document.getElementById('login-error-msg').style.display='none';
     emailAddressIsValidated()
@@ -159,12 +161,14 @@ loginForm.addEventListener('submit', (e) => {
 });
 
 // LOGOUT
-const logout = document.querySelector('#logout-button');
-logout.addEventListener('click',(e) => {    
-    e.preventDefault();
-    localStorage.clear();
-    auth.signOut().then(() => {
-        // console.log("Logging Out...")
+const logout = document.querySelectorAll('#logout-button');
+logout.forEach((element,index)=>{
+    element.addEventListener('click',(e) => {    
+        e.preventDefault();
+        localStorage.clear();
+        auth.signOut().then(() => {
+            // console.log("Logging Out...")
+        });
     });
 });
 
