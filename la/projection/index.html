@@ -1,66 +1,39 @@
 <!DOCTYPE HTML>
-<!--
-    "Thanks to HTML5 UP for this template".
-    Massively by HTML5 UP
-    html5up.net | @ajlkn
-    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
+<html lang="en">
+
     <head>
 
-
-
-        <!--Prism-->
-        <link rel="stylesheet" href="/data/prism/prism.css">
-
-
-        <style> 
-#rcorners1 {
-    border-radius: 25px;
-    background: #ECF1F6;
-    padding: 20px; 
-    width: max-content;
-}
-</style>
-
-
-
         <link rel="stylesheet" href="/data/assets/css/main.css">
-        <link rel="stylesheet" href="/data/auth/authStyle.css">
-        <link id="quantml-theme" rel="stylesheet" href="" />
+        <link rel="stylesheet" href="/data/assets/css/authStyle.css">
         <link id="quantml-auth-style" rel="stylesheet" href="">
+        <link onload="cssLoaded()" id="quantml-theme" rel="stylesheet" href="" />
 
         <!--KATEX-->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+        <link rel="stylesheet" href="/data/assets/css/katex.min.css">
 
         <!-- The loading of KaTeX is deferred to speed up page rendering -->
-        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+        <script defer src="/data/assets/js/katex.min.js"></script>
 
         <!-- To automatically render math in text elements, include the auto-render extension: -->
-        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
-        
+        <script defer src="/data/assets/js/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+
 		<title>Projection</title>
 		<meta charset="utf-8" />
         <link rel="icon" href="/data/icon.png" type="image/png" sizes="16x16">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<noscript><link rel="stylesheet" href="/data/assets/css/main-light.css" /></noscript>
-        
 
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-LRSK4V6G1M"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+	</head>
 
-  gtag('config', 'G-LRSK4V6G1M');
-</script>
-	</head>   
-    
-    <body style="display: none">
+    <body>
+
+        <div ><img id="pre-loading" class="loading" src="" alt=""></div>
+        <script>document.getElementById('pre-loading').src = '/data/img/loading.gif'</script>
+        <script>if(localStorage.getItem("quantmlTheme")=="dark"){document.querySelector('body').style.backgroundColor = "rgb(45,45,45)";document.getElementById('pre-loading').src="/data/img-dark/loading.gif"}</script>
 
         <!-- Wrapper -->
-            <div id="wrapper">
+            <div style="display: none;" id="wrapper">
+                <div class="bg fixed" style="transform: none;"></div>
+                <div id="navPanelToggle">Menu</div>
 
                 <!-- Header -->
                     <header id="header">
@@ -74,15 +47,10 @@
                             <li class="active"><a href="/la/projection/">Projection</a></li>
                             <li><a href="/la/least-squares/">Least Squares(Application of projection)</a></li>
                         </ul>
-                        <ul class="icons">
-                            <li><a target="_blank" href="https://quantml.org/"><img src="/data/icon.png" alt="QuantML"></a></li>
-                            <li><a target="_blank" href="https://join.slack.com/t/quantml-org/shared_invite/zt-jffw86bo-6M260iyt1q2MgBma9elewg"><img src="/data/img/slack.png" alt="Slack"></a></li>
-                            <li><a target="_blank" href="https://www.linkedin.com/in/yuvraj97/"><img src="/data/img/linkedin.png" alt="LinkedIn"></a></li>
-                            <li><a target="_blank" href="https://github.com/yuvraj97/"><img src="/data/img/github.png" alt="GitHub"></a></li>
-                            <li><button onclick=" window.open('https://www.patreon.com/quantml','_blank')" class="login-logout-join" >Join &nbsp; <img src="/data/img/patreon.png" alt="Join"></button></li>
-                            <li><a style="cursor: pointer;"><img id="change-theme" src="" alt="Change Theme"></a></li>
+                         <ul id="nav-bar-icons-head" class="icons">
                         </ul>
                     </nav>
+
                 <!-- Main -->
                     <div id="main">
                         <section id="paragraph" class="post">
@@ -92,7 +60,6 @@
 </div><br>
 
 <p>
-<!-- <h1>Projection</h1> -->
 
 <h1 id="vec-proj">Vector Projection</h1>
 
@@ -102,17 +69,17 @@ Now <b>in space of \(\vec{v}\)</b> which vector is <b>closest</b> to \(\vec{w}\)
 But let's first ask what is the space of \(\vec{v}\)?<br>
 
 <br>
-<blockquote>    
+<blockquote>
     We are asking for the space of <b>a single vector</b>, a single vector can only give us a
     space in \(\mathbb{R}\) which is a <b>line</b>.<br>
-    So the <b>span</b> of \(\vec{v}\) is \(C\vec{v};\quad C\in\mathbb{R}\) 
+    So the <b>span</b> of \(\vec{v}\) is \(C\vec{v};\quad C\in\mathbb{R}\)
 </blockquote>
 Now we have to find a vector <b>closest</b> to \(\vec{w}\) in the <b>vector space</b> of \(\vec{v}\).<br>
-Let's call this <b>closest</b> vector as \(\vec{p}\), 
+Let's call this <b>closest</b> vector as \(\vec{p}\),
 this \(\vec{p}\) is the projection of \(\vec{w}\) on \(\vec{v}\).<br>
 We know that \(\vec{p}\) lives in the <b>vector space</b> of \(\vec{v}\).<br>
 So <span class="bb">\(\vec{p}=x\vec{v};\quad x\in\mathbb{R}\)</span>.<br>
-\(\vec{p}\) is the <b>closest</b> vector to \(\vec{w}\) then the vector joining 
+\(\vec{p}\) is the <b>closest</b> vector to \(\vec{w}\) then the vector joining
 \(\vec{p}\) to \(\vec{w}\) is perpendicular to \(\vec{v}\).<br>
 Say the vector joining \(\vec{p}\) to \(\vec{w}\) be \(\vec{e}\), and \(\vec{e} = \vec{w}-\vec{p}\)
 So,<br>
@@ -127,7 +94,7 @@ So,<br>
 <b>Projection</b> of \(\vec{w}\) on \(\vec{v}\) is <span class="bb">\(\vec{p}=\vec{v}x\)</span><br>
 <br>
 <h1 id="vector-projection-matrix">Projection Matrix of a vector</h1>
-Say we have a vector <span class="bb">\(\vec{v}\in\mathbb{R}^n\)</span> now we want a <b>matrix</b> that gives us projection 
+Say we have a vector <span class="bb">\(\vec{v}\in\mathbb{R}^n\)</span> now we want a <b>matrix</b> that gives us projection
 of <b>any</b> vector onto this vector \(\vec{v}\), we call this matrix a <b>projection matrix</b>.<br>
 Say this projected vector on \(\vec{v}\) be \(\vec{p}\).<br>
 As we discussed above,<br>
@@ -138,11 +105,11 @@ As we discussed above,<br>
 Projection matrix\((P)\) of a vector \(\vec{v}\) is
 
 <div class="l1 border">
-\[    
+\[
     \begin{matrix}
 
     % equation
-    \displaystyle P=\frac{\vec{v}\ \vec{v}^T}{\vec{v}^T\vec{v}} 
+    \displaystyle P=\frac{\vec{v}\ \vec{v}^T}{\vec{v}^T\vec{v}}
     %equation
 
     \end{matrix}
@@ -150,19 +117,19 @@ Projection matrix\((P)\) of a vector \(\vec{v}\) is
 </div>
 
 <li>Columns of \(P\) is the <b>linear combinations</b> of \(\vec{v}\), so </li>
-<blockquote>    
+<blockquote>
 Column space of \(P\) is the vector space of \(\vec{v}\).<br>
 </blockquote>
 
-<li>We have our <b>Projection matrix</b>\((P)\) we can take <b>projection</b> of any vector 
+<li>We have our <b>Projection matrix</b>\((P)\) we can take <b>projection</b> of any vector
 \(\vec{w}\) on \(\vec{v}\) by evaluating \(P\vec{w}\)</li>
-<blockquote>    
-In \(P\vec{w}\) we are taking the <b>linear combination</b> of \(\vec{v}\) so the resultant 
+<blockquote>
+In \(P\vec{w}\) we are taking the <b>linear combination</b> of \(\vec{v}\) so the resultant
 projection of \(\vec{w}\) on \(\vec{v}\) lives in the <b>vector space</b> of \(\vec{v}\).<br>
 </blockquote>
 
 <li>What about the <b>rank</b> of \(P\)?</li>
-<blockquote>    
+<blockquote>
 Rank of \(P\) is \(1\).<br>
 Because all the columns of \(P\) is the <b>linear combination</b> of a <b>single vector</b> \(\vec{v}\).
 </blockquote>
@@ -173,18 +140,18 @@ Because all the columns of \(P\) is the <b>linear combination</b> of a <b>single
 \(\displaystyle \Rightarrow P^T = \frac{\vec{v}^{T^T}  \vec{v}^T}{\vec{v}^T\vec{v}} \)<br>
 \(\displaystyle \Rightarrow P^T = \frac{\vec{v} \vec{v}^T}{\vec{v}^T\vec{v}} \)<br>
 So \(P\) is symmetric.
-<blockquote>    
+<blockquote>
 \[P=P^T\]
 </blockquote>
 
 <li>What if we apply the projection of a vector \(\vec{w}\) on \(\vec{v}\) <b>twice</b>?</li>
 When we apply the <b>projection</b> first time, we land in the <b>vector space</b> of \(\vec{v}\).<br>
 Let's say the projected vector be \(\vec{p}_1\).<br>
-If we again apply the <b>projection</b> on \(\vec{p}_1\) then it project the \(\vec{p_1}\) 
+If we again apply the <b>projection</b> on \(\vec{p}_1\) then it project the \(\vec{p_1}\)
 into the vector space of \(\vec{v}\).<br>
 But \(\vec{p}_1\) is already in <b>vector space</b> of \(\vec{v}\), so the second projection did nothing.<br>
-So we can say that 
-<blockquote>    
+So we can say that
+<blockquote>
 \[P^2=P\]
 </blockquote><br>
 <br>
@@ -245,7 +212,7 @@ x_1\\
 x_2\\
 x_3\\
 \end{bmatrix}=\mathbb{X},\quad\)
-and 
+and
 \(\begin{bmatrix}
 f_1\\
 f_2\\
@@ -259,17 +226,17 @@ Our data is <b>noisy</b>.<br>
 <span class="bb">\(\text{Rank}(\mathbb{A})\leq 3\)</span>,
 <span class="bb"> \(\mathbb{X}\in\mathbb{R}^3\)</span>,
 <span class="bb"> \(\mathbb{Y}\in\mathbb{R}^5\)</span>.<br>
-So there are <b>high chance</b> that \(\mathbb{Y}\) does <b>not</b> lives in <b>column space</b> of \(\mathbb{A}\).<br> 
+So there are <b>high chance</b> that \(\mathbb{Y}\) does <b>not</b> lives in <b>column space</b> of \(\mathbb{A}\).<br>
 So <b>instead</b> we find the solution for <span class="bb">\(\mathbb{A}\widehat{\mathbb{X}}=\widehat{\mathbb{Y}}\)</span>.<br>
 Where \(\widehat{\mathbb{Y}}\) lives in the column space of \(\mathbb{A}\) <b>and</b> \(\widehat{\mathbb{Y}}\)
 is <b>closest</b> to \(\mathbb{Y}\)
-<blockquote>    
+<blockquote>
 We can get this \(\widehat{\mathbb{Y}}\) by taking the <b>projection</b> of \(\mathbb{Y}\)
 onto the <b>column space</b> of \(\mathbb{A}\)
 </blockquote><br>
 
 <h1 id="matrix-projection">Matrix Projection</h1>
-Say that we have a \(m\times n\) matrix <span class="bb">\(\mathbb{A}\in\mathbb{R}^{m\times n}\)</span> and a vector 
+Say that we have a \(m\times n\) matrix <span class="bb">\(\mathbb{A}\in\mathbb{R}^{m\times n}\)</span> and a vector
 <span class="bb">\(\vec{v}\in\mathbb{R}^n\)</span>.<br>
 Then <b>projection</b> of a vector \(\vec{v}\) on a matrix \(\mathbb{A}\) <i>generally</i> means <b>projection</b>
 of \(\vec{v}\) on the <b>column space</b> of matrix \(\mathbb{A}\).<br>
@@ -285,10 +252,10 @@ collectively gives us back our vector \(\vec{v}\)
 </blockquote><br>
 
 <h2 id="matrix-projection-column">Projection onto the column space of a matrix</h2>
-Recall our <a  href="/la/projection/#example">previous example</a>, 
+Recall our <a  href="/la/projection/#example">previous example</a>,
 here we have a system of equation <span class="bb">\(\mathbb{A}\mathbb{X}=\mathbb{Y}\)</span> where there is <b>no solution</b>.<br>
-Here problem was that there are <b>high chance</b> that \(\mathbb{Y}\) does <b>not</b> lives in <b>column space</b> of \(\mathbb{A}\), 
-So it does <b>not</b> have a solution.<br> 
+Here problem was that there are <b>high chance</b> that \(\mathbb{Y}\) does <b>not</b> lives in <b>column space</b> of \(\mathbb{A}\),
+So it does <b>not</b> have a solution.<br>
 So we go for the <b>closest</b> solution.<br>
 <span class="bb">\(\mathbb{A}\widehat{\mathbb{X}}=\widehat{\mathbb{Y}}\)</span><br>
 where, \(\widehat{\mathbb{Y}}\) lives in the <b>column space</b> of \(\mathbb{A}\), so.<br>
@@ -296,20 +263,20 @@ where, \(\widehat{\mathbb{Y}}\) lives in the <b>column space</b> of \(\mathbb{A}
 <blockquote>
 \(\widehat{\mathbb{Y}}\) is the <b>linear combinations</b> of the columns of \(\mathbb{A}\).
 </blockquote>
-(vector)\(\widehat{\mathbb{Y}}\) lives in the column space \(\mathbb{A}\) <b>and</b> 
+(vector)\(\widehat{\mathbb{Y}}\) lives in the column space \(\mathbb{A}\) <b>and</b>
 (vector)\(\mathbb{Y}\) is at some angle to the column space of \(\mathbb{A}\), So <br>
 <blockquote>
 The vector \(\mathbb{Y} - \widehat{\mathbb{Y}}\) is perpendicular to the <b>column space</b> of \(\mathbb{A}\)
 </blockquote>
 \(\Rightarrow \mathbb{Y} - \widehat{\mathbb{Y}}\) is also perpendicular to the column <b>vectors</b> of \(\mathbb{A}\)<br>
-\(\Rightarrow\) <span class="bb">\(\vec{a}^T (\mathbb{Y} - \widehat{\mathbb{Y}})=0\)</span>, 
+\(\Rightarrow\) <span class="bb">\(\vec{a}^T (\mathbb{Y} - \widehat{\mathbb{Y}})=0\)</span>,
 <span class="bb">\(\vec{b}^T (\mathbb{Y} - \widehat{\mathbb{Y}})=0\)</span> and
 <span class="bb">\(\vec{c}^T (\mathbb{Y} - \widehat{\mathbb{Y}})=0\)</span>
 where \(\vec{a},\) \(\vec{b}\) and \(\vec{c}\) are the column vector of \(\mathbb{A}\).<br>
 We can write it as,<br>
 
 <div class="l1 border">
-\[    
+\[
     \begin{matrix}
 
     % equation
@@ -323,9 +290,9 @@ We can write it as,<br>
 Notice that \(\mathbb{Y} - \widehat{\mathbb{Y}}\) lives in \((N(A^T))\)
 <li>The <a  href="/la/fundamental-subspaces/#left-null-space">Left Null Space</a>
 of matrix \(\mathbb{A}\) OR say </li>
-<li>The <a  href="/la/null-space/">Null Space</a> of \(\mathbb{A}^T\).<br></li> 
+<li>The <a  href="/la/null-space/">Null Space</a> of \(\mathbb{A}^T\).<br></li>
 And <b>Null Space</b> of \(\mathbb{A}^T\) is <b>perpendicular</b> to the <b>column space</b> of \(\mathbb{A}\).<br>
-<blockquote>    
+<blockquote>
 So \(\mathbb{Y} - \widehat{\mathbb{Y}}\) is  <b>perpendicular</b> to the <b>column space</b> of \(\mathbb{A}\).<br>
 </blockquote>
 \(\mathbb{A}^T(\mathbb{Y} - \widehat{\mathbb{Y}})=0\) <b>and</b> \(\widehat{\mathbb{Y}}=\mathbb{A}\widehat{\mathbb{X}}\)<br>
@@ -334,7 +301,7 @@ So \(\mathbb{Y} - \widehat{\mathbb{Y}}\) is  <b>perpendicular</b> to the <b>colu
 \(\Rightarrow \mathbb{A}^T\mathbb{A}\widehat{\mathbb{X}}=\mathbb{A}^T \mathbb{Y}\)<br>
 
 <div class="l1 border">
-\[    
+\[
     \begin{matrix}
 
     % equation
@@ -351,7 +318,7 @@ Our <b>projection</b> of \(\mathbb{Y}\) on the columnn space of \(\mathbb{A}\) i
 <li>Projection\((\widehat{\mathbb{Y}})\) of \(\mathbb{Y}\) on the <b>column space</b> of \(\mathbb{A}\):</li>
 
 <div class="l1 border">
-\[    
+\[
     \begin{matrix}
 
     % equation
@@ -363,10 +330,10 @@ Our <b>projection</b> of \(\mathbb{Y}\) on the columnn space of \(\mathbb{A}\) i
 </div>
 
 <br>
-So our <b>Projection Matrix</b> is, 
+So our <b>Projection Matrix</b> is,
 
 <div class="l1 border">
-\[    
+\[
     \begin{matrix}
 
     % equation
@@ -385,18 +352,18 @@ So our <b>Projection Matrix</b> is,
 \(\displaystyle \Rightarrow P^T = \mathbb{A}^{T^T}(\mathbb{A}^T\mathbb{A}^{T^T})^{-1}\mathbb{A}^T\)<br>
 \(\displaystyle \Rightarrow P^T = \mathbb{A}(\mathbb{A}^T\mathbb{A})^{-1}\mathbb{A}^T\)<br>
 So \(P\) is symmetric.
-<blockquote>    
+<blockquote>
 \[P=P^T\]
 </blockquote><br>
 
 <li>What if we project <b>vector</b> \(\mathbb{Y}\) on the <b>column space</b> of a matrix \(\mathbb{A}\) of a matrix \(\mathbb{A}\) <b>twice</b>?</li>
 When we apply the <b>projection</b> first time, we land in the <b>column space</b> of \(\mathbb{A}\).<br>
 Let's say the projected vector be \(\widehat{\mathbb{Y}}\).<br>
-If we again project the \(\widehat{\mathbb{Y}}\) on the <b>column space</b> of \(\mathbb{A}\) 
+If we again project the \(\widehat{\mathbb{Y}}\) on the <b>column space</b> of \(\mathbb{A}\)
 then the resultant vector will be \(\widehat{\mathbb{Y}}\).<br>
 Because \(\widehat{\mathbb{Y}}\) is already in <b>column space</b> of \(\mathbb{A}\), so the second projection did nothing.<br>
-So we can say that 
-<blockquote>    
+So we can say that
+<blockquote>
 \[P^2=P\]
 </blockquote><br>
 Let's look at the extreme cases,<br>
@@ -407,13 +374,13 @@ Suppose we want to take projection of a vector \(\vec{b}\) in the <b>column spac
     First let's think about the space of vector<b>s</b> who are <b>perpendicular</b> to the <b>column space</b> of matrix \(\mathbb{A}\).<br>
     Space <b>perpendicular</b> to the <b>column space</b> is <b>Null space</b> of \(\mathbb{A}^T\).<br>
     So \(\vec{b}\) lives in the <b>Null space</b> of \(\mathbb{A}^T\).<br>
-    So, 
-    <blockquote>    
+    So,
+    <blockquote>
     \(\mathbb{A}^T\vec{b}=\vec{0}\)
     </blockquote>
     <li><b>projection matrix</b>\((P)\) of the <b>column space</b> of a matrix \(\mathbb{A}\) is,</li>
-    <blockquote>    
-        \(P= \mathbb{A}(\mathbb{A}^T\mathbb{A})^{-1}\mathbb{A}^T\)        
+    <blockquote>
+        \(P= \mathbb{A}(\mathbb{A}^T\mathbb{A})^{-1}\mathbb{A}^T\)
     </blockquote>
     And <b>projection</b>\(P\) of \(\vec{b}\) in the <b>column space</b> of a matrix \(\mathbb{A}\) is \(P\vec{b}\) <br>
     \(P\vec{b}= \mathbb{A}(\mathbb{A}^T\mathbb{A})^{-1}\underbrace{\mathbb{A}^T\vec{b}}_{=\vec{0}}=\vec{0}\)
@@ -435,7 +402,7 @@ Suppose we want to take projection of a vector \(\vec{b}\) in the <b>column spac
 </dd></dl>
 </p>
 
-<div class="slack-discuss" onclick=" window.open('https://join.slack.com/t/quantml-org/shared_invite/zt-jffw86bo-6M260iyt1q2MgBma9elewg','_blank')">
+<div class="slack-discuss" onclick=" window.open('https://join.slack.com/t/quantml-org/shared_invite/zt-jffw86bo-6M260iyt1q2MgBma9elewg','_blank','noopener')">
     Join our Slack <img src="/data/img/slack.png" alt="Slack"> discussion forum
 </div>
 <br>
@@ -443,22 +410,46 @@ Suppose we want to take projection of a vector \(\vec{b}\) in the <b>column spac
 <div id="btn-container">
     <button id="prev-btn" class="button" onclick="window.location.href = '/la/orthogonal-subspaces/';">&#x25C0;&nbsp;&nbsp;Orthogonal Subspaces</button>
     <button id="next-btn" class="button"  style="float: right;" onclick="window.location.href = '/la/least-squares/';">Least Squares&nbsp;&nbsp;&#x25B6;</button></div><br>
-                        </section>
+<div id="modals-html"></div>
+
+                    </section>
                     </div>
             </div>
 
-        <!-- Scripts -->
-			<script src="/data/assets/js/jquery.min.js"></script>
-			<script src="/data/assets/js/jquery.scrollex.min.js"></script>
-			<script src="/data/assets/js/jquery.scrolly.min.js"></script>
-			<script src="/data/assets/js/browser.min.js"></script>
-			<script src="/data/assets/js/breakpoints.min.js"></script>
-			<script src="/data/assets/js/util.js"></script>
-            <script src="/data/assets/js/main.js"></script>
-			<script src="/data/initialize-css.js"></script>
-            <script src="/data/index.js"></script>
-			<script src="/data/prism/prism.js"></script>
-            <script>setTimeout(() => {document.querySelector('body').style.display="block"}, 0)</script>
+            <div id="navPanel">
+                <nav>
+                    <ul class="links">
+                        <li class="cover"><a href="/stats/"><img src="/data/img/STATISTICS-cover.png" alt="STATISTICS"></a></li>
+                        <li class="active title"><a>Introduction</a></li>
+                        <li class="python"><a href="python/"><img src="/data/img/python.png" alt="Python"></a></li>
+                        <li class="julia"><a href="julia/"><img src="/data/img/julia.png" alt="Julia"></a></li>
+                    </ul>
+                    <ul id="nav-bar-icons-foot" class="icons">
+                    </ul>
+                </nav>
+                <div id="close-navbar" class="close"></div>
+            </div>
 
+        <!-- Scripts -->
+			<script src="/data/assets/js/initialize-css.js"></script>
+            <script src="/data/assets/js/init.js"></script>
+            <script>
+                function cssLoaded(){
+                    document.getElementById('wrapper').style.display="block";
+                    document.getElementById('pre-loading').style.display="none";
+                    fullyLoaded()
+                }
+            </script>
+            <script src="/data/assets/js/index.js"></script>
+
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+            <script async src="https://www.googletagmanager.com/gtag/js?id=G-LRSK4V6G1M"></script>
+            <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-LRSK4V6G1M');
+            </script>
     </body>
 </html>

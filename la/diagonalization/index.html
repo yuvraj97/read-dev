@@ -1,56 +1,39 @@
 <!DOCTYPE HTML>
-<!--
-    "Thanks to HTML5 UP for this template".
-    Massively by HTML5 UP
-    html5up.net | @ajlkn
-    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
+<html lang="en">
+
     <head>
 
-
-
-        <!--Prism-->
-        <link rel="stylesheet" href="/data/prism/prism.css">
-    
-
-
         <link rel="stylesheet" href="/data/assets/css/main.css">
-        <link rel="stylesheet" href="/data/auth/authStyle.css">
-        <link id="quantml-theme" rel="stylesheet" href="" />
+        <link rel="stylesheet" href="/data/assets/css/authStyle.css">
         <link id="quantml-auth-style" rel="stylesheet" href="">
+        <link onload="cssLoaded()" id="quantml-theme" rel="stylesheet" href="" />
 
         <!--KATEX-->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+        <link rel="stylesheet" href="/data/assets/css/katex.min.css">
 
         <!-- The loading of KaTeX is deferred to speed up page rendering -->
-        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+        <script defer src="/data/assets/js/katex.min.js"></script>
 
         <!-- To automatically render math in text elements, include the auto-render extension: -->
-        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
-        
+        <script defer src="/data/assets/js/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+
 		<title>Diagonalization of a Matrix</title>
 		<meta charset="utf-8" />
         <link rel="icon" href="/data/icon.png" type="image/png" sizes="16x16">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<noscript><link rel="stylesheet" href="/data/assets/css/main-light.css" /></noscript>
-        
 
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-LRSK4V6G1M"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+	</head>
 
-  gtag('config', 'G-LRSK4V6G1M');
-</script>
-	</head>   
-    
-    <body style="display: none">
+    <body>
+
+        <div ><img id="pre-loading" class="loading" src="" alt=""></div>
+        <script>document.getElementById('pre-loading').src = '/data/img/loading.gif'</script>
+        <script>if(localStorage.getItem("quantmlTheme")=="dark"){document.querySelector('body').style.backgroundColor = "rgb(45,45,45)";document.getElementById('pre-loading').src="/data/img-dark/loading.gif"}</script>
 
         <!-- Wrapper -->
-            <div id="wrapper">
+            <div style="display: none;" id="wrapper">
+                <div class="bg fixed" style="transform: none;"></div>
+                <div id="navPanelToggle">Menu</div>
 
                 <!-- Header -->
                     <header id="header">
@@ -63,15 +46,10 @@
                             <li class="cover"><a href="/la/"><img src="/data/img/linear-algebra-cover.png" alt="Linear Algebra"></a></li>
                             <li class="active"><a href="/la/diagonalization/">Diagonalization of a Matrix</a></li>
                         </ul>
-                        <ul class="icons">
-                            <li><a target="_blank" href="https://quantml.org/"><img src="/data/icon.png" alt="QuantML"></a></li>
-                            <li><a target="_blank" href="https://join.slack.com/t/quantml-org/shared_invite/zt-jffw86bo-6M260iyt1q2MgBma9elewg"><img src="/data/img/slack.png" alt="Slack"></a></li>
-                            <li><a target="_blank" href="https://www.linkedin.com/in/yuvraj97/"><img src="/data/img/linkedin.png" alt="LinkedIn"></a></li>
-                            <li><a target="_blank" href="https://github.com/yuvraj97/"><img src="/data/img/github.png" alt="GitHub"></a></li>
-                            <li><button onclick=" window.open('https://www.patreon.com/quantml','_blank')" class="login-logout-join" >Join &nbsp; <img src="/data/img/patreon.png" alt="Join"></button></li>
-                            <li><a style="cursor: pointer;"><img id="change-theme" src="" alt="Change Theme"></a></li>
+                         <ul id="nav-bar-icons-head" class="icons">
                         </ul>
                     </nav>
+
                 <!-- Main -->
                     <div id="main">
                         <section id="paragraph" class="post">
@@ -82,17 +60,17 @@
 
 <p>
 <h1>Diagonalization of a Matrix</h1>
-Say that we have a \(n\times n\) matrix \(A\) with 
+Say that we have a \(n\times n\) matrix \(A\) with
 \(n\) <b>independent</b> <i>eigenvectors</i> (say \(\vec{x}_1,\vec{x}_2,\cdots,\vec{x}_n\)).<br>
 We put these <i>eigenvectors</i> (\(\vec{x}_1,\vec{x}_2,\cdots,\vec{x}_n\)) in a matrix (say \(S\)).<br>
 \[
 S=\begin{bmatrix}
- \vdots & \vdots & \cdots & \vdots \\  
+ \vdots & \vdots & \cdots & \vdots \\
  \vec{x}_{1} & \vec{x}_{2} & \cdots &  \vec{x}_{n}   \\
  \vdots & \vdots & \cdots & \vdots \\
  \end{bmatrix}
 \]
-\[A\vec{x}_i=\lambda_i\vec{x}_i;\quad 
+\[A\vec{x}_i=\lambda_i\vec{x}_i;\quad
 \left\{\begin{matrix}
     \vec{x}_i\text{ is eigenvector}\\
     \lambda_i\text{ is eigenvalue}
@@ -101,34 +79,34 @@ S=\begin{bmatrix}
 Let's calculate \(AS\)<br>
 <blockquote class="noborder">
 \(AS = A \begin{bmatrix}
- \vdots & \vdots & \cdots & \vdots \\  
+ \vdots & \vdots & \cdots & \vdots \\
  \vec{x}_{1} & \vec{x}_{2} & \cdots &  \vec{x}_{n}   \\
  \vdots & \vdots & \cdots & \vdots \\
  \end{bmatrix}\)<br>
 
 \(\Rightarrow AS = \begin{bmatrix}
- \vdots & \vdots & \cdots & \vdots \\  
+ \vdots & \vdots & \cdots & \vdots \\
  A\vec{x}_{1} & A\vec{x}_{2} & \cdots &  A\vec{x}_{n}   \\
  \vdots & \vdots & \cdots & \vdots \\
  \end{bmatrix}\)<br>
 
 \(\Rightarrow AS = \begin{bmatrix}
- \vdots & \vdots & \cdots & \vdots \\  
+ \vdots & \vdots & \cdots & \vdots \\
  \lambda_1\vec{x}_{1} & \lambda_2\vec{x}_{2} & \cdots &  \lambda_n\vec{x}_{n}   \\
  \vdots & \vdots & \cdots & \vdots \\
  \end{bmatrix}\)<br>
 
  <div class="math-container">
 \[\Rightarrow AS = \begin{bmatrix}
- \vdots & \vdots & \cdots & \vdots \\  
+ \vdots & \vdots & \cdots & \vdots \\
  \vec{x}_{1} & \vec{x}_{2} & \cdots & \vec{x}_{n}   \\
  \vdots & \vdots & \cdots & \vdots \\
  \end{bmatrix}
  \underbrace{\begin{bmatrix}
- \lambda_1 &     0     & \cdots  &    0    \\  
- 0         & \lambda_2 & \cdots  &    0    \\  
- \vdots    & \vdots    & \ddots  & \vdots    \\  
- 0         &    0      & \cdots  &    \lambda_n    \\  
+ \lambda_1 &     0     & \cdots  &    0    \\
+ 0         & \lambda_2 & \cdots  &    0    \\
+ \vdots    & \vdots    & \ddots  & \vdots    \\
+ 0         &    0      & \cdots  &    \lambda_n    \\
 \end{bmatrix}}_{\text{say }\Lambda}
  \]</div>
  </blockquote>
@@ -139,7 +117,7 @@ because \(S\) has independent columns so \(S^{-1}\) exists, so<br>
 <div class="l1 border">
     \[
         \begin{matrix}
-            
+
         % equation
         \displaystyle \Lambda =S^{-1}AS
         %equation
@@ -147,14 +125,14 @@ because \(S\) has independent columns so \(S^{-1}\) exists, so<br>
         \end{matrix}
     \]
 </div>
-    
+
 This is <b>Diagonalization</b>.<br>
 
 We can also get a factorization of \(A\)<br>
 <div class="l1 border">
     \[
         \begin{matrix}
-            
+
         % equation
         \displaystyle A=S\Lambda S^{-1}
         %equation
@@ -167,7 +145,7 @@ We can also get a factorization of \(A\)<br>
 <h1 id="power">Power of a matrix</h1>
 Now let's see how \(A=S\Lambda S^{-1}\) helps us in calculating \(A^k\) for \(k=\{1,2,3,\cdots\}\)<br>
 We know that,<br>
-\[A\vec{x}_i=\lambda_i\vec{x}_i;\quad 
+\[A\vec{x}_i=\lambda_i\vec{x}_i;\quad
 \left\{\begin{matrix}
     \vec{x}_i\text{ is eigenvector}\\
     \lambda_i\text{ is eigenvalue}
@@ -188,10 +166,10 @@ We can also get it by \(A=S\Lambda S^{-1}\).<br>
 \(\Rightarrow A^2=S\Lambda^2 S^{-1}\)<br>
 where,
 \(\Lambda^2=\begin{bmatrix}
- \lambda_1^2 &     0     & \cdots  &    0    \\  
- 0         & \lambda_2^2 & \cdots  &    0    \\  
- \vdots    & \vdots    & \ddots  & \vdots    \\  
- 0         &    0      & \cdots  &    \lambda_n^2    \\  
+ \lambda_1^2 &     0     & \cdots  &    0    \\
+ 0         & \lambda_2^2 & \cdots  &    0    \\
+ \vdots    & \vdots    & \ddots  & \vdots    \\
+ 0         &    0      & \cdots  &    \lambda_n^2    \\
 \end{bmatrix}\)
 </blockquote>
 Now we can get formula for \(k^{\text{th}}\) power of \(A\).<br>
@@ -199,7 +177,7 @@ Now we can get formula for \(k^{\text{th}}\) power of \(A\).<br>
 <div class="l1 border">
     \[
         \begin{matrix}
-            
+
         % equation
         \displaystyle A^k = S\Lambda^k S^{-1}
         %equation
@@ -237,9 +215,9 @@ If all the <i>eigenvalues</i> are different then all the <i>eigenvectors</i> are
 implies that all <i>eigenvalues</i> are different.<br>
 <b>Example</b><br>
 Say \(A=\mathcal{I}_{3\times 3}=\begin{bmatrix}
- 1      & 0 &    0    \\  
- 0      & 1 &    0    \\  
- 0      & 0 &    1 \\  
+ 1      & 0 &    0    \\
+ 0      & 1 &    0    \\
+ 0      & 0 &    1 \\
 \end{bmatrix}\)<br>
 So when we apply transformation of \(\mathcal{I}\) nothing changes so every vector is an eigenvector for \(\mathcal{I}\).<br>
 But there is only <b>one</b> <i>eigenvalue</i> and that is \(1\).
@@ -258,7 +236,7 @@ We iteratively apply transformation \(A\) on \(\vec{u}_0\).<br>
 \(\vec{u}\) lives in the column space of \(A\), and \(A\) has \(n\) <b>independent</b> <i>eigenvectors</i>
 so we can say that \(\vec{u}\) lives in the vector space spanned by these <i>eigenvectors</i>.<br>
 so \(\vec{u}\) is the <b>linear combination</b> of these <i>eigenvectors</i>.<br>
-say the <i>eigenvectors</i> of \(A\) are \(\vec{x}_1,\vec{x}_2,\cdots,\vec{x}_n\) 
+say the <i>eigenvectors</i> of \(A\) are \(\vec{x}_1,\vec{x}_2,\cdots,\vec{x}_n\)
 and <i>eigenvalues</i> of \(A\) are \(\lambda_1,\lambda_2,\cdots,\lambda_n\) <br>
 So we can say that,<br>
 \(\vec{u}_0=c_1\vec{x}_1+c_2\vec{x}_2+\cdots+c_n\vec{x}_n\)<br>
@@ -267,13 +245,13 @@ So we can say that,<br>
 \(\Rightarrow A^{k}\vec{u}_0=c_1\lambda^{k}\vec{x}_1+c_2\lambda^{k}\vec{x}_2+\cdots+c_n\lambda^{k}\vec{x}_n\)<br>
 \(\Rightarrow A^{k}\vec{u}_0=\Lambda^k S \vec{c}\)<br>
 \(\Lambda=\begin{bmatrix}
- \lambda_1 &     0     & \cdots  &    0    \\  
- 0         & \lambda_2 & \cdots  &    0    \\  
- \vdots    & \vdots    & \ddots  & \vdots    \\  
- 0         &    0      & \cdots  &    \lambda_n    \\  
+ \lambda_1 &     0     & \cdots  &    0    \\
+ 0         & \lambda_2 & \cdots  &    0    \\
+ \vdots    & \vdots    & \ddots  & \vdots    \\
+ 0         &    0      & \cdots  &    \lambda_n    \\
 \end{bmatrix};\quad\)
 \(S=\begin{bmatrix}
- \vdots & \vdots & \cdots & \vdots \\  
+ \vdots & \vdots & \cdots & \vdots \\
  \vec{x}_{1} & \vec{x}_{2} & \cdots &  \vec{x}_{n}   \\
  \vdots & \vdots & \cdots & \vdots \\
  \end{bmatrix};\quad\)
@@ -282,7 +260,7 @@ So,<br>
 <div class="l1 border">
     \[
         \begin{matrix}
-            
+
         % equation
         \displaystyle \vec{u}_k = A^{k}\vec{u}_0=\Lambda^k S\ \vec{c}
         %equation
@@ -323,7 +301,7 @@ We get our <i>eigenvalues</i> \(\lambda_1, \lambda_2\).<br>
 \)<br>
 by solving it we get, <br>
 \(\vec{x}=\begin{bmatrix} \lambda\\ 1 \end{bmatrix}\)<br>
-So our <i>eigenvectors</i> are 
+So our <i>eigenvectors</i> are
 \(\vec{x}_1=\begin{bmatrix} \lambda_1\\ 1 \end{bmatrix},\quad\)
 \(\vec{x}_2=\begin{bmatrix} \lambda_2\\ 1 \end{bmatrix}\)<br>
 </blockquote><br>
@@ -369,7 +347,7 @@ So,<br>
 <div class="l1 border math-container">
     \[
         \begin{matrix}
-            
+
         % equation
         \displaystyle F_k=\frac{1}{\sqrt{5}}\left(   \left(\frac{1+\sqrt{5}}{2}\right)^k - \left(\frac{1-\sqrt{5}}{2}\right)^k  \right)
         %equation
@@ -379,7 +357,7 @@ So,<br>
 </div>
 <blockquote>
 For large \(k,\quad\) \(\left(\frac{1-\sqrt{5}}{2}\right)^{k}\approx 0\)<br>
-So 
+So
 \[F_k\approx \frac{1}{\sqrt{5}}\left(   \left(\frac{1+\sqrt{5}}{2}\right)^k \right)\]
 \(\frac{1+\sqrt{5}}{2}\) is known as <a style="color:#185EE0" href="https://en.wikipedia.org/wiki/Golden_ratio">Golden Ratio</a>
 </blockquote><br>
@@ -389,7 +367,7 @@ Anti Symmetric matrix will give us pure Complex eigenvalue, and
 -->
 </p>
 
-<div class="slack-discuss" onclick=" window.open('https://join.slack.com/t/quantml-org/shared_invite/zt-jffw86bo-6M260iyt1q2MgBma9elewg','_blank')">
+<div class="slack-discuss" onclick=" window.open('https://join.slack.com/t/quantml-org/shared_invite/zt-jffw86bo-6M260iyt1q2MgBma9elewg','_blank','noopener')">
     Join our Slack <img src="/data/img/slack.png" alt="Slack"> discussion forum
 </div>
 <br>
@@ -398,22 +376,46 @@ Anti Symmetric matrix will give us pure Complex eigenvalue, and
     <button id="prev-btn" class="button" onclick="window.location.href = '/la/eigenvalues-eigenvectors/';">&#x25C0;&nbsp;&nbsp;Eigenvalues and Eigenvectors</button>
     <button id="next-btn" class="button"  style="float: right;" onclick="window.location.href = '/la/differential-equation/';">Differential Equation&nbsp;&nbsp;&#x25B6;</button>
 </div><br>
-                        </section>
+<div id="modals-html"></div>
+
+                    </section>
                     </div>
             </div>
 
-        <!-- Scripts -->
-			<script src="/data/assets/js/jquery.min.js"></script>
-			<script src="/data/assets/js/jquery.scrollex.min.js"></script>
-			<script src="/data/assets/js/jquery.scrolly.min.js"></script>
-			<script src="/data/assets/js/browser.min.js"></script>
-			<script src="/data/assets/js/breakpoints.min.js"></script>
-			<script src="/data/assets/js/util.js"></script>
-            <script src="/data/assets/js/main.js"></script>
-			<script src="/data/initialize-css.js"></script>
-            <script src="/data/index.js"></script>
-			<script src="/data/prism/prism.js"></script>
-            <script>setTimeout(() => {document.querySelector('body').style.display="block"}, 0)</script>
+            <div id="navPanel">
+                <nav>
+                    <ul class="links">
+                        <li class="cover"><a href="/stats/"><img src="/data/img/STATISTICS-cover.png" alt="STATISTICS"></a></li>
+                        <li class="active title"><a>Introduction</a></li>
+                        <li class="python"><a href="python/"><img src="/data/img/python.png" alt="Python"></a></li>
+                        <li class="julia"><a href="julia/"><img src="/data/img/julia.png" alt="Julia"></a></li>
+                    </ul>
+                    <ul id="nav-bar-icons-foot" class="icons">
+                    </ul>
+                </nav>
+                <div id="close-navbar" class="close"></div>
+            </div>
 
+        <!-- Scripts -->
+			<script src="/data/assets/js/initialize-css.js"></script>
+            <script src="/data/assets/js/init.js"></script>
+            <script>
+                function cssLoaded(){
+                    document.getElementById('wrapper').style.display="block";
+                    document.getElementById('pre-loading').style.display="none";
+                    fullyLoaded()
+                }
+            </script>
+            <script src="/data/assets/js/index.js"></script>
+
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+            <script async src="https://www.googletagmanager.com/gtag/js?id=G-LRSK4V6G1M"></script>
+            <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-LRSK4V6G1M');
+            </script>
     </body>
 </html>

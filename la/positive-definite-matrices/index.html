@@ -1,55 +1,39 @@
 <!DOCTYPE HTML>
-<!--
-    "Thanks to HTML5 UP for this template".
-    Massively by HTML5 UP
-    html5up.net | @ajlkn
-    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
+<html lang="en">
+
     <head>
 
-
-
-        <!--Prism-->
-        <link rel="stylesheet" href="/data/prism/prism.css">
-
-
         <link rel="stylesheet" href="/data/assets/css/main.css">
-        <link rel="stylesheet" href="/data/auth/authStyle.css">
-        <link id="quantml-theme" rel="stylesheet" href="" />
+        <link rel="stylesheet" href="/data/assets/css/authStyle.css">
         <link id="quantml-auth-style" rel="stylesheet" href="">
+        <link onload="cssLoaded()" id="quantml-theme" rel="stylesheet" href="" />
 
         <!--KATEX-->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+        <link rel="stylesheet" href="/data/assets/css/katex.min.css">
 
         <!-- The loading of KaTeX is deferred to speed up page rendering -->
-        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+        <script defer src="/data/assets/js/katex.min.js"></script>
 
         <!-- To automatically render math in text elements, include the auto-render extension: -->
-        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
-        
+        <script defer src="/data/assets/js/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+
 		<title>Positive Definite Matrices</title>
 		<meta charset="utf-8" />
         <link rel="icon" href="/data/icon.png" type="image/png" sizes="16x16">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<noscript><link rel="stylesheet" href="/data/assets/css/main-light.css" /></noscript>
-        
 
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-LRSK4V6G1M"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+	</head>
 
-  gtag('config', 'G-LRSK4V6G1M');
-</script>
-	</head>   
-    
-    <body style="display: none">
+    <body>
+
+        <div ><img id="pre-loading" class="loading" src="" alt=""></div>
+        <script>document.getElementById('pre-loading').src = '/data/img/loading.gif'</script>
+        <script>if(localStorage.getItem("quantmlTheme")=="dark"){document.querySelector('body').style.backgroundColor = "rgb(45,45,45)";document.getElementById('pre-loading').src="/data/img-dark/loading.gif"}</script>
 
         <!-- Wrapper -->
-            <div id="wrapper">
+            <div style="display: none;" id="wrapper">
+                <div class="bg fixed" style="transform: none;"></div>
+                <div id="navPanelToggle">Menu</div>
 
                 <!-- Header -->
                     <header id="header">
@@ -62,15 +46,10 @@
                             <li class="cover"><a href="/la/"><img src="/data/img/linear-algebra-cover.png" alt="Linear Algebra"></a></li>
                             <li class="active"><a href="/la/positive-definite-matrices/">Positive Definite Matrices</a></li>
                         </ul>
-                        <ul class="icons">
-                            <li><a target="_blank" href="https://quantml.org/"><img src="/data/icon.png" alt="QuantML"></a></li>
-                            <li><a target="_blank" href="https://join.slack.com/t/quantml-org/shared_invite/zt-jffw86bo-6M260iyt1q2MgBma9elewg"><img src="/data/img/slack.png" alt="Slack"></a></li>
-                            <li><a target="_blank" href="https://www.linkedin.com/in/yuvraj97/"><img src="/data/img/linkedin.png" alt="LinkedIn"></a></li>
-                            <li><a target="_blank" href="https://github.com/yuvraj97/"><img src="/data/img/github.png" alt="GitHub"></a></li>
-                            <li><button onclick=" window.open('https://www.patreon.com/quantml','_blank')" class="login-logout-join" >Join &nbsp; <img src="/data/img/patreon.png" alt="Join"></button></li>
-                            <li><a style="cursor: pointer;"><img id="change-theme" src="" alt="Change Theme"></a></li>
+                         <ul id="nav-bar-icons-head" class="icons">
                         </ul>
                     </nav>
+
                 <!-- Main -->
                     <div id="main">
                         <section id="paragraph" class="post">
@@ -81,7 +60,7 @@
 
 <p>
 <h1 id="properties">Properties of Positive Definite Matrices</h1>
-Say we have a \(n\times n\) matrix \(A\) then \(A\) is <b>Positive Definite Matrix</b> if <b>any</b> 
+Say we have a \(n\times n\) matrix \(A\) then \(A\) is <b>Positive Definite Matrix</b> if <b>any</b>
 of the below condition is satisfies,<br>
 <blockquote>
 \(1.\) All the <i>eigenvalues</i> are <b>positive</b>.<br>
@@ -120,7 +99,7 @@ a_{11}
     a_{11} & a_{12} & a_{13}\\
     a_{21} & a_{22} & a_{23}\\
     a_{31} & a_{32} & a_{33}\\
-    \end{bmatrix}  
+    \end{bmatrix}
 \right)\gt 0\)
 </blockquote>
 
@@ -159,7 +138,7 @@ a_{11}
 <li>Say we have <b>two</b> \(n\times n\) <i>positive definite matrix</i> \(A\) and \(B\)  then \(A+B\) is also <i>positive definite matrix</i></li>
 &nbsp;&nbsp;&nbsp;&nbsp;<b>Proof:</b><br>
 <blockquote class="noborder">
-    Here we can use property number \(5\) <i>"A matrix (say A) is positive definite matrix if 
+    Here we can use property number \(5\) <i>"A matrix (say A) is positive definite matrix if
     \(\vec{x}^TA\vec{x}\gt 0;\quad\forall x\in\mathbb{R}^n \char`\\ \vec{0}\)"</i><br>
     We know that \(A\) is positive definite matrix so \(\vec{x}^TA\vec{x}\gt 0;\quad\forall x\in\mathbb{R}^n \char`\\ \vec{0}\)<br>
     We know that \(B\) is positive definite matrix so \(\vec{x}^TB\vec{x}\gt 0;\quad\forall x\in\mathbb{R}^n \char`\\ \vec{0}\)<br>
@@ -198,7 +177,7 @@ Now let's use Calculus.<br>
 Our function is \(f(x_1,x_2)=2x_1^2+12x_1x_2+19x^2\)<br>
 Let's find the critical points,<br>
 <li>First we take derivative w.r.t. \(x_1\).</li><br>
-\[\begin{matrix} 
+\[\begin{matrix}
 \displaystyle \frac{\partial f(x_1,x_2)}{\partial x_1}=& \displaystyle \frac{\partial (2x_1^2+12x_1x_2+19x^2)}{\partial x_1} \\
 \displaystyle \frac{\partial f(x_1,x_2)}{\partial x_1}=&\displaystyle 4x_1+12x_2
 \end{matrix} \]
@@ -213,7 +192,7 @@ Now equate \(\displaystyle \frac{\partial f(x_1,x_2)}{\partial x_1}=0\)<br>
 \]
 </div>
 <li>Now we take derivative w.r.t. \(x_2\).</li><br>
-\[\begin{matrix} 
+\[\begin{matrix}
 \displaystyle \frac{\partial f(x_1,x_2)}{\partial x_2}=& \displaystyle \frac{\partial (2x_1^2+12x_1x_2+19x^2)}{\partial x_2} \\
 \displaystyle \frac{\partial f(x_1,x_2)}{\partial x_2}=&\displaystyle 12x_1 + 38x_2
 \end{matrix} \]
@@ -231,17 +210,17 @@ Now equate \(\displaystyle \frac{\partial f(x_1,x_2)}{\partial x_1}=0\)<br>
 Now we got a point \((x_1,x_2)=(0,0)\) but we don't know that, <B>Is</B> it minimum, maximum or saddle point.<br>
 To check that, <B>Is</B> it minimum, maximum or saddle point. We need \(2^{nd}\) derivative test<br>
 <li>\(\frac{\partial^2 f(x_1,x_2)}{\partial x_1^2}\)</li>
-\[\begin{matrix} 
+\[\begin{matrix}
 \displaystyle \frac{\partial^2 f(x_1,x_2)}{\partial x_1^2}=& \displaystyle \frac{\partial (4x_1+12x_2)}{\partial x_1} \\
 \displaystyle \frac{\partial f(x_1,x_2)}{\partial x_1}=&\displaystyle 4
 \end{matrix} \]<br>
 <li>\(\frac{\partial^2 f(x_1,x_2)}{\partial x_2^2}\)</li>
-\[\begin{matrix} 
+\[\begin{matrix}
 \displaystyle \frac{\partial^2 f(x_1,x_2)}{\partial x_2^2}=& \displaystyle \frac{\partial (12x_1 + 38x_2)}{\partial x_2} \\
 \displaystyle \frac{\partial^2 f(x_1,x_2)}{\partial x_2^2}=&\displaystyle 38
 \end{matrix} \]<br>
 <li>\(\frac{\partial^2 f(x_1,x_2)}{\partial x_1x_2}\)</li>
-\[\begin{matrix} 
+\[\begin{matrix}
 \displaystyle \frac{\partial^2 f(x_1,x_2)}{\partial x_1x_2}=& \displaystyle \frac{\partial (4x_1+12x_2)}{\partial x_2} \\
 \displaystyle \frac{\partial^2 f(x_1,x_2)}{\partial x_1x_2}=&\displaystyle 12
 \end{matrix} \]<br>
@@ -257,7 +236,7 @@ Now we have our <b>Hessian matrix</b> (say \(H\))<br>
 12&38
 \end{bmatrix}\)<br>
 \(\text{det}(Hf(x_1,x_2))\gt 0\) so it rules out the possibility of being a saddle point, so \(f(x_1,x_2)\) either have a maximum or a minimum.<br>
-And because \(\displaystyle \frac{\partial^2 f(x_1,x_2)}{\partial x_1^2}\gt 0\) so \(f(x_1,x_2)\) 
+And because \(\displaystyle \frac{\partial^2 f(x_1,x_2)}{\partial x_1^2}\gt 0\) so \(f(x_1,x_2)\)
 have a <b>minimum</b> values at \((0,0)\) and that minimum value is \(0\)
 </blockquote><br>
 So we had seen that the minimum value of \(f(x_1,x_2)=2x_1^2+12x_1x_2+19x^2\) is \(0\)<br>
@@ -282,7 +261,7 @@ Now let's use Calculus.<br>
 Our function is \(f(x_1,x_2)=2x_1^2+12x_1x_2+7x^2\)<br>
 Let's find the critical points,<br>
 <li>First we take derivative w.r.t. \(x_1\).</li><br>
-\[\begin{matrix} 
+\[\begin{matrix}
 \displaystyle \frac{\partial f(x_1,x_2)}{\partial x_1}=& \displaystyle \frac{\partial (2x_1^2+12x_1x_2+7x^2)}{\partial x_1} \\
 \displaystyle \frac{\partial f(x_1,x_2)}{\partial x_1}=&\displaystyle 4x_1+12x_2
 \end{matrix} \]
@@ -297,7 +276,7 @@ Now equate \(\displaystyle \frac{\partial f(x_1,x_2)}{\partial x_1}=0\)<br>
 \]
 </div>
 <li>Now we take derivative w.r.t. \(x_2\).</li><br>
-\[\begin{matrix} 
+\[\begin{matrix}
 \displaystyle \frac{\partial f(x_1,x_2)}{\partial x_2}=& \displaystyle \frac{\partial (2x_1^2+12x_1x_2+7x^2)}{\partial x_2} \\
 \displaystyle \frac{\partial f(x_1,x_2)}{\partial x_2}=&\displaystyle 12x_1 + 14x_2
 \end{matrix} \]
@@ -315,17 +294,17 @@ Now equate \(\displaystyle \frac{\partial f(x_1,x_2)}{\partial x_1}=0\)<br>
 Now we got a point \((x_1,x_2)=(0,0)\) but we don't know that, <B>Is</B> it minimum, maximum or saddle point.<br>
 To check that, <B>Is</B> it minimum, maximum or saddle point. We need \(2^{nd}\) derivative test<br>
 <li>\(\frac{\partial^2 f(x_1,x_2)}{\partial x_1^2}\)</li>
-\[\begin{matrix} 
+\[\begin{matrix}
 \displaystyle \frac{\partial^2 f(x_1,x_2)}{\partial x_1^2}=& \displaystyle \frac{\partial (4x_1+12x_2)}{\partial x_1} \\
 \displaystyle \frac{\partial f(x_1,x_2)}{\partial x_1}=&\displaystyle 4
 \end{matrix} \]<br>
 <li>\(\frac{\partial^2 f(x_1,x_2)}{\partial x_2^2}\)</li>
-\[\begin{matrix} 
+\[\begin{matrix}
 \displaystyle \frac{\partial^2 f(x_1,x_2)}{\partial x_2^2}=& \displaystyle \frac{\partial (12x_1 + 14x_2)}{\partial x_2} \\
 \displaystyle \frac{\partial^2 f(x_1,x_2)}{\partial x_2^2}=&\displaystyle 14
 \end{matrix} \]<br>
 <li>\(\frac{\partial^2 f(x_1,x_2)}{\partial x_1x_2}\)</li>
-\[\begin{matrix} 
+\[\begin{matrix}
 \displaystyle \frac{\partial^2 f(x_1,x_2)}{\partial x_1x_2}=& \displaystyle \frac{\partial (4x_1+12x_2)}{\partial x_2} \\
 \displaystyle \frac{\partial^2 f(x_1,x_2)}{\partial x_1x_2}=&\displaystyle 12
 \end{matrix} \]<br>
@@ -346,15 +325,10 @@ So we had seen that \(f(x_1,x_2)=2x_1^2+12x_1x_2+19x^2\) has neither maximum nor
 \((0,0)\) is a saddle point of \(f(x_1,x_2)\) and \(f(0,0)=0\)<br>
 So \(\vec{x}^TA\vec{x}\ngtr  0 ;\quad\forall x\in\mathbb{R}^n \char`\\ \vec{0}\) , this means that \(A\) is a <b>not a Positive Definite Matrix</b><br>
 <br>
-<!--
-<blockquote style="background-color:#f6f8fa; border-color: royalblue; border-radius: 15px; ">
-Recommended reading<br>
-<a  href="https://math.stackexchange.com/a/217252">What is the importance of definite and semi-definite matrices?</a>
-</blockquote>
--->
+
 </p>
 
-<div class="slack-discuss" onclick=" window.open('https://join.slack.com/t/quantml-org/shared_invite/zt-jffw86bo-6M260iyt1q2MgBma9elewg','_blank')">
+<div class="slack-discuss" onclick=" window.open('https://join.slack.com/t/quantml-org/shared_invite/zt-jffw86bo-6M260iyt1q2MgBma9elewg','_blank','noopener')">
     Join our Slack <img src="/data/img/slack.png" alt="Slack"> discussion forum
 </div>
 <br>
@@ -363,22 +337,46 @@ Recommended reading<br>
     <button id="prev-btn" class="button" onclick="window.location.href = '/la/cmfft/';">&#x25C0;&nbsp;&nbsp;Complex Matrices & Fast Fourier Transform</button>
     <button id="next-btn" class="button"  style="float: right;" onclick="window.location.href = '/la/similar-matrices/';">Similar Matrices&nbsp;&nbsp;&#x25B6;</button>
 </div><br>
-                        </section>
+<div id="modals-html"></div>
+
+                    </section>
                     </div>
             </div>
 
-        <!-- Scripts -->
-			<script src="/data/assets/js/jquery.min.js"></script>
-			<script src="/data/assets/js/jquery.scrollex.min.js"></script>
-			<script src="/data/assets/js/jquery.scrolly.min.js"></script>
-			<script src="/data/assets/js/browser.min.js"></script>
-			<script src="/data/assets/js/breakpoints.min.js"></script>
-			<script src="/data/assets/js/util.js"></script>
-            <script src="/data/assets/js/main.js"></script>
-			<script src="/data/initialize-css.js"></script>
-            <script src="/data/index.js"></script>
-			<script src="/data/prism/prism.js"></script>
-            <script>setTimeout(() => {document.querySelector('body').style.display="block"}, 0)</script>
+            <div id="navPanel">
+                <nav>
+                    <ul class="links">
+                        <li class="cover"><a href="/stats/"><img src="/data/img/STATISTICS-cover.png" alt="STATISTICS"></a></li>
+                        <li class="active title"><a>Introduction</a></li>
+                        <li class="python"><a href="python/"><img src="/data/img/python.png" alt="Python"></a></li>
+                        <li class="julia"><a href="julia/"><img src="/data/img/julia.png" alt="Julia"></a></li>
+                    </ul>
+                    <ul id="nav-bar-icons-foot" class="icons">
+                    </ul>
+                </nav>
+                <div id="close-navbar" class="close"></div>
+            </div>
 
+        <!-- Scripts -->
+			<script src="/data/assets/js/initialize-css.js"></script>
+            <script src="/data/assets/js/init.js"></script>
+            <script>
+                function cssLoaded(){
+                    document.getElementById('wrapper').style.display="block";
+                    document.getElementById('pre-loading').style.display="none";
+                    fullyLoaded()
+                }
+            </script>
+            <script src="/data/assets/js/index.js"></script>
+
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+            <script async src="https://www.googletagmanager.com/gtag/js?id=G-LRSK4V6G1M"></script>
+            <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-LRSK4V6G1M');
+            </script>
     </body>
 </html>

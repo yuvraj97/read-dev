@@ -1,55 +1,39 @@
 <!DOCTYPE HTML>
-<!--
-    "Thanks to HTML5 UP for this template".
-    Massively by HTML5 UP
-    html5up.net | @ajlkn
-    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
+<html lang="en">
+
     <head>
 
-
-
-        <!--Prism-->
-        <link rel="stylesheet" href="/data/prism/prism.css">
-
-
         <link rel="stylesheet" href="/data/assets/css/main.css">
-        <link rel="stylesheet" href="/data/auth/authStyle.css">
-        <link id="quantml-theme" rel="stylesheet" href="" />
+        <link rel="stylesheet" href="/data/assets/css/authStyle.css">
         <link id="quantml-auth-style" rel="stylesheet" href="">
+        <link onload="cssLoaded()" id="quantml-theme" rel="stylesheet" href="" />
 
         <!--KATEX-->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+        <link rel="stylesheet" href="/data/assets/css/katex.min.css">
 
         <!-- The loading of KaTeX is deferred to speed up page rendering -->
-        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+        <script defer src="/data/assets/js/katex.min.js"></script>
 
         <!-- To automatically render math in text elements, include the auto-render extension: -->
-        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
-        
+        <script defer src="/data/assets/js/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+
 		<title>Least Squares(Application of projection)</title>
 		<meta charset="utf-8" />
         <link rel="icon" href="/data/icon.png" type="image/png" sizes="16x16">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<noscript><link rel="stylesheet" href="/data/assets/css/main-light.css" /></noscript>
-        
 
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-LRSK4V6G1M"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+	</head>
 
-  gtag('config', 'G-LRSK4V6G1M');
-</script>
-	</head>   
-    
-    <body style="display: none">
+    <body>
+
+        <div ><img id="pre-loading" class="loading" src="" alt=""></div>
+        <script>document.getElementById('pre-loading').src = '/data/img/loading.gif'</script>
+        <script>if(localStorage.getItem("quantmlTheme")=="dark"){document.querySelector('body').style.backgroundColor = "rgb(45,45,45)";document.getElementById('pre-loading').src="/data/img-dark/loading.gif"}</script>
 
         <!-- Wrapper -->
-            <div id="wrapper">
+            <div style="display: none;" id="wrapper">
+                <div class="bg fixed" style="transform: none;"></div>
+                <div id="navPanelToggle">Menu</div>
 
                 <!-- Header -->
                     <header id="header">
@@ -63,15 +47,10 @@
                             <li><a href="/la/projection/">Projection</a></li>
                             <li class="active"><a href="/la/least-squares/">Least Squares(Application of projection)</a></li>
                         </ul>
-                        <ul class="icons">
-                            <li><a target="_blank" href="https://quantml.org/"><img src="/data/icon.png" alt="QuantML"></a></li>
-                            <li><a target="_blank" href="https://join.slack.com/t/quantml-org/shared_invite/zt-jffw86bo-6M260iyt1q2MgBma9elewg"><img src="/data/img/slack.png" alt="Slack"></a></li>
-                            <li><a target="_blank" href="https://www.linkedin.com/in/yuvraj97/"><img src="/data/img/linkedin.png" alt="LinkedIn"></a></li>
-                            <li><a target="_blank" href="https://github.com/yuvraj97/"><img src="/data/img/github.png" alt="GitHub"></a></li>
-                            <li><button onclick=" window.open('https://www.patreon.com/quantml','_blank')" class="login-logout-join" >Join &nbsp; <img src="/data/img/patreon.png" alt="Join"></button></li>
-                            <li><a style="cursor: pointer;"><img id="change-theme" src="" alt="Change Theme"></a></li>
+                         <ul id="nav-bar-icons-head" class="icons">
                         </ul>
                     </nav>
+
                 <!-- Main -->
                     <div id="main">
                         <section id="paragraph" class="post">
@@ -84,11 +63,11 @@
 <h1>Least Squares</h1>
 <h2 od="vec-proj">(Application of projection)</h2>
 
-Recall our <a  href="/la/projection/#example">previous example</a>, here we have a 
+Recall our <a  href="/la/projection/#example">previous example</a>, here we have a
 system of equation <span class="bb">\(\mathbb{A}\mathbb{X}=\mathbb{Y}\)</span>.<br>
 let's take an example, suppose we have \(3\) points (in form of \(a_1,a_2\)) \((1,1),(2,2),(3,2)\).<br>
 Our objective is to get a best possible linear function for \(a_2\), say that function be \(f\).<br>
-our function might not give exact \(a_2\) that corresponds to \(a_1\) but it will give us best possible 
+our function might not give exact \(a_2\) that corresponds to \(a_1\) but it will give us best possible
 approximation for \(a_2\).<br>
 The simplest linear function is <span class="bb">\(a_2 = f(a_1) = x_1 + a_1 x_2\)</span>.<br>
 here \(x_1, x_2\) are our parameters
@@ -119,7 +98,7 @@ x_2\\
 So we want to find the <b>linear combinations</b> of column vectors of \(\mathbb{A}\) that gives us
 \(\mathbb{Y}\), but \(\mathbb{Y}\) does not lives in the <b>column space</b> of \(\mathbb{A}\).<br>
 So now we will find a vector \(\widehat{\mathbb{Y}}\) in the <b>column space</b> of \(\mathbb{A}\)
-that is <b>closest</b> to \(\mathbb{Y}\), here closeness is determined by the <b>Euclidean distance</b> between 
+that is <b>closest</b> to \(\mathbb{Y}\), here closeness is determined by the <b>Euclidean distance</b> between
 \(\mathbb{Y}\) and \(\widehat{\mathbb{Y}}\).<br>
 So instead we will solve,<br>
 <span class="bb">\(\mathbb{A}\widehat{\mathbb{X}}=\widehat{\mathbb{Y}}\)</span><br>
@@ -163,7 +142,7 @@ We can write it as,<br>
 \(6x_1 + 14x_2 = 11\)<br>
 By solving we get \(x_1=2/3\) and \(x_2=1/2\)<br>
 
-So our function \(f(a_1) = x_1 + a_1 x_2\) becomes, 
+So our function \(f(a_1) = x_1 + a_1 x_2\) becomes,
 \[f(a_1) = \frac{2}{3} + \frac{1}{2}a_1\]
 
 Let's take a look at our estimate for our \(3\) data points and it's error(which is \(a_2 - \hat{a_2}\)).<br>
@@ -186,16 +165,16 @@ Let's take a look at our estimate for our \(3\) data points and it's error(which
 Now represent our estimate and errors as vector,<br>
 \( \widehat{\mathbb{Y}} = \begin{bmatrix} \frac{7}{6}\\ \frac{5}{3} \\ \frac{13}{6} \\ \end{bmatrix} ,\quad\)
 \( e=\mathbb{Y}-\widehat{\mathbb{Y}} = \begin{bmatrix} -\frac{1}{6}\\ \frac{1}{3} \\ -\frac{1}{6} \\ \end{bmatrix} \)<br>
-As we discussed above that \( \widehat{\mathbb{Y}} \) is in <b>column space</b> of \(\mathbb{A}\) 
+As we discussed above that \( \widehat{\mathbb{Y}} \) is in <b>column space</b> of \(\mathbb{A}\)
 and \(\mathbb{Y}-\widehat{\mathbb{Y}}\) is <b>perpendicular</b> to that <b>column space</b>.<br>
 We can now see it in this example.<br>
 First notice that dot product of \(\mathbb{Y}\) and \(\mathbb{Y}-\widehat{\mathbb{Y}}\) is \(0\).<br>
 \(\mathbb{Y}\cdot(\mathbb{Y}-\widehat{\mathbb{Y}})=\mathbb{Y}^T(\mathbb{Y}-\widehat{\mathbb{Y}})=0\)<br>
 As we said that <span class="bb">\(\mathbb{Y}-\widehat{\mathbb{Y}}\)</span> is <b>perpendicular</b> to the whole <b>column space</b>,
-you can took any <b>linear combinations</b> of the columns of \(\mathbb{A}\) it will be 
+you can took any <b>linear combinations</b> of the columns of \(\mathbb{A}\) it will be
 <b>perpendicular</b> to <span class="bb">\(\mathbb{Y}-\widehat{\mathbb{Y}}\)</span>.<br></p>
 
-<div class="slack-discuss" onclick=" window.open('https://join.slack.com/t/quantml-org/shared_invite/zt-jffw86bo-6M260iyt1q2MgBma9elewg','_blank')">
+<div class="slack-discuss" onclick=" window.open('https://join.slack.com/t/quantml-org/shared_invite/zt-jffw86bo-6M260iyt1q2MgBma9elewg','_blank','noopener')">
     Join our Slack <img src="/data/img/slack.png" alt="Slack"> discussion forum
 </div>
 <br>
@@ -204,22 +183,46 @@ you can took any <b>linear combinations</b> of the columns of \(\mathbb{A}\) it 
     <button id="prev-btn" class="button" onclick="window.location.href = '/la/projection/';">&#x25C0;&nbsp;&nbsp;Projection</button>
     <button id="next-btn" class="button"  style="float: right;" onclick="window.location.href = '/la/orthonormal-vectors/';">Orthogonal Matrices&nbsp;&nbsp;&#x25B6;</button>
 </div><br>
-                        </section>
+<div id="modals-html"></div>
+
+                    </section>
                     </div>
             </div>
 
-        <!-- Scripts -->
-			<script src="/data/assets/js/jquery.min.js"></script>
-			<script src="/data/assets/js/jquery.scrollex.min.js"></script>
-			<script src="/data/assets/js/jquery.scrolly.min.js"></script>
-			<script src="/data/assets/js/browser.min.js"></script>
-			<script src="/data/assets/js/breakpoints.min.js"></script>
-			<script src="/data/assets/js/util.js"></script>
-            <script src="/data/assets/js/main.js"></script>
-			<script src="/data/initialize-css.js"></script>
-            <script src="/data/index.js"></script>
-			<script src="/data/prism/prism.js"></script>
-            <script>setTimeout(() => {document.querySelector('body').style.display="block"}, 0)</script>
+            <div id="navPanel">
+                <nav>
+                    <ul class="links">
+                        <li class="cover"><a href="/stats/"><img src="/data/img/STATISTICS-cover.png" alt="STATISTICS"></a></li>
+                        <li class="active title"><a>Introduction</a></li>
+                        <li class="python"><a href="python/"><img src="/data/img/python.png" alt="Python"></a></li>
+                        <li class="julia"><a href="julia/"><img src="/data/img/julia.png" alt="Julia"></a></li>
+                    </ul>
+                    <ul id="nav-bar-icons-foot" class="icons">
+                    </ul>
+                </nav>
+                <div id="close-navbar" class="close"></div>
+            </div>
 
+        <!-- Scripts -->
+			<script src="/data/assets/js/initialize-css.js"></script>
+            <script src="/data/assets/js/init.js"></script>
+            <script>
+                function cssLoaded(){
+                    document.getElementById('wrapper').style.display="block";
+                    document.getElementById('pre-loading').style.display="none";
+                    fullyLoaded()
+                }
+            </script>
+            <script src="/data/assets/js/index.js"></script>
+
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+            <script async src="https://www.googletagmanager.com/gtag/js?id=G-LRSK4V6G1M"></script>
+            <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-LRSK4V6G1M');
+            </script>
     </body>
 </html>

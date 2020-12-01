@@ -1,55 +1,39 @@
 <!DOCTYPE HTML>
-<!--
-    "Thanks to HTML5 UP for this template".
-    Massively by HTML5 UP
-    html5up.net | @ajlkn
-    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
+<html lang="en">
+
     <head>
 
-
-
-        <!--Prism-->
-        <link rel="stylesheet" href="/data/prism/prism.css">
-
-
         <link rel="stylesheet" href="/data/assets/css/main.css">
-        <link rel="stylesheet" href="/data/auth/authStyle.css">
-        <link id="quantml-theme" rel="stylesheet" href="" />
+        <link rel="stylesheet" href="/data/assets/css/authStyle.css">
         <link id="quantml-auth-style" rel="stylesheet" href="">
+        <link onload="cssLoaded()" id="quantml-theme" rel="stylesheet" href="" />
 
         <!--KATEX-->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+        <link rel="stylesheet" href="/data/assets/css/katex.min.css">
 
         <!-- The loading of KaTeX is deferred to speed up page rendering -->
-        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+        <script defer src="/data/assets/js/katex.min.js"></script>
 
         <!-- To automatically render math in text elements, include the auto-render extension: -->
-        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
-        
+        <script defer src="/data/assets/js/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+
 		<title>Matrix Space</title>
 		<meta charset="utf-8" />
         <link rel="icon" href="/data/icon.png" type="image/png" sizes="16x16">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<noscript><link rel="stylesheet" href="/data/assets/css/main-light.css" /></noscript>
-        
 
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-LRSK4V6G1M"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+	</head>
 
-  gtag('config', 'G-LRSK4V6G1M');
-</script>
-	</head>   
-    
-    <body style="display: none">
+    <body>
+
+        <div ><img id="pre-loading" class="loading" src="" alt=""></div>
+        <script>document.getElementById('pre-loading').src = '/data/img/loading.gif'</script>
+        <script>if(localStorage.getItem("quantmlTheme")=="dark"){document.querySelector('body').style.backgroundColor = "rgb(45,45,45)";document.getElementById('pre-loading').src="/data/img-dark/loading.gif"}</script>
 
         <!-- Wrapper -->
-            <div id="wrapper">
+            <div style="display: none;" id="wrapper">
+                <div class="bg fixed" style="transform: none;"></div>
+                <div id="navPanelToggle">Menu</div>
 
                 <!-- Header -->
                     <header id="header">
@@ -65,15 +49,10 @@
                             <li><a href="/la/matrix-space/ops/">Operation on Subspaces</a></li>
                             <li><a href="/la/matrix-space/ex/">Examples</a></li>
                         </ul>
-                        <ul class="icons">
-                            <li><a target="_blank" href="https://quantml.org/"><img src="/data/icon.png" alt="QuantML"></a></li>
-                            <li><a target="_blank" href="https://join.slack.com/t/quantml-org/shared_invite/zt-jffw86bo-6M260iyt1q2MgBma9elewg"><img src="/data/img/slack.png" alt="Slack"></a></li>
-                            <li><a target="_blank" href="https://www.linkedin.com/in/yuvraj97/"><img src="/data/img/linkedin.png" alt="LinkedIn"></a></li>
-                            <li><a target="_blank" href="https://github.com/yuvraj97/"><img src="/data/img/github.png" alt="GitHub"></a></li>
-                            <li><button onclick=" window.open('https://www.patreon.com/quantml','_blank')" class="login-logout-join" >Join &nbsp; <img src="/data/img/patreon.png" alt="Join"></button></li>
-                            <li><a style="cursor: pointer;"><img id="change-theme" src="" alt="Change Theme"></a></li>
+                         <ul id="nav-bar-icons-head" class="icons">
                         </ul>
                     </nav>
+
                 <!-- Main -->
                     <div id="main">
                         <section id="paragraph" class="post">
@@ -94,7 +73,7 @@ then each element of vector \(\vec{v}\) represent an <b>unique</b> axis (say \(x
 <i>these axis can be anything your salary, your SAT score, your running speed (anything which can be quantify in a number).</i><br>
 Assume a line passing thrown each element in that vector \(\vec{v}\).<br>
 \[\vec{v}=\begin{bmatrix} \color{red}{\bullet}\\ \color{blue}{\bullet}\\ \color{green}{\bullet}\\ \end{bmatrix}\].<br>
-interpret these (<span style="color:red">red \(\bullet\)</span>, <span >blue \(\bullet\)</span> 
+interpret these (<span style="color:red">red \(\bullet\)</span>, <span >blue \(\bullet\)</span>
 and <span style="color:green">green \(\bullet\)</span>) dots as real line \(\in\mathbb{R}^1\)
 </blockquote><br>
 
@@ -112,8 +91,8 @@ Assume a line passing thrown each element in this matrix \(A\).<br>
 \end{bmatrix}
 \]
 </div>
-interpret these (<span style="color:red">red \(\bullet\)</span>, <span >blue \(\bullet\)</span> 
-, <span style="color:green">green \(\bullet\)</span> and <span style="color:brown">brown \(\bullet\)</span>) 
+interpret these (<span style="color:red">red \(\bullet\)</span>, <span >blue \(\bullet\)</span>
+, <span style="color:green">green \(\bullet\)</span> and <span style="color:brown">brown \(\bullet\)</span>)
 dots as real line \(\in\mathbb{R}^1\)
 </blockquote><br>
 
@@ -138,9 +117,9 @@ Think of all \(3\times 3\) matrices, there are <b>not</b> any limitation to elem
 
 <blockquote>These \(3\times 3\) matrices can we written as vectors \(\vec{v}\in\mathbb{R}^9\)</blockquote>
 
-<li>We can add those matrices, and if we add them we got another \(3\times 3\) matrix.</li> 
+<li>We can add those matrices, and if we add them we got another \(3\times 3\) matrix.</li>
 <li>We can multiply matrices by a scaler, and if we multiply a scaler to a \(3\times 3\) matrix
-we get another \(3\times 3\) matrix.</li> 
+we get another \(3\times 3\) matrix.</li>
 <li>We can take there linear combinations and the resultant matrix will still be a \(3\times 3\) matrix</li>
 
 <blockquote>So the space of all \(3\times 3\) matrices is a <b>vector space</b></blockquote>
@@ -160,7 +139,7 @@ Is the <b>space</b> of all \(3\times 3\) Lower Triangular matrices is a <b>subsp
 
 <b>Do all Lower Triangular \(3\times 3\) matrices form a vector space?.</b><br>
 
-<li>We can <b>add</b> two \(3\times 3\) Lower Triangular matrices, we got another \(3\times 3\) Lower Triangular matrix.</li> 
+<li>We can <b>add</b> two \(3\times 3\) Lower Triangular matrices, we got another \(3\times 3\) Lower Triangular matrix.</li>
 
 <blockquote>
 <div class="math-container">
@@ -187,7 +166,7 @@ Is the <b>space</b> of all \(3\times 3\) Lower Triangular matrices is a <b>subsp
 </blockquote>
 
 <li>We can <b>multiply</b> a \(3\times 3\) Lower Triangular matrices by <b>a scaler</b>,
-we get another \(3\times 3\) Lower Triangular matrix.</li> 
+we get another \(3\times 3\) Lower Triangular matrix.</li>
 
 <blockquote>
 <div class="math-container">
@@ -233,7 +212,7 @@ we get another \(3\times 3\) Lower Triangular matrix.</li>
 </blockquote>
 
 So collectively we can say that all \(3\times 3\) Lower Triangular matrices forms a <b>vector space</b>.<br>
-So 
+So
 <blockquote>
 The <b>space</b> all \(3\times 3\) Lower Triangular matrices is a <b>subspace</b> of all \(3\times 3\) matrices .<br>
 </blockquote>
@@ -249,7 +228,7 @@ Is the <b>space</b> of all \(3\times 3\) Symmetric matrices is a <b>subspace</b>
 <br>
 <b>Do all Symmetric \(3\times 3\) matrices form a vector space?.</b><br>
 
-<li>We can <b>add</b> two \(3\times 3\) Symmetric matrices, we got another \(3\times 3\) Symmetric matrix.</li> 
+<li>We can <b>add</b> two \(3\times 3\) Symmetric matrices, we got another \(3\times 3\) Symmetric matrix.</li>
 
 <blockquote>
 <div class="math-container">
@@ -276,7 +255,7 @@ Is the <b>space</b> of all \(3\times 3\) Symmetric matrices is a <b>subspace</b>
 </blockquote>
 
 <li>We can <b>multiply</b> a \(3\times 3\) Symmetric matrices by <b>a scaler</b>,
-we get another \(3\times 3\) Symmetric matrix.</li> 
+we get another \(3\times 3\) Symmetric matrix.</li>
 
 <blockquote>
 <div class="math-container">
@@ -322,7 +301,7 @@ we get another \(3\times 3\) Symmetric matrix.</li>
 </blockquote>
 
 So collectively we can say that all \(3\times 3\) Symmetric matrices forms a <b>vector space</b>.<br>
-So 
+So
 <blockquote>
 The <b>space</b> all \(3\times 3\) Symmetric matrices is a <b>subspace</b> of all \(3\times 3\) matrices .<br>
 </blockquote>
@@ -331,7 +310,7 @@ Similarly The <b>space</b> all \(3\times 3\) Diagonal matrices is a <b>subspace<
 </blockquote>
 </p>
 
-<div class="slack-discuss" onclick=" window.open('https://join.slack.com/t/quantml-org/shared_invite/zt-jffw86bo-6M260iyt1q2MgBma9elewg','_blank')">
+<div class="slack-discuss" onclick=" window.open('https://join.slack.com/t/quantml-org/shared_invite/zt-jffw86bo-6M260iyt1q2MgBma9elewg','_blank','noopener')">
     Join our Slack <img src="/data/img/slack.png" alt="Slack"> discussion forum
 </div>
 <br>
@@ -340,22 +319,46 @@ Similarly The <b>space</b> all \(3\times 3\) Diagonal matrices is a <b>subspace<
     <button id="prev-btn" class="button" onclick="window.location.href = '/la/fundamental-subspaces/';">&#x25C0;&nbsp;&nbsp;4 fundamental subspaces</button>
     <button id="next-btn" class="button"  style="float: right;" onclick="window.location.href = '/la/matrix-space/dim/';">DIMENSION AND BASIS&nbsp;&nbsp;&#x25B6;</button>
 </div><br>
-                        </section>
+<div id="modals-html"></div>
+
+                    </section>
                     </div>
             </div>
 
-        <!-- Scripts -->
-			<script src="/data/assets/js/jquery.min.js"></script>
-			<script src="/data/assets/js/jquery.scrollex.min.js"></script>
-			<script src="/data/assets/js/jquery.scrolly.min.js"></script>
-			<script src="/data/assets/js/browser.min.js"></script>
-			<script src="/data/assets/js/breakpoints.min.js"></script>
-			<script src="/data/assets/js/util.js"></script>
-            <script src="/data/assets/js/main.js"></script>
-			<script src="/data/initialize-css.js"></script>
-            <script src="/data/index.js"></script>
-			<script src="/data/prism/prism.js"></script>
-            <script>setTimeout(() => {document.querySelector('body').style.display="block"}, 0)</script>
+            <div id="navPanel">
+                <nav>
+                    <ul class="links">
+                        <li class="cover"><a href="/stats/"><img src="/data/img/STATISTICS-cover.png" alt="STATISTICS"></a></li>
+                        <li class="active title"><a>Introduction</a></li>
+                        <li class="python"><a href="python/"><img src="/data/img/python.png" alt="Python"></a></li>
+                        <li class="julia"><a href="julia/"><img src="/data/img/julia.png" alt="Julia"></a></li>
+                    </ul>
+                    <ul id="nav-bar-icons-foot" class="icons">
+                    </ul>
+                </nav>
+                <div id="close-navbar" class="close"></div>
+            </div>
 
+        <!-- Scripts -->
+			<script src="/data/assets/js/initialize-css.js"></script>
+            <script src="/data/assets/js/init.js"></script>
+            <script>
+                function cssLoaded(){
+                    document.getElementById('wrapper').style.display="block";
+                    document.getElementById('pre-loading').style.display="none";
+                    fullyLoaded()
+                }
+            </script>
+            <script src="/data/assets/js/index.js"></script>
+
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+            <script async src="https://www.googletagmanager.com/gtag/js?id=G-LRSK4V6G1M"></script>
+            <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-LRSK4V6G1M');
+            </script>
     </body>
 </html>

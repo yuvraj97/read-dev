@@ -1,56 +1,39 @@
 <!DOCTYPE HTML>
-<!--
-    "Thanks to HTML5 UP for this template".
-    Massively by HTML5 UP
-    html5up.net | @ajlkn
-    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
+<html lang="en">
+
     <head>
 
-
-
-        <!--Prism-->
-        <link rel="stylesheet" href="/data/prism/prism.css">
-
-
-
         <link rel="stylesheet" href="/data/assets/css/main.css">
-        <link rel="stylesheet" href="/data/auth/authStyle.css">
-        <link id="quantml-theme" rel="stylesheet" href="" />
+        <link rel="stylesheet" href="/data/assets/css/authStyle.css">
         <link id="quantml-auth-style" rel="stylesheet" href="">
+        <link onload="cssLoaded()" id="quantml-theme" rel="stylesheet" href="" />
 
         <!--KATEX-->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+        <link rel="stylesheet" href="/data/assets/css/katex.min.css">
 
         <!-- The loading of KaTeX is deferred to speed up page rendering -->
-        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+        <script defer src="/data/assets/js/katex.min.js"></script>
 
         <!-- To automatically render math in text elements, include the auto-render extension: -->
-        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
-        
+        <script defer src="/data/assets/js/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+
 		<title>Orthonormal Vectors</title>
 		<meta charset="utf-8" />
         <link rel="icon" href="/data/icon.png" type="image/png" sizes="16x16">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<noscript><link rel="stylesheet" href="/data/assets/css/main-light.css" /></noscript>
-        
 
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-LRSK4V6G1M"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+	</head>
 
-  gtag('config', 'G-LRSK4V6G1M');
-</script>
-	</head>   
-    
-    <body style="display: none">
+    <body>
+
+        <div ><img id="pre-loading" class="loading" src="" alt=""></div>
+        <script>document.getElementById('pre-loading').src = '/data/img/loading.gif'</script>
+        <script>if(localStorage.getItem("quantmlTheme")=="dark"){document.querySelector('body').style.backgroundColor = "rgb(45,45,45)";document.getElementById('pre-loading').src="/data/img-dark/loading.gif"}</script>
 
         <!-- Wrapper -->
-            <div id="wrapper">
+            <div style="display: none;" id="wrapper">
+                <div class="bg fixed" style="transform: none;"></div>
+                <div id="navPanelToggle">Menu</div>
 
                 <!-- Header -->
                     <header id="header">
@@ -63,15 +46,10 @@
                             <li class="cover"><a href="/la/"><img src="/data/img/linear-algebra-cover.png" alt="Linear Algebra"></a></li>
                             <li class="active"><a href="/la/orthonormal-vectors/">Orthonormal Vectors</a></li>
                         </ul>
-                        <ul class="icons">
-                            <li><a target="_blank" href="https://quantml.org/"><img src="/data/icon.png" alt="QuantML"></a></li>
-                            <li><a target="_blank" href="https://join.slack.com/t/quantml-org/shared_invite/zt-jffw86bo-6M260iyt1q2MgBma9elewg"><img src="/data/img/slack.png" alt="Slack"></a></li>
-                            <li><a target="_blank" href="https://www.linkedin.com/in/yuvraj97/"><img src="/data/img/linkedin.png" alt="LinkedIn"></a></li>
-                            <li><a target="_blank" href="https://github.com/yuvraj97/"><img src="/data/img/github.png" alt="GitHub"></a></li>
-                            <li><button onclick=" window.open('https://www.patreon.com/quantml','_blank')" class="login-logout-join" >Join &nbsp; <img src="/data/img/patreon.png" alt="Join"></button></li>
-                            <li><a style="cursor: pointer;"><img id="change-theme" src="" alt="Change Theme"></a></li>
+                         <ul id="nav-bar-icons-head" class="icons">
                         </ul>
                     </nav>
+
                 <!-- Main -->
                     <div id="main">
                         <section id="paragraph" class="post">
@@ -85,7 +63,7 @@
 Say we have a \(m\times n\)  matrix \(Q\), ith columns of \(Q\) is denotes as \(q_i\).<br>
 \[
 Q=\begin{bmatrix}
- \vdots & \vdots &          & \vdots \\  
+ \vdots & \vdots &          & \vdots \\
  q_1    &  q_2   & \cdots   &  q_n   \\
  \vdots & \vdots &          & \vdots \\
  \end{bmatrix}_{m\times n}
@@ -110,9 +88,9 @@ Q^TQ=
 \end{bmatrix}
 
 \begin{bmatrix}
-\vdots & \vdots &          & \vdots \\  
+\vdots & \vdots &          & \vdots \\
 q_1    &  q_2   & \cdots   &  q_n   \\
-\vdots & \vdots &          & \vdots 
+\vdots & \vdots &          & \vdots
 \end{bmatrix}
 \]
 </div>
@@ -122,10 +100,10 @@ q_1    &  q_2   & \cdots   &  q_n   \\
 \Rightarrow
 Q^TQ=
 \begin{bmatrix}
-q_1q_1 & q_1q_2 &  \cdots  & q_1q_n \\  
-q_2q_1 & q_2q_2 &  \cdots  & q_2q_n \\  
-\vdots & \vdots &  \ddots  & \vdots \\  
-q_nq_1 & q_nq_2 &  \cdots  & q_nq_n \\  
+q_1q_1 & q_1q_2 &  \cdots  & q_1q_n \\
+q_2q_1 & q_2q_2 &  \cdots  & q_2q_n \\
+\vdots & \vdots &  \ddots  & \vdots \\
+q_nq_1 & q_nq_2 &  \cdots  & q_nq_n \\
 \end{bmatrix}
 \]
 </div>
@@ -135,16 +113,16 @@ q_nq_1 & q_nq_2 &  \cdots  & q_nq_n \\
 \Rightarrow
 Q^TQ=
 \begin{bmatrix}
-1       &       0 &  \cdots  & 0 \\  
-0       &       1 &  \cdots   & 0 \\  
-\vdots  & \vdots  &  \ddots  & 0 \\  
-0       &       0 &  \cdots  & 1 \\  
+1       &       0 &  \cdots  & 0 \\
+0       &       1 &  \cdots   & 0 \\
+\vdots  & \vdots  &  \ddots  & 0 \\
+0       &       0 &  \cdots  & 1 \\
 \end{bmatrix}
 \]
 </div>
 
-<blockquote>    
-\(Q\) is an <b>Orthogonal matrix</b> <b>if</b> \(Q\) is a <b>square matrix</b> 
+<blockquote>
+\(Q\) is an <b>Orthogonal matrix</b> <b>if</b> \(Q\) is a <b>square matrix</b>
 </blockquote>
 So if \(Q\) is an <b>Orthogonal matrix</b> then,<br>
 <span class="bb">\(Q^TQ=\mathcal{I}\)</span> tells us that <span class="bb">\(Q^T = Q^{-1}\)</span>, So,<br>
@@ -186,7 +164,7 @@ Say we have a \(m\times n\) matrix \(Q\) with <b>orthonormal</b> column vectors 
 Now say we want the projection of a vector (say \(\vec{v}\)) onto the column space of \(Q\).<br>
 Our <b>projection matrix\((P)\)</b> is: <span class="bb">\(P=Q(Q^TQ)^{-1}Q^T\)</span>.<br>
 And projection of vector \(\vec{v}\) onto the column space of \(Q\) is \(P\vec{v}\)<br>
-because \(Q\) has <b>orthonormal</b> column vectors .<br> 
+because \(Q\) has <b>orthonormal</b> column vectors .<br>
 So <span class="bb">\(Q^TQ=\mathcal{I}\)</span>.<br>
 So our <b>projection matrix\((P)\)</b> becomes \(P=Q\mathcal{I}Q^T\), so.<br>
 
@@ -236,14 +214,14 @@ We have just \(2\)(non-parallel) vectors, and <b>span</b> of \(2\)(non-parallel)
 <!--Image-->
 What we want is two <b>orthonormal vectors</b>(say \(\vec{q}_a\) and \(\vec{q}_b\)) in this \(2\) dimensional plane.<br>
 Let's took \(\vec{a}\) as our first <b>orthogonal vector</b>, it's easy because it's only one vector.<br>
-So 
-<blockquote>    
+So
+<blockquote>
 \[\vec{q}_a=\frac{\vec{a}}{\|\vec{a}\|}\]
 </blockquote><br>
 
 Now let's find second <b>orthonormal vectors</b>?<br>
 <b>IDEA</b> is to remove it's direction along \(\vec{q}_a\).<br>
-So first take the projection of \(\vec{b}\) onto the vector space of \(\vec{q}_a\), say this projected 
+So first take the projection of \(\vec{b}\) onto the vector space of \(\vec{q}_a\), say this projected
 \(\vec{b}\) on \(\vec{q}_a\) to be \(\vec{b}_p\).<br>
 Now the vector joining \(\vec{b}\) and \(\vec{b}_p\) is orthogonal to \(\vec{q}_a\), say this vector \(\vec{b}_o\).<br>
 And <span class="bb">\(\vec{b}_p + \vec{b}_o = \vec{b}\)</span> so,<br>
@@ -261,15 +239,15 @@ And
 \[\vec{q}_b=\frac{\vec{b}_o}{\|\vec{b}_o\|}\]
 </blockquote><br>
 
-And we know that \(\vec{b}\) is <b>perpendicular</b> to \(\vec{q}_a\), and if we think \(\vec{q}_a\) as 
-a matrix with one column then \(\vec{b}_o\) is <b>perpendicular</b> to the <b>column space</b> of 
+And we know that \(\vec{b}\) is <b>perpendicular</b> to \(\vec{q}_a\), and if we think \(\vec{q}_a\) as
+a matrix with one column then \(\vec{b}_o\) is <b>perpendicular</b> to the <b>column space</b> of
 \(\vec{q}_a\).<br>
 So \(\vec{b}_o\) is in the Null space of \(\vec{q}_a ^T\) so,<br>
 \(\vec{q}_a^T \vec{b}_o=0\), let's verify it,<br>
 <dl><dd>
     \[\vec{q}_a^T \left(  \vec{b}-\vec{q}_a \vec{q}_a^T\vec{b}  \right) = 0\]
     \[\Rightarrow \vec{q}_a^T \vec{b}- (\vec{q}_a^T  \vec{q}_a) \vec{q}_a^T\vec{b}   = 0\]
-    \[\Rightarrow \vec{q}_a^T \vec{b}- \vec{q}_a^T \vec{b} = 0\quad \color{green}{&#10003;}\] 
+    \[\Rightarrow \vec{q}_a^T \vec{b}- \vec{q}_a^T \vec{b} = 0\quad \color{green}{&#10003;}\]
 </dd></dl>
 Now let's push ourselves a little further now add another vector \(\vec{c}\).<br>
 We got our two <b>orthogonal</b> vectors \(\vec{q}_a\) and \(\vec{q}_b\) and this vector \(\vec{c}\)
@@ -295,7 +273,7 @@ This is our vector \(\vec{c}_{o}\).<br>
 \(\vec{q}_c=\frac{\vec{c}_o}{\|\vec{c}_o\|}\)<br>
 <br>
 Now we can see a pattern here.<br>
-Say that we have \(n\)(independent) \(( a_1, a_2, \cdots, a_n )\) vectors and we have to find 
+Say that we have \(n\)(independent) \(( a_1, a_2, \cdots, a_n )\) vectors and we have to find
 \(n\) <b>orthonormal vectors</b> \(( q_1, q_2, \cdots, q_n )\)  using these \(n\)(independent) vectors.<br>
 we can deduce a pattern above,
 \[\vec{a_i}_o=\vec{a_i}-\sum_{k=1}^{i-1} (\vec{q}_k\cdot\vec{a}_i)\vec{q}_k  \]
@@ -305,7 +283,7 @@ So now we can find <b>orthonormal vectors</b> for any set of independent vectors
 This is <b>The Gram Schmidt Process</b>.<br>
 </p>
 
-<div class="slack-discuss" onclick=" window.open('https://join.slack.com/t/quantml-org/shared_invite/zt-jffw86bo-6M260iyt1q2MgBma9elewg','_blank')">
+<div class="slack-discuss" onclick=" window.open('https://join.slack.com/t/quantml-org/shared_invite/zt-jffw86bo-6M260iyt1q2MgBma9elewg','_blank','noopener')">
     Join our Slack <img src="/data/img/slack.png" alt="Slack"> discussion forum
 </div>
 <br>
@@ -314,22 +292,46 @@ This is <b>The Gram Schmidt Process</b>.<br>
     <button id="prev-btn" class="button" onclick="window.location.href = '/la/least-squares/';">&#x25C0;&nbsp;&nbsp;Least Squares</button>
     <button id="next-btn" class="button"  style="float: right;" onclick="window.location.href = '/la/eigenvalues-eigenvectors/';">Eigenvalues and Eigenvectors&nbsp;&nbsp;&#x25B6;</button>
 </div><br>
-                        </section>
+<div id="modals-html"></div>
+
+                    </section>
                     </div>
             </div>
 
-        <!-- Scripts -->
-			<script src="/data/assets/js/jquery.min.js"></script>
-			<script src="/data/assets/js/jquery.scrollex.min.js"></script>
-			<script src="/data/assets/js/jquery.scrolly.min.js"></script>
-			<script src="/data/assets/js/browser.min.js"></script>
-			<script src="/data/assets/js/breakpoints.min.js"></script>
-			<script src="/data/assets/js/util.js"></script>
-            <script src="/data/assets/js/main.js"></script>
-			<script src="/data/initialize-css.js"></script>
-            <script src="/data/index.js"></script>
-			<script src="/data/prism/prism.js"></script>
-            <script>setTimeout(() => {document.querySelector('body').style.display="block"}, 0)</script>
+            <div id="navPanel">
+                <nav>
+                    <ul class="links">
+                        <li class="cover"><a href="/stats/"><img src="/data/img/STATISTICS-cover.png" alt="STATISTICS"></a></li>
+                        <li class="active title"><a>Introduction</a></li>
+                        <li class="python"><a href="python/"><img src="/data/img/python.png" alt="Python"></a></li>
+                        <li class="julia"><a href="julia/"><img src="/data/img/julia.png" alt="Julia"></a></li>
+                    </ul>
+                    <ul id="nav-bar-icons-foot" class="icons">
+                    </ul>
+                </nav>
+                <div id="close-navbar" class="close"></div>
+            </div>
 
+        <!-- Scripts -->
+			<script src="/data/assets/js/initialize-css.js"></script>
+            <script src="/data/assets/js/init.js"></script>
+            <script>
+                function cssLoaded(){
+                    document.getElementById('wrapper').style.display="block";
+                    document.getElementById('pre-loading').style.display="none";
+                    fullyLoaded()
+                }
+            </script>
+            <script src="/data/assets/js/index.js"></script>
+
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+            <script async src="https://www.googletagmanager.com/gtag/js?id=G-LRSK4V6G1M"></script>
+            <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-LRSK4V6G1M');
+            </script>
     </body>
 </html>
