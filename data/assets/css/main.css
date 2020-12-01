@@ -1081,3 +1081,19 @@ summary span {
     margin-right: auto;
     display: block;
 }
+
+.center-body{
+    position: relative;
+    display: block;
+    margin: auto;
+    /* right: 50%;
+    top: 50%; */
+    /* width: 30%;    */
+}
+
+.fb-loading{
+    margin-top:10px;
+    border-radius: 15px;
+    width: 125px;
+    height: 40px;
+}

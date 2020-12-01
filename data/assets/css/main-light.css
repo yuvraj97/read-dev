@@ -44,7 +44,7 @@ table.alt tbody tr td {
     border-color: #000;
 }
 #wrapper > .bg {
-    background-color: #212931;
+    background-color: #fff;
     background-image: linear-gradient(to right, #003d61 0%, rgb(226, 244, 255) 50%, #003d61 100%);
 }
 @media screen and (orientation: portrait) {
@@ -221,4 +221,7 @@ summary span:hover, summary span:focus {
 :not(pre) > code[class*="language-"],
 pre[class*="language-"] {
 	background: rgb(28, 27, 50);
+}
+.fb-loading{
+    box-shadow: .0rem .0rem 0.4rem 0.05rem # 003d61;
 }
