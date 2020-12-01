@@ -1,0 +1,169 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+    <head>
+
+        
+        <link rel="stylesheet" href="/data/assets/css/main.css">
+        <link rel="stylesheet" href="/data/assets/css/authStyle.css">
+        <link id="quantml-auth-style" rel="stylesheet" href="">
+        <link onload="cssLoaded()" id="quantml-theme" rel="stylesheet" href="" />
+
+        <!--KATEX-->
+        <link rel="stylesheet" href="/data/assets/css/katex.min.css">
+
+        <!-- The loading of KaTeX is deferred to speed up page rendering -->
+        <script defer src="/data/assets/js/katex.min.js"></script>
+
+        <!-- To automatically render math in text elements, include the auto-render extension: -->
+        <script defer src="/data/assets/js/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+
+        <title>Estimation</title>
+        <meta charset="utf-8" />
+        <link rel="icon" href="/data/icon.png" type="image/png" sizes="16x16">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        
+        
+    </head>
+    <body>
+        <div id="pre-loading"><img class="loading" src="/data/img/loading.gif" alt=""></div>
+
+        <!-- Wrapper -->
+            <div style="display: none;" id="wrapper">
+                <div class="bg fixed" style="transform: none;"></div>
+                <div id="navPanelToggle">Menu</div>
+            
+
+                <!-- Header -->
+                <header id="header">
+                    <a href="https://quantml.org" class="logo image jump-big"><img id="quantml-cover" src="/data/img/cover.png" alt="QuantML.org" /></a>
+                </header>
+
+                <!-- Nav -->
+                    <nav id="nav">
+                        <ul class="links">
+                            <li class="cover"><a href="/stats/"><img src="/data/img/STATISTICS-cover.png" alt="STATISTICS"></a></li>
+                            <li><a href="inference.html">&#x25C0;</a></li>
+                            <li class="active"><a href="estimation.html">Estimation</a></li>
+                            <li><a href="bias.html">Bias,Variance,Quadratic Risk</a></li>
+                            <li><a href="ci.html">&#x25B6;</a></li>
+                        </ul>
+                        <ul id="nav-bar-icons-head" class="icons">
+                        </ul>
+                    </nav>
+
+
+                <!-- Main -->
+                    <div id="main">
+                        <section id="paragraph" class="post">
+<div id="btn-container">
+    <button id="prev-btn" class="button" onclick="window.location.href = 'identifiability.html';">&#x25C0;&nbsp;&nbsp;Identifiability</button>
+    <button id="next-btn" class="button"  style="float: right;" onclick="window.location.href = 'bias.html';">Bias&nbsp;&nbsp;&#x25B6;</button>
+</div><br>
+
+<p>
+<span id="main"></span>
+When we encounter a Statistical inference problem first thing we encounter is <b>Estimation</b>,
+we gather our data \((X_1,\cdots,X_n)\), if our model is <b>well specified</b> then it comes from a particular family of distribution,
+and if our model is also <b>identifiable</b> then we can estimate it.<br>
+
+Definitions:
+<ul>
+    <li>
+        <b>Statistic</b> is any measurable function \(f(X_1,\cdots,X_n)\) of the <b>sample</b><br>
+        for example: \(\overline{X}_n,\ \text{max}_i X_i,\ X_n,\ \overline{X}_ne^{X_1},\) median, variance \(,\cdots\)<br>
+
+        <ul style="list-style-type: circle">
+            <li>
+                 Rule of thumb: if you can compute if (once given data) it's measurable
+            </li>
+        </ul>
+    </li>
+    <li>
+        Estimator of \(\theta\) is <b>any</b> statistics whose expression does <b>not</b> depends on the parameter \(\theta\)
+    </li>
+    <li>
+         Once we have an estimator \(\hat{\theta}_n\), we go further for it's properties.<br>
+         <span id="properties"><b>Properties:</b></span>
+         <ol>
+             <li>
+                As we collect more and more <b>data</b>, we want our estimator \(\hat{\theta}_n\) to be close to the true parameter \(\theta\).<br>
+                Estimator \(\hat{\theta}_n\) of \(\theta\) is <b>consistent</b> if:<br>
+                \[\hat{\theta}_n \xrightarrow [n\to \infty ]{\mathbb{P,\text{ a.s.}}} \theta\]
+             </li>
+             <li>
+                Estimator \(\hat{\theta}_n\) of \(\theta\) is <b>asymptotically normal</b> if:
+                \[\sqrt{n} (\hat{\theta}_n-\theta ) \xrightarrow [n\to \infty ]{(d)} \mathcal{N}(0,\sigma^2)\]
+                And the quantity \(\sigma^2\) is called <b>asymptotic variance</b> of \(\hat{\theta}_n\)
+             </li>
+         </ol>
+    </li>
+</ul>
+
+</p>
+
+<button class="accordion">\(\text{Discussion}\)</button>
+<div class="panel">
+    <script src="https://utteranc.es/client.js"
+        repo="yuvraj97/stats.github.io"
+        issue-term="estimation-estimation-discussion"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+    </script>
+</div>
+<button class="accordion">\(\text{Put up a question}\)</button>
+<div class="panel">
+    <script src="https://utteranc.es/client.js"
+        repo="yuvraj97/stats.github.io"
+        issue-term="estimation-estimation-questions"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+    </script>
+</div>
+<div class="slack-discuss" onclick=" window.open('https://join.slack.com/t/quantml-org/shared_invite/zt-jffw86bo-6M260iyt1q2MgBma9elewg','_blank','noopener')">
+    Join our Slack <img src="/data/img/slack.png" alt="Slack"> discussion forum
+</div><br>
+<div id="btn-container">
+    <button id="prev-btn" class="button" onclick="window.location.href = 'identifiability.html';">&#x25C0;&nbsp;&nbsp;Identifiability</button>
+    <button id="next-btn" class="button"  style="float: right;" onclick="window.location.href = 'bias.html';">Bias&nbsp;&nbsp;&#x25B6;</button>
+</div><br>
+<div id="modals-html"></div>
+
+                    </section>
+</div>
+<br><br>
+
+                    </div>
+            
+            <div id="navPanel"> 
+                <nav>
+                    <ul class="links">
+                        <li class="cover"><a href="/stats/"><img src="/data/img/STATISTICS-cover.png" alt="STATISTICS"></a></li>
+                        <li class="active title"><a>Introduction</a></li>
+                        <li class="python"><a href="python/"><img src="/data/img/python.png" alt="Python"></a></li>
+                        <li class="julia"><a href="julia/"><img src="/data/img/julia.png" alt="Julia"></a></li>
+                    </ul>
+                    <ul id="nav-bar-icons-foot" class="icons">
+                    </ul>
+                </nav>
+                <div id="close-navbar" class="close"></div>
+            </div>
+
+        <!-- Scripts -->
+        
+        <script src="/data/assets/js/initialize-css.js"></script>
+        <script src="/data/assets/js/init.js"></script>
+        <script>
+            function cssLoaded(){
+                document.getElementById('wrapper').style.display="block";
+                document.getElementById('pre-loading').style.display="none";
+                fullyLoaded()
+            }
+        </script>
+        <script src="/data/assets/js/index.js"></script>
+        <script src="/data/assets/js/firebase.js"></script>
+            
+    </body>
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+    <head>
+
+        
+        <link rel="stylesheet" href="/data/assets/css/main.css">
+        <link rel="stylesheet" href="/data/assets/css/authStyle.css">
+        <link id="quantml-auth-style" rel="stylesheet" href="">
+        <link onload="cssLoaded()" id="quantml-theme" rel="stylesheet" href="" />
+
+        <!--KATEX-->
+        <link rel="stylesheet" href="/data/assets/css/katex.min.css">
+
+        <!-- The loading of KaTeX is deferred to speed up page rendering -->
+        <script defer src="/data/assets/js/katex.min.js"></script>
+
+        <!-- To automatically render math in text elements, include the auto-render extension: -->
+        <script defer src="/data/assets/js/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+
+        
+<title>Hoeffding's inequality</title>
+        <meta charset="utf-8" />
+        <link rel="icon" href="/data/icon.png" type="image/png" sizes="16x16">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        
+        
+    </head>
+    <body>
+        <div id="pre-loading"><img class="loading" src="/data/img/loading.gif" alt=""></div>
+
+        <!-- Wrapper -->
+            <div style="display: none;" id="wrapper">
+                <div class="bg fixed" style="transform: none;"></div>
+                <div id="navPanelToggle">Menu</div>
+            
+
+                <!-- Header -->
+                <header id="header">
+                    <a href="https://quantml.org" class="logo image jump-big"><img id="quantml-cover" src="/data/img/cover.png" alt="QuantML.org" /></a>
+                </header>
+
+                <!-- Nav -->
+                    <nav id="nav">
+                        <ul class="links">
+                            <li class="cover"><a href="/stats/"><img src="/data/img/STATISTICS-cover.png" alt="STATISTICS"></a></li>
+                            <li><a href="intro.html">Introduction</a></li>
+                            <li><a href="/stats/lln/">LLN/CLT</a></li>
+                            <li class="active"><a href="hoeffding.html">Hoeffding's Ineq.</a></li>
+                            <li><a href="gauss.html">Gaussian Dist.</a></li>
+                            <li><a href="convergence.html">Convergence</a></li>
+                            <li><a href="inference.html">&#x25B6;</a></li>
+                        </ul>
+                        <ul id="nav-bar-icons-head" class="icons">
+                        </ul>
+                    </nav>
+
+
+                <!-- Main -->
+                    <div id="main">
+                        <section id="paragraph" class="post">
+<div id="btn-container">
+    <button id="prev-btn" class="button" onclick="window.location.href = '/stats/lln/';">&#x25C0;&nbsp;&nbsp; LLN & CLT</button>
+    <button id="next-btn" class="button"  style="float: right;" onclick="window.location.href = 'gauss.html';">Gaussian&nbsp;&nbsp;&#x25B6;</button>
+</div><br>
+
+<b>Central Limit Theorem</b> says that: \(\left| \overline{X}_n-\mu  \right| \leq \frac{C\sigma}{\sqrt{n}}\quad;\) \(C\) is a constant and choice of \(C\) depends on us.<br>
+But it's true only if sample size \(n\) is large enough, So what if the sample size is not large enough?<br>
+That's where <b>Hoeffding's inequality</b> kicks in.<br>
+<br><br>
+
+<h2 id="hoef">Hoeffding's inequality<a style="color: rgb(20, 57, 168);" href="#hoef"><i class="fa fa-link" aria-hidden="true"></i></a></h2>
+Say that we have \(n\) i.i.d. random variables, \(X_1,X_2,....,X_n \stackrel{iid}{\sim } X\)<br>
+such that \(\mathbb{E}[X]=\mu\) and<br>
+\(X \in [a,b]\) <b>almost surely</b><br>
+<ul>
+    <li>
+    Here we need our random variables to be bounded, so it rules out Gaussian, exponential, everything that goes to \(\infty\) or \(-\infty\) are ruled out<br>
+    examples for bounded random variables are \(\mathcal{U}nif[0,1], Ber(0.5),....\)<br>
+    \(\mathcal{U}nif[0,1]\) is a Uniform random variable that takes values between \(0\) and \(1\)<br>
+    \(Ber(0.5)\) is a Bernoulli random variable that takes values either \(0\) or \(1\)<br>
+
+    </li>
+</ul>
+
+Then according to Hoeffding's inequality:
+<div class="math-container">
+\[\mathbb{P}\left(\left|\overline{X}_n -\mathbb{E}[X]\right| \geq \epsilon \right) \leq 2 \exp\left(-\frac{2n\epsilon ^2}{(b-a)^2}\right)\quad \forall\epsilon >0\]
+</div>
+If we do satisfy the conditions described above, then according to Hoeffding's inequality probability of deviation of \(\overline{X}_n\) around \(\mu\) being greater then \(\epsilon\) decays <b>exponentially</b> w.r.t. \(n\).<br>
+Well, what's nice about this is that \(\epsilon\) need not to be too small,<br>
+like if \(\epsilon = C/\sqrt{n}\quad  ; C\) <b>is a constant</b>
+Then the probability will be: \[\mathbb{P}\left(\left|\overline{X}_n -\mathbb{E}[X]\right| \geq \frac{C}{\sqrt{n}} \right) \leq 2 e^\left(-\frac{2C^2}{(b-a)^2}\right)\]
+<b>For example</b>:<br>
+If \(X_1,X_2,....,X_n \stackrel{iid}{\sim } Ber(p);\quad\) and \(\epsilon=\frac{C}{\sqrt{n}}\)<br>
+Then: \[\mathbb{P}\left(\left|\overline{X}_n -\mathbb{E}[X]\right| \geq \frac{C}{\sqrt{n}} \right) \leq 2 e^{-2C^2}\]
+It's true for all \(n\), and for \(C\) large enough it behaves like a Gaussian.<br>
+
+<br>
+
+<span id="kiss_ex_convergence">  Remember that <a  href="intro.html#kiss_ex">Kiss Example:</a><br> </span>
+\(R_1,R_2,....,R_n \stackrel{iid}{\sim } Ber(p);\quad\)<br>
+\(\overline{R}_n = \frac{1}{n}\sum^n_{i=1}R_i\quad,\quad\) \(Var(R_i)=p(1-p)\)<br>
+<br>
+
+<ul>
+    <li id="lln">
+        <h3>Law of Large Numbers(LLN)</h3>
+        <blockquote>
+        \[\overline{R}_n  \xrightarrow [n\to \infty ]{\mathbb{P},\text{ a.s.}} p\]
+        \(\overline{R}_n\quad\) is the average of people that turn there head to the right.<br>
+        \(p\quad\) it's the actual proportion of people that turn there head to the right.<br>
+        So according to LLN as \(n\) becomes larger \(\overline{X}_n\) converges to \(p\quad\) OR (say) \(\overline{R}_n\) become a <b>consistent</b> estimator.<br>
+        Consistency is <b>important </b>.<br>
+        Now we know that \(\overline{R}_n\) is a <b>consistent</b> estimator, but we don't how good is it. We can check it by looking at the deviation of \(\overline{R}_n\) from \(p\).
+        \(\quad\mathbb{P}(|\overline{R}_n -p|)=?\quad\), CLT will help us finding it.
+        </blockquote>
+    </li>
+    <li id="clt">
+        <h3>Central Limit Theorem(CLT)</h3>
+        <blockquote>
+            <div class="math-container">
+            \[
+            \sqrt{n}\frac{\overline{R}_n - p }{\sqrt{p(1-p)}} \xrightarrow [n\to \infty ]{(d)} \mathcal{N}(0,1) \\
+            \]
+            \[
+            \overline{R}_n - p \xrightarrow [n\to \infty ]{(d)}  \mathcal{N}\left(0,\frac{p(1-p)}{n}\right)
+            \]
+            </div>
+            if \(n\) is large enough:
+            <div class="math-container">
+            \[
+            \overline{R}_n - p \approx \mathcal{N}\left(0,\frac{p(1-p)}{n}\right) \\
+            \Rightarrow \mathbb{P}(|\overline{R}_n -p| > \epsilon) \approx \mathbb{P}\left( \left| \mathcal{N}\left( 0,\frac{p(1-p)}{n} \right) \right| \geq \epsilon \right)
+            \]
+            </div>
+        </blockquote>
+    </li>
+    <li>
+        <h3>Hoeffding's inequality</h3>
+        <blockquote>
+        \[\mathbb{P}(|\overline{R}_n -p| \geq \epsilon ) \leq 2 e^\left(-2n\epsilon^2\right)\]
+        </blockquote>
+    </li>
+</ul>
+And if we put \(n=124,\hat{p}=0.645\quad\) then:<br>
+In <b>CLT:</b><br>
+ \(\mathbb{P}(|\overline{R}_n -p| \geq 0.084 )\approx 5\%\)<br>
+And in <b>Hoeffding's inequality:</b><br>
+\(\mathbb{P}(|\overline{R}_n -p| \geq \epsilon ) \leq 35\%\)<br>
+<br>
+Well \(35\%\) is a pretty big number, Hoeffding's inequality says that there is \(35\%\) chance that we may deviate more than \(0.084\) is \(\leq 35\%\)<br>
+And CLT says the probability of this happening is \(\approx 5\%\)<br>
+So Hoeffding's inequality is more <b>conservative</b> then CLT <b>but</b> it's also less precise.<br><br>
+
+<div class="slack-discuss" onclick=" window.open('https://join.slack.com/t/quantml-org/shared_invite/zt-jffw86bo-6M260iyt1q2MgBma9elewg','_blank','noopener')">
+    Join our Slack <img src="/data/img/slack.png" alt="Slack"> discussion forum
+</div><br>
+<div id="btn-container">
+    <button id="prev-btn" class="button" onclick="window.location.href = '/stats/lln/';">&#x25C0;&nbsp;&nbsp; LLN & CLT</button>
+    <button id="next-btn" class="button"  style="float: right;" onclick="window.location.href = 'gauss.html';">Gaussian&nbsp;&nbsp;&#x25B6;</button>
+</div><br><div id="modals-html"></div>
+
+                    </section>
+                    </div>
+            </div>
+            
+            <div id="navPanel">  
+                <nav>
+                    <ul class="links">
+                        <li class="cover"><a href="/stats/"><img src="/data/img/STATISTICS-cover.png" alt="STATISTICS"></a></li>
+                        <li class="active title"><a>Introduction</a></li>
+                        <li class="python"><a href="python/"><img src="/data/img/python.png" alt="Python"></a></li>
+                        <li class="julia"><a href="julia/"><img src="/data/img/julia.png" alt="Julia"></a></li>
+                    </ul>
+                    <ul id="nav-bar-icons-foot" class="icons">
+                    </ul>
+                </nav>
+                <div id="close-navbar" class="close"></div>
+            </div>
+            
+        <!-- Scripts -->
+        
+        <script src="/data/assets/js/initialize-css.js"></script>
+        <script src="/data/assets/js/init.js"></script>
+        <script>
+            function cssLoaded(){
+                document.getElementById('wrapper').style.display="block";
+                document.getElementById('pre-loading').style.display="none";
+                fullyLoaded()
+            }
+        </script>
+        <script src="/data/assets/js/index.js"></script>
+        <script src="/data/assets/js/firebase.js"></script>
+
+    </body>
+</html>

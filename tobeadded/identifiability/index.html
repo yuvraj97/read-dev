@@ -1,0 +1,251 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+    <head>
+
+        
+        <link rel="stylesheet" href="/data/assets/css/main.css">
+        <link rel="stylesheet" href="/data/assets/css/authStyle.css">
+        <link id="quantml-auth-style" rel="stylesheet" href="">
+        <link onload="cssLoaded()" id="quantml-theme" rel="stylesheet" href="" />
+
+        <!--KATEX-->
+        <link rel="stylesheet" href="/data/assets/css/katex.min.css">
+
+        <!-- The loading of KaTeX is deferred to speed up page rendering -->
+        <script defer src="/data/assets/js/katex.min.js"></script>
+
+        <!-- To automatically render math in text elements, include the auto-render extension: -->
+        <script defer src="/data/assets/js/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+
+        <title>Identifiability</title>
+        <meta charset="utf-8" />
+        <link rel="icon" href="/data/icon.png" type="image/png" sizes="16x16">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        
+        
+    </head>
+    <body>
+        <div id="pre-loading"><img class="loading" src="/data/img/loading.gif" alt=""></div>
+
+        <!-- Wrapper -->
+            <div style="display: none;" id="wrapper">
+                <div class="bg fixed" style="transform: none;"></div>
+                <div id="navPanelToggle">Menu</div>
+            
+
+                <!-- Header -->
+                <header id="header">
+                    <a href="https://quantml.org" class="logo image jump-big"><img id="quantml-cover" src="/data/img/cover.png" alt="QuantML.org" /></a>
+                </header>
+
+                <!-- Nav -->
+                    <nav id="nav">
+                        <ul class="links">
+                            <li class="cover"><a href="/stats/"><img src="/data/img/STATISTICS-cover.png" alt="STATISTICS"></a></li>
+                            <li><a href="intro.html">&#x25C0;</a></li>
+                            <li><a href="inference.html">Inference</a></li>
+                            <li><a href="modeling.html">Statistical modeling</a></li>
+                            <li class="active"><a href="identifiability.html">Identifiability</a></li>
+                            <li><a href="estimation.html">&#x25B6;</a></li>
+                        </ul>
+                        <ul id="nav-bar-icons-head" class="icons">
+                        </ul>
+                    </nav>
+
+
+                <!-- Main -->
+                    <div id="main">
+                        <section id="paragraph" class="post">
+<div id="btn-container">
+    <button id="prev-btn" class="button" onclick="window.location.href = 'modeling.html';">&#x25C0;&nbsp;&nbsp;Statistical modeling</button>
+    <button id="next-btn" class="button"  style="float: right;" onclick="window.location.href = 'estimation.html';">Estimation&nbsp;&nbsp;&#x25B6;</button>
+</div><br>
+
+<p>
+<span id="main"></span>
+Previously we talked about a model being <a  href="/stats/modeling.html#well-specified">well specified</a> or misspecified.<br>
+Now we ask <b>is</b> the <b>parameter Identifiable?</b><br>
+<blockquote>The parameter \(\theta\) is identifiable iff it maps \(\theta \in \Theta \mapsto \mathbb{P}_\theta\) is injective.</blockquote>
+By <b>injectivity,</b> we can say that if we have two parameters say \(\theta\) and \(\theta'\) and if \(\theta\neq \theta'\) then it implies that we have two different distributions \(\mathbb{P}_\theta\neq\mathbb{P}_{\theta'}\)<br>
+Or say that by two <b>different</b> parameters we cannot end up with the <b>same</b> distribution.
+<br>
+So by <b>injectivity,</b> we have a <b>unique</b> parameter for a distribution.<br>
+If \(\theta\) and \(\theta'\) give us the same distribution there is no way we can find out the correct parameter even if we have \(\infty\) amount of data.<br>
+So in order to estimate the parameter it must be <b>identifiable</b>.<br>
+<br>
+In examples shown in <a  href="modeling.html#parametric-examples">previous page</a>, parameter is <b>identifiable</b>.
+<br>
+<b>Example:</b><br>
+If:
+\[
+X_i = &#120793;_{Y_i \gt 0}\text{ (indicator function)}  \\
+\ \\
+\text{OR} \\
+\ \\
+X_i = \left\{\begin{matrix}
+1\text{ ; if } Y_i \gt 0  \\
+0\text{ ; if } Y_i \leq 0
+\end{matrix}\right.
+\]
+and \(Y_1,\cdots,Y_n \stackrel{iid}{\sim } \mathcal{N}(\mu,\sigma^2)\) for some unknown \(\mu\in\mathbb{R}\) and \(\sigma^2\gt 0\)<br>
+And the question is can we find \(\mu\) and \(\sigma^2\)?<br>
+<details open>
+
+    <summary><span class="bb" style="color: royalblue; background-color: lightyellow; cursor:pointer;"> Solution </span></summary>
+    <blockquote>
+    <div class="math-container">
+    \[X_i \sim Ber(\mathbb{P}(Y \gt 0)) \\
+    \ \\
+    \mathbb{P}(Y \gt 0)=  \mathbb{P}\left(\frac{Y - \mu}{\sigma} \gt \frac{-\mu}{\sigma}\right)\\
+    \Rightarrow \mathbb{P}(Y \gt 0)=  1-\mathbb{P}\left(\frac{Y - \mu}{\sigma} \leq \frac{-\mu}{\sigma}\right)  \\
+     \text{ (by standardization)} \\
+    \Rightarrow \mathbb{P}(Y \gt 0)=  1-\mathbb{P}\left(Z \leq \frac{-\mu}{\sigma}\right)\\
+    \{Z\sim\mathcal{N}(0,1) \\
+    \Rightarrow \mathbb{P}(Y \gt 0)=  1-\Phi\left(\frac{-\mu}{\sigma}\right) \\
+    \Rightarrow X_i \sim Ber\left(1-\Phi\left(\frac{-\mu}{\sigma}\right)\right)
+    \]
+    </div>
+    We have lots of data (or say \(X_i\)'s) so if we want to identify the parameter of \(X_i\) which is a function of \(\mu\) and \(\sigma\),
+    we took average of \(X_i\)'s that is \(\overline{X}_n\)<br>
+    So \(\overline{X}_n = 1-\Phi\left(\frac{-\mu}{\sigma}\right)\)<br>
+    \(\Rightarrow \frac{\mu}{\sigma}=-\Phi^{-1}(1-\overline{X}_n)\)<br>
+    So we <b>can</b> estimate \(\frac{\mu}{\sigma}\) but we <b>cannot</b> estimate \((\mu,\sigma^2)\) as a pair.<br>
+    Say that we estimated \(\frac{\mu}{\sigma} = \frac{1}{2}\)<br>
+    So we can say that \( (\mu,\sigma^2) =(1,4)\) but we can also say that \( (\mu,\sigma^2) =(2,16)\)<br>
+    Now we can't decide between them.<br>
+    Mathematically: say \(\theta=(\mu,\sigma^2)=(1,4)\) and \(\theta'=(\mu',(\sigma')^2)=(2,16)\)<br>
+    and \(\theta \neq \theta'\) but \(\mathbb{P}_\theta = \mathbb{P}_{\theta'}\)
+    <ul>
+        <li>
+            \(  \mathbb{P}_\theta = Ber\left(1-\Phi\left(-\frac{1}{2}\right)\right)  \)<br>
+            \(  \mathbb{P}_{\theta'} = Ber\left(1-\Phi\left(-\frac{2}{4}\right)\right)  \)<br>
+            \(\Rightarrow \mathbb{P}_\theta=\mathbb{P}_{\theta'}\)
+        </li>
+    </ul>
+    So our map \( \theta \in \Theta \mapsto \mathbb{P}_\theta \) is <b>not</b> injective<br>
+    So \( (\mu,\sigma^2)\) as a pair is <b>not identifiable</b>
+
+    <details>
+        <summary><span class="bb" style="color: royalblue; background-color: lightyellow; cursor:pointer;">What is our sample space \(E\)</span></summary>
+        \(E=\{0,1\}\)
+    </details>
+    <details>
+        <summary><span class="bb" style="color: royalblue; background-color: lightyellow; cursor:pointer;">What is the \((\mathbb{P}_\theta)_{\theta\in\Theta}\)</span></summary>
+        Here we have two choices:<br>
+        <ol>
+            <li>
+                \[  (\mathbb{P}_\theta)_{\theta\in\Theta}  =Ber\left(1-\Phi\left(\frac{-\mu}{\sigma}\right)\right)_{(\mu,\sigma^2)\in\mathbb{R}\times (0,\infty)}   \]
+                In this case the parameter \(\theta=(\mu,\sigma^2)\) is <b>not</b> identifiable.
+            </li>
+            <li>
+                \[  (\mathbb{P}_\theta)_{\theta\in\Theta}  =Ber\left(1-\Phi\left(\frac{-\mu}{\sigma}\right)\right)_{\frac{\mu}{\sigma}\in \mathbb{R}}   \]
+                In this case the parameter \(\theta=\frac{\mu}{\sigma}\) is identifiable.
+            </li>
+        </ol>
+    </details>
+
+    </blockquote>
+</details>
+
+Which of them is a <b>valid</b> statistical model?
+<details>
+    <summary><span class="bb" style="color: royalblue; background-color: lightyellow; cursor:pointer;">\( \left( \{0\}, (Ber(p))_{p \in (0,1)} \right) \)</span></summary>
+    <blockquote>
+    It is <b>not</b> a valid statistical model because sample space of a Bernoulli r.v. is \(E=\{0,1\}\)
+    </blockquote>
+</details>
+
+<details>
+    <summary><span class="bb" style="color: royalblue; background-color: lightyellow; cursor:pointer;">\( \left( \{0,1\}, (Ber(p))_{p \in (0.2,0.3)} \right) \)</span></summary>
+    <blockquote>
+    It is a valid statistical model sample space is <b>correct</b> \(E=\{0,1\}\)
+    and parameter space is also correct \(p \in (0.2,0.3)\) because \((0.2,0.3)\in(0,1)\) so it's correct
+    </blockquote>
+</details>
+<br>
+Let \(X_1, \cdots ,X_n \stackrel{iid}{\sim } \mathcal{U}([0,a])\) is a Uniform r.v. on interval \([0,a]\) for some unknown \(a \gt 0\).<br>
+According to given situation which of the following is a <b>valid</b> statistical model?
+
+<details>
+    <summary><span class="bb" style="color: royalblue; background-color: lightyellow; cursor:pointer;">\( \left( [0,a], (\mathcal{U}([0,a]))_{a \gt 0} \right)  \)</span></summary>
+    <blockquote>
+    It is <b>not</b> a valid statistical model because sample space is <b>not defined</b>, sample space \(E=[0,a]\) depends on \(a\) which is <b>not</b> known.<br>
+    So our model is <b>not</b> valid.
+    </blockquote>
+</details>
+
+<details>
+    <summary><span class="bb" style="color: royalblue; background-color: lightyellow; cursor:pointer;">\( \left( R_+, (\mathcal{U}([0,a]))_{a \gt 0} \right)  \)</span></summary>
+    <blockquote>
+    It is a <b>valid</b> statistical model because sample space is <b>well defined</b>, sample space \(E=(0,\infty]\) it does <b>not</b> depends on \(a\).<br>
+    So our model is <b>valid</b>.
+    </blockquote>
+</details>
+<b>Rule of thumb</b>: Our sample space should <b>not</b> depend on the parameter
+</p>
+<button class="accordion">\(\text{Discussion}\)</button>
+<div class="panel">
+    <script src="https://utteranc.es/client.js"
+        repo="yuvraj97/stats.github.io"
+        issue-term="inference-identifiability-discussion"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+    </script>
+</div>
+<button class="accordion">\(\text{Put up a question}\)</button>
+<div class="panel">
+    <script src="https://utteranc.es/client.js"
+        repo="yuvraj97/stats.github.io"
+        issue-term="inference-identifiability-questions"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+    </script>
+</div>
+<div class="slack-discuss" onclick=" window.open('https://join.slack.com/t/quantml-org/shared_invite/zt-jffw86bo-6M260iyt1q2MgBma9elewg','_blank','noopener')">
+    Join our Slack <img src="/data/img/slack.png" alt="Slack"> discussion forum
+</div><br>
+<div id="btn-container">
+    <button id="prev-btn" class="button" onclick="window.location.href = 'modeling.html';">&#x25C0;&nbsp;&nbsp;Statistical modeling</button>
+    <button id="next-btn" class="button"  style="float: right;" onclick="window.location.href = 'estimation.html';">Estimation&nbsp;&nbsp;&#x25B6;</button>
+</div><br>
+<div id="modals-html"></div>
+
+                    </section>
+</div>
+<br><br>
+
+                    </div>
+            
+            <div id="navPanel"> 
+                <nav>
+                    <ul class="links">
+                        <li class="cover"><a href="/stats/"><img src="/data/img/STATISTICS-cover.png" alt="STATISTICS"></a></li>
+                        <li class="active title"><a>Introduction</a></li>
+                        <li class="python"><a href="python/"><img src="/data/img/python.png" alt="Python"></a></li>
+                        <li class="julia"><a href="julia/"><img src="/data/img/julia.png" alt="Julia"></a></li>
+                    </ul>
+                    <ul id="nav-bar-icons-foot" class="icons">
+                    </ul>
+                </nav>
+                <div id="close-navbar" class="close"></div>
+            </div>
+
+        <!-- Scripts -->
+        
+        <script src="/data/assets/js/initialize-css.js"></script>
+        <script src="/data/assets/js/init.js"></script>
+        <script>
+            function cssLoaded(){
+                document.getElementById('wrapper').style.display="block";
+                document.getElementById('pre-loading').style.display="none";
+                fullyLoaded()
+            }
+        </script>
+        <script src="/data/assets/js/index.js"></script>
+        <script src="/data/assets/js/firebase.js"></script>
+
+    </body>
+</html>

@@ -1,0 +1,202 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+    <head>
+
+        
+        <link rel="stylesheet" href="/data/assets/css/main.css">
+        <link rel="stylesheet" href="/data/assets/css/authStyle.css">
+        <link id="quantml-auth-style" rel="stylesheet" href="">
+        <link onload="cssLoaded()" id="quantml-theme" rel="stylesheet" href="" />
+
+        <!--KATEX-->
+        <link rel="stylesheet" href="/data/assets/css/katex.min.css">
+
+        <!-- The loading of KaTeX is deferred to speed up page rendering -->
+        <script defer src="/data/assets/js/katex.min.js"></script>
+
+        <!-- To automatically render math in text elements, include the auto-render extension: -->
+        <script defer src="/data/assets/js/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+
+        <title>Hypothesis Testing</title>
+        <meta charset="utf-8" />
+        <link rel="icon" href="/data/icon.png" type="image/png" sizes="16x16">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        
+        
+    </head>
+    <body>
+        <div id="pre-loading"><img class="loading" src="/data/img/loading.gif" alt=""></div>
+
+        <!-- Wrapper -->
+            <div style="display: none;" id="wrapper">
+                <div class="bg fixed" style="transform: none;"></div>
+                <div id="navPanelToggle">Menu</div>
+            
+
+                <!-- Header -->
+                <header id="header">
+                    <a href="https://quantml.org" class="logo image jump-big"><img id="quantml-cover" src="/data/img/cover.png" alt="QuantML.org" /></a>
+                </header>
+
+                <!-- Nav -->
+                    <nav id="nav">
+                        <ul class="links">
+                            <li class="cover"><a href="/stats/"><img src="/data/img/STATISTICS-cover.png" alt="STATISTICS"></a></li>
+                           <li><a href="ci.html">&#x25C0;</a></li>
+                           <li class="active"><a href="hypothesis.html">Hypothesis Testing</a></li>
+                           <li><a href="two-sample-test.html">Two Sample Test</a></li>
+                           <li><a href="terminologies.html">Terminologies</a></li>
+                           <li><a href="statistical-test.html">Statistical Test</a></li>
+                           <li><a href="p-value.html">&#x25B6;</a></li>
+                        </ul>
+                        <ul id="nav-bar-icons-head" class="icons">
+                        </ul>
+                    </nav>
+
+
+                <!-- Main -->
+                    <div id="main">
+                        <section id="paragraph" class="post">
+<div id="btn-container">
+    <button id="prev-btn" class="button" onclick="window.location.href = 'interpretation.html';">&#x25C0;&nbsp;&nbsp;Interpretation of CI</button>
+    <button id="next-btn" class="button"  style="float: right;" onclick="window.location.href = 'two-sample-test.html';">Two Sample Test&nbsp;&nbsp;&#x25B6;</button>
+</div><br>
+<p>
+<!--&#120793;-->
+<span id="main"></span>
+Here we answer <b>binary</b> questions like (if our parameter is \(\theta\) then) \(\theta = 0.5\) or \(\theta \neq 0.5\) using our estimator (say \(\hat{\theta}_n\)).<br>
+Now let's look at an <b>example:</b><br>
+<span id='boarding-plane-ex'>How to board a plane(which boarding method is fast):</span><br>
+There are two ways to board a plane:
+<ol>
+    <li>
+        <b>Rear to front(R2F):</b><br>
+        In this case we start boarding from the rear seats to the front seats.<br>
+        <img style="width: 100%;" src="/stats/img/R2F.png" width="593" height="153" alt="">
+    </li>
+    <li>
+        <b>WilMA(Window,Middle,Aisle):</b><br>
+        In this case we first board the Windows seats, then the Middle seats and then Aisle.<br>
+        <img style="width: 100%;" src="/stats/img/WilMA.png" width="593" height="153" alt="">
+    </li>
+</ol>
+First we collect data for these two methods, say we have data from 2 airlines: <b>airline1</b>(it follows <b>R2F</b>), <b>airlines2</b>(it follows <b>WilMA</b>)<br>
+Say that now we only have a <b>summary</b> of data<b>:</b><br>
+<div  style="font-family: inherit;" class="table-wrapper">
+    <table style="display:block">
+    <tr>
+    <th></th>
+    <th>R2F</th>
+    <th>WilMA</th>
+    </tr>
+    <tr>
+    <th>Average(mins)
+    </th>
+    <td> \(\overline{X}_n=24.2\)</td>
+    <td>\(\overline{Y}_m=15.9\)</td>
+    </tr>
+    <tr>
+    <th>Std.Dev(mins)
+    </th>
+    <td> \(\sigma_X=2.1\)</td>
+    <td> \(\sigma_Y=1.3\)</td>
+    </tr>
+    <tr>
+    <th>Sample size
+    </th>
+    <td> \(n=72\)</td>
+    <td>\(m=56\)</td>
+    </tr>
+    </table>
+</div>
+<span id="model"></span>
+<b>Model and Assumption</b><br>
+<ul>
+    <li>\(X\) represents boarding time of <b>airline1</b>(which follows <b>R2F</b>) and \(Y\) represents boarding time of <b>airlines2</b>(which follows <b>WilMA</b>)</li>
+    <li>
+        Assume that \(X\sim\mathcal{N}(\mu_X.\sigma_X^2)\) and \(Y\sim\mathcal{N}(\mu_Y.\sigma_Y^2)\)<br>
+        <ul style="list-style-type: circle"><li>Here we do allow for \(X\lt 0\) and \(Y\lt 0\) but \(\mathbb{P}(X\lt 0)\) and \(\mathbb{P}(Y\lt 0)\) is negligible.</li></ul>
+    </li>
+    <li>\(X_1,X_2,\cdots,X_n \stackrel{iid}{\sim} X\ ;\quad\) \(Y_1,Y_2,\cdots,Y_m \stackrel{iid}{\sim} Y\) and also two sample are independent (\(X_1,X_2,\cdots,X_n,\)\(Y_1,Y_2,\cdots,Y_m \) are independent) </li>
+</ul>
+Now what we want to answer is "are those boarding time are same or one is better then the other":<br>
+\(\text{Is } \mu_X=\mu_Y  \text{ or }\mu_X \gt \mu_Y \)<br>
+<details open>
+    <summary><span class="bb" style="color: royalblue; background-color: lightyellow; cursor:pointer;">But why not answer "\(\text{Is } \mu_X=\mu_Y\)\(\text{ or }\)\(\mu_X \neq \mu_Y \)" </span></summary>
+    <blockquote>
+        <img style="width: 100%;" src="/stats/img/hypothesis-ex-parametric-model.png" width="170" height="150" style="float: right" alt="">
+        Here we are trying to claim that WilMA is better then R2F, and <b>status quo</b> (\(\mu_X=\mu_Y \)) says before collecting the data there is no reason to believe that one is better then other.<br>
+        Here we ruling out \(\mu_X\lt\mu_Y \) from our parameter space \((\mathbb{P_\theta})_{\theta\in\Theta}\), so that we can get more out of our data.<br>
+    </blockquote>
+</details>
+A <b>valid</b> scientific inquiry should <b>start</b> from making this assumption (of not allowing \(\mu_X\lt\mu_Y \)) <b>and then</b> collect the data.<br>
+Because we can <b>cheat</b> hear by first collecting the data then making the assumption (like we first watch data and see that \(\overline{X}_n\gt\overline{Y}_m\) and based on that we make assumption of not allowing \(\mu_X\lt\mu_Y \)). If we do this we are going to make wrong conclusion.<br>
+<br>
+Here we have two samples one for <b>R2F</b> and another for <b>WilMA</b>, so it's a two sample test, we will see it in <a  href="two-sample-test.html">next page</a>.<br>
+
+</p>
+<button class="accordion">\(\text{Discussion}\)</button>
+<div class="panel">
+    <script src="https://utteranc.es/client.js"
+        repo="yuvraj97/stats.github.io"
+        issue-term="hypothesis-testing-discussion"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+    </script>
+</div>
+<button class="accordion">\(\text{Put up a question}\)</button>
+<div class="panel">
+    <script src="https://utteranc.es/client.js"
+        repo="yuvraj97/stats.github.io"
+        issue-term="hypothesis-testing-questions"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+    </script>
+</div>
+<div class="slack-discuss" onclick=" window.open('https://join.slack.com/t/quantml-org/shared_invite/zt-jffw86bo-6M260iyt1q2MgBma9elewg','_blank','noopener')">
+    Join our Slack <img src="/data/img/slack.png" alt="Slack"> discussion forum
+</div><br>
+<div id="btn-container">
+    <button id="prev-btn" class="button" onclick="window.location.href = 'interpretation.html';">&#x25C0;&nbsp;&nbsp;Interpretation of CI</button>
+    <button id="next-btn" class="button"  style="float: right;" onclick="window.location.href = 'two-sample-test.html';">Two Sample Test&nbsp;&nbsp;&#x25B6;</button>
+</div><br>
+<div id="modals-html"></div>
+
+                    </section>
+</div>
+<br><br>
+
+                    </div>
+            
+            <div id="navPanel"> 
+                <nav>
+                    <ul class="links">
+                        <li class="cover"><a href="/stats/"><img src="/data/img/STATISTICS-cover.png" alt="STATISTICS"></a></li>
+                        <li class="active title"><a>Introduction</a></li>
+                        <li class="python"><a href="python/"><img src="/data/img/python.png" alt="Python"></a></li>
+                        <li class="julia"><a href="julia/"><img src="/data/img/julia.png" alt="Julia"></a></li>
+                    </ul>
+                    <ul id="nav-bar-icons-foot" class="icons">
+                    </ul>
+                </nav>
+                <div id="close-navbar" class="close"></div>
+            </div>
+
+        <!-- Scripts -->
+        
+        <script src="/data/assets/js/initialize-css.js"></script>
+        <script src="/data/assets/js/init.js"></script>
+        <script>
+            function cssLoaded(){
+                document.getElementById('wrapper').style.display="block";
+                document.getElementById('pre-loading').style.display="none";
+                fullyLoaded()
+            }
+        </script>
+        <script src="/data/assets/js/index.js"></script>
+        <script src="/data/assets/js/firebase.js"></script>
+    </body>
+</html>

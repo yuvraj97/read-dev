@@ -1,0 +1,216 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+    <head>
+
+        
+        <link rel="stylesheet" href="/data/assets/css/main.css">
+        <link rel="stylesheet" href="/data/assets/css/authStyle.css">
+        <link id="quantml-auth-style" rel="stylesheet" href="">
+        <link onload="cssLoaded()" id="quantml-theme" rel="stylesheet" href="" />
+
+        <!--KATEX-->
+        <link rel="stylesheet" href="/data/assets/css/katex.min.css">
+
+        <!-- The loading of KaTeX is deferred to speed up page rendering -->
+        <script defer src="/data/assets/js/katex.min.js"></script>
+
+        <!-- To automatically render math in text elements, include the auto-render extension: -->
+        <script defer src="/data/assets/js/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+
+        <title>Goal</title>
+        <meta charset="utf-8" />
+        <link rel="icon" href="/data/icon.png" type="image/png" sizes="16x16">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        
+        
+    </head>
+    <body>
+        <div id="pre-loading"><img class="loading" src="/data/img/loading.gif" alt=""></div>
+
+        <!-- Wrapper -->
+            <div style="display: none;" id="wrapper">
+                <div class="bg fixed" style="transform: none;"></div>
+                <div id="navPanelToggle">Menu</div>
+            
+
+                <!-- Header -->
+                <header id="header">
+                    <a href="https://quantml.org" class="logo image jump-big"><img id="quantml-cover" src="/data/img/cover.png" alt="QuantML.org" /></a>
+                </header>
+
+                <!-- Nav -->
+                    <nav id="nav">
+                        <ul class="links">
+                            <li class="cover"><a href="/stats/"><img src="/data/img/STATISTICS-cover.png" alt="STATISTICS"></a></li>
+                           <li><a href="p-value.html">&#x25C0;</a></li>
+                           <li><a href="goal.html">Goal</a></li>
+                           <li class="active"><a href="total-variation-distance.html">Total Variation Distance</a></li>
+                           <li><a href=".html">&#x25B6;</a></li>
+                        </ul>
+                        <ul id="nav-bar-icons-head" class="icons">
+                        </ul>
+                    </nav>
+
+
+                <!-- Main -->
+                    <div id="main">
+                        <section id="paragraph" class="post">
+<div id="btn-container">
+    <button id="prev-btn" class="button" onclick="window.location.href = 'goal.html';">&#x25C0;&nbsp;&nbsp;Goal</button>
+    <button id="next-btn" class="button"  style="float: right;" onclick="window.location.href = '.html';">&nbsp;&nbsp;&#x25B6;</button>
+</div><br>
+<p>
+<!--&#120793;-->
+
+<b>Total Variation Distance</b> tells us how far <b>is</b> our <b>estimated probability distribution</b> 
+from the <b>true probability distribution</b>.  <br>
+
+Say we have a sample of \(n\) <b>i.i.d.</b> r.v. \(X_1, X_2 \cdots X_n\), and say our <a  href="modeling.html">Statistical Model</a> 
+is  \(\left(E,(\mathbb{P_\theta})_{\theta\in\Theta}\right)\)<br>
+\(E\): Sample space<br>
+\((\mathbb{P_\theta})_{\theta\in\Theta}\): it's <b>family</b> of probability distribution on \(E\)<br>
+\(\Theta\): Parameter set<br>
+Assume that \(\theta^*\) is our true parameter, so \(X_i\sim \mathbb{P}_{\theta^*}\).<br>
+<br>
+
+<h3 style="font-family: inherit;" id="goal">Goal</h3>
+Given our sample \(X_1, X_2 \cdots X_n\)  we want to find an estimator \(\hat{\theta}\) such that 
+\(\mathbb{P}_{\hat{\theta}}\) is close to \(\mathbb{P}_{\theta^*}\), where \(\theta^*\) is our 
+true parameter.<br>
+<br>
+
+<b>But what does it means for two probability distribution to be close?</b><br>
+<blockquote>
+It means that when we compute the probability of an event (say \(A\)), then both 
+probability distribution should give close result.<br>
+So we want \(| \mathbb{P}_{\hat{\theta}}(A) - \mathbb{P}_{\theta^*}(A)|\) to be <b>small</b> for all \(A\subset E\)
+</blockquote>
+
+So the <b>Total Variation Distance</b> between two probability measures 
+\(\mathbb{P}_{\theta}\) and \(\mathbb{P}_{\theta'}\) 
+is defined by
+
+\[
+\color{blue}{\boxed{
+\begin{matrix}
+  \\    %blank line
+\quad 
+
+% equation
+TV\left(\mathbb{P}_{\theta}, \mathbb{P}_{\theta'}\right)= \max_{A\subset E}|\mathbb{P}_{\theta}(A) - \mathbb{P}_{\theta^*}(A)| 
+%equation
+
+\quad\\
+  \\    %blank line
+\end{matrix}
+}}
+\]
+
+<blockquote>
+    So if \(TV\left(\mathbb{P}_{\theta}, \mathbb{P}_{\theta'}\right)=0\) it means that maximum 
+    possible deviation of \(\mathbb{P}_{\theta}\) and \(\mathbb{P}_{\theta'}\) is \(0\).<br>
+    So there is no deviation between \(\mathbb{P}_{\theta}\) and \(\mathbb{P}_{\theta'}\) 
+    it means that \(\mathbb{P}_{\theta}\) and \(\mathbb{P}_{\theta'}\) are same distribution.
+</blockquote>
+
+<h4 style="font-family: inherit;" id="claim">Claim</h4>
+\[ \color{green}{|\mathbb{P}_{\theta}(A) - \mathbb{P}_{\theta^*}(A)| = \frac{1}{2}\sum_{x\in E}|\mathcal{p}_{\theta}(x) - \mathcal{p}_{\theta'}(x) |}\]
+<blockquote>
+\(\mathcal{p}_{\theta}(x) = \mathbb{P}_{\theta}(X=x)\) and \(\mathcal{p}_{\theta'}(x) = \mathbb{P}_{\theta'}(X=x)\)<br>
+</blockquote>
+
+<b>Proof:</b> Say that \(A=\{x\in E: \mathcal{p}_{\theta}(x) \gt \mathcal{p}_{\theta'}(x)\}\)<br>
+\[\mathbb{P}_{\theta}(A) - \mathbb{P}_{\theta'}(A) = \sum_{x:\mathcal{p}_{\theta}(x) \gt \mathcal{p}_{\theta'}(x)}  \underbrace{(\mathcal{p}_{\theta}(x) - \mathcal{p}_{\theta'}(x))}_{\gt 0}  \]
+\[\Rightarrow \mathbb{P}_{\theta}(A) - \mathbb{P}_{\theta'}(A) = \sum_{x:\mathcal{p}_{\theta}(x) \gt \mathcal{p}_{\theta'}(x)} |\mathcal{p}_{\theta}(x) - \mathcal{p}_{\theta'}(x)|  \]
+\[\Rightarrow \color{red}{|\mathbb{P}_{\theta}(A) - \mathbb{P}_{\theta'}(A)| = \sum_{x:\mathcal{p}_{\theta}(x) \gt \mathcal{p}_{\theta'}(x)} |\mathcal{p}_{\theta}(x) - \mathcal{p}_{\theta'}(x)|}  \tag{1} \]
+
+We have \(A=\{x\in E: \mathcal{p}_{\theta}(x) \gt \mathcal{p}_{\theta'}(x)\}\), so \(A^c = E-A\).<br>
+So,<br>
+\[\mathbb{P}_{\theta}(A^c) - \mathbb{P}_{\theta'}(A^c) = \sum_{x:\mathcal{p}_{\theta}(x) \leq \mathcal{p}_{\theta'}(x)}  \underbrace{(\mathcal{p}_{\theta}(x) - \mathcal{p}_{\theta'}(x))}_{\leq 0}  \]
+\[\Rightarrow \mathbb{P}_{\theta}(A^c) - \mathbb{P}_{\theta'}(A^c) = - \sum_{x:\mathcal{p}_{\theta}(x) \gt \mathcal{p}_{\theta'}(x)} |\mathcal{p}_{\theta}(x) - \mathcal{p}_{\theta'}(x)|  \]
+\[\Rightarrow (1 - \mathbb{P}_{\theta}(A)) - (1 - \mathbb{P}_{\theta'}(A)) = - \sum_{x:\mathcal{p}_{\theta}(x) \gt \mathcal{p}_{\theta'}(x)} |\mathcal{p}_{\theta}(x) - \mathcal{p}_{\theta'}(x)|  \]
+\[\Rightarrow \mathbb{P}_{\theta'}(A) - \mathbb{P}_{\theta}(A) = - \sum_{x:\mathcal{p}_{\theta}(x) \gt \mathcal{p}_{\theta'}(x)} |\mathcal{p}_{\theta}(x) - \mathcal{p}_{\theta'}(x)|  \]
+\[\Rightarrow   \color{red}{|\mathbb{P}_{\theta}(A) - \mathbb{P}_{\theta'}(A)| = \sum_{x:\mathcal{p}_{\theta}(x) \gt \mathcal{p}_{\theta'}(x)} |\mathcal{p}_{\theta}(x) - \mathcal{p}_{\theta'}(x)|}  \tag{2}\]
+
+Now summing equation \(\color{red}{(1)}\) and equation \(\color{red}{(2)}\) we get,<br>
+\[\color{red}{2|\mathbb{P}_{\theta}(A) - \mathbb{P}_{\theta'}(A)| = \sum_{x\in E} |\mathcal{p}_{\theta}(x) - \mathcal{p}_{\theta'}(x)|}\]
+So 
+\[\color{blue}{|\mathbb{P}_{\theta}(A) - \mathbb{P}_{\theta'}(A)| = \frac{1}{2}\sum_{x\in E} |\mathcal{p}_{\theta}(x) - \mathcal{p}_{\theta'}(x)|}\]
+
+
+
+
+
+
+
+
+
+
+
+
+</p>
+<button class="accordion">\(\text{Discussion}\)</button>
+<div class="panel">
+    <script src="https://utteranc.es/client.js"
+        repo="yuvraj97/stats.github.io"
+        issue-term="moe-total-variation-distance-discussion"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+    </script>
+</div>
+<button class="accordion">\(\text{Put up a question}\)</button>
+<div class="panel">
+    <script src="https://utteranc.es/client.js"
+        repo="yuvraj97/stats.github.io"
+        issue-term="moe-total-variation-distance-questions"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+    </script>
+</div>
+<div class="slack-discuss" onclick=" window.open('https://join.slack.com/t/quantml-org/shared_invite/zt-jffw86bo-6M260iyt1q2MgBma9elewg','_blank','noopener')">
+    Join our Slack <img src="/data/img/slack.png" alt="Slack"> discussion forum
+</div><br>
+<div id="btn-container">
+    <button id="prev-btn" class="button" onclick="window.location.href = 'goal.html';">&#x25C0;&nbsp;&nbsp;Goal</button>
+    <button id="next-btn" class="button"  style="float: right;" onclick="window.location.href = '.html';">&nbsp;&nbsp;&#x25B6;</button>
+</div><br>
+<div id="modals-html"></div>
+
+                    </section>
+</div>
+<br><br>
+
+                    </div>
+            
+            <div id="navPanel"> 
+                <nav>
+                    <ul class="links">
+                        <li class="cover"><a href="/stats/"><img src="/data/img/STATISTICS-cover.png" alt="STATISTICS"></a></li>
+                        <li class="active title"><a>Introduction</a></li>
+                        <li class="python"><a href="python/"><img src="/data/img/python.png" alt="Python"></a></li>
+                        <li class="julia"><a href="julia/"><img src="/data/img/julia.png" alt="Julia"></a></li>
+                    </ul>
+                    <ul id="nav-bar-icons-foot" class="icons">
+                    </ul>
+                </nav>
+                <div id="close-navbar" class="close"></div>
+            </div>
+
+        <!-- Scripts -->
+        
+        <script src="/data/assets/js/initialize-css.js"></script>
+        <script src="/data/assets/js/init.js"></script>
+        <script>
+            function cssLoaded(){
+                document.getElementById('wrapper').style.display="block";
+                document.getElementById('pre-loading').style.display="none";
+                fullyLoaded()
+            }
+        </script>
+        <script src="/data/assets/js/index.js"></script>
+        <script src="/data/assets/js/firebase.js"></script>
+    </body>
+</html>

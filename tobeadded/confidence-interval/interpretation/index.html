@@ -1,0 +1,253 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+    <head>
+
+        
+        <link rel="stylesheet" href="/data/assets/css/main.css">
+        <link rel="stylesheet" href="/data/assets/css/authStyle.css">
+        <link id="quantml-auth-style" rel="stylesheet" href="">
+        <link onload="cssLoaded()" id="quantml-theme" rel="stylesheet" href="" />
+
+        <!--KATEX-->
+        <link rel="stylesheet" href="/data/assets/css/katex.min.css">
+
+        <!-- The loading of KaTeX is deferred to speed up page rendering -->
+        <script defer src="/data/assets/js/katex.min.js"></script>
+
+        <!-- To automatically render math in text elements, include the auto-render extension: -->
+        <script defer src="/data/assets/js/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+
+        <title>Confidence Interval</title>
+        <meta charset="utf-8" />
+        <link rel="icon" href="/data/icon.png" type="image/png" sizes="16x16">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        
+        
+    </head>
+    <body>
+        <div id="pre-loading"><img class="loading" src="/data/img/loading.gif" alt=""></div>
+
+        <!-- Wrapper -->
+            <div style="display: none;" id="wrapper">
+                <div class="bg fixed" style="transform: none;"></div>
+                <div id="navPanelToggle">Menu</div>
+            
+
+                <!-- Header -->
+                <header id="header">
+                    <a href="https://quantml.org" class="logo image jump-big"><img id="quantml-cover" src="/data/img/cover.png" alt="QuantML.org" /></a>
+                </header>
+
+                <!-- Nav -->
+                    <nav id="nav">
+                        <ul class="links">
+                            <li class="cover"><a href="/stats/"><img src="/data/img/STATISTICS-cover.png" alt="STATISTICS"></a></li>
+                        <li><a href="estimation.html">&#x25C0;</a></li>
+                           <li><a href="ci.html">Confidence Interval</a></li>
+                           <li><a href="delta.html">Delta Method</a></li>
+                           <li class="active"><a href="interpretation.html">Interpretation of CI</a></li>
+                           <li><a href="hypothesis.html">&#x25B6;</a></li>
+                        </ul>
+                        <ul id="nav-bar-icons-head" class="icons">
+                        </ul>
+                    </nav>
+
+
+                <!-- Main -->
+                    <div id="main">
+                        <section id="paragraph" class="post">
+<div id="btn-container">
+    <button id="prev-btn" class="button" onclick="window.location.href = 'delta.html';">&#x25C0;&nbsp;&nbsp;Delta Method</button>
+    <button id="next-btn" class="button"  style="float: right;" onclick="window.location.href = 'hypothesis.html';">Hypothesis Testing&nbsp;&nbsp;&#x25B6;</button>
+</div><br>
+<p>
+<!--&#120793;-->
+<span id="main"></span>
+<b>Interpretation of asymptotic confidence interval:</b><br>
+<a href="ci.html#T">Remember <b>The T</b>  example</a><br>
+Using <a href="delta.html">delta method</a> we said:<br>
+For \(\alpha\in (0,1)\) and \(n\to\infty\)<br>
+<div class="math-container">
+\[\mathbb{P}\left(|\hat{\lambda}-\lambda|\leq \frac{\lambda q_{\alpha/2}}{\sqrt{n}}\right)\approx 1-\alpha\]
+</div>
+Now assume we observe \(n=64\) <b>T</b>'s and get an average waiting time(inter-arrival time) of \(\overline{T}_n=6.23\) minutes then with \(\alpha=5\%\) our asymptotic CI for \(\lambda\) is:<br>
+\(\mathcal{I}_{\text{solve}}=[0.13,0.21]\)<br>
+<br>
+But what is the meaning of an asymptotic <b>confidence interval</b>?<br>
+<dl><dd>
+    This CI what we saw is just a realization of a CI of one-single experiment.<br>
+    We can perform same experiment which (might) give us different \(\overline{T}_n\) which lead us to different CI.<br>
+    If we perform this experiment over and over again (as our number of experiments \(\to \infty\)) then \(1-\alpha\) proportion of those CI includes the true parameter (say \(\lambda\)).
+</dd></dl>
+</p>
+<details open>
+    <summary><span style="cursor:pointer;" id="py-one">Here is a python code snippet to simulate this scenario (to come up with a <b>CI of one-single experiment</b>)</span></summary>
+<div  style="height:25em; overflow-y:scroll; display:block">
+<pre  class="brush: python" >
+import numpy as np
+from scipy.stats import norm
+
+# This function will give us 'n' iid randomly distributed exponential random variables
+def get_exp_data(_lambda,n):
+    data=np.random.exponential(1/_lambda,n)
+    return data
+
+# This function estimates lambda_hat: estimator of lambda
+def estimate_lambda(data):
+    T_n_bar = np.mean(data)
+    lambda_hat = 1/T_n_bar
+    return lambda_hat
+
+# This function returns plug-in confidence interval for lambda
+def get_plugin_ci(lambda_hat,alpha,n):
+    alpha_2=alpha/2
+    q_alpha_2=norm.ppf(alpha_2)
+    l=lambda_hat-q_alpha_2*lambda_hat/np.sqrt(n)
+    r=lambda_hat+q_alpha_2*lambda_hat/np.sqrt(n)
+    return sorted([l,r])
+
+true_lambda=0.23  # This is our true parameter
+n = 64 # This is number of samples
+alpha = 0.05 # 1- alpha is the level of confidence
+
+# Now this is our probability to statistics part remember that dogma
+data = get_exp_data(true_lambda,n)
+
+# Now we have gathered our data
+# Now pretend that we don't knew the true parameter
+# Now we will do statistics to probability part (estimate the parameter (lambda))
+lambda_hat = estimate_lambda(data)
+
+# Now we build error bars (asymptotic confidence interval)
+# Currently we will focus on I_{plug-in}
+I_plugin=get_plugin_ci(lambda_hat,alpha,n)
+print(I_plugin)
+</pre></div>
+<blockquote><div class="math-container">\(\text{O/P:}\quad\quad[0.1763039808802351, 0.29072364724375954]\)</div></blockquote>
+<hr>
+</details>
+<p>
+    If we run this experiment multiple times then each experiment has it's own CI, and \(1-\alpha\) proportion of those CIs contains true parameter
+</p>
+<details open>
+    <summary><span style="cursor:pointer;" id="py-multi">Here is a python code snippet to simulate this scenario.</span></summary>
+<div  style="height:25em; overflow-y:scroll; display:block">
+<pre  class="brush: python" >
+import numpy as np
+from scipy.stats import norm
+import matplotlib.pyplot as plt
+
+def get_exp_data(_lambda,n):
+    data=np.random.exponential(1/_lambda,n)
+    return data
+
+def estimate_lambda(data):
+    T_n_bar = np.mean(data)
+    lambda_hat = 1/T_n_bar
+    return lambda_hat
+
+def get_plugin_ci(lambda_hat,alpha,n):
+    alpha_2=alpha/2
+    q_alpha_2=norm.ppf(alpha_2)
+    l=lambda_hat-q_alpha_2*lambda_hat/np.sqrt(n)
+    r=lambda_hat+q_alpha_2*lambda_hat/np.sqrt(n)
+    return sorted([l,r])
+
+def run_simulation(true_lambda,alpha,n,no_of_experiments=100):
+    ci_s=[]
+    for _ in range(no_of_experiments):
+        data = get_exp_data(true_lambda,n)
+        lambda_hat = estimate_lambda(data)
+        I_plugin = get_plugin_ci(lambda_hat,alpha,n)
+        ci_s.append(I_plugin)
+    for i in range(no_of_experiments):
+        l,r=ci_s[i]
+        x=[l,r]
+        y=[i+1,i+1]
+        if(true_lambda &lt; r and true_lambda &gt; l): #these CIs do contains true parameter lambda
+            plt.plot(x,y,'b')
+        else:                               #these CIs do **not** contains true parameter lambda
+            plt.plot(x,y,'r')
+        plt.plot(np.mean(ci_s[i]),i+1,marker='.',color='black')
+    x=true_lambda,true_lambda
+    y=[0,no_of_experiments+1]
+    plt.plot(x,y)
+    plt.show()
+
+true_lambda=0.25  # This is our true parameter
+n = 64 # This is number of samples
+alpha = 0.05 # 1- alpha is the level of confidence
+
+run_simulation(true_lambda,alpha,n,no_of_experiments=50)
+</pre></div><br>
+\(\text{O/P:}\)<br>
+<img style="width: 100%;" src="/stats/img/ci.png" width="384" height="287" alt=""><br>
+Here the blue CIs are those which contains the true parameter and red one do <b>not</b> contain the true parameter, vertical line denotes our true parameter and black dots indicate \(\overline{T}_n\) of each CI.
+<hr>
+</details>
+
+<button class="accordion">\(\text{Discussion}\)</button>
+<div class="panel">
+    <script src="https://utteranc.es/client.js"
+        repo="yuvraj97/stats.github.io"
+        issue-term="estimation-inter-discussion"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+    </script>
+</div>
+<button class="accordion">\(\text{Put up a question}\)</button>
+<div class="panel">
+    <script src="https://utteranc.es/client.js"
+        repo="yuvraj97/stats.github.io"
+        issue-term="estimation-inter-questions"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+    </script>
+</div>
+<div class="slack-discuss" onclick=" window.open('https://join.slack.com/t/quantml-org/shared_invite/zt-jffw86bo-6M260iyt1q2MgBma9elewg','_blank','noopener')">
+    Join our Slack <img src="/data/img/slack.png" alt="Slack"> discussion forum
+</div><br>
+<div id="btn-container">
+    <button id="prev-btn" class="button" onclick="window.location.href = 'delta.html';">&#x25C0;&nbsp;&nbsp;Delta Method</button>
+    <button id="next-btn" class="button"  style="float: right;" onclick="window.location.href = 'hypothesis.html';">Hypothesis Testing&nbsp;&nbsp;&#x25B6;</button>
+</div><br>
+<div id="modals-html"></div>
+
+                    </section>
+</div>
+<br><br>
+
+                    </div>
+            
+            <div id="navPanel"> 
+                <nav>
+                    <ul class="links">
+                        <li class="cover"><a href="/stats/"><img src="/data/img/STATISTICS-cover.png" alt="STATISTICS"></a></li>
+                        <li class="active title"><a>Introduction</a></li>
+                        <li class="python"><a href="python/"><img src="/data/img/python.png" alt="Python"></a></li>
+                        <li class="julia"><a href="julia/"><img src="/data/img/julia.png" alt="Julia"></a></li>
+                    </ul>
+                    <ul id="nav-bar-icons-foot" class="icons">
+                    </ul>
+                </nav>
+                <div id="close-navbar" class="close"></div>
+            </div>
+
+        <!-- Scripts -->
+        
+        <script src="/data/assets/js/initialize-css.js"></script>
+        <script src="/data/assets/js/init.js"></script>
+        <script>
+            function cssLoaded(){
+                document.getElementById('wrapper').style.display="block";
+                document.getElementById('pre-loading').style.display="none";
+                fullyLoaded()
+            }
+        </script>
+        <script src="/data/assets/js/index.js"></script>
+        <script src="/data/assets/js/firebase.js"></script>
+    </body>
+</html>
