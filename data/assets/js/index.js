@@ -1,57 +1,3 @@
-function changeTheme() {
-	currentTheme = localStorage.getItem("quantmlTheme");
-	if(currentTheme == "light"){
-		// console.log("Light2Dark");
-		changeThemeCSS("dark")
-		loadCorrectThemeImages("dark")
-		localStorage.setItem("quantmlTheme", "dark");
-	}
-	else if (currentTheme == "dark"){
-		// console.log("Dark2Light");
-		changeThemeCSS("light")
-		loadCorrectThemeImages("light")
-		localStorage.setItem("quantmlTheme", "light");
-	}
-}
-
-function loadCorrectThemeImages(currentTheme){
-	images = document.querySelectorAll('img')
-	if(currentTheme == "light" && document.getElementById('quantml-cover').src.indexOf("/img-dark/")!=-1){
-		for (let index = 0; index < images.length; index++) {
-			// console.log(images[index].src,"->", images[index].src.replace("/img-dark/","/img/"))
-			if(images[index].id!="pre-loading"){images[index].src = images[index].src.replace("/img-dark/","/img/")}
-		}
-	} else if(currentTheme == "dark"){
-		for (let index = 0; index < images.length; index++) {
-			// console.log(images[index].src,"->", images[index].src.replace("/img/","/img-dark/"))
-			if(images[index].id!="pre-loading"){images[index].src = images[index].src.replace("/img/","/img-dark/")}
-		}
-	}	
-}
-
-function isInputRequires(){
-	loginModal = document.getElementById('login-model')
-	if(typeof(loginModal) !="undefined" && loginModal.style.display=="block"){
-		return true
-	} else {
-		return false
-	}
-}
-function loadScript(path, fonload){
-    script = document.createElement('script');
-    script.src = path;
-    if(typeof(fonload)!="undefined"){script.onload = fonload}
-    document.body.appendChild(script);
-}
-
-function loadCSS(path, fonload){
-	link = document.createElement('link');
-	link.rel="stylesheet"
-	link.href = path
-	if(typeof(fonload)!="undefined"){script.onload = fonload}
-	document.head.appendChild(link);
-}
-
 loadCorrectThemeImages(localStorage.getItem("quantmlTheme"));
 
 // ***************************************************************
@@ -258,6 +204,44 @@ document.getElementById('modals-html').innerHTML =`
 
 	clearModelOnBackgroundClick(modal);
 
+	// LOGIN Form
+	const loginForm = document.querySelector('#login-form');
+	loginForm.addEventListener('submit', (e) => {
+		e.preventDefault();
+		auth_submitLoginForm(loginForm)    
+	});
+
+	// Login Button
+    const loginButton = document.querySelectorAll('#login-button');
+    loginButton.forEach((element,index)=>{
+            element.addEventListener('click', (e) => {
+                e.preventDefault();
+                document.querySelector('body').classList.remove('is-navPanel-visible');
+                document.getElementById('login-model').style.display='block';
+            });        
+    })
+	
+	// LOGOUT
+	const logout = document.querySelectorAll('#logout-button');
+	logout.forEach((element,index)=>{
+		element.addEventListener('click',(e) => {    
+			e.preventDefault();
+			localStorage.clear();
+			globalThis.fb_auth.signOut().then(() => {
+				// console.log("Logging Out...")
+			});
+		});
+	});
+
+	// Reset Password
+	const forgotPassword = document.querySelector('#forgot-password');
+	forgotPassword.addEventListener('click',(e) => {    
+		e.preventDefault();
+		auth_resetPassword(loginForm)
+	});
+
+    document.getElementById('login-error-msg').style.display='none';
+
 	document.onkeydown = function(evt) {
 		evt = evt || window.event;
 		// console.log(evt.code, modal)
@@ -281,5 +265,8 @@ document.getElementById('modals-html').innerHTML =`
 		}
 	}
 
+
+	emailAddressIsValidated()
+    passwordIsValidated()
 }, 500)
 

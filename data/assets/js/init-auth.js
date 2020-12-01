@@ -1,20 +1,3 @@
-function initializeGuide(){
-    
-    const loginButton = document.querySelectorAll('#login-button');
-    loginButton.forEach((element,index)=>{
-            element.addEventListener('click', (e) => {
-                e.preventDefault();
-                document.querySelector('body').classList.remove('is-navPanel-visible');
-                document.getElementById('login-model').style.display='block';
-            });        
-    })
-    
-    document.getElementById('login-error-msg').style.display='none';
-    emailAddressIsValidated()
-    passwordIsValidated()
-    
-}
-
 function networkRequestFailed(){
     setDisplay('login-error-msg', 'none');
     setDisplay('login-email-user-not-found', 'none');
@@ -77,50 +60,7 @@ function passwordIsValidated(){
     setDisplay('password-error-msg', 'none');
 }
 
-
-
-
-// ============================== FIREBASE SETUP [START] ============================== //
-
-// Your web app's Firebase configuration
-var firebaseConfig = {
-    apiKey: "AIzaSyBdgsjeNlaEuDVWVMRXgPOfvm2HEnpRjMQ",
-    authDomain: "statistics-guide.firebaseapp.com",
-    databaseURL: "https://statistics-guide.firebaseio.com",
-    projectId: "statistics-guide",
-};
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig);
-
-const auth = firebase.auth();
-const db   = firebase.firestore();
-
-db.settings({timestampsInSnapshots: true});
-
-// Listen For Auth Status Change
-auth.onAuthStateChanged(user=>{
-    if(user) {
-        // console.log('Logged In :)');
-        setDisplay('login-button','none');
-        setDisplay('join-button','none');
-        setDisplay('logout-button',getDisplay());
-        setDisplay('secrets',getDisplay());
-        setDisplay('login-require','none');
-    } else {
-        // console.log('Logged Out!');
-        setDisplay('login-button',getDisplay());
-        setDisplay('join-button',getDisplay());
-        setDisplay('logout-button','none');
-        setDisplay('secrets','none');
-        setDisplay('login-require',getDisplay());
-    }
-});
-
-// LOGIN
-const loginForm = document.querySelector('#login-form');
-loginForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-
+function auth_submitLoginForm(loginForm){
     setDisplay('network-request-failed', 'none');
 
     // Get User Info
@@ -133,7 +73,7 @@ loginForm.addEventListener('submit', (e) => {
         var src = "/data/img-dark/loading-login.gif";
     }
     loginButtonText.innerHTML = 'Login &nbsp; <img style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);" src='+ src +' alt="..." width="30px" height="30px"/>'
-    auth.signInWithEmailAndPassword(email, password).then(cred => {
+    globalThis.fb_auth.signInWithEmailAndPassword(email, password).then(cred => {
         // console.log(cred.user);
         setDisplay('login-model', 'none');
         loginButtonText.innerHTML = "Login";
@@ -157,25 +97,9 @@ loginForm.addEventListener('submit', (e) => {
         
         
     });
-    
-});
+}
 
-// LOGOUT
-const logout = document.querySelectorAll('#logout-button');
-logout.forEach((element,index)=>{
-    element.addEventListener('click',(e) => {    
-        e.preventDefault();
-        localStorage.clear();
-        auth.signOut().then(() => {
-            // console.log("Logging Out...")
-        });
-    });
-});
-
-// Reset Password
-const forgotPassword = document.querySelector('#forgot-password');
-forgotPassword.addEventListener('click',(e) => {    
-    e.preventDefault();
+function auth_resetPassword(loginForm){
     setDisplay('network-request-failed', 'none');
     const email = loginForm['login-email'].value;
     // console.log("Forgot Password")
@@ -186,7 +110,7 @@ forgotPassword.addEventListener('click',(e) => {
         var src = "/data/img-dark/loading-forgot.gif";
     }
     forgotButtonText.innerHTML = 'Forgot Password &nbsp; <img style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);" src='+ src +' alt="..." width="30px" height="30px"/>'
-    auth.sendPasswordResetEmail(email).then(() => {
+    globalThis.fb_auth.sendPasswordResetEmail(email).then(() => {
         // console.log("Sending Reset Password Link");
         forgotButtonText.innerHTML = 'Forgot Password'
         // alert("A password reset link is sent over: " + email)
@@ -207,13 +131,13 @@ forgotPassword.addEventListener('click',(e) => {
             networkRequestFailed();
         }
     });
-});
+}
 
 function loadContent(chapterID){
     var data = ""
     // retrieve data
     if(!localStorage.hasOwnProperty(chapterID)){
-        db.collection('Statistics-Guide').doc(chapterID).get().then(snapshot => {
+        globalThis.fb_db.collection('Statistics-Guide').doc(chapterID).get().then(snapshot => {
             // console.log("retreiving...")
             data = snapshot.data().Content;
             localStorage.setItem(chapterID, data);
@@ -234,8 +158,6 @@ function writeData(data){
 }
 
 // ============================== FIREBASE SETUP [END] ============================== //
-
-initializeGuide()
 
 // Testing
 // document.getElementById('login-model').style.display='block';
