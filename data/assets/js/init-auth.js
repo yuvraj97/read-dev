@@ -49,8 +49,8 @@ function invalidPassword(){
     setTimeout(() => {
         password.classList.remove("error-border-bounce");
     }, 1000); 
-    loginErrMsg = document.getElementById("password-error-msg");
-    loginErrMsg.style.display='block';
+    setDisplay('password-error-msg', 'block');
+    emailAddressIsValidated()
 }
 
 function passwordIsValidated(){
@@ -156,8 +156,6 @@ function writeData(data){
     secrets = document.getElementById('secrets');
     secrets.innerHTML = data;
 }
-
-// ============================== FIREBASE SETUP [END] ============================== //
 
 // Testing
 // document.getElementById('login-model').style.display='block';

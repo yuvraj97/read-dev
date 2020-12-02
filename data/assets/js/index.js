@@ -17,11 +17,11 @@ setFontSize()
 	const notDesktop = check
 
 	if(notDesktop) {
-		document.querySelectorAll('#desktop-mode').forEach((element,index)=>{element.style.display="none"})
-		document.querySelectorAll('#mobile-mode').forEach((element,index)=>{element.style.display="block"})
+		setDisplay('desktop-mode', "none")
+		setDisplay('mobile-mode', "block")
 	} else {
-		document.querySelectorAll('#desktop-mode').forEach((element,index)=>{element.style.display="block"})
-		document.querySelectorAll('#mobile-mode').forEach((element,index)=>{element.style.display="none"})
+		setDisplay('desktop-mode', "block")
+		setDisplay('mobile-mode', "none")
 	}
 	
 	// Change Theme Button
@@ -45,7 +45,7 @@ document.getElementById('modals-html').innerHTML =`
 <div id="login-model" class="modal">
     <form class="modal-content animate" id="login-form">
     
-        <a class="close" style="float: right; padding-top: 0%; padding-bottom: 0%;" onclick="document.getElementById('login-model').style.display='none'">X</a>
+        <a class="close" style="float: right; padding-top: 0%; padding-bottom: 0%;" onclick="setDisplay('login-model', 'none')">X</a>
         <div class="container" style="margin: 1rem; margin-bottom: -1rem">
         <label for="email"><b>Email Address</b></label>
         <input id="login-email" onkeypress="emailAddressIsValidated();setDisplay('network-request-failed', 'none');" class="loginInput" ref="emailRef"  type="email" placeholder="Enter Email Address" name="email" required>
@@ -82,10 +82,10 @@ document.getElementById('modals-html').innerHTML =`
 
 <div id="password-reset-link-sent-model" class="modal">
     <div class="modal-content animate" id="login-form">    
-        <a class="close" style="float: right; padding-top: 0%; padding-bottom: 0%;" onclick="document.getElementById('password-reset-link-sent-model').style.display='none'">X</a>
+        <a class="close" style="float: right; padding-top: 0%; padding-bottom: 0%;" onclick="setDisplay('password-reset-link-sent-model', 'none')">X</a>
         <div class="container" style="margin: 1rem;">
 <span id='password-reset-link-sent-txt'></span>
-        <button onclick="document.getElementById('password-reset-link-sent-model').style.display='none'" class="form-buttons login-button">OK</button>
+        <button onclick="setDisplay('password-reset-link-sent-model', 'none')" class="form-buttons login-button">OK</button>
         </div>
     </div>
 </div>
@@ -96,7 +96,7 @@ document.getElementById('modals-html').innerHTML =`
 
 <div id="settings-model" class="modal">
     <div class="modal-content animate">
-        <a class="close" style="float: right; padding-top: 0%; padding-bottom: 0%;" onclick="document.getElementById('settings-model').style.display='none'">X</a>
+        <a class="close" style="float: right; padding-top: 0%; padding-bottom: 0%;" onclick="setDisplay('settings-model', 'none')">X</a>
         <div class="container settings" style="margin: 1rem;">
             Font size &nbsp; 
             <button style="height: 30px;" class="button" onclick="incrementFontSize();setFontSize()">+</button> 
@@ -138,7 +138,7 @@ document.getElementById('modals-html').innerHTML =`
             element.addEventListener('click', (e) => {
                 e.preventDefault();
                 document.querySelector('body').classList.remove('is-navPanel-visible');
-                document.getElementById('login-model').style.display='block';
+				setDisplay('login-model', getDisplay())
             });        
     })
 	
@@ -161,7 +161,7 @@ document.getElementById('modals-html').innerHTML =`
 		auth_resetPassword(loginForm)
 	});
 
-    document.getElementById('login-error-msg').style.display='none';
+	setDisplay('login-error-msg', "none")
 
 	document.onkeydown = function(evt) {
 		evt = evt || window.event;

@@ -42,7 +42,7 @@
     }
 
     function showSettings(){
-        document.getElementById('settings-model').style.display='block';
+        setDisplay('settings-model', 'block');
         document.querySelector('body').classList.remove('is-navPanel-visible');
     }
 
@@ -74,6 +74,7 @@ function clearModelOnBackgroundClick(modal){
         // For Settings, Login
         for (let idx = 0; idx < modal.length; idx++) {
             if (event.target == modal[idx]) {
+                setDisplay()
                 modal[idx].style.display = "none";
             }            
         }
@@ -140,7 +141,7 @@ function loadNavBar(){
 	<li><a rel="noreferrer" target="_blank" href="https://join.slack.com/t/quantml-org/shared_invite/zt-jffw86bo-6M260iyt1q2MgBma9elewg"><img class="whiteback" src="${imgsrc}slack.png" alt="Slack"></a></li>
 	<li><a rel="noreferrer" target="_blank" href="https://www.linkedin.com/in/yuvraj97/"><img src="${imgsrc}linkedin.png" alt="LinkedIn"></a></li>
 	<li><a rel="noreferrer" target="_blank" href="https://github.com/yuvraj97/"><img src="${imgsrc}github.png" alt="GitHub"></a></li>
-	<li style="display: none;" id="fb-loading"><img class="fb-loading" src="${imgsrc}fb-loading.gif" alt="Loading..."></li>
+	<li style="display: none; text-align: center;" id="fb-loading"><img class="fb-loading" src="${imgsrc}fb-loading.gif" alt="Loading..."></li>
 	<li style="display: none;" id="login-button"><button id="login-btn-width" class="login-logout-join" >Login <img src="${imgsrc}patreon.png" alt="Patreon"></button></li>
 	<li style="display: none;" id="join-button"><button onclick=" window.open('https://www.patreon.com/quantml','_blank','noopener')" id="join-btn-width" class="login-logout-join" >Join <img src="${imgsrc}patreon.png" alt="Patreon"></button></li>
 	<li style="display: none;" id="logout-button"><button id="logout-btn-width" class="login-logout-join" >Logout <img src="${imgsrc}patreon.png" alt="Logout"></button></li>
@@ -165,7 +166,7 @@ function loadCSS(path, fonload, where="head"){
 }
 
 function loadFirebase(){
-    document.getElementById('fb-loading').style.display="";
+    setDisplay('fb-loading', getDisplay())
     requireScript('fb-app', '8.0.1', '/data/assets/js/firebase-app.js', 
         ()=> {
             // console.log("firebase-app.js Loaded");
@@ -215,6 +216,7 @@ function loadFirebase(){
                                     setDisplay('logout-button','none');
                                     setDisplay('secrets','none');
                                     setDisplay('login-require',getDisplay());
+                                    console.log("'fb-loading','none'")
                                     setDisplay('fb-loading','none');
                                 }
                             });
@@ -230,17 +232,17 @@ function loadKatex(){
     // console.log(typeof(katex))
     loadNavBar()
     if(!localStorage.hasOwnProperty('katex')){
-        document.getElementById('pre-initializing').style.display="block";
+        setDisplay('pre-initializing', getDisplay())
     }
     loadCSS('/data/assets/css/katex.min.css')
     loadScript('/data/assets/js/store.js', fonload=()=>{
         requireScript('katex', '0.6.0','/data/assets/js/katex.min.js', ()=>{
             requireScript('auto-render', '0.6.0','/data/assets/js/auto-render.min.js', ()=>{
                 renderMathInElement(document.body);
-                document.getElementById('wrapper').style.display="block";
-                document.getElementById('pre-initializing').style.display="none";
+                setDisplay('wrapper', 'block')
+                setDisplay('pre-initializing', 'none')
                 setTimeout(()=>{loadFirebase()}, 100)
-                requireScript('auto-render', '0.1.0','/data/assets/js/index.js', ()=>{})
+                requireScript('index', '0.1.0','/data/assets/js/index.js', ()=>{})
             })
         })
     })
