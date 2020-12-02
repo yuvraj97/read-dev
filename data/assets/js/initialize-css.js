@@ -4,16 +4,25 @@ if(localStorage.getItem("quantmlTheme")==null){
 }
 
 function changeThemeCSS(currentTheme){
-	theme = document.getElementById('quantml-theme')
-	auththeme = document.getElementById('quantml-auth-style')
-	if(currentTheme == "light"){
-		theme.href ="/data/assets/css/main-light.css"
-		auththeme.href = "/data/assets/css/authStyle-light.css"
-	}
-	else if(currentTheme == "dark") {
-		theme.href = "/data/assets/css/main-dark.css"
-		auththeme.href = "/data/assets/css/authStyle-dark.css"
+	e = document.getElementById("quantml-theme")
+	if(e!=null) e.remove();
+	e = document.getElementById("quantml-auth-theme")
+	if(e!=null) e.remove();
+	
+	if(currentTheme == "dark"){
+		requireScript("main-dark-css", "0.1.0", "/data/assets/css/main-dark.css", ()=>{
+			cssLoaded();
+			setDisplay('wrapper', 'block')
+		})
+		requireScript("auth-dark-css", "0.1.0", "/data/assets/css/authStyle-dark.css", ()=>{})
+	} else {
+		requireScript("main-light-css", "0.1.0", "/data/assets/css/main-light.css", ()=>{
+			cssLoaded();
+			setDisplay('wrapper', 'block')})
+		requireScript("auth-light-css", "0.1.0", "/data/assets/css/authStyle-light.css", ()=>{})
 	}	
 }
 
+// requireScript("main-css", "0.1.0", "/data/assets/css/main.css", ()=>{initializeBody()})
+// requireScript("auth-css", "0.1.0", "/data/assets/css/authStyle.css", ()=>{})
 changeThemeCSS(localStorage.getItem("quantmlTheme"));

@@ -35,11 +35,20 @@ function _cacheFile_(name, version, url) {
   }
 
   function _loadScript(url, name, version, callback) {
-  var s = document.createElement('script');
+  if(url.search(".css")!=-1){
+    console.log("files is CSS")
+    var e = document.createElement('link');
+    e.rel="stylesheet"
+    e.id=name
+	  e.href = url
+  } else {
+    console.log("files is JS")
+    var e = document.createElement('script');
+    e.setAttribute("src", url);
+  }
   //   Caching
-  _onLoad_(s, url, name, version, callback)
-  s.setAttribute("src", url);
-  document.getElementsByTagName("head")[0].appendChild(s)
+  _onLoad_(e, url, name, version, callback)
+  document.getElementsByTagName("head")[0].appendChild(e)
 }
 
 function _injectScript(content, url, name, version, callback) {
@@ -50,10 +59,16 @@ function _injectScript(content, url, name, version, callback) {
     _loadScript(url, name, version, callback);
     return;
   }
-  var s = document.createElement('script');
-  s.type = "text/javascript";
-  var scriptContent = document.createTextNode(c.content);
-  s.appendChild(scriptContent);
+  if(url.search(".css")!=-1){
+    var s = document.createElement('style')
+    s.id = name
+    s.innerHTML = c.content
+  } else {
+    var s = document.createElement('script');
+    // s.type = "text/javascript";
+    var scriptContent = document.createTextNode(c.content);
+    s.appendChild(scriptContent);
+  }
   document.getElementsByTagName("head")[0].appendChild(s);
   if (callback) callback();
   d = new Date();end = d.getTime();console.log(name, "get time", end-start)

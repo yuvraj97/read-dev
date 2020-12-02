@@ -239,9 +239,9 @@ function loadKatex(){
         requireScript('katex', '0.6.0','/data/assets/js/katex.min.js', ()=>{
             requireScript('auto-render', '0.6.0','/data/assets/js/auto-render.min.js', ()=>{
                 renderMathInElement(document.body);
-                setDisplay('wrapper', 'block')
+                setDisplay('paragraph-content', 'block')
                 setDisplay('pre-initializing', 'none')
-                setTimeout(()=>{loadFirebase()}, 100)
+                setTimeout(()=>{loadFirebase()}, 500)
                 requireScript('index', '0.1.0','/data/assets/js/index.js', ()=>{})
             })
         })

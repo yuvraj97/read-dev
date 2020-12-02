@@ -1082,23 +1082,13 @@ summary span {
     display: block;
 }
 
-.preload{
-    display: none;
-}
-.preload > img {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 285;
-    height: 100;
-    margin-top: -40px;
-    margin-left: -145px;
-    /* z-index: 90000; */
-}
-
 .fb-loading{
     margin-top:10px;
     border-radius: 15px;
     width: 125px;
     height: 40px;
+}
+
+#paragraph-content{
+    display: none;
 }
