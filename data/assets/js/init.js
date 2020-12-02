@@ -167,13 +167,13 @@ function loadCSS(path, fonload, where="head"){
 
 function loadFirebase(){
     setDisplay('fb-loading', getDisplay())
-    requireScript('fb-app', '8.0.1', '/data/assets/js/firebase-app.js', 
+    requireScript('fb-app-js', '8.0.1', '/data/assets/js/firebase-app.js', 
         ()=> {
             // console.log("firebase-app.js Loaded");
-            requireScript('fb-auth', '8.0.1', '/data/assets/js/firebase-auth.js',
+            requireScript('fb-auth-js', '8.0.1', '/data/assets/js/firebase-auth.js',
                 ()=>{
                     // console.log("firebase-auth.js Loaded");
-                    requireScript('fb-store', '8.0.1',"/data/assets/js/firebase-firestore.js",
+                    requireScript('fb-store-js', '8.0.1',"/data/assets/js/firebase-firestore.js",
                         ()=>{
                             // console.log("firebase-firestore Loaded");
                             // if(window.innerWidth <= 980){
@@ -235,17 +235,16 @@ function loadKatex(){
         setDisplay('pre-loading', 'none')
         setDisplay('pre-initializing', 'block')
     }
-    loadCSS('/data/assets/css/katex.min.css')
-    loadScript('/data/assets/js/store.js', fonload=()=>{
-        requireScript('katex', '0.6.0','/data/assets/js/katex.min.js', ()=>{
-            requireScript('auto-render', '0.6.0','/data/assets/js/auto-render.min.js', ()=>{
-                renderMathInElement(document.body);
-                setDisplay('paragraph-content', 'block')
-                setDisplay('pre-loading', 'none')
-                setDisplay('pre-initializing', 'none')
-                setTimeout(()=>{loadFirebase()}, 500)
-                requireScript('index', '0.1.0','/data/assets/js/index.js', ()=>{})
-            })
+    requireScript('katex-css', '0.6.0', '/data/assets/css/katex.min.css', ()=>{})
+    requireScript('katex-js', '0.6.0','/data/assets/js/katex.min.js', ()=>{
+        requireScript('auto-render-js', '0.6.0','/data/assets/js/auto-render.min.js', ()=>{
+            renderMathInElement(document.body);
+            setDisplay('paragraph-content', 'block')
+            setDisplay('pre-loading', 'none')
+            console.log('pre-loading display:', document.getElementById('pre-loading').style.display)
+            setDisplay('pre-initializing', 'none')
+            setTimeout(()=>{loadFirebase()}, 500)
+            requireScript('index-js', '0.1.0','/data/assets/js/index.js', ()=>{})
         })
     })
 }
@@ -316,7 +315,8 @@ function fullyLoaded(){
 }
 
 function cssLoaded(){
-    if(window.katex == undefined){
+    if(!window.isLoaded){
+        window.isLoaded = true
         d = new Date();end = d.getTime();
         console.log("CSS Load time:",end-start)
         loadKatex()

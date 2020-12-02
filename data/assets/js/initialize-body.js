@@ -15,3 +15,4 @@ function initializeBody(){
     }
     preload.style.display="block"
 }
+initializeBody()

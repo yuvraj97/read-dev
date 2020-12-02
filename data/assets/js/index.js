@@ -38,90 +38,91 @@ setFontSize()
 // ***************************************************************
 // ***************************************************************
 
-document.getElementById('modals-html').innerHTML =`
-<!--=================== MODELS ===================-->
+	document.getElementById('modals-html').innerHTML =`
+	<!--=================== MODELS ===================-->
 
-<!--=============== LOGIN MODEL[START] ===============-->
-<div id="login-model" class="modal">
-    <form class="modal-content animate" id="login-form">
-    
-        <a class="close" style="float: right; padding-top: 0%; padding-bottom: 0%;" onclick="setDisplay('login-model', 'none')">X</a>
-        <div class="container" style="margin: 1rem; margin-bottom: -1rem">
-        <label for="email"><b>Email Address</b></label>
-        <input id="login-email" onkeypress="emailAddressIsValidated();setDisplay('network-request-failed', 'none');" class="loginInput" ref="emailRef"  type="email" placeholder="Enter Email Address" name="email" required>
-        <div id="login-error-msg" class="error-msg">
-            <img style="float: left;" src="/data/auth/error.png" alt="!" width="50px" height="50px">
-            <div style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);">Invalid Email Address</div>
-        </div>
-        <div id="login-email-user-not-found" class="warn-msg"></div>
-        <label for="psw"><b>Password</b></label>
-        <input id="login-password" onkeypress="passwordIsValidated();setDisplay('network-request-failed', 'none');" class="loginInput" type="password" placeholder="Enter Password" name="psw" required>
-        <div id="password-error-msg" class="error-msg">
-            <img style="float: left;" src="/data/auth/error.png" alt="!" width="50px" height="50px">
-            <div style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);">Incorrect Password</div>
-        </div>
+	<!--=============== LOGIN MODEL[START] ===============-->
+	<div id="login-model" class="modal">
+		<form class="modal-content animate" id="login-form">
+		
+			<a class="close" style="float: right; padding-top: 0%; padding-bottom: 0%;" onclick="setDisplay('login-model', 'none')">X</a>
+			<div class="container" style="margin: 1rem; margin-bottom: -1rem">
+			<label for="email"><b>Email Address</b></label>
+			<input id="login-email" onkeypress="emailAddressIsValidated();setDisplay('network-request-failed', 'none');" class="loginInput" ref="emailRef"  type="email" placeholder="Enter Email Address" name="email" required>
+			<div id="login-error-msg" class="error-msg">
+				<img style="float: left;" src="/data/auth/error.png" alt="!" width="50px" height="50px">
+				<div style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);">Invalid Email Address</div>
+			</div>
+			<div id="login-email-user-not-found" class="warn-msg"></div>
+			<label for="psw"><b>Password</b></label>
+			<input id="login-password" onkeypress="passwordIsValidated();setDisplay('network-request-failed', 'none');" class="loginInput" type="password" placeholder="Enter Password" name="psw" required>
+			<div id="password-error-msg" class="error-msg">
+				<img style="float: left;" src="/data/auth/error.png" alt="!" width="50px" height="50px">
+				<div style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);">Incorrect Password</div>
+			</div>
 
-        <div style="display: none;" id="network-request-failed" class="error-msg">
-            <img style="float: left;" src="/data/auth/error.png" alt="!" width="50px" height="50px">
-            <div style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);">Internet Connection Error</div>
-        </div>
-            
-        <button class="form-buttons login-button" type="submit">
-            <span id="login-button-text">Login</span>
-        </button>
-        <button id="forgot-password" class="form-buttons forgot-button">
-            <span id="forgot-button-text">Forgot Password</span>
-        </button>
-        </div>
-        <br>
-    </form>
-    </div>
-<!--=============== LOGIN MODEL[END] ===============-->
+			<div style="display: none;" id="network-request-failed" class="error-msg">
+				<img style="float: left;" src="/data/auth/error.png" alt="!" width="50px" height="50px">
+				<div style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);">Internet Connection Error</div>
+			</div>
+				
+			<button class="form-buttons login-button" type="submit">
+				<span id="login-button-text">Login</span>
+			</button>
+			<button id="forgot-password" class="form-buttons forgot-button">
+				<span id="forgot-button-text">Forgot Password</span>
+			</button>
+			</div>
+			<br>
+		</form>
+		</div>
+	<!--=============== LOGIN MODEL[END] ===============-->
 
-<!--=============== Password Reset Link Sent MODEL[START] ===============-->
+	<!--=============== Password Reset Link Sent MODEL[START] ===============-->
 
-<div id="password-reset-link-sent-model" class="modal">
-    <div class="modal-content animate" id="login-form">    
-        <a class="close" style="float: right; padding-top: 0%; padding-bottom: 0%;" onclick="setDisplay('password-reset-link-sent-model', 'none')">X</a>
-        <div class="container" style="margin: 1rem;">
-<span id='password-reset-link-sent-txt'></span>
-        <button onclick="setDisplay('password-reset-link-sent-model', 'none')" class="form-buttons login-button">OK</button>
-        </div>
-    </div>
-</div>
-        
-<!--=============== Password Reset Link Sent MODEL[END] ===============-->
+	<div id="password-reset-link-sent-model" class="modal">
+		<div class="modal-content animate" id="login-form">    
+			<a class="close" style="float: right; padding-top: 0%; padding-bottom: 0%;" onclick="setDisplay('password-reset-link-sent-model', 'none')">X</a>
+			<div class="container" style="margin: 1rem;">
+	<span id='password-reset-link-sent-txt'></span>
+			<button onclick="setDisplay('password-reset-link-sent-model', 'none')" class="form-buttons login-button">OK</button>
+			</div>
+		</div>
+	</div>
+			
+	<!--=============== Password Reset Link Sent MODEL[END] ===============-->
 
-<!--=============== SETTINGS[START] ===============-->
+	<!--=============== SETTINGS[START] ===============-->
 
-<div id="settings-model" class="modal">
-    <div class="modal-content animate">
-        <a class="close" style="float: right; padding-top: 0%; padding-bottom: 0%;" onclick="setDisplay('settings-model', 'none')">X</a>
-        <div class="container settings" style="margin: 1rem;">
-            Font size &nbsp; 
-            <button style="height: 30px;" class="button" onclick="incrementFontSize();setFontSize()">+</button> 
-            <button style="height: 30px;" class="button" onclick="decrementFontSize();setFontSize()">-</button>
-            <button style="height: 30px; font-weight: 400;" class="button" onclick="resetFontSize();setFontSize()">Reset</button>
-            <DIV id="desktop-mode">
-                <br><br>
-                <hr>
-                Press <span class="bb">D</span> to change theme. <br>
-                Press <span class="bb">&larr;</span> to go to previous page. <br>
-                Press <span class="bb">&rarr;</span> to go to next page. <br>
-                Press <span class="bb">+</span> to increase font size. <br>
-                Press <span class="bb">-</span> to decrease font size. <br>
-            </DIV>
-        </div>
-    </div>
-</div>
-        
-<!--=============== SETTINGS[END] ===============-->
-`;
+	<div id="settings-model" class="modal">
+		<div class="modal-content animate">
+			<a class="close" style="float: right; padding-top: 0%; padding-bottom: 0%;" onclick="setDisplay('settings-model', 'none')">X</a>
+			<div class="container settings" style="margin: 1rem;">
+				Font size &nbsp; 
+				<button style="height: 30px;" class="button" onclick="incrementFontSize();setFontSize()">+</button> 
+				<button style="height: 30px;" class="button" onclick="decrementFontSize();setFontSize()">-</button>
+				<button style="height: 30px; font-weight: 400;" class="button" onclick="resetFontSize();setFontSize()">Reset</button>
+				<DIV id="desktop-mode">
+					<br><br>
+					<hr>
+					Press <span class="bb">D</span> to change theme. <br>
+					Press <span class="bb">&larr;</span> to go to previous page. <br>
+					Press <span class="bb">&rarr;</span> to go to next page. <br>
+					Press <span class="bb">+</span> to increase font size. <br>
+					Press <span class="bb">-</span> to decrease font size. <br>
+				</DIV>
+			</div>
+		</div>
+	</div>
+			
+	<!--=============== SETTINGS[END] ===============-->
+	`;
+
 	var modal = [
-		document.getElementById("login-model"),
-		document.getElementById("password-reset-link-sent-model"),
-		document.getElementById("settings-model")
-	];
+			document.getElementById("login-model"),
+			document.getElementById("password-reset-link-sent-model"),
+			document.getElementById("settings-model")
+		];
 
 	clearModelOnBackgroundClick(modal);
 
@@ -136,9 +137,10 @@ document.getElementById('modals-html').innerHTML =`
     const loginButton = document.querySelectorAll('#login-button');
     loginButton.forEach((element,index)=>{
             element.addEventListener('click', (e) => {
+				console.log("Login Button Clicked")
                 e.preventDefault();
                 document.querySelector('body').classList.remove('is-navPanel-visible');
-				setDisplay('login-model', getDisplay())
+				setDisplay('login-model', 'block')
             });        
     })
 	
