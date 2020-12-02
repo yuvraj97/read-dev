@@ -232,6 +232,7 @@ function loadKatex(){
     // console.log(typeof(katex))
     loadNavBar()
     if(!localStorage.hasOwnProperty('katex')){
+        setDisplay('pre-loading', 'none')
         setDisplay('pre-initializing', 'block')
     }
     loadCSS('/data/assets/css/katex.min.css')
@@ -240,6 +241,7 @@ function loadKatex(){
             requireScript('auto-render', '0.6.0','/data/assets/js/auto-render.min.js', ()=>{
                 renderMathInElement(document.body);
                 setDisplay('paragraph-content', 'block')
+                setDisplay('pre-loading', 'none')
                 setDisplay('pre-initializing', 'none')
                 setTimeout(()=>{loadFirebase()}, 500)
                 requireScript('index', '0.1.0','/data/assets/js/index.js', ()=>{})
@@ -291,26 +293,35 @@ function fullyLoaded(){
 			next[1].style.marginTop="5px"
 		}
     }
-    // loadKatex()
+    
+    // Close Navbar
+    document.getElementById('close-navbar').addEventListener('click',()=>{
+        document.querySelector('body').classList.remove('is-navPanel-visible');
+    })
+
+    // Menu Button Navbar
+    document.getElementById('navPanelToggle').addEventListener('click',()=>{
+        document.querySelector('body').classList.add('is-navPanel-visible');
+    })
+
+    document.addEventListener('scroll', (e) => {
+        // console.log("scroll List...", window.scrollY)
+        if(window.scrollY > 150){
+            // console.log("ALT")
+            document.getElementById('navPanelToggle').classList.add('alt')
+        } else {
+            document.getElementById('navPanelToggle').classList.remove('alt')
+        }
+    });
 }
 
-
-// Close Navbar
-document.getElementById('close-navbar').addEventListener('click',()=>{
-    document.querySelector('body').classList.remove('is-navPanel-visible');
-})
-
-// Menu Button Navbar
-document.getElementById('navPanelToggle').addEventListener('click',()=>{
-    document.querySelector('body').classList.add('is-navPanel-visible');
-})
-
-document.addEventListener('scroll', (e) => {
-    // console.log("scroll List...", window.scrollY)
-    if(window.scrollY > 150){
-        // console.log("ALT")
-        document.getElementById('navPanelToggle').classList.add('alt')
-    } else {
-        document.getElementById('navPanelToggle').classList.remove('alt')
+function cssLoaded(){
+    if(window.katex == undefined){
+        d = new Date();end = d.getTime();
+        console.log("CSS Load time:",end-start)
+        loadKatex()
+        fullyLoaded()
+        d = new Date();end = d.getTime();
+        console.log("Fully Loaded:",end-start)
     }
-});
+}

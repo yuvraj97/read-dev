@@ -2,14 +2,15 @@ function initializeBody(){
     theme = localStorage.getItem("quantmlTheme")
     body = document.querySelector('body')
     preload = document.getElementById('pre-loading')
+    preinit = document.getElementById('pre-initializing')
     // console.log(preload)
     if(theme=="dark"){
         body.style.backgroundColor = "rgb(45,45,45)"
-        e = document.getElementById('pre-initializing')
-        e.childNodes[0].src = e.childNodes[0].src.replace('/img/','/img-dark/')
+        preinit.childNodes[0].src = '/data/img-dark/initializing.gif'
         preload.childNodes[0].src = "/data/img-dark/loading.gif"
     } else {
         body.style.backgroundColor = "#fff"
+        preinit.childNodes[0].src = '/data/img/initializing.gif'
         preload.childNodes[0].src = "/data/img/loading.gif"
     }
     preload.style.display="block"
