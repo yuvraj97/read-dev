@@ -107,12 +107,12 @@ function loadCorrectThemeImages(currentTheme){
 	if(currentTheme == "light" && document.getElementById('quantml-cover').src.indexOf("/img-dark/")!=-1){
 		for (let index = 0; index < images.length; index++) {
 			// console.log(images[index].src,"->", images[index].src.replace("/img-dark/","/img/"))
-			if(images[index].id!="pre-loading"){images[index].src = images[index].src.replace("/img-dark/","/img/")}
+			images[index].src = images[index].src.replace("/img-dark/","/img/")
 		}
 	} else if(currentTheme == "dark"){
 		for (let index = 0; index < images.length; index++) {
 			// console.log(images[index].src,"->", images[index].src.replace("/img/","/img-dark/"))
-			if(images[index].id!="pre-loading"){images[index].src = images[index].src.replace("/img/","/img-dark/")}
+			images[index].src = images[index].src.replace("/img/","/img-dark/")
 		}
 	}	
 }
@@ -232,7 +232,7 @@ function loadKatex(){
     // console.log(typeof(katex))
     loadNavBar()
     if(!localStorage.hasOwnProperty('katex')){
-        setDisplay('pre-initializing', getDisplay())
+        setDisplay('pre-initializing', 'block')
     }
     loadCSS('/data/assets/css/katex.min.css')
     loadScript('/data/assets/js/store.js', fonload=()=>{

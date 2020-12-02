@@ -1082,13 +1082,18 @@ summary span {
     display: block;
 }
 
-.center-body{
-    position: relative;
-    display: block;
-    margin: auto;
-    /* right: 50%;
-    top: 50%; */
-    /* width: 30%;    */
+.preload{
+    display: none;
+}
+.preload > img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 285;
+    height: 100;
+    margin-top: -40px;
+    margin-left: -145px;
+    /* z-index: 90000; */
 }
 
 .fb-loading{
