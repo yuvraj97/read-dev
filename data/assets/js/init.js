@@ -1,45 +1,41 @@
-// ***************************************************************
-// Font Settings [START]
-// ***************************************************************
+function prevPageBtn(){
+	window.location.href = prevPage;
+}
 
-    function prevPageBtn(){
-        window.location.href = prevPage;
-    }
+function nextPageBtn(){
+	window.location.href = nextPage;
+}
 
-    function nextPageBtn(){
-        window.location.href = nextPage;
-    }
+// Setting Font-Size [START]
 
-    // Setting Font-Size [START]
+function getFontSize(){
+	return parseInt(localStorage.getItem('paragraph-font-size'));
+}
 
-    function getFontSize(){
-        return parseInt(localStorage.getItem('paragraph-font-size'));
-    }
+function incrementFontSize(){
+	localStorage.setItem('paragraph-font-size', getFontSize() + 1);
+}
 
-    function incrementFontSize(){
-        localStorage.setItem('paragraph-font-size', parseInt(localStorage.getItem('paragraph-font-size')) + 1);
-    }
+function decrementFontSize(){
+	localStorage.setItem('paragraph-font-size', getFontSize() - 1)
+}
 
-    function decrementFontSize(){
-        localStorage.setItem('paragraph-font-size', parseInt(localStorage.getItem('paragraph-font-size')) - 1)
-    }
+function resetFontSize(){
+	if(screen.width < 500){
+		localStorage.setItem('paragraph-font-size', "14");
+	} else {
+		localStorage.setItem('paragraph-font-size', "16");
+	}
+}
 
-    function resetFontSize(){
-        if(screen.width < 500){
-            localStorage.setItem('paragraph-font-size', "14");
-        } else {
-            localStorage.setItem('paragraph-font-size', "16");
-        }
-    }
+function setFontSize(){
+	document.getElementById('paragraph').style.fontSize = localStorage.getItem('paragraph-font-size') + "px";
+}
 
-    function setFontSize(){
-        document.getElementById('paragraph').style.fontSize = localStorage.getItem('paragraph-font-size') + "px";
-    }
-
-    function showSettings(){
-        setDisplay('settings-model', 'block');
-        document.querySelector('body').classList.remove('is-navPanel-visible');
-    }
+function showSettings(){
+	setDisplay('settings-model', 'block');
+	document.querySelector('body').classList.remove('is-navPanel-visible');
+}
 
 // ***************************************************************
 // Font Settings [END]
@@ -102,12 +98,12 @@ function loadCorrectThemeImages(currentTheme){
 	if(currentTheme == "light" && document.getElementById('quantml-cover').src.indexOf("/img-dark/")!=-1){
 		for (let index = 0; index < images.length; index++) {
 			// console.log(images[index].src,"->", images[index].src.replace("/img-dark/","/img/"))
-			images[index].src = images[index].src.replace("/img-dark/","/img/")
+			if(images[index].src.search("/img-dark/")!=-1) images[index].src = images[index].src.replace("/img-dark/","/img/");
 		}
 	} else if(currentTheme == "dark"){
 		for (let index = 0; index < images.length; index++) {
 			// console.log(images[index].src,"->", images[index].src.replace("/img/","/img-dark/"))
-			images[index].src = images[index].src.replace("/img/","/img-dark/")
+			if(images[index].src.search("/img/")!=-1) images[index].src = images[index].src.replace("/img/","/img-dark/");
 		}
 	}	
 }
@@ -125,32 +121,32 @@ function isInputRequires(){
 // Load fn [START]
 // ***************************************************************
 
-function loadScript(path, fonload){
-    script = document.createElement('script');
-    script.src = path;
-    if(typeof(fonload)!="undefined"){script.onload = fonload}
-    document.body.appendChild(script);
-}
+// function loadScript(path, fonload){
+//     script = document.createElement('script');
+//     script.src = path;
+//     if(typeof(fonload)!="undefined"){script.onload = fonload}
+//     document.body.appendChild(script);
+// }
 
-function loadCSS(path, fonload, where="head"){
-	link = document.createElement('link');
-	link.rel="stylesheet"
-	link.href = path
-	if(typeof(fonload)!="undefined"){link.onload = fonload}
-	if(where=="head"){ document.head.appendChild(link); } else {document.body.appendChild(link)}
-}
+// function loadCSS(path, fonload, where="head"){
+// 	link = document.createElement('link');
+// 	link.rel="stylesheet"
+// 	link.href = path
+// 	if(typeof(fonload)!="undefined"){link.onload = fonload}
+// 	if(where=="head"){ document.head.appendChild(link); } else {document.body.appendChild(link)}
+// }
 
 function loadFirebase(){
     setDisplay('fb-loading', getDisplay())
     requireScript('fb-app-js', '8.0.1', '/data/assets/js/firebase-app.js', 
         function() {
-            console.log("firebase-app.js Loaded");
+            console.log("firebase-app.js Loaded");  // Remove it
             requireScript('fb-auth-js', '8.0.1', '/data/assets/js/firebase-auth.js',
                 function(){
-                    console.log("firebase-auth.js Loaded");
+                    console.log("firebase-auth.js Loaded");  // Remove it
                     requireScript('fb-store-js', '8.0.1',"/data/assets/js/firebase-firestore.js",
                         function(){
-                            console.log("firebase-firestore Loaded");
+                            console.log("firebase-firestore Loaded");  // Remove it
                             // if(window.innerWidth <= 980){
                             //     document.getElementById('login-btn-width').style.width="100%";
                             //     document.getElementById('join-btn-width').style.width="100%";
@@ -191,7 +187,7 @@ function loadFirebase(){
                                     setDisplay('logout-button','none');
                                     setDisplay('secrets','none');
                                     setDisplay('login-require',getDisplay());
-                                    console.log("'fb-loading','none'")
+                                    console.log("'fb-loading','none'")  // Remove it
                                     setDisplay('fb-loading','none');
                                 }
                             });
@@ -214,33 +210,18 @@ function loadKatex(){
     requireScript('katex-js', '0.6.0','/data/assets/js/katex.min.js', function(){
         requireScript('auto-render-js', '0.6.0','/data/assets/js/auto-render.min.js', function(){
             renderMathInElement(document.body);
-            setDisplay('paragraph-content', 'block')
             setDisplay('pre-loading', 'none')
-            console.log('pre-loading display:', document.getElementById('pre-loading').style.display)
-            setDisplay('pre-initializing', 'none')
+			setDisplay('pre-initializing', 'none')
+			loadCorrectThemeImages(localStorage.getItem("quantmlTheme"));
+			if(localStorage.getItem('paragraph-font-size') == null) resetFontSize();
+			setFontSize()
+            setDisplay('paragraph-content', 'block')
+            console.log('pre-loading display:', document.getElementById('pre-loading').style.display)  // Remove it
             setTimeout(function(){loadFirebase()}, 500)
         })
     })
 }
 
-function loadMATHJAX(){
-    window.MathJax = {
-        tex: {
-            inlineMath: [['$', '$'], ['\\(', '\\)']]
-        },
-        svg: {
-            fontCache: 'global'
-        }
-    };
-      
-    (function () {
-        var script = document.createElement('script');
-        script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js';
-        script.async = true;
-        // script.onload = function(){console.log("Mathjax Loaded")}
-        document.head.appendChild(script);
-    })();
-}
 // ***************************************************************
 // Load fn [END]
 // ***************************************************************
@@ -287,12 +268,6 @@ function fullyLoaded(){
         }
     });
 
-    loadCorrectThemeImages(localStorage.getItem("quantmlTheme"));
-
-if(localStorage.getItem('paragraph-font-size') == null){
-	resetFontSize()
-}
-setFontSize()
 
 // ***************************************************************
 // ***************************************************************
@@ -438,7 +413,6 @@ setFontSize()
 	logout.forEach(function(element,index){
 		element.addEventListener('click',function(e) {    
 			e.preventDefault();
-			localStorage.clear();
 			globalThis.fb_auth.signOut().then(function() {
 				console.log("Logging Out...")
 			});
@@ -483,13 +457,11 @@ setFontSize()
 }
 
 function cssLoaded(){
-    if(!window.isLoaded){
-        window.isLoaded = true
-        d = new Date();end = d.getTime();
-        console.log("CSS Load time:",end-start)
-        loadKatex()
-        fullyLoaded()
-        d = new Date();end = d.getTime();
-        console.log("Fully Loaded:",end-start)
-    }
+	d = new Date();end = d.getTime();  // Remove it 
+	console.log("CSS Load time:",end-start)  // Remove it 
+	loadKatex()
+	fullyLoaded()
+	d = new Date();end = d.getTime();  // Remove it 
+	console.log("Fully Loaded:",end-start)  // Remove it 
+
 }
