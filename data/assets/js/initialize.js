@@ -113,17 +113,11 @@ function changeThemeCSS(currentTheme){
 function initializeBody(){
     console.log("initializeBody()")
     theme = localStorage.getItem("quantmlTheme")
-    preload = document.getElementById('pre-loading')
-    preinit = document.getElementById('pre-initializing')
-    // console.log(preload)
-    if(theme=="dark"){
-        preinit.childNodes[0].src = '/data/img-dark/initializing.gif'
-        preload.childNodes[0].src = "/data/img-dark/loading.gif"
-    } else {
-        preinit.childNodes[0].src = '/data/img/initializing.gif'
-        preload.childNodes[0].src = "/data/img/loading.gif"
+    if(theme=="dark") {
+      document.getElementById('pre-loading-dark').style.display="block";
+      document.querySelector('body').style.backgroundColor = "#2d2d2d"
     }
-    preload.style.display="block"
+    else document.getElementById('pre-loading-light').style.display="block";
 }
 
 function loadNavBar(ID){

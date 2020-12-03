@@ -186,21 +186,31 @@ function loadFirebase(){
 function loadKatex(){
     // console.log(typeof(katex))
     // loadNavBar()
+    theme = localStorage.getItem("quantmlTheme")
     if(!localStorage.hasOwnProperty('katex')){
-        setDisplay('pre-loading', 'none')
-        setDisplay('pre-initializing', 'block')
+        if(theme=="dark"){
+            setDisplay('pre-loading-dark', 'none')
+            setDisplay('pre-initializing-dark', 'block')
+        } else {
+            setDisplay('pre-loading-light', 'none')
+            setDisplay('pre-initializing-light', 'block')
+        }
     }
     requireScript('katex-css', '0.6.0', '/data/assets/css/katex.min.css', function(){})
     requireScript('katex-js', '0.6.0','/data/assets/js/katex.min.js', function(){
         requireScript('auto-render-js', '0.6.0','/data/assets/js/auto-render.min.js', function(){
             renderMathInElement(document.body);
-            setDisplay('pre-loading', 'none')
-			setDisplay('pre-initializing', 'none')
-			loadCorrectThemeImages(localStorage.getItem("quantmlTheme"));
+            if(theme=="dark"){
+                setDisplay('pre-loading-dark', 'none')
+                setDisplay('pre-initializing-dark', 'none')
+            } else {
+                setDisplay('pre-loading-light', 'none')
+                setDisplay('pre-initializing-light', 'none')
+            }
+            loadCorrectThemeImages(localStorage.getItem("quantmlTheme"));
 			if(localStorage.getItem('paragraph-font-size') == null) resetFontSize();
 			setFontSize()
             setDisplay('paragraph-content', 'block')
-            console.log('pre-loading display:', document.getElementById('pre-loading').style.display)  // Remove it
             setTimeout(function(){loadFirebase()}, 500)
         })
     })
