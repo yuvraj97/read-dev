@@ -60,9 +60,9 @@ function passwordIsValidated(){
     setDisplay('password-error-msg', 'none');
 }
 
-function auth_submitLoginForm(loginForm){
+function auth_submitLoginForm(){
     setDisplay('network-request-failed', 'none');
-
+    loginForm = document.getElementById('login-form')
     // Get User Info
     const email = loginForm['login-email'].value;
     const password = loginForm['login-password'].value;
@@ -99,8 +99,9 @@ function auth_submitLoginForm(loginForm){
     });
 }
 
-function auth_resetPassword(loginForm){
+function auth_resetPassword(){
     setDisplay('network-request-failed', 'none');
+    loginForm = document.getElementById('login-form')
     const email = loginForm['login-email'].value;
     // console.log("Forgot Password")
     const forgotButtonText = document.getElementById('forgot-button-text');

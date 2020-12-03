@@ -11,8 +11,10 @@ function changeThemeCSS(currentTheme){
 		if(e!=null) e.remove();
 		
 		requireScript("main-dark-css", "0.1.0", "/data/assets/css/main-dark.css", ()=>{
-			cssLoaded();
-			setDisplay('wrapper', 'block')
+			// initializeBody()
+			// document.getElementById('wrapper').style.display = "block"
+			// cssLoaded();
+			// setDisplay('wrapper', 'block')
 		})
 		requireScript("auth-dark-css", "0.1.0", "/data/assets/css/authStyle-dark.css", ()=>{})
 	} else {
@@ -22,8 +24,11 @@ function changeThemeCSS(currentTheme){
 		if(e!=null) e.remove();
 		
 		requireScript("main-light-css", "0.1.0", "/data/assets/css/main-light.css", ()=>{
-			cssLoaded();
-			setDisplay('wrapper', 'block')})
+			// initializeBody()
+			// document.getElementById('wrapper').style.display = "block"
+			// cssLoaded();
+			// setDisplay('wrapper', 'block')
+		})
 		requireScript("auth-light-css", "0.1.0", "/data/assets/css/authStyle-light.css", ()=>{})
 	}	
 }
