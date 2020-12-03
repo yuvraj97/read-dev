@@ -1,48 +1,36 @@
 <!DOCTYPE HTML>
-<!--
-    "Thanks to HTML5 UP for this template".
-    Massively by HTML5 UP
-    html5up.net | @ajlkn
-    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-    <head>
+<html lang="en">
 
-        <!--Prism-->
-        <link rel="stylesheet" href="/data/prism/prism.css">
-
+	<head>
         <script>
             var nextPage = "/stats/lln/";
             var prevPage = "/stats/"
             var arrowLeftPage = "/stats/introduction/python/"
             var arrowRightPage = "/stats/lln/"
         </script>
-        
+
         <link rel="stylesheet" href="/data/assets/css/main.css">
-        <link rel="stylesheet" href="/data/auth/authStyle.css">
-        <link id="quantml-theme" rel="stylesheet" href="" />
-        <link id="quantml-auth-style" rel="stylesheet" href="">
+        <link rel="stylesheet" href="/data/assets/css/authStyle.css">
 
-        <!--KATEX-->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
-
-        <!-- The loading of KaTeX is deferred to speed up page rendering -->
-        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
-
-        <!-- To automatically render math in text elements, include the auto-render extension: -->
-        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
-
-        <title>Introduction</title>
+        <title>Julia - Introduction</title>
         <meta charset="utf-8" />
         <link rel="icon" href="/data/icon.png" type="image/png" sizes="16x16">
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+
+        <!--Prism-->
+        <link rel="stylesheet" href="/data/prism/prism.css">
+
+    <script src="/data/assets/js/initialize.js"></script>
         
     </head>
 
-    <body style="display: none;">
-
+    <body>
+        
         <!-- Wrapper -->
-            <div id="wrapper">
+            <div style="display: none;" id="wrapper">
+                <div class="bg fixed" style="transform: none;"></div>
+                <div id="navPanelToggle">Menu</div>
+
 
                 <!-- Header -->
                 <header id="header">
@@ -57,26 +45,23 @@
                             <li class="python"><a href="/stats/introduction/python/"><img src="/data/img/python.png" alt="Python"></a></li>
                             <li class="active julia"><a><img src="/data/img/julia.png" alt="Julia"></a></li>
                         </ul>
-                        <ul class="icons">
-                            <li><a target="_blank" href="https://app.quantml.org/stats/"><img src="/data/img/app.png" alt="App"></a></li>
-                            <li><a target="_blank" href="https://join.slack.com/t/quantml-org/shared_invite/zt-jffw86bo-6M260iyt1q2MgBma9elewg"><img class="whiteback" src="/data/img/slack.png" alt="Slack"></a></li>
-                            <li><a target="_blank" href="https://www.linkedin.com/in/yuvraj97/"><img src="/data/img/linkedin.png" alt="LinkedIn"></a></li>
-                            <li><a target="_blank" href="https://github.com/yuvraj97/"><img src="/data/img/github.png" alt="GitHub"></a></li>
-                            <li style="display: none;" id="login-button"><button id="login-btn-width" class="login-logout-join" >Login &nbsp; <img src="/data/img/patreon.png" alt="Patreon"></button></li>
-                            <li style="display: none;" id="join-button"><button onclick=" window.open('https://www.patreon.com/quantml','_blank')" id="join-btn-width" class="login-logout-join" >Join &nbsp; <img src="/data/img/patreon.png" alt="Patreon"></button></li>
-                            <li style="display: none;" id="logout-button"><button id="logout-btn-width" class="login-logout-join" >Logout &nbsp; <img src="/data/img/patreon.png" alt="Logout"></button></li>
-                            <li title="Change Theme"><a style="cursor: pointer;"><img id="change-theme" src="" alt="Change Theme"></a></li>
-                            <li title="Settings" class="settings jump"><img onclick="showSettings()" src="/data/img/setings.png" alt="Settings" width="25px" height="25px">
+                        <ul id="nav-bar-icons-head" class="icons">
                         </ul>
                     </nav>
 
                 <!-- Main -->
                     <div id="main">
                         <section id="paragraph" class="post">
-<div class='buttons'>
-    <button class="button jump" onclick="prevPageBtn()">&#x25C0;&nbsp;&nbsp; Home</button>
-    <button class="button jump"  style="float: right;" onclick="nextPageBtn()">LLN & CLT&nbsp;&nbsp;&#x25B6;</button>
+<div id="btn-container">
+    <button id="prev-btn" class="button" onclick="prevPageBtn()">&#x25C0;&nbsp;&nbsp; Home</button>
+    <button id="next-btn" class="button"  style="float: right;" onclick="nextPageBtn()">LLN & CLT&nbsp;&nbsp;&#x25B6;</button>
 </div><br>
+<div id="pre-loading"><img class="loading" src="" alt=" "></div>
+<div style="display: none;" id="pre-initializing"><img class="loading" src="" alt="Initializing..."></div>
+<script>loadNavBar('nav-bar-icons-head');initializeBody();document.getElementById('wrapper').style.display = "block";</script>                   
+
+<div id="paragraph-content">
+
 
 <h1>The Counting Balls <span style="font-size: 16px;">(Example)</span> </h1>
 Say we have a <b>Room</b> full of <span class="l1">Red balls</span> and <span class="l2">Blue balls</span>. <br>
@@ -93,12 +78,12 @@ Remember that dogma we showed <a href="/stats/introduction/#dogma">previously.</
 </blockquote> -->
 
 <h1>Truth</h1>
-Let's first define the underlying truth, say that currently the <b>Room</b> is holding 
-<span class="l1">\(40\%\)</span> of <span class="l1">Red Balls</span> and 
+Let's first define the underlying truth, say that currently the <b>Room</b> is holding
+<span class="l1">\(40\%\)</span> of <span class="l1">Red Balls</span> and
 <span class="l2">\(60\%\)</span> of <span class="l2">Blue Balls</span>. <br>
 <blockquote>Note that we do <b>not</b> know this proportion, our intent is to find this proportion</blockquote>
 
-Say we denote 
+Say we denote
 <span class="l1">Red Balls</span> by <span class="l1">1</span>  and
 <span class="l2">Blue Balls</span> by <span class="l2">0</span> <br>
 <br>
@@ -117,19 +102,19 @@ n_red_balls = floor(Int, true_proportion_for_red*N)
 population = zeros(Int8, (1,N))
 population[1, 1:n_red_balls] = ones(Int8, (1, n_red_balls))
 population = shuffle(population)
-</code></pre>    
+</code></pre>
 
 Now we had filled the room with
-<span class="l1">\(40\%\)</span> of <span class="l1">Red Balls</span> and 
+<span class="l1">\(40\%\)</span> of <span class="l1">Red Balls</span> and
 <span class="l2">\(60\%\)</span> of <span class="l2">Blue Balls</span>. <br>
 <br>
 
 <h1>Observation</h1>
-As we can see Room is full of \(5000\) Balls, and we can't count them all to find out the proportion of 
-<span class="l1">Red Balls</span> and 
+As we can see Room is full of \(5000\) Balls, and we can't count them all to find out the proportion of
+<span class="l1">Red Balls</span> and
 <span class="l2">Blue Balls</span>,
-so we took a sample out of those \(5000\) balls, and then we find the proportion of 
-<span class="l1">Red Balls</span> and 
+so we took a sample out of those \(5000\) balls, and then we find the proportion of
+<span class="l1">Red Balls</span> and
 <span class="l2">Blue Balls</span>
 in that small sample. <br>
 So let's took a sample of \(n=300\) balls. <br>
@@ -141,10 +126,10 @@ These \(300\) observations (\(X_1,\cdots,X_{300}\)) are what we call <b>Random V
 <br>
 
 <h1>Statistics</h1>
-So now we have our sample of \(300\) balls, let's start finding an estimate for 
-<span class="l1">Red Balls</span> proportion and 
+So now we have our sample of \(300\) balls, let's start finding an estimate for
+<span class="l1">Red Balls</span> proportion and
 <span class="l2">Blue Balls</span> proportion. <br>
-To find the proportion of <span class="l1">Red Balls</span> we count number of <span class="l1">Red Balls</span> 
+To find the proportion of <span class="l1">Red Balls</span> we count number of <span class="l1">Red Balls</span>
 then we divide it by total number of balls (i.e. \(300\)). <br>
 
 <span class="l1">\(\hat{p}\)</span>: our estimate for proportion of <span class="l1">Red Balls</span> denoted by \(1\). <br>
@@ -164,7 +149,7 @@ This is a single simulation if we perform this simulation multiple times we can 
 <h2>Multiple simulations</h2>
 <pre><code class="language-julia line-numbers">using Plots, Random
 gr(fmt = :png, size = (900, 500))
-    
+
 n_simulations = 1000                    # Number of simulations
 N = 5000                                # population size
 n = 300                                 # sample size
@@ -198,121 +183,43 @@ Plots.histogram(estimators, label=false)
 </blockquote>
 
 <br>
-<div class="slack-discuss" onclick=" window.open('https://join.slack.com/t/quantml-org/shared_invite/zt-jffw86bo-6M260iyt1q2MgBma9elewg','_blank')">
+<div class="slack-discuss" onclick=" window.open('https://join.slack.com/t/quantml-org/shared_invite/zt-jffw86bo-6M260iyt1q2MgBma9elewg','_blank','noopener')">
     Join our Slack <img src="/data/img/slack.png" alt="Slack"> discussion forum
 </div><br>
-<div class='buttons'>
-    <button class="button jump" onclick="prevPageBtn()">&#x25C0;&nbsp;&nbsp; Home</button>
-    <button class="button jump"  style="float: right;" onclick="nextPageBtn()">LLN & CLT&nbsp;&nbsp;&#x25B6;</button>
+
+</div>
+
+<div id="btn-container">
+    <button id="prev-btn" class="button" onclick="prevPageBtn()">&#x25C0;&nbsp;&nbsp; Home</button>
+    <button id="next-btn" class="button"  style="float: right;" onclick="nextPageBtn()">LLN & CLT&nbsp;&nbsp;&#x25B6;</button>
 </div><br>
 
 
-<!--=================== MODELS ===================-->
-
-<!--=============== LOGIN MODEL[START] ===============-->
-<div id="login-model" class="modal">
-    <form class="modal-content animate" id="login-form">
-    
-        <a class="close" style="float: right; padding-top: 0%; padding-bottom: 0%;" onclick="document.getElementById('login-model').style.display='none'">X</a>
-        <div class="container" style="margin: 1rem; margin-bottom: -1rem">
-        <label for="email"><b>Email Address</b></label>
-        <input id="login-email" onkeypress="emailAddressIsValidated();setDisplay('network-request-failed', 'none');" class="loginInput" ref="emailRef"  type="email" placeholder="Enter Email Address" name="email" required>
-        <div id="login-error-msg" class="error-msg">
-            <img style="float: left;" src="/data/auth/error.png" alt="!" width="50px" height="50px">
-            <div style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);">Invalid Email Address</div>
-        </div>
-        <div id="login-email-user-not-found" class="warn-msg"></div>
-        <label for="psw"><b>Password</b></label>
-        <input id="login-password" onkeypress="passwordIsValidated();setDisplay('network-request-failed', 'none');" class="loginInput" type="password" placeholder="Enter Password" name="psw" required>
-        <div id="password-error-msg" class="error-msg">
-            <img style="float: left;" src="/data/auth/error.png" alt="!" width="50px" height="50px">
-            <div style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);">Incorrect Password</div>
-        </div>
-
-        <div style="display: none;" id="network-request-failed" class="error-msg">
-            <img style="float: left;" src="/data/auth/error.png" alt="!" width="50px" height="50px">
-            <div style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);">Internet Connection Error</div>
-        </div>
-            
-        <button class="form-buttons login-button" type="submit">
-            <span id="login-button-text">Login</span>
-        </button>
-        <button id="forgot-password" class="form-buttons forgot-button">
-            <span id="forgot-button-text">Forgot Password</span>
-        </button>
-        </div>
-        <br>
-    </form>
-    </div>
-<!--=============== LOGIN MODEL[END] ===============-->
-
-<!--=============== Password Reset Link Sent MODEL[START] ===============-->
-
-<div id="password-reset-link-sent-model" class="modal">
-    <div class="modal-content animate" id="login-form">    
-        <a class="close" style="float: right; padding-top: 0%; padding-bottom: 0%;" onclick="document.getElementById('password-reset-link-sent-model').style.display='none'">X</a>
-        <div class="container" style="margin: 1rem;">
-<span id='password-reset-link-sent-txt'></span>
-        <button onclick="document.getElementById('password-reset-link-sent-model').style.display='none'" class="form-buttons login-button">OK</button>
-        </div>
-    </div>
-</div>
-        
-<!--=============== Password Reset Link Sent MODEL[END] ===============-->
-
-<!--=============== SETTINGS[START] ===============-->
-
-<div id="settings-model" class="modal">
-    <div class="modal-content animate">
-        <a class="close" style="float: right; padding-top: 0%; padding-bottom: 0%;" onclick="document.getElementById('settings-model').style.display='none'">X</a>
-        <div class="container settings" style="margin: 1rem;">
-            Font size &nbsp; 
-            <button style="height: 30px;" class="button" onclick="incrementFontSize();setFontSize()">+</button> 
-            <button style="height: 30px;" class="button" onclick="decrementFontSize();setFontSize()">-</button>
-            <button style="height: 30px; font-weight: 400;" class="button" onclick="resetFontSize();setFontSize()">Reset</button>
-            <DIV id="desktop-mode">
-                <br><br>
-                <hr>
-                Press <span class="bb">D</span> to change theme. <br>
-                Press <span class="bb">&larr;</span> to go to previous page. <br>
-                Press <span class="bb">&rarr;</span> to go to next page. <br>
-                Press <span class="bb">+</span> to increase font size. <br>
-                Press <span class="bb">-</span> to decrease font size. <br>
-            </DIV>
-        </div>
-    </div>
-</div>
-        
-<!--=============== SETTINGS[END] ===============-->
+<div id="modals-html"></div>
 
                     </section>
                     </div>
             </div>
 
+            <div id="navPanel">
+                <nav>
+                    <ul class="links">
+                        <li class="cover"><a href="/stats/"><img src="/data/img/STATISTICS-cover.png" alt="STATISTICS"></a></li>
+                        <li class="title"><a>Introduction</a></li>
+                        <li class="python"><a href="python/"><img src="/data/img/python.png" alt="Python"></a></li>
+                        <li class="active julia"><a href="julia/"><img src="/data/img/julia.png" alt="Julia"></a></li>
+                    </ul>
+                    <ul id="nav-bar-icons-foot" class="icons">
+                    </ul>
+                </nav>
+                <div id="close-navbar" class="close"></div>
+            </div>
+
         <!-- Scripts -->
-                        <script>
-                var modal = [
-                    document.getElementById("login-model"),
-                    document.getElementById("password-reset-link-sent-model"),
-                    document.getElementById("settings-model")
-                ]
-            </script>
-            <script src="/data/assets/js/jquery.min.js"></script>
-            <script src="/data/assets/js/jquery.scrollex.min.js"></script>
-            <script src="/data/assets/js/jquery.scrolly.min.js"></script>
-            <script src="/data/assets/js/browser.min.js"></script>
-            <script src="/data/assets/js/breakpoints.min.js"></script>
-            <script src="/data/assets/js/util.js"></script>
-            <script src="/data/assets/js/main.js"></script>
-			<script src="/data/initialize-css.js"></script>
-            <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-app.js"></script>
-            <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-auth.js"></script>
-            <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-firestore.js"></script>
-            <script src="/data/auth/auth.js"></script>
-            <script src="/data/index.js"></script>
-            <script src="/stats/initialize.js"></script>
-            <script src="/data/prism/prism.js"></script>
-            <script>setTimeout(() => {document.querySelector('body').style.display="block"}, 0)</script>
+        <script>loadNavBar('nav-bar-icons-foot')</script>
+        <script src="/data/assets/js/script.js"></script>
+        <script>cssLoaded()</script>
+        <script src="/data/prism/prism.js"></script>
 
     </body>
 </html>

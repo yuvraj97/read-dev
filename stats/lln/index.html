@@ -1,13 +1,7 @@
 <!DOCTYPE HTML>
-<!--
-    "Thanks to HTML5 UP for this template".
-    Massively by HTML5 UP
-    html5up.net | @ajlkn
-    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-    <head>        
+<html lang="en">
 
+	<head>
         <script>
             var nextPage = "/stats/hoeffdings-inequality/";
             var prevPage = "/stats/introduction/"
@@ -16,30 +10,23 @@
         </script>
 
         <link rel="stylesheet" href="/data/assets/css/main.css">
-        <link rel="stylesheet" href="/data/auth/authStyle.css">
-        <link id="quantml-theme" rel="stylesheet" href="" />
-        <link id="quantml-auth-style" rel="stylesheet" href="">
+        <link rel="stylesheet" href="/data/assets/css/authStyle.css">
 
-        <!--KATEX-->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
-
-        <!-- The loading of KaTeX is deferred to speed up page rendering -->
-        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
-
-        <!-- To automatically render math in text elements, include the auto-render extension: -->
-        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
-
-        <title>Introduction</title>
+        <title>Law Of Large numbers</title>
         <meta charset="utf-8" />
         <link rel="icon" href="/data/icon.png" type="image/png" sizes="16x16">
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+
+        <script src="/data/assets/js/initialize.js"></script>
         
     </head>
 
-    <body style="display: none;">
-
+    <body>
+        
         <!-- Wrapper -->
-            <div id="wrapper">
+            <div style="display: none;" id="wrapper">
+                <div class="bg fixed" style="transform: none;"></div>
+                <div id="navPanelToggle">Menu</div>
 
                 <!-- Header -->
                 <header id="header">
@@ -50,30 +37,28 @@
                     <nav id="nav">
                         <ul class="links">
                             <li class="cover"><a href="/stats/"><img src="/data/img/STATISTICS-cover.png" alt="STATISTICS"></a></li>
-                            <li class="active title"><a>LLN & CLT</a></li>
+                            <li class="active title"><a>LLN</a></li>
                             <li class="python"><a href="python/"><img src="/data/img/python.png" alt="Python"></a></li>
                             <li class="julia"><a href="julia/"><img src="/data/img/julia.png" alt="Julia"></a></li>
                         </ul>
-                        <ul class="icons">
-                            <li><a target="_blank" href="https://app.quantml.org/stats/"><img src="/data/img/app.png" alt="App"></a></li>
-                            <li><a target="_blank" href="https://join.slack.com/t/quantml-org/shared_invite/zt-jffw86bo-6M260iyt1q2MgBma9elewg"><img class="whiteback" src="/data/img/slack.png" alt="Slack"></a></li>
-                            <li><a target="_blank" href="https://www.linkedin.com/in/yuvraj97/"><img src="/data/img/linkedin.png" alt="LinkedIn"></a></li>
-                            <li><a target="_blank" href="https://github.com/yuvraj97/"><img src="/data/img/github.png" alt="GitHub"></a></li>
-                            <li style="display: none;" id="login-button"><button id="login-btn-width" class="login-logout-join" >Login &nbsp; <img src="/data/img/patreon.png" alt="Patreon"></button></li>
-                            <li style="display: none;" id="join-button"><button onclick=" window.open('https://www.patreon.com/quantml','_blank')" id="join-btn-width" class="login-logout-join" >Join &nbsp; <img src="/data/img/patreon.png" alt="Patreon"></button></li>
-                            <li style="display: none;" id="logout-button"><button id="logout-btn-width" class="login-logout-join" >Logout &nbsp; <img src="/data/img/patreon.png" alt="Logout"></button></li>
-                            <li title="Change Theme"><a style="cursor: pointer;"><img id="change-theme" src="" alt="Change Theme"></a></li>
-                            <li title="Settings" class="settings jump"><img onclick="showSettings()" src="/data/img/setings.png" alt="Settings" width="25px" height="25px">
+                        <ul id="nav-bar-icons-head" class="icons">
                         </ul>
                     </nav>
 
                 <!-- Main -->
                     <div id="main">
                         <section id="paragraph" class="post">
-<div class='buttons'>
-    <button class="button jump" onclick="prevPageBtn()">&#x25C0;&nbsp;&nbsp; Introduction</button>
-    <button class="button jump"  style="float: right;" onclick="nextPageBtn()">Hoeffdings Inequality&nbsp;&nbsp;&#x25B6;</button>
+
+<div id="btn-container">
+    <button id="prev-btn" class="button" onclick="prevPageBtn()">&#x25C0;&nbsp;&nbsp; Introduction</button>
+    <button id="next-btn" class="button"  style="float: right;" onclick="nextPageBtn()">Hoeffdings Inequality&nbsp;&nbsp;&#x25B6;</button>
 </div><br>
+<div id="pre-loading"><img class="loading" src="" alt=" "></div>
+<div style="display: none;" id="pre-initializing"><img class="loading" src="" alt="Initializing..."></div>
+<script>loadNavBar('nav-bar-icons-head');initializeBody();document.getElementById('wrapper').style.display = "block";</script>                   
+
+<div id="paragraph-content">
+
 
 <h1 id="lln">Law of large numbers(LLN)<a style="color: rgb(20, 57, 168);" href="#lln"><i class="fa fa-link" aria-hidden="true"></i></a></h1>
 <blockquote class="noborder align-center">
@@ -82,11 +67,11 @@
     </a>
 </blockquote>
 Assume there is a <b>random process</b> and we managed to get a <b>sample</b> out of that process. <br>
-Say we got \(n\) observations of that <b>random process</b> 
+Say we got \(n\) observations of that <b>random process</b>
 <span class="bb">\(X,X_1,X_2,X_3,....,X_n\)</span>. <br>
 Here every observation is a <b>Random variable</b> and all of them has same <b>random process</b> therefore they are <b>identically distributed</b> and all of them are independent of each other, so we call then  <b>\(i.i.d\)</b>(Independent and identically distributed) random variables. <br>
 
-Let's take our <b>Counting Balls</b> example: 
+Let's take our <b>Counting Balls</b> example:
 <a href="/stats/introduction/python/"><img src="/data/img/python.png" alt="Python" width="75px" height="20px"></a> &nbsp;,&nbsp;
 <a href="/stats/introduction/julia/"><img src="/data/img/julia.png" alt="Julia" width="53px" height="33px"></a>.
 <br>
@@ -120,11 +105,11 @@ So according to the Law of Large Numbers,
         <b>Weak</b> law of large numbers:
         \[\overline{X}_n:=\frac{1}{n}\sum _{i=1}^ n X_ i \xrightarrow [n\to \infty ]{\mathbb{P}} \mu\]
         <details open><summary><span class="bb">Explanation</span></summary><blockquote class="noborder">
-            For any \(c\geq0\), 
+            For any \(c\geq0\),
             \[\mathbb{P}\left(|\overline{X}_n - \mu|\geq c\right) \xrightarrow [n\to \infty ]{} 0\]
             <div style="font-size: smaller; text-align: center;">This is convergence in probability</div>
             <br>
-            Now think a very small number, like \(0.00001\) 
+            Now think a very small number, like \(0.00001\)
             now convergence in probability says that if \(n\) is large enough
             then it's highly unlikely for \(\overline{X}_n\) to be more than \(0.00001\) units away from \(\mu\). <br>
             <br>
@@ -154,7 +139,7 @@ The answer is hidden in <a href="/stats/clt/">Central Limit Theorem</a>. <br>
 <br>
 
 <h2>Gambler's Fallacy</h2>
-<b>Gambler's Fallacy</b> is a rather popular <b>mistaken belief</b> that, 
+<b>Gambler's Fallacy</b> is a rather popular <b>mistaken belief</b> that,
 <blockquote>
 If an <b>independent</b> event is occurring <b>more</b> frequently (then it normally does), then it's <b>less</b> likely to occur in the future.<br>
 
@@ -189,14 +174,14 @@ So even if we got \(1000\) \(\text{Heads}\) in a row, there is still \(\infty\) 
 Say we have \(n\) observations \(X,X_1,X_2,X_3,....,X_n\) be \(i.i.d\) random varibles,<br>
 <span class="bb"> \(\mathbb{E}[X]=\mu\)</span>  and <span class="bb"> \(Var(X)=\sigma^2\) </span><br>
 \[\sqrt{n}\, \frac{\overline{X}_n-\mu }{\sigma } \xrightarrow [n\to \infty ]{(d)} \mathcal{N}(0,1) \]<br>
-\(\mathcal{N}(0,1) \) is <a target="_blank"  href="summary/gauss.html#popup">Gaussian  distribution</a> with mean = \(0\) and variance = \(1\),<br>
+\(\mathcal{N}(0,1) \) is <a rel="noreferrer" target="_blank"  href="summary/gauss.html#popup">Gaussian  distribution</a> with mean = \(0\) and variance = \(1\),<br>
 \((d)\): it shows <b>convergence in distribution</b><br>
 <br>
 <b>We will come to it later for now, we only need to know this formula.</b><br>
 <br>
 
 If we draw a standard gaussian  \(\mathcal{N}(0,1) \) (say) \(Z\) then with probability \(0.9974\quad\)  \(Z\in [-3,3]\)<br>
-\(P(-3\leq Z\leq3)=0.9974\quad\) we can calculate it <a target="_blank" href="https://www.mathportal.org/calculators/statistics-calculator/normal-distribution-calculator.php">here</a><br>
+\(P(-3\leq Z\leq3)=0.9974\quad\) we can calculate it <a rel="noreferrer" target="_blank" href="https://www.mathportal.org/calculators/statistics-calculator/normal-distribution-calculator.php">here</a><br>
 So \(Z\) is almost in between -3 and 3<br>
 And we know that :<br>
 \[\sqrt{n}\, \frac{\overline{X}_n-\mu }{\sigma } \xrightarrow [n\to \infty ]{(d)} \mathcal{N}(0,1) \]<br>
@@ -213,117 +198,41 @@ So:<br>
 </blockquote> -->
 
 
-<div class="slack-discuss" onclick=" window.open('https://join.slack.com/t/quantml-org/shared_invite/zt-jffw86bo-6M260iyt1q2MgBma9elewg','_blank')">
+<div class="slack-discuss" onclick=" window.open('https://join.slack.com/t/quantml-org/shared_invite/zt-jffw86bo-6M260iyt1q2MgBma9elewg','_blank','noopener')">
     Join our Slack <img src="/data/img/slack.png" alt="Slack"> discussion forum
 </div><br>
-<div class='buttons'>
-    <button class="button jump" onclick="prevPageBtn()">&#x25C0;&nbsp;&nbsp; Introduction</button>
-    <button class="button jump"  style="float: right;" onclick="nextPageBtn()">Hoeffdings Inequality&nbsp;&nbsp;&#x25B6;</button>
+
+</div>
+
+<div id="btn-container">
+    <button id="prev-btn" class="button" onclick="prevPageBtn()">&#x25C0;&nbsp;&nbsp; Introduction</button>
+    <button id="next-btn" class="button"  style="float: right;" onclick="nextPageBtn()">Hoeffdings Inequality&nbsp;&nbsp;&#x25B6;</button>
 </div><br>
-<!--=================== MODELS ===================-->
 
-<!--=============== LOGIN MODEL[START] ===============-->
-<div id="login-model" class="modal">
-    <form class="modal-content animate" id="login-form">
-    
-        <a class="close" style="float: right; padding-top: 0%; padding-bottom: 0%;" onclick="document.getElementById('login-model').style.display='none'">X</a>
-        <div class="container" style="margin: 1rem; margin-bottom: -1rem">
-        <label for="email"><b>Email Address</b></label>
-        <input id="login-email" onkeypress="emailAddressIsValidated();setDisplay('network-request-failed', 'none');" class="loginInput" ref="emailRef"  type="email" placeholder="Enter Email Address" name="email" required>
-        <div id="login-error-msg" class="error-msg">
-            <img style="float: left;" src="/data/auth/error.png" alt="!" width="50px" height="50px">
-            <div style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);">Invalid Email Address</div>
-        </div>
-        <div id="login-email-user-not-found" class="warn-msg"></div>
-        <label for="psw"><b>Password</b></label>
-        <input id="login-password" onkeypress="passwordIsValidated();setDisplay('network-request-failed', 'none');" class="loginInput" type="password" placeholder="Enter Password" name="psw" required>
-        <div id="password-error-msg" class="error-msg">
-            <img style="float: left;" src="/data/auth/error.png" alt="!" width="50px" height="50px">
-            <div style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);">Incorrect Password</div>
-        </div>
-
-        <div style="display: none;" id="network-request-failed" class="error-msg">
-            <img style="float: left;" src="/data/auth/error.png" alt="!" width="50px" height="50px">
-            <div style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);">Internet Connection Error</div>
-        </div>
-            
-        <button class="form-buttons login-button" type="submit">
-            <span id="login-button-text">Login</span>
-        </button>
-        <button id="forgot-password" class="form-buttons forgot-button">
-            <span id="forgot-button-text">Forgot Password</span>
-        </button>
-        </div>
-        <br>
-    </form>
-    </div>
-<!--=============== LOGIN MODEL[END] ===============-->
-
-<!--=============== Password Reset Link Sent MODEL[START] ===============-->
-
-<div id="password-reset-link-sent-model" class="modal">
-    <div class="modal-content animate" id="login-form">    
-        <a class="close" style="float: right; padding-top: 0%; padding-bottom: 0%;" onclick="document.getElementById('password-reset-link-sent-model').style.display='none'">X</a>
-        <div class="container" style="margin: 1rem;">
-<span id='password-reset-link-sent-txt'></span>
-        <button onclick="document.getElementById('password-reset-link-sent-model').style.display='none'" class="form-buttons login-button">OK</button>
-        </div>
-    </div>
-</div>
-        
-<!--=============== Password Reset Link Sent MODEL[END] ===============-->
-
-<!--=============== SETTINGS[START] ===============-->
-
-<div id="settings-model" class="modal">
-    <div class="modal-content animate">
-        <a class="close" style="float: right; padding-top: 0%; padding-bottom: 0%;" onclick="document.getElementById('settings-model').style.display='none'">X</a>
-        <div class="container settings" style="margin: 1rem;">
-            Font size &nbsp; 
-            <button style="height: 30px;" class="button" onclick="incrementFontSize();setFontSize()">+</button> 
-            <button style="height: 30px;" class="button" onclick="decrementFontSize();setFontSize()">-</button>
-            <button style="height: 30px; font-weight: 400;" class="button" onclick="resetFontSize();setFontSize()">Reset</button>
-            <DIV id="desktop-mode">
-                <br><br>
-                <hr>
-                Press <span class="bb">D</span> to change theme. <br>
-                Press <span class="bb">&larr;</span> to go to previous page. <br>
-                Press <span class="bb">&rarr;</span> to go to next page. <br>
-                Press <span class="bb">+</span> to increase font size. <br>
-                Press <span class="bb">-</span> to decrease font size. <br>
-            </DIV>
-        </div>
-    </div>
-</div>
-        
-<!--=============== SETTINGS[END] ===============-->
+<div id="modals-html"></div>
 
                     </section>
                     </div>
             </div>
-       <!-- Scripts -->
-            <script>
-                var modal = [
-                    document.getElementById("login-model"),
-                    document.getElementById("password-reset-link-sent-model"),
-                    document.getElementById("settings-model")
-                ]
-            </script>
-            <script src="/data/assets/js/jquery.min.js"></script>
-            <script src="/data/assets/js/jquery.scrollex.min.js"></script>
-            <script src="/data/assets/js/jquery.scrolly.min.js"></script>
-            <script src="/data/assets/js/browser.min.js"></script>
-            <script src="/data/assets/js/breakpoints.min.js"></script>
-            <script src="/data/assets/js/util.js"></script>
-            <script src="/data/assets/js/main.js"></script>
-			<script src="/data/initialize-css.js"></script>
-            <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-app.js"></script>
-            <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-auth.js"></script>
-            <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-firestore.js"></script>
-            <script src="/data/auth/auth.js"></script>
-            <script src="/data/index.js"></script>
-            <script src="/stats/initialize.js"></script>
-            <script>setTimeout(() => {document.querySelector('body').style.display="block"}, 0)</script>
+
+            <div id="navPanel">
+                <nav>
+                    <ul class="links">
+                        <li class="cover"><a href="/stats/"><img src="/data/img/STATISTICS-cover.png" alt="STATISTICS"></a></li>
+                        <li class="active title"><a>LLN</a></li>
+                        <li class="python"><a href="python/"><img src="/data/img/python.png" alt="Python"></a></li>
+                        <li class="julia"><a href="julia/"><img src="/data/img/julia.png" alt="Julia"></a></li>
+                    </ul>
+                    <ul id="nav-bar-icons-foot" class="icons">
+                    </ul>
+                </nav>
+                <div id="close-navbar" class="close"></div>
+            </div>
+
+        <!-- Scripts -->
+        <script>loadNavBar('nav-bar-icons-foot')</script>
+        <script src="/data/assets/js/script.js"></script>
+        <script>cssLoaded()</script>
 
     </body>
 </html>

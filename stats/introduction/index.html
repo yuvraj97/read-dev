@@ -2,8 +2,6 @@
 <html lang="en">
 
 	<head>
-
-        <script>window.isLoaded = false</script>
 <script>var d = new Date(); start = d.getTime()</script>
         <script>
             var nextPage = "/stats/lln/";
@@ -15,33 +13,22 @@
         <link rel="stylesheet" href="/data/assets/css/main.css">
         <link rel="stylesheet" href="/data/assets/css/authStyle.css">
 
-        <!--KATEX-->
-        <!-- <link rel="stylesheet" href="/data/assets/css/katex.min.css"> -->
-
-        <!-- The loading of KaTeX is deferred to speed up page rendering -->
-        <!-- <script defer src="/data/assets/js/katex.min.js"></script> -->
-
-        <!-- To automatically render math in text elements, include the auto-render extension: -->
-        <!-- <script defer src="/data/assets/js/auto-render.min.js" onload="renderMathInElement(document.body);"></script> -->
-
         <title>Introduction</title>
         <meta charset="utf-8" />
         <link rel="icon" href="/data/icon.png" type="image/png" sizes="16x16">
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-        <script src="/data/assets/js/store.js"></script>            <!-- Self Contained -->
-        <script src="/data/assets/js/initialize-css.js"></script> <!-- Depend on: store.js, -->
-        <script src="/data/assets/js/initialize-body.js"></script>  <!-- Self Contained -->
+        <script src="/data/assets/js/initialize.js"></script>
 
     </head>
 
     <body>
 
-        
+
         <!-- Wrapper -->
             <div style="display: none;" id="wrapper">
                 <div class="bg fixed" style="transform: none;"></div>
                 <div id="navPanelToggle">Menu</div>
-                
+
                 <!-- Header -->
                 <header id="header">
                     <a href="https://quantml.org" class="logo image jump-big"><img id="quantml-cover" src="/data/img/cover.png" alt="QuantML.org" /></a>
@@ -62,17 +49,14 @@
                 <!-- Main -->
                     <div id="main">
                         <section id="paragraph" class="post">
-                                
+
 <div id="btn-container">
     <button id="prev-btn" class="button" onclick="prevPageBtn()">&#x25C0;&nbsp;&nbsp; Home</button>
     <button id="next-btn" class="button"  style="float: right;" onclick="nextPageBtn()">LLN & CLT&nbsp;&nbsp;&#x25B6;</button>
 </div><br>
 <div id="pre-loading"><img class="loading" src="" alt=" "></div>
 <div style="display: none;" id="pre-initializing"><img class="loading" src="" alt="Initializing..."></div>
-<script>
-loadNavBar('nav-bar-icons-head')
-initializeBody()
-document.getElementById('wrapper').style.display = "block"</script>                   
+<script>loadNavBar('nav-bar-icons-head');initializeBody();document.getElementById('wrapper').style.display = "block"</script>
 
 <div id="paragraph-content">
 
@@ -267,26 +251,12 @@ Now let's see some Simulation, choose your language of choice,<br>
                 </nav>
                 <div id="close-navbar" class="close"></div>
             </div>
-<script>loadNavBar('nav-bar-icons-foot')</script>
+
         <!-- Scripts -->
-
-        <script src="/data/assets/js/init.js"></script>
-        <script src="/data/assets/js/init-auth.js"></script>        <!-- Self Contained -->
-
-        <!-- <script>document.getElementById('pre-loading').innerHTML = '<img  class="loading" src="/data/img/loading.gif" alt="Loading">'</script> -->
-        <!--KATEX-->
-        <!-- <link rel="stylesheet" href="/data/assets/css/katex.min.css"> -->
-
-        <!-- The loading of KaTeX is deferred to speed up page rendering -->
-        <!-- <script defer src="/data/assets/js/katex.min.js"></script> -->
-
-        <!-- To automatically render math in text elements, include the auto-render extension: -->
-        <!-- <script defer src="/data/assets/js/auto-render.min.js" onload="renderMathInElement(document.body);"></script> -->
-        
-        <!-- <script src="/data/assets/js/index.js"></script> -->
-        <!-- <script src="/data/assets/js/firebase.js"></script> -->
-        <!-- <script>initializeBody()</script> -->
+        <script>loadNavBar('nav-bar-icons-foot')</script>
+        <script src="/data/assets/js/script.js"></script>
         <script>cssLoaded()</script>
+        
 <script>d = new Date();end = d.getTime();console.log(end-start)</script>
     </body>
 </html>
