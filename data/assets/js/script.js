@@ -123,7 +123,19 @@ function isInputRequires(){
 	}
 }
 
-function loadFirebase(){
+function FBKatexLoaded(){
+    setDisplay('pre-loading-dark', 'none')
+    setDisplay('pre-initializing-dark', 'none')
+    setDisplay('pre-loading-light', 'none')
+    setDisplay('pre-initializing-light', 'none')
+    loadCorrectThemeImages(localStorage.getItem("quantmlTheme"));
+    if(localStorage.getItem('paragraph-font-size') == null) resetFontSize();
+    setFontSize()
+    loadNavBar('nav-bar-icons-head');
+    setDisplay('paragraph-content', 'block')
+}
+
+function loadFirebase(callback){
     setDisplay('fb-loading', getDisplay())
     requireScript('fb-app-js', '8.0.1', '/data/assets/js/firebase-app.js', 
         function() {
@@ -178,6 +190,7 @@ function loadFirebase(){
                                     setDisplay('fb-loading','none');
                                 }
                             });
+                            if(callback) callback();
                         }
                     )
                 }
@@ -186,9 +199,17 @@ function loadFirebase(){
     )
 }
 
-function loadKatex(){
-    // console.log(typeof(katex))
-    // loadNavBar()
+function loadKatex(callback){
+    requireScript('katex-css', '0.6.0', '/data/assets/css/katex.min.css', function(){})
+    requireScript('katex-js', '0.6.0','/data/assets/js/katex.min.js', function(){
+        requireScript('auto-render-js', '0.6.0','/data/assets/js/auto-render.min.js', function(){
+            renderMathInElement(document.body);
+            if(callback) callback()
+        })
+    })
+}
+
+function loadKatexThenFB(){
     theme = localStorage.getItem("quantmlTheme")
     if(!localStorage.hasOwnProperty('katex')){
         if(theme=="dark"){
@@ -199,24 +220,12 @@ function loadKatex(){
             setDisplay('pre-initializing-light', 'block')
         }
     }
-    requireScript('katex-css', '0.6.0', '/data/assets/css/katex.min.css', function(){})
-    requireScript('katex-js', '0.6.0','/data/assets/js/katex.min.js', function(){
-        requireScript('auto-render-js', '0.6.0','/data/assets/js/auto-render.min.js', function(){
-            renderMathInElement(document.body);
-            if(theme=="dark"){
-                setDisplay('pre-loading-dark', 'none')
-                setDisplay('pre-initializing-dark', 'none')
-            } else {
-                setDisplay('pre-loading-light', 'none')
-                setDisplay('pre-initializing-light', 'none')
-            }
-            loadCorrectThemeImages(localStorage.getItem("quantmlTheme"));
-			if(localStorage.getItem('paragraph-font-size') == null) resetFontSize();
-			setFontSize()
-            setDisplay('paragraph-content', 'block')
-            setTimeout(function(){loadFirebase()}, 500)
-        })
-    })
+    loadKatex(function(){FBKatexLoaded();setTimeout(function(){loadFirebase()}, 500)})
+}
+
+function loadFBThenKatex(){
+    FBKatexLoaded()
+    setTimeout(loadFirebase(function(){setTimeout(function(){loadKatex()}, 1000)}), 500)
 }
 
 function fullyLoaded(){
@@ -451,11 +460,14 @@ function fullyLoaded(){
     passwordIsValidated()
 }
 
-function cssLoaded(){
+function cssLoaded(iskatexImportant = true, callback){
+    console.log("iskatexImportant:", iskatexImportant)
 	// d = new Date();end = d.getTime();  // Remove it 
-	// console.log("CSS Load time:",end-start)  // Remove it 
-	loadKatex()
-	fullyLoaded()
+    // console.log("CSS Load time:",end-start)  // Remove it 
+    if(iskatexImportant) loadKatexThenFB()
+    else loadFBThenKatex()
+    fullyLoaded()
+    if(callback) callback();
 	// d = new Date();end = d.getTime();  // Remove it 
 	// console.log("Fully Loaded:",end-start)  // Remove it 
 

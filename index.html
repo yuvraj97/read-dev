@@ -10,23 +10,50 @@
         <link rel="stylesheet" href="/data/assets/css/main.css">
         <link rel="stylesheet" href="/data/assets/css/authStyle.css">
         <link rel="stylesheet" href="/style.css">
-        
-        <script>
-            l = document.createElement('link')
-            l.rel = "stylesheet"
-            l.id="home-stylesheet"
-            if(localStorage.getItem("quantmlTheme") == "dark") l.href = "/style-dark.css";
-            else l.href = "/style-light.css"
-            document.getElementsByTagName("head")[0].appendChild(l)
-        </script>
 
 		<title>QuantML</title>
 		<meta charset="utf-8" />
         <link rel="icon" href="/data/icon.png" type="image/png" sizes="16x16">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
         <script src="/data/assets/js/initialize.js"></script>
-		
+        <script src="/data/assets/js/script.js"></script>
+        <script>
+            function homePageDOM(){
+                laReadNowBtn = document.getElementById('la-guide-read-now')
+                earlyAccess = document.getElementById('early-access')
+                commingSoon = document.getElementById('comming-soon')
+                
+                laReadNowBtn.style.border = "none"
+                earlyAccess.style.border = "none"
+                commingSoon.style.border = "none"
         
+                earlyAccessDiv = document.getElementById('early-access-div')
+                if(earlyAccess.offsetWidth + commingSoon.offsetWidth > earlyAccessDiv.offsetWidth){
+                    earlyAccess.style.width = "100%";
+                    commingSoon.style.width = "100%";
+                    earlyAccess.style.marginTop = "12px";
+                    
+                    
+                    laReadNowBtn = document.getElementById('la-guide-read-now')
+                    laReadNowBtn.style.width="80%"
+                    laReadNowBtn.style.right = "10%"
+                    // laReadNowBtn.style.bottom = "30px"
+                }
+
+                laGuide = document.getElementById('la-guide');
+                statsGuide = document.getElementById('stats-guide');
+                if(laGuide.offsetHeight < statsGuide.offsetHeight && document.querySelector('body').offsetWidth > 736){
+                    laGuide.style.height = String(statsGuide.offsetHeight) + "px"
+                }
+            }
+            l = document.createElement('link')
+            l.rel = "stylesheet"
+            l.id="home-stylesheet"
+            l.onload = function(){cssLoaded(false);homePageDOM()}
+            if(localStorage.getItem("quantmlTheme") == "dark") l.href = "/style-dark.css";
+            else l.href = "/style-light.css"
+            document.getElementsByTagName("head")[0].appendChild(l)
+        </script>		
 	</head>
 
 	<body>
@@ -59,7 +86,7 @@
 <div style="display: none;" id="pre-loading-dark"><img class="loading" src="/data/img-dark/loading.svg" alt=" " width="215px" height="50px"></div>
 <div style="display: none;" id="pre-initializing-light"><img class="loading" src="/data/img/initializing.svg" alt=" " width="285px" height="50px"></div>
 <div style="display: none;" id="pre-initializing-dark"><img class="loading" src="/data/img-dark/initializing.svg" alt=" " width="285px" height="50px"></div>
-<script>loadNavBar('nav-bar-icons-head');initializeBody();document.getElementById('wrapper').style.display = "block";</script>
+<script>initializeBody();document.getElementById('wrapper').style.display = "block";</script>
 
 <div id="paragraph-content">
 
@@ -123,37 +150,7 @@
 
         <!-- Scripts -->
         <script>loadNavBar('nav-bar-icons-foot')</script>
-        <script src="/data/assets/js/script.js"></script>
-        <script>cssLoaded()</script>
-        <script>
-            laReadNowBtn = document.getElementById('la-guide-read-now')
-            earlyAccess = document.getElementById('early-access')
-            commingSoon = document.getElementById('comming-soon')
-            
-            laReadNowBtn.style.border = "none"
-            earlyAccess.style.border = "none"
-            commingSoon.style.border = "none"
-    
-            earlyAccessDiv = document.getElementById('early-access-div')
-            if(earlyAccess.offsetWidth + commingSoon.offsetWidth > earlyAccessDiv.offsetWidth){
-                earlyAccess.style.width = "100%";
-                commingSoon.style.width = "100%";
-                earlyAccess.style.marginTop = "12px";
-                
-                
-                laReadNowBtn = document.getElementById('la-guide-read-now')
-                laReadNowBtn.style.width="80%"
-                laReadNowBtn.style.right = "10%"
-                // laReadNowBtn.style.bottom = "30px"
-            }
-
-
-            laGuide = document.getElementById('la-guide');
-            statsGuide = document.getElementById('stats-guide');
-            if(laGuide.offsetHeight < statsGuide.offsetHeight && document.querySelector('body').offsetWidth > 736){
-                laGuide.style.height = String(statsGuide.offsetHeight) + "px"
-            }
-            </script>
-        </script>
+        
+        
     </body>
 </html>
