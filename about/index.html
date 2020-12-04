@@ -3,33 +3,43 @@
 
 	<head>
 
-
+        <script>
+            var arrowLeftPage = "/"
+            var arrowRightPage = "/donate/"
+        </script>
 
         <link rel="stylesheet" href="/data/assets/css/main.css">
         <link rel="stylesheet" href="/data/assets/css/authStyle.css">
-        <link id="quantml-auth-style" rel="stylesheet" href="">
-        <link onload="cssLoaded()" id="quantml-theme" rel="stylesheet" href="" />
         <link rel="stylesheet" href="/style.css">
-        <link id="quantml-style-theme" rel="stylesheet" href="">
+        
+        <script>
+            l = document.createElement('link')
+            l.rel = "stylesheet"
+            l.id="home-stylesheet"
+            if(localStorage.getItem("quantmlTheme") == "dark") l.href = "/style-dark.css";
+            else l.href = "/style-light.css"
+            document.getElementsByTagName("head")[0].appendChild(l)
+        </script>
 
         <title>About</title>
 		<meta charset="utf-8" />
         <link rel="icon" href="/data/icon.png" type="image/png" sizes="16x16">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-        <noscript><link rel="stylesheet" href="/data/assets/css/noscript.css" /></noscript>
-        
+        <script src="/data/assets/js/initialize.js"></script>
 
 	</head>
 
 	<body>
 
 		<!-- Wrapper -->
-			<div id="wrapper">
+        <div style="display: none;" id="wrapper">
+            <div class="bg fixed" style="transform: none;"></div>
+            <div id="navPanelToggle">Menu</div>
 
-		 		<!-- Header -->
-					<header id="header">
-						<a href="https://quantml.org" class="logo image jump-big"><img id="quantml-cover" src="/data/img/cover.png" alt="QuantML.org" /></a>
-					</header>
+                <!-- Header -->
+                <header id="header">
+                    <a href="https://quantml.org" class="logo image jump-big"><img id="quantml-cover" src="/data/img/cover.png" alt="QuantML.org" /></a>
+                </header>
 
 				<!-- Nav -->
 					<nav id="nav">
@@ -45,6 +55,13 @@
 				<!-- Main -->
 					<div id="main">
 					<section id="paragraph" class="post">
+<div style="display: none;" id="pre-loading-light"><img class="loading" src="/data/img/loading.svg" alt=" " width="215px" height="50px"></div>
+<div style="display: none;" id="pre-loading-dark"><img class="loading" src="/data/img-dark/loading.svg" alt=" " width="215px" height="50px"></div>
+<div style="display: none;" id="pre-initializing-light"><img class="loading" src="/data/img/initializing.svg" alt=" " width="285px" height="50px"></div>
+<div style="display: none;" id="pre-initializing-dark"><img class="loading" src="/data/img-dark/initializing.svg" alt=" " width="285px" height="50px"></div>
+<script>loadNavBar('nav-bar-icons-head');initializeBody();document.getElementById('wrapper').style.display = "block";</script>
+
+<div id="paragraph-content">
 
                         <div class="row">
                             <div class="column">
@@ -95,6 +112,8 @@
                                     </p>
                                 </div>
                             </div>
+                        </div>
+
 </div>
 <div id="modals-html"></div>
                     </section>
@@ -105,8 +124,8 @@
             <div id="navPanel">
                 <nav>
                     <ul class="links">
-                        <li class="active"><a href="/"><img class="quantml-navbar" src="/data/img/cover.png" alt="QuantML" width="131.44px" height="27.44px"></a></li>
-                        <li><a href="/about/">About</a></li>
+                        <li><a href="/"><img class="quantml-navbar" src="/data/img/cover.png" alt="QuantML" width="131.44px" height="27.44px"></a></li>
+                        <li class="active"><a href="/about/">About</a></li>
                         <li><a href="/donate/">Donate</a></li>
                     </ul>
                     <ul id="nav-bar-icons-foot" class="icons">

@@ -81,18 +81,21 @@ function clearModelOnBackgroundClick(modal){
 }
 
 function changeTheme() {
-	currentTheme = localStorage.getItem("quantmlTheme");
+    currentTheme = localStorage.getItem("quantmlTheme");
+    homeStylesheet = document.getElementById('home-stylesheet')
 	if(currentTheme == "light"){
 		console.log("Light2Dark");
 		changeThemeCSS("dark")
 		loadCorrectThemeImages("dark")
-		localStorage.setItem("quantmlTheme", "dark");
+        localStorage.setItem("quantmlTheme", "dark");
+        if(homeStylesheet != null) homeStylesheet.href = "/style-dark.css"
 	}
 	else if (currentTheme == "dark"){
 		console.log("Dark2Light");
 		changeThemeCSS("light")
 		loadCorrectThemeImages("light")
-		localStorage.setItem("quantmlTheme", "light");
+        localStorage.setItem("quantmlTheme", "light");
+        if(homeStylesheet != null) homeStylesheet.href = "/style-light.css"
 	}
 }
 

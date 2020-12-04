@@ -10,7 +10,15 @@
         <link rel="stylesheet" href="/data/assets/css/main.css">
         <link rel="stylesheet" href="/data/assets/css/authStyle.css">
         <link rel="stylesheet" href="/style.css">
-        <link rel="stylesheet" href="/style-light.css">
+        
+        <script>
+            l = document.createElement('link')
+            l.rel = "stylesheet"
+            l.id="home-stylesheet"
+            if(localStorage.getItem("quantmlTheme") == "dark") l.href = "/style-dark.css";
+            else l.href = "/style-light.css"
+            document.getElementsByTagName("head")[0].appendChild(l)
+        </script>
 
 		<title>QuantML</title>
 		<meta charset="utf-8" />
@@ -19,15 +27,6 @@
         <script src="/data/assets/js/initialize.js"></script>
 		
         
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-LRSK4V6G1M"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-LRSK4V6G1M');
-</script>
 	</head>
 
 	<body>
@@ -56,9 +55,11 @@
 				<!-- Main -->
 					<div id="main">
 					<section id="paragraph" class="post">
-<div id="pre-loading"><img class="loading" src="" alt=" "></div>
-<div style="display: none;" id="pre-initializing"><img class="loading" src="" alt="Initializing..."></div>
-<script>loadNavBar('nav-bar-icons-head');initializeBody();document.getElementById('wrapper').style.display = "block"</script>
+<div style="display: none;" id="pre-loading-light"><img class="loading" src="/data/img/loading.svg" alt=" " width="215px" height="50px"></div>
+<div style="display: none;" id="pre-loading-dark"><img class="loading" src="/data/img-dark/loading.svg" alt=" " width="215px" height="50px"></div>
+<div style="display: none;" id="pre-initializing-light"><img class="loading" src="/data/img/initializing.svg" alt=" " width="285px" height="50px"></div>
+<div style="display: none;" id="pre-initializing-dark"><img class="loading" src="/data/img-dark/initializing.svg" alt=" " width="285px" height="50px"></div>
+<script>loadNavBar('nav-bar-icons-head');initializeBody();document.getElementById('wrapper').style.display = "block";</script>
 
 <div id="paragraph-content">
 
@@ -101,10 +102,12 @@
                         </div>
                         <br><br>
 </div>
+<div id="modals-html"></div>
                     </section>
 					</div>
 
 			</div>
+      
             <div id="navPanel">
                 <nav>
                     <ul class="links">
@@ -122,6 +125,35 @@
         <script>loadNavBar('nav-bar-icons-foot')</script>
         <script src="/data/assets/js/script.js"></script>
         <script>cssLoaded()</script>
+        <script>
+            laReadNowBtn = document.getElementById('la-guide-read-now')
+            earlyAccess = document.getElementById('early-access')
+            commingSoon = document.getElementById('comming-soon')
+            
+            laReadNowBtn.style.border = "none"
+            earlyAccess.style.border = "none"
+            commingSoon.style.border = "none"
+    
+            earlyAccessDiv = document.getElementById('early-access-div')
+            if(earlyAccess.offsetWidth + commingSoon.offsetWidth > earlyAccessDiv.offsetWidth){
+                earlyAccess.style.width = "100%";
+                commingSoon.style.width = "100%";
+                earlyAccess.style.marginTop = "12px";
+                
+                
+                laReadNowBtn = document.getElementById('la-guide-read-now')
+                laReadNowBtn.style.width="80%"
+                laReadNowBtn.style.right = "10%"
+                // laReadNowBtn.style.bottom = "30px"
+            }
 
+
+            laGuide = document.getElementById('la-guide');
+            statsGuide = document.getElementById('stats-guide');
+            if(laGuide.offsetHeight < statsGuide.offsetHeight && document.querySelector('body').offsetWidth > 736){
+                laGuide.style.height = String(statsGuide.offsetHeight) + "px"
+            }
+            </script>
+        </script>
     </body>
 </html>
