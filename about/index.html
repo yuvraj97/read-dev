@@ -1,19 +1,14 @@
 <!DOCTYPE HTML>
-<!--
-    "Thanks to HTML5 UP for this template".
-    Massively by HTML5 UP
-    html5up.net | @ajlkn
-    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
+<html lang="en">
+
 	<head>
 
 
 
         <link rel="stylesheet" href="/data/assets/css/main.css">
-        <link rel="stylesheet" href="/data/auth/authStyle.css">
-        <link id="quantml-theme" rel="stylesheet" href="" />
+        <link rel="stylesheet" href="/data/assets/css/authStyle.css">
         <link id="quantml-auth-style" rel="stylesheet" href="">
+        <link onload="cssLoaded()" id="quantml-theme" rel="stylesheet" href="" />
         <link rel="stylesheet" href="/style.css">
         <link id="quantml-style-theme" rel="stylesheet" href="">
 
@@ -23,18 +18,10 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
         <noscript><link rel="stylesheet" href="/data/assets/css/noscript.css" /></noscript>
         
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-LRSK4V6G1M"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-LRSK4V6G1M');
-</script>
 	</head>
 
-	<body style="display: none">
+	<body>
 
 		<!-- Wrapper -->
 			<div id="wrapper">
@@ -51,15 +38,9 @@
                             <li class="active"><a href="/about/">About</a></li>
                             <li><a href="/donate/">Donate</a></li>
                         </ul>
-                        <ul class="icons">
-                            <li><a target="_blank" href="https://quantml.org/"><img src="/data/icon.png" alt="QuantML"></a></li>
-                            <li><a target="_blank" href="https://join.slack.com/t/quantml-org/shared_invite/zt-jffw86bo-6M260iyt1q2MgBma9elewg"><img src="/data/img/slack.png" alt="Slack"></a></li>
-                            <li><a target="_blank" href="https://www.linkedin.com/in/yuvraj97/"><img src="/data/img/linkedin.png" alt="LinkedIn"></a></li>
-                            <li><a target="_blank" href="https://github.com/yuvraj97/"><img src="/data/img/github.png" alt="GitHub"></a></li>
-                            <li><button onclick=" window.open('https://www.patreon.com/quantml','_blank')" class="login-logout-join" >Join &nbsp; <img src="/data/img/patreon.png" alt="Join"></button></li>
-                            <li><a style="cursor: pointer;"><img id="change-theme" src="" alt="Change Theme"></a></li>
+                        <ul id="nav-bar-icons-head" class="icons">
                         </ul>
-    				</nav>
+                    </nav>
 
 				<!-- Main -->
 					<div id="main">
@@ -71,8 +52,8 @@
                                     <img style="float: right;" src="/data/icon.png" alt="logo" width="40" height="40">
                                     <h2>
                                         About
-                                        <a target="_blank" href="https://www.linkedin.com/company/quantml"><img src="/data/img/linkedin.png" alt="linkedin" width="30" height="30"></a>
-                                        <a target="_blank" href="https://join.slack.com/t/quantml-org/shared_invite/zt-jffw86bo-6M260iyt1q2MgBma9elewg"><img src="/data/img/slack.png" alt="slack-logo" width="30" height="30"></a>
+                                        <a rel="noreferrer" target="_blank" href="https://www.linkedin.com/company/quantml"><img src="/data/img/linkedin.png" alt="linkedin" width="30" height="30"></a>
+                                        <a rel="noreferrer" target="_blank" href="https://join.slack.com/t/quantml-org/shared_invite/zt-jffw86bo-6M260iyt1q2MgBma9elewg"><img src="/data/img/slack.png" alt="slack-logo" width="30" height="30"></a>
                                     </h2>
                                     <p>
                                         Here you will get various guides related to <b>Machine Learning</b> that will help you understand
@@ -81,7 +62,7 @@
         
                                         Currently, you can read the <b><a href="la/">guide</a></b>
                                         for <b>Linear Algebra</b>,
-                                        I recommended you to take the <b><a target="_blank" href="https://ocw.mit.edu/courses/mathematics/18-06sc-linear-algebra-fall-2011/">18.06sc</a></b> 
+                                        I recommended you to take the <b><a rel="noreferrer" target="_blank" href="https://ocw.mit.edu/courses/mathematics/18-06sc-linear-algebra-fall-2011/">18.06sc</a></b> 
                                         course and my <b><a href="la/">guide</a></b> parallelly.<br>
                                         <br>
         
@@ -96,12 +77,12 @@
                                         <img style="float: right;" src="/data/icon.png" alt="logo" width="40" height="40">
                                         <h2>
                                             Author 
-                                            <a target="_blank" href="https://www.linkedin.com/in/yuvraj97/"><img src="/data/img/linkedin.png" alt="linkedin" width="30" height="30"></a>
-                                            <a target="_blank" href="https://github.com/yuvraj97/"><img src="/data/img/github.png" alt="github" width="30" height="30"></a>
+                                            <a rel="noreferrer" target="_blank" href="https://www.linkedin.com/in/yuvraj97/"><img src="/data/img/linkedin.png" alt="linkedin" width="30" height="30"></a>
+                                            <a rel="noreferrer" target="_blank" href="https://github.com/yuvraj97/"><img src="/data/img/github.png" alt="github" width="30" height="30"></a>
                                         </h2>
                                         <p>
                                             Hello my name is <b>Yuvraj Garg</b>.<br>
-                                            I am an independent creator of <b><a target="_blank" href="https://quantml.org">QuantML.org</a></b><br>
+                                            I am an independent creator of <b><a rel="noreferrer" target="_blank" href="https://quantml.org">QuantML.org</a></b><br>
                                             Passionate for Mathematics and Machine Learning.
                                             <!--<b>Join me</b> on patreon for additional benefits-->
                                         </p>
@@ -109,31 +90,35 @@
                                 <div class="book contact-margin">
                                     <h2>Contact</h2>
                                     <p>
-                                        <b><a target="_blank" href="https://join.slack.com/t/quantml-workspace/shared_invite/zt-hcmbg7fr-jPbVAUT_tjGPaKWU50qMYQ">Connect on Slack</a></b><br>
+                                        <b><a rel="noreferrer" target="_blank" href="https://join.slack.com/t/quantml-workspace/shared_invite/zt-hcmbg7fr-jPbVAUT_tjGPaKWU50qMYQ">Connect on Slack</a></b><br>
                                         <b><a href="mailto:yuvraj97.ml@gmail.com">yuvraj97.ml@gmail.com</a></b>
                                     </p>
                                 </div>
                             </div>
-                        </div>
-
+</div>
+<div id="modals-html"></div>
                     </section>
 					</div>
 
 			</div>
 
+            <div id="navPanel">
+                <nav>
+                    <ul class="links">
+                        <li class="active"><a href="/"><img class="quantml-navbar" src="/data/img/cover.png" alt="QuantML" width="131.44px" height="27.44px"></a></li>
+                        <li><a href="/about/">About</a></li>
+                        <li><a href="/donate/">Donate</a></li>
+                    </ul>
+                    <ul id="nav-bar-icons-foot" class="icons">
+                    </ul>
+                </nav>
+                <div id="close-navbar" class="close"></div>
+            </div>
+
         <!-- Scripts -->
-			<script src="/data/assets/js/jquery.min.js"></script>
-			<script src="/data/assets/js/jquery.scrollex.min.js"></script>
-			<script src="/data/assets/js/jquery.scrolly.min.js"></script>
-			<script src="/data/assets/js/browser.min.js"></script>
-			<script src="/data/assets/js/breakpoints.min.js"></script>
-			<script src="/data/assets/js/util.js"></script>
-            <script src="/data/assets/js/main.js"></script>
-			<script src="/data/initialize-css.js"></script>
-            <script>if(localStorage.getItem("quantmlTheme")=="light"){document.getElementById('quantml-style-theme').href="/style-light.css"} else {document.getElementById('quantml-style-theme').href="/style-dark.css"}</script>
-            <script src="/data/index.js"></script>
-            <script>setTimeout(() => {document.querySelector('body').style.display="block"}, 0)</script>
+        <script>loadNavBar('nav-bar-icons-foot')</script>
+        <script src="/data/assets/js/script.js"></script>
+        <script>cssLoaded()</script>
 
-
-	</body>
+    </body>
 </html>

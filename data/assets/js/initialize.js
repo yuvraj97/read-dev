@@ -117,7 +117,10 @@ function initializeBody(){
       document.getElementById('pre-loading-dark').style.display="block";
       document.querySelector('body').style.backgroundColor = "#2d2d2d"
     }
-    else document.getElementById('pre-loading-light').style.display="block";
+    else {
+      document.getElementById('pre-loading-light').style.display="block";
+      document.querySelector('body').style.backgroundColor = "#fff"
+    }
 }
 
 function loadNavBar(ID){

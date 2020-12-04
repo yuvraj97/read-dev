@@ -1,35 +1,23 @@
 <!DOCTYPE HTML>
-<!--
-    "Thanks to HTML5 UP for this template".
-    Massively by HTML5 UP
-    html5up.net | @ajlkn
-    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-	<head>
+<html lang="en">
 
+	<head>
+        <script>
+            // var arrowLeftPage = "/stats/"
+            var arrowRightPage = "/about/"
+        </script>
 
         <link rel="stylesheet" href="/data/assets/css/main.css">
-        <link rel="stylesheet" href="/data/auth/authStyle.css">
-        <link id="quantml-theme" rel="stylesheet" href="" />
-        <link id="quantml-auth-style" rel="stylesheet" href="">
+        <link rel="stylesheet" href="/data/assets/css/authStyle.css">
         <link rel="stylesheet" href="/style.css">
-        <link id="quantml-style-theme" rel="stylesheet" href="">
-        
-        <!--KATEX-->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+        <link rel="stylesheet" href="/style-light.css">
 
-        <!-- The loading of KaTeX is deferred to speed up page rendering -->
-        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
-
-        <!-- To automatically render math in text elements, include the auto-render extension: -->
-        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
-        
 		<title>QuantML</title>
 		<meta charset="utf-8" />
         <link rel="icon" href="/data/icon.png" type="image/png" sizes="16x16">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<noscript><link rel="stylesheet" href="/data/assets/css/main-light.css" /></noscript>
+        <script src="/data/assets/js/initialize.js"></script>
+		
         
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-LRSK4V6G1M"></script>
@@ -42,15 +30,17 @@
 </script>
 	</head>
 
-	<body style="display: none">
+	<body>
 
 		<!-- Wrapper -->
-			<div id="wrapper">
+        <div style="display: none;" id="wrapper">
+            <div class="bg fixed" style="transform: none;"></div>
+            <div id="navPanelToggle">Menu</div>
 
-		 		<!-- Header -->
-					<header id="header">
-						<a href="https://quantml.org" class="logo image jump-big"><img id="quantml-cover" src="/data/img/cover.png" alt="QuantML.org" /></a>
-					</header>
+                <!-- Header -->
+                <header id="header">
+                    <a href="https://quantml.org" class="logo image jump-big"><img id="quantml-cover" src="/data/img/cover.png" alt="QuantML.org" /></a>
+                </header>
 
 				<!-- Nav -->
                 <nav id="nav">
@@ -59,19 +49,19 @@
                             <li><a href="/about/">About</a></li>
                             <li><a href="/donate/">Donate</a></li>
                         </ul>
-                        <ul class="icons">
-                            <li><a target="_blank" href="https://quantml.org/"><img src="/data/icon.png" alt="QuantML"></a></li>
-                            <li><a target="_blank" href="https://join.slack.com/t/quantml-org/shared_invite/zt-jffw86bo-6M260iyt1q2MgBma9elewg"><img src="/data/img/slack.png" alt="Slack"></a></li>
-                            <li><a target="_blank" href="https://www.linkedin.com/in/yuvraj97/"><img src="/data/img/linkedin.png" alt="LinkedIn"></a></li>
-                            <li><a target="_blank" href="https://github.com/yuvraj97/"><img src="/data/img/github.png" alt="GitHub"></a></li>
-                            <li><button onclick=" window.open('https://www.patreon.com/quantml','_blank')" class="login-logout-join" >Join &nbsp; <img src="/data/img/patreon.png" alt="Join"></button></li>
-                            <li><a style="cursor: pointer;"><img id="change-theme" src="" alt="Change Theme"></a></li>
+                        <ul id="nav-bar-icons-head" class="icons">
                         </ul>
-    				</nav>
+                    </nav>
 
 				<!-- Main -->
 					<div id="main">
 					<section id="paragraph" class="post">
+<div id="pre-loading"><img class="loading" src="" alt=" "></div>
+<div style="display: none;" id="pre-initializing"><img class="loading" src="" alt="Initializing..."></div>
+<script>loadNavBar('nav-bar-icons-head');initializeBody();document.getElementById('wrapper').style.display = "block"</script>
+
+<div id="paragraph-content">
+
                         <h1 style="text-align-last: center;">Guides</h1>
                         <div class="row">
                             <div  class="column">
@@ -80,9 +70,9 @@
                                     <div style="line-height: 45px; display: inline-table; width: 100%;">
                                         <img style="border-radius: 5px;" src="/data/img/theory.png" alt="Theory" width="65px" height="28px">
                                     </div> 
-                                    <p>Inspired by <a target="_blank" href="https://ocw.mit.edu/">MIT OCW</a>'s <br>
-                                    <a target="_blank" href="https://ocw.mit.edu/courses/mathematics/18-06sc-linear-algebra-fall-2011/">18.06sc Linear Algebra</a><br>
-                                    [by Professor <a target="_blank" href="http://www-math.mit.edu/~gs/">Gilbert Strang</a>]</p>
+                                    <p>Inspired by <a rel="noreferrer" target="_blank" href="https://ocw.mit.edu/">MIT OCW</a>'s <br>
+                                    <a rel="noreferrer" target="_blank" href="https://ocw.mit.edu/courses/mathematics/18-06sc-linear-algebra-fall-2011/">18.06sc Linear Algebra</a><br>
+                                    [by Professor <a rel="noreferrer" target="_blank" href="http://www-math.mit.edu/~gs/">Gilbert Strang</a>]</p>
                                     <br><br>
                                     <div class="early-access-div" >
                                          <a href="/la/"><button style="bottom: 30px;" id="la-guide-read-now" class="button btn jump">Read Now</button></a>
@@ -98,9 +88,9 @@
                                             <img style="-webkit-transform: translateY(-0.3rem);transform: translateY(-0.3rem);" src="/data/img/python.png" alt="Python" width="78px" height="20px"> &nbsp;
                                             <img src="/data/img/julia.png" alt="julia" width="53px" height="33px">
                                         </div> 
-                                        <p>Inspired by <a target="_blank" href="https://micromasters.mit.edu/">MITx</a>'s<br>
-                                        <a target="_blank" href="https://www.edx.org/course/fundamentals-of-statistics">18.6501x Fundamentals of Statistics</a><br>
-                                        [by Professor <a target="_blank" href="http://www-math.mit.edu/~rigollet/">Philippe Rigollet</a>]</p>
+                                        <p>Inspired by <a rel="noreferrer" target="_blank" href="https://micromasters.mit.edu/">MITx</a>'s<br>
+                                        <a rel="noreferrer" target="_blank" href="https://www.edx.org/course/fundamentals-of-statistics">18.6501x Fundamentals of Statistics</a><br>
+                                        [by Professor <a rel="noreferrer" target="_blank" href="http://www-math.mit.edu/~rigollet/">Philippe Rigollet</a>]</p>
                                         <br>
                                         <div id="early-access-div" class="early-access-div">
                                         <button id="comming-soon" style="float: right; bottom: 30px;" class="button btn disabled">Coming Soon</button>
@@ -110,48 +100,28 @@
                             </div>
                         </div>
                         <br><br>
-                        
+</div>
                     </section>
 					</div>
 
 			</div>
+            <div id="navPanel">
+                <nav>
+                    <ul class="links">
+                        <li class="active"><a href="/"><img class="quantml-navbar" src="/data/img/cover.png" alt="QuantML" width="131.44px" height="27.44px"></a></li>
+                        <li><a href="/about/">About</a></li>
+                        <li><a href="/donate/">Donate</a></li>
+                    </ul>
+                    <ul id="nav-bar-icons-foot" class="icons">
+                    </ul>
+                </nav>
+                <div id="close-navbar" class="close"></div>
+            </div>
 
-		<!-- Scripts -->
-			<script src="/data/assets/js/jquery.min.js"></script>
-			<script src="/data/assets/js/jquery.scrollex.min.js"></script>
-			<script src="/data/assets/js/jquery.scrolly.min.js"></script>
-			<script src="/data/assets/js/browser.min.js"></script>
-			<script src="/data/assets/js/breakpoints.min.js"></script>
-			<script src="/data/assets/js/util.js"></script>
-            <script src="/data/assets/js/main.js"></script>
-            <script src="/data/initialize-css.js"></script>
-            <script>if(localStorage.getItem("quantmlTheme")=="light"){document.getElementById('quantml-style-theme').href="/style-light.css"} else {document.getElementById('quantml-style-theme').href="/style-dark.css"}</script>
-            <script src="/data/index.js"></script>
-            <script>
-                setTimeout(() => {
-                    earlyAccess = document.getElementById('early-access')
-                    commingSoon = document.getElementById('comming-soon')
-                    earlyAccessDiv = document.getElementById('early-access-div')
-                    if(earlyAccess.offsetWidth + commingSoon.offsetWidth > earlyAccessDiv.offsetWidth){
-                        earlyAccess.style.width = "100%";
-                        commingSoon.style.width = "100%";
-                        earlyAccess.style.marginTop = "12px";
-                        
-                        
-                        laReadNowBtn = document.getElementById('la-guide-read-now')
-                        laReadNowBtn.style.width="80%"
-                        laReadNowBtn.style.right = "10%"
-                        // laReadNowBtn.style.bottom = "30px"
-                    }
+        <!-- Scripts -->
+        <script>loadNavBar('nav-bar-icons-foot')</script>
+        <script src="/data/assets/js/script.js"></script>
+        <script>cssLoaded()</script>
 
-
-                    laGuide = document.getElementById('la-guide');
-                    statsGuide = document.getElementById('stats-guide');
-                    if(laGuide.offsetHeight < statsGuide.offsetHeight && document.querySelector('body').offsetWidth > 736){
-                        laGuide.style.height = String(statsGuide.offsetHeight) + "px"
-                    }
-                }, 100)
-    
-            </script>
-            <script>setTimeout(() => {document.querySelector('body').style.display="block"}, 0)</script>
-
+    </body>
+</html>
