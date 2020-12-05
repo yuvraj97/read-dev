@@ -418,41 +418,44 @@ function fullyLoaded(){
 
 	setDisplay('login-error-msg', "none")
 
-    window.keydowns = {"ctrl": false}
+    window.keydowns = {"ctrl": false, "alt": false}
 
     document.onkeyup = function(evt) {
 		console.log(evt.code)
-		console.log("CTRL:",window.keydowns["ctrl"])
-        if(evt.code == "NumpadSubtract" && window.keydowns["ctrl"] != true){
+        console.log("CTRL:",window.keydowns["ctrl"])
+        if(isInputRequires()){
+			// PASS
+		} else if(evt.code == "KeyD"){
+			changeTheme()
+		} else if(evt.code == "NumpadSubtract" && window.keydowns["ctrl"] != true){
 			decrementFontSize();setFontSize()
         } else if(evt.code == "NumpadAdd" && window.keydowns["ctrl"] != true){
         	incrementFontSize();setFontSize()
         } else if(evt.code == "ControlLeft" || evt.code == "ControlRight"){
             window.keydowns["ctrl"] = false;
-        }
+        } else if(evt.code == "AltLeft" || evt.code == "AltRight"){
+            window.keydowns["alt"] = false;
+		}
     }
 	document.onkeydown = function(evt) {
         evt = evt || window.event;
         // console.log(evt)
-		// console.log("DOWN", evt.code)
+		console.log("DOWN", evt.code)
 		if(evt.code == "Escape") {
 			for (let idx = 0; idx < modal.length; idx++) {
 				modal[idx].style.display = "none";
 			}
-		}
-		if(isInputRequires()){
+        } else if(isInputRequires()){
 			// PASS
-		} else if(evt.code == "KeyD"){
-			changeTheme()
-		} else if(evt.code == "ArrowRight" && typeof(arrowRightPage) !="undefined" ){
-			window.location.href = arrowRightPage
-		} else if(evt.code == "ArrowLeft" && typeof(arrowLeftPage) !="undefined" ){
-			window.location.href = arrowLeftPage
 		} else if(evt.code == "ControlLeft" || evt.code == "ControlRight"){
-            console.log("Pressedd CTRL")
             window.keydowns["ctrl"] = true;
-        	// incrementFontSize();setFontSize()
-		}
+		} else if(evt.code == "AltLeft" || evt.code == "AltRight"){
+            window.keydowns["alt"] = true;
+		} else if(evt.code == "ArrowRight" && typeof(arrowRightPage) !="undefined" && window.keydowns["alt"] != true){
+			window.location.href = arrowRightPage
+		} else if(evt.code == "ArrowLeft" && typeof(arrowLeftPage) !="undefined" && window.keydowns["alt"] != true){
+			window.location.href = arrowLeftPage
+		} 
 	}
 
 

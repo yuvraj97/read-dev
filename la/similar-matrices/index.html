@@ -1,0 +1,209 @@
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+
+        <script>
+            var isConcluded = true;
+            var arrowLeftPage = "/la/positive-definite-matrices/"
+            var arrowRightPage = "/la/svd/"
+        </script>
+
+        <link rel="stylesheet" href="/data/assets/css/main.css">
+        <link rel="stylesheet" href="/data/assets/css/authStyle.css">
+        
+		<title>Similar Matrices</title>
+		<meta charset="utf-8" />
+        <link rel="icon" href="/data/icon.png" type="image/png" sizes="16x16">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="robots" content="index, follow">
+
+        <script src="/data/assets/js/initialize.js"></script>
+
+	</head>   
+    
+    <body>
+
+        <!-- Wrapper -->
+			<div style="display: none;" id="wrapper">
+                <div class="bg fixed" style="transform: none;"></div>
+                <div id="navPanelToggle">Menu</div>
+
+
+                <!-- Header -->
+                <header id="header">
+                    <a href="https://quantml.org" class="logo image jump-big"><img id="quantml-cover" src="/data/img/cover.webp" alt="QuantML.org" /></a>
+                </header>
+
+                <!-- Nav -->
+                    <nav id="nav">
+                        <ul class="links">
+                            <li class="cover"><a href="/la/"><img src="/data/img/linear-algebra-cover.png" alt="Linear Algebra"></a></li>
+                            <li class="active"><a href="/la/similar-matrices/">Similar Matrices</a></li>
+                        </ul>
+                        <ul id="nav-bar-icons-head" class="icons"></ul>
+                    </nav>
+
+                <!-- Main -->
+                    <div id="main">
+                        <section id="paragraph" class="post">
+<div id="btn-container">
+    <button id="prev-btn" class="button" onclick="window.location.href = '/la/positive-definite-matrices/';">&#x25C0;&nbsp;&nbsp;Positive Definite Matrices</button>
+    <button id="next-btn" class="button"  style="float: right;" onclick="window.location.href = '/la/svd/';">Singular Value Decomposition&nbsp;&nbsp;&#x25B6;</button>
+</div><br>
+<div style="display: none;" id="pre-loading-light"><img class="loading" src="/data/img/loading.svg" alt=" " width="215px" height="50px"></div>
+<div style="display: none;" id="pre-loading-dark"><img class="loading" src="/data/img-dark/loading.svg" alt=" " width="215px" height="50px"></div>
+<div style="display: none;" id="pre-initializing-light"><img class="loading" src="/data/img/initializing.svg" alt=" " width="285px" height="50px"></div>
+<div style="display: none;" id="pre-initializing-dark"><img class="loading" src="/data/img-dark/initializing.svg" alt=" " width="285px" height="50px"></div>
+<script>initializeBody();document.getElementById('wrapper').style.display = "block";</script>
+
+<div id="paragraph-content">
+
+<p>
+<h1>Similar Matrices</h1>
+Say we have two \(n\times n\) <b>square</b> matrices \(A\) and \(B\).<br>
+\(A\) and \(B\) are <b>similar matrices</b> if there exists some \(M\) such that,<br>
+<div class="l1 border">
+\[  \begin{matrix}
+
+    % equation
+    B=M^{-1}AM
+    %equation
+
+    \end{matrix}
+\]
+</div>
+<blockquote>
+    \(\Lambda\) and \(A\) are similar matrices.
+</blockquote>
+<b>Explanation:</b><br>
+<blockquote class="noborder">
+    Say we have a \(n\times n\) matrix \(A\), \(\vec{x}_1,\vec{x}_2,\cdots,\vec{x}_n\) are eigenvectors of \(A\), and \(\lambda_1, \lambda_2, \cdots, \lambda_n\) are the eigenvalues of \(A\).<br>
+    \(S=\begin{bmatrix}
+    \vdots & \vdots & \cdots & \vdots \\  
+    \vec{x}_{1} & \vec{x}_{2} & \cdots &  \vec{x}_{n}   \\
+    \vdots & \vdots & \cdots & \vdots \\
+    \end{bmatrix},\) 
+    \(\Lambda=\begin{bmatrix}
+    \lambda_1 &     0     & \cdots  &    0    \\  
+    0         & \lambda_2 & \cdots  &    0    \\  
+    \vdots    & \vdots    & \ddots  & \vdots    \\  
+    0         &    0      & \cdots  &    \lambda_n    \\  
+   \end{bmatrix}\)<br>
+   We have seen <a  href="/la/diagonalization/">HERE</a> that,
+   \[ \Lambda =S^{-1}AS\]
+   So, <b>\(\Lambda\) and \(A\) are similar matrices.</b><br>
+   \(A\) has a <b>family</b> of similar matrices and \(\Lambda\) is the best(simplest) similar matrix among them.<br>
+   
+</blockquote><br>
+
+Let's take an example,<br>
+Say \(A= \begin{bmatrix} 2&1\\ 1&2 \end{bmatrix}\)<br>
+Eigenvalues of \(A\) are \(3,1\) so \(\Lambda= \begin{bmatrix} 3&0\\ 0&1 \end{bmatrix}\)<br>
+So \(\begin{bmatrix} 2&1\\ 1&2 \end{bmatrix}\) and \(\begin{bmatrix} 3&0\\ 0&1 \end{bmatrix}\) 
+are similar matrices.<br>
+Let's get another similar matrix using \(B=M^{-1}AM\).<br>
+Let's choose a random full rank(invertible) matrix \(M\) Say \(M= \begin{bmatrix} 1&4\\ 0&1 \end{bmatrix}\)<br>
+So 
+\(\underbrace{\begin{bmatrix} 1&-4\\ 0&1 \end{bmatrix}}_{M^{-1}}
+\underbrace{\begin{bmatrix} 2&1\\ 1&2 \end{bmatrix}}_{A}
+\underbrace{\begin{bmatrix} 1&4\\ 0&1 \end{bmatrix}}_{M}
+=
+\underbrace{\begin{bmatrix} -2&-15\\ 1&6 \end{bmatrix}}_{B}\)<br>
+So \(\begin{bmatrix} 2&1\\ 1&2 \end{bmatrix}\) and \(\begin{bmatrix} -2&-15\\ 1&6 \end{bmatrix}\) are similar matrices.<br>
+<b>Notice</b> that here also eigenvalues are \(3,1\)<br>
+Here we can see that \(\underbrace{\begin{bmatrix} 2&1\\ 1&2 \end{bmatrix}}_{A},\quad\)
+\(\underbrace{\begin{bmatrix} 3&0\\ 0&1 \end{bmatrix}}_{\Lambda},\quad\) and 
+\(\underbrace{\begin{bmatrix} -2&-15\\ 1&6 \end{bmatrix}}_{B}\) have same eigenvalues \(3,1\) we can verify it by
+\(\text{trace}(\cdot) = 4\) and \(\text{det}(\cdot) = 3\)<br>
+<br>
+
+<blockquote>
+    Similar matrices have same <b>eigenvalues</b>
+</blockquote>
+<b>Explanation:</b><br>
+<blockquote class="noborder">
+    Say we have a \(n\times n\) matrices \(A\), \(\vec{x}_1,\vec{x}_2,\cdots,\vec{x}_n\) are eigenvectors of \(A\), and \(\lambda_1, \lambda_2, \cdots, \lambda_n\) are the eigenvalues of \(A\).<br>
+    So \(A\vec{x}_i=\lambda_i \vec{x}\)<br>
+    (\(MM^{-1}=\mathcal{I}_n\))<br>
+    \(A\mathcal{I}_n\vec{x}_i=\lambda_i \vec{x}\)<br>
+    \(AMM^{-1}\vec{x}_i=\lambda_i \vec{x}\)<br>
+    \(\underbrace{(M^{-1}AM)}_{B} M^{-1}\vec{x}_i=\lambda_i M^{-1}\vec{x}\)<br>
+    \(B \underbrace{M^{-1}\vec{x}_i}_{\text{(say) }\vec{v}}=\lambda_i \underbrace{M^{-1}\vec{x}_i}_{\text{(say) }\vec{v}}\)<br>
+    \(M^{-1}\) is just a transformation of \(\vec{x}\) from \(\mathbb{R}^n\) to \(\mathbb{R}^n\)<br>
+    So \(M^{-1}\vec{x}\) is a vector in \(\mathbb{R}^n\)<br>
+    \(B \vec{v}_i=\lambda_i \vec{v}\)<br>
+    So now we can see that <b>eigenvalues</b> of \(B=M^{-1}AM\) is <b>same</b> as <b>eigenvalues</b> of \(A\)<br>
+    And \((\)eigenvectors of \(B)=M^{-1}\)(eigenvectors of \(A\))
+</blockquote><br>
+
+<h3>What if we have same eigenvalues ?</h3>
+<blockquote>
+If we don't have all eigenvalues to be <b>different</b> then, there might not be \(n\) independent eigenvectors, so
+the matrix might not be <b>diagonalizable</b>.
+</blockquote>
+
+<blockquote class="noborder">
+<b>Example</b><br>
+    Say \(A=\begin{bmatrix} 4&0\\ 0&4 \end{bmatrix}\) here eigenvalues are \(4,4\) and 
+    every vector is an eigenvector because all vectors are only scaled by \(4\) \(A\) doesn't change the direction<br>
+    Is there any matrices <b>similar</b> to \(A\)?<br>
+    Say that matrix \(B\) is similar to \(A\).<br>
+    \(B=M^{-1}AM\)<br>
+    \(B=M^{-1}\begin{bmatrix} 4&0\\ 0&4 \end{bmatrix}M\)<br>
+    \(B=4M^{-1}\begin{bmatrix} 1&0\\ 0&1 \end{bmatrix}M\)<br>
+    \(B=4M^{-1}\mathcal{I}M\)<br>
+    \(B=4M^{-1}M\)<br>
+    \(B=4\mathcal{I}\)<br>
+    \(B=\begin{bmatrix} 4&0\\ 0&4 \end{bmatrix}\)<br>
+    So similar matrix for \(A\) is <b>only</b> \(A\) itself.<br>
+</blockquote><br>
+
+<blockquote>
+It is <b>not</b> necessary that if our eigenvalues repeat then we can't have similar matrices.
+</blockquote>
+<blockquote class="noborder">
+    <b>Example</b><br>
+    Say \(A=\begin{bmatrix} 4&1\\ 0&4 \end{bmatrix}\) here eigenvalues are \(4,4\)<br>
+    It has a bunch of similar matrices, like<br>
+    \(\begin{bmatrix} 4&1\\ 0&4 \end{bmatrix},\quad\)
+    \(\begin{bmatrix} 4&0\\ 7&4 \end{bmatrix},\quad\)
+    \(\begin{bmatrix} 7&-2\\ 1&2 \end{bmatrix},\cdots\)
+    these all are similar matrices.
+</blockquote>
+    </p>
+
+<div class="slack-discuss" onclick=" window.open('https://join.slack.com/t/quantml-org/shared_invite/zt-jffw86bo-6M260iyt1q2MgBma9elewg','_blank')">
+    Join our Slack <img src="/data/img/slack.png" alt="Slack"> discussion forum
+</div>
+<br>
+
+</div>
+<div id="btn-container">
+    <button id="prev-btn" class="button" onclick="window.location.href = '/la/positive-definite-matrices/';">&#x25C0;&nbsp;&nbsp;Positive Definite Matrices</button>
+    <button id="next-btn" class="button"  style="float: right;" onclick="window.location.href = '/la/svd/';">Singular Value Decomposition&nbsp;&nbsp;&#x25B6;</button>
+</div><br>
+    <div id="modals-html"></div>
+
+                    </section>
+                    </div>
+            </div>
+
+            <div id="navPanel">
+                <nav>
+                    <ul class="links">
+                            <li class="cover"><a href="/la/"><img src="/data/img/linear-algebra-cover.png" alt="Linear Algebra"></a></li>
+                            <li class="active"><a href="/la/similar-matrices/">Similar Matrices</a></li>
+                    </ul>
+                    <ul id="nav-bar-icons-foot" class="icons">
+                    </ul>
+                </nav>
+                <div id="close-navbar" class="close"></div>
+            </div>
+
+        <!-- Scripts -->
+        <script>loadNavBar('nav-bar-icons-foot')</script>
+        <script src="/data/assets/js/script.js"></script>
+        <script>cssLoaded()</script>
+
+    </body>
+</html>
