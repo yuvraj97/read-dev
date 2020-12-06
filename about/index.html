@@ -4,6 +4,7 @@
 	<head>
 
         <script>
+            var isConcluded = true;
             var arrowLeftPage = "/"
             var arrowRightPage = "/donate/"
         </script>
@@ -17,16 +18,31 @@
         <link rel="icon" href="/data/icon.png" type="image/png" sizes="16x16">
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
         <meta name="robots" content="index, follow">
-        <meta name="description" content="Mission of QuantML is to make Machine Learning and Statistics Interactive. Here we can Visualize concepts in realtime, we also use programming-language to improve our understanding.">
+        <meta name="description" content="Mission of QuantML is to make Machine Learning Interactive. Here we can Visualize concepts in realtime, also we will be using programming-language(python/Julia) to improve our understanding.">
         <meta name="keywords" content="QuantML,About,Visualization,Machine Learning,Statistics,Linear Algebra">
         <meta name="author" content="Yuvraj Garg">
         <script src="/data/assets/js/initialize.js"></script>
         <script src="/data/assets/js/script.js"></script>
         <script>
+            function correctingHeights(){
+                about  = document.getElementById('about')
+                aboutColumn  = document.getElementById('about-column')
+                authorContact = document.getElementById('author-contact')
+                author = document.getElementById('author')
+                contact = document.getElementById('contact')
+                // console.log("about.offsetHeight:", about.offsetHeight, "author.offsetHeight:", author.offsetHeight, "contact.offsetHeight:", contact.offsetHeight)
+                if(about.offsetHeight < author.offsetHeight + contact.offsetHeight){
+                    aboutColumn.style.height = String(authorContact.offsetHeight) + "px"
+                    // console.log("about.style.height:", about.style.height)
+                } else {
+                    contact.style.marginTop = String(about.offsetHeight - author.offsetHeight - contact.offsetHeight) + "px"
+                    // console.log(String(about.offsetHeight - author.offsetHeight - contact.offsetHeight), "contact.style.marginTop:", contact.style.marginTop )
+                }
+            }
             l = document.createElement('link')
             l.rel = "stylesheet"
             l.id="home-stylesheet"
-            l.onload = function(){cssLoaded(false);}
+            l.onload = function(){cssLoaded(false);if(window.innerWidth > 736){correctingHeights()}}
             if(localStorage.getItem("quantmlTheme") == "dark") l.href = "/style-dark.css";
             else l.href = "/style-light.css"
             document.getElementsByTagName("head")[0].appendChild(l)
@@ -42,13 +58,13 @@
 
                 <!-- Header -->
                 <header id="header">
-                    <a href="https://quantml.org" class="logo image jump-big"><img id="quantml-cover" src="/data/img/cover.png" alt="QuantML.org" /></a>
+                    <a href="https://quantml.org" class="logo image jump-big"><img id="quantml-cover" src="/data/img/cover.webp" alt="QuantML.org" /></a>
                 </header>
 
 				<!-- Nav -->
 					<nav id="nav">
 						<ul class="links">
-                            <li><a href="/"><img class="quantml-navbar" src="/data/img/cover.png" alt="QuantML" width="131.44px" height="27.44px"></a></li>
+                            <li><a href="/"><img class="quantml-navbar" src="/data/img/cover.webp" alt="QuantML" width="131.44px" height="27.44px"></a></li>
                             <li class="active"><a href="/about/">About</a></li>
                             <li><a href="/donate/">Donate</a></li>
                         </ul>
@@ -68,14 +84,14 @@
 <div id="paragraph-content">
 
                         <div class="row">
-                            <div class="column">
-                              <div class="book">
+                            <div id="about-column" class="column">
+                              <div id="about" style="height: 100%;" class="book">
                                     <img style="float: right;" src="/data/icon.png" alt="logo" width="40" height="40">
-                                    <h2>
+                                    <h1>
                                         About
                                         <a rel="noreferrer" target="_blank" href="https://www.linkedin.com/company/quantml"><img src="/data/img/linkedin.png" alt="linkedin" width="30" height="30"></a>
-                                        <a rel="noreferrer" target="_blank" href="https://join.slack.com/t/quantml-org/shared_invite/zt-jffw86bo-6M260iyt1q2MgBma9elewg"><img class="slack-logo" src="/data/img/slack.png" alt="slack-logo" width="30" height="30"></a>
-                                    </h2>
+                                        <a rel="noreferrer" target="_blank" href="https://join.slack.com/t/quantml-org/shared_invite/zt-jffw86bo-6M260iyt1q2MgBma9elewg"><img src="/data/img/slack.png" alt="slack-logo" width="30" height="30"></a>
+                                    </h1>
                                     <p>
                                         Here you will get various guides related to <b>Machine Learning</b> that will help you understand
                                         the concepts better.<br>
@@ -93,14 +109,14 @@
                               </div>
                             </div>
                           
-                            <div class="column">
-                                <div class="book">
+                            <div id="author-contact" class="column">
+                                <div id="author" class="book">
                                         <img style="float: right;" src="/data/icon.png" alt="logo" width="40" height="40">
-                                        <h2>
+                                        <h1>
                                             Author 
                                             <a rel="noreferrer" target="_blank" href="https://www.linkedin.com/in/yuvraj97/"><img src="/data/img/linkedin.png" alt="linkedin" width="30" height="30"></a>
                                             <a rel="noreferrer" target="_blank" href="https://github.com/yuvraj97/"><img src="/data/img/github.png" alt="github" width="30" height="30"></a>
-                                        </h2>
+                                        </h1>
                                         <p>
                                             Hello my name is <b>Yuvraj Garg</b>.<br>
                                             I am an independent creator of <b><a rel="noreferrer" target="_blank" href="https://quantml.org">QuantML.org</a></b><br>
@@ -108,8 +124,8 @@
                                             <!--<b>Join me</b> on patreon for additional benefits-->
                                         </p>
                                 </div>
-                                <div class="book contact-margin">
-                                    <h2>Contact</h2>
+                                <div id="contact" style="margin-top: 20px;" class="book">
+                                    <h1>Contact</h1>
                                     <p>
                                         <b><a rel="noreferrer" target="_blank" href="https://join.slack.com/t/quantml-workspace/shared_invite/zt-hcmbg7fr-jPbVAUT_tjGPaKWU50qMYQ">Connect on Slack</a></b><br>
                                         <b><a href="mailto:yuvraj97.ml@gmail.com">yuvraj97.ml@gmail.com</a></b>
@@ -128,7 +144,7 @@
             <div id="navPanel">
                 <nav>
                     <ul class="links">
-                        <li><a href="/"><img class="quantml-navbar" src="/data/img/cover.png" alt="QuantML" width="131.44px" height="27.44px"></a></li>
+                        <li><a href="/"><img class="quantml-navbar" src="/data/img/cover.webp" alt="QuantML" width="131.44px" height="27.44px"></a></li>
                         <li class="active"><a href="/about/">About</a></li>
                         <li><a href="/donate/">Donate</a></li>
                     </ul>
