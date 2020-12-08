@@ -2,93 +2,80 @@
 <html lang="en">
 
 	<head>
-        <script>
-            var arrowLeftPage = "/stats/summary/"
-            var arrowRightPage = "/stats/"
-        </script>
+		<script>
+			var arrowLeftPage = "/stats/summary/"
+			var arrowRightPage = "/stats/"
+		</script>
 
-        <link rel="stylesheet" href="/data/assets/css/main.css">
-        <link rel="stylesheet" href="/data/assets/css/authStyle.css">
+		<link rel="stylesheet" href="/data/assets/css/main.css">
+		<link rel="stylesheet" href="/data/assets/css/authStyle.css">
 
-        <title>Thanks</title>
-        <meta charset="utf-8" />
-        <link rel="icon" href="/data/icon.png" type="image/png" sizes="16x16">
-        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-        <meta name="robots" content="index, follow">
-
-
-    <script src="/data/assets/js/initialize.js"></script>
-        
-    </head>
-
-    <body>
-        
-        <!-- Wrapper -->
-            <div style="display: none;" id="wrapper">
-                <div class="bg fixed" style="transform: none;"></div>
-                <div id="navPanelToggle">Menu</div>
+		<title>Thanks</title>
+		<meta charset="utf-8" />
+		<link rel="icon" href="/data/icon.png" type="image/png" sizes="16x16">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="robots" content="index, follow">
 
 
-                <!-- Header -->
-                <header id="header">
-                    <a href="https://quantml.org" class="logo image jump-big"><img id="quantml-cover" src="/data/img/cover.png" alt="QuantML.org" /></a>
-                </header>
+	<script src="/data/assets/js/initialize.js"></script>
+		<script src="/data/assets/js/swiped-events.js"></script>
+		
+	</head>
 
-                <!-- Nav -->
-                    <nav id="nav">
-                        <ul class="links">
-                            <li class="cover"><a href="/stats/"><img src="/data/img/STATISTICS-cover.png" alt="STATISTICS"></a></li>
-                            <li><a href="/stats/summary/">Summary</a></li>
-                            <li class="active"><a href=".">Thanks</a></li>
-                        </ul>
-                        <ul id="nav-bar-icons-head" class="icons">
-                        </ul>
-    				</nav>
+	<body>
+		
+		<!-- Wrapper -->
+			<div style="display: none;" id="wrapper">
+				<div class="bg fixed" style="transform: none;"></div>
+				<div id="navPanelToggle">Menu</div>
 
-                <!-- Main -->
-                    <div id="main">
-                        <section id="paragraph" class="post">
-<div style="display: none;" id="pre-loading-light"><img class="loading" src="/data/img/loading.svg" alt=" " width="215px" height="50px"></div>
-<div style="display: none;" id="pre-loading-dark"><img class="loading" src="/data/img-dark/loading.svg" alt=" " width="215px" height="50px"></div>
-<div style="display: none;" id="pre-initializing-light"><img class="loading" src="/data/img/initializing.svg" alt=" " width="285px" height="50px"></div>
-<div style="display: none;" id="pre-initializing-dark"><img class="loading" src="/data/img-dark/initializing.svg" alt=" " width="285px" height="50px"></div>
-<script>initializeBody();document.getElementById('wrapper').style.display = "block";</script>
 
-<div id="paragraph-content">
+				<!-- Header -->
+				<header id="header">
+					<a href="https://quantml.org" style="display: none;" class="logo image jump-big" id="quantml-cover-light"><img src="/data/img/cover.webp" alt="QuantML.org" /></a>
+					<a href="https://quantml.org" style="display: none;" class="logo image jump-big" id="quantml-cover-dark"><img src="/data/img-dark/cover.webp" alt="QuantML.org" /></a>
+					<script>
+						if(localStorage.getItem("quantmlTheme")=="dark") document.getElementById('quantml-cover-dark').style.display = "block"
+						else document.getElementById('quantml-cover-light').style.display = "block"
+					</script>
+				</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li class="cover"><a href="/stats/"><img src="/data/img/STATISTICS-cover.png" alt="STATISTICS"></a></li>
+							<li><a href="/stats/summary/">Summary</a></li>
+							<li class="active"><a href=".">Thanks</a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+						<section class="post">
+<div style="text-align: center;" id="load-init"></div>
+<script>initializeBody();</script>
+
+<div id="paragraph-content" data-swipe-threshold="80">
 <blockquote>
-    This Guide is inspired by an online course at <a  href="https://www.edx.org/">edX</a>: <a  href="https://www.edx.org/course/fundamentals-of-statistics">Fundamentals of Statistics </a><br>
-    Instructors are:<br>
-    <b><a  href="https://www.edx.org/bio/philippe-rigollet">Philippe Rigollet</a></b> (Associate Professor at MIT)<br>
-    <b><a  href="https://www.edx.org/bio/jan-christian-hutter">Jan-Christian Hütter</a></b> (Teaching Assistant at MIT)<br>
-    <b><a  href="https://www.edx.org/bio/jan-christian-hutter">Karene Chu</a></b> (Lecturer and Research Scientist at MIT)<br>
-    Thanks, Professor and all Staff for this wonderful course, and also thanks to all the Community TA's and students for those amazing discussions. Glad to be part of this course.
+	This Guide is inspired by an online course at <a  href="https://www.edx.org/">edX</a>: <a  href="https://www.edx.org/course/fundamentals-of-statistics">Fundamentals of Statistics </a><br>
+	Instructors are:<br>
+	<b><a  href="https://www.edx.org/bio/philippe-rigollet">Philippe Rigollet</a></b> (Associate Professor at MIT)<br>
+	<b><a  href="https://www.edx.org/bio/jan-christian-hutter">Jan-Christian Hütter</a></b> (Teaching Assistant at MIT)<br>
+	<b><a  href="https://www.edx.org/bio/jan-christian-hutter">Karene Chu</a></b> (Lecturer and Research Scientist at MIT)<br>
+	Thanks, Professor and all Staff for this wonderful course, and also thanks to all the Community TA's and students for those amazing discussions. Glad to be part of this course.
 </blockquote>
 </div>
 <div id="modals-html"></div>
 <br>
 <blockquote class="noborder">
-    <span style="font-size: smaller">Also Thanks to <a  href="http://html5up.net/">HTML5 UP</a>  for the template. You can find it <a  href="https://html5up.net/massively">here</a></span>
+	Also Thanks to <a  href="http://html5up.net/">HTML5 UP</a>  for the template. You can find it <a  href="https://html5up.net/massively">here</a>
 </blockquote>
-                    </section>
-                    </div>
-            </div>
+					</section>
+					</div>
+			</div>
 
-            <div id="navPanel">
-                <nav>
-                    <ul class="links">
-                        <li class="cover"><a href="."><img src="/data/img/STATISTICS-cover.png" alt="STATISTICS"></a></li>
-                        <li><a href="/stats/summary/">Summary</a></li>
-                        <li class="active"><a href="/stats/thanks/">Thanks</a></li>
-                    </ul>
-                    <ul id="nav-bar-icons-foot" class="icons">
-                    </ul>
-                </nav>
-                <div id="close-navbar" class="close"></div>
-            </div>
-
-        <!-- Scripts -->
-        <script>loadNavBar('nav-bar-icons-foot')</script>
-        <script src="/data/assets/js/script.js"></script>
-        <script>cssLoaded()</script>
-    </body>
+		<!-- Scripts -->
+		<script src="/data/assets/js/script.js"></script>
+		<script>cssLoaded()</script>
+	</body>
 </html>

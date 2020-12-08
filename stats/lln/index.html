@@ -2,72 +2,69 @@
 <html lang="en">
 
 	<head>
-        <script>
-            var nextPage = "/stats/hoeffdings-inequality/";
-            var prevPage = "/stats/introduction/"
-            var arrowLeftPage = "/stats/introduction/"
-            var arrowRightPage = "/stats/lln/python/"
-        </script>
+		<script>
+			var nextPage = "/stats/hoeffdings-inequality/";
+			var prevPage = "/stats/introduction/"
+			var arrowLeftPage = "/stats/introduction/julia/"
+			var arrowRightPage = "/stats/lln/python/"
+		</script>
 
-        <link rel="stylesheet" href="/data/assets/css/main.css">
-        <link rel="stylesheet" href="/data/assets/css/authStyle.css">
+		<link rel="stylesheet" href="/data/assets/css/main.css">
+		<link rel="stylesheet" href="/data/assets/css/authStyle.css">
 
-        <title>Law Of Large numbers</title>
-        <meta charset="utf-8" />
-        <link rel="icon" href="/data/icon.png" type="image/png" sizes="16x16">
-        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-        <meta name="robots" content="index, follow">
+		<title>Weak Law Of Large numbers | Fundamentals of Statistics - QuantML</title>
+		<meta charset="utf-8" />
+		<link rel="icon" href="/data/icon.png" type="image/png" sizes="16x16">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="robots" content="index, follow">
 
-        <script src="/data/assets/js/initialize.js"></script>
-        
-    </head>
+		<script src="/data/assets/js/initialize.js"></script>
+		<script src="/data/assets/js/swiped-events.js"></script>
 
-    <body>
-        
-        <!-- Wrapper -->
-            <div style="display: none;" id="wrapper">
-                <div class="bg fixed" style="transform: none;"></div>
-                <div id="navPanelToggle">Menu</div>
+	</head>
 
-                <!-- Header -->
-                <header id="header">
-                    <a href="https://quantml.org" class="logo image jump-big"><img id="quantml-cover" src="/data/img/cover.png" alt="QuantML.org" /></a>
-                </header>
+	<body>
+		
+		<!-- Wrapper -->
+			<div style="display: none;" id="wrapper">
+				<div class="bg fixed" style="transform: none;"></div>
+				<div id="navPanelToggle">Menu</div>
 
-                <!-- Nav -->
-                    <nav id="nav">
-                        <ul class="links">
-                            <li class="cover"><a href="/stats/"><img src="/data/img/STATISTICS-cover.png" alt="STATISTICS"></a></li>
-                            <li class="active title"><a>LLN</a></li>
-                            <li class="python"><a href="python/"><img src="/data/img/python.png" alt="Python"></a></li>
-                            <li class="julia"><a href="julia/"><img src="/data/img/julia.png" alt="Julia"></a></li>
-                        </ul>
-                        <ul id="nav-bar-icons-head" class="icons">
-                        </ul>
-                    </nav>
+				<!-- Header -->
+				<header id="header">
+					<a href="https://quantml.org" style="display: none;" class="logo image jump-big" id="quantml-cover-light"><img src="/data/img/cover.webp" alt="QuantML.org" /></a>
+					<a href="https://quantml.org" style="display: none;" class="logo image jump-big" id="quantml-cover-dark"><img src="/data/img-dark/cover.webp" alt="QuantML.org" /></a>
+					<script>
+						if(localStorage.getItem("quantmlTheme")=="dark") document.getElementById('quantml-cover-dark').style.display = "block"
+						else document.getElementById('quantml-cover-light').style.display = "block"
+					</script>
+				</header>
 
-                <!-- Main -->
-                    <div id="main">
-                        <section id="paragraph" class="post">
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li class="cover"><a href="/stats/"><img src="/data/img/STATISTICS-cover.png" alt="STATISTICS"></a></li>
+							<li class="active title">Law Of Large Numbers</li>
+							<li class="python"><a href="python/"><img src="/data/img/python.png" alt="Python"></a></li>
+							<li class="julia"><a href="julia/"><img src="/data/img/julia.png" alt="Julia"></a></li>
+						</ul>
+					</nav>
 
-<div id="btn-container">
-    <button id="prev-btn" class="button" onclick="prevPageBtn()">&#x25C0;&nbsp;&nbsp; Introduction</button>
-    <button id="next-btn" class="button"  style="float: right;" onclick="nextPageBtn()">Hoeffdings Inequality&nbsp;&nbsp;&#x25B6;</button>
-</div><br>
-<div style="display: none;" id="pre-loading-light"><img class="loading" src="/data/img/loading.svg" alt=" " width="215px" height="50px"></div>
-<div style="display: none;" id="pre-loading-dark"><img class="loading" src="/data/img-dark/loading.svg" alt=" " width="215px" height="50px"></div>
-<div style="display: none;" id="pre-initializing-light"><img class="loading" src="/data/img/initializing.svg" alt=" " width="285px" height="50px"></div>
-<div style="display: none;" id="pre-initializing-dark"><img class="loading" src="/data/img-dark/initializing.svg" alt=" " width="285px" height="50px"></div>
-<script>initializeBody();document.getElementById('wrapper').style.display = "block";</script>
+				<!-- Main -->
+					<div id="main">
+						<section class="post">
 
-<div id="paragraph-content">
+<div style="text-align: center;" id="load-init"></div>
+<script>initializeBody();</script>
+
+<div id="paragraph-content" data-swipe-threshold="80">
 
 
-<h1 id="lln">Law of large numbers(LLN)<a style="color: rgb(20, 57, 168);" href="#lln"><i class="fa fa-link" aria-hidden="true"></i></a></h1>
+<h1 id="lln">Weak Law of large numbers<a href="#lln" aria-label="law-of-large-numbers"><i class="fa fa-link" aria-hidden="true"></i></a></h1>
 <blockquote class="noborder align-center">
-    <a target="=_blank" href="https://app.quantml.org/?ch=LLN&dist=Normal+distribution">
-        Visualize Law of Large Numbers <img src="/data/img/app.png" alt="launch" width="30px" height="30px">
-    </a>
+	<a target="=_blank" href="https://app.quantml.org/?ch=LLN&dist=Normal+distribution">
+		Visualize Law of Large Numbers <img src="/data/img/app.png" alt="launch" width="30px" height="30px">
+	</a>
 </blockquote>
 Assume there is a <b>random process</b> and we managed to get a <b>sample</b> out of that process. <br>
 Say we got \(n\) observations of that <b>random process</b>
@@ -84,18 +81,18 @@ We have a population of \(5000\) balls and we took a sample of \(n=300\) balls a
 </blockquote>
 
 <blockquote>
-    Law of Large Numbers says as we increases our <b>sample size</b> \((n)\) our <b>sample average</b> goes toward the <b>True average</b> (this is  what we referred as <b>Truth</b> in our central <a href="/stats/introduction/#dogma">dogma</a> )
+	Law of Large Numbers says as we increases our <b>sample size</b> \((n)\) our <b>sample average</b> goes toward the <b>True average</b> (this is  what we referred as <b>Truth</b> in our central <a href="/stats/introduction/#dogma">dogma</a> )
 </blockquote>
 So if we increases our sample size from \(n=300\) to say something like \(n=400\) then we <b>should</b> get a better estimate of the <b>true mean</b>. <br>
 
-Say that the <b>True Average</b> is \(\mu\). <br>
+Say that the <b>True Average</b> is \(\mu\), <span class="bb">\(\mathbb{E}[X]=\mu\)</span> <br>
 <!-- so <span class="bb"> \(\mathbb{E}[X]=\mu\)</span> -->
 So according to the Law of Large Numbers,
-<div class="l1 border">
+<div class="l2 border">
 \[\overline{X}_n:=\frac{1}{n}\sum _{i=1}^ n X_ i \xrightarrow [n\to \infty ] {\mathbb{P},\text{ a.s.}} \mu\]
 </div><br>
 <blockquote>
-    Note that \(\mu\) is a <b>constant</b> and \(\overline{X}_n\) is a <b>Random variable</b>
+	Note that \(\mu\) is a <b>constant</b> and \(\overline{X}_n\) is a <b>Random variable</b>
 </blockquote>
 \(:=\quad\) this symbol means <b>"by definition"</b><br>
 \(\mathbb{P}\quad\) it means <b>"in Probability"</b><br>
@@ -104,27 +101,27 @@ So according to the Law of Large Numbers,
 
 <b>Law of large numbers</b> are of two types:
 <ol>
-    <li>
-        <b>Weak</b> law of large numbers:
-        \[\overline{X}_n:=\frac{1}{n}\sum _{i=1}^ n X_ i \xrightarrow [n\to \infty ]{\mathbb{P}} \mu\]
-        <details open><summary><span class="bb">Explanation</span></summary><blockquote class="noborder">
-            For any \(c\geq0\),
-            \[\mathbb{P}\left(|\overline{X}_n - \mu|\geq c\right) \xrightarrow [n\to \infty ]{} 0\]
-            <div style="font-size: smaller; text-align: center;">This is convergence in probability</div>
-            <br>
-            Now think a very small number, like \(0.00001\)
-            now convergence in probability says that if \(n\) is large enough
-            then it's highly unlikely for \(\overline{X}_n\) to be more than \(0.00001\) units away from \(\mu\). <br>
-            <br>
+	<li>
+		<b>Weak</b> law of large numbers:
+		\[\overline{X}_n:=\frac{1}{n}\sum _{i=1}^ n X_ i \xrightarrow [n\to \infty ]{\mathbb{P}} \mu\]
+		<details open><summary><span class="bb">Explanation</span></summary><blockquote class="noborder">
+			For any \(c\geq0\),
+			\[\mathbb{P}\left(|\overline{X}_n - \mu|\geq c\right) \xrightarrow [n\to \infty ]{} 0\]
+			<div style="font-size: smaller; text-align: center;">This is convergence in probability</div>
+			<br>
+			Now think a very small number, like \(0.00001\)
+			now convergence in probability says that if \(n\) is large enough
+			then it's highly unlikely for \(\overline{X}_n\) to be more than \(0.00001\) units away from \(\mu\). <br>
+			<br>
 
-            Or say that if \(n\) is large then it's extreamly likely that \(\overline{X}_n\)
-            is extreamly close to \(\mu\)
-        </blockquote></details><br>
-    </li>
-    <li>
-        <b>Strong</b> law of large numbers:
-        \[\overline{X}_n:=\frac{1}{n}\sum _{i=1}^ n X_ i \xrightarrow [n\to \infty ]{\text{ a.s.}} \mu\]
-    </li>
+			Or say that if \(n\) is large then it's extreamly likely that \(\overline{X}_n\)
+			is extreamly close to \(\mu\)
+		</blockquote></details><br>
+	</li>
+	<li>
+		<b>Strong</b> law of large numbers:
+		\[\overline{X}_n:=\frac{1}{n}\sum _{i=1}^ n X_ i \xrightarrow [n\to \infty ]{\text{ a.s.}} \mu\]
+	</li>
 </ol>
 <blockquote>
 <b>Note:</b> \(\text{ a.s.}\) implies \(\mathbb{P}\)
@@ -141,7 +138,7 @@ So what is the rate are which \(\overline{X}_n\) approaches \(\mu\)? <br>
 The answer is hidden in <a href="/stats/clt/">Central Limit Theorem</a>. <br>
 <br>
 
-<h2>Gambler's Fallacy</h2>
+<h2 id="gamblers-fallacy">Gambler's Fallacy <a href="#gamblers-fallacy" aria-label="gamblers-fallacy"><i class="fa fa-link" aria-hidden="true"></i></a></h2>
 <b>Gambler's Fallacy</b> is a rather popular <b>mistaken belief</b> that,
 <blockquote>
 If an <b>independent</b> event is occurring <b>more</b> frequently (then it normally does), then it's <b>less</b> likely to occur in the future.<br>
@@ -154,7 +151,7 @@ Say you start flipping a <b>fair</b> coin \((p=0.5)\), and you observe that firs
 Then some might say that, <br>
 "According to Law of Large Numbers the average proportion of \(\text{Heads}\) shall be \(50\%\) and we got \(20\) \(\text{Heads}\) in a row so there are high chances for our next toss to be \(\text{Tails}\)." <br>
 <!-- <div class="align-center"> -->
-    <b>But the above statement is <span class="l1">Incorrect</span></b> <br>
+	<b>But the above statement is <span class="l1">Incorrect</span></b> <br>
 <!-- </div> -->
 Even if you got \(1000\) \(\text{Heads}\) in a row, but the probability of next toss to be \(\text{Tails}\) is still \(50\%\). <br>
 <br>
@@ -173,7 +170,7 @@ So even if we got \(1000\) \(\text{Heads}\) in a row, there is still \(\infty\) 
 <!-- Let's see what <b>CLT</b> says about \(f(n)\)<br>
 <br><br>
 
-<h2 id="clt">Central Limit Theorem(CLT)<a style="color: rgb(20, 57, 168);" href="#clt"><i class="fa fa-link" aria-hidden="true"></i></a></h2>
+<h2 id="clt">Central Limit Theorem(CLT)<a href="#clt"><i class="fa fa-link" aria-hidden="true"></i></a></h2>
 Say we have \(n\) observations \(X,X_1,X_2,X_3,....,X_n\) be \(i.i.d\) random varibles,<br>
 <span class="bb"> \(\mathbb{E}[X]=\mu\)</span>  and <span class="bb"> \(Var(X)=\sigma^2\) </span><br>
 \[\sqrt{n}\, \frac{\overline{X}_n-\mu }{\sigma } \xrightarrow [n\to \infty ]{(d)} \mathcal{N}(0,1) \]<br>
@@ -192,7 +189,7 @@ And we say that \(-3\leq\mathcal{N}(0,1)\leq3\)<br>
 So:<br>
 \[
 -3\leq \sqrt{n}\, \frac{\overline{X}_n-\mu }{\sigma }  \leq3 \\
-\Rightarrow  \left|\sqrt{n}\, \frac{\overline{X}_n-\mu }{\sigma } \right| \leq 3    \\
+\Rightarrow  \left|\sqrt{n}\, \frac{\overline{X}_n-\mu }{\sigma } \right| \leq 3	\\
 \Rightarrow \left| \overline{X}_n-\mu  \right| \leq \frac{3\sigma}{\sqrt{n}}
 \]<br>
 <span id="sqrt-n">So according to CLT \(f(n)=\sqrt{n}\)</span><br>
@@ -202,40 +199,24 @@ So:<br>
 
 
 <div class="slack-discuss" onclick=" window.open('https://join.slack.com/t/quantml-org/shared_invite/zt-jffw86bo-6M260iyt1q2MgBma9elewg','_blank','noopener')">
-    Join our Slack <img class="slack-logo" src="/data/img/slack.png" alt="Slack"> discussion forum
+	Join our Slack <img class="slack-logo" src="/data/img/slack.png" alt="Slack"> discussion forum
+</div><br>
+
+<div id="btn-container">
+	<a href="/stats/introduction/"><button id="prev-btn" class="button">&#x25C0;&nbsp;&nbsp; Introduction</button></a>
+	<a href="/stats/hoeffdings-inequality/"><button id="next-btn" class="button">Hoeffdings Inequality&nbsp;&nbsp;&#x25B6;</button></a>
 </div><br>
 
 </div>
-
-<div id="btn-container">
-    <button id="prev-btn" class="button" onclick="prevPageBtn()">&#x25C0;&nbsp;&nbsp; Introduction</button>
-    <button id="next-btn" class="button"  style="float: right;" onclick="nextPageBtn()">Hoeffdings Inequality&nbsp;&nbsp;&#x25B6;</button>
-</div><br>
-
 <div id="modals-html"></div>
 
-                    </section>
-                    </div>
-            </div>
+		</section>
+	</div>
+</div>
 
-            <div id="navPanel">
-                <nav>
-                    <ul class="links">
-                        <li class="cover"><a href="/stats/"><img src="/data/img/STATISTICS-cover.png" alt="STATISTICS"></a></li>
-                        <li class="active title"><a>LLN</a></li>
-                        <li class="python"><a href="python/"><img src="/data/img/python.png" alt="Python"></a></li>
-                        <li class="julia"><a href="julia/"><img src="/data/img/julia.png" alt="Julia"></a></li>
-                    </ul>
-                    <ul id="nav-bar-icons-foot" class="icons">
-                    </ul>
-                </nav>
-                <div id="close-navbar" class="close"></div>
-            </div>
+		<!-- Scripts -->
+		<script src="/data/assets/js/script.js"></script>
+		<script>cssLoaded()</script>
 
-        <!-- Scripts -->
-        <script>loadNavBar('nav-bar-icons-foot')</script>
-        <script src="/data/assets/js/script.js"></script>
-        <script>cssLoaded()</script>
-
-    </body>
+	</body>
 </html>

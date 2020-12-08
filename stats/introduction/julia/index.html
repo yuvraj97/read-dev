@@ -2,71 +2,69 @@
 <html lang="en">
 
 	<head>
-        <script>
-            var nextPage = "/stats/lln/";
-            var prevPage = "/stats/"
-            var arrowLeftPage = "/stats/introduction/python/"
-            var arrowRightPage = "/stats/lln/"
-        </script>
+		<script>
+			var nextPage = "/stats/lln/";
+			var prevPage = "/stats/"
+			window.arrowLeftPage = "/stats/introduction/python/"
+			var arrowRightPage = "/stats/lln/"
+		</script>
 
-        <link rel="stylesheet" href="/data/assets/css/main.css">
-        <link rel="stylesheet" href="/data/assets/css/authStyle.css">
+		<link rel="stylesheet" href="/data/assets/css/main.css">
+		<link rel="stylesheet" href="/data/assets/css/authStyle.css">
 
-        <title>Julia - Introduction</title>
-        <meta charset="utf-8" />
-        <link rel="icon" href="/data/icon.png" type="image/png" sizes="16x16">
-        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-        <meta name="robots" content="index, follow">
+		<title>Julia | Introduction to Statistics - QuantML</title>
+		<meta charset="utf-8" />
+		<link rel="icon" href="/data/icon.png" type="image/png" sizes="16x16">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="robots" content="index, follow">
 
-        <!--Prism-->
-        <link rel="stylesheet" href="/data/prism/prism.css">
+		<!--Prism-->
+		<link rel="stylesheet" href="/data/prism/prism.css">
 
-    <script src="/data/assets/js/initialize.js"></script>
-        
-    </head>
+	<script src="/data/assets/js/initialize.js"></script>
+		<script src="/data/assets/js/swiped-events.js"></script>
+		
+	</head>
 
-    <body>
-        
-        <!-- Wrapper -->
-            <div style="display: none;" id="wrapper">
-                <div class="bg fixed" style="transform: none;"></div>
-                <div id="navPanelToggle">Menu</div>
-
-
-                <!-- Header -->
-                <header id="header">
-                    <a href="https://quantml.org" class="logo image jump-big"><img id="quantml-cover" src="/data/img/cover.png" alt="QuantML.org" /></a>
-                </header>
-
-                <!-- Nav -->
-                    <nav id="nav">
-                        <ul class="links">
-                            <li class="cover"><a href="/stats/"><img src="/data/img/STATISTICS-cover.png" alt="STATISTICS"></a></li>
-                            <li class="title"><a href="/stats/introduction/">Introduction</a></li>
-                            <li class="python"><a href="/stats/introduction/python/"><img src="/data/img/python.png" alt="Python"></a></li>
-                            <li class="active julia"><a><img src="/data/img/julia.png" alt="Julia"></a></li>
-                        </ul>
-                        <ul id="nav-bar-icons-head" class="icons">
-                        </ul>
-                    </nav>
-
-                <!-- Main -->
-                    <div id="main">
-                        <section id="paragraph" class="post">
-<div id="btn-container">
-    <button id="prev-btn" class="button" onclick="prevPageBtn()">&#x25C0;&nbsp;&nbsp; Home</button>
-    <button id="next-btn" class="button"  style="float: right;" onclick="nextPageBtn()">LLN & CLT&nbsp;&nbsp;&#x25B6;</button>
-</div><br>
-<div style="display: none;" id="pre-loading-light"><img class="loading" src="/data/img/loading.svg" alt=" " width="215px" height="50px"></div>
-<div style="display: none;" id="pre-loading-dark"><img class="loading" src="/data/img-dark/loading.svg" alt=" " width="215px" height="50px"></div>
-<div style="display: none;" id="pre-initializing-light"><img class="loading" src="/data/img/initializing.svg" alt=" " width="285px" height="50px"></div>
-<div style="display: none;" id="pre-initializing-dark"><img class="loading" src="/data/img-dark/initializing.svg" alt=" " width="285px" height="50px"></div>
-<script>initializeBody();document.getElementById('wrapper').style.display = "block";</script>
-
-<div id="paragraph-content">
+	<body>
+		
+		<!-- Wrapper -->
+			<div style="display: none;" id="wrapper">
+				<div class="bg fixed" style="transform: none;"></div>
+				<div id="navPanelToggle">Menu</div>
 
 
-<h1>The Counting Balls <span style="font-size: 16px;">(Example)</span> </h1>
+				<!-- Header -->
+				<header id="header">
+					<a href="https://quantml.org" style="display: none;" class="logo image jump-big" id="quantml-cover-light"><img src="/data/img/cover.webp" alt="QuantML.org" /></a>
+					<a href="https://quantml.org" style="display: none;" class="logo image jump-big" id="quantml-cover-dark"><img src="/data/img-dark/cover.webp" alt="QuantML.org" /></a>
+					<script>
+						if(localStorage.getItem("quantmlTheme")=="dark") document.getElementById('quantml-cover-dark').style.display = "block"
+						else document.getElementById('quantml-cover-light').style.display = "block"
+					</script>
+				</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li class="cover"><a href="/stats/"><img src="/data/img/STATISTICS-cover.png" alt="STATISTICS"></a></li>
+							<li class="link"><a href="/stats/introduction/">Introduction</a></li>
+							<li class="python"><a href="/stats/introduction/python/"><img src="/data/img/python.png" alt="Python"></a></li>
+							<li class="active julia"><a><img src="/data/img/julia.png" alt="Julia"></a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+						<section class="post">
+
+<div style="text-align: center;" id="load-init"></div>
+<script>initializeBody();</script>
+
+<div id="paragraph-content" data-swipe-threshold="80">
+
+
+<h1>The Counting Balls <span style="font-size: 16px;">(Example)</span> <img src="/data/img/julia.png" alt="Julia" width="53px" height="33px"></h1>
 Say we have a <b>Room</b> full of <span class="l1">Red balls</span> and <span class="l2">Blue balls</span>. <br>
 We want to determine proportion of <span class="l1">Red balls</span> and <span class="l2">Blue balls</span> in that <b>Room</b>,
 But we can't count all the Balls in the Room there are too many of them. <br>
@@ -77,7 +75,7 @@ and hope that proportion we just estimate is somewhat near the <b>True proportio
 Remember that dogma we showed <a href="/stats/introduction/#dogma">previously.</a><br>
 <img id='dogma' class="full-size-img" src="/stats/img/dogma.png" alt="Central Dogma of Probability and Statistics">
 <!-- <blockquote>
-    If you knew the <b>truth</b>(Random Process) you can generate how the observation looks like.
+	If you knew the <b>truth</b>(Random Process) you can generate how the observation looks like.
 </blockquote> -->
 
 <h1>Truth</h1>
@@ -153,10 +151,10 @@ This is a single simulation if we perform this simulation multiple times we can 
 <pre><code class="language-julia line-numbers">using Plots, Random
 gr(fmt = :png, size = (900, 500))
 
-n_simulations = 1000                    # Number of simulations
-N = 5000                                # population size
-n = 300                                 # sample size
-p = 0.40                                # True proportion of red balls
+n_simulations = 1000					# Number of simulations
+N = 5000								# population size
+n = 300								 # sample size
+p = 0.40								# True proportion of red balls
 estimators = Array{Float64}(undef, n_simulations)  # Here we store estimates of every simulation
 
 n_red_balls = floor(Int, p*N)
@@ -167,9 +165,9 @@ population[1, 1:n_red_balls] = ones(Int8, (1, n_red_balls))
 population = shuffle(population)
 
 for i = 1:n_simulations
-    # extract sample from population
-    sample = rand(population,n)
-    estimators[i] = sum(sample)/n
+	# extract sample from population
+	sample = rand(population,n)
+	estimators[i] = sum(sample)/n
 end
 
 Plots.xlabel!("Proportion of Red balls")
@@ -180,49 +178,34 @@ Plots.histogram(estimators, label=false)
 <div class="align-center">Does this (bell) curve seems familiar?</div>
 <br>
 <blockquote class="noborder align-center">
-    <a href="/stats/introduction/python/"><img src="/data/img/python.png" alt="Python" width="75px" height="20px"> Simulation</a>
-    <br>
-    <a target="=_blank" href="https://app.quantml.org/stats/">Launch Statistics App <img src="/data/img/app.png" alt="launch" width="30px" height="30px"></a>
+	<a href="/stats/introduction/python/"><img src="/data/img/python.png" alt="Python" width="75px" height="20px"> Simulation</a>
+	<br>
+	<a target="=_blank" href="https://app.quantml.org/stats/">Launch Statistics App <img src="/data/img/app.png" alt="launch" width="30px" height="30px"></a>
 </blockquote>
 
 <br>
 <div class="slack-discuss" onclick=" window.open('https://join.slack.com/t/quantml-org/shared_invite/zt-jffw86bo-6M260iyt1q2MgBma9elewg','_blank','noopener')">
-    Join our Slack <img class="slack-logo" src="/data/img/slack.png" alt="Slack"> discussion forum
+	Join our Slack <img class="slack-logo" src="/data/img/slack.png" alt="Slack"> discussion forum
 </div><br>
 
 </div>
 
 <div id="btn-container">
-    <button id="prev-btn" class="button" onclick="prevPageBtn()">&#x25C0;&nbsp;&nbsp; Home</button>
-    <button id="next-btn" class="button"  style="float: right;" onclick="nextPageBtn()">LLN & CLT&nbsp;&nbsp;&#x25B6;</button>
+	<button id="prev-btn" class="button" onclick="prevPageBtn()">&#x25C0;&nbsp;&nbsp; Home</button>
+	<button id="next-btn" class="button"  style="float: right;" onclick="nextPageBtn()">LLN & CLT&nbsp;&nbsp;&#x25B6;</button>
 </div><br>
 
 
 <div id="modals-html"></div>
 
-                    </section>
-                    </div>
-            </div>
+					</section>
+					</div>
+			</div>
 
-            <div id="navPanel">
-                <nav>
-                    <ul class="links">
-                        <li class="cover"><a href="/stats/"><img src="/data/img/STATISTICS-cover.png" alt="STATISTICS"></a></li>
-                        <li class="title"><a>Introduction</a></li>
-                        <li class="python"><a href="python/"><img src="/data/img/python.png" alt="Python"></a></li>
-                        <li class="active julia"><a href="julia/"><img src="/data/img/julia.png" alt="Julia"></a></li>
-                    </ul>
-                    <ul id="nav-bar-icons-foot" class="icons">
-                    </ul>
-                </nav>
-                <div id="close-navbar" class="close"></div>
-            </div>
+		<!-- Scripts -->
+		<script src="/data/assets/js/script.js"></script>
+		<script>cssLoaded()</script>
+		<script src="/data/prism/prism.js"></script>
 
-        <!-- Scripts -->
-        <script>loadNavBar('nav-bar-icons-foot')</script>
-        <script src="/data/assets/js/script.js"></script>
-        <script>cssLoaded()</script>
-        <script src="/data/prism/prism.js"></script>
-
-    </body>
+	</body>
 </html>

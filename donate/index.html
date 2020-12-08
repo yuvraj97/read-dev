@@ -3,105 +3,92 @@
 
 	<head>
 
-        <script>
-            var isConcluded = true;
-            var arrowLeftPage = "/about/"
-            var arrowRightPage = "/"
-        </script>
+		<script>
+			var isConcluded = true;
+			var arrowLeftPage = "/about/"
+			var arrowRightPage = "/"
+		</script>
 
-        <link rel="stylesheet" href="/data/assets/css/main.css">
-        <link rel="stylesheet" href="/data/assets/css/authStyle.css">
-        <link rel="stylesheet" href="/style.css">
+		<link rel="stylesheet" href="/data/assets/css/main.css">
+		<link rel="stylesheet" href="/data/assets/css/authStyle.css">
+		<link rel="stylesheet" href="/style.css">
 
 		<title>Donate - QuantML</title>
 		<meta charset="utf-8" />
-        <link rel="icon" href="/data/icon.png" type="image/png" sizes="16x16">
-        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-        <meta name="robots" content="index, follow">
-        <meta name="description" content="Donate to QuantML to keep it running. Mission of QuantML is to make Machine Learning Interactive. Here we can Visualize concepts in realtime, also we will be using programming-language(python/Julia) to improve our understanding.">
-        <meta name="keywords" content="Donate,Donation,QuantML,Visualization,Machine Learning,Statistics,Linear Algebra">
-        <meta name="author" content="Yuvraj Garg">
-        <script src="/data/assets/js/initialize.js"></script>        
-        <script src="/data/assets/js/script.js"></script>
-        <script>
-            l = document.createElement('link')
-            l.rel = "stylesheet"
-            l.id="home-stylesheet"
-            l.onload = function(){cssLoaded(false);}
-            if(localStorage.getItem("quantmlTheme") == "dark") l.href = "/style-dark.css";
-            else l.href = "/style-light.css"
-            document.getElementsByTagName("head")[0].appendChild(l)
-        </script>
+		<link rel="icon" href="/data/icon.png" type="image/png" sizes="16x16">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="robots" content="index, follow">
+		<meta name="description" content="Donate to QuantML to keep it running. Mission of QuantML is to make Machine Learning Interactive. Here we can Visualize concepts in realtime, also we will be using programming-language(python/Julia) to improve our understanding.">
+		<meta name="keywords" content="Donate,Donation,QuantML,Visualization,Machine Learning,Statistics,Linear Algebra">
+		<meta name="author" content="Yuvraj Garg">
+		<script src="/data/assets/js/initialize.js"></script>
+		<script src="/data/assets/js/swiped-events.js"></script>		
+		<script src="/data/assets/js/script.js"></script>
+		<script>
+			l = document.createElement('link')
+			l.rel = "stylesheet"
+			l.id="home-stylesheet"
+			l.onload = function(){cssLoaded(false);}
+			if(localStorage.getItem("quantmlTheme") == "dark") l.href = "/style-dark.css";
+			else l.href = "/style-light.css"
+			document.getElementsByTagName("head")[0].appendChild(l)
+		</script>
 
 	</head>
 
 	<body>
 
 		<!-- Wrapper -->
-        <div style="display: none;" id="wrapper">
-            <div class="bg fixed" style="transform: none;"></div>
-            <div id="navPanelToggle">Menu</div>
+		<div style="display: none;" id="wrapper">
+			<div class="bg fixed" style="transform: none;"></div>
+			<div id="navPanelToggle">Menu</div>
 
-                <!-- Header -->
-                <header id="header">
-                    <a href="https://quantml.org" class="logo image jump-big"><img id="quantml-cover" src="/data/img/cover.webp" alt="QuantML.org" /></a>
-                </header>
+				<!-- Header -->
+				<header id="header">
+					<a href="https://quantml.org" style="display: none;" class="logo image jump-big" id="quantml-cover-light"><img src="/data/img/cover.webp" alt="QuantML.org" /></a>
+					<a href="https://quantml.org" style="display: none;" class="logo image jump-big" id="quantml-cover-dark"><img src="/data/img-dark/cover.webp" alt="QuantML.org" /></a>
+					<script>
+						if(localStorage.getItem("quantmlTheme")=="dark") document.getElementById('quantml-cover-dark').style.display = "block"
+						else document.getElementById('quantml-cover-light').style.display = "block"
+					</script>
+				</header>
 
 				<!-- Nav -->
-                <nav id="nav">
-                        <ul class="links">
-                            <li><a href="/"><img class="quantml-navbar" src="/data/img/cover.webp" alt="QuantML" width="131.44px" height="27.44px"></a></li>
-                            <li><a href="/about/">About</a></li>
-                            <li class="active"><a href="/donate/">Donate</a></li>
-                        </ul>
-                        <ul id="nav-bar-icons-head" class="icons">
-                        </ul>
-                    </nav>
+				<nav id="nav">
+						<ul class="links">
+							<li><a href="/"><img class="quantml-navbar" src="/data/img/cover.webp" alt="QuantML" width="131.44px" height="27.44px"></a></li>
+							<li><a href="/about/">About</a></li>
+							<li class="active"><a href="/donate/">Donate</a></li>
+						</ul>
+					</nav>
 
 				<!-- Main -->
 					<div id="main">
-					<section id="paragraph" class="post">
-<div style="display: none;" id="pre-loading-light"><img class="loading" src="/data/img/loading.svg" alt=" " width="215px" height="50px"></div>
-<div style="display: none;" id="pre-loading-dark"><img class="loading" src="/data/img-dark/loading.svg" alt=" " width="215px" height="50px"></div>
-<div style="display: none;" id="pre-initializing-light"><img class="loading" src="/data/img/initializing.svg" alt=" " width="285px" height="50px"></div>
-<div style="display: none;" id="pre-initializing-dark"><img class="loading" src="/data/img-dark/initializing.svg" alt=" " width="285px" height="50px"></div>
-<script>initializeBody();document.getElementById('wrapper').style.display = "block";</script>
+					<section class="post">
+<div style="text-align: center;" id="load-init"></div>
+<script>initializeBody();</script>
 
-<div id="paragraph-content">
+<div id="paragraph-content" data-swipe-threshold="80">
 
-                        <a rel="noreferrer" target="_blank" href='https://www.paypal.com/paypalme/quantml/usd'>
-                            <h1 style=" color: unset;
-                                        font-size: unset;
-                                        line-height: unset;
-                                        font-weight: unset;
-                                        letter-spacing: unset;"
-                            class="book donatehover">
-                                <img style="float: right;" src="/data/img/paypal.webp" alt="logo" width="150px" height="38px">
-                                Donate via PayPal <img src="/data/img/open-in-new-tab.png" alt="" width="30" height="30">
-                        </h1></a>
+						<a rel="noreferrer" target="_blank" href='https://www.paypal.com/paypalme/quantml/usd'>
+							<h1 style=" color: unset;
+										font-size: unset;
+										line-height: unset;
+										font-weight: unset;
+										letter-spacing: unset;"
+							class="book donatehover">
+								<img style="float: right;" src="/data/img/paypal.webp" alt="logo" width="150px" height="38px">
+								Donate via PayPal <img src="/data/img/open-in-new-tab.png" alt="" width="30" height="30">
+						</h1></a>
 </div>
 <div id="modals-html"></div>
-                    </section>
+					</section>
 					</div>
 
 			</div>
 
-            <div id="navPanel">
-                <nav>
-                    <ul class="links">
-                        <li><a href="/"><img class="quantml-navbar" src="/data/img/cover.webp" alt="QuantML" width="131.44px" height="27.44px"></a></li>
-                        <li><a href="/about/">About</a></li>
-                        <li class="active"><a href="/donate/">Donate</a></li>
-                    </ul>
-                    <ul id="nav-bar-icons-foot" class="icons">
-                    </ul>
-                </nav>
-                <div id="close-navbar" class="close"></div>
-            </div>
+		<!-- Scripts -->
+		
 
-        <!-- Scripts -->
-        <script>loadNavBar('nav-bar-icons-foot')</script>
-        
-
-    </body>
+	</body>
 </html>

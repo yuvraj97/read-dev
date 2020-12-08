@@ -2,158 +2,141 @@
 <html lang="en">
 
 	<head>
-        <script>
-            // var arrowLeftPage = "/stats/"
-            var arrowRightPage = "/about/"
-        </script>
+		<script>
+			// var arrowLeftPage = "/stats/"
+			var arrowRightPage = "/about/"
+		</script>
 
-        <link rel="stylesheet" href="/data/assets/css/main.css">
-        <link rel="stylesheet" href="/data/assets/css/authStyle.css">
-        <link rel="stylesheet" href="/style.css">
+		<link rel="stylesheet" href="/data/assets/css/main.css">
+		<link rel="stylesheet" href="/data/assets/css/authStyle.css">
+		<link rel="stylesheet" href="/style.css">
 
 		<title>QuantML | Machine Learning | Statistics | Linear Algebra </title>
 		<meta charset="utf-8" />
-        <link rel="icon" href="/data/icon.png" type="image/png" sizes="16x16">
+		<link rel="icon" href="/data/icon.png" type="image/png" sizes="16x16">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-        <meta name="robots" content="index, follow">
-        <meta name="description" content="Mission of QuantML is to make Machine Learning and Statistics Interactive. Here we can Visualize concepts in realtime, we also use programming-language to improve our understanding.">
-        <meta name="keywords" content="QuantML,Visualization,Machine Learning,Statistics,Linear Algebra">
-        <meta name="author" content="Yuvraj Garg">
-        <script src="/data/assets/js/initialize.js"></script>
-        <script src="/data/assets/js/script.js"></script>
-        <script>
-            function homePageDOM(){
-                laReadNowBtn = document.getElementById('la-guide-read-now')
-                earlyAccess = document.getElementById('early-access')
-                commingSoon = document.getElementById('comming-soon')
-                
-                laReadNowBtn.style.border = "none"
-                earlyAccess.style.border = "none"
-                commingSoon.style.border = "none"
-        
-                earlyAccessDiv = document.getElementById('early-access-div')
-                if(earlyAccess.offsetWidth + commingSoon.offsetWidth > earlyAccessDiv.offsetWidth){
-                    earlyAccess.style.width = "100%";
-                    commingSoon.style.width = "100%";
-                    earlyAccess.style.marginTop = "12px";
-                    
-                    
-                    laReadNowBtn = document.getElementById('la-guide-read-now')
-                    laReadNowBtn.style.width="80%"
-                    laReadNowBtn.style.right = "10%"
-                    // laReadNowBtn.style.bottom = "30px"
-                }
+		<meta name="robots" content="index, follow">
+		<meta name="description" content="Mission of QuantML is to make Machine Learning and Statistics Interactive. Here we can Visualize concepts in realtime, we also use programming-language to improve our understanding.">
+		<meta name="keywords" content="QuantML,Visualization,Machine Learning,Statistics,Linear Algebra">
+		<meta name="author" content="Yuvraj Garg">
+		<script src="/data/assets/js/initialize.js"></script>
+		<script src="/data/assets/js/swiped-events.js"></script>
+		<script src="/data/assets/js/script.js"></script>
+		<script>
+			function homePageDOM(){
+				laReadNowBtn = document.getElementById('la-guide-read-now')
+				earlyAccess = document.getElementById('early-access')
+				commingSoon = document.getElementById('comming-soon')
+				
+				laReadNowBtn.style.border = "none"
+				earlyAccess.style.border = "none"
+				commingSoon.style.border = "none"
+		
+				earlyAccessDiv = document.getElementById('early-access-div')
+				if(earlyAccess.offsetWidth + commingSoon.offsetWidth > earlyAccessDiv.offsetWidth){
+					earlyAccess.style.width = "100%";
+					commingSoon.style.width = "100%";
+					earlyAccess.style.marginTop = "12px";
+					
+					
+					laReadNowBtn = document.getElementById('la-guide-read-now')
+					laReadNowBtn.style.width="80%"
+					laReadNowBtn.style.right = "10%"
+					// laReadNowBtn.style.bottom = "30px"
+				}
 
-                laGuide = document.getElementById('la-guide');
-                statsGuide = document.getElementById('stats-guide');
-                if(laGuide.offsetHeight < statsGuide.offsetHeight && document.querySelector('body').offsetWidth > 736){
-                    laGuide.style.height = String(statsGuide.offsetHeight) + "px"
-                }
-            }
-            l = document.createElement('link')
-            l.rel = "stylesheet"
-            l.id="home-stylesheet"
-            l.onload = function(){cssLoaded(false);homePageDOM()}
-            if(localStorage.getItem("quantmlTheme") == "dark") l.href = "/style-dark.css";
-            else l.href = "/style-light.css"
-            document.getElementsByTagName("head")[0].appendChild(l)
-        </script>		
+				laGuide = document.getElementById('la-guide');
+				statsGuide = document.getElementById('stats-guide');
+				if(laGuide.offsetHeight < statsGuide.offsetHeight && document.querySelector('body').offsetWidth > 736){
+					laGuide.style.height = String(statsGuide.offsetHeight) + "px"
+				}
+			}
+			l = document.createElement('link')
+			l.rel = "stylesheet"
+			l.id="home-stylesheet"
+			l.onload = function(){cssLoaded(false);homePageDOM()}
+			if(localStorage.getItem("quantmlTheme") == "dark") l.href = "/style-dark.css";
+			else l.href = "/style-light.css"
+			document.getElementsByTagName("head")[0].appendChild(l)
+		</script>		
 	</head>
 
 	<body>
 
 		<!-- Wrapper -->
-        <div style="display: none;" id="wrapper">
-            <div class="bg fixed" style="transform: none;"></div>
-            <div id="navPanelToggle">Menu</div>
+		<div style="display: none;" id="wrapper">
+			<div class="bg fixed" style="transform: none;"></div>
+			<div id="navPanelToggle">Menu</div>
 
-                <!-- Header -->
-                <header id="header">
-                    <a href="https://quantml.org" class="logo image jump-big"><img id="quantml-cover" src="/data/img/cover.png" alt="QuantML | Making ML Interactive" /></a>
-                </header>
+				<!-- Header -->
+				<header id="header">
+					<a href="https://quantml.org" class="logo image jump-big"><img id="quantml-cover" src="/data/img/cover.webp" alt="QuantML | Making ML Interactive" /></a>
+				</header>
 
 				<!-- Nav -->
-                <nav id="nav">
+				<nav id="nav">
 						<ul class="links">
-                            <li class="active"><a href="/"><img class="quantml-navbar" src="/data/img/cover.png" alt="QuantML" width="131.44px" height="27.44px"></a></li>
-                            <li><a href="/about/">About</a></li>
-                            <li><a href="/donate/">Donate</a></li>
-                        </ul>
-                        <ul id="nav-bar-icons-head" class="icons">
-                        </ul>
-                    </nav>
+							<li class="active"><a href="/"><img class="quantml-navbar" src="/data/img/cover.webp" alt="QuantML" width="131.44px" height="27.44px"></a></li>
+							<li><a href="/about/">About</a></li>
+							<li><a href="/donate/">Donate</a></li>
+						</ul>
+					</nav>
 
 				<!-- Main -->
 					<div id="main">
-					<section id="paragraph" class="post">
-<div style="display: none;" id="pre-loading-light"><img class="loading" src="/data/img/loading.svg" alt=" " width="215px" height="50px"></div>
-<div style="display: none;" id="pre-loading-dark"><img class="loading" src="/data/img-dark/loading.svg" alt=" " width="215px" height="50px"></div>
-<div style="display: none;" id="pre-initializing-light"><img class="loading" src="/data/img/initializing.svg" alt=" " width="285px" height="50px"></div>
-<div style="display: none;" id="pre-initializing-dark"><img class="loading" src="/data/img-dark/initializing.svg" alt=" " width="285px" height="50px"></div>
-<script>initializeBody();document.getElementById('wrapper').style.display = "block";</script>
+					<section class="post">
+<div style="text-align: center;" id="load-init"></div>
+<script>initializeBody();</script>
 
-<div id="paragraph-content">
+<div id="paragraph-content" data-swipe-threshold="80">
 
-                        <div class="row">
-                            <div  class="column">
-                              <div id="la-guide" class="book">
-                                    <h1>Linear Algebra</h1>
-                                    <div style="line-height: 50px; display: inline-table; width: 100%;">
-                                        <img style="border-radius: 5px;" src="/data/img/theory.png" alt="Theory" width="65px" height="28px">
-                                    </div> 
-                                    <p>Inspired by <a rel="noreferrer" target="_blank" href="https://ocw.mit.edu/">MIT OCW</a>'s <br>
-                                    <a rel="noreferrer" target="_blank" href="https://ocw.mit.edu/courses/mathematics/18-06sc-linear-algebra-fall-2011/">18.06sc Linear Algebra</a><br>
-                                    [by Professor <a rel="noreferrer" target="_blank" href="http://www-math.mit.edu/~gs/">Gilbert Strang</a>]</p>
-                                    <br><br>
-                                    <div class="early-access-div" >
-                                         <a href="/la/"><button style="bottom: 30px;" id="la-guide-read-now" class="button btn jump">Read Now</button></a>
-                                    </div>
-                              </div>
-                            </div>
-                          
-                            <div class="column">
-                                <div id="stats-guide" class="book">
-                                        <h1>Statistics</h1>
-                                        <div style="line-height: 35px; display: inline-table; width: 100%;">
-                                            <img style="border-radius: 5px;" src="/data/img/theory.png" alt="Theory" width="65px" height="28px"> &nbsp;
-                                            <img style="-webkit-transform: translateY(-0.3rem);transform: translateY(-0.3rem);" src="/data/img/python.png" alt="Python" width="78px" height="20px"> &nbsp;
-                                            <img src="/data/img/julia.png" alt="julia" width="53px" height="33px">
-                                        </div> 
-                                        <p>Inspired by <a rel="noreferrer" target="_blank" href="https://micromasters.mit.edu/">MITx</a>'s<br>
-                                        <a rel="noreferrer" target="_blank" href="https://www.edx.org/course/fundamentals-of-statistics">18.6501x Fundamentals of Statistics</a><br>
-                                        [by Professor <a rel="noreferrer" target="_blank" href="http://www-math.mit.edu/~rigollet/">Philippe Rigollet</a>]</p>
-                                        <br>
-                                        <div id="early-access-div" class="early-access-div">
-                                        <button id="comming-soon" style="float: right; bottom: 30px;" class="button btn disabled">Coming Soon</button>
-                                        <a style="border-bottom: none;" href="/stats/"><button id="early-access" class="button btn jump">Get early access &nbsp; <img class="patreon-logo" src="/data/img/patreon.png" alt="Patreon"></button></a>
-                                        </div>
-                                  </div>
-                            </div>
-                        </div>
-                        <br><br>
+						<div class="row">
+							<div  class="column">
+							  <div id="la-guide" class="book">
+									<h1>Linear Algebra</h1>
+									<div style="line-height: 50px; display: inline-table; width: 100%;">
+										<img style="border-radius: 5px;" src="/data/img/theory.png" alt="Theory" width="65px" height="28px">
+									</div> 
+									<p>Inspired by <a rel="noreferrer" target="_blank" href="https://ocw.mit.edu/">MIT OCW</a>'s <br>
+									<a rel="noreferrer" target="_blank" href="https://ocw.mit.edu/courses/mathematics/18-06sc-linear-algebra-fall-2011/">18.06sc Linear Algebra</a><br>
+									[by Professor <a rel="noreferrer" target="_blank" href="http://www-math.mit.edu/~gs/">Gilbert Strang</a>]</p>
+									<br><br>
+									<div class="early-access-div" >
+										 <a href="/la/"><button style="bottom: 30px;" id="la-guide-read-now" class="button btn jump">Read Now</button></a>
+									</div>
+							  </div>
+							</div>
+						  
+							<div class="column">
+								<div id="stats-guide" class="book">
+										<h1>Statistics</h1>
+										<div style="line-height: 35px; display: inline-table; width: 100%;">
+											<img style="border-radius: 5px;" src="/data/img/theory.png" alt="Theory" width="65px" height="28px"> &nbsp;
+											<img style="-webkit-transform: translateY(-0.3rem);transform: translateY(-0.3rem);" src="/data/img/python.png" alt="Python" width="78px" height="20px"> &nbsp;
+											<img src="/data/img/julia.png" alt="julia" width="53px" height="33px">
+										</div> 
+										<p>Inspired by <a rel="noreferrer" target="_blank" href="https://micromasters.mit.edu/">MITx</a>'s<br>
+										<a rel="noreferrer" target="_blank" href="https://www.edx.org/course/fundamentals-of-statistics">18.6501x Fundamentals of Statistics</a><br>
+										[by Professor <a rel="noreferrer" target="_blank" href="http://www-math.mit.edu/~rigollet/">Philippe Rigollet</a>]</p>
+										<br>
+										<div id="early-access-div" class="early-access-div">
+										<button id="comming-soon" style="float: right; bottom: 30px;" class="button btn disabled">Coming Soon</button>
+										<a style="border-bottom: none;" href="/stats/"><button id="early-access" class="button btn jump">Get early access &nbsp; <img class="patreon-logo" src="/data/img/patreon.png" alt="Patreon"></button></a>
+										</div>
+								  </div>
+							</div>
+						</div>
+						<br><br>
 </div>
 <div id="modals-html"></div>
-                    </section>
+					</section>
 					</div>
 
 			</div>
-      
-            <div id="navPanel">
-                <nav>
-                    <ul class="links">
-                        <li class="active"><a href="/"><img class="quantml-navbar" src="/data/img/cover.png" alt="QuantML" width="131.44px" height="27.44px"></a></li>
-                        <li><a href="/about/">About</a></li>
-                        <li><a href="/donate/">Donate</a></li>
-                    </ul>
-                    <ul id="nav-bar-icons-foot" class="icons">
-                    </ul>
-                </nav>
-                <div id="close-navbar" class="close"></div>
-            </div>
+	  
 
-        <!-- Scripts -->
-        <script>loadNavBar('nav-bar-icons-foot')</script>
-        
-        
-    </body>
+		<!-- Scripts -->
+		
+		
+	</body>
 </html>

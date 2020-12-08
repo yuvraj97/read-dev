@@ -141,11 +141,11 @@ table.alt tbody tr td {
 }
 
 .fa {
-    color: rgb(240, 240, 240);
+    color: rgba(255, 180, 100);;
 }
 .fa:hover{
-    color: rgb(240, 240, 240) !important;
-    border-bottom: 1.5px solid rgba(255, 180, 100);
+    color: rgba(255, 180, 100) !important;
+    /* border-bottom: 1.5px solid rgba(255, 180, 100); */
 }
 .python-logo:hover{
     border-bottom: 1.5px solid rgba(255, 180, 100);

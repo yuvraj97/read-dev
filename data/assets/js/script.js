@@ -31,7 +31,7 @@ function resetFontSize(){
 }
 
 function setFontSize(){
-	document.getElementById('paragraph').style.fontSize = localStorage.getItem('paragraph-font-size') + "px";
+	document.getElementById('paragraph-content').style.fontSize = localStorage.getItem('paragraph-font-size') + "px";
 }
 
 
@@ -46,62 +46,62 @@ function showSettings(){
 
 
 function setDisplay(ID, disp){
-    elements = document.querySelectorAll('#'+ID)
-    elements.forEach(function(element,index){
-            element.style.display=disp;
-    })
-    if(elements.length == 0) { console.log(ID, "is missing!") }
+	elements = document.querySelectorAll('#'+ID)
+	elements.forEach(function(element,index){
+			element.style.display=disp;
+	})
+	if(elements.length == 0) { console.log(ID, "is missing!") }
 }
 
 function getDisplay(){
-    if(screen.width <= 980){
-        return "block";
-    } else {
-        return "";
-    }
+	if(screen.width <= 980){
+		return "block";
+	} else {
+		return "";
+	}
 }
 
 function clearModelOnBackgroundClick(modal){
-    // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function(event) {
-        // console.log(event.target)
-        // For Settings, Login
-        for (let idx = 0; idx < modal.length; idx++) {
-            if (event.target == modal[idx]) {
-                setDisplay()
-                modal[idx].style.display = "none";
-            }            
-        }
+	// When the user clicks anywhere outside of the modal, close it
+	window.onclick = function(event) {
+		// console.log(event.target)
+		// For Settings, Login
+		for (let idx = 0; idx < modal.length; idx++) {
+			if (event.target == modal[idx]) {
+				setDisplay()
+				modal[idx].style.display = "none";
+			}			
+		}
 
-        // For Nav Panel    
-        if(event.target.id != "navPanel" && event.target.id != "navPanelToggle" && event.target.nodeName != "NAV") {
-            document.querySelector('body').classList.remove('is-navPanel-visible');
-        }
-    }
+		// For Nav Panel	
+		if(event.target.id != "navPanel" && event.target.id != "navPanelToggle" && event.target.nodeName != "NAV") {
+			document.querySelector('body').classList.remove('is-navPanel-visible');
+		}
+	}
 }
 
 function changeTheme() {
-    currentTheme = localStorage.getItem("quantmlTheme");
-    homeStylesheet = document.getElementById('home-stylesheet')
+	currentTheme = localStorage.getItem("quantmlTheme");
+	homeStylesheet = document.getElementById('home-stylesheet')
 	if(currentTheme == "light"){
 		console.log("Light2Dark");
 		changeThemeCSS("dark")
 		loadCorrectThemeImages("dark")
-        localStorage.setItem("quantmlTheme", "dark");
-        if(homeStylesheet != null) homeStylesheet.href = "/style-dark.css"
+		localStorage.setItem("quantmlTheme", "dark");
+		if(homeStylesheet != null) homeStylesheet.href = "/style-dark.css"
 	}
 	else if (currentTheme == "dark"){
 		console.log("Dark2Light");
 		changeThemeCSS("light")
 		loadCorrectThemeImages("light")
-        localStorage.setItem("quantmlTheme", "light");
-        if(homeStylesheet != null) homeStylesheet.href = "/style-light.css"
+		localStorage.setItem("quantmlTheme", "light");
+		if(homeStylesheet != null) homeStylesheet.href = "/style-light.css"
 	}
 }
 
 function loadCorrectThemeImages(currentTheme){
 	images = document.querySelectorAll('img')
-	if(currentTheme == "light" && document.getElementById('quantml-cover').src.indexOf("/img-dark/")!=-1){
+	if(currentTheme == "light"){
 		for (let index = 0; index < images.length; index++) {
 			// console.log(images[index].src,"->", images[index].src.replace("/img-dark/","/img/"))
 			if(images[index].src.search("/img-dark/")!=-1) images[index].src = images[index].src.replace("/img-dark/","/img/");
@@ -124,112 +124,114 @@ function isInputRequires(){
 }
 
 function FBKatexLoaded(){
-    setDisplay('pre-loading-dark', 'none')
-    setDisplay('pre-initializing-dark', 'none')
-    setDisplay('pre-loading-light', 'none')
-    setDisplay('pre-initializing-light', 'none')
-    loadCorrectThemeImages(localStorage.getItem("quantmlTheme"));
-    if(localStorage.getItem('paragraph-font-size') == null) resetFontSize();
-    setFontSize()
-    loadNavBar('nav-bar-icons-head');
-    setDisplay('paragraph-content', 'block')
+	setDisplay('pre-loading', 'none')
+	setDisplay('pre-initializing', 'none')
+	loadCorrectThemeImages(localStorage.getItem("quantmlTheme"));
+	if(localStorage.getItem('paragraph-font-size') == null) resetFontSize();
+	setFontSize()
+	setDisplay('paragraph-content', 'block')
 }
 
 function loadFirebase(callback){
-    setDisplay('fb-loading', getDisplay())
-    requireScript('fb-app-js', '8.0.1', '/data/assets/js/firebase-app.js', 
-        function() {
-            console.log("firebase-app.js Loaded");  // Remove it
-            requireScript('fb-auth-js', '8.0.1', '/data/assets/js/firebase-auth.js',
-                function(){
-                    console.log("firebase-auth.js Loaded");  // Remove it
-                    requireScript('fb-store-js', '8.0.1',"/data/assets/js/firebase-firestore.js",
-                        function(){
-                            console.log("firebase-firestore Loaded");  // Remove it
-                            // if(window.innerWidth <= 980){
-                            //     document.getElementById('login-btn-width').style.width="100%";
-                            //     document.getElementById('join-btn-width').style.width="100%";
-                            //     document.getElementById('logout-btn-width').style.width="100%";
-                            // }                              
+	setDisplay('fb-loading', getDisplay())
+	requireScript('fb-app-js', '8.0.1', '/data/assets/js/firebase-app.js', 
+		function() {
+			console.log("firebase-app.js Loaded");  // Remove it
+			requireScript('fb-auth-js', '8.0.1', '/data/assets/js/firebase-auth.js',
+				function(){
+					console.log("firebase-auth.js Loaded");  // Remove it
+					requireScript('fb-store-js', '8.0.1',"/data/assets/js/firebase-firestore.js",
+						function(){
+							console.log("firebase-firestore Loaded");  // Remove it
+							// if(window.innerWidth <= 980){
+							//	 document.getElementById('login-btn-width').style.width="100%";
+							//	 document.getElementById('join-btn-width').style.width="100%";
+							//	 document.getElementById('logout-btn-width').style.width="100%";
+							// }							  
 
-                            // ============================== FIREBASE SETUP [START] ============================== //
+							// ============================== FIREBASE SETUP [START] ============================== //
 
-                            // Your web app's Firebase configuration
-                            var firebaseConfig = {
-                                apiKey: "AIzaSyBdgsjeNlaEuDVWVMRXgPOfvm2HEnpRjMQ",
-                                authDomain: "statistics-guide.firebaseapp.com",
-                                databaseURL: "https://statistics-guide.firebaseio.com",
-                                projectId: "statistics-guide",
-                            };
-                            // Initialize Firebase
-                            firebase.initializeApp(firebaseConfig);
+							// Your web app's Firebase configuration
+							var firebaseConfig = {
+								apiKey: "AIzaSyBdgsjeNlaEuDVWVMRXgPOfvm2HEnpRjMQ",
+								authDomain: "statistics-guide.firebaseapp.com",
+								databaseURL: "https://statistics-guide.firebaseio.com",
+								projectId: "statistics-guide",
+							};
+							// Initialize Firebase
+							firebase.initializeApp(firebaseConfig);
 
-                            globalThis.fb_auth = firebase.auth();
-                            globalThis.fb_db   = firebase.firestore();
+							globalThis.fb_auth = firebase.auth();
+							globalThis.fb_db   = firebase.firestore();
 
-                            globalThis.fb_db.settings({timestampsInSnapshots: true});
+							globalThis.fb_db.settings({timestampsInSnapshots: true});
 
-                            // Listen For Auth Status Change
-                            globalThis.fb_auth.onAuthStateChanged(function(user) {
-                                if(user) {
-                                    console.log('Logged In :)');
-                                    setDisplay('login-button','none');
-                                    setDisplay('join-button','none');
-                                    setDisplay('logout-button',getDisplay());
-                                    setDisplay('secrets',getDisplay());
-                                    setDisplay('login-require','none');
-                                    setDisplay('fb-loading','none');
-                                } else {
-                                    console.log('Logged Out!');
-                                    setDisplay('login-button',getDisplay());
-                                    setDisplay('join-button',getDisplay());
-                                    setDisplay('logout-button','none');
-                                    setDisplay('secrets','none');
-                                    setDisplay('login-require',getDisplay());
-                                    console.log("'fb-loading','none'")  // Remove it
-                                    setDisplay('fb-loading','none');
-                                }
-                            });
-                            if(callback) callback();
-                        }
-                    )
-                }
-            )
-        }
-    )
+							// Listen For Auth Status Change
+							globalThis.fb_auth.onAuthStateChanged(function(user) {
+								if(user) {
+									console.log('Logged In :)');
+									setDisplay('login-button','none');
+									setDisplay('join-button','none');
+									setDisplay('logout-button',getDisplay());
+									setDisplay('secrets',getDisplay());
+									setDisplay('login-require','none');
+									setDisplay('fb-loading','none');
+								} else {
+									console.log('Logged Out!');
+									setDisplay('login-button',getDisplay());
+									setDisplay('join-button',getDisplay());
+									setDisplay('logout-button','none');
+									setDisplay('secrets','none');
+									setDisplay('login-require',getDisplay());
+									console.log("'fb-loading','none'")  // Remove it
+									setDisplay('fb-loading','none');
+								}
+							});
+							if(callback) callback();
+						}
+					)
+				}
+			)
+		}
+	)
 }
 
 function loadKatex(callback){
-    requireScript('katex-css', '0.6.0', '/data/assets/css/katex.min.css', function(){})
-    requireScript('katex-js', '0.6.0','/data/assets/js/katex.min.js', function(){
-        requireScript('auto-render-js', '0.6.0','/data/assets/js/auto-render.min.js', function(){
-            renderMathInElement(document.body);
-            if(callback) callback()
-        })
-    })
+	requireScript('katex-css', '0.6.0', '/data/assets/css/katex.min.css', function(){})
+	requireScript('katex-js', '0.6.0','/data/assets/js/katex.min.js', function(){
+		requireScript('auto-render-js', '0.6.0','/data/assets/js/auto-render.min.js', function(){
+			renderMathInElement(document.body);
+			if(callback) callback()
+		})
+	})
 }
 
 function loadKatexThenFB(){
-    theme = localStorage.getItem("quantmlTheme")
-    if(!localStorage.hasOwnProperty('katex')){
-        if(theme=="dark"){
-            setDisplay('pre-loading-dark', 'none')
-            setDisplay('pre-initializing-dark', 'block')
-        } else {
-            setDisplay('pre-loading-light', 'none')
-            setDisplay('pre-initializing-light', 'block')
-        }
-    }
-    loadKatex(function(){FBKatexLoaded();setTimeout(function(){loadFirebase()}, 500)})
+	theme = localStorage.getItem("quantmlTheme")
+	if(!localStorage.hasOwnProperty('katex')){
+		setDisplay('pre-loading', 'none')
+		setDisplay('pre-initializing', 'block')
+	}
+	loadKatex(function(){FBKatexLoaded();setTimeout(function(){loadFirebase()}, 500)})
 }
 
 function loadFBThenKatex(){
-    FBKatexLoaded()
-    setTimeout(loadFirebase(function(){setTimeout(function(){loadKatex()}, 1000)}), 500)
+	FBKatexLoaded()
+	setTimeout(loadFirebase(function(){setTimeout(function(){loadKatex()}, 1000)}), 500)
 }
 
+function isClassNamePresent(node, className){
+	while(node.localName!="body"){
+		node = node.parentElement
+		if(node.classList.contains(className)) {
+			return true
+		}
+	}
+	return false
+
+}
 function fullyLoaded(){
-    // Set Next-Prev btn width
+	// Set Next-Prev btn width
 	prev = document.querySelectorAll('#prev-btn')
 	next = document.querySelectorAll('#next-btn')
 	// console.log(prev)
@@ -238,59 +240,22 @@ function fullyLoaded(){
 		// console.log(prev[0].offsetWidth , next[0].offsetWidth , btnWidth)
 		if(prev[0].offsetWidth + next[0].offsetWidth > btnWidth) {
 			prev[0].style.display="block";
-			prev[1].style.display="block";
+			// prev[1].style.display="block";
 			next[0].style.display="block";
-			next[1].style.display="block";
+			// next[1].style.display="block";
 			prev[0].style.width="100%";
-			prev[1].style.width="100%";
+			// prev[1].style.width="100%";
 			next[0].style.width="100%";
-			next[1].style.width="100%";
+			// next[1].style.width="100%";
 			next[0].style.marginTop="5px"
-			next[1].style.marginTop="5px"
+			// next[1].style.marginTop="5px"
 		}
-    }
-    
-    // Close Navbar
-    document.getElementById('close-navbar').addEventListener('click',function(){
-        document.querySelector('body').classList.remove('is-navPanel-visible');
-    })
-
-    // Menu Button Navbar
-    document.getElementById('navPanelToggle').addEventListener('click',function(){
-        document.querySelector('body').classList.add('is-navPanel-visible');
-    })
-
-    document.addEventListener('scroll', function(e) {
-        // console.log("scroll List...", window.scrollY)
-        if(window.scrollY > 150){
-            // console.log("ALT")
-            document.getElementById('navPanelToggle').classList.add('alt')
-        } else {
-            document.getElementById('navPanelToggle').classList.remove('alt')
-        }
-    });
-
+	}
+	
 	// Show Content acc. to Device
 	let check = false;
 	(function(a){if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows ce|xda|xiino/i.test(a)||/1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(a.substr(0,4))) check = true;})(navigator.userAgent||navigator.vendor||window.opera);
-	const notDesktop = check
-
-	if(notDesktop) {
-		setDisplay('desktop-mode', "none")
-		setDisplay('mobile-mode', "block")
-	} else {
-		setDisplay('desktop-mode', "block")
-		setDisplay('mobile-mode', "none")
-	}
-	
-	// Change Theme Button
-	changeThemeBtn = document.getElementById('change-theme');
-	changeThemeBtn.addEventListener('click',function(e) {    
-		e.preventDefault();
-		changeTheme()
-	});
-
-    // Add Modals HTML [800ms]
+	window.notDesktop = check
 
 	document.getElementById('modals-html').innerHTML =`
 	<!--=================== MODELS ===================-->
@@ -335,7 +300,7 @@ function fullyLoaded(){
 	<!--=============== Password Reset Link Sent MODEL[START] ===============-->
 
 	<div id="password-reset-link-sent-model" class="modal">
-		<div class="modal-content animate" id="login-form">    
+		<div class="modal-content animate" id="login-form">	
 			<a class="close" style="float: right; padding-top: 0%; padding-bottom: 0%;" onclick="setDisplay('password-reset-link-sent-model', 'none')">X</a>
 			<div class="container" style="margin: 1rem;">
 	<span id='password-reset-link-sent-txt'></span>
@@ -352,19 +317,26 @@ function fullyLoaded(){
 		<div class="modal-content animate">
 			<a class="close" style="float: right; padding-top: 0%; padding-bottom: 0%;" onclick="setDisplay('settings-model', 'none')">X</a>
 			<div class="container settings" style="margin: 1rem;">
-				Font size &nbsp; 
+				<!--<h2 style="text-align: center; display:block">Settings</h2>-->
+				<b>Font size</b> &nbsp; 
 				<button style="height: 30px;" class="button" onclick="incrementFontSize();setFontSize()">+</button> 
 				<button style="height: 30px;" class="button" onclick="decrementFontSize();setFontSize()">-</button>
 				<button style="height: 30px; font-weight: 400;" class="button" onclick="resetFontSize();setFontSize()">Reset</button>
-				<DIV id="desktop-mode">
-					<br><br>
-					<hr>
+				<br>
+				<!--<h2 style="text-align: center; display:block">Navigation</h2>-->
+				<!--<span class="bb">Navigation</span>-->
+				<hr>
+				<div id="desktop-mode">
 					Press <span class="bb">D</span> to change theme. <br>
 					Press <span class="bb">&larr;</span> to go to previous page. <br>
 					Press <span class="bb">&rarr;</span> to go to next page. <br>
 					Press <span class="bb">+</span> to increase font size. <br>
 					Press <span class="bb">-</span> to decrease font size. <br>
-				</DIV>
+				</div>
+				<div id="mobile-mode">
+					<span class="bb">Swipe Right</span> to go to previous page. <br>
+					<span class="bb">Swipe Left </span> to go to next page. <br>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -380,28 +352,43 @@ function fullyLoaded(){
 
 	clearModelOnBackgroundClick(modal);
 
+	// Menu Button Navbar
+	document.getElementById('navPanelToggle').addEventListener('click',function(){
+		document.querySelector('body').classList.add('is-navPanel-visible');
+	})
+
+	document.addEventListener('scroll', function(e) {
+		// console.log("scroll List...", window.scrollY)
+		if(window.scrollY > 150){
+			// console.log("ALT")
+			document.getElementById('navPanelToggle').classList.add('alt')
+		} else {
+			document.getElementById('navPanelToggle').classList.remove('alt')
+		}
+	});
+
 	// LOGIN Form
 	const loginForm = document.querySelector('#login-form');
 	loginForm.addEventListener('submit', function(e) {
 		e.preventDefault();
-		auth_submitLoginForm(loginForm)    
+		auth_submitLoginForm(loginForm)	
 	});
 
 	// Login Button
-    const loginButton = document.querySelectorAll('#login-button');
-    loginButton.forEach(function(element,index){
-            element.addEventListener('click', function(e) {
+	const loginButton = document.querySelectorAll('#login-button');
+	loginButton.forEach(function(element,index){
+			element.addEventListener('click', function(e) {
 				console.log("Login Button Clicked")
-                e.preventDefault();
-                document.querySelector('body').classList.remove('is-navPanel-visible');
+				e.preventDefault();
+				document.querySelector('body').classList.remove('is-navPanel-visible');
 				setDisplay('login-model', 'block')
-            });        
-    })
+			});		
+	})
 	
 	// LOGOUT
 	const logout = document.querySelectorAll('#logout-button');
 	logout.forEach(function(element,index){
-		element.addEventListener('click',function(e) {    
+		element.addEventListener('click',function(e) {	
 			e.preventDefault();
 			globalThis.fb_auth.signOut().then(function() {
 				console.log("Logging Out...")
@@ -411,66 +398,97 @@ function fullyLoaded(){
 
 	// Reset Password
 	const forgotPassword = document.querySelector('#forgot-password');
-	forgotPassword.addEventListener('click',function(e) {    
+	forgotPassword.addEventListener('click',function(e) {	
 		e.preventDefault();
 		auth_resetPassword(loginForm)
 	});
 
 	setDisplay('login-error-msg', "none")
 
-    window.keydowns = {"ctrl": false, "alt": false}
+	window.keydowns = {"ctrl": false, "alt": false}
 
-    document.onkeyup = function(evt) {
+	document.addEventListener("keyup", function(evt) {
 		console.log(evt.code)
-        console.log("CTRL:",window.keydowns["ctrl"])
-        if(isInputRequires()){
+		console.log("CTRL:",window.keydowns["ctrl"])
+		if(isInputRequires()){
 			// PASS
 		} else if(evt.code == "KeyD"){
 			changeTheme()
 		} else if(evt.code == "NumpadSubtract" && window.keydowns["ctrl"] != true){
 			decrementFontSize();setFontSize()
-        } else if(evt.code == "NumpadAdd" && window.keydowns["ctrl"] != true){
-        	incrementFontSize();setFontSize()
-        } else if(evt.code == "ControlLeft" || evt.code == "ControlRight"){
-            window.keydowns["ctrl"] = false;
-        } else if(evt.code == "AltLeft" || evt.code == "AltRight"){
-            window.keydowns["alt"] = false;
+		} else if(evt.code == "NumpadAdd" && window.keydowns["ctrl"] != true){
+			incrementFontSize();setFontSize()
+		} else if(evt.code == "ControlLeft" || evt.code == "ControlRight"){
+			window.keydowns["ctrl"] = false;
+		} else if(evt.code == "AltLeft" || evt.code == "AltRight"){
+			window.keydowns["alt"] = false;
 		}
-    }
-	document.onkeydown = function(evt) {
-        evt = evt || window.event;
-        // console.log(evt)
+	})
+	document.addEventListener("keydown", function(evt) {
+		evt = evt || window.event;
+		// console.log(evt)
 		console.log("DOWN", evt.code)
 		if(evt.code == "Escape") {
 			for (let idx = 0; idx < modal.length; idx++) {
 				modal[idx].style.display = "none";
 			}
-        } else if(isInputRequires()){
+		} else if(isInputRequires()){
 			// PASS
 		} else if(evt.code == "ControlLeft" || evt.code == "ControlRight"){
-            window.keydowns["ctrl"] = true;
+			window.keydowns["ctrl"] = true;
 		} else if(evt.code == "AltLeft" || evt.code == "AltRight"){
-            window.keydowns["alt"] = true;
+			window.keydowns["alt"] = true;
 		} else if(evt.code == "ArrowRight" && typeof(arrowRightPage) !="undefined" && window.keydowns["alt"] != true){
 			window.location.href = arrowRightPage
 		} else if(evt.code == "ArrowLeft" && typeof(arrowLeftPage) !="undefined" && window.keydowns["alt"] != true){
 			window.location.href = arrowLeftPage
 		} 
+	})
+
+	document.addEventListener('swiped-left', function(e) {
+		console.log(e.target); // element that was swiped
+		// console.log(e.detail); // event data { dir: 'left', xStart: 196, xEnd: 230, yStart: 196, yEnd: 4 }
+		if( !e.target.classList.contains("language-python") &&
+			!e.target.classList.contains("language-julia") &&
+			!e.target.classList.contains("token")  &&
+			!isClassNamePresent(e.target, "math-container")  ){
+			if(typeof(arrowRightPage) !="undefined") window.location.href = arrowRightPage;
+		}
+	});
+
+	document.addEventListener('swiped-right', function(e) {
+		console.log(e.target); // element that was swiped
+		// console.log(e.detail); // event data { dir: 'left', xStart: 196, xEnd: 230, yStart: 196, yEnd: 4 }
+		if( !e.target.classList.contains("language-python") &&
+			!e.target.classList.contains("language-julia") &&
+			!e.target.classList.contains("token")  &&
+			!isClassNamePresent(e.target, "math-container") ){
+                if(typeof(arrowLeftPage) !="undefined") window.location.href = arrowLeftPage;
+		}
+	});
+
+	if(notDesktop) {
+		setDisplay('desktop-mode', "none")
+		setDisplay('mobile-mode', "block")
+	} else {
+		setDisplay('desktop-mode', "block")
+		setDisplay('mobile-mode', "none")
 	}
-
-
+	
+	
+	  
 	emailAddressIsValidated()
-    passwordIsValidated()
+	passwordIsValidated()
 }
 
 function cssLoaded(iskatexImportant = true, callback){
-    console.log("iskatexImportant:", iskatexImportant)
+	console.log("iskatexImportant:", iskatexImportant)
 	// d = new Date();end = d.getTime();  // Remove it 
-    // console.log("CSS Load time:",end-start)  // Remove it 
-    if(iskatexImportant) loadKatexThenFB()
-    else loadFBThenKatex()
-    fullyLoaded()
-    if(callback) callback();
+	// console.log("CSS Load time:",end-start)  // Remove it 
+	if(iskatexImportant) loadKatexThenFB()
+	else loadFBThenKatex()
+	fullyLoaded()
+	if(callback) callback();
 	// d = new Date();end = d.getTime();  // Remove it 
 	// console.log("Fully Loaded:",end-start)  // Remove it 
 
@@ -481,163 +499,163 @@ function cssLoaded(iskatexImportant = true, callback){
 // ***************************************************************
 
 function networkRequestFailed(){
-    setDisplay('login-error-msg', 'none');
-    setDisplay('login-email-user-not-found', 'none');
-    setDisplay('password-error-msg', 'none');
-    setDisplay('network-request-failed', 'block');
+	setDisplay('login-error-msg', 'none');
+	setDisplay('login-email-user-not-found', 'none');
+	setDisplay('password-error-msg', 'none');
+	setDisplay('network-request-failed', 'block');
 }
 
 function invalidEmailAddressError(){
-    email = document.getElementById("login-email");
-    email.style.border = "1px solid red";
-    email.style.boxShadow = "1px 1px 10px red";
-    email.classList.add("error-border-bounce");
-    setTimeout(function() {
-        email.classList.remove("error-border-bounce");
-    }, 1000); 
-    setDisplay('login-error-msg', 'block');
-    setDisplay('login-email-user-not-found', 'none');
-    passwordIsValidated()
+	email = document.getElementById("login-email");
+	email.style.border = "1px solid red";
+	email.style.boxShadow = "1px 1px 10px red";
+	email.classList.add("error-border-bounce");
+	setTimeout(function() {
+		email.classList.remove("error-border-bounce");
+	}, 1000); 
+	setDisplay('login-error-msg', 'block');
+	setDisplay('login-email-user-not-found', 'none');
+	passwordIsValidated()
 }
 
 function invalidEmailAddressUserNotFound(email) {
-    userNotFound = document.getElementById("login-email-user-not-found");
-    userNotFound.style.display='block';
-    loginEmail = document.getElementById("login-email");
-    loginEmail.style.border = "1px solid orange";
-    loginEmail.style.boxShadow = "1px 1px 10px orange";
-    loginEmail.classList.add("error-border-bounce");
-    setTimeout(function() {
-        loginEmail.classList.remove("error-border-bounce");
-    }, 1000); 
-    userNotFound.innerHTML = `<b>"${email}"</b> is currently not a <a href="https://www.patreon.com/quantml">patreon supporter</a>.<br>
-    <b><a href="https://www.patreon.com/quantml">Join us on patreon</a></b> and get early access to this <b>Guide</b> and <b>Statistics App</b>.`
-    setDisplay('login-error-msg', 'none');
+	userNotFound = document.getElementById("login-email-user-not-found");
+	userNotFound.style.display='block';
+	loginEmail = document.getElementById("login-email");
+	loginEmail.style.border = "1px solid orange";
+	loginEmail.style.boxShadow = "1px 1px 10px orange";
+	loginEmail.classList.add("error-border-bounce");
+	setTimeout(function() {
+		loginEmail.classList.remove("error-border-bounce");
+	}, 1000); 
+	userNotFound.innerHTML = `<b>"${email}"</b> is currently not a <a href="https://www.patreon.com/quantml">patreon supporter</a>.<br>
+	<b><a href="https://www.patreon.com/quantml">Join us on patreon</a></b> and get early access to this <b>Guide</b> and <b>Statistics App</b>.`
+	setDisplay('login-error-msg', 'none');
 }
 
 function emailAddressIsValidated(){
-    email = document.getElementById("login-email");
-    email.style.boxShadow = "none";
-    email.style.border = "2px solid #0073b1";
-    setDisplay('login-error-msg', 'none');
-    setDisplay('login-email-user-not-found', 'none');
+	email = document.getElementById("login-email");
+	email.style.boxShadow = "none";
+	email.style.border = "2px solid #0073b1";
+	setDisplay('login-error-msg', 'none');
+	setDisplay('login-email-user-not-found', 'none');
 }
 
 function invalidPassword(){
-    password = document.getElementById("login-password");
-    password.style.border = "1px solid red";
-    password.style.boxShadow = "1px 1px 10px red";
-    password.classList.add("error-border-bounce");
-    setTimeout(function() {
-        password.classList.remove("error-border-bounce");
-    }, 1000); 
-    setDisplay('password-error-msg', 'block');
-    emailAddressIsValidated()
+	password = document.getElementById("login-password");
+	password.style.border = "1px solid red";
+	password.style.boxShadow = "1px 1px 10px red";
+	password.classList.add("error-border-bounce");
+	setTimeout(function() {
+		password.classList.remove("error-border-bounce");
+	}, 1000); 
+	setDisplay('password-error-msg', 'block');
+	emailAddressIsValidated()
 }
 
 function passwordIsValidated(){
-    password = document.getElementById("login-password");
-    password.style.boxShadow = "none";
-    password.style.border = "2px solid #0073b1";
-    setDisplay('password-error-msg', 'none');
+	password = document.getElementById("login-password");
+	password.style.boxShadow = "none";
+	password.style.border = "2px solid #0073b1";
+	setDisplay('password-error-msg', 'none');
 }
 
 function auth_submitLoginForm(){
-    setDisplay('network-request-failed', 'none');
-    loginForm = document.getElementById('login-form')
-    // Get User Info
-    const email = loginForm['login-email'].value;
-    const password = loginForm['login-password'].value;
-    const loginButtonText = document.getElementById('login-button-text');
-    if(localStorage.getItem("quantmlTheme")=="light"){
-        var src = "/data/img/loading-login.gif";
-    } else {
-        var src = "/data/img-dark/loading-login.gif";
-    }
-    loginButtonText.innerHTML = 'Login &nbsp; <img style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);" src='+ src +' alt="..." width="30px" height="30px"/>'
-    globalThis.fb_auth.signInWithEmailAndPassword(email, password).then(function(cred) {
-        // console.log(cred.user);
-        setDisplay('login-model', 'none');
-        loginButtonText.innerHTML = "Login";
-        window.location.reload();
-    })
-    .catch(function(e) {
-        loginButtonText.innerHTML = "Login";
-        loginError = e;
-        if(loginError.code == "auth/invalid-email") {
-            invalidEmailAddressError();
-        }
-        if(loginError.code == "auth/user-not-found") {
-            invalidEmailAddressUserNotFound(email);
-        }
-        if(loginError.code == "auth/wrong-password") {
-            invalidPassword();
-        }
-        if(loginError.code == "auth/network-request-failed") {
-            networkRequestFailed();
-        }
-        
-        
-    });
+	setDisplay('network-request-failed', 'none');
+	loginForm = document.getElementById('login-form')
+	// Get User Info
+	const email = loginForm['login-email'].value;
+	const password = loginForm['login-password'].value;
+	const loginButtonText = document.getElementById('login-button-text');
+	if(localStorage.getItem("quantmlTheme")=="light"){
+		var src = "/data/img/loading-login.gif";
+	} else {
+		var src = "/data/img-dark/loading-login.gif";
+	}
+	loginButtonText.innerHTML = 'Login &nbsp; <img style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);" src='+ src +' alt="..." width="30px" height="30px"/>'
+	globalThis.fb_auth.signInWithEmailAndPassword(email, password).then(function(cred) {
+		// console.log(cred.user);
+		setDisplay('login-model', 'none');
+		loginButtonText.innerHTML = "Login";
+		window.location.reload();
+	})
+	.catch(function(e) {
+		loginButtonText.innerHTML = "Login";
+		loginError = e;
+		if(loginError.code == "auth/invalid-email") {
+			invalidEmailAddressError();
+		}
+		if(loginError.code == "auth/user-not-found") {
+			invalidEmailAddressUserNotFound(email);
+		}
+		if(loginError.code == "auth/wrong-password") {
+			invalidPassword();
+		}
+		if(loginError.code == "auth/network-request-failed") {
+			networkRequestFailed();
+		}
+		
+		
+	});
 }
 
 function auth_resetPassword(){
-    setDisplay('network-request-failed', 'none');
-    loginForm = document.getElementById('login-form')
-    const email = loginForm['login-email'].value;
-    // console.log("Forgot Password")
-    const forgotButtonText = document.getElementById('forgot-button-text');
-    if(localStorage.getItem("quantmlTheme")=="light"){
-        var src = "/data/img/loading-forgot.gif";
-    } else {
-        var src = "/data/img-dark/loading-forgot.gif";
-    }
-    forgotButtonText.innerHTML = 'Forgot Password &nbsp; <img style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);" src='+ src +' alt="..." width="30px" height="30px"/>'
-    globalThis.fb_auth.sendPasswordResetEmail(email).then(function() {
-        // console.log("Sending Reset Password Link");
-        forgotButtonText.innerHTML = 'Forgot Password'
-        // alert("A password reset link is sent over: " + email)
-        setDisplay('login-model', 'none')
-        setDisplay('password-reset-link-sent-model', 'block')
-        document.getElementById('password-reset-link-sent-txt').innerHTML = 'A Password Reset link is sent to "<b>' + email + '</b>"';
-    })
-    .catch(function(e){
-        forgotButtonText.innerHTML = 'Forgot Password'
-        forgotError = e;
-        if(forgotError.code == "auth/invalid-email") {
-            invalidEmailAddressError();
-        }
-        if(forgotError.code == "auth/user-not-found") {
-            invalidEmailAddressUserNotFound(email);
-        }
-        if(forgotError.code == "auth/network-request-failed") {
-            networkRequestFailed();
-        }
-    });
+	setDisplay('network-request-failed', 'none');
+	loginForm = document.getElementById('login-form')
+	const email = loginForm['login-email'].value;
+	// console.log("Forgot Password")
+	const forgotButtonText = document.getElementById('forgot-button-text');
+	if(localStorage.getItem("quantmlTheme")=="light"){
+		var src = "/data/img/loading-forgot.gif";
+	} else {
+		var src = "/data/img-dark/loading-forgot.gif";
+	}
+	forgotButtonText.innerHTML = 'Forgot Password &nbsp; <img style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);" src='+ src +' alt="..." width="30px" height="30px"/>'
+	globalThis.fb_auth.sendPasswordResetEmail(email).then(function() {
+		// console.log("Sending Reset Password Link");
+		forgotButtonText.innerHTML = 'Forgot Password'
+		// alert("A password reset link is sent over: " + email)
+		setDisplay('login-model', 'none')
+		setDisplay('password-reset-link-sent-model', 'block')
+		document.getElementById('password-reset-link-sent-txt').innerHTML = 'A Password Reset link is sent to "<b>' + email + '</b>"';
+	})
+	.catch(function(e){
+		forgotButtonText.innerHTML = 'Forgot Password'
+		forgotError = e;
+		if(forgotError.code == "auth/invalid-email") {
+			invalidEmailAddressError();
+		}
+		if(forgotError.code == "auth/user-not-found") {
+			invalidEmailAddressUserNotFound(email);
+		}
+		if(forgotError.code == "auth/network-request-failed") {
+			networkRequestFailed();
+		}
+	});
 }
 
 function loadContent(chapterID){
-    var data = ""
-    // retrieve data
-    if(!localStorage.hasOwnProperty(chapterID)){
-        globalThis.fb_db.collection('Statistics-Guide').doc(chapterID).get().then(function(snapshot) {
-            // console.log("retreiving...")
-            data = snapshot.data().Content;
-            localStorage.setItem(chapterID, data);
-            writeData(data);
-            renderMathInElement(document.body);
-        });
-    }
-    else {
-        // console.log("Already retreved")
-        data = localStorage.getItem(chapterID)
-        writeData(data)
-    }
+	var data = ""
+	// retrieve data
+	if(!localStorage.hasOwnProperty(chapterID)){
+		globalThis.fb_db.collection('Statistics-Guide').doc(chapterID).get().then(function(snapshot) {
+			// console.log("retreiving...")
+			data = snapshot.data().Content;
+			localStorage.setItem(chapterID, data);
+			writeData(data);
+			renderMathInElement(document.body);
+		});
+	}
+	else {
+		// console.log("Already retreved")
+		data = localStorage.getItem(chapterID)
+		writeData(data)
+	}
 }
 
 function writeData(data){
-    secrets = document.getElementById('secrets');
-    secrets.innerHTML = data;
+	secrets = document.getElementById('secrets');
+	secrets.innerHTML = data;
 }
 
 // Testing

@@ -141,11 +141,11 @@ table.alt tbody tr td {
 }
 
 .fa {
-    color: black;
+    color: #0033cc;
 }
 .fa:hover{
-    color: black !important;
-    border-bottom: 1.5px solid #0033cc;
+    color: #0033cc !important;
+    /* border-bottom: 1.5px solid #0033cc; */
 }
 .python-logo:hover{
     border-bottom: 1.5px solid #0033cc;
@@ -207,11 +207,11 @@ summary span:hover, summary span:focus {
     box-shadow: .05rem .05rem 0.5rem .1rem #467AAC;
 }
 .l1 {    color: darkred;        }
-.l2 {    color: royalblue;      }
+.l2 {    color: darkblue;      }
 .l3 {    color: darkgreen;      }
 .l4 {    color: darkorchid;     }
 .l1.border{    border: 2px solid darkred }
-.l2.border{    border: 2px solid royalblue }
+.l2.border{    border: 2px solid darkblue }
 .l3.border{    border: 2px solid darkgreen }
 .l4.border{    border: 2px solid darkorchid }
 
