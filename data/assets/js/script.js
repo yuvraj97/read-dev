@@ -319,12 +319,18 @@ function fullyLoaded(){
 			<div class="container settings" style="margin: 1rem;">
 				<!--<h2 style="text-align: center; display:block">Settings</h2>-->
 				<b>Font size</b> &nbsp; 
-				<button style="height: 30px;" class="button" onclick="incrementFontSize();setFontSize()">+</button> 
-				<button style="height: 30px;" class="button" onclick="decrementFontSize();setFontSize()">-</button>
-				<button style="height: 30px; font-weight: 400;" class="button" onclick="resetFontSize();setFontSize()">Reset</button>
+				<button class="button" onclick="incrementFontSize();setFontSize()">+</button> 
+				<button class="button" onclick="decrementFontSize();setFontSize()">-</button>
+				<button class="button" onclick="resetFontSize();setFontSize()">Reset</button>
 				<br>
 				<!--<h2 style="text-align: center; display:block">Navigation</h2>-->
 				<!--<span class="bb">Navigation</span>-->
+				<div id="desktop-mode">
+					<b>Page size</b> 
+					<button class="button" onclick="changePageWidth('small')">small</button> 
+					<button class="button" onclick="changePageWidth('medium')">Medium</button>
+					<button class="button" onclick="changePageWidth('large')">LARGE</button>
+				</div>
 				<hr>
 				<div id="desktop-mode">
 					Press <span class="bb">D</span> to change theme. <br>
@@ -448,11 +454,12 @@ function fullyLoaded(){
 	document.addEventListener('swiped-left', function(e) {
 		console.log(e.target); // element that was swiped
 		// console.log(e.detail); // event data { dir: 'left', xStart: 196, xEnd: 230, yStart: 196, yEnd: 4 }
-		if( !e.target.classList.contains("language-python") &&
+		if(window.innerWidth - e.detail.xStart < 10) document.querySelector('body').classList.add('is-navPanel-visible');
+		else if( !e.target.classList.contains("language-python") &&
 			!e.target.classList.contains("language-julia") &&
 			!e.target.classList.contains("token")  &&
 			!isClassNamePresent(e.target, "math-container")  ){
-			if(typeof(arrowRightPage) !="undefined") window.location.href = arrowRightPage;
+				if(typeof(arrowRightPage) !="undefined") window.location.href = arrowRightPage;
 		}
 	});
 

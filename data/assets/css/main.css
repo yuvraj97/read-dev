@@ -88,6 +88,9 @@ html {
 		font-size: 10pt;
 	}
 }
+html, body {
+    overscroll-behavior-x: none;
+}
 ol, ul {
 	list-style: none;
 }
@@ -338,8 +341,8 @@ table.alt tbody tr:first-child td {
 	-webkit-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
-	height: 20rem;
-	padding-bottom: 8rem;
+	height: 16rem;
+	padding-bottom: 7.5rem;
 	position: relative;
 	text-align: center;
 	z-index: 2;
@@ -358,15 +361,11 @@ table.alt tbody tr:first-child td {
 }
 @media screen and (max-width: 980px) {
 	#header {
-		height: 14rem;
-		padding-bottom: 4rem;
+		height: 13rem;
+		padding-bottom: 2rem;
 	}
 }
-@media screen and (max-width: 736px) {
-	#header {
-		padding-bottom: 3rem;
-	}
-}
+
 #nav {
 	display: -moz-flex;
 	display: -webkit-flex;
@@ -383,7 +382,7 @@ table.alt tbody tr:first-child td {
 	padding: 0 2rem 0 0;
 	position: relative;
 	width: calc(100% - 4rem);
-	max-width: 72rem;
+	max-width: 100%;
 	z-index: 2;
 	border-top-left-radius: 25px;
 	border-top-right-radius: 25px;
@@ -518,7 +517,7 @@ table.alt tbody tr:first-child td {
 	position: relative;
 	margin: 0 auto;
 	width: calc(100% - 4rem);
-	max-width: 72rem;
+	max-width: 100%;
 	z-index: 2;
 }
 #main > * {
@@ -530,7 +529,7 @@ table.alt tbody tr:first-child td {
 	border-top: 0;
 }
 #main > .post {
-	padding: 6rem 8rem 6rem 8rem;
+	padding: 4rem 4rem 4rem 4rem;
 	bottom: 0px;
 }
 @media screen and (max-width: 1280px) {
@@ -544,7 +543,7 @@ table.alt tbody tr:first-child td {
 	}
 }
 @media screen and (max-width: 736px) {
-	#main > * {
+	#main > .post {
 		padding: 2rem 2rem 0.1rem 2rem;
 	}
 }
@@ -1023,9 +1022,11 @@ summary span {
 	height: 18px;
 }
 
-.settings > button{
+.settings  button{
 	line-height: 0%;
 	padding: 10px;
+	font-weight: 400;
+	height: 30px;
 }
 
 .full-size-img {

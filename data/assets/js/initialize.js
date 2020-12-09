@@ -110,6 +110,37 @@ function changeThemeCSS(currentTheme){
 	}	
 }
 
+function setPageWidth(){
+	page_width = localStorage.getItem("page-width")
+	if(page_width  != null) {
+		document.getElementById('nav').style.maxWidth =  page_width
+		document.getElementById('main').style.maxWidth =  page_width
+	}
+	else {
+		localStorage.setItem("page-width", "100%"); 
+		document.getElementById('nav').style.maxWidth = "100%";
+		document.getElementById('main').style.maxWidth = "100%";
+		page_width = "100%"
+	}
+}
+
+function changePageWidth(size){
+	if(size=="large"){
+		document.getElementById('nav').style.maxWidth="100%"
+		document.getElementById('main').style.maxWidth="100%"
+		localStorage.setItem("page-width", "100%")
+	} else if(size=="medium"){
+		document.getElementById('nav').style.maxWidth="85rem"
+		document.getElementById('main').style.maxWidth="85rem"
+		localStorage.setItem("page-width", "85rem")
+	} else if(size=="small"){
+		document.getElementById('nav').style.maxWidth="75rem"
+		document.getElementById('main').style.maxWidth="75rem"
+		localStorage.setItem("page-width", "75rem")
+	}
+
+}
+
 function loadNavBar(){
 	nav = document.getElementById('nav')
 	ul = document.createElement('ul')
@@ -162,6 +193,7 @@ function initializeBody(){
   }
   loadInit(theme)
   loadNavBar();
+  setPageWidth();
   document.getElementById('wrapper').style.display = "block"
 }
 
