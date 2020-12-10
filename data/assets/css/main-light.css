@@ -49,7 +49,7 @@ table.alt tbody tr td {
 }
 @media screen and (orientation: portrait) {
     #wrapper > .bg {
-        background-image: linear-gradient(0deg, white 80%, #003d61 100%);
+        background-image: linear-gradient(0deg, white 85%, #003d61 101%);
     }
 }
 #nav {

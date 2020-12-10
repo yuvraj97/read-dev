@@ -32,7 +32,12 @@
 .fa-link:before {
 	content: "\f0c1";
 	font-size: 28px;
-	border-bottom: none;
+}
+
+@media screen and (max-width: 480px) {
+	.fa-link:before {
+		font-size: 24px;
+	}
 }
 
 /* @import url("https://fonts.googleapis.com/css?family=Merriweather:300,700,300italic,700italic|Source+Sans+Pro:900"); */
@@ -361,8 +366,9 @@ table.alt tbody tr:first-child td {
 }
 @media screen and (max-width: 980px) {
 	#header {
-		height: 13rem;
-		padding-bottom: 2rem;
+		height: 8rem;
+		padding-bottom: 0rem;
+		margin-bottom: 0.5rem;
 	}
 }
 
@@ -780,6 +786,12 @@ table.alt tbody tr:first-child td {
 	transform: none !important;
 }
 
+@media screen and (orientation: portrait) {
+	#header .logo.image img {
+		height: 60px;
+	}
+}
+
 /* *********************************************************************************************** */
 /* *********************************************************************************************** */
 /* **************************************	  CUSTOM	  *************************************** */
@@ -1056,4 +1068,11 @@ summary span {
 #desktop-mode > .bb {
 	text-align: center;
 	width: 4ch;
+}
+
+h1 a  {
+	border-bottom: none;
+}
+h1 a:hover  {
+	border-bottom: 2px dotted;
 }
