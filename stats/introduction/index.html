@@ -69,25 +69,70 @@ Goals of this chapter are: <br>
 After this chapter, we will be able to formulate a real-life situation in mathematics by selecting an appropriate statistical model.<br>
 <br>
 
-<h1 id="why">Why statistics? <a href="#why" aria-label="why-statistics"><i class="fa fa-link" aria-hidden="true"></i></a></h1>
-
-Now let's see where <i>statistics</i> is used in real-life.<br>
-<b>For example</b>, see this <a rel="noreferrer" target="_blank"  href="https://www.nytimes.com/interactive/2018/07/18/upshot/nike-vaporfly-shoe-strava.html">New York Times article</a>,
-here it is claimed that,
+<h1 id="what">What is statistics? <a href="#what" aria-label="why-statistics"><i class="fa fa-link" aria-hidden="true"></i></a></h1>
 <blockquote>
-	"These $250 running shoes will make you run faster"</i>
+	<b>Statistics</b> is the science of collecting, analyzing and interpreting <b>data</b>  in order to make decisions. <br>
+	<!-- Statistics is the science of making decisions under uncertainty. <br> -->
+	<!-- <div style="float: right;">- </div> -->
 </blockquote>
-They claim to have <b>500,000</b> data points  of running time for different shoes.<br>
-And what we are trying to understand here is that, Are <b>500,000</b> data points sufficient?
-What if there are <b>5Million</b> or say <b>50Million</b>!<br>
-<br>
 
-<b style="font-size: larger;">Data</b> comes from a <b>random process</b>,
+<b>For Example</b> <br>
+Say that you jog daily morning and now you plan to record your jogging time. <br>
+After \(10\) days your records are <br>
+<span class="bb">\(25\) min</span>, <span class="bb">\(30\) min</span>, <span class="bb">\(35\) min</span>,
+<span class="bb">\(20\) min</span>, <span class="bb">\(25\) min</span>, <span class="bb">\(40\) min</span>,
+<span class="bb">\(30\) min</span>, <span class="bb">\(30\) min</span>, <span class="bb">\(25\) min</span>,
+<span class="bb">\(40\) min</span> <br>
+Now You ask, <br>
+
+	<h4> &bull; What is the maximum jogging time?</h4>
+	<blockquote class="sidebar">
+		We can see that the maximum jogging time is <span class="bb">\(40\) min</span>, congrats you got it
+		this is <b>statistics</b>
+	</blockquote>
+
+	<h4> &bull; What is the minimum jogging time?</h4>
+	<blockquote class="sidebar">
+		We can see that the maximum jogging time is <span class="bb">\(20\) min</span>, congrats you got it
+		this is <b>statistics</b>
+	</blockquote>
+
+	<h4> &bull; What is the average jogging time?</h4>
+	<blockquote class="sidebar">
+		Average jogging time is
+		\(\frac{25   +   30   +   35   +   20   +   25   +   40   +   30   +   30   +   25   +   40}{10}=\)
+		<span class="bb">\(30\) min</span>, congrats you got it
+		this is <b>statistics</b>
+	</blockquote>
+	<br>
+
+	<details>
+		<summary><i><span style="text-align: center;" class="bb">What is Statistics (by Sir Michael I. Jordan)</span></i></summary>
+		<blockquote style="text-align: center;" class="sidebar">
+			<iframe width="560" height="315" src="https://www.youtube.com/embed/AQUAPiHahVY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+		</blockquote>
+	</details>
+
+<br>
+Let's see an example where <i>statistics</i> is used in real-life.<br>
+See this <a rel="noreferrer" target="_blank"  href="https://www.nytimes.com/interactive/2018/07/18/upshot/nike-vaporfly-shoe-strava.html">New York Times article</a>,
+here it is claimed that,
+<blockquote class="sidebar">
+	"These \(\$250\) running shoes will make you run faster"
+</blockquote>
+They claim to have <b>\(500,000\)</b> data points  of running time for different shoes.<br>
+And what we are trying to understand here is that, Are <b>\(500,000\)</b> data points sufficient?
+What if there are <b>5Million</b> or say <b>50Million</b> data points!<br>
+
+
+<blockquote class="noborder">
+<b style="font-size: larger;">Data</b> comes from a <b>random process</b>. <br>
 They <b>aren't</b> just a <i>sequence of numbers</i>,
 and <span title="Here we are talking about our Data"><u>those</u></span>
  numbers are representative of that <b>random process</b>. <br>
+</blockquote>
 The goal of statistics is to <span title="Extrapolation is the process of finding a value outside a data set. It could even be said that it helps predict the future!"><u>extrapolate</u></span> from a finite number of data to what we can get if we had an \(\infty\) amount of observation. If we have an \(\infty\) amount of data we can describe a random process (but there still be some randomness), and this process helps us to make a prediction.<br>
-To understand randomness, we need <b><i>Probability</i></b>(it's also prerequisite for <b>Statistics</b>).<br>
+To understand randomness, we need <b><i>Probability</i>.</b>.<br>
 <br>
 
 
@@ -95,33 +140,64 @@ To understand randomness, we need <b><i>Probability</i></b>(it's also prerequisi
 
 <h1 id="probability">Probability <a href="#probability" aria-label="probability"><i class="fa fa-link" aria-hidden="true"></i></a></h1>
 <span title="In probability"><u>Here</u></span>, we have a description of a <b>random process</b> and we are asked about the outcome from that random process, like <b>expectation, probability distribution, etc</b>.<br>
+
 Now the <b>question</b> is where does <b>Statistics</b> fit in all of this<b>?</b>.<br>
 We don't need statistics to understand that, <i>a fair die has \(\frac{1}{6}\) chance to outcome a 1</i>
 OR <i>a fair coin has \(\frac{1}{2}\) chance to outcome a heads</i>.<br>
-<blockquote>
+<blockquote class="noborder">
 <b>But</b> what if we don't know about that <b>random process</b>, then we need <b>statistics</b> to figure it out.
 </blockquote>
 What if the coin isn't fair?<br>
-We flip a coin, collect the number of <b>Heads</b> and <b>Tails</b> and then we would try to see that probability is converging to maybe 1/2.
-<br><br>
+We flip a coin, collect the number of <b>Heads</b> and <b>Tails</b> and calculate proportion of <b>Heads</b>  and see that is probability converging 1/2.<br>
+<br>
+<!-- <h2>Randomness</h2> -->
 Sometimes there is <b>real</b> randomness like a biased coin, measurement error,  etc.<br>
+<b>For Example</b> <br>
+&bull; Flipping a coin
+<blockquote class="sidebar">
+	When we flip a coin then every flip in itself is random, coins had no freewill to land either <b>Heads</b> or <b>Tails</b>
+</blockquote>
+&bull; Measurement Error
+<blockquote class="sidebar">
+	No instrument is perfect, every instrument have some error, and this error is completely random, an instrument doesn't decides how much error it should produce it's just random.
+</blockquote><br>
+
 Sometimes there is <b>no </b>randomness, this is where most of the randomness comes from,<br>
-<blockquote class="noborder">
-	<b>Example:</b> <br>
+<b>For Example</b> <br>
+<blockquote class="sidebar">
 	Say we have \(4\) types of food "<b>Pizza</b>","<b>Pasta</b>", "<b>Hamburger</b>" and "<b>Rice</b>". <br>
 	We want to predict a person's favorite food among these \(4\). <br>
-	To achieve it we want some parameters like their <b>Age</b>, <b>Gender</b>, <b>Locality</b>, etc. <br>
-	There are soo many parameters we can't even think about, so we <b>can't</b> tell their favorite food with \(100\%\) certainty. <br>
+
+	<blockquote class="noborder">
+		A single person's preference is not random, for him/her self.
+	</blockquote>
+	<!-- <br> -->
+	<!-- <blockquote class="noborder"> -->
+	There is only one food which is your most favorite, and if I ask you about your favorite food 100 times, your answer will not change. <br>
+	<i>But for a statistician each person's favorite food is random.</i> <br>
+	<!-- </blockquote> -->
+	<br>
+
+	In order to predict a person's favorite food we want some parameters like their <b>Age</b>, <b>Gender</b>, <b>Locality</b>, etc. <br>
+	There are soo many parameters we can't even think about, so we <b>can't</b> tell their favorite food with \(100\%\) certainty, there will be some randomness. <br>
 	So we pick parameters that we can collect and based on them we can give our prediction.
-</blockquote>
-So there is a huge component that we <b>don't understand</b>. <br>
-When we talk about genes we are trying to predict personalized medicines based on gene profiles. Gene profile tells a lot about some disease but not everything. So there are things that we don't understand, it's just not accessible to us.<br>
+	<blockquote class="noborder">
+		So there is a huge component that we <b>do not understand</b>. <br>
+	</blockquote>
+</blockquote><br>
+
+
+When we talk about genes we are try to predict personalized medicines based on gene profiles. Gene profile tells a lot about some disease but not everything. So there are things that we don't understand, it's just not accessible to us.<br>
 <br>
 
 <h1 id="modeling">Statistical Modeling <a href="#modeling" aria-label="statistical-modeling"><i class="fa fa-link" aria-hidden="true"></i></a></h1>
 What will we do when we encounter a Complicated situation? <br>
 We split the Complicated process into two parts, First is a <b>simple process</b> that we are able to understand, about the process, and the other one is <b>Random Noise</b> that we are not able to understand.<br>
-<blockquote class="noborder">
+<blockquote>
+	<b>\(\text{Complicated Process} \equiv \text{Simple Process} + \underbrace{\text{Random Noise}}_{\text{Modelling assumption}}\)</b>
+</blockquote>
+<b>Example</b>
+<blockquote class="sidebar">
 	Say we want to travel from <b>Tokyo</b> to <b>India</b>, so what should we do?<br>
 	We book our tickets, pack our bags, then head over to India.<br>
 	That is what we know, but what we don't know is.<br>
@@ -134,10 +210,7 @@ We split the Complicated process into two parts, First is a <b>simple process</b
 	These events are what we are referring to, as <b>Random Noise</b>.
 </blockquote>
 <blockquote>
-	<b>Complicated Process \(\equiv\) Simple Process + Random Noise</b>
-</blockquote>
-<blockquote>
-Good Modeling consists of choosing (plausible) simple process and noise distribution.
+Good Modeling consists of choosing (plausible) simple process and noise distribution(modelling assumption).
 </blockquote>
 <br>
 
@@ -147,13 +220,13 @@ Good Modeling consists of choosing (plausible) simple process and noise distribu
 <img id='dogma' class="full-size-img" src="/stats/img/dogma.png" alt="Central Dogma of Probability and Statistics">
 
 
-<span title="The image showed just above"><u>This</u></span> is the Central <span title="a principle laid down by an authority as incontrovertibly true."><u>Dogma</u></span> of probability and statistics, so it implies:
+<span title="The image showed just above"><u>This</u></span> is the Central <span title="a principle laid down by an authority as incontrovertibly true."><u>Dogma</u></span> of probability and statistics, it implies:
 <blockquote>
 We have a <b>truth</b>(Random Process) that generates <b>data</b> and <b>probability</b> will tell us what our data look like.
 </blockquote>
 For example:
-Say that we have our fair coin as <b>truth</b>, <span title="or say, we don't know the underlying pattern by which this sequence of heads and tails is emerging"><u>we don't know how it generates the sequence of heads and tails</u></span>, all we see is a (random) sequence of heads and tails.<br>
-If we don't know anything about the coin (like is it fair or not), <b>statistics</b> will be useful. Here we try to recover <b>truth</b> from <b>data</b>.<br>
+Say that we have our fair coin \((p=0.5)\) as <b>truth</b>, <span title="or say, we don't know the underlying pattern by which this sequence of heads and tails is emerging"><u>we don't know how it generates the sequence of heads and tails</u></span>, all we see is a (random) sequence of heads and tails.<br>
+If we don't know anything about the coin (like is it fair or not), then we use <b>statistics</b> to figure it out (with some level of confidence). <span title="In Statistics"><u>Here</u></span> we try to recover <b>truth</b> from the <b>data</b>.<br>
 <br>
 
 <h1 id="kiss_ex">The Kiss Example <a href="#kiss_ex" aria-label="kiss-example"><i class="fa fa-link" aria-hidden="true"></i></a></h1>
@@ -236,6 +309,13 @@ Now let's see some Simulation, choose your language of choice,<br>
 	<a href="/stats/lln/"><button id="next-btn" class="button">LLN & CLT&nbsp;&nbsp;&#x25B6;</button></a>
 </div><br>
 
+<blockquote>
+	Recommended Watching <br>
+	<ul>
+		<li></li>
+	</ul>
+</blockquote>
+
 <div id="modals-html"></div>
 
 					</section>
@@ -245,7 +325,7 @@ Now let's see some Simulation, choose your language of choice,<br>
 		<!-- Scripts -->
 		<script src="/data/assets/js/script.js"></script>
 		<script>cssLoaded()</script>
-		
+
 <script>d = new Date();end = d.getTime();console.log(end-start)</script>
 	</body>
 </html>
