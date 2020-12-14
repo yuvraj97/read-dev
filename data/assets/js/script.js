@@ -327,9 +327,9 @@ function fullyLoaded(){
 				<!--<span class="bb">Navigation</span>-->
 				<div id="desktop-mode">
 					<b>Page size</b> 
-					<button class="button" onclick="changePageWidth('small')">small</button> 
+					<button class="button" onclick="changePageWidth('small')">Small</button> 
 					<button class="button" onclick="changePageWidth('medium')">Medium</button>
-					<button class="button" onclick="changePageWidth('large')">LARGE</button>
+					<button class="button" onclick="changePageWidth('large')">Large</button>
 				</div>
 				<hr>
 				<div id="desktop-mode">
@@ -575,9 +575,9 @@ function auth_submitLoginForm(){
 	const password = loginForm['login-password'].value;
 	const loginButtonText = document.getElementById('login-button-text');
 	if(localStorage.getItem("quantmlTheme")=="light"){
-		var src = "/data/img/loading-login.gif";
+		var src = "/data/img/loading-login.svg";
 	} else {
-		var src = "/data/img-dark/loading-login.gif";
+		var src = "/data/img-dark/loading-login.svg";
 	}
 	loginButtonText.innerHTML = 'Login &nbsp; <img style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);" src='+ src +' alt="..." width="30px" height="30px"/>'
 	globalThis.fb_auth.signInWithEmailAndPassword(email, password).then(function(cred) {
@@ -613,9 +613,9 @@ function auth_resetPassword(){
 	// console.log("Forgot Password")
 	const forgotButtonText = document.getElementById('forgot-button-text');
 	if(localStorage.getItem("quantmlTheme")=="light"){
-		var src = "/data/img/loading-forgot.gif";
+		var src = "/data/img/loading-forgot.svg";
 	} else {
-		var src = "/data/img-dark/loading-forgot.gif";
+		var src = "/data/img-dark/loading-forgot.svg";
 	}
 	forgotButtonText.innerHTML = 'Forgot Password &nbsp; <img style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);" src='+ src +' alt="..." width="30px" height="30px"/>'
 	globalThis.fb_auth.sendPasswordResetEmail(email).then(function() {

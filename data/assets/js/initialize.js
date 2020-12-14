@@ -117,10 +117,9 @@ function setPageWidth(){
 		document.getElementById('main').style.maxWidth =  page_width
 	}
 	else {
-		localStorage.setItem("page-width", "100%"); 
-		document.getElementById('nav').style.maxWidth = "100%";
-		document.getElementById('main').style.maxWidth = "100%";
-		page_width = "100%"
+		localStorage.setItem("page-width", "72rem"); 
+		document.getElementById('nav').style.maxWidth = "72rem";
+		document.getElementById('main').style.maxWidth = "72rem";
 	}
 }
 
@@ -130,13 +129,13 @@ function changePageWidth(size){
 		document.getElementById('main').style.maxWidth="100%"
 		localStorage.setItem("page-width", "100%")
 	} else if(size=="medium"){
-		document.getElementById('nav').style.maxWidth="85rem"
-		document.getElementById('main').style.maxWidth="85rem"
-		localStorage.setItem("page-width", "85rem")
+		document.getElementById('nav').style.maxWidth="82rem"
+		document.getElementById('main').style.maxWidth="82rem"
+		localStorage.setItem("page-width", "82rem")
 	} else if(size=="small"){
-		document.getElementById('nav').style.maxWidth="75rem"
-		document.getElementById('main').style.maxWidth="75rem"
-		localStorage.setItem("page-width", "75rem")
+		document.getElementById('nav').style.maxWidth="72rem"
+		document.getElementById('main').style.maxWidth="72rem"
+		localStorage.setItem("page-width", "72rem")
 	}
 
 }

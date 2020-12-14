@@ -78,7 +78,7 @@ Remember that dogma we showed <a href="/stats/introduction/#dogma">previously.</
 	If you knew the <b>truth</b>(Random Process) you can generate how the observation looks like.
 </blockquote> -->
 
-<h1>Truth</h1>
+<h2>Truth</h2>
 Let's first define the underlying truth, say that currently the <b>room</b> is holding
 <span class="l1">\(40\%\)</span> of <span class="l1">Red balls</span> and
 <span class="l2">\(60\%\)</span> of <span class="l2">Blue balls</span>. <br>
@@ -89,7 +89,7 @@ Say we denote
 <span class="l2">Blue balls</span> by <span class="l2">"\(0\)"</span>. <br>
 <br>
 
-<h1>Probability</h1>
+<h2>Probability</h2>
 We use probability to generate our data using the <b>Truth</b> we defined above. <br>
 Now let's create a <b>Population</b>, in following scenario i.e. <i>"All the balls in the room"</i> . <br>
 (In this example we are creating \(5000\) balls and <span class="l1">\(40\%\)</span> of them are <span class="l1">Red balls</span> ).
@@ -111,7 +111,7 @@ Now we had filled the room with
 <span class="l2">\(60\%\)</span> of <span class="l2">Blue balls</span>. <br>
 <br>
 
-<h1>Observation</h1>
+<h2>Observation</h2>
 As we can see the room is full of \(5000\) balls, and we can't count all of them to find out the proportion of
 <span class="l1">Red balls</span> and
 <span class="l2">Blue balls</span>.
@@ -127,7 +127,7 @@ Now we got our <b>sample</b> of \(300\) balls. <br>
 These \(300\) observations (\(X_1,\cdots,X_{300}\)) are what we call <b>Random Variables</b>. <br>
 <br>
 
-<h1>Statistics</h1>
+<h2>Statistics</h2>
 So now we have our sample of \(300\) balls, let's start finding an estimate for
 <span class="l1">Red balls</span> proportion and
 <span class="l2">Blue balls</span> proportion. <br>
@@ -148,7 +148,7 @@ q_hat = 1- p_hat
 This is a single simulation, if we perform this simulation multiple times we can get some insights for the <b>distribution</b> of our <b>Random variable</b> \(\hat{p}\). <br>
 <br>
 
-<h2>Multiple simulations</h2>
+<h1>Multiple simulations</h1>
 <pre><code class="language-python line-numbers">import numpy as np
 import matplotlib.pyplot as plt
 np.random.seed(1)

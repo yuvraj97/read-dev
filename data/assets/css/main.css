@@ -145,15 +145,18 @@ h1 {
 h2 {
 	font-size: 30px;
 	margin: 0 0 0.5rem 0;
-	font-weight: 400;
+	/* font-weight: 400; */
 	line-height: 2rem;
 }
 h3 {
 	font-size: 25px;
+	font-weight: 400;
+	line-height: 1.5;
 }
 h4 {
-	font-weight: 400;
 	font-size: 20px;
+	font-weight: 400;
+	line-height: 1.5;
 }
 h5 {
 	font-size: 0.8rem;
@@ -180,7 +183,7 @@ hr {
 	border: 0;
 	border-bottom: solid 1px;
 	margin: 1rem 0;
-	width: 75%; 
+	width: 75%;
 	height: 0.5px;
 }
 hr.major {
@@ -463,7 +466,7 @@ table.alt tbody tr:first-child td {
 #nav ul.links li.python a img {
 	width: 75px;
 	height: 20px;
-	-webkit-transform: translateY(0.4rem); 
+	-webkit-transform: translateY(0.4rem);
 	transform: translateY(0.4rem)
 }
 #nav ul.links li.julia a {
@@ -705,7 +708,7 @@ table.alt tbody tr:first-child td {
 #navPanel ul.links li.python a img {
 	width: 75px;
 	height: 20px;
-	-webkit-transform: translateY(0.35rem); 
+	-webkit-transform: translateY(0.35rem);
 	transform: translateY(0.35rem)
 }
 #navPanel ul.links li.julia a {
@@ -742,7 +745,7 @@ table.alt tbody tr:first-child td {
 	right: 0;
 	text-align: center;
 	top: 0;
-	vertical-align: middle;
+	/* vertical-align: middle; */
 	width: 4rem;
 }
 #navPanel .close:before {
@@ -782,7 +785,7 @@ table.alt tbody tr:first-child td {
 		-webkit-transform: translateX(0);
 		-ms-transform: translateX(0);
 		transform: translateX(0);
-		box-shadow: 0 0 1.5rem 0 rgba(0, 0, 0, 0.2); 
+		box-shadow: 0 0 1.5rem 0 rgba(0, 0, 0, 0.2);
 		visibility: visible;
 	}
 }
@@ -814,22 +817,22 @@ table.alt tbody tr:first-child td {
 	width: 5px;
 	height: 5px;
 }
-  
+
   /* Track */
   ::-webkit-scrollbar-track {
 	border-radius: 20px;
   }
-   
+
   /* Handle */
   ::-webkit-scrollbar-thumb {
 	border-radius: 10px;
   }
-  
+
   @media screen and (max-width: 480px) {
 	::-webkit-scrollbar {
 		width: 2.5px;
 		height: 2.5px;
-	  }	
+	  }
   }
 /* CUSTOM SCROLLBAR [END] */
 
@@ -843,7 +846,7 @@ table.alt tbody tr:first-child td {
 	padding-left: 5px;
 	font-size:22px;
 	border-bottom: none;
-	/* -webkit-transform: translateY(-0.1rem); 
+	/* -webkit-transform: translateY(-0.1rem);
 	transform: translateY(-0.1rem); */
 
 }
@@ -884,6 +887,10 @@ summary span {
 	border-radius: 6px;
 	margin-top: 3px;
 }
+.bb.math{
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
 
 .statistics-cover {
 	width: 131.61px;
@@ -913,7 +920,7 @@ summary span {
 		width: 100%;
 		display: block;
 	}
-	
+
 	#login-btn-width{
 		margin-bottom: 3px !important;
 	}
@@ -946,17 +953,17 @@ summary span {
 .python-logo, .python-logo img {
 	width: 75px;
 	height: 20px;
-	-webkit-transform: translateY(0.2rem); 
+	-webkit-transform: translateY(0.2rem);
 	transform: translateY(0.2rem);
 	margin-left: 5px;
 	margin-right: 2px;
 	border-bottom: none;
  }
- 
+
 .julia-logo, .julia-logo img {
 	width: 53px;
 	height: 33px;
-	-webkit-transform: translateY(0.3rem); 
+	-webkit-transform: translateY(0.3rem);
 	transform: translateY(0.3rem);
 	border-bottom: none;
 }
@@ -1008,7 +1015,7 @@ summary span {
 	width: 100%;
 	cursor: pointer;
 	border-radius: 20px;
-	width: 100%; 
+	width: 100%;
 	border-bottom: none;
 }
 
@@ -1023,9 +1030,9 @@ summary span {
 	max-width: 100%;
 }
 
-.l1.border, 
-.l2.border, 
-.l3.border, 
+.l1.border,
+.l2.border,
+.l3.border,
 .l4.border{
 	margin-left: auto;
 	margin-right: auto;
@@ -1084,4 +1091,10 @@ h1 a  {
 }
 h1 a:hover  {
 	border-bottom: 2px dotted;
+}
+br.newline {
+  content: "";
+  margin: 1.5em;
+  display: block;
+  font-size: 24%;
 }

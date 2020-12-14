@@ -75,9 +75,9 @@ table.alt tbody tr td {
 #nav ul.links li.active {
     background-color: #fff;
 }
-#nav ul.links li.active a {
-    /* color: #000; */
-}
+/* #nav ul.links li.active a {
+    color: #000;
+} */
 #nav ul.links li.active a:hover {
     border-bottom-color: #fff;
 }

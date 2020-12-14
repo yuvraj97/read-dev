@@ -69,7 +69,7 @@ Goals of this chapter are: <br>
 After this chapter, we will be able to formulate a real-life situation in mathematics by selecting an appropriate statistical model.<br>
 <br>
 
-<h1 id="what">What is statistics? <a href="#what" aria-label="why-statistics"><i class="fa fa-link" aria-hidden="true"></i></a></h1>
+<h1 id="what">What is statistics? <a href="#what" aria-label="what-is-statistics"><i class="fa fa-link" aria-hidden="true"></i></a></h1>
 <blockquote>
 	<b>Statistics</b> is the science of collecting, analyzing and interpreting <b>data</b>  in order to make decisions. <br>
 	<!-- Statistics is the science of making decisions under uncertainty. <br> -->
@@ -113,7 +113,7 @@ Now You ask, <br>
 		</blockquote>
 	</details>
 
-<br>
+	<br>
 Let's see an example where <i>statistics</i> is used in real-life.<br>
 See this <a rel="noreferrer" target="_blank"  href="https://www.nytimes.com/interactive/2018/07/18/upshot/nike-vaporfly-shoe-strava.html">New York Times article</a>,
 here it is claimed that,
@@ -176,7 +176,7 @@ Sometimes there is <b>no </b>randomness, this is where most of the randomness co
 	There is only one food which is your most favorite, and if I ask you about your favorite food 100 times, your answer will not change. <br>
 	<i>But for a statistician each person's favorite food is random.</i> <br>
 	<!-- </blockquote> -->
-	<br>
+	<br class="newline">
 
 	In order to predict a person's favorite food we want some parameters like their <b>Age</b>, <b>Gender</b>, <b>Locality</b>, etc. <br>
 	There are soo many parameters we can't even think about, so we <b>can't</b> tell their favorite food with \(100\%\) certainty, there will be some randomness. <br>
@@ -190,7 +190,7 @@ Sometimes there is <b>no </b>randomness, this is where most of the randomness co
 When we talk about genes we are try to predict personalized medicines based on gene profiles. Gene profile tells a lot about some disease but not everything. So there are things that we don't understand, it's just not accessible to us.<br>
 <br>
 
-<h1 id="modeling">Statistical Modeling <a href="#modeling" aria-label="statistical-modeling"><i class="fa fa-link" aria-hidden="true"></i></a></h1>
+<h1 id="statistical-modeling">Statistical Modeling <a href="#statistical-modeling" aria-label="statistical-modeling"><i class="fa fa-link" aria-hidden="true"></i></a></h1>
 What will we do when we encounter a Complicated situation? <br>
 We split the Complicated process into two parts, First is a <b>simple process</b> that we are able to understand, about the process, and the other one is <b>Random Noise</b> that we are not able to understand.<br>
 <blockquote>
@@ -229,65 +229,107 @@ Say that we have our fair coin \((p=0.5)\) as <b>truth</b>, <span title="or say,
 If we don't know anything about the coin (like is it fair or not), then we use <b>statistics</b> to figure it out (with some level of confidence). <span title="In Statistics"><u>Here</u></span> we try to recover <b>truth</b> from the <b>data</b>.<br>
 <br>
 
-<h1 id="kiss_ex">The Kiss Example <a href="#kiss_ex" aria-label="kiss-example"><i class="fa fa-link" aria-hidden="true"></i></a></h1>
-Source: <a rel="noreferrer" target="_blank" href="https://www.nature.com/articles/421711a">https://www.nature.com/articles/421711a</a><br>
-So the question here is, <i>"Do people have a preference of turning their head to the right when kissing?"</i><br>
-According to the author, the study concludes:<br>
-
-<blockquote>A neonatal right-side preference makes a surprising romantic reappearance later in life.</blockquote>
-Data is very simple, a person goes out and records whether people turn their head to the left or right.<br>
+<h1 id="counting-balls-example">The Counting Balls Example<a href="#counting-balls-example" aria-label="counting-balls-example"><i class="fa fa-link" aria-hidden="true"></i></a></h1>
+Say we have a <b>room</b> full of <span class="l1">Red balls</span> and <span class="l2">Blue balls</span>. <br>
+We want to determine among <span class="l1">Red balls</span> and <span class="l2">Blue balls</span> which of them have higher proportion,
+But we won't be able to count all the balls in the room as there are too many of them. <br>
+So instead what we do is, we took a small sample of <b>balls</b> from that <b>room</b>, then find the proportion of <span class="l1">Red balls</span> and <span class="l2">Blue balls</span> in that <b>sample</b>
+and hope that proportion we just estimated is somewhat near the <b>True proportion</b>(for the whole room). <br>
+<br class="newline">
 So how can we tackle this problem?<br>
-Now if a person collected data and (say) 90% of them turn their head to the right, then it's an indication that peoples do have a preference of turning their head to the right.<br>
-But how to decide the <b>cutoff</b> (beyond which we can say 'Yes' people do have a preference of turning their head to the right)?<br>
-What if the data states that 51% of them turn their head to the right, then can we say it is an indication that peoples do have a preference of turning their head to the right?<br>
+Assume that our small sample have 90% of <span class="l1">Red balls</span>, then it's an indication that proportion of <span class="l1">Red balls</span> is higher then proportion of <span class="l2">Blue balls</span>.<br>
+But how to decide the <b>cutoff</b> (beyond which we can say 'Yes' proportion of <span class="l1">Red balls</span> is higher then proportion of <span class="l2">Blue balls</span>)?<br>
+What if the data states that in our sample 51% of the balls are <span class="l1">Red balls</span>, then can we say it is an indication that proportion of <span class="l1">Red balls</span> is higher then proportion of <span class="l2">Blue balls</span>?<br>
 
-What we want is to understand the true proportion of people turning there head to the right, in the entire population of the world.<br>
+What we want is to understand the true proportion of proportion of <span class="l1">Red balls</span> and <span class="l2">Blue balls</span>, in the entire room.<br>
 <br>
 
 <h1 id="statistical-experiment">Statistical experiment <a href="#statistical-experiment" aria-label="statistical-experiment"><i class="fa fa-link" aria-hidden="true"></i></a></h1>
-\(p\): Proportion of couples who turns their head to the right while kissing.<br>
-\(n\): Total number of observation (say 1 for RIGHT and 0 for LEFT)<br>
+Let, <br>
+\(p\): Proportion of <span class="l1">Red balls</span>.<br>
+\(n\): Total number of balls in our sample. <br>
 \(\hat{p}\): estimator of \(p\).<br>
-According to study \(n=124\) and \(80\) peoples turns their head to the right.<br>
-\[\hat{p}=\frac{80}{124}=64.5\%\]<br>
-64.5% seems to be \(\gt\)  50% but is it <b>significantly larger</b> then 50%?<br>
-<br>
-Say that we have <b>only 3 data points</b>.<br>
+Here we assign <span class="l1">\(1\)</span> for <span class="l1">Red balls</span> and <span class="l2">\(0\)</span> for <span class="l2">Blue balls</span><br>
+<blockquote class="sidebar">
+So if we denote \(i^{th}\) ball by \(B_i\) then, <br>
+\(\sum_{i=1}^{n}B_i=\) Total number of <span class="l1">Red balls</span> in our sample. <br>
+is \(\frac{1}{n}\sum_{i=1}^{n}B_i\) is the proportion of <span class="l1">Red balls</span> in our sample. <br>
+
+</blockquote>
+
+<!-- According to study \(n=124\) and \(80\) peoples turns their head to the right.<br> -->
+Say we took a sample of \(n=300\) balls and in that sample \(180\) balls are <span class="l1">Red</span> so,
+\[\hat{p}=\frac{180}{300}=60\%\]<br>
+60% seems to be \(\gt\)  50% but is it <b>significantly larger</b> then 50%?<br>
+<br class="newline">
+Say that we have <b>only 3 data points</b>.
 <ul>
-	<li>Will you convince if we have 3 Right (\(\hat{p}=100\%\))?</li>
-	<li>Will you convince if we have 2 Right(\(\hat{p}=66.66\%\))?</li>
+	<li>Will you convince if we have 3 <span class="l1">Red balls</span> (\(\hat{p}=100\%\))?</li>
+	<li>Will you convince if we have 2 <span class="l1">Red balls</span> (\(\hat{p}=66.66\%\))?</li>
 </ul>
 
-Intuitively, the question is \(n=3\) is too small \(n=124\) may be large enough, question is what is the right number for \(n\)?<br>
+So the question here we are asking is, how large  should be our sample size \((n)\). <br>
+\(n=3\) is too small \(n=300\) may be large enough, so what is the right number for \(n\)?<br>
 This question is important, <b>What your sample size should be?</b><br>
-
-Another way to present this problem is, for \(n=124\) What is the minimum number of couples that move their head to the right would we need to convince ourselves that p\(\gt\)50%? or p\(\gt\)63% or p\(\gt\)72 or ...<br>
+<br class="newline">
+We can also ask that, for \(n=300\) What is the minimum number of <span class="l1">Red balls</span> that we want to convince ourselves that proportion of <span class="l1">Red balls</span> is higher then proportion of <span class="l2">Blue balls</span><br>
 <br>
 
-<h1 id="kiss_ex_est">Estimator <a href="#kiss_ex_est" aria-label="estimator"><i class="fa fa-link" aria-hidden="true"></i></a></h1>
+<h1 id="counting-balls-estimator">Estimator <a href="#counting-balls-estimator" aria-label="counting-balls-estimator"><i class="fa fa-link" aria-hidden="true"></i></a></h1>
 <div class="math-container">
-	\[R_i=\left\{\begin{matrix}
-	1& \text{if }i^{th}\text{ turns to right}\\
-	0& \text{if }i^{th}\text{ did not turns to right}
+	\[B_i=\left\{\begin{matrix}
+	1& \text{if the }i^{th}\text{ ball is Red}\\
+	0& \text{if the }i^{th}\text{ ball is Blue}
 	\end{matrix}\right. ;\quad i=1,...,n\]
 </div>
-\[\hat{p}=\overline{R}_n=\frac{1}{n}\sum^n_{i=1}R_i\]
+\[\hat{p}=\overline{B}_n=\frac{1}{n}\sum^n_{i=1}B_i\]
 
-\(\sum^n_{i=1}R_i\) is the number of \(1's\) so if I have \(80\ 1's\) in the sequence then \(\sum^n_{i=1}R_i=80\)<br>
-\(\hat{p}\) is <b>Sample average \(\overline{R}_n\)</b><br>
+<!-- \(\sum^n_{i=1}B_i\) is the number of \(1's\) so if I have \(80\ 1's\) in the sequence then \(\sum^n_{i=1}B_i=80\)<br> -->
+\(\hat{p}\) is <b>Sample average</b> \(\overline{B}_n\) it's average over our sample.<br>
 
-Ok we got an estimator but what is it's <b>Accuracy</b>, how good is it, what does the accuracy even <b>mean? </b>
-Accuracy of our estimator \(\hat{p}\) depends on <b>true</b> \(p\) which we don't even know.
-We want to know how close is \(\hat{p}\)  to <b>true</b> \(p\) this is where <b>randomness</b> comes into play.
-We think of \(R_i\) as random variables so that \(\hat{p}\) is also a random variable.
-Now this random variable (\(\hat{p}\)) will tend to take some values \(\in [0,1]\).<br>
+Ok we got an estimator but what is it's <b>Accuracy</b>?, but what does the accuracy even <b>mean? </b>. <br>
+Accuracy of our estimator \(\hat{p}\) depends on sample size \(n\), \(3\) balls aren't enough but \(300\) balls might be enough.
+Accuracy of \(\hat{p}\) is also depends on <b>true</b> \(p\) <b>which we don't even know</b>.
+We want to know how close is \(\hat{p}\) to the <b>true</b> \(p\) (this is where <b>randomness</b> comes into play). <br>
+We think of \(B_i\) as random variables so \(\hat{p}\) is also a random variable, \(\hat{p}\) will tend to take some values \(\in [0,1]\).<br>
 <br>
 
-<h1 id="assumptions">Modeling assumptions <a href="#assumptions" aria-label="assumptions"><i class="fa fa-link" aria-hidden="true"></i></a></h1>
-Coming up with a model that consists of making assumptions on what those \(R_i\)'s are. So here are the assumptions that we made:<br>
-\(1.\quad\) Each \(R_i\) is a random variable.<br>
-\(2.\quad\) Each \(R_i\) is a Bernoulli(we will see it later) with parameter \(p\)<br>
-\(3.\quad\) \(R_1,R_2,...,R_n\) are mutually independent<br>
+<h1 id="modeling-assumptions">Modeling assumptions <a href="#modeling-assumptions" aria-label="modeling-assumptions"><i class="fa fa-link" aria-hidden="true"></i></a></h1>
+Coming up with a model consists of making assumptions on what those \(B_i\)'s are. So here are the assumptions that we made:<br>
+\(1.\quad\) Each \(B_i\) is a random variable.<br>
+<blockquote class="sidebar">
+	Each ball draw is random, the ball can be a <span class="l1">Red balls</span>(with probability \(p\)) or a <span class="l2">Blue balls</span>(with probability \(1-p\)). <br>
+	So every \(B_i\) is either <span class="l1">1</span>(with probability \(p\)) or <span class="l2">0</span>(with probability \(1-p\)), so \(B_i\) is a random variable.<br>
+</blockquote>
+<br class="newline">
+\(2.\quad\) Each \(B_i\) is a <a href="https://en.wikipedia.org/wiki/Bernoulli_distribution">Bernoulli</a> random variable with parameter \(p\)<br>
+<blockquote class="sidebar">
+	Every \(B_i\) is either <span class="l1">1</span>(with probability \(p\)) or <span class="l2">0</span>(with probability \(1-p\)).
+	<div class="math-container">
+		\[B_i=\left\{\begin{matrix}
+		1& \text{if the }i^{th}\text{ ball is Red}\\
+		0& \text{if the }i^{th}\text{ ball is Blue}
+		\end{matrix}\right. ;\quad i=1,...,n\]
+	</div>
+	So \(B_i\) has no choice but to be a <a href="https://en.wikipedia.org/wiki/Bernoulli_distribution">Bernoulli</a> random variable. <br>
+	\[B_i\sim\text{Ber}(p)\]
+	
+	But wait there's a hidden assumption, <br>
+	&bull; \(p\) is same for every draw
+	<blockquote class="sidebar">
+		It means for every draw, probability of drawing a <span class="l1">Red balls</span> is \(p\) and 
+		probability of drawing a <span class="l2">Blue balls</span> is \(1-p\). <br>
+		So every Random variable \(B_i\) is <b>Identically distributed</b>.
+	</blockquote>
+</blockquote>
+<br class="newline">
+\(3.\quad\) \(B_1,B_2,...,B_n\) are mutually independent<br>
+<blockquote class="sidebar">
+	Every draw is an independent draw. <br>
+	If we draw a <span class="l1">Red balls</span> then it gives us no information about our next draw, proportion of drawing a <span class="l1">Red balls</span> is still \(p\). <br>
+	So we can say that \(B_1,B_2,...,B_n\) are mutually independent<br>
+</blockquote>
+<br>
 
 <blockquote class="noborder align-center">
 Now let's see some Simulation, choose your language of choice,<br>
@@ -309,13 +351,38 @@ Now let's see some Simulation, choose your language of choice,<br>
 	<a href="/stats/lln/"><button id="next-btn" class="button">LLN & CLT&nbsp;&nbsp;&#x25B6;</button></a>
 </div><br>
 
-<blockquote>
-	Recommended Watching <br>
-	<ul>
-		<li></li>
-	</ul>
-</blockquote>
+<blockquote class="sidebar" style="padding-bottom: 0%;">
+	<h3>Recommended Watching</h3>
+	<details style="margin-top: 10px; margin-bottom: 10px;">
+		<summary><i><span style="text-align: center;" class="bb">What is Statistics</span> (by ma'am Cassie Kozyrkov)</i></summary>
+		<div style="text-align: center; margin-top:10px;">
+			<iframe width="560" height="315" src="https://www.youtube.com/embed/OJt-k9h9pmk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+		</div>
+	</details>
 
+	<details style="margin-bottom: 10px;">
+		<summary><i><span style="text-align: center;" class="bb">Analytics v/s Statistics</span> (by ma'am Cassie Kozyrkov)</i></summary>
+		<div style="text-align: center; margin-top:10px;">
+			<iframe width="560" height="315" src="https://www.youtube.com/embed/YsrPImZyisI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+		</div>
+	</details>
+
+	<details style="margin-bottom: 10px;">
+		<summary><i><span style="text-align: center;" class="bb">Are you Bayesian or Frequentist?</span> (by ma'am Cassie Kozyrkov)</i></summary>
+		<div style="text-align: center; margin-top:10px;">
+			<iframe width="560" height="315" src="https://www.youtube.com/embed/GEFxFVESQXc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>		</div>
+	</details>
+	
+	<details>
+		<summary><i><span style="text-align: center;" class="bb">Why Statistics</span> (by Sir Eric Newburger)</i></summary>
+		<div style="text-align: center; margin-top:10px;">
+			<iframe width="560" height="315" src="https://www.youtube.com/embed/yxXsPc0bphQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+		</div>
+	</details>
+	
+<br>
+</blockquote>
+<br><br>
 <div id="modals-html"></div>
 
 					</section>
