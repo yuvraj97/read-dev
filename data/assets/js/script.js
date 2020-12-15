@@ -222,15 +222,53 @@ function loadFBThenKatex(){
 
 function isClassNamePresent(node, className){
 	while(node.localName!="body"){
+		// console.log(node)
+		var isClassPresent = false
+		className.forEach(function(element, index){
+			if(node.classList.contains(element)){
+				// console.log(node.classList, "CONTAINS", element)
+				isClassPresent = true
+				return
+			}
+		})
+		if(isClassPresent) return true;
 		node = node.parentElement
-		if(node.classList.contains(className)) {
-			return true
-		}
 	}
 	return false
 
 }
+
+function createImageModals(){
+	document.addEventListener('click',function(e){
+		console.log(e.target)
+		if(e.target.id=="image-modal"){
+			setDisplay('image-modal', 'none')
+		}
+	})
+	document.addEventListener("keydown", function(evt) {
+		if(evt.code == "Escape") {
+			setDisplay('image-modal', 'none')
+		}
+	})
+	document.querySelectorAll('.full-size-img').forEach(function(element,index){
+		element.addEventListener('click', function(e) {
+			div = document.createElement('div')
+			div.id = 'image-modal'
+			div.setAttribute('class', 'modal')
+			div.innerHTML = `
+			<div class="image-content animate" style="width:${element.width}px; height:${element.height}px;">
+				<!--<a class="close" style="float: right; padding-top: 0%; padding-bottom: 0%;" onclick="setDisplay('image-modal', 'none')">X</a>-->
+				<img class="full-size-img" src="${element.src}" alt="">
+			</div>`	
+			div.style.display="block"
+			document.getElementById("paragraph-content").appendChild(div);  
+			// something forgot--- leave it
+		});	
+	});
+}
+
 function fullyLoaded(){
+	createImageModals()
 	// Set Next-Prev btn width
 	prev = document.querySelectorAll('#prev-btn')
 	next = document.querySelectorAll('#next-btn')
@@ -353,7 +391,7 @@ function fullyLoaded(){
 	var modal = [
 			document.getElementById("login-model"),
 			document.getElementById("password-reset-link-sent-model"),
-			document.getElementById("settings-model")
+			document.getElementById("settings-model"),
 		];
 
 	clearModelOnBackgroundClick(modal);
@@ -452,26 +490,28 @@ function fullyLoaded(){
 	})
 
 	document.addEventListener('swiped-left', function(e) {
-		console.log(e.target); // element that was swiped
+		// console.log(e.target); // element that was swiped
 		// console.log(e.detail); // event data { dir: 'left', xStart: 196, xEnd: 230, yStart: 196, yEnd: 4 }
 		if(window.innerWidth - e.detail.xStart < 10) document.querySelector('body').classList.add('is-navPanel-visible');
 		else if( !e.target.classList.contains("language-python") &&
 			!e.target.classList.contains("language-julia") &&
 			!e.target.classList.contains("token")  &&
-			!isClassNamePresent(e.target, "math-container")  ){
+			!isClassNamePresent(e.target, ["math-container", "modal", "code-toolbar"])  ){
 				if(typeof(arrowRightPage) !="undefined") window.location.href = arrowRightPage;
-		}
+				// console.log("GO LEFT")
+			}
 	});
 
 	document.addEventListener('swiped-right', function(e) {
-		console.log(e.target); // element that was swiped
+		// console.log(e.target); // element that was swiped
 		// console.log(e.detail); // event data { dir: 'left', xStart: 196, xEnd: 230, yStart: 196, yEnd: 4 }
 		if( !e.target.classList.contains("language-python") &&
 			!e.target.classList.contains("language-julia") &&
 			!e.target.classList.contains("token")  &&
-			!isClassNamePresent(e.target, "math-container") ){
+			!isClassNamePresent(e.target,  ["math-container", "modal", "code-toolbar"]) ){
                 if(typeof(arrowLeftPage) !="undefined") window.location.href = arrowLeftPage;
-		}
+				// console.log("GO RIGHT")
+			}
 	});
 
 	if(notDesktop) {

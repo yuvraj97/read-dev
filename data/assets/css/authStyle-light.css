@@ -81,6 +81,11 @@ input {
   border: 1px solid #888;
 }
 
+.image-content > img {
+  border-radius: 10px;
+	box-shadow: .05rem .05rem 0.5rem 0.1rem rgb(50, 50, 50);
+}
+
 /* The Close Button (x) */
 .close {
   background-color: rgb(246, 248, 250);
