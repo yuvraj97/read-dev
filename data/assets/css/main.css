@@ -523,6 +523,12 @@ table.alt tbody tr:first-child td {
 	outline: none;
 	padding: 0 1.2rem;
 }
+
+#nav ul.links li a:hover {
+    color: rgb(255, 255, 255, 0.90) !important;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
 #nav ul.links li.active {
 	padding-left: 1rem;
 	padding-right: 1rem;

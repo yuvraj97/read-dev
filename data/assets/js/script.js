@@ -267,7 +267,20 @@ function createImageModals(){
 	});
 }
 
+function paginationButton(){
+	btnContainer = document.querySelectorAll('#btn-container')
+	if(typeof(nextPage) !="undefined" && typeof(prevPage) !="undefined" ){
+		btnContainer.forEach(function(element, index){
+			element.innerHTML=`	
+			<a href="${prevPage}"><button id="prev-btn" class="button">&#x25C0;&nbsp;&nbsp; Introduction</button></a>
+			<a href="${nextPage}"><button id="next-btn" class="button"  style="float: right;">Central Limit Theorem&nbsp;&nbsp;&#x25B6;</button></a>
+			`
+		})
+	}
+}
+
 function fullyLoaded(){
+	paginationButton()
 	createImageModals()
 	// Set Next-Prev btn width
 	prev = document.querySelectorAll('#prev-btn')
