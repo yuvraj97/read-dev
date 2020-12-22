@@ -3,8 +3,10 @@
 
 	<head>
 		<script>
-			var nextPage = "/stats/hoeffdings-inequality/";
+			var nextPage = "/stats/clt/";
 			var prevPage = "/stats/introduction/"
+			var nextPageTitle = "Central Limit Theorem";
+			var prevPageTitle = "Introduction"
 			var arrowLeftPage = "/stats/introduction/julia/"
 			var arrowRightPage = "/stats/lln/python/"
 		</script>
@@ -45,8 +47,8 @@
 						<ul class="links">
 							<li class="cover"><a href="/stats/"><img src="/data/img/STATISTICS-cover.png" alt="STATISTICS"></a></li>
 							<li class="active title">Weak Law Of Large Numbers</li>
-							<li class="python"><a href="python/"><img src="/data/img/python.png" alt="Python"></a></li>
-							<li class="julia"><a href="julia/"><img src="/data/img/julia.png" alt="Julia"></a></li>
+							<li class="python"><a href="/stats/lln/python/"><img src="/data/img/python.png" alt="Python"></a></li>
+							<li class="julia"><a href="/stats/lln/julia/"><img src="/data/img/julia.png" alt="Julia"></a></li>
 						</ul>
 					</nav>
 
@@ -62,7 +64,7 @@
 
 <h1 id="weak-law-of-large-numbers">Weak Law of Large Numbers<a href="#weak-law-of-large-numbers" aria-label="weak-law-of-large-numbers"><i class="fa fa-link" aria-hidden="true"></i></a></h1>
 <blockquote class="noborder align-center">
-	<a target="=_blank" href="https://app.quantml.org/?ch=LLN&dist=Normal+distribution">
+	<a target="=_blank" href="https://app.quantml.org/stats/?ch=LLN&dist=Normal+distribution">
 		Visualize Law of Large Numbers <img src="/data/img/app.png" alt="launch" width="30px" height="30px">
 	</a>
 </blockquote>
@@ -199,6 +201,7 @@ So according to Weak Law of Large Numbers if we increases the number of students
 <b>Note:</b> \(\text{ a.s.}\) implies \(\mathbb{P}\)
 </blockquote><br>
 
+<span id="how-fast"></span>
 Ok now we know that the Law of large numbers says if we have large enough Sample size then our estimator \(\overline{X}_n\) and real parameter \(\mu\) are close <span class="bb">\(\overline{X}_n \xrightarrow [n\to \infty] {} \mu\)</span>, but how much close, we don't know! We don't know that how fast(at what rate) \(\overline{X}_n\) approaches to \(\mu\). <br>
 <br>
 We can think it as:<br>
@@ -231,44 +234,18 @@ Even if you got \(1000\) \(\text{Heads}\) in a row, but the probability of next 
 
 <b style="font-size: large;">But why exactly is above statement False?</b> <br>
 Because <b>Law of Large Numbers</b> says <b>as \(n\to\infty\) our Sample mean \(\to\) True mean</b>. <br>
-So even if we got \(1000\) \(\text{Heads}\) in a row, there is still \(\infty\) tosses are left to make our <b>Sample mean</b> a <b>True mean</b>. <br>
+So even if we got \(1000\) \(\text{Heads}\) in a row, there is still \(\infty\) tosses are left to make our <b>Sample mean</b> a <b>True mean</b>.<br>
 
 
-
-
-
-
-
-<br><br>
-<!-- Let's see what <b>CLT</b> says about \(f(n)\)<br>
-<br><br>
-
-<h2 id="clt">Central Limit Theorem(CLT)<a href="#clt"><i class="fa fa-link" aria-hidden="true"></i></a></h2>
-Say we have \(n\) observations \(X,X_1,X_2,X_3,....,X_n\) be \(i.i.d\) random varibles,<br>
-<span class="bb"> \(\mathbb{E}[X]=\mu\)</span>  and <span class="bb"> \(Var(X)=\sigma^2\) </span><br>
-\[\sqrt{n}\, \frac{\overline{X}_n-\mu }{\sigma } \xrightarrow [n\to \infty ]{(d)} \mathcal{N}(0,1) \]<br>
-\(\mathcal{N}(0,1) \) is <a rel="noreferrer" target="_blank"  href="summary/gauss.html#popup">Gaussian  distribution</a> with mean = \(0\) and variance = \(1\),<br>
-\((d)\): it shows <b>convergence in distribution</b><br>
-<br>
-<b>We will come to it later for now, we only need to know this formula.</b><br>
+<blockquote class="noborder align-center">
+	Now let's see some Simulation, choose your language of choice,<br>
+	<a href="/stats/lln/python/"><img src="/data/img/python.png" alt="Python" width="75px" height="20px"></a> &nbsp;,&nbsp;
+	<a href="/stats/lln/julia/"><img src="/data/img/julia.png" alt="Julia" width="53px" height="33px"></a>
+	<br>
+	<a target="=_blank" href="https://app.quantml.org/stats/?ch=LLN&dist=Normal+distribution">Launch Statistics App <img src="/data/img/app.png" alt="launch" width="30px" height="30px"></a>
+</blockquote>
 <br>
 
-If we draw a standard gaussian  \(\mathcal{N}(0,1) \) (say) \(Z\) then with probability \(0.9974\quad\)  \(Z\in [-3,3]\)<br>
-\(P(-3\leq Z\leq3)=0.9974\quad\) we can calculate it <a rel="noreferrer" target="_blank" href="https://www.mathportal.org/calculators/statistics-calculator/normal-distribution-calculator.php">here</a><br>
-So \(Z\) is almost in between -3 and 3<br>
-And we know that :<br>
-\[\sqrt{n}\, \frac{\overline{X}_n-\mu }{\sigma } \xrightarrow [n\to \infty ]{(d)} \mathcal{N}(0,1) \]<br>
-And we say that \(-3\leq\mathcal{N}(0,1)\leq3\)<br>
-So:<br>
-\[
--3\leq \sqrt{n}\, \frac{\overline{X}_n-\mu }{\sigma }  \leq3 \\
-\Rightarrow  \left|\sqrt{n}\, \frac{\overline{X}_n-\mu }{\sigma } \right| \leq 3	\\
-\Rightarrow \left| \overline{X}_n-\mu  \right| \leq \frac{3\sigma}{\sqrt{n}}
-\]<br>
-<span id="sqrt-n">So according to CLT \(f(n)=\sqrt{n}\)</span><br>
-<blockquote>
-<b>Rule of thumb to apply CLT</b>: when \(n\geq 30\) then \(\sqrt{n}\, \frac{\overline{X}_n-\mu }{\sigma } \xrightarrow []{(d)} \mathcal{N}(0,1) \)
-</blockquote> -->
 
 
 <div class="slack-discuss" onclick=" window.open('https://join.slack.com/t/quantml-org/shared_invite/zt-jffw86bo-6M260iyt1q2MgBma9elewg','_blank','noopener')">
@@ -277,9 +254,9 @@ So:<br>
 
 <div id="btn-container">
 	<a href="/stats/introduction/"><button id="prev-btn" class="button">&#x25C0;&nbsp;&nbsp; Introduction</button></a>
-	<a href="/stats/hoeffdings-inequality/"><button id="next-btn" class="button">Hoeffdings Inequality&nbsp;&nbsp;&#x25B6;</button></a>
+	<a href="/stats/clt/"><button id="next-btn" class="button">Central Limit Theorem&nbsp;&nbsp;&#x25B6;</button></a>
 </div><br>
-
+<br>
 <blockquote class="sidebar" style="padding-bottom: 0%;">
 	<h3>Recommended Watching</h3>
 	<details style="margin-top: 10px; margin-bottom: 10px;">
