@@ -277,6 +277,15 @@ function paginationButton(){
 			`
 		})
 	}
+	btnContainer = document.querySelectorAll('#btn-container-top')
+	if(typeof(nextPage) !="undefined" && typeof(prevPage) !="undefined" ){
+		btnContainer.forEach(function(element, index){
+			element.innerHTML=`	
+			<a href="${prevPage}"><button id="prev-btn" class="button">&#x25C0;&nbsp;&nbsp; ${prevPageTitle}</button></a>
+			<a href="${nextPage}"><button id="next-btn" class="button"  style="float: right;">${nextPageTitle}&nbsp;&nbsp;&#x25B6;</button></a>
+			`
+		})
+	}
 }
 
 function fullyLoaded(){

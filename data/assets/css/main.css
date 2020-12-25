@@ -450,6 +450,9 @@ table.alt tbody tr:first-child td {
 	background-color: inherit;
 	cursor: default;
 } */
+#nav ul.links li.cover a {
+	border-bottom: none;
+}
 #nav ul.links li.cover a img {
 	width: 131.61px;
 	height: 24px;
@@ -461,6 +464,7 @@ table.alt tbody tr:first-child td {
 	padding: 0 1rem;
 }
 #nav ul.links li.python a {
+	border-bottom: none;
 	padding: 0 1rem;
 }
 #nav ul.links li.python img,
@@ -476,6 +480,7 @@ table.alt tbody tr:first-child td {
 	}
 }
 #nav ul.links li.julia a {
+	border-bottom: none;
 	padding: 0 1rem;
 }
 #nav ul.links li.julia img,
