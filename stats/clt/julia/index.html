@@ -94,7 +94,7 @@ So \(X_1,\cdots,X_{50}\sim\text{Unif}[165, 185]\) <br>
 We use probability to generate data using the <b>Truth</b> we defined above.<br>
 Now let's create the population of all \(1000\) students. <br>
 
-<pre data-start="1"><code class="language-julia line-numbers">using Plots, Distributions, Random, Statistics
+<pre data-start="1"><code class="language-julia line-numbers">using Plots, Distributions, Random, Statistics, StatsBase
 
 N = 1000        # population size
 a = 165 		# Left limit of Unif[a, b]
@@ -128,7 +128,7 @@ To achieve it we need to perform this simulation multiple times and plot all sam
 <h1>Multiple simulations <img src="/data/img/julia.png" alt="Julia" width="53px" height="33px"></h1>
 The <b>truth</b> is that every student's height follows the <a href="https://en.wikipedia.org/wiki/Continuous_uniform_distribution">Uniform distribution</a> \(\text{Unif}[165, 185]\), so let's start with creating population. <br>
 
-<pre data-start="1"><code class="language-julia line-numbers">using Plots, Distributions, Random, Statistics
+<pre data-start="1"><code class="language-julia line-numbers">using Plots, Distributions, Random, Statistics, StatsBase
 gr(fmt = :png, size = (1540, 810))
 Random.seed!(0)
 
@@ -141,7 +141,7 @@ population = rand(distribution, N)
 </code></pre>
 <br>
 
-Now let's collect <span class="bb">n_simulations</span> sample means of sample size \((n) = 100\). <br>
+Now let's collect <span class="bb">n_simulations</span> sample means of sample size \((n) = 30\). <br>
 (say n_simulations = 500)
 <pre data-start="11"><code class="language-julia line-numbers">n = 30
 n_simulations = 200
@@ -159,7 +159,7 @@ Plots.histogram(sample_means, bins=num_bins, label=false)
 </code></pre>
 
 <img class="full-size-img" src="/stats/img/clt/clt-sampeling-distribution-jl.png" alt="">
-
+<div style="text-align: center;">Sample mean seems to be normally distributed.</div>
 Well it's a Central Limit Theorem Simulation right, and whole point of CLT is to approximate probability distribution of sample mean \(\overline{X}_n\) to it's corresponding Normal distribution <b>am I correct?</b> <br>
 Let's see ourself, let's overlay a Normal distribution with true mean and variance of <span class="bb">sample_means</span>. <br>
 
@@ -180,7 +180,52 @@ Plots.histogram!(sample_means, bins=bins, weights=(1/sum(counts)).*ones(length(s
 </code></pre>
 <img class="full-size-img" src="/stats/img/clt/clt-sim-pdf-jl.png" alt="">
 Here height of the bins of Sampling distribution represent the probability of falling into that bin. <br>
-As you can see that probability of sample mean falling into particular bin is very different for Sampling distribution and for Normal distribution. <br>
+The Normal distribution that we plotted have same <b>mean</b> and <b>variance</b> as of our Sampling distribution, but there shapes are way off. <br>
+
+<br>
+<details>
+	<summary><i><span class="bb">Sampling distribution of \(\sqrt{n}\, (\overline{X}_n-\mu)\) is much better fit for Normal distribution</span></i></summary>
+<blockquote class="noborder">
+	If you follow the result of the CLT,
+	\[\sqrt{n}\, (\overline{X}_n-\mu) \xrightarrow [n\to \infty ]{(d)} \mathcal{N}(0,\sigma^2) \]
+	Then you can see our <b>normally distributed</b> data. <br>
+	We just have to take the <b>true mean</b> instead of taking average of all sample means, <b>true variance</b> instead of taking variance of all of our sample means, center our observations around \(0\) and then stretch it by a factor of \(\sqrt{n}\). <br>
+	(this is also what you will see in most of the simulations online). <br>
+	<br>
+	<h4>So why we are using mean and variance of our sampling distribution instead of <b>true</b> mean and variance?</h4>
+	<details>
+		<summary><i><span class="bb">Answer</span></i></summary>
+		<blockquote class="sidebar">
+			We are using the estimated mean and variance of our sampling distribution instead of <b>true</b> mean and variance because, in reality we just have <b>data</b> we don't know the underlying random process, so we don't know the <b>true mean</b> and <b>true variance</b>. <br>
+			In this simulation we can easily get true mean by <span class="bb">distribution.mean()</span> and true variance by <span class="bb">distribution.var()</span> but this can't be done in real dataset.
+		</blockquote>
+	</details>
+	<pre data-start="17"><code class="language-python line-numbers">mean_ = mean(distribution) # True mean
+std_ = std(distribution) # True standard deviation
+
+# Centered and stretched sample mean (r.v.)
+sample_means = sqrt(n) .* (sample_means .- mean_)
+
+# Getting Histogram
+num_bins = 50
+bins = Array(LinRange(minimum(sample_means), maximum(sample_means), num_bins))
+h = fit(Histogram, sample_means, bins)
+counts = h.weights
+Plots.histogram(sample_means, bins=bins, weights=(1/sum(counts)).*ones(length(sample_means)))
+
+# Getting PDF N(0, σ)
+x = LinRange(-3*std_, 3*std_, 100)
+pdf_ = pdf.(Normal(0, std_), x)
+plot!(x, pdf_, c="green", label="Normal distribution (PDF)", lw=3)
+</code></pre>
+<img class="full-size-img" src="/stats/img/clt/clt-centered-jl.png" alt="">
+Now the plot feels much more <b>Normal</b> but here the random variable is \(\sqrt{n}\, (\overline{X}_n-\mu) \) not \(\overline{X}_n\). <br>
+
+<br>
+</blockquote>
+</details>
+<br>
+
 And as we discussed earlier that,
 <blockquote class="sidebar">
 	<b>Central Limit Theorem</b> is <b>not</b> a statement about the convergence of PDF or PMF. It's a statement about the convergence of <b>CDF</b>.
