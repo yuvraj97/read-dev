@@ -189,22 +189,13 @@ The Normal distribution that we plotted have same <b>mean</b> and <b>variance</b
 	If you follow the result of the CLT,
 	\[\sqrt{n}\, (\overline{X}_n-\mu) \xrightarrow [n\to \infty ]{(d)} \mathcal{N}(0,\sigma^2) \]
 	Then you can see our <b>normally distributed</b> data. <br>
-	We just have to take the <b>true mean</b> instead of taking average of all sample means, <b>true variance</b> instead of taking variance of all of our sample means, center our observations around \(0\) and then stretch it by a factor of \(\sqrt{n}\). <br>
-	(this is also what you will see in most of the simulations online). <br>
-	<br>
-	<h4>So why we are using mean and variance of our sampling distribution instead of <b>true</b> mean and variance?</h4>
-	<details>
-		<summary><i><span class="bb">Answer</span></i></summary>
-		<blockquote class="sidebar">
-			We are using the estimated mean and variance of our sampling distribution instead of <b>true</b> mean and variance because, in reality we just have <b>data</b> we don't know the underlying random process, so we don't know the <b>true mean</b> and <b>true variance</b>. <br>
-			In this simulation we can easily get true mean by <span class="bb">distribution.mean()</span> and true variance by <span class="bb">distribution.var()</span> but this can't be done in real dataset.
-		</blockquote>
-	</details>
-	<pre data-start="17"><code class="language-python line-numbers">mean_ = mean(distribution) # True mean
-std_ = std(distribution) # True standard deviation
+	We just have to  center our observations around \(0\) and then stretch it by a factor of \(\sqrt{n}\). <br>
+
+	<pre data-start="17"><code class="language-python line-numbers">mean_ = mean(sqrt(n) .* (sample_means .- mean(distribution)))
+std_ = sqrt(n) * std(sample_means)
 
 # Centered and stretched sample mean (r.v.)
-sample_means = sqrt(n) .* (sample_means .- mean_)
+sample_means = sqrt(n) .* (sample_means .- mean(distribution))
 
 # Getting Histogram
 num_bins = 50
