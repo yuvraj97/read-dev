@@ -29,13 +29,14 @@ hr {
     border-bottom-color: rgb(0, 39, 155, 0.4);
 }
 table tbody tr {
-    border-color: #000;
+    border-color: rgb(25, 25, 25, 0.2);
 }
 table tbody tr:nth-child(2n + 1) {
-    background-color: rgb(0, 0, 0, 0.1);
+    background-color: rgb(25, 25, 25, 0.2);
 }
 table th {
-    color: rgb(0, 39, 155);
+    color: rgb(0, 51, 204);
+    font-weight: 600;
 }
 table thead {
     border-bottom-color: #000;

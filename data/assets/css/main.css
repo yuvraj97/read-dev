@@ -270,15 +270,17 @@ table td {
 }
 table th {
 	font-size: 0.8rem;
-	font-weight: 900;
+	font-weight: 700;
 	letter-spacing: 0.075em;
 	line-height: 1.5;
 	padding: 0 0.75rem 0.75rem 0.75rem;
+	padding-top: 5px;
+	padding-bottom: 5px;
 	text-align: left;
 }
 @media screen and (max-width: 980px) {
 	table th {
-		font-size: 0.9rem;
+		font-size: 1.05rem;
 	}
 }
 table thead {
@@ -1120,4 +1122,5 @@ br.newline {
   margin: 1.5em;
   display: block;
   font-size: 24%;
+  color: rgb(170, 255, 170);
 }
