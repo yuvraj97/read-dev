@@ -70,10 +70,10 @@ function clearModelOnBackgroundClick(modal){
 			if (event.target == modal[idx]) {
 				setDisplay()
 				modal[idx].style.display = "none";
-			}			
+			}
 		}
 
-		// For Nav Panel	
+		// For Nav Panel
 		if(event.target.id != "navPanel" && event.target.id != "navPanelToggle" && event.target.nodeName != "NAV") {
 			document.querySelector('body').classList.remove('is-navPanel-visible');
 		}
@@ -111,7 +111,7 @@ function loadCorrectThemeImages(currentTheme){
 			// console.log(images[index].src,"->", images[index].src.replace("/img/","/img-dark/"))
 			if(images[index].src.search("/img/")!=-1) images[index].src = images[index].src.replace("/img/","/img-dark/");
 		}
-	}	
+	}
 }
 
 function isInputRequires(){
@@ -127,10 +127,10 @@ function isInputRequires(){
 		}
 	}
 	return false
-	
+
 }
 
-function FBKatexLoaded(){
+function katexLoaded(){
 	setDisplay('pre-loading', 'none')
 	setDisplay('pre-initializing', 'none')
 	loadCorrectThemeImages(localStorage.getItem("quantmlTheme"));
@@ -149,7 +149,7 @@ function loadKatex(){
 	requireScript('katex-js', '0.6.0','/data/assets/js/katex.min.js', function(){
 		requireScript('auto-render-js', '0.6.0','/data/assets/js/auto-render.min.js', function(){
 			renderMathInElement(document.body);
-			FBKatexLoaded()
+			katexLoaded()
 		})
 	})
 }
@@ -193,11 +193,11 @@ function createImageModals(){
 			<div class="image-content animate" style="width:${element.width}px; height:${element.height}px;">
 				<!--<a class="close" style="float: right; padding-top: 0%; padding-bottom: 0%;" onclick="setDisplay('image-modal', 'none')">X</a>-->
 				<img class="full-size-img" src="${element.src}" alt="">
-			</div>`	
+			</div>`
 			div.style.display="block"
-			document.getElementById("paragraph-content").appendChild(div);  
+			document.getElementById("paragraph-content").appendChild(div);
 			// something forgot--- leave it
-		});	
+		});
 	});
 }
 
@@ -205,7 +205,7 @@ function paginationButton(){
 	btnContainer = document.querySelectorAll('#btn-container')
 	if(typeof(nextPage) !="undefined" && typeof(prevPage) !="undefined" ){
 		btnContainer.forEach(function(element, index){
-			element.innerHTML=`	
+			element.innerHTML=`
 			<a href="${prevPage}"><button id="prev-btn" class="button">&#x25C0;&nbsp;&nbsp; ${prevPageTitle}</button></a>
 			<a href="${nextPage}"><button id="next-btn" class="button"  style="float: right;">${nextPageTitle}&nbsp;&nbsp;&#x25B6;</button></a>
 			`
@@ -214,7 +214,7 @@ function paginationButton(){
 	btnContainer = document.querySelectorAll('#btn-container-top')
 	if(typeof(nextPage) !="undefined" && typeof(prevPage) !="undefined" ){
 		btnContainer.forEach(function(element, index){
-			element.innerHTML=`	
+			element.innerHTML=`
 			<a href="${prevPage}"><button id="prev-btn" class="button">&#x25C0;&nbsp;&nbsp; ${prevPageTitle}</button></a>
 			<a href="${nextPage}"><button id="next-btn" class="button"  style="float: right;">${nextPageTitle}&nbsp;&nbsp;&#x25B6;</button></a>
 			`
@@ -245,7 +245,7 @@ function fullyLoaded(){
 			// next[1].style.marginTop="5px"
 		}
 	}
-	
+
 	// Show Content acc. to Device
 	let check = false;
 	(function(a){if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows ce|xda|xiino/i.test(a)||/1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(a.substr(0,4))) check = true;})(navigator.userAgent||navigator.vendor||window.opera);
@@ -257,7 +257,7 @@ function fullyLoaded(){
 	<!--=============== password-check MODEL[START] ===============-->
 	<div id="password-model" class="modal">
 		<form class="modal-content animate" id="password-form">
-		
+
 			<a class="close" style="float: right; padding-top: 0%; padding-bottom: 0%;" onclick="setDisplay('password-check', 'none')">X</a>
 			<div class="container" style="margin: 1rem; margin-bottom: -1rem">
 
@@ -267,7 +267,7 @@ function fullyLoaded(){
 				<img style="float: left;" src="/data/auth/error.png" alt="!" width="50px" height="50px">
 				<div style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);">Incorrect Password</div>
 			</div>
-			
+
 			<div style="display: none;" id="network-request-failed" class="error-msg">
 				<img style="float: left;" src="/data/auth/error.png" alt="!" width="50px" height="50px">
 				<div style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);">Internet Connection Error</div>
@@ -276,7 +276,7 @@ function fullyLoaded(){
 			<button class="form-buttons login-button" type="submit">
 				<span id="password-button-text">Login &nbsp; &rarr;</span>
 			</button>
-			
+
 			<button id="forgot-password" class="form-buttons forgot-button">
 			<span id="forgot-button-text">Forgot Password &nbsp; &rarr;</span>
 			</button>
@@ -287,11 +287,11 @@ function fullyLoaded(){
 		</div>
 	<!--=============== password-check MODEL[END] ===============-->
 
-	
+
 	<!--=============== LOGIN MODEL[START] ===============-->
 	<div id="login-model" class="modal">
 		<form class="modal-content animate" id="email-form">
-		
+
 			<a class="close" style="float: right; padding-top: 0%; padding-bottom: 0%;" onclick="setDisplay('login-model', 'none')">X</a>
 			<div class="container" style="margin: 1rem; margin-bottom: -1rem">
 			<label for="email"><b>Email Address</b>(<a rel="noreferrer" target="_blank" href="https://www.patreon.com/quantml">patreon</a>)</label>
@@ -306,7 +306,7 @@ function fullyLoaded(){
 				<img style="float: left;" src="/data/auth/error.png" alt="!" width="50px" height="50px">
 				<div style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);">Internet Connection Error</div>
 			</div>
-				
+
 			<button class="form-buttons login-button" type="submit">
 				<span id="login-button-text">Next &nbsp; &rarr;</span>
 			</button>
@@ -319,7 +319,7 @@ function fullyLoaded(){
 	<!--=============== Create Password MODEL[START] ===============-->
 	<div id="create-password-model" class="modal">
 		<form class="modal-content animate" id="create-password">
-		
+
 			<a class="close" style="float: right; padding-top: 0%; padding-bottom: 0%;" onclick="setDisplay('create-password-model', 'none')">X</a>
 			<div class="container" style="margin: 1rem; margin-bottom: -1rem">
 			<label for="psw"><b>New Password</b></label>
@@ -338,7 +338,7 @@ function fullyLoaded(){
 				<img style="float: left;" src="/data/auth/error.png" alt="!" width="50px" height="50px">
 				<div style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);">Internet Connection Error</div>
 			</div>
-				
+
 			<button class="form-buttons login-button" type="submit">
 				<span id="create-password-text">Create Password &nbsp; &rarr;</span>
 			</button>
@@ -351,7 +351,7 @@ function fullyLoaded(){
 	<!--=============== Password Reset Link Sent MODEL[START] ===============-->
 
 	<div id="password-reset-link-sent-model" class="modal">
-		<div class="modal-content animate" id="login-form">	
+		<div class="modal-content animate" id="login-form">
 			<a class="close" style="float: right; padding-top: 0%; padding-bottom: 0%;" onclick="setDisplay('password-reset-link-sent-model', 'none')">X</a>
 			<div class="container" style="margin: 1rem;">
 	<span id='password-reset-link-sent-txt'></span>
@@ -359,7 +359,7 @@ function fullyLoaded(){
 			</div>
 		</div>
 	</div>
-			
+
 	<!--=============== Password Reset Link Sent MODEL[END] ===============-->
 
 	<!--=============== SETTINGS[START] ===============-->
@@ -369,16 +369,16 @@ function fullyLoaded(){
 			<a class="close" style="float: right; padding-top: 0%; padding-bottom: 0%;" onclick="setDisplay('settings-model', 'none')">X</a>
 			<div class="container settings" style="margin: 1rem;">
 				<!--<h2 style="text-align: center; display:block">Settings</h2>-->
-				<b>Font size</b> &nbsp; 
-				<button class="button" onclick="incrementFontSize();setFontSize()">+</button> 
+				<b>Font size</b> &nbsp;
+				<button class="button" onclick="incrementFontSize();setFontSize()">+</button>
 				<button class="button" onclick="decrementFontSize();setFontSize()">-</button>
 				<button class="button" onclick="resetFontSize();setFontSize()">Reset</button>
 				<br>
 				<!--<h2 style="text-align: center; display:block">Navigation</h2>-->
 				<!--<span class="bb">Navigation</span>-->
 				<div id="desktop-mode">
-					<b>Page size</b> 
-					<button class="button" onclick="changePageWidth('small')">Small</button> 
+					<b>Page size</b>
+					<button class="button" onclick="changePageWidth('small')">Small</button>
 					<button class="button" onclick="changePageWidth('medium')">Medium</button>
 					<button class="button" onclick="changePageWidth('large')">Large</button>
 				</div>
@@ -397,7 +397,7 @@ function fullyLoaded(){
 			</div>
 		</div>
 	</div>
-			
+
 	<!--=============== SETTINGS[END] ===============-->
 	`;
 
@@ -430,21 +430,21 @@ function fullyLoaded(){
 	email_form = document.querySelector('#email-form');
 	email_form.addEventListener('submit', function(e) {
 		e.preventDefault();
-		auth_identify_email()	
+		auth_identify_email()
 	});
 
 	// Password Form
 	password_form = document.querySelector('#password-form');
 	password_form.addEventListener('submit', function(e) {
 		e.preventDefault();
-		auth_authenticate()	
+		auth_authenticate()
 	});
-	
+
 	// Create Password
 	cratePasswordForm = document.querySelector('#create-password');
 	cratePasswordForm.addEventListener('submit', function(e) {
 		e.preventDefault();
-		auth_createPassword()	
+		auth_createPassword()
 	});
 
 	// Login Button
@@ -455,23 +455,33 @@ function fullyLoaded(){
 				e.preventDefault();
 				document.querySelector('body').classList.remove('is-navPanel-visible');
 				setDisplay('login-model', 'block')
-			});		
+			});
 	})
-	
+
 	// LOGOUT
 	logout = document.querySelectorAll('#logout-button');
 	logout.forEach(function(element,index){
-		element.addEventListener('click',function(e) {	
+		element.addEventListener('click',function(e) {
 			e.preventDefault();
-			globalThis.fb_auth.signOut().then(function() {
-				// console.log("Logging Out...")
-			});
+			document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+			fetch('http://127.0.0.1:5000/logout', {
+				method: 'POST', // *GET, POST, PUT, DELETE, etc.
+				mode: 'cors', // no-cors, *cors, same-origin
+				cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+				credentials: 'same-origin', // include, *same-origin, omit
+				headers: {
+				'Content-Type': 'application/json'
+				},
+				redirect: 'follow', // manual, *follow, error
+				referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+				body: JSON.stringify({token: getCookie("token")}), // body data type must match "Content-Type" header
+			})
 		});
 	});
 
 	// Reset Password
 	forgotPassword = document.querySelector('#forgot-password');
-	forgotPassword.addEventListener('click',function(e) {	
+	forgotPassword.addEventListener('click',function(e) {
 		e.preventDefault();
 		auth_resetPassword(email_form)
 	});
@@ -515,7 +525,7 @@ function fullyLoaded(){
 			window.location.href = arrowRightPage
 		} else if(evt.code == "ArrowLeft" && typeof(arrowLeftPage) !="undefined" && window.keydowns["alt"] != true){
 			window.location.href = arrowLeftPage
-		} 
+		}
 	})
 
 	document.addEventListener('swiped-left', function(e) {
@@ -550,27 +560,25 @@ function fullyLoaded(){
 		setDisplay('desktop-mode', "block")
 		setDisplay('mobile-mode', "none")
 	}
-	
-	
-	  
+
 	emailAddressIsValidated()
 	passwordIsValidated()
 }
 
 function cssLoaded(iskatexImportant = true, callback){
 	// console.log("iskatexImportant:", iskatexImportant)
-	// d = new Date();end = d.getTime();  // Remove it 
-	// console.log("CSS Load time:",end-start)  // Remove it 
+	// d = new Date();end = d.getTime();  // Remove it
+	// console.log("CSS Load time:",end-start)  // Remove it
 	loadKatex()
 	fullyLoaded()
 	if(callback) callback();
-	// d = new Date();end = d.getTime();  // Remove it 
-	// console.log("Fully Loaded:",end-start)  // Remove it 
+	// d = new Date();end = d.getTime();  // Remove it
+	// console.log("Fully Loaded:",end-start)  // Remove it
 
 }
 
 // ***************************************************************
-// FB AUTH Functions
+// AUTH Functions
 // ***************************************************************
 
 function networkRequestFailed(){
@@ -587,7 +595,7 @@ function invalidEmailAddressError(){
 	email.classList.add("error-border-bounce");
 	setTimeout(function() {
 		email.classList.remove("error-border-bounce");
-	}, 1000); 
+	}, 1000);
 	setDisplay('login-error-msg', 'block');
 	setDisplay('login-email-user-not-found', 'none');
 	passwordIsValidated()
@@ -602,7 +610,7 @@ function invalidEmailAddressUserNotFound(email) {
 	loginEmail.classList.add("error-border-bounce");
 	setTimeout(function() {
 		loginEmail.classList.remove("error-border-bounce");
-	}, 1000); 
+	}, 1000);
 	userNotFound.innerHTML = `<b>"${email}"</b> is currently not a <a rel="noreferrer" target="_blank" href="https://www.patreon.com/quantml">patreon supporter</a>.<br>
 	<b><a href="https://www.patreon.com/quantml">Join us on patreon</a></b> and get early access to this <b>Guide</b> and <b>Statistics App</b>.`
 	setDisplay('login-error-msg', 'none');
@@ -624,7 +632,7 @@ function invalidPassword(){
 		element.classList.add("error-border-bounce");
 		setTimeout(function() {
 			element.classList.remove("error-border-bounce");
-		}, 1000); 
+		}, 1000);
 	})
 	setDisplay('password-error-msg', 'block');
 	emailAddressIsValidated()
@@ -667,11 +675,11 @@ function auth_identify_email(){
 		},
 		redirect: 'follow', // manual, *follow, error
 		referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-		body: JSON.stringify({email: email}), // body data type must match "Content-Type" header	
+		body: JSON.stringify({email: email}), // body data type must match "Content-Type" header
 	  })
 	  .then(function(response) {
 		// console.log("RESPONSE:", response)
-		nextButtonText.innerHTML = "Login";
+		nextButtonText.innerHTML = "Next &nbsp; &rarr;";
 		// window.location.reload();
 		response.json().then(function(data) {
 			console.log(data);
@@ -693,7 +701,7 @@ function auth_identify_email(){
 	  .catch(function(error) {
 		nextButtonText.innerHTML = "Next &nbsp; &rarr;";
 		// console.log("Fetch error: " + error);
-	  });		
+	  });
 }
 
 function auth_authenticate(){
@@ -723,7 +731,7 @@ function auth_authenticate(){
 		},
 		redirect: 'follow', // manual, *follow, error
 		referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-		body: JSON.stringify({email: window.quantml_email, password: password}), // body data type must match "Content-Type" header	
+		body: JSON.stringify({email: window.quantml_email, password: password}), // body data type must match "Content-Type" header
 		})
 		.then(function(response) {
 		// console.log("RESPONSE:", response)
@@ -746,7 +754,7 @@ function auth_authenticate(){
 		.catch(function(error) {
 		loginButtonText.innerHTML = "Login &nbsp; &rarr;";
 		// console.log("Fetch error: " + error);
-		});		
+		});
 }
 
 function auth_createPassword(){
@@ -773,7 +781,7 @@ function auth_createPassword(){
 		},
 		redirect: 'follow', // manual, *follow, error
 		referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-		body: JSON.stringify({email: window.quantml_email, new_password: newpass, confirm_password: confirmpass}), // body data type must match "Content-Type" header	
+		body: JSON.stringify({email: window.quantml_email, new_password: newpass, confirm_password: confirmpass}), // body data type must match "Content-Type" header
 	  })
 	  .then(function(response) {
 		// console.log("RESPONSE:", response)
@@ -795,11 +803,11 @@ function auth_createPassword(){
 				setDisplay('password-is-weak', 'block')
 			}
 		});
-	  }) 
+	  })
 	  .catch(function(error) {
 		buttonText.innerHTML = "Create Password &nbsp; &rarr;";
 		// console.log("Fetch error: " + error);
-	  });	
+	  });
 }
 
 function loadContent(chapterID){
