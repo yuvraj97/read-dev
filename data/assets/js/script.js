@@ -326,7 +326,7 @@ function fullyLoaded(){
 		
 			<a class="close" style="float: right; padding-top: 0%; padding-bottom: 0%;" onclick="setDisplay('login-model', 'none')">X</a>
 			<div class="container" style="margin: 1rem; margin-bottom: -1rem">
-			<label for="email"><b>Email Address</b></label>
+			<label for="email"><b>Email Address</b>(<a rel="noreferrer" target="_blank" href="https://www.patreon.com/quantml">patreon</a>)</label>
 			<input id="login-email" onkeypress="emailAddressIsValidated();setDisplay('network-request-failed', 'none');" class="loginInput" ref="emailRef"  type="email" placeholder="Enter Email Address" name="email" required>
 			<div id="login-error-msg" class="error-msg">
 				<img style="float: left;" src="/data/auth/error.png" alt="!" width="50px" height="50px">
@@ -359,7 +359,7 @@ function fullyLoaded(){
 
 	<!--=============== Create Password MODEL[START] ===============-->
 	<div id="create-password-model" class="modal">
-		<form class="modal-content animate">
+		<form class="modal-content animate" id="create-password">
 		
 			<a class="close" style="float: right; padding-top: 0%; padding-bottom: 0%;" onclick="setDisplay('create-password-model', 'none')">X</a>
 			<div class="container" style="margin: 1rem; margin-bottom: -1rem">
@@ -367,11 +367,14 @@ function fullyLoaded(){
 			<input id="new-password" onkeypress="passwordIsValidated();setDisplay('network-request-failed', 'none');" class="loginInput" type="password" placeholder="Enter Password" name="psw" required>
 			<label for="psw"><b>Password</b></label>
 			<input id="confirm-password" onkeypress="passwordIsValidated();setDisplay('network-request-failed', 'none');" class="loginInput" type="password" placeholder="Confirm Password" name="psw" required>
-			<div id="password-do-not-match" class="error-msg">
+			<div style="display: none" id="password-do-not-match" class="error-msg">
 				<img style="float: left;" src="/data/auth/error.png" alt="!" width="50px" height="50px">
 				<div style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);">Password does not match</div>
 			</div>
-
+			<div style="display: none" id="password-is-weak" class="warn-msg">
+				<img style="float: left;" src="/data/auth/error.png" alt="!" width="50px" height="50px">
+				<div style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);">Weak Password, password should be at least 8 character long</div>
+			</div>
 			<div style="display: none;" id="network-request-failed" class="error-msg">
 				<img style="float: left;" src="/data/auth/error.png" alt="!" width="50px" height="50px">
 				<div style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);">Internet Connection Error</div>
@@ -466,10 +469,14 @@ function fullyLoaded(){
 	const loginForm = document.querySelector('#login-form');
 	loginForm.addEventListener('submit', function(e) {
 		e.preventDefault();
-		// Get User Info
-		const email = loginForm['login-email'].value;
-		const password = loginForm['login-password'].value;
-		auth_submitLoginForm(loginForm)	
+		auth_submitLoginForm()	
+	});
+
+	// Create Password
+	const cratePasswordForm = document.querySelector('#create-password');
+	cratePasswordForm.addEventListener('submit', function(e) {
+		e.preventDefault();
+		auth_createPassword()	
 	});
 
 	// Login Button
@@ -629,7 +636,7 @@ function invalidEmailAddressUserNotFound(email) {
 	setTimeout(function() {
 		loginEmail.classList.remove("error-border-bounce");
 	}, 1000); 
-	userNotFound.innerHTML = `<b>"${email}"</b> is currently not a <a href="https://www.patreon.com/quantml">patreon supporter</a>.<br>
+	userNotFound.innerHTML = `<b>"${email}"</b> is currently not a <a rel="noreferrer" target="_blank" href="https://www.patreon.com/quantml">patreon supporter</a>.<br>
 	<b><a href="https://www.patreon.com/quantml">Join us on patreon</a></b> and get early access to this <b>Guide</b> and <b>Statistics App</b>.`
 	setDisplay('login-error-msg', 'none');
 }
@@ -710,6 +717,7 @@ function auth_submitLoginForm(){
 				invalidPassword();
 			} else if(data["status"] == "Create Password") {
 				setDisplay('login-model', 'none');
+				window.quantml_email = email
 				setDisplay('create-password-model', 'block')
 			}
 		});
@@ -720,39 +728,55 @@ function auth_submitLoginForm(){
 	  });		
 }
 
-function auth_resetPassword(){
-	setDisplay('network-request-failed', 'none');
-	loginForm = document.getElementById('login-form')
-	const email = loginForm['login-email'].value;
-	// console.log("Forgot Password")
-	const forgotButtonText = document.getElementById('forgot-button-text');
+function auth_createPassword(){
+	loginForm = document.getElementById('create-password')
+	// Get User Info
+	const newpass = loginForm['new-password'].value;
+	const confirmpass = loginForm['confirm-password'].value;
+	const buttonText = document.getElementById('create-password-text');
 	if(localStorage.getItem("quantmlTheme")=="light"){
-		var src = "/data/img/loading-forgot.svg";
+		var src = "/data/img/loading-login.svg";
 	} else {
-		var src = "/data/img-dark/loading-forgot.svg";
+		var src = "/data/img-dark/loading-login.svg";
 	}
-	forgotButtonText.innerHTML = 'Forgot Password &nbsp; <img style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);" src='+ src +' alt="..." width="30px" height="30px"/>'
-	globalThis.fb_auth.sendPasswordResetEmail(email).then(function() {
-		// console.log("Sending Reset Password Link");
-		forgotButtonText.innerHTML = 'Forgot Password'
-		// alert("A password reset link is sent over: " + email)
-		setDisplay('login-model', 'none')
-		setDisplay('password-reset-link-sent-model', 'block')
-		document.getElementById('password-reset-link-sent-txt').innerHTML = 'A Password Reset link is sent to "<b>' + email + '</b>"';
-	})
-	.catch(function(e){
-		forgotButtonText.innerHTML = 'Forgot Password'
-		forgotError = e;
-		if(forgotError.code == "auth/invalid-email") {
-			invalidEmailAddressError();
-		}
-		if(forgotError.code == "auth/user-not-found") {
-			invalidEmailAddressUserNotFound(email);
-		}
-		if(forgotError.code == "auth/network-request-failed") {
-			networkRequestFailed();
-		}
-	});
+	buttonText.innerHTML = 'Create Password &nbsp; <img style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);" src='+ src +' alt="..." width="30px" height="30px"/>'
+	fetch('http://127.0.0.1:5000/create-password', {
+		method: 'POST', // *GET, POST, PUT, DELETE, etc.
+		mode: 'cors', // no-cors, *cors, same-origin
+		cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+		credentials: 'same-origin', // include, *same-origin, omit
+		headers: {
+		  'Content-Type': 'application/json'
+		  // 'Content-Type': 'application/x-www-form-urlencoded',
+		},
+		redirect: 'follow', // manual, *follow, error
+		referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+		body: JSON.stringify({email: window.quantml_email, new_password: newpass, confirm_password: confirmpass}), // body data type must match "Content-Type" header	
+	  })
+	  .then(function(response) {
+		console.log("RESPONSE:", response)
+		buttonText.innerHTML = "Login";
+		response.json().then(function(data) {
+			console.log(data);
+			if(data["status"] == "Changed") {
+				setDisplay('create-password-model', 'none')
+				setDisplay('password-do-not-match', 'none')
+				setDisplay('password-is-weak', 'none')
+				document.cookie= `token=${data["token"]}`;
+			} else if(data["status"] == "Dont match") {
+				setDisplay('password-do-not-match', 'block')
+				setDisplay('password-is-weak', 'none')
+			} else if(data["status"] == "Weak") {
+				setDisplay('password-do-not-match', 'none')
+				setDisplay('password-is-weak', 'block')
+			}
+		});
+	  }) 
+	  .catch(function(error) {
+		buttonText.innerHTML = "Create Password";
+		// console.log("Fetch error: " + error);
+	  });	
+	  window.quantml_email = undefined
 }
 
 function loadContent(chapterID){
