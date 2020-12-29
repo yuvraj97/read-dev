@@ -357,6 +357,35 @@ function fullyLoaded(){
 		</div>
 	<!--=============== LOGIN MODEL[END] ===============-->
 
+	<!--=============== Create Password MODEL[START] ===============-->
+	<div id="create-password-model" class="modal">
+		<form class="modal-content animate">
+		
+			<a class="close" style="float: right; padding-top: 0%; padding-bottom: 0%;" onclick="setDisplay('create-password-model', 'none')">X</a>
+			<div class="container" style="margin: 1rem; margin-bottom: -1rem">
+			<label for="psw"><b>New Password</b></label>
+			<input id="new-password" onkeypress="passwordIsValidated();setDisplay('network-request-failed', 'none');" class="loginInput" type="password" placeholder="Enter Password" name="psw" required>
+			<label for="psw"><b>Password</b></label>
+			<input id="confirm-password" onkeypress="passwordIsValidated();setDisplay('network-request-failed', 'none');" class="loginInput" type="password" placeholder="Confirm Password" name="psw" required>
+			<div id="password-do-not-match" class="error-msg">
+				<img style="float: left;" src="/data/auth/error.png" alt="!" width="50px" height="50px">
+				<div style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);">Password does not match</div>
+			</div>
+
+			<div style="display: none;" id="network-request-failed" class="error-msg">
+				<img style="float: left;" src="/data/auth/error.png" alt="!" width="50px" height="50px">
+				<div style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);">Internet Connection Error</div>
+			</div>
+				
+			<button class="form-buttons login-button" type="submit">
+				<span id="create-password-text">Create Password</span>
+			</button>
+			</div>
+			<br>
+		</form>
+		</div>
+	<!--=============== Create Password MODEL[END] ===============-->
+
 	<!--=============== Password Reset Link Sent MODEL[START] ===============-->
 
 	<div id="password-reset-link-sent-model" class="modal">
@@ -440,33 +469,7 @@ function fullyLoaded(){
 		// Get User Info
 		const email = loginForm['login-email'].value;
 		const password = loginForm['login-password'].value;
-		fetch('http://127.0.0.1:5000/login', {
-			method: 'POST', // *GET, POST, PUT, DELETE, etc.
-			mode: 'cors', // no-cors, *cors, same-origin
-			cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-			credentials: 'same-origin', // include, *same-origin, omit
-			headers: {
-			  'Content-Type': 'application/json'
-			  // 'Content-Type': 'application/x-www-form-urlencoded',
-			},
-			redirect: 'follow', // manual, *follow, error
-			referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-			body: JSON.stringify({email: email, password: password}), // body data type must match "Content-Type" header	
-		  })
-		  .then(function(response) {
-			console.log("RESPONSE:", response)
-			if (response.status !== 200) {
-			  console.log(`Looks like there was a problem. Status code: ${response.status}`);
-			  return;
-			}
-			response.json().then(function(data) {
-			  console.log(data);
-			});
-		  })
-		  .catch(function(error) {
-			console.log("Fetch error: " + error);
-		  });
-		// auth_submitLoginForm(loginForm)	
+		auth_submitLoginForm(loginForm)	
 	});
 
 	// Login Button
@@ -660,6 +663,10 @@ function passwordIsValidated(){
 
 function auth_submitLoginForm(){
 	setDisplay('network-request-failed', 'none');
+	// if("auth/network-request-failed") {
+	// 	networkRequestFailed();
+	// 	return;
+	// }
 	loginForm = document.getElementById('login-form')
 	// Get User Info
 	const email = loginForm['login-email'].value;
@@ -671,30 +678,46 @@ function auth_submitLoginForm(){
 		var src = "/data/img-dark/loading-login.svg";
 	}
 	loginButtonText.innerHTML = 'Login &nbsp; <img style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);" src='+ src +' alt="..." width="30px" height="30px"/>'
-	globalThis.fb_auth.signInWithEmailAndPassword(email, password).then(function(cred) {
-		// console.log(cred.user);
-		setDisplay('login-model', 'none');
+	fetch('http://127.0.0.1:5000/login', {
+		method: 'POST', // *GET, POST, PUT, DELETE, etc.
+		mode: 'cors', // no-cors, *cors, same-origin
+		cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+		credentials: 'same-origin', // include, *same-origin, omit
+		headers: {
+		  'Content-Type': 'application/json'
+		  // 'Content-Type': 'application/x-www-form-urlencoded',
+		},
+		redirect: 'follow', // manual, *follow, error
+		referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+		body: JSON.stringify({email: email, password: password}), // body data type must match "Content-Type" header	
+	  })
+	  .then(function(response) {
+		console.log("RESPONSE:", response)
+		// setDisplay('login-model', 'none');
 		loginButtonText.innerHTML = "Login";
-		window.location.reload();
-	})
-	.catch(function(e) {
+		// window.location.reload();
+		response.json().then(function(data) {
+			console.log(data);
+			// if(data["status"] == "auth/invalid-email") {
+			// 	invalidEmailAddressError();
+			// }
+			if(data["status"] == "Authenticated") {
+				document.cookie= `token=${data["token"]}`;
+				setDisplay('login-model', 'none');
+			} else if(data["status"] == "Unregistered") {
+				invalidEmailAddressUserNotFound(email);
+			} else if(data["status"] == "Invalid Password") {
+				invalidPassword();
+			} else if(data["status"] == "Create Password") {
+				setDisplay('login-model', 'none');
+				setDisplay('create-password-model', 'block')
+			}
+		});
+	  })
+	  .catch(function(error) {
 		loginButtonText.innerHTML = "Login";
-		loginError = e;
-		if(loginError.code == "auth/invalid-email") {
-			invalidEmailAddressError();
-		}
-		if(loginError.code == "auth/user-not-found") {
-			invalidEmailAddressUserNotFound(email);
-		}
-		if(loginError.code == "auth/wrong-password") {
-			invalidPassword();
-		}
-		if(loginError.code == "auth/network-request-failed") {
-			networkRequestFailed();
-		}
-		
-		
-	});
+		console.log("Fetch error: " + error);
+	  });		
 }
 
 function auth_resetPassword(){
