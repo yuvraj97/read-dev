@@ -476,6 +476,7 @@ function fullyLoaded(){
 				referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
 				body: JSON.stringify({token: getCookie("token")}), // body data type must match "Content-Type" header
 			})
+			auth_state_change()
 		});
 	});
 
@@ -563,6 +564,7 @@ function fullyLoaded(){
 
 	emailAddressIsValidated()
 	passwordIsValidated()
+	auth_state_change()
 }
 
 function cssLoaded(iskatexImportant = true, callback){
@@ -744,6 +746,7 @@ function auth_authenticate(){
 			if(data["status"] == "Authenticated") {
 				document.cookie= `token=${data["token"]}`;
 				setDisplay('password-model', 'none');
+				auth_state_change()
 			} else if(data["status"] == "Unregistered") {
 				// invalidEmailAddressUserNotFound(email);
 			} else if(data["status"] == "Invalid Password") {
@@ -754,7 +757,7 @@ function auth_authenticate(){
 		.catch(function(error) {
 		loginButtonText.innerHTML = "Login &nbsp; &rarr;";
 		// console.log("Fetch error: " + error);
-		});
+	});
 }
 
 function auth_createPassword(){
@@ -808,6 +811,53 @@ function auth_createPassword(){
 		buttonText.innerHTML = "Create Password &nbsp; &rarr;";
 		// console.log("Fetch error: " + error);
 	  });
+}
+
+function auth_state_change(callback){
+	token = getCookie("token")
+	if(token == null) {
+		setDisplay('login-button',getDisplay());
+		setDisplay('join-button',getDisplay());
+		setDisplay('logout-button','none');
+		setDisplay('secrets','none');
+		setDisplay('login-require',getDisplay());
+		setDisplay('fb-loading','none');
+		return
+	}
+	fetch('http://127.0.0.1:5000/is-authorized', {
+		method: 'POST', // *GET, POST, PUT, DELETE, etc.
+		mode: 'cors', // no-cors, *cors, same-origin
+		cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+		credentials: 'same-origin', // include, *same-origin, omit
+		headers: {
+			'Content-Type': 'application/json'
+			// 'Content-Type': 'application/x-www-form-urlencoded',
+		},
+		redirect: 'follow', // manual, *follow, error
+		referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+		body: JSON.stringify({token: token}), // body data type must match "Content-Type" header
+	})
+	.then(function(response) {
+		// console.log("RESPONSE:", response)
+		response.json().then(function(data) {
+			console.log(data);
+			if(data["status"] == "Authorized") {
+				setDisplay('login-button','none');
+				setDisplay('join-button','none');
+				setDisplay('logout-button',getDisplay());
+				setDisplay('secrets',getDisplay());
+				setDisplay('login-require','none');
+				setDisplay('fb-loading','none');
+			} else {
+				setDisplay('login-button',getDisplay());
+				setDisplay('join-button',getDisplay());
+				setDisplay('logout-button','none');
+				setDisplay('secrets','none');
+				setDisplay('login-require',getDisplay());
+				setDisplay('fb-loading','none');
+			}
+		});
+	})
 }
 
 function loadContent(chapterID){
