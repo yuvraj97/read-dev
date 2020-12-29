@@ -437,7 +437,36 @@ function fullyLoaded(){
 	const loginForm = document.querySelector('#login-form');
 	loginForm.addEventListener('submit', function(e) {
 		e.preventDefault();
-		auth_submitLoginForm(loginForm)	
+		// Get User Info
+		const email = loginForm['login-email'].value;
+		const password = loginForm['login-password'].value;
+		fetch('http://127.0.0.1:5000/login', {
+			method: 'POST', // *GET, POST, PUT, DELETE, etc.
+			mode: 'cors', // no-cors, *cors, same-origin
+			cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+			credentials: 'same-origin', // include, *same-origin, omit
+			headers: {
+			  'Content-Type': 'application/json'
+			  // 'Content-Type': 'application/x-www-form-urlencoded',
+			},
+			redirect: 'follow', // manual, *follow, error
+			referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+			body: JSON.stringify({email: email, password: password}), // body data type must match "Content-Type" header	
+		  })
+		  .then(function(response) {
+			console.log("RESPONSE:", response)
+			if (response.status !== 200) {
+			  console.log(`Looks like there was a problem. Status code: ${response.status}`);
+			  return;
+			}
+			response.json().then(function(data) {
+			  console.log(data);
+			});
+		  })
+		  .catch(function(error) {
+			console.log("Fetch error: " + error);
+		  });
+		// auth_submitLoginForm(loginForm)	
 	});
 
 	// Login Button
