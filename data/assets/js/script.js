@@ -116,11 +116,18 @@ function loadCorrectThemeImages(currentTheme){
 
 function isInputRequires(){
 	loginModal = document.getElementById('login-model')
-	if(typeof(loginModal) !="undefined" && loginModal.style.display=="block"){
-		return true
-	} else {
-		return false
+	models = [document.getElementById('login-model'),
+			  document.getElementById('password-model'),
+			  document.getElementById('create-password-model')
+	]
+	for (let index = 0; index < models.length; index++) {
+		element = models[index];
+		if(typeof(element) !="undefined" && element.style.display=="block"){
+			return true
+		}
 	}
+	return false
+	
 }
 
 function FBKatexLoaded(){
@@ -320,9 +327,43 @@ function fullyLoaded(){
 	document.getElementById('modals-html').innerHTML =`
 	<!--=================== MODELS ===================-->
 
+	<!--=============== password-check MODEL[START] ===============-->
+	<div id="password-model" class="modal">
+		<form class="modal-content animate" id="password-form">
+		
+			<a class="close" style="float: right; padding-top: 0%; padding-bottom: 0%;" onclick="setDisplay('password-check', 'none')">X</a>
+			<div class="container" style="margin: 1rem; margin-bottom: -1rem">
+
+			<label for="psw"><b>Password</b></label>
+			<input id="password" onkeypress="passwordIsValidated();setDisplay('network-request-failed', 'none');" class="loginInput" type="password" placeholder="Enter Password" name="psw" required>
+			<div style="display:none" id="password-error-msg" class="error-msg">
+				<img style="float: left;" src="/data/auth/error.png" alt="!" width="50px" height="50px">
+				<div style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);">Incorrect Password</div>
+			</div>
+			
+			<div style="display: none;" id="network-request-failed" class="error-msg">
+				<img style="float: left;" src="/data/auth/error.png" alt="!" width="50px" height="50px">
+				<div style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);">Internet Connection Error</div>
+			</div>
+
+			<button class="form-buttons login-button" type="submit">
+				<span id="password-button-text">Login &nbsp; &rarr;</span>
+			</button>
+			
+			<button id="forgot-password" class="form-buttons forgot-button">
+			<span id="forgot-button-text">Forgot Password &nbsp; &rarr;</span>
+			</button>
+
+			</div>
+			<br>
+		</form>
+		</div>
+	<!--=============== password-check MODEL[END] ===============-->
+
+	
 	<!--=============== LOGIN MODEL[START] ===============-->
 	<div id="login-model" class="modal">
-		<form class="modal-content animate" id="login-form">
+		<form class="modal-content animate" id="email-form">
 		
 			<a class="close" style="float: right; padding-top: 0%; padding-bottom: 0%;" onclick="setDisplay('login-model', 'none')">X</a>
 			<div class="container" style="margin: 1rem; margin-bottom: -1rem">
@@ -333,12 +374,6 @@ function fullyLoaded(){
 				<div style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);">Invalid Email Address</div>
 			</div>
 			<div id="login-email-user-not-found" class="warn-msg"></div>
-			<label for="psw"><b>Password</b></label>
-			<input id="login-password" onkeypress="passwordIsValidated();setDisplay('network-request-failed', 'none');" class="loginInput" type="password" placeholder="Enter Password" name="psw" required>
-			<div id="password-error-msg" class="error-msg">
-				<img style="float: left;" src="/data/auth/error.png" alt="!" width="50px" height="50px">
-				<div style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);">Incorrect Password</div>
-			</div>
 
 			<div style="display: none;" id="network-request-failed" class="error-msg">
 				<img style="float: left;" src="/data/auth/error.png" alt="!" width="50px" height="50px">
@@ -346,10 +381,7 @@ function fullyLoaded(){
 			</div>
 				
 			<button class="form-buttons login-button" type="submit">
-				<span id="login-button-text">Login</span>
-			</button>
-			<button id="forgot-password" class="form-buttons forgot-button">
-				<span id="forgot-button-text">Forgot Password</span>
+				<span id="login-button-text">Next &nbsp; &rarr;</span>
 			</button>
 			</div>
 			<br>
@@ -371,7 +403,7 @@ function fullyLoaded(){
 				<img style="float: left;" src="/data/auth/error.png" alt="!" width="50px" height="50px">
 				<div style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);">Password does not match</div>
 			</div>
-			<div style="display: none" id="password-is-weak" class="warn-msg">
+			<div style="display: none" id="password-is-weak" class="error-msg">
 				<img style="float: left;" src="/data/auth/error.png" alt="!" width="50px" height="50px">
 				<div style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);">Weak Password, password should be at least 8 character long</div>
 			</div>
@@ -381,7 +413,7 @@ function fullyLoaded(){
 			</div>
 				
 			<button class="form-buttons login-button" type="submit">
-				<span id="create-password-text">Create Password</span>
+				<span id="create-password-text">Create Password &nbsp; &rarr;</span>
 			</button>
 			</div>
 			<br>
@@ -443,7 +475,9 @@ function fullyLoaded(){
 	`;
 
 	var modal = [
+			document.getElementById("password-model"),
 			document.getElementById("login-model"),
+			document.getElementById("create-password-model"),
 			document.getElementById("password-reset-link-sent-model"),
 			document.getElementById("settings-model"),
 		];
@@ -465,13 +499,20 @@ function fullyLoaded(){
 		}
 	});
 
-	// LOGIN Form
-	const loginForm = document.querySelector('#login-form');
-	loginForm.addEventListener('submit', function(e) {
+	// Email Form
+	const email_form = document.querySelector('#email-form');
+	email_form.addEventListener('submit', function(e) {
 		e.preventDefault();
-		auth_submitLoginForm()	
+		auth_identify_email()	
 	});
 
+	// Password Form
+	const password_form = document.querySelector('#password-form');
+	password_form.addEventListener('submit', function(e) {
+		e.preventDefault();
+		auth_authenticate()	
+	});
+	
 	// Create Password
 	const cratePasswordForm = document.querySelector('#create-password');
 	cratePasswordForm.addEventListener('submit', function(e) {
@@ -505,7 +546,7 @@ function fullyLoaded(){
 	const forgotPassword = document.querySelector('#forgot-password');
 	forgotPassword.addEventListener('click',function(e) {	
 		e.preventDefault();
-		auth_resetPassword(loginForm)
+		auth_resetPassword(email_form)
 	});
 
 	setDisplay('login-error-msg', "none")
@@ -650,7 +691,7 @@ function emailAddressIsValidated(){
 }
 
 function invalidPassword(){
-	password = document.getElementById("login-password");
+	password = document.getElementById("password");
 	password.style.border = "1px solid red";
 	password.style.boxShadow = "1px 1px 10px red";
 	password.classList.add("error-border-bounce");
@@ -662,30 +703,29 @@ function invalidPassword(){
 }
 
 function passwordIsValidated(){
-	password = document.getElementById("login-password");
+	password = document.getElementById("password");
 	password.style.boxShadow = "none";
 	password.style.border = "2px solid #0073b1";
 	setDisplay('password-error-msg', 'none');
 }
 
-function auth_submitLoginForm(){
+function auth_identify_email(){
 	setDisplay('network-request-failed', 'none');
 	// if("auth/network-request-failed") {
 	// 	networkRequestFailed();
 	// 	return;
 	// }
-	loginForm = document.getElementById('login-form')
+	email_form = document.getElementById('email-form')
 	// Get User Info
-	const email = loginForm['login-email'].value;
-	const password = loginForm['login-password'].value;
+	const email = email_form['login-email'].value;
 	const loginButtonText = document.getElementById('login-button-text');
 	if(localStorage.getItem("quantmlTheme")=="light"){
 		var src = "/data/img/loading-login.svg";
 	} else {
 		var src = "/data/img-dark/loading-login.svg";
 	}
-	loginButtonText.innerHTML = 'Login &nbsp; <img style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);" src='+ src +' alt="..." width="30px" height="30px"/>'
-	fetch('http://127.0.0.1:5000/login', {
+	loginButtonText.innerHTML = 'Next &nbsp; <img style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);" src='+ src +' alt="..." width="30px" height="30px"/>'
+	fetch('http://127.0.0.1:5000/identify-user', {
 		method: 'POST', // *GET, POST, PUT, DELETE, etc.
 		mode: 'cors', // no-cors, *cors, same-origin
 		cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
@@ -696,7 +736,7 @@ function auth_submitLoginForm(){
 		},
 		redirect: 'follow', // manual, *follow, error
 		referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-		body: JSON.stringify({email: email, password: password}), // body data type must match "Content-Type" header	
+		body: JSON.stringify({email: email}), // body data type must match "Content-Type" header	
 	  })
 	  .then(function(response) {
 		console.log("RESPONSE:", response)
@@ -708,9 +748,14 @@ function auth_submitLoginForm(){
 			// if(data["status"] == "auth/invalid-email") {
 			// 	invalidEmailAddressError();
 			// }
-			if(data["status"] == "Authenticated") {
-				document.cookie= `token=${data["token"]}`;
+			// if(data["status"] == "Authenticated") {
+			// 	document.cookie= `token=${data["token"]}`;
+			// 	setDisplay('login-model', 'none');
+			// } else 
+			if(data["status"] == "Registered") {
 				setDisplay('login-model', 'none');
+				window.quantml_email = email
+				setDisplay('password-model', 'block');
 			} else if(data["status"] == "Unregistered") {
 				invalidEmailAddressUserNotFound(email);
 			} else if(data["status"] == "Invalid Password") {
@@ -723,9 +768,62 @@ function auth_submitLoginForm(){
 		});
 	  })
 	  .catch(function(error) {
-		loginButtonText.innerHTML = "Login";
+		loginButtonText.innerHTML = "Next &nbsp; &rarr;";
 		console.log("Fetch error: " + error);
 	  });		
+}
+
+function auth_authenticate(){
+	setDisplay('network-request-failed', 'none');
+	// if("auth/network-request-failed") {
+	// 	networkRequestFailed();
+	// 	return;
+	// }
+	email_form = document.getElementById('password-form')
+	// Get User Info
+	password = email_form['password'].value;
+	loginButtonText = document.getElementById('password-button-text');
+	if(localStorage.getItem("quantmlTheme")=="light"){
+		var src = "/data/img/loading-login.svg";
+	} else {
+		var src = "/data/img-dark/loading-login.svg";
+	}
+	loginButtonText.innerHTML = 'Login &nbsp; &rarr; <img style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);" src='+ src +' alt="..." width="30px" height="30px"/>'
+	fetch('http://127.0.0.1:5000/login', {
+		method: 'POST', // *GET, POST, PUT, DELETE, etc.
+		mode: 'cors', // no-cors, *cors, same-origin
+		cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+		credentials: 'same-origin', // include, *same-origin, omit
+		headers: {
+			'Content-Type': 'application/json'
+			// 'Content-Type': 'application/x-www-form-urlencoded',
+		},
+		redirect: 'follow', // manual, *follow, error
+		referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+		body: JSON.stringify({email: window.quantml_email, password: password}), // body data type must match "Content-Type" header	
+		})
+		.then(function(response) {
+		console.log("RESPONSE:", response)
+		loginButtonText.innerHTML = "Login";
+		response.json().then(function(data) {
+			console.log(data);
+			// if(data["status"] == "auth/invalid-email") {
+			// 	invalidEmailAddressError();
+			// }
+			if(data["status"] == "Authenticated") {
+				document.cookie= `token=${data["token"]}`;
+				setDisplay('password-model', 'none');
+			} else if(data["status"] == "Unregistered") {
+				invalidEmailAddressUserNotFound(email);
+			} else if(data["status"] == "Invalid Password") {
+				invalidPassword();
+			}
+		});
+		})
+		.catch(function(error) {
+		loginButtonText.innerHTML = "Login &nbsp; &rarr;";
+		console.log("Fetch error: " + error);
+		});		
 }
 
 function auth_createPassword(){
@@ -740,6 +838,7 @@ function auth_createPassword(){
 		var src = "/data/img-dark/loading-login.svg";
 	}
 	buttonText.innerHTML = 'Create Password &nbsp; <img style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);" src='+ src +' alt="..." width="30px" height="30px"/>'
+	console.log({email: window.quantml_email, new_password: newpass, confirm_password: confirmpass})
 	fetch('http://127.0.0.1:5000/create-password', {
 		method: 'POST', // *GET, POST, PUT, DELETE, etc.
 		mode: 'cors', // no-cors, *cors, same-origin
@@ -758,7 +857,7 @@ function auth_createPassword(){
 		buttonText.innerHTML = "Login";
 		response.json().then(function(data) {
 			console.log(data);
-			if(data["status"] == "Changed") {
+			if(data["status"] == "Authenticated") {
 				setDisplay('create-password-model', 'none')
 				setDisplay('password-do-not-match', 'none')
 				setDisplay('password-is-weak', 'none')
@@ -773,10 +872,9 @@ function auth_createPassword(){
 		});
 	  }) 
 	  .catch(function(error) {
-		buttonText.innerHTML = "Create Password";
+		buttonText.innerHTML = "Create Password &nbsp; &rarr;";
 		// console.log("Fetch error: " + error);
 	  });	
-	  window.quantml_email = undefined
 }
 
 function loadContent(chapterID){
