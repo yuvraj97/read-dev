@@ -84,14 +84,14 @@ function changeTheme() {
 	currentTheme = localStorage.getItem("quantmlTheme");
 	homeStylesheet = document.getElementById('home-stylesheet')
 	if(currentTheme == "light"){
-		console.log("Light2Dark");
+		// console.log("Light2Dark");
 		changeThemeCSS("dark")
 		loadCorrectThemeImages("dark")
 		localStorage.setItem("quantmlTheme", "dark");
 		if(homeStylesheet != null) homeStylesheet.href = "/style-dark.css"
 	}
 	else if (currentTheme == "dark"){
-		console.log("Dark2Light");
+		// console.log("Dark2Light");
 		changeThemeCSS("light")
 		loadCorrectThemeImages("light")
 		localStorage.setItem("quantmlTheme", "light");
@@ -139,92 +139,19 @@ function FBKatexLoaded(){
 	setDisplay('paragraph-content', 'block')
 }
 
-function loadFirebase(callback){
-	setDisplay('fb-loading', getDisplay())
-	requireScript('fb-app-js', '8.0.1', '/data/assets/js/firebase-app.js', 
-		function() {
-			console.log("firebase-app.js Loaded");  // Remove it
-			requireScript('fb-auth-js', '8.0.1', '/data/assets/js/firebase-auth.js',
-				function(){
-					console.log("firebase-auth.js Loaded");  // Remove it
-					requireScript('fb-store-js', '8.0.1',"/data/assets/js/firebase-firestore.js",
-						function(){
-							console.log("firebase-firestore Loaded");  // Remove it
-							// if(window.innerWidth <= 980){
-							//	 document.getElementById('login-btn-width').style.width="100%";
-							//	 document.getElementById('join-btn-width').style.width="100%";
-							//	 document.getElementById('logout-btn-width').style.width="100%";
-							// }							  
-
-							// ============================== FIREBASE SETUP [START] ============================== //
-
-							// Your web app's Firebase configuration
-							var firebaseConfig = {
-								apiKey: "AIzaSyBdgsjeNlaEuDVWVMRXgPOfvm2HEnpRjMQ",
-								authDomain: "statistics-guide.firebaseapp.com",
-								databaseURL: "https://statistics-guide.firebaseio.com",
-								projectId: "statistics-guide",
-							};
-							// Initialize Firebase
-							firebase.initializeApp(firebaseConfig);
-
-							globalThis.fb_auth = firebase.auth();
-							globalThis.fb_db   = firebase.firestore();
-
-							globalThis.fb_db.settings({timestampsInSnapshots: true});
-
-							// Listen For Auth Status Change
-							globalThis.fb_auth.onAuthStateChanged(function(user) {
-								if(user) {
-									console.log('Logged In :)');
-									setDisplay('login-button','none');
-									setDisplay('join-button','none');
-									setDisplay('logout-button',getDisplay());
-									setDisplay('secrets',getDisplay());
-									setDisplay('login-require','none');
-									setDisplay('fb-loading','none');
-								} else {
-									console.log('Logged Out!');
-									setDisplay('login-button',getDisplay());
-									setDisplay('join-button',getDisplay());
-									setDisplay('logout-button','none');
-									setDisplay('secrets','none');
-									setDisplay('login-require',getDisplay());
-									console.log("'fb-loading','none'")  // Remove it
-									setDisplay('fb-loading','none');
-								}
-							});
-							if(callback) callback();
-						}
-					)
-				}
-			)
-		}
-	)
-}
-
-function loadKatex(callback){
-	requireScript('katex-css', '0.6.0', '/data/assets/css/katex.min.css', function(){})
-	requireScript('katex-js', '0.6.0','/data/assets/js/katex.min.js', function(){
-		requireScript('auto-render-js', '0.6.0','/data/assets/js/auto-render.min.js', function(){
-			renderMathInElement(document.body);
-			if(callback) callback()
-		})
-	})
-}
-
-function loadKatexThenFB(){
+function loadKatex(){
 	theme = localStorage.getItem("quantmlTheme")
 	if(!localStorage.hasOwnProperty('katex')){
 		setDisplay('pre-loading', 'none')
 		setDisplay('pre-initializing', 'block')
 	}
-	loadKatex(function(){FBKatexLoaded();setTimeout(function(){loadFirebase()}, 500)})
-}
-
-function loadFBThenKatex(){
-	FBKatexLoaded()
-	setTimeout(loadFirebase(function(){setTimeout(function(){loadKatex()}, 1000)}), 500)
+	requireScript('katex-css', '0.6.0', '/data/assets/css/katex.min.css', function(){})
+	requireScript('katex-js', '0.6.0','/data/assets/js/katex.min.js', function(){
+		requireScript('auto-render-js', '0.6.0','/data/assets/js/auto-render.min.js', function(){
+			renderMathInElement(document.body);
+			FBKatexLoaded()
+		})
+	})
 }
 
 function isClassNamePresent(node, className){
@@ -247,7 +174,7 @@ function isClassNamePresent(node, className){
 
 function createImageModals(){
 	document.addEventListener('click',function(e){
-		console.log(e.target)
+		// console.log(e.target)
 		if(e.target.id=="image-modal"){
 			setDisplay('image-modal', 'none')
 		}
@@ -500,31 +427,31 @@ function fullyLoaded(){
 	});
 
 	// Email Form
-	const email_form = document.querySelector('#email-form');
+	email_form = document.querySelector('#email-form');
 	email_form.addEventListener('submit', function(e) {
 		e.preventDefault();
 		auth_identify_email()	
 	});
 
 	// Password Form
-	const password_form = document.querySelector('#password-form');
+	password_form = document.querySelector('#password-form');
 	password_form.addEventListener('submit', function(e) {
 		e.preventDefault();
 		auth_authenticate()	
 	});
 	
 	// Create Password
-	const cratePasswordForm = document.querySelector('#create-password');
+	cratePasswordForm = document.querySelector('#create-password');
 	cratePasswordForm.addEventListener('submit', function(e) {
 		e.preventDefault();
 		auth_createPassword()	
 	});
 
 	// Login Button
-	const loginButton = document.querySelectorAll('#login-button');
+	loginButton = document.querySelectorAll('#login-button');
 	loginButton.forEach(function(element,index){
 			element.addEventListener('click', function(e) {
-				console.log("Login Button Clicked")
+				// console.log("Login Button Clicked")
 				e.preventDefault();
 				document.querySelector('body').classList.remove('is-navPanel-visible');
 				setDisplay('login-model', 'block')
@@ -532,18 +459,18 @@ function fullyLoaded(){
 	})
 	
 	// LOGOUT
-	const logout = document.querySelectorAll('#logout-button');
+	logout = document.querySelectorAll('#logout-button');
 	logout.forEach(function(element,index){
 		element.addEventListener('click',function(e) {	
 			e.preventDefault();
 			globalThis.fb_auth.signOut().then(function() {
-				console.log("Logging Out...")
+				// console.log("Logging Out...")
 			});
 		});
 	});
 
 	// Reset Password
-	const forgotPassword = document.querySelector('#forgot-password');
+	forgotPassword = document.querySelector('#forgot-password');
 	forgotPassword.addEventListener('click',function(e) {	
 		e.preventDefault();
 		auth_resetPassword(email_form)
@@ -554,8 +481,8 @@ function fullyLoaded(){
 	window.keydowns = {"ctrl": false, "alt": false}
 
 	document.addEventListener("keyup", function(evt) {
-		console.log(evt.code)
-		console.log("CTRL:",window.keydowns["ctrl"])
+		// console.log(evt.code)
+		// console.log("CTRL:",window.keydowns["ctrl"])
 		if(isInputRequires()){
 			// PASS
 		} else if(evt.code == "KeyD"){
@@ -573,7 +500,7 @@ function fullyLoaded(){
 	document.addEventListener("keydown", function(evt) {
 		evt = evt || window.event;
 		// console.log(evt)
-		console.log("DOWN", evt.code)
+		// console.log("DOWN", evt.code)
 		if(evt.code == "Escape") {
 			for (let idx = 0; idx < modal.length; idx++) {
 				modal[idx].style.display = "none";
@@ -631,11 +558,10 @@ function fullyLoaded(){
 }
 
 function cssLoaded(iskatexImportant = true, callback){
-	console.log("iskatexImportant:", iskatexImportant)
+	// console.log("iskatexImportant:", iskatexImportant)
 	// d = new Date();end = d.getTime();  // Remove it 
 	// console.log("CSS Load time:",end-start)  // Remove it 
-	if(iskatexImportant) loadKatexThenFB()
-	else loadFBThenKatex()
+	loadKatex()
 	fullyLoaded()
 	if(callback) callback();
 	// d = new Date();end = d.getTime();  // Remove it 
@@ -691,21 +617,26 @@ function emailAddressIsValidated(){
 }
 
 function invalidPassword(){
-	password = document.getElementById("password");
-	password.style.border = "1px solid red";
-	password.style.boxShadow = "1px 1px 10px red";
-	password.classList.add("error-border-bounce");
-	setTimeout(function() {
-		password.classList.remove("error-border-bounce");
-	}, 1000); 
+	password = document.querySelectorAll('[type="password"]');
+	password.forEach(function(element, index) {
+		element.style.border = "1px solid red";
+		element.style.boxShadow = "1px 1px 10px red";
+		element.classList.add("error-border-bounce");
+		setTimeout(function() {
+			element.classList.remove("error-border-bounce");
+		}, 1000); 
+	})
 	setDisplay('password-error-msg', 'block');
 	emailAddressIsValidated()
 }
 
 function passwordIsValidated(){
-	password = document.getElementById("password");
-	password.style.boxShadow = "none";
-	password.style.border = "2px solid #0073b1";
+	password = document.querySelectorAll('[type="password"]');
+	password.forEach(function(element, index) {
+		console.log(element)
+		element.style.boxShadow = "none";
+		element.style.border = "2px solid #0073b1";
+	})
 	setDisplay('password-error-msg', 'none');
 }
 
@@ -717,14 +648,14 @@ function auth_identify_email(){
 	// }
 	email_form = document.getElementById('email-form')
 	// Get User Info
-	const email = email_form['login-email'].value;
-	const loginButtonText = document.getElementById('login-button-text');
+	email = email_form['login-email'].value;
+	nextButtonText = document.getElementById('login-button-text');
 	if(localStorage.getItem("quantmlTheme")=="light"){
 		var src = "/data/img/loading-login.svg";
 	} else {
 		var src = "/data/img-dark/loading-login.svg";
 	}
-	loginButtonText.innerHTML = 'Next &nbsp; <img style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);" src='+ src +' alt="..." width="30px" height="30px"/>'
+	nextButtonText.innerHTML = 'Next &nbsp; <img style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);" src='+ src +' alt="..." width="30px" height="30px"/>'
 	fetch('http://127.0.0.1:5000/identify-user', {
 		method: 'POST', // *GET, POST, PUT, DELETE, etc.
 		mode: 'cors', // no-cors, *cors, same-origin
@@ -739,19 +670,11 @@ function auth_identify_email(){
 		body: JSON.stringify({email: email}), // body data type must match "Content-Type" header	
 	  })
 	  .then(function(response) {
-		console.log("RESPONSE:", response)
-		// setDisplay('login-model', 'none');
-		loginButtonText.innerHTML = "Login";
+		// console.log("RESPONSE:", response)
+		nextButtonText.innerHTML = "Login";
 		// window.location.reload();
 		response.json().then(function(data) {
 			console.log(data);
-			// if(data["status"] == "auth/invalid-email") {
-			// 	invalidEmailAddressError();
-			// }
-			// if(data["status"] == "Authenticated") {
-			// 	document.cookie= `token=${data["token"]}`;
-			// 	setDisplay('login-model', 'none');
-			// } else 
 			if(data["status"] == "Registered") {
 				setDisplay('login-model', 'none');
 				window.quantml_email = email
@@ -768,8 +691,8 @@ function auth_identify_email(){
 		});
 	  })
 	  .catch(function(error) {
-		loginButtonText.innerHTML = "Next &nbsp; &rarr;";
-		console.log("Fetch error: " + error);
+		nextButtonText.innerHTML = "Next &nbsp; &rarr;";
+		// console.log("Fetch error: " + error);
 	  });		
 }
 
@@ -803,7 +726,7 @@ function auth_authenticate(){
 		body: JSON.stringify({email: window.quantml_email, password: password}), // body data type must match "Content-Type" header	
 		})
 		.then(function(response) {
-		console.log("RESPONSE:", response)
+		// console.log("RESPONSE:", response)
 		loginButtonText.innerHTML = "Login";
 		response.json().then(function(data) {
 			console.log(data);
@@ -814,7 +737,7 @@ function auth_authenticate(){
 				document.cookie= `token=${data["token"]}`;
 				setDisplay('password-model', 'none');
 			} else if(data["status"] == "Unregistered") {
-				invalidEmailAddressUserNotFound(email);
+				// invalidEmailAddressUserNotFound(email);
 			} else if(data["status"] == "Invalid Password") {
 				invalidPassword();
 			}
@@ -822,23 +745,23 @@ function auth_authenticate(){
 		})
 		.catch(function(error) {
 		loginButtonText.innerHTML = "Login &nbsp; &rarr;";
-		console.log("Fetch error: " + error);
+		// console.log("Fetch error: " + error);
 		});		
 }
 
 function auth_createPassword(){
 	loginForm = document.getElementById('create-password')
 	// Get User Info
-	const newpass = loginForm['new-password'].value;
-	const confirmpass = loginForm['confirm-password'].value;
-	const buttonText = document.getElementById('create-password-text');
+	newpass = loginForm['new-password'].value;
+	confirmpass = loginForm['confirm-password'].value;
+	buttonText = document.getElementById('create-password-text');
 	if(localStorage.getItem("quantmlTheme")=="light"){
 		var src = "/data/img/loading-login.svg";
 	} else {
 		var src = "/data/img-dark/loading-login.svg";
 	}
 	buttonText.innerHTML = 'Create Password &nbsp; <img style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);" src='+ src +' alt="..." width="30px" height="30px"/>'
-	console.log({email: window.quantml_email, new_password: newpass, confirm_password: confirmpass})
+	// console.log({email: window.quantml_email, new_password: newpass, confirm_password: confirmpass})
 	fetch('http://127.0.0.1:5000/create-password', {
 		method: 'POST', // *GET, POST, PUT, DELETE, etc.
 		mode: 'cors', // no-cors, *cors, same-origin
@@ -853,8 +776,8 @@ function auth_createPassword(){
 		body: JSON.stringify({email: window.quantml_email, new_password: newpass, confirm_password: confirmpass}), // body data type must match "Content-Type" header	
 	  })
 	  .then(function(response) {
-		console.log("RESPONSE:", response)
-		buttonText.innerHTML = "Login";
+		// console.log("RESPONSE:", response)
+		buttonText.innerHTML = "Create Password &nbsp; &rarr;";
 		response.json().then(function(data) {
 			console.log(data);
 			if(data["status"] == "Authenticated") {
@@ -863,9 +786,11 @@ function auth_createPassword(){
 				setDisplay('password-is-weak', 'none')
 				document.cookie= `token=${data["token"]}`;
 			} else if(data["status"] == "Dont match") {
+				invalidPassword()
 				setDisplay('password-do-not-match', 'block')
 				setDisplay('password-is-weak', 'none')
 			} else if(data["status"] == "Weak") {
+				invalidPassword()
 				setDisplay('password-do-not-match', 'none')
 				setDisplay('password-is-weak', 'block')
 			}
