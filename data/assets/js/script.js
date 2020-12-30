@@ -459,6 +459,12 @@ function fullyLoaded(){
 		auth_createPassword()
 	});
 
+	// OTP Form
+	otp_form = document.querySelector('#otp-form');
+	otp_form.addEventListener('submit', function(e) {
+		e.preventDefault();
+		otp_success()
+	})
 	// Login Button
 	loginButton = document.querySelectorAll('#login-button');
 	loginButton.forEach(function(element,index){
@@ -798,6 +804,11 @@ function auth_forgotPassword(){
 			"then": function() {forgotButtonText.innerHTML = "Forgot Password &nbsp; &rarr;";},
 			"response": function (data){
 				if(data["status"] == "Success") {
+					document.getElementById('otp-txt').innerHTML = `<h4>An OTP is sent over to ${email}</h4>`
+					setDisplay('password-model', 'none')
+					setDisplay('otp-model', 'block')
+					setDisplay('invalid-otp', 'none')
+					setDisplay('resend-otp', 'none')
 					otp_success(email)
 				} else {
 					otp_failed(data["status"])
@@ -811,39 +822,27 @@ function auth_forgotPassword(){
 }
 
 function otp_success(email) {
-	document.getElementById('otp-txt').innerHTML = `
-	<h4>An OTP is sent over to ${email}</h4>
-	`
-	setDisplay('password-model', 'none')
-	setDisplay('otp-model', 'block')
-	setDisplay('invalid-otp', 'none')
-	setDisplay('resend-otp', 'none')
-	// Email Form
 	otp_form = document.querySelector('#otp-form');
-	otp_form.addEventListener('submit', function(e) {
-		e.preventDefault();
-		otp = otp_form['otp'].value;
-		window.quantml["otp"] = otp
-		verifyButtonText = document.getElementById('otp-text')
-		verifyButtonText.innerHTML = `Verify ${get_loader_img_str()}`
-		fetching({email: window.quantml["email"], otp: otp}, "verify-otp", 
-			callbacks = {
-				"then": function() {verifyButtonText.innerHTML = "Verify &nbsp; &rarr;";},
-				"response": function(data){
-					console.log(data)
-					if(data["status"] == "OTP Verified") {
-						setDisplay('otp-model', 'none')
-						setDisplay('create-password-model', 'block')
-						// otp_verified(email)
-					} else {
-						setDisplay('invalid-otp', 'block')
-						setDisplay('resend-otp', 'block')
-					}	
-				},
-				"catch": function() {verifyButtonText.innerHTML = "Verify &nbsp; &rarr;";},
-			})
-		
-	});
+	otp = otp_form['otp'].value;
+	window.quantml["otp"] = otp
+	verifyButtonText = document.getElementById('otp-text')
+	verifyButtonText.innerHTML = `Verify ${get_loader_img_str()}`
+	fetching({email: window.quantml["email"], otp: otp}, "verify-otp", 
+		callbacks = {
+			"then": function() {verifyButtonText.innerHTML = "Verify &nbsp; &rarr;";},
+			"response": function(data){
+				console.log(data)
+				if(data["status"] == "OTP Verified") {
+					setDisplay('otp-model', 'none')
+					setDisplay('create-password-model', 'block')
+					// otp_verified(email)
+				} else {
+					setDisplay('invalid-otp', 'block')
+					setDisplay('resend-otp', 'block')
+				}	
+			},
+			"catch": function() {verifyButtonText.innerHTML = "Verify &nbsp; &rarr;";},
+		})
 }
 
 function otp_not_verified(){
@@ -869,7 +868,6 @@ function otp_not_verified(){
 function otp_failed(status) {
 	// Fill it
 }
-
 
 function fetching(data, endpoint, callbacks = {}){
 	fetch(`http://127.0.0.1:5000/${endpoint}`, {
