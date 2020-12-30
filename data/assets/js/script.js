@@ -813,7 +813,32 @@ function auth_createPassword(){
 	  });
 }
 
-function auth_state_change(callback){
+function fetching(data, endpoint, callbacks){
+	fetch(`http://127.0.0.1:5000/${endpoint}`, {
+		method: 'POST', // *GET, POST, PUT, DELETE, etc.
+		mode: 'cors', // no-cors, *cors, same-origin
+		cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+		credentials: 'same-origin', // include, *same-origin, omit
+		headers: {
+		  'Content-Type': 'application/json'
+		  // 'Content-Type': 'application/x-www-form-urlencoded',
+		},
+		redirect: 'follow', // manual, *follow, error
+		referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+		body: JSON.stringify(data), // body data type must match "Content-Type" header
+	  })
+	  .then(function(response) {
+		if("then" in callbacks) callbacks["then"](response)
+		response.json().then(function(data) {
+			if("response" in callbacks) callbacks["response"](data)
+		});
+	  })
+	  .catch(function(error) {
+		if("catch" in callbacks) callbacks["catch"](error)
+	  });
+}
+
+function auth_state_change(){
 	token = getCookie("token")
 	if(token == null) {
 		setDisplay('login-button',getDisplay());
@@ -824,22 +849,8 @@ function auth_state_change(callback){
 		setDisplay('fb-loading','none');
 		return
 	}
-	fetch('http://127.0.0.1:5000/is-authorized', {
-		method: 'POST', // *GET, POST, PUT, DELETE, etc.
-		mode: 'cors', // no-cors, *cors, same-origin
-		cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-		credentials: 'same-origin', // include, *same-origin, omit
-		headers: {
-			'Content-Type': 'application/json'
-			// 'Content-Type': 'application/x-www-form-urlencoded',
-		},
-		redirect: 'follow', // manual, *follow, error
-		referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-		body: JSON.stringify({token: token}), // body data type must match "Content-Type" header
-	})
-	.then(function(response) {
-		// console.log("RESPONSE:", response)
-		response.json().then(function(data) {
+	callbacks = {
+		"response": function(data) {
 			console.log(data);
 			if(data["status"] == "Authorized") {
 				setDisplay('login-button','none');
@@ -856,8 +867,9 @@ function auth_state_change(callback){
 				setDisplay('login-require',getDisplay());
 				setDisplay('fb-loading','none');
 			}
-		});
-	})
+		},
+	}
+	fetching({token:token}, "is-authorized", callbacks)
 }
 
 function loadContent(chapterID){
