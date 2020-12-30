@@ -118,7 +118,8 @@ function isInputRequires(){
 	loginModal = document.getElementById('login-model')
 	models = [document.getElementById('login-model'),
 			  document.getElementById('password-model'),
-			  document.getElementById('create-password-model')
+			  document.getElementById('create-password-model'),
+			  document.getElementById('otp-model')
 	]
 	for (let index = 0; index < models.length; index++) {
 		element = models[index];
@@ -348,19 +349,21 @@ function fullyLoaded(){
 		</div>
 	<!--=============== Create Password MODEL[END] ===============-->
 
-	<!--=============== Password Reset Link Sent MODEL[START] ===============-->
+	<!--=============== OTP MODEL[START] ===============-->
 
-	<div id="password-reset-link-sent-model" class="modal">
-		<div class="modal-content animate" id="login-form">
-			<a class="close" style="float: right; padding-top: 0%; padding-bottom: 0%;" onclick="setDisplay('password-reset-link-sent-model', 'none')">X</a>
+	<div id="otp-model" class="modal">
+		<div class="modal-content animate" id="otp-form">
+			<a class="close" style="float: right; padding-top: 0%; padding-bottom: 0%;" onclick="setDisplay('otp-model', 'none')">X</a>
 			<div class="container" style="margin: 1rem;">
-	<span id='password-reset-link-sent-txt'></span>
-			<button onclick="setDisplay('password-reset-link-sent-model', 'none')" class="form-buttons login-button">OK</button>
+			<span id='otp-txt'></span>
+			<label for="psw"><b>Password</b></label>
+			<input id="otp" class="loginInput" placeholder="Enter OTP" name="otp" required>
+			<button class="form-buttons login-button">Verify &nbsp; &rarr;</button>
 			</div>
 		</div>
 	</div>
 
-	<!--=============== Password Reset Link Sent MODEL[END] ===============-->
+	<!--=============== Forgot Password MODEL[END] ===============-->
 
 	<!--=============== SETTINGS[START] ===============-->
 
@@ -407,6 +410,7 @@ function fullyLoaded(){
 			document.getElementById("create-password-model"),
 			document.getElementById("password-reset-link-sent-model"),
 			document.getElementById("settings-model"),
+			document.getElementById('otp-model')
 		];
 
 	clearModelOnBackgroundClick(modal);
@@ -464,18 +468,7 @@ function fullyLoaded(){
 		element.addEventListener('click',function(e) {
 			e.preventDefault();
 			document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-			fetch('http://127.0.0.1:5000/logout', {
-				method: 'POST', // *GET, POST, PUT, DELETE, etc.
-				mode: 'cors', // no-cors, *cors, same-origin
-				cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-				credentials: 'same-origin', // include, *same-origin, omit
-				headers: {
-				'Content-Type': 'application/json'
-				},
-				redirect: 'follow', // manual, *follow, error
-				referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-				body: JSON.stringify({token: getCookie("token")}), // body data type must match "Content-Type" header
-			})
+			fetching({token: getCookie("token")}, "logout")
 			auth_state_change()
 		});
 	});
@@ -652,10 +645,10 @@ function passwordIsValidated(){
 
 function auth_identify_email(){
 	setDisplay('network-request-failed', 'none');
-	// if("auth/network-request-failed") {
-	// 	networkRequestFailed();
-	// 	return;
-	// }
+	if(!navigator.onLine) {
+		networkRequestFailed();
+		return;
+	}
 	email_form = document.getElementById('email-form')
 	// Get User Info
 	email = email_form['login-email'].value;
@@ -666,52 +659,38 @@ function auth_identify_email(){
 		var src = "/data/img-dark/loading-login.svg";
 	}
 	nextButtonText.innerHTML = 'Next &nbsp; <img style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);" src='+ src +' alt="..." width="30px" height="30px"/>'
-	fetch('http://127.0.0.1:5000/identify-user', {
-		method: 'POST', // *GET, POST, PUT, DELETE, etc.
-		mode: 'cors', // no-cors, *cors, same-origin
-		cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-		credentials: 'same-origin', // include, *same-origin, omit
-		headers: {
-		  'Content-Type': 'application/json'
-		  // 'Content-Type': 'application/x-www-form-urlencoded',
-		},
-		redirect: 'follow', // manual, *follow, error
-		referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-		body: JSON.stringify({email: email}), // body data type must match "Content-Type" header
-	  })
-	  .then(function(response) {
-		// console.log("RESPONSE:", response)
-		nextButtonText.innerHTML = "Next &nbsp; &rarr;";
-		// window.location.reload();
-		response.json().then(function(data) {
-			console.log(data);
-			if(data["status"] == "Registered") {
-				setDisplay('login-model', 'none');
-				window.quantml_email = email
-				setDisplay('password-model', 'block');
-			} else if(data["status"] == "Unregistered") {
-				invalidEmailAddressUserNotFound(email);
-			} else if(data["status"] == "Invalid Password") {
-				invalidPassword();
-			} else if(data["status"] == "Create Password") {
-				setDisplay('login-model', 'none');
-				window.quantml_email = email
-				setDisplay('create-password-model', 'block')
+	fetching({email: email}, "identify-user",
+		callbacks = {
+			"then": function() {nextButtonText.innerHTML = "Next &nbsp; &rarr;";},
+			"response": function(data) {
+				console.log(data);
+				if(data["status"] == "Registered") {
+					setDisplay('login-model', 'none');
+					window.quantml_email = email
+					setDisplay('password-model', 'block');
+				} else if(data["status"] == "Unregistered") {
+					invalidEmailAddressUserNotFound(email);
+				} else if(data["status"] == "Invalid Password") {
+					invalidPassword();
+				} else if(data["status"] == "Create Password") {
+					setDisplay('login-model', 'none');
+					window.quantml_email = email
+					setDisplay('create-password-model', 'block')
+				}
+			},
+			"catch": function() {
+				nextButtonText.innerHTML = "Next &nbsp; &rarr;";
 			}
-		});
-	  })
-	  .catch(function(error) {
-		nextButtonText.innerHTML = "Next &nbsp; &rarr;";
-		// console.log("Fetch error: " + error);
-	  });
+		})
+		
 }
 
 function auth_authenticate(){
 	setDisplay('network-request-failed', 'none');
-	// if("auth/network-request-failed") {
-	// 	networkRequestFailed();
-	// 	return;
-	// }
+	if(!navigator.onLine) {
+		networkRequestFailed();
+		return;
+	}
 	email_form = document.getElementById('password-form')
 	// Get User Info
 	password = email_form['password'].value;
@@ -722,45 +701,34 @@ function auth_authenticate(){
 		var src = "/data/img-dark/loading-login.svg";
 	}
 	loginButtonText.innerHTML = 'Login &nbsp; &rarr; <img style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);" src='+ src +' alt="..." width="30px" height="30px"/>'
-	fetch('http://127.0.0.1:5000/login', {
-		method: 'POST', // *GET, POST, PUT, DELETE, etc.
-		mode: 'cors', // no-cors, *cors, same-origin
-		cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-		credentials: 'same-origin', // include, *same-origin, omit
-		headers: {
-			'Content-Type': 'application/json'
-			// 'Content-Type': 'application/x-www-form-urlencoded',
-		},
-		redirect: 'follow', // manual, *follow, error
-		referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-		body: JSON.stringify({email: window.quantml_email, password: password}), // body data type must match "Content-Type" header
-		})
-		.then(function(response) {
-		// console.log("RESPONSE:", response)
-		loginButtonText.innerHTML = "Login";
-		response.json().then(function(data) {
-			console.log(data);
-			// if(data["status"] == "auth/invalid-email") {
-			// 	invalidEmailAddressError();
-			// }
-			if(data["status"] == "Authenticated") {
-				document.cookie= `token=${data["token"]}`;
-				setDisplay('password-model', 'none');
-				auth_state_change()
-			} else if(data["status"] == "Unregistered") {
-				// invalidEmailAddressUserNotFound(email);
-			} else if(data["status"] == "Invalid Password") {
-				invalidPassword();
+	fetching({email: window.quantml_email, password: password}, "login", 
+		callbacks = {
+			"then": function() {loginButtonText.innerHTML = "Login";},
+			"response": function (data){
+				console.log(data);
+				if(data["status"] == "Authenticated") {
+					document.cookie= `token=${data["token"]}`;
+					setDisplay('password-model', 'none');
+					auth_state_change()
+				} else if(data["status"] == "Unregistered") {
+					// invalidEmailAddressUserNotFound(email);
+				} else if(data["status"] == "Invalid Password") {
+					invalidPassword();
+				}
+			},
+			"catch": function(){
+				loginButtonText.innerHTML = "Login &nbsp; &rarr;";
+				// console.log("Fetch error: " + error);
 			}
-		});
-		})
-		.catch(function(error) {
-		loginButtonText.innerHTML = "Login &nbsp; &rarr;";
-		// console.log("Fetch error: " + error);
-	});
+		})		
 }
 
 function auth_createPassword(){
+	setDisplay('network-request-failed', 'none');
+	if(!navigator.onLine) {
+		networkRequestFailed();
+		return;
+	}
 	loginForm = document.getElementById('create-password')
 	// Get User Info
 	newpass = loginForm['new-password'].value;
@@ -772,48 +740,35 @@ function auth_createPassword(){
 		var src = "/data/img-dark/loading-login.svg";
 	}
 	buttonText.innerHTML = 'Create Password &nbsp; <img style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);" src='+ src +' alt="..." width="30px" height="30px"/>'
-	// console.log({email: window.quantml_email, new_password: newpass, confirm_password: confirmpass})
-	fetch('http://127.0.0.1:5000/create-password', {
-		method: 'POST', // *GET, POST, PUT, DELETE, etc.
-		mode: 'cors', // no-cors, *cors, same-origin
-		cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-		credentials: 'same-origin', // include, *same-origin, omit
-		headers: {
-		  'Content-Type': 'application/json'
-		  // 'Content-Type': 'application/x-www-form-urlencoded',
-		},
-		redirect: 'follow', // manual, *follow, error
-		referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-		body: JSON.stringify({email: window.quantml_email, new_password: newpass, confirm_password: confirmpass}), // body data type must match "Content-Type" header
-	  })
-	  .then(function(response) {
-		// console.log("RESPONSE:", response)
-		buttonText.innerHTML = "Create Password &nbsp; &rarr;";
-		response.json().then(function(data) {
-			console.log(data);
-			if(data["status"] == "Authenticated") {
-				setDisplay('create-password-model', 'none')
-				setDisplay('password-do-not-match', 'none')
-				setDisplay('password-is-weak', 'none')
-				document.cookie= `token=${data["token"]}`;
-			} else if(data["status"] == "Dont match") {
-				invalidPassword()
-				setDisplay('password-do-not-match', 'block')
-				setDisplay('password-is-weak', 'none')
-			} else if(data["status"] == "Weak") {
-				invalidPassword()
-				setDisplay('password-do-not-match', 'none')
-				setDisplay('password-is-weak', 'block')
-			}
-		});
-	  })
-	  .catch(function(error) {
-		buttonText.innerHTML = "Create Password &nbsp; &rarr;";
-		// console.log("Fetch error: " + error);
-	  });
+	fetching({email: window.quantml_email, new_password: newpass, confirm_password: confirmpass}, 
+			endpoint="create-password",
+			callbacks={
+				"then": function(){buttonText.innerHTML = "Create Password &nbsp; &rarr;";},
+				"response": function(data) {
+					console.log(data);
+					if(data["status"] == "Authenticated") {
+						setDisplay('create-password-model', 'none')
+						setDisplay('password-do-not-match', 'none')
+						setDisplay('password-is-weak', 'none')
+						document.cookie= `token=${data["token"]}`;
+						auth_state_change()
+					} else if(data["status"] == "Dont match") {
+						invalidPassword()
+						setDisplay('password-do-not-match', 'block')
+						setDisplay('password-is-weak', 'none')
+					} else if(data["status"] == "Weak") {
+						invalidPassword()
+						setDisplay('password-do-not-match', 'none')
+						setDisplay('password-is-weak', 'block')
+					}
+				},
+				"catch": function(){
+					buttonText.innerHTML = "Create Password &nbsp; &rarr;";
+				}
+			});
 }
 
-function fetching(data, endpoint, callbacks){
+function fetching(data, endpoint, callbacks = {}){
 	fetch(`http://127.0.0.1:5000/${endpoint}`, {
 		method: 'POST', // *GET, POST, PUT, DELETE, etc.
 		mode: 'cors', // no-cors, *cors, same-origin
