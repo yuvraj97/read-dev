@@ -1,3 +1,5 @@
+window.quantml = {}
+
 function _cacheFile_(name, version, url) {
 	var xmlhttp = new XMLHttpRequest(); // code for IE7+, Firefox, Chrome, Opera, Safari
 	xmlhttp.onreadystatechange = function() {
