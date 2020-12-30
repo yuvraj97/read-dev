@@ -96,6 +96,15 @@ function getCookie(name) {
     return null;
 }
 
+function get_loader_img_str(which = "login"){
+	if(localStorage.getItem("quantmlTheme")=="light"){
+		var src = `/data/img/loading-${which}.svg`;
+	} else {
+		var src = `/data/img-dark/loading-${which}.svg`;
+	}
+	return `<img style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);" src="${src}" alt="..." width="30px" height="30px"/>`
+}
+
 // Setting Theme
 if(localStorage.getItem("quantmlTheme")==null){
 	localStorage.setItem("quantmlTheme", "light");

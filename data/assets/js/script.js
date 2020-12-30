@@ -352,15 +352,23 @@ function fullyLoaded(){
 	<!--=============== OTP MODEL[START] ===============-->
 
 	<div id="otp-model" class="modal">
-		<div class="modal-content animate" id="otp-form">
+		<form class="modal-content animate" id="otp-form">
 			<a class="close" style="float: right; padding-top: 0%; padding-bottom: 0%;" onclick="setDisplay('otp-model', 'none')">X</a>
 			<div class="container" style="margin: 1rem;">
 			<span id='otp-txt'></span>
 			<label for="otp"><b>OTP</b></label>
 			<input id="otp" class="loginInput" placeholder="Enter OTP" name="otp" required>
-			<button class="form-buttons login-button">Verify &nbsp; &rarr;</button>
+
+			<div style="display: none;" id="invalid-otp" class="error-msg">
+				<img style="float: left;" src="/data/auth/error.png" alt="!" width="50px" height="50px">
+				<div style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);">Invalid OTP</div>
 			</div>
-		</div>
+
+			<button class="form-buttons login-button" type="submit">
+				<span id="otp-text">Verify &nbsp; &rarr;</span>
+			</button>
+			</div>
+		</form>
 	</div>
 
 	<!--=============== Forgot Password MODEL[END] ===============-->
@@ -798,6 +806,29 @@ function otp_success(email) {
 	`
 	setDisplay('password-model', 'none')
 	setDisplay('otp-model', 'block')
+	// Email Form
+	otp_form = document.querySelector('#otp-form');
+	otp_form.addEventListener('submit', function(e) {
+		e.preventDefault();
+		otp = otp_form['otp'].value;
+		window.quantml_otp = otp
+		verifyButtonText = document.getElementById('otp-text')
+		verifyButtonText.innerHTML = `Verify ${get_loader_img_str()}`
+		fetching({email: window.quantml_email, otp: otp}, "verify-otp", 
+			callbacks = {
+				"then": function() {verifyButtonText.innerHTML = "Verify &nbsp; &rarr;";},
+				"response": function(data){
+					if(data["status"] == "OTP Verified") {
+
+						// otp_verified(email)
+					} else {
+						// otp_not_verified()
+					}	
+				},
+				"catch": function() {verifyButtonText.innerHTML = "Verify &nbsp; &rarr;";},
+			})
+		
+	});
 }
 
 function otp_failed(status) {
