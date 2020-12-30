@@ -356,7 +356,7 @@ function fullyLoaded(){
 			<a class="close" style="float: right; padding-top: 0%; padding-bottom: 0%;" onclick="setDisplay('otp-model', 'none')">X</a>
 			<div class="container" style="margin: 1rem;">
 			<span id='otp-txt'></span>
-			<label for="psw"><b>Password</b></label>
+			<label for="otp"><b>OTP</b></label>
 			<input id="otp" class="loginInput" placeholder="Enter OTP" name="otp" required>
 			<button class="form-buttons login-button">Verify &nbsp; &rarr;</button>
 			</div>
@@ -477,7 +477,7 @@ function fullyLoaded(){
 	forgotPassword = document.querySelector('#forgot-password');
 	forgotPassword.addEventListener('click',function(e) {
 		e.preventDefault();
-		auth_resetPassword(email_form)
+		auth_forgotPassword()
 	});
 
 	setDisplay('login-error-msg', "none")
@@ -659,6 +659,7 @@ function auth_identify_email(){
 		var src = "/data/img-dark/loading-login.svg";
 	}
 	nextButtonText.innerHTML = 'Next &nbsp; <img style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);" src='+ src +' alt="..." width="30px" height="30px"/>'
+	window.quantml_email = email
 	fetching({email: email}, "identify-user",
 		callbacks = {
 			"then": function() {nextButtonText.innerHTML = "Next &nbsp; &rarr;";},
@@ -666,7 +667,6 @@ function auth_identify_email(){
 				console.log(data);
 				if(data["status"] == "Registered") {
 					setDisplay('login-model', 'none');
-					window.quantml_email = email
 					setDisplay('password-model', 'block');
 				} else if(data["status"] == "Unregistered") {
 					invalidEmailAddressUserNotFound(email);
@@ -674,7 +674,6 @@ function auth_identify_email(){
 					invalidPassword();
 				} else if(data["status"] == "Create Password") {
 					setDisplay('login-model', 'none');
-					window.quantml_email = email
 					setDisplay('create-password-model', 'block')
 				}
 			},
@@ -703,7 +702,7 @@ function auth_authenticate(){
 	loginButtonText.innerHTML = 'Login &nbsp; &rarr; <img style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);" src='+ src +' alt="..." width="30px" height="30px"/>'
 	fetching({email: window.quantml_email, password: password}, "login", 
 		callbacks = {
-			"then": function() {loginButtonText.innerHTML = "Login";},
+			"then": function() {loginButtonText.innerHTML = "Login &nbsp; &rarr;";},
 			"response": function (data){
 				console.log(data);
 				if(data["status"] == "Authenticated") {
@@ -767,6 +766,44 @@ function auth_createPassword(){
 				}
 			});
 }
+
+function auth_forgotPassword(){
+	forgotButtonText = document.getElementById('forgot-button-text')
+	if(localStorage.getItem("quantmlTheme")=="light"){
+		var src = "/data/img/loading-forgot.svg";
+	} else {
+		var src = "/data/img-dark/loading-forgot.svg";
+	}
+	forgotButtonText.innerHTML = 'Forgot Password <img style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);" src='+ src +' alt="..." width="30px" height="30px"/>'
+	fetching({email: window.quantml_email}, "send-otp", 
+		callbacks = {
+			"then": function() {forgotButtonText.innerHTML = "Forgot Password &nbsp; &rarr;";},
+			"response": function (data){
+				if(data["status"] == "Success") {
+					otp_success(email)
+				} else {
+					otp_failed(data["status"])
+				}
+			},
+			"catch": function(){
+				forgotButtonText.innerHTML = "Forgot Password &nbsp; &rarr;";
+				// console.log("Fetch error: " + error);
+			}
+	})
+}
+
+function otp_success(email) {
+	document.getElementById('otp-txt').innerHTML = `
+	<h4>An OTP is sent over to ${email}</h4>
+	`
+	setDisplay('password-model', 'none')
+	setDisplay('otp-model', 'block')
+}
+
+function otp_failed(status) {
+	// Fill it
+}
+
 
 function fetching(data, endpoint, callbacks = {}){
 	fetch(`http://127.0.0.1:5000/${endpoint}`, {
