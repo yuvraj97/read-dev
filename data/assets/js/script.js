@@ -763,7 +763,7 @@ function auth_createPassword(){
 		var src = "/data/img-dark/loading-login.svg";
 	}
 	buttonText.innerHTML = 'Create Password &nbsp; <img style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);" src='+ src +' alt="..." width="30px" height="30px"/>'
-	fetching({email: window.quantml["email"], new_password: newpass, confirm_password: confirmpass}, 
+	fetching({email: window.quantml["email"], new_password: newpass, confirm_password: confirmpass, otp: window.quantml["otp"]}, 
 			endpoint="create-password",
 			callbacks={
 				"then": function(){buttonText.innerHTML = "Create Password &nbsp; &rarr;";},
@@ -803,13 +803,13 @@ function auth_forgotPassword(){
 		callbacks = {
 			"then": function() {forgotButtonText.innerHTML = "Forgot Password &nbsp; &rarr;";},
 			"response": function (data){
+				console.log(data)
 				if(data["status"] == "Success") {
 					document.getElementById('otp-txt').innerHTML = `<h4>An OTP is sent over to ${email}</h4>`
 					setDisplay('password-model', 'none')
 					setDisplay('otp-model', 'block')
 					setDisplay('invalid-otp', 'none')
 					setDisplay('resend-otp', 'none')
-					otp_success(email)
 				} else {
 					otp_failed(data["status"])
 				}
@@ -822,6 +822,8 @@ function auth_forgotPassword(){
 }
 
 function otp_success(email) {
+	setDisplay('invalid-otp', 'none')
+	setDisplay('resend-otp', 'none')
 	otp_form = document.querySelector('#otp-form');
 	otp = otp_form['otp'].value;
 	window.quantml["otp"] = otp
