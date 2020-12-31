@@ -115,8 +115,8 @@ function loadCorrectThemeImages(currentTheme){
 }
 
 function isInputRequires(){
-	loginModal = document.getElementById('login-model')
-	models = [document.getElementById('login-model'),
+	loginModal = document.getElementById('email-model')
+	models = [document.getElementById('email-model'),
 			  document.getElementById('password-model'),
 			  document.getElementById('create-password-model'),
 			  document.getElementById('otp-model')
@@ -283,12 +283,11 @@ function fullyLoaded(){
 		</div>
 	<!--=============== password-check MODEL[END] ===============-->
 
-
 	<!--=============== LOGIN MODEL[START] ===============-->
-	<div id="login-model" class="modal">
+	<div id="email-model" class="modal">
 		<form class="modal-content animate" id="email-form">
 
-			<a class="close" style="float: right; padding-top: 0%; padding-bottom: 0%;" onclick="setDisplay('login-model', 'none')">X</a>
+			<a class="close" style="float: right; padding-top: 0%; padding-bottom: 0%;" onclick="setDisplay('email-model', 'none')">X</a>
 			<div class="container" style="margin: 1rem; margin-bottom: -1rem">
 			<label for="email"><b>Email Address</b>(<a rel="noreferrer" target="_blank" href="https://www.patreon.com/quantml">patreon</a>)</label>
 			<input id="login-email" onkeypress="emailAddressIsValidated();setDisplay('network-request-failed', 'none');" class="loginInput" ref="emailRef"  type="email" placeholder="Enter Email Address" name="email" required>
@@ -306,6 +305,10 @@ function fullyLoaded(){
 			<button class="form-buttons login-button" type="submit">
 				<span id="login-button-text">Next &nbsp; &rarr;</span>
 			</button>
+
+			<div style="display: none; margin-top: 10px" id="first-login-enter-email" class="success-msg">
+			</div>
+
 			</div>
 			<br>
 		</form>
@@ -350,7 +353,11 @@ function fullyLoaded(){
 		<form class="modal-content animate" id="otp-form">
 			<a class="close" style="float: right; padding-top: 0%; padding-bottom: 0%;" onclick="setDisplay('otp-model', 'none')">X</a>
 			<div class="container" style="margin: 1rem;">
-			<span id='otp-txt'></span>
+
+			<div style="display: none;" id='first-login-otp-model' class="success-msg">
+			</div>
+
+			<span id='otp-email-sent-text'></span>
 			<label for="otp"><b>OTP</b></label>
 			<input id="otp" class="loginInput" placeholder="Enter OTP" name="otp" required>
 
@@ -360,7 +367,7 @@ function fullyLoaded(){
 			</div>
 
 			<button class="form-buttons login-button" type="submit">
-				<span id="otp-text">Verify &nbsp; &rarr;</span>
+				<span id="otp-btn-text">Verify &nbsp; &rarr;</span>
 			</button>
 
 			<button style="display: none;" class="form-buttons forgot-button" id="resend-otp">
@@ -414,7 +421,7 @@ function fullyLoaded(){
 
 	var modal = [
 			document.getElementById("password-model"),
-			document.getElementById("login-model"),
+			document.getElementById("email-model"),
 			document.getElementById("create-password-model"),
 			document.getElementById("password-reset-link-sent-model"),
 			document.getElementById("settings-model"),
@@ -471,8 +478,7 @@ function fullyLoaded(){
 			element.addEventListener('click', function(e) {
 				// console.log("Login Button Clicked")
 				e.preventDefault();
-				document.querySelector('body').classList.remove('is-navPanel-visible');
-				setDisplay('login-model', 'block')
+				open_email_model();
 			});
 	})
 
@@ -667,8 +673,39 @@ function passwordIsValidated(){
 	setDisplay('password-error-msg', 'none');
 }
 
+function close_all_auth_models(){
+	setDisplay('create-password-model','none')
+		setDisplay('password-do-not-match', 'none')
+		setDisplay('password-is-weak', 'none')
+
+	setDisplay('password-model','none')
+		passwordIsValidated()
+
+	setDisplay('email-model','none')
+		emailAddressIsValidated()
+		setDisplay('first-login-enter-email', 'none')
+
+	setDisplay('otp-model','none')
+		setDisplay('invalid-otp','none')
+		setDisplay('resend-otp','none')
+	
+	setDisplay('network-request-failed','none')
+}
+
+function open_email_model(){
+	document.querySelector('body').classList.remove('is-navPanel-visible');
+	close_all_auth_models()
+	setDisplay('email-model', 'block')
+}
+
+function open_otp_model(){
+	close_all_auth_models()
+	setDisplay('otp-model', 'block')
+}
+
 function auth_identify_email(){
 	setDisplay('network-request-failed', 'none');
+	
 	if(!navigator.onLine) {
 		networkRequestFailed();
 		return;
@@ -690,15 +727,39 @@ function auth_identify_email(){
 			"response": function(data) {
 				console.log(data);
 				if(data["status"] == "Registered") {
-					setDisplay('login-model', 'none');
+					setDisplay('email-model', 'none');
 					setDisplay('password-model', 'block');
 				} else if(data["status"] == "Unregistered") {
 					invalidEmailAddressUserNotFound(email);
 				} else if(data["status"] == "Invalid Password") {
 					invalidPassword();
 				} else if(data["status"] == "Create Password") {
-					setDisplay('login-model', 'none');
-					setDisplay('create-password-model', 'block')
+					// TODO 
+					// OTP Model <id='first-login-otp-model'>
+					nextButtonText.innerHTML = `Next &nbsp; ${get_loader_img_str()}`
+					firstLoginEnterEmailText = document.getElementById('first-login-enter-email')
+					firstLoginEnterEmailText.innerHTML=`It's your <b>First</b> time logging in.<br>
+					Sending an OTP to ${email}`
+					setDisplay('first-login-enter-email', 'block')
+					fetching({email: window.quantml["email"]}, "send-otp", 
+						callbacks = {
+							"then": function() {nextButtonText.innerHTML = "Next &nbsp; &rarr;";},
+							"response": function (data) {
+								console.log(data)
+								if(data["status"] == "Success") {
+									document.getElementById('otp-email-sent-text').innerHTML = `<h4>An OTP is sent over to ${email}</h4>`
+									open_otp_model()
+									firstLoginText = document.getElementById('first-login-otp-model')
+									firstLoginText.innerHTML=`It's your <b>First</b> time logging in, so let's set a password<br>
+									First verify that it's you.<br>`
+									setDisplay('first-login-otp-model', "block")
+								} else {
+									otp_failed(data["status"])
+								}
+							},
+							"catch": function(){nextButtonText.innerHTML = "Next &nbsp; &rarr;";}
+						}
+					)
 				}
 			},
 			"catch": function() {
@@ -805,11 +866,8 @@ function auth_forgotPassword(){
 			"response": function (data){
 				console.log(data)
 				if(data["status"] == "Success") {
-					document.getElementById('otp-txt').innerHTML = `<h4>An OTP is sent over to ${email}</h4>`
-					setDisplay('password-model', 'none')
-					setDisplay('otp-model', 'block')
-					setDisplay('invalid-otp', 'none')
-					setDisplay('resend-otp', 'none')
+					document.getElementById('otp-email-sent-text').innerHTML = `<h4>An OTP is sent over to ${email}</h4>`
+					open_otp_model()
 				} else {
 					otp_failed(data["status"])
 				}
@@ -827,7 +885,7 @@ function otp_success(email) {
 	otp_form = document.querySelector('#otp-form');
 	otp = otp_form['otp'].value;
 	window.quantml["otp"] = otp
-	verifyButtonText = document.getElementById('otp-text')
+	verifyButtonText = document.getElementById('otp-btn-text')
 	verifyButtonText.innerHTML = `Verify ${get_loader_img_str()}`
 	fetching({email: window.quantml["email"], otp: otp}, "verify-otp", 
 		callbacks = {
@@ -955,7 +1013,7 @@ function writeData(data){
 }
 
 // Testing
-// document.getElementById('login-model').style.display='block';
+// document.getElementById('email-model').style.display='block';
 // document.getElementById('password-reset-link-sent-model').style.display='block';
 // invalidEmailAddressUserNotFound("yuvraj@garg.com")
 // invalidEmailAddressError()
