@@ -423,7 +423,6 @@ function fullyLoaded(){
 			document.getElementById("password-model"),
 			document.getElementById("email-model"),
 			document.getElementById("create-password-model"),
-			document.getElementById("password-reset-link-sent-model"),
 			document.getElementById("settings-model"),
 			document.getElementById('otp-model')
 		];
@@ -772,7 +771,7 @@ function auth_identify_email(){
 							"response": function (data) {
 								console.log(data)
 								if(data["status"] == "Success") {
-									document.getElementById('otp-email-sent-text').innerHTML = `<h4>An OTP is sent over to ${email}</h4>`
+									document.getElementById('otp-email-sent-text').innerHTML = `<h4>An OTP is sent over to ${window.quantml["email"]}</h4>`
 									open_otp_model()
 									firstLoginText = document.getElementById('first-login-otp-model')
 									firstLoginText.innerHTML=`It's your <b>First</b> time logging in, so let's set a password<br>
@@ -891,7 +890,7 @@ function auth_forgotPassword(){
 			"response": function (data){
 				console.log(data)
 				if(data["status"] == "Success") {
-					document.getElementById('otp-email-sent-text').innerHTML = `<h4>An OTP is sent over to ${email}</h4>`
+					document.getElementById('otp-email-sent-text').innerHTML = `<h4>An OTP is sent over to ${window.quantml["email"]}</h4>`
 					open_otp_model()
 				} else {
 					otp_failed(data["status"])
@@ -1017,26 +1016,21 @@ function auth_state_change(){
 
 function loadContent(chapterID){
 	var data = ""
-	// retrieve data
-	if(!localStorage.hasOwnProperty(chapterID)){
-		globalThis.fb_db.collection('Statistics-Guide').doc(chapterID).get().then(function(snapshot) {
-			// console.log("retreiving...")
-			data = snapshot.data().Content;
-			localStorage.setItem(chapterID, data);
-			writeData(data);
-			renderMathInElement(document.body);
-		});
-	}
-	else {
-		// console.log("Already retreved")
-		data = localStorage.getItem(chapterID)
-		writeData(data)
-	}
+	fetching({chapter: chapterID, token: getCookie('token')}, 'get-chapter', 
+		callbacks={
+			"response": function(data){
+				console.log(data)
+				if(data["status"] == "Success"){
+					if("chapter" in data) writeData(data["chapter"]);
+				}
+			}
+		}
+	)
 }
 
 function writeData(data){
 	secrets = document.getElementById('secrets');
-	secrets.innerHTML = data;
+	if(secrets != null) secrets.innerHTML = data;
 }
 
 // Testing
