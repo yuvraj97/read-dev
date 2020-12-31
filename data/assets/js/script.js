@@ -777,6 +777,8 @@ function auth_identify_email(){
 									firstLoginText.innerHTML=`It's your <b>First</b> time logging in, so let's set a password<br>
 									First verify that it's you.<br>`
 									setDisplay('first-login-otp-model', "block")
+								} else if (data["status"] == "Sending OTP"){
+									// PASS
 								} else {
 									otp_failed(data["status"])
 								}
@@ -892,6 +894,8 @@ function auth_forgotPassword(){
 				if(data["status"] == "Success") {
 					document.getElementById('otp-email-sent-text').innerHTML = `<h4>An OTP is sent over to ${window.quantml["email"]}</h4>`
 					open_otp_model()
+				} else if (data["status"] == "Sending OTP"){
+					// PASS
 				} else {
 					otp_failed(data["status"])
 				}
@@ -933,7 +937,7 @@ function otp_success(email) {
 
 function otp_not_verified(){
 	resendButtonText = document.getElementById('resend-otp-text')
-	resendButtonText.innerHTML = `Resend OTP ${get_loader_img_str("forgot")}`
+	resendButtonText.innerHTML = `Sending OTP &nbsp; ${get_loader_img_str("forgot")}`
 	console.log("RESENDING OTP")
 	fetching({email: window.quantml["email"]}, "send-otp", 
 		callbacks = {
@@ -943,6 +947,8 @@ function otp_not_verified(){
 				if(data["status"] == "Success") {
 					setDisplay('resend-otp', 'none')
 					setDisplay('invalid-otp','none')
+				} else if (data["status"] == "Sending OTP"){
+					// PASS
 				} else {
 					resendButtonText.innerHTML = "Failed [try again] &nbsp; &rarr;";
 				}
