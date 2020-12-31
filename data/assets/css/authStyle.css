@@ -42,20 +42,13 @@
 }
 
 
-.error-msg{
-  padding: 10px;
-  padding-bottom: 23px;
+.error-msg, .warn-msg, .success-msg{
+  padding: 1rem;
+  /* padding-bottom: 23px; */
+  border: 2px solid;
   margin-bottom: 15px;
   border-radius: 5px;
 }
-
-.warn-msg{
-  padding: 10px;
-  padding-bottom: 23px;
-  margin-bottom: 15px;
-  border-radius: 5px;
-}
-
 
 /* Full-width input fields */
 .loginInput {

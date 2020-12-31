@@ -15,6 +15,15 @@ input {
   background-color: rgb(255, 0, 0, 0.05);
 }
 
+.success-msg{
+  border-color: rgba(150, 255, 150, 0.5);
+  background-color: rgba(150, 255, 150, 0.02);
+  color: rgb(150, 255, 150);
+}
+.success-msg > b {
+  color: rgb(150, 255, 150);
+}
+
 .warn-border {
   border: 2px solid orange;
 }

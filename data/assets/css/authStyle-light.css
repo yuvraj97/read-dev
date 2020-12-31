@@ -15,6 +15,18 @@ input {
   background-color: rgba(255, 0, 0, 0.05);
 }
 
+.success-msg{
+  border-color: rgba(9, 171, 59, 0.5);
+  background-color: rgba(9, 171, 59, 0.2);
+  color: rgb(23, 108, 54);
+  /* padding: 1rem;
+  border-radius: 5px;
+  margin-bottom: 10px; */
+}
+.success-msg > b {
+  color: rgb(23, 108, 54);
+}
+
 .warn-border {
   border: 2px solid orange;
 }
