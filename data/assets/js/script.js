@@ -63,7 +63,7 @@ function getDisplay(){
 
 function clearModelOnBackgroundClick(modal){
 	// When the user clicks anywhere outside of the modal, close it
-	window.onclick = function(event) {
+	document.addEventListener('mousedown',function(event){
 		// console.log(event.target)
 		// For Settings, Login
 		for (let idx = 0; idx < modal.length; idx++) {
@@ -77,7 +77,7 @@ function clearModelOnBackgroundClick(modal){
 		if(event.target.id != "navPanel" && event.target.id != "navPanelToggle" && event.target.nodeName != "NAV") {
 			document.querySelector('body').classList.remove('is-navPanel-visible');
 		}
-	}
+	})
 }
 
 function changeTheme() {
@@ -359,7 +359,7 @@ function fullyLoaded(){
 
 			<span id='otp-email-sent-text'></span>
 			<label for="otp"><b>OTP</b></label>
-			<input id="otp" class="loginInput" placeholder="Enter OTP" name="otp" required>
+			<input id="otp" onkeypress="otpValidated();setDisplay('network-request-failed', 'none');" class="loginInput" placeholder="Enter OTP" name="otp" required>
 
 			<div style="display: none;" id="invalid-otp" class="error-msg">
 				<img style="float: left;" src="/data/auth/error.png" alt="!" width="50px" height="50px">
@@ -494,8 +494,12 @@ function fullyLoaded(){
 		element.addEventListener('click',function(e) {
 			e.preventDefault();
 			document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-			fetching({token: getCookie("token")}, "logout")
-			auth_state_change()
+			fetching({token: getCookie("token")}, "logout", 
+				callbacks = {
+					"then": function(){auth_state_change()},
+					"catch": function(){auth_state_change()}
+				}
+			)
 		});
 	});
 
@@ -663,6 +667,25 @@ function invalidPassword(){
 	emailAddressIsValidated()
 }
 
+function invalidOTP(){
+	otp = document.getElementById('otp');
+	otp.style.border = "1px solid red";
+	otp.style.boxShadow = "1px 1px 10px red";
+	otp.classList.add("error-border-bounce");
+	setTimeout(function() {
+		otp.classList.remove("error-border-bounce");
+	}, 1000);
+	setDisplay('invalid-otp', 'block');
+	setDisplay('resend-otp','block')
+}
+
+function otpValidated(){
+	otp = document.getElementById('otp');
+	otp.style.border = "2px solid #0073b1";
+	otp.style.boxShadow = "none";
+	setDisplay('invalid-otp', 'none');
+}
+
 function passwordIsValidated(){
 	password = document.querySelectorAll('[type="password"]');
 	password.forEach(function(element, index) {
@@ -688,6 +711,8 @@ function close_all_auth_models(){
 	setDisplay('otp-model','none')
 		setDisplay('invalid-otp','none')
 		setDisplay('resend-otp','none')
+		setDisplay('first-login-otp-model', 'none')
+		otpValidated()
 	
 	setDisplay('network-request-failed','none')
 }
@@ -879,6 +904,7 @@ function auth_forgotPassword(){
 	})
 }
 
+// OTP successfully sent, Now verify the OTP
 function otp_success(email) {
 	setDisplay('invalid-otp', 'none')
 	setDisplay('resend-otp', 'none')
@@ -897,6 +923,7 @@ function otp_success(email) {
 					setDisplay('create-password-model', 'block')
 					// otp_verified(email)
 				} else {
+					invalidOTP()
 					setDisplay('invalid-otp', 'block')
 					setDisplay('resend-otp', 'block')
 				}	
