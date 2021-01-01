@@ -34,7 +34,6 @@ function setFontSize(){
 	document.getElementById('paragraph-content').style.fontSize = localStorage.getItem('paragraph-font-size') + "px";
 }
 
-
 // ***************************************************************
 // Functions
 // ***************************************************************
@@ -43,7 +42,6 @@ function showSettings(){
 	setDisplay('settings-model', 'block');
 	document.querySelector('body').classList.remove('is-navPanel-visible');
 }
-
 
 function setDisplay(ID, disp){
 	elements = document.querySelectorAll('#'+ID)
@@ -1038,10 +1036,3 @@ function writeData(data){
 	secrets = document.getElementById('secrets');
 	if(secrets != null) secrets.innerHTML = data;
 }
-
-// Testing
-// document.getElementById('email-model').style.display='block';
-// document.getElementById('password-reset-link-sent-model').style.display='block';
-// invalidEmailAddressUserNotFound("yuvraj@garg.com")
-// invalidEmailAddressError()
-// invalidPassword()

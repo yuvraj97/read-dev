@@ -226,7 +226,7 @@ ol li {
 }
 ul {
 	list-style: disc;
-	margin: 0 0 2rem 0;
+	/* margin: 0 0 2rem 0; */
 	padding-left: 1rem;
 }
 ul li {
@@ -1123,4 +1123,7 @@ br.newline {
   display: block;
   font-size: 24%;
   color: rgb(170, 255, 170);
+}
+.toc-chapter-ul {
+	margin: 0 0 1rem 0;
 }
