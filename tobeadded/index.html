@@ -1,0 +1,1174 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+	<head>
+		<script>
+			// var arrowLeftPage = "/stats/"
+			var arrowRightPage = "/stats/summary/"
+		</script>
+
+		<link rel="stylesheet" href="/data/assets/css/main.css">
+		<link rel="stylesheet" href="/data/assets/css/authStyle.css">
+
+		
+		<title>Fundamentals of Statistics - QuantML</title>
+		<meta charset="utf-8" />
+		<link rel="icon" href="/data/icon.png" type="image/png" sizes="16x16">
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="robots" content="index, follow">
+
+		<script src="/data/assets/js/initialize.js"></script>
+		<script src="/data/assets/js/swiped-events.js"></script>
+		
+	</head>
+
+	<body>
+		
+		<!-- Wrapper -->
+			<div style="display: none;" id="wrapper">
+				<div class="bg fixed" style="transform: none;"></div>
+				<div id="navPanelToggle">Menu</div>
+
+				<!-- Header -->
+				<header id="header">
+					<a href="https://quantml.org" style="display: none;" class="logo image jump-big" id="quantml-cover-light"><img src="/data/img/cover.webp" alt="QuantML.org" /></a>
+					<a href="https://quantml.org" style="display: none;" class="logo image jump-big" id="quantml-cover-dark"><img src="/data/img-dark/cover.webp" alt="QuantML.org" /></a>
+					<script>
+						if(localStorage.getItem("quantmlTheme")=="dark") document.getElementById('quantml-cover-dark').style.display = "block"
+						else document.getElementById('quantml-cover-light').style.display = "block"
+					</script>
+				</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li style="padding: 0%;" class="active cover"><a href="."><img src="/data/img/STATISTICS-cover.png" alt="STATISTICS"></a></li>
+							<li><a href="/stats/summary/">Summary</a></li>
+							<li><a href="/stats/thanks/">Thanks</a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+					<section class="post">
+	
+<div style="text-align: center;" id="load-init"></div>
+<script>initializeBody();</script>
+
+						<div id="paragraph-content" data-swipe-threshold="80">
+						
+						<div style="text-align: center; " >
+							**<span style="font-size: larger; color:grey;">In Progress</span>**
+						</div>
+
+                    <details>
+                        <summary><i><span style="width: 8rem; text-align: center;" class="bb">Goal</span></i></summary>
+                        <blockquote class="noborder">
+                            <b>Goal</b> of this guide is to help you understand the Fundamental concepts in Statistics. <br>
+                            <ul>
+                            <li>First we will see the underlying (theoretical) idea behind the concept. </li>
+                            <li>Then we will <b>visualize</b> that concept (at <a href="https://app.quantml.org/stats/">https://app.quantml.org/stats/</a> ). </li>
+                            <li>Then we will use programing language 
+<img src="/data/img/python.png" alt="Python" width="75px" height="20px"> &nbsp;,&nbsp;
+<img src="/data/img/julia.png" alt="Julia" width="53px" height="33px"> &nbsp;&nbsp;
+                                
+                            to fill the holes and fully grasp that concept.
+                            </li>
+                            </ul>
+                        </blockquote>
+                    </details>
+
+                    <details>
+                        <summary><i><span style="width: 8rem; text-align: center;" class="bb">Prerequisites</span></i></summary>
+                    <blockquote  class="noborder">
+                        <!-- <h2>Prerequisites</h2> -->
+                        \(\bullet\) Calculus <br>
+                        \(\bullet\) Probability
+                    </blockquote>
+                    </details>
+                    
+					<details>
+						<summary><i><span style="width: 8rem; text-align: center;" class="bb">Resources</span></i></summary>
+						<blockquote>
+						<details>
+							<summary><span>Table for CDF of \(\mathcal{N}(0,1)=\Phi(x)\)</span></summary>
+							<img style="display:block; margin-left:auto; margin-right:auto;" style="width: 100%;" src="/stats/img/std-normal.png" width="400" height="140" alt=""><br>
+							<div class="math-container">
+								\[\Phi(x)=\mathbb{P}(\mathcal{N}(0,1) \leq x)=\frac{1}{\sqrt{2\pi }} \int_{-\infty}^{x}\exp \left(-\frac{t^2}{2}\right)dt\]
+							</div>
+							<br>
+							<div  class="table-wrapper">
+							<table style="height:20em; overflow-y:scroll; display:block">
+							<tr>
+							<th>\(z\)</th>
+							<th>\(\text{+}0.00\)</th>
+							<th>\(\text{+}0.01\)</th>
+							<th>\(\text{+}0.02\)</th>
+							<th>\(\text{+}0.03\)</th>
+							<th>\(\text{+}0.04\)</th>
+
+							<th>\(\text{+}0.05\)</th>
+							<th>\(\text{+}0.06\)</th>
+							<th>\(\text{+}0.07\)</th>
+							<th>\(\text{+}0.08\)</th>
+							<th>\(\text{+}0.09
+							\)</th></tr>
+							<tr>
+							<th>\(0.0\)</th>
+							<td>\(0.50000\)</td>
+							<td>\(0.50399\)</td>
+							<td>\(0.50798\)</td>
+							<td>\(0.51197\)</td>
+							<td>\(0.51595\)</td>
+							<td>\(0.51994\)</td>
+							<td>\(0.52392\)</td>
+							<td>\(0.52790\)</td>
+							<td>\(0.53188\)</td>
+							<td>\(0.53586\)</td></tr>
+							<tr>
+							<th>\(0.1
+							\)</th>
+							<td>\(0.53983\)</td>
+							<td>\(0.54380\)</td>
+							<td>\(0.54776\)</td>
+							<td>\(0.55172\)</td>
+							<td>\(0.55567\)</td>
+							<td>\(0.55966\)</td>
+							<td>\(0.56360\)</td>
+							<td>\(0.56749\)</td>
+							<td>\(0.57142\)</td>
+							<td>\(0.57535
+							\)</td></tr>
+							<tr>
+							<th>\(0.2
+							\)</th>
+							<td>\(0.57926\)</td>
+							<td>\(0.58317\)</td>
+							<td>\(0.58706\)</td>
+							<td>\(0.59095\)</td>
+							<td>\(0.59483\)</td>
+							<td>\(0.59871\)</td>
+							<td>\(0.60257\)</td>
+							<td>\(0.60642\)</td>
+							<td>\(0.61026\)</td>
+							<td>\(0.61409
+							\)</td></tr>
+							<tr>
+							<th>\(0.3
+							\)</th>
+							<td>\(0.61791\)</td>
+							<td>\(0.62172\)</td>
+							<td>\(0.62552\)</td>
+							<td>\(0.62930\)</td>
+							<td>\(0.63307\)</td>
+							<td>\(0.63683\)</td>
+							<td>\(0.64058\)</td>
+							<td>\(0.64431\)</td>
+							<td>\(0.64803\)</td>
+							<td>\(0.65173
+							\)</td></tr>
+							<tr>
+							<th>\(0.4
+							\)</th>
+							<td>\(0.65542\)</td>
+							<td>\(0.65910\)</td>
+							<td>\(0.66276\)</td>
+							<td>\(0.66640\)</td>
+							<td>\(0.67003\)</td>
+							<td>\(0.67364\)</td>
+							<td>\(0.67724\)</td>
+							<td>\(0.68082\)</td>
+							<td>\(0.68439\)</td>
+							<td>\(0.68793
+							\)</td></tr>
+							<tr>
+							</tr>
+							<tr>
+							<th>\(0.5
+							\)</th>
+							<td>\(0.69146\)</td>
+							<td>\(0.69497\)</td>
+							<td>\(0.69847\)</td>
+							<td>\(0.70194\)</td>
+							<td>\(0.70540\)</td>
+							<td>\(0.70884\)</td>
+							<td>\(0.71226\)</td>
+							<td>\(0.71566\)</td>
+							<td>\(0.71904\)</td>
+							<td>\(0.72240
+							\)</td></tr>
+							<tr>
+							<th>\(0.6
+							\)</th>
+							<td>\(0.72575\)</td>
+							<td>\(0.72907\)</td>
+							<td>\(0.73237\)</td>
+							<td>\(0.73565\)</td>
+							<td>\(0.73891\)</td>
+							<td>\(0.74215\)</td>
+							<td>\(0.74537\)</td>
+							<td>\(0.74857\)</td>
+							<td>\(0.75175\)</td>
+							<td>\(0.75490
+							\)</td></tr>
+							<tr>
+							<th>\(0.7
+							\)</th>
+							<td>\(0.75804\)</td>
+							<td>\(0.76115\)</td>
+							<td>\(0.76424\)</td>
+							<td>\(0.76730\)</td>
+							<td>\(0.77035\)</td>
+							<td>\(0.77337\)</td>
+							<td>\(0.77637\)</td>
+							<td>\(0.77935\)</td>
+							<td>\(0.78230\)</td>
+							<td>\(0.78524
+							\)</td></tr>
+							<tr>
+							<th>\(0.8
+							\)</th>
+							<td>\(0.78814\)</td>
+							<td>\(0.79103\)</td>
+							<td>\(0.79389\)</td>
+							<td>\(0.79673\)</td>
+							<td>\(0.79955\)</td>
+							<td>\(0.80234\)</td>
+							<td>\(0.80511\)</td>
+							<td>\(0.80785\)</td>
+							<td>\(0.81057\)</td>
+							<td>\(0.81327
+							\)</td></tr>
+							<tr>
+							<th>\(0.9
+							\)</th>
+							<td>\(0.81594\)</td>
+							<td>\(0.81859\)</td>
+							<td>\(0.82121\)</td>
+							<td>\(0.82381\)</td>
+							<td>\(0.82639\)</td>
+							<td>\(0.82894\)</td>
+							<td>\(0.83147\)</td>
+							<td>\(0.83398\)</td>
+							<td>\(0.83646\)</td>
+							<td>\(0.83891
+							\)</td></tr>
+							<tr>
+							</tr>
+							<tr>
+							<th>\(1.0
+							\)</th>
+							<td>\(0.84134\)</td>
+							<td>\(0.84375\)</td>
+							<td>\(0.84614\)</td>
+							<td>\(0.84849\)</td>
+							<td>\(0.85083\)</td>
+							<td>\(0.85314\)</td>
+							<td>\(0.85543\)</td>
+							<td>\(0.85769\)</td>
+							<td>\(0.85993\)</td>
+							<td>\(0.86214
+							\)</td></tr>
+							<tr>
+							<th>\(1.1
+							\)</th>
+							<td>\(0.86433\)</td>
+							<td>\(0.86650\)</td>
+							<td>\(0.86864\)</td>
+							<td>\(0.87076\)</td>
+							<td>\(0.87286\)</td>
+							<td>\(0.87493\)</td>
+							<td>\(0.87698\)</td>
+							<td>\(0.87900\)</td>
+							<td>\(0.88100\)</td>
+							<td>\(0.88298
+							\)</td></tr>
+							<tr>
+							<th>\(1.2
+							\)</th>
+							<td>\(0.88493\)</td>
+							<td>\(0.88686\)</td>
+							<td>\(0.88877\)</td>
+							<td>\(0.89065\)</td>
+							<td>\(0.89251\)</td>
+							<td>\(0.89435\)</td>
+							<td>\(0.89617\)</td>
+							<td>\(0.89796\)</td>
+							<td>\(0.89973\)</td>
+							<td>\(0.90147
+							\)</td></tr>
+							<tr>
+							<th>\(1.3
+							\)</th>
+							<td>\(0.90320\)</td>
+							<td>\(0.90490\)</td>
+							<td>\(0.90658\)</td>
+							<td>\(0.90824\)</td>
+							<td>\(0.90988\)</td>
+							<td>\(0.91149\)</td>
+							<td>\(0.91308\)</td>
+							<td>\(0.91466\)</td>
+							<td>\(0.91621\)</td>
+							<td>\(0.91774
+							\)</td></tr>
+							<tr>
+							<th>\(1.4
+							\)</th>
+							<td>\(0.91924\)</td>
+							<td>\(0.92073\)</td>
+							<td>\(0.92220\)</td>
+							<td>\(0.92364\)</td>
+							<td>\(0.92507\)</td>
+							<td>\(0.92647\)</td>
+							<td>\(0.92785\)</td>
+							<td>\(0.92922\)</td>
+							<td>\(0.93056\)</td>
+							<td>\(0.93189
+							\)</td></tr>
+							<tr>
+							</tr>
+							<tr>
+							<th>\(1.5
+							\)</th>
+							<td>\(0.93319\)</td>
+							<td>\(0.93448\)</td>
+							<td>\(0.93574\)</td>
+							<td>\(0.93699\)</td>
+							<td>\(0.93822\)</td>
+							<td>\(0.93943\)</td>
+							<td>\(0.94062\)</td>
+							<td>\(0.94179\)</td>
+							<td>\(0.94295\)</td>
+							<td>\(0.94408
+							\)</td></tr>
+							<tr>
+							<th>\(1.6
+							\)</th>
+							<td>\(0.94520\)</td>
+							<td>\(0.94630\)</td>
+							<td>\(0.94738\)</td>
+							<td>\(0.94845\)</td>
+							<td>\(0.94950\)</td>
+							<td>\(0.95053\)</td>
+							<td>\(0.95154\)</td>
+							<td>\(0.95254\)</td>
+							<td>\(0.95352\)</td>
+							<td>\(0.95449
+							\)</td></tr>
+							<tr>
+							<th>\(1.7
+							\)</th>
+							<td>\(0.95543\)</td>
+							<td>\(0.95637\)</td>
+							<td>\(0.95728\)</td>
+							<td>\(0.95818\)</td>
+							<td>\(0.95907\)</td>
+							<td>\(0.95994\)</td>
+							<td>\(0.96080\)</td>
+							<td>\(0.96164\)</td>
+							<td>\(0.96246\)</td>
+							<td>\(0.96327
+							\)</td></tr>
+							<tr>
+							<th>\(1.8
+							\)</th>
+							<td>\(0.96407\)</td>
+							<td>\(0.96485\)</td>
+							<td>\(0.96562\)</td>
+							<td>\(0.96638\)</td>
+							<td>\(0.96712\)</td>
+							<td>\(0.96784\)</td>
+							<td>\(0.96856\)</td>
+							<td>\(0.96926\)</td>
+							<td>\(0.96995\)</td>
+							<td>\(0.97062
+							\)</td></tr>
+							<tr>
+							<th>\(1.9
+							\)</th>
+							<td>\(0.97128\)</td>
+							<td>\(0.97193\)</td>
+							<td>\(0.97257\)</td>
+							<td>\(0.97320\)</td>
+							<td>\(0.97381\)</td>
+							<td>\(0.97441\)</td>
+							<td>\(0.97500\)</td>
+							<td>\(0.97558\)</td>
+							<td>\(0.97615\)</td>
+							<td>\(0.97670
+							\)</td></tr>
+							<tr>
+							</tr>
+							<tr>
+							<th>\(2.0
+							\)</th>
+							<td>\(0.97725\)</td>
+							<td>\(0.97778\)</td>
+							<td>\(0.97831\)</td>
+							<td>\(0.97882\)</td>
+							<td>\(0.97932\)</td>
+							<td>\(0.97982\)</td>
+							<td>\(0.98030\)</td>
+							<td>\(0.98077\)</td>
+							<td>\(0.98124\)</td>
+							<td>\(0.98169
+							\)</td></tr>
+							<tr>
+							<th>\(2.1
+							\)</th>
+							<td>\(0.98214\)</td>
+							<td>\(0.98257\)</td>
+							<td>\(0.98300\)</td>
+							<td>\(0.98341\)</td>
+							<td>\(0.98382\)</td>
+							<td>\(0.98422\)</td>
+							<td>\(0.98461\)</td>
+							<td>\(0.98500\)</td>
+							<td>\(0.98537\)</td>
+							<td>\(0.98574
+							\)</td></tr>
+							<tr>
+							<th>\(2.2
+							\)</th>
+							<td>\(0.98610\)</td>
+							<td>\(0.98645\)</td>
+							<td>\(0.98679\)</td>
+							<td>\(0.98713\)</td>
+							<td>\(0.98745\)</td>
+							<td>\(0.98778\)</td>
+							<td>\(0.98809\)</td>
+							<td>\(0.98840\)</td>
+							<td>\(0.98870\)</td>
+							<td>\(0.98899
+							\)</td></tr>
+							<tr>
+							<th>\(2.3
+							\)</th>
+							<td>\(0.98928\)</td>
+							<td>\(0.98956\)</td>
+							<td>\(0.98983\)</td>
+							<td>\(0.99010\)</td>
+							<td>\(0.99036\)</td>
+							<td>\(0.99061\)</td>
+							<td>\(0.99086\)</td>
+							<td>\(0.99111\)</td>
+					        <td>\(0.99134\)</td>
+                            <td>\(0.99158
+                            \)</td></tr>
+                            <tr>
+                            <th>\(2.4
+                            \)</th>
+                            <td>\(0.99180\)</td>
+                            <td>\(0.99202\)</td>
+                            <td>\(0.99224\)</td>
+                            <td>\(0.99245\)</td>
+                            <td>\(0.99266\)</td>
+                            <td>\(0.99286\)</td>
+                            <td>\(0.99305\)</td>
+                            <td>\(0.99324\)</td>
+                            <td>\(0.99343\)</td>
+                            <td>\(0.99361
+                            \)</td></tr>
+                            <tr>
+                            </tr>
+                            <tr>
+                            <th>\(2.5
+                            \)</th>
+                            <td>\(0.99379\)</td>
+                            <td>\(0.99396\)</td>
+                            <td>\(0.99413\)</td>
+                            <td>\(0.99430\)</td>
+                            <td>\(0.99446\)</td>
+                            <td>\(0.99461\)</td>
+                            <td>\(0.99477\)</td>
+                            <td>\(0.99492\)</td>
+                            <td>\(0.99506\)</td>
+                            <td>\(0.99520
+                            \)</td></tr>
+                            <tr>
+                            <th>\(2.6
+                            \)</th>
+                            <td>\(0.99534\)</td>
+                            <td>\(0.99547\)</td>
+                            <td>\(0.99560\)</td>
+                            <td>\(0.99573\)</td>
+                            <td>\(0.99585\)</td>
+                            <td>\(0.99598\)</td>
+                            <td>\(0.99609\)</td>
+                            <td>\(0.99621\)</td>
+                            <td>\(0.99632\)</td>
+                            <td>\(0.99643
+                            \)</td></tr>
+                            <tr>
+                            <th>\(2.7
+                            \)</th>
+                            <td>\(0.99653\)</td>
+                            <td>\(0.99664\)</td>
+                            <td>\(0.99674\)</td>
+                            <td>\(0.99683\)</td>
+                            <td>\(0.99693\)</td>
+                            <td>\(0.99702\)</td>
+                            <td>\(0.99711\)</td>
+                            <td>\(0.99720\)</td>
+                            <td>\(0.99728\)</td>
+                            <td>\(0.99736
+                            \)</td></tr>
+                            <tr>
+                            <th>\(2.8
+                            \)</th>
+                            <td>\(0.99744\)</td>
+                            <td>\(0.99752\)</td>
+                            <td>\(0.99760\)</td>
+                            <td>\(0.99767\)</td>
+                            <td>\(0.99774\)</td>
+                            <td>\(0.99781\)</td>
+                            <td>\(0.99788\)</td>
+                            <td>\(0.99795\)</td>
+                            <td>\(0.99801\)</td>
+                            <td>\(0.99807
+                            \)</td></tr>
+                            <tr>
+                            <th>\(2.9
+                            \)</th>
+                            <td>\(0.99813\)</td>
+                            <td>\(0.99819\)</td>
+                            <td>\(0.99825\)</td>
+                            <td>\(0.99831\)</td>
+                            <td>\(0.99836\)</td>
+                            <td>\(0.99841\)</td>
+                            <td>\(0.99846\)</td>
+                            <td>\(0.99851\)</td>
+                            <td>\(0.99856\)</td>
+                            <td>\(0.99861
+                            \)</td></tr>
+                            <tr>
+                            </tr>
+                            <tr>
+                            <th>\(3.0
+                            \)</th>
+                            <td>\(0.99865\)</td>
+                            <td>\(0.99869\)</td>
+                            <td>\(0.99874\)</td>
+                            <td>\(0.99878\)</td>
+                            <td>\(0.99882\)</td>
+                            <td>\(0.99886\)</td>
+                            <td>\(0.99889\)</td>
+                            <td>\(0.99893\)</td>
+                            <td>\(0.99896\)</td>
+                            <td>\(0.99900
+                            \)</td></tr>
+                            <tr>
+                            <th>\(3.1
+                            \)</th>
+                            <td>\(0.99903\)</td>
+                            <td>\(0.99906\)</td>
+                            <td>\(0.99910\)</td>
+                            <td>\(0.99913\)</td>
+                            <td>\(0.99916\)</td>
+                            <td>\(0.99918\)</td>
+                            <td>\(0.99921\)</td>
+                            <td>\(0.99924\)</td>
+                            <td>\(0.99926\)</td>
+                            <td>\(0.99929
+                            \)</td></tr>
+                            <tr>
+                            <th>\(3.2
+                            \)</th>
+                            <td>\(0.99931\)</td>
+                            <td>\(0.99934\)</td>
+                            <td>\(0.99936\)</td>
+                            <td>\(0.99938\)</td>
+                            <td>\(0.99940\)</td>
+                            <td>\(0.99942\)</td>
+                            <td>\(0.99944\)</td>
+                            <td>\(0.99946\)</td>
+                            <td>\(0.99948\)</td>
+                            <td>\(0.99950
+                            \)</td></tr>
+                            <tr>
+                            <th>\(3.3
+                            \)</th>
+                            <td>\(0.99952\)</td>
+                            <td>\(0.99953\)</td>
+                            <td>\(0.99955\)</td>
+                            <td>\(0.99957\)</td>
+                            <td>\(0.99958\)</td>
+                            <td>\(0.99960\)</td>
+                            <td>\(0.99961\)</td>
+                            <td>\(0.99962\)</td>
+                            <td>\(0.99964\)</td>
+                            <td>\(0.99965
+                            \)</td></tr>
+                            <tr>
+                            <th>\(3.4
+                            \)</th>
+                            <td>\(0.99966\)</td>
+                            <td>\(0.99968\)</td>
+                            <td>\(0.99969\)</td>
+                            <td>\(0.99970\)</td>
+                            <td>\(0.99971\)</td>
+                            <td>\(0.99972\)</td>
+                            <td>\(0.99973\)</td>
+                            <td>\(0.99974\)</td>
+                            <td>\(0.99975\)</td>
+                            <td>\(0.99976
+                            \)</td></tr>
+                            <tr>
+                            </tr>
+                            <tr>
+                            <th>\(3.5
+                            \)</th>
+                            <td>\(0.99977\)</td>
+                            <td>\(0.99978\)</td>
+                            <td>\(0.99978\)</td>
+                            <td>\(0.99979\)</td>
+                            <td>\(0.99980\)</td>
+                            <td>\(0.99981\)</td>
+                            <td>\(0.99981\)</td>
+                            <td>\(0.99982\)</td>
+                            <td>\(0.99983\)</td>
+                            <td>\(0.99983
+                            \)</td></tr>
+                            <tr>
+                            <th>\(3.6
+                            \)</th>
+                            <td>\(0.99984\)</td>
+                            <td>\(0.99985\)</td>
+                            <td>\(0.99985\)</td>
+                            <td>\(0.99986\)</td>
+                            <td>\(0.99986\)</td>
+                            <td>\(0.99987\)</td>
+                            <td>\(0.99987\)</td>
+                            <td>\(0.99988\)</td>
+                            <td>\(0.99988\)</td>
+                            <td>\(0.99989
+                            \)</td></tr>
+                            <tr>
+                            <th>\(3.7
+                            \)</th>
+                            <td>\(0.99989\)</td>
+                            <td>\(0.99990\)</td>
+                            <td>\(0.99990\)</td>
+                            <td>\(0.99990\)</td>
+                            <td>\(0.99991\)</td>
+                            <td>\(0.99991\)</td>
+                            <td>\(0.99992\)</td>
+                            <td>\(0.99992\)</td>
+                            <td>\(0.99992\)</td>
+                            <td>\(0.99992
+                            \)</td></tr>
+                            <tr>
+                            <th>\(3.8
+                            \)</th>
+                            <td>\(0.99993\)</td>
+                            <td>\(0.99993\)</td>
+                            <td>\(0.99993\)</td>
+                            <td>\(0.99994\)</td>
+                            <td>\(0.99994\)</td>
+                            <td>\(0.99994\)</td>
+                            <td>\(0.99994\)</td>
+                            <td>\(0.99995\)</td>
+                            <td>\(0.99995\)</td>
+                            <td>\(0.99995
+                            \)</td></tr>
+                            <tr>
+                            <th>\(3.9
+                            \)</th>
+                            <td>\(0.99995\)</td>
+                            <td>\(0.99995\)</td>
+                            <td>\(0.99996\)</td>
+                            <td>\(0.99996\)</td>
+                            <td>\(0.99996\)</td>
+                            <td>\(0.99996\)</td>
+                            <td>\(0.99996\)</td>
+                            <td>\(0.99996\)</td>
+                            <td>\(0.99997\)</td>
+                            <td>\(0.99997
+                            \)</td></tr>
+                            <tr>
+                            </tr>
+                            <tr>
+                            <th>\(4.0
+                            \)</th>
+                            <td>\(0.99997\)</td>
+                            <td>\(0.99997\)</td>
+                            <td>\(0.99997\)</td>
+                            <td>\(0.99997\)</td>
+                            <td>\(0.99997\)</td>
+                            <td>\(0.99997\)</td>
+                            <td>\(0.99998\)</td>
+                            <td>\(0.99998\)</td>
+                            <td>\(0.99998\)</td>
+                            <td>\(0.99998
+                            \)</td></tr></table>
+                            </div>
+                            Source: <a rel="noreferrer" target="_blank"  href="https://en.wikipedia.org/wiki/Standard_normal_table#Cumulative">https://en.wikipedia.org/wiki/Standard_normal_table#Cumulative</a>
+                            <hr>
+                        </details>
+                        \(\bullet\) &nbsp; <a rel="noreferrer" target="_blank"  href="http://onlinestatbook.com/2/calculators/normal_dist.html">Online Calculator to calculate Area under the \(\text{Gaussian Distribution  }\mathcal{N}(\mu,\sigma^2)\)</a><br>
+
+
+                        </blockquote>
+                    </details>
+                    
+                    <details>
+                        <summary><i><span style="width: 8rem; text-align: center;" class="bb">Join?</span></i></summary>
+                        <blockquote class="noborder">
+                            This Guide is currently in development phase, so currently <a href="https://www.patreon.com/quantml">patreons</a>
+                            can get early access to this guide. <br>
+                            When the guide is concluded it will be publicly available to everybody. <br>
+                        </blockquote>
+                    </details>
+
+                    
+                    <br>
+					<h1 style="text-align-last: center;">Table of Content</h1>
+
+                    <div id="toc_container">
+                        <ul class="toc_list">
+
+<!-- Introduction -->
+<li id="introduction"><a class="toc-l1" href="/stats/introduction/">
+    \(1)\) Introduction </a>
+<div style="display: inline-block;">
+    <a href="/stats/summary/introduction/#popup" class="fa fa-info-circle"> &nbsp; </a>
+    <a class="python-logo" href="/stats/introduction/python/"><img src="/data/img/python.png" alt=python></a>
+    <a class="julia-logo" href="/stats/introduction/julia/"><img src="/data/img/julia.png" alt="julia"></a>
+</div>
+<ul>
+    <li><a class="toc-l2" href="/stats/introduction/">\(1.1\) &nbsp;&nbsp;&nbsp;&nbsp; Goals</a></li>
+    <li><a class="toc-l2" href="/stats/introduction/#what">\(1.2\) &nbsp;&nbsp;&nbsp;&nbsp; What is statistics?</a></li>
+    <li><a class="toc-l2" href="/stats/introduction/#probability">\(1.3\) &nbsp;&nbsp;&nbsp;&nbsp; Probability</a></li>
+    <li><a class="toc-l2" href="/stats/introduction/#statistical-modeling">\(1.4\) &nbsp;&nbsp;&nbsp;&nbsp; Statistical Modeling</a></li>
+    <li><a class="toc-l2" href="/stats/introduction/#counting-balls-example">\(1.5\) &nbsp;&nbsp;&nbsp;&nbsp; The Counting Balls Example</a></li>
+    <li><a class="toc-l2" href="/stats/introduction/#statistical-experiment">\(1.6\) &nbsp;&nbsp;&nbsp;&nbsp; Statistical Experiment</a></li>
+    <li><a class="toc-l2" href="/stats/introduction/#counting-balls-estimator">\(1.7\) &nbsp;&nbsp;&nbsp;&nbsp; Estimator</a></li>
+    <li><a class="toc-l2" href="/stats/introduction/#modeling-assumptions">\(1.8\) &nbsp;&nbsp;&nbsp;&nbsp; Modeling assumptions</a></li>
+</ul>
+</li>
+<!-- %% Introduction END -->
+
+
+<!-- Law of Large Numbers & Central Limit Theorem -->
+<li id="lln"><a class="toc-l1" href="/stats/lln/">
+    \(2)\) Weak Law of Large Numbers & Central Limit Theorem</a>
+<div style="display: inline-block;">
+    <a href="/stats/summary/introduction/#popup" class="fa fa-info-circle"> &nbsp; </a>
+    <a class="python-logo" href="/stats/introduction/python/"><img src="/data/img/python.png" alt=python></a>
+    <a class="julia-logo" href="/stats/introduction/julia/"><img src="/data/img/julia.png" alt="julia"></a>
+</div>
+<ul>
+    <li><a class="toc-l2" href="/stats/lln/#main">
+    \(2.1\) &nbsp;&nbsp;&nbsp;&nbsp; Introduction</a></li>
+    <li><a class="toc-l2" href="/stats/lln/#lln">
+    \(2.2\) &nbsp;&nbsp;&nbsp;&nbsp; Law of Large Numbers</a></li>
+    <li><a class="toc-l2" href="/stats/lln/#clt">
+    \(2.3\) &nbsp;&nbsp;&nbsp;&nbsp; Central Limit Theorem</a></li>
+</ul>
+</li>
+<!-- %% Law of Large Numbers & Central Limit Theorem END-->
+
+
+<!-- Hoeffding's Inequality -->
+<li id="hoeffdings-inequality"><a class="toc-l1" href="/stats/hoeffdings-inequality/">
+    \(3)\) Hoeffding's Inequality (A brief overview)</a>
+<div style="display: inline-block;">
+    <a href="/stats/summary/hoeffdings-inequality/#popup" class="fa fa-info-circle"> &nbsp; </a>
+    <a class="python-logo" href="/stats/introduction/python/"><img src="/data/img/python.png" alt=python></a>
+    <a class="julia-logo" href="/stats/introduction/julia/"><img src="/data/img/julia.png" alt="julia"></a>
+</div>
+<ul>
+    <li><a class="toc-l2" href="/stats/hoeffdings-inequality/#main">
+    \(3.1\) &nbsp;&nbsp;&nbsp;&nbsp; Introduction</a></li>
+</ul>
+</li>
+<!-- %%Hoeffding's Inequality%% -->
+
+<!-- Gaussian(Normal) Distribution -->
+<li id="gaussian-distribution"><a class="toc-l1" href="/stats/gaussian-distribution/">
+    \(4)\) Gaussian Distribution</a>
+<div style="display: inline-block;">
+    <a href="/stats/summary/gaussian-distribution/#popup" class="fa fa-info-circle"> &nbsp; </a>
+    <a class="python-logo" href="/stats/introduction/python/"><img src="/data/img/python.png" alt=python></a>
+    <a class="julia-logo" href="/stats/introduction/julia/"><img src="/data/img/julia.png" alt="julia"></a>
+</div>
+<ul>
+    <li><a class="toc-l2" href="/stats/gaussian-distribution/#main">
+    \(4.1\) &nbsp;&nbsp;&nbsp;&nbsp; Introduction</a></li>
+    <li><a class="toc-l2" href="/stats/gaussian-distribution/#py">
+    \(4.2\) &nbsp;&nbsp;&nbsp;&nbsp; Simulate a Normal Distribution (python)</a></li>
+    <li><a class="toc-l2" href="/stats/gaussian-distribution/#standardization">
+    \(4.3\) &nbsp;&nbsp;&nbsp;&nbsp; Standardization</a></li>
+    <li><a class="toc-l2" href="/stats/gaussian-distribution/#gauss_table">
+    \(4.4\) &nbsp;&nbsp;&nbsp;&nbsp; Gaussian Probability Table</a></li>
+    <li><a class="toc-l2" href="/stats/gaussian-distribution/#examples">
+    \(4.5\) &nbsp;&nbsp;&nbsp;&nbsp; Examples</a></li>
+    <li><a class="toc-l2" href="/stats/gaussian-distribution/#quantiles">
+    \(4.6\) &nbsp;&nbsp;&nbsp;&nbsp; Quantiles</a></li>
+</ul>
+</li>
+<!-- %% Gaussian(Normal) Distribution END -->
+
+<!-- Modes of Convergence -->
+<li id="modes-of-convergence"><a class="toc-l1" href="/stats/modes-of-convergence/">
+    \(5)\) Modes of Convergence</span></a>
+<div style="display: inline-block;">
+    <a href="/stats/summary/convergence_almost_surely/#popup" class="fa fa-info-circle"> &nbsp; </a>
+    <a class="python-logo" href="/stats/introduction/python/"><img src="/data/img/python.png" alt=python></a>
+    <a class="julia-logo" href="/stats/introduction/julia/"><img src="/data/img/julia.png" alt="julia"></a>
+</div>
+<ul>
+    <li><a class="toc-l2" href="/stats/modes-of-convergence/#as">
+    \(5.1\) &nbsp;&nbsp;&nbsp;&nbsp; Almost surely \((\text{a.s.})\) convergence</a></li>
+    <li><a class="toc-l2" href="/stats/modes-of-convergence/#prob">
+    \(5.2\) &nbsp;&nbsp;&nbsp;&nbsp; Convergence in probability</a></li>
+    <li><a class="toc-l2" href="/stats/modes-of-convergence/#dist">
+    \(5.3\) &nbsp;&nbsp;&nbsp;&nbsp; Convergence in distribution</a></li>
+    <li><a class="toc-l2" href="/stats/modes-of-convergence/#algebra">
+    \(5.4\) &nbsp;&nbsp;&nbsp;&nbsp; Algebra on sequences</a></li>
+    <li><a class="toc-l2" href="/stats/modes-of-convergence/#slutsky">
+    \(5.5\) &nbsp;&nbsp;&nbsp;&nbsp; Slutsky's Theorem</a></li>
+    <li><a class="toc-l2" href="/stats/modes-of-convergence/#cmt">
+    \(5.6\) &nbsp;&nbsp;&nbsp;&nbsp; Continuous Mapping Theorem</a></li>
+</ul>
+</li>
+<!-- %% Modes of Convergence END -->
+
+<!-- Inference  -->
+<li id="statistical-inference"><a class="toc-l1" href="/stats/statistical-inference/">
+    \(6)\) Inference</span></a>
+<ul>
+    <li><a class="toc-l2" href="/stats/statistical-inference/#goal">
+    \(6.1\) &nbsp;&nbsp;&nbsp;&nbsp; Goal</a></li>
+    <li><a class="toc-l2" href="/stats/statistical-inference/#estimation">
+    \(6.2\) &nbsp;&nbsp;&nbsp;&nbsp; Estimation</a></li>
+    <li><a class="toc-l2" href="/stats/statistical-inference/#ci">
+    \(6.3\) &nbsp;&nbsp;&nbsp;&nbsp; Confidence Intervals</a></li>
+    <li><a class="toc-l2" href="/stats/statistical-inference/#hypothesis">
+    \(6.4\) &nbsp;&nbsp;&nbsp;&nbsp; Hypothesis testing</a></li>
+</ul>
+</li>
+<!-- %% Inference  END -->
+
+<!-- Statistical Modeling  -->
+<li id="statistical-modeling"><a class="toc-l1" href="/stats/statistical-modeling/">
+    \(7)\) Statistical Modeling</span></a>
+<div style="display: inline-block;">
+    <a href="/stats/summary/statistical-modeling/#popup" class="fa fa-info-circle"> &nbsp; </a>
+    <a class="python-logo" href="/stats/introduction/python/"><img src="/data/img/python.png" alt=python></a>
+    <a class="julia-logo" href="/stats/introduction/julia/"><img src="/data/img/julia.png" alt="julia"></a>
+</div>
+<ul>
+    <li><a class="toc-l2" href="/stats/statistical-modeling/#why">
+    \(7.1\) &nbsp;&nbsp;&nbsp;&nbsp; Why Statistical Modeling?</a></li>
+    <li><a class="toc-l2" href="/stats/statistical-modeling/#def">
+    \(7.2\) &nbsp;&nbsp;&nbsp;&nbsp; Statistical model</a></li>
+    <li><a class="toc-l2" href="/stats/statistical-modeling/#models">
+    \(7.3\) &nbsp;&nbsp;&nbsp;&nbsp; Parametric, nonparametric and semiparametric models</a></li>
+    <li><a class="toc-l2" href="/stats/statistical-modeling/#ex_p">
+    \(7.4\) &nbsp;&nbsp;&nbsp;&nbsp; Examples for parametric models</a></li>
+    <li><a class="toc-l2" href="/stats/statistical-modeling/#ex_non_p">
+    \(7.5\) &nbsp;&nbsp;&nbsp;&nbsp; Examples for nonparametric models</a></li>
+    <li><a class="toc-l2" href="/stats/statistical-modeling/#lr">
+    \(7.6\) &nbsp;&nbsp;&nbsp;&nbsp; Linear regression model</a></li>
+    <li><a class="toc-l2" href="/stats/statistical-modeling/#cox">
+    \(7.7\) &nbsp;&nbsp;&nbsp;&nbsp; Cox proportional Hazard model</a></li>
+</ul>
+</li>
+<!-- %% Statistical Modeling  END -->
+
+<!-- Identifiability  -->
+<li id="identifiability"><a class="toc-l1" href="/stats/identifiability/">
+    \(8)\) Identifiability</span></a>
+<div style="display: inline-block;">
+    <a href="/stats/summary/identifiability/#popup" class="fa fa-info-circle"> &nbsp; </a>
+    <a class="python-logo" href="/stats/introduction/python/"><img src="/data/img/python.png" alt=python></a>
+    <a class="julia-logo" href="/stats/introduction/julia/"><img src="/data/img/julia.png" alt="julia"></a>
+</div>
+<ul>
+    <li><a class="toc-l2" href="/stats/identifiability/#main">
+    \(8.1\) &nbsp;&nbsp;&nbsp;&nbsp; Introduction</a></li>
+</ul>
+</li>
+<!-- %% Identifiability  END -->
+
+<!-- Estimation -->
+<li id="estimation"><a class="toc-l1" href="/stats/estimation/">
+    \(9)\) Estimation</span></a>
+<div style="display: inline-block;">
+    <a href="/stats/summary/estimation/#popup" class="fa fa-info-circle"> &nbsp; </a>
+    <a class="python-logo" href="/stats/introduction/python/"><img src="/data/img/python.png" alt=python></a>
+    <a class="julia-logo" href="/stats/introduction/julia/"><img src="/data/img/julia.png" alt="julia"></a>
+</div>
+<ul>
+    <li><a class="toc-l2" href="/stats/estimation/#main">
+    \(9.1\) &nbsp;&nbsp;&nbsp;&nbsp; Introduction</a></li>
+    <li><a class="toc-l2" href="/stats/estimation/#properties">
+    \(9.2\) &nbsp;&nbsp;&nbsp;&nbsp; Properties</a></li>
+</ul>
+</li>
+<!-- %% Estimation END -->
+
+<!-- Bias, Variance and Quadratic Risk-->
+<li id="bias-variance-quadratic_risk"><a class="toc-l1" href="/stats/bias-variance-quadratic_risk/">
+    \(10)\) Bias, Variance and Quadratic Risk</span></a>
+<div style="display: inline-block;">
+    <a href="/stats/summary/bias_variance_quadratic/#popup" class="fa fa-info-circle"> &nbsp; </a>
+    <a class="python-logo" href="/stats/introduction/python/"><img src="/data/img/python.png" alt=python></a>
+    <a class="julia-logo" href="/stats/introduction/julia/"><img src="/data/img/julia.png" alt="julia"></a>
+</div>
+<ul>
+    <li><a class="toc-l2" href="/stats/bias-variance-quadratic_risk/#bias">
+    \(10.1\) &nbsp;&nbsp;&nbsp;&nbsp; Bias of an estimator</a></li>
+    <li><a class="toc-l2" href="/stats/bias-variance-quadratic_risk/#ex">
+    \(10.2\) &nbsp;&nbsp;&nbsp;&nbsp; Bias Examples</a></li>
+    <li><a class="toc-l2" href="/stats/bias-variance-quadratic_risk/#jensen">
+    \(10.3\) &nbsp;&nbsp;&nbsp;&nbsp; Jensen's Inequality</a></li>
+    <li><a class="toc-l2" href="/stats/bias-variance-quadratic_risk/#var-est">
+    \(10.4\) &nbsp;&nbsp;&nbsp;&nbsp; Variance of an estimator</a></li>
+    <li><a class="toc-l2" href="/stats/bias-variance-quadratic_risk/#quadratic-risk">
+    \(10.5\) &nbsp;&nbsp;&nbsp;&nbsp; Quadratic Risk of an estimator</a></li>
+    <li><a class="toc-l2" href="/stats/bias-variance-quadratic_risk/#examples">
+    \(10.6\) &nbsp;&nbsp;&nbsp;&nbsp; Examples</a></li>
+</ul>
+</li>
+<!-- %% Bias, Variance and Quadratic Risk  END -->
+
+<!-- Confidence Interval -->
+<li id="confidence-interval"><a class="toc-l1" href="/stats/confidence-interval/">
+    \(11)\) Confidence Interval</span></a>
+<div style="display: inline-block;">
+    <a href="/stats/summary/confidence-interval/#popup" class="fa fa-info-circle"> &nbsp; </a>
+    <a class="python-logo" href="/stats/introduction/python/"><img src="/data/img/python.png" alt=python></a>
+    <a class="julia-logo" href="/stats/introduction/julia/"><img src="/data/img/julia.png" alt="julia"></a>
+</div>
+<ul>
+    <li><a class="toc-l2" href="/stats/confidence-interval/#ci">
+    \(11.1\) &nbsp;&nbsp;&nbsp;&nbsp; Confidence Interval</a></li>
+    <li><a class="toc-l2" href="/stats/confidence-interval/#kiss_ex">
+    \(11.2\) &nbsp;&nbsp;&nbsp;&nbsp; Recall Kiss Examples</a></li>
+    <li><a class="toc-l2" href="/stats/confidence-interval/#i-conservative">
+    \(11.3\) &nbsp;&nbsp;&nbsp;&nbsp; Conservative Bound</a></li>
+    <li><a class="toc-l2" href="/stats/confidence-interval/#i-solve">
+    \(11.4\) &nbsp;&nbsp;&nbsp;&nbsp; Solving an equation for the parameter</a></li>
+    <li><a class="toc-l2" href="/stats/confidence-interval/#i-plugin">
+    \(11.5\) &nbsp;&nbsp;&nbsp;&nbsp; Plug-in</a></li>
+    <li><a class="toc-l2" href="/stats/confidence-interval/#ex">
+    \(11.6\) &nbsp;&nbsp;&nbsp;&nbsp; Examples for CI</a></li>
+</ul>
+</li>
+<!-- %% Confidence Interval END -->
+
+<!-- Delta Method -->
+<li id="delta-method"><a class="toc-l1" href="/stats/delta-method/">
+    \(12)\) Delta Method</span></a>
+<div style="display: inline-block;">
+    <a href="/stats/summary/delta-method/#popup" class="fa fa-info-circle"> &nbsp; </a>
+    <a class="python-logo" href="/stats/introduction/python/"><img src="/data/img/python.png" alt=python></a>
+    <a class="julia-logo" href="/stats/introduction/julia/"><img src="/data/img/julia.png" alt="julia"></a>
+</div>
+<ul>
+    <li><a class="toc-l2" href="/stats/delta-method/#main">
+    \(12.1\) &nbsp;&nbsp;&nbsp;&nbsp; Introduction</a></li>
+    <li><a class="toc-l2" href="/stats/delta-method/#t">
+    \(12.2\) &nbsp;&nbsp;&nbsp;&nbsp; The T example</a></li>
+</ul>
+</li>
+<!-- %% Delta Method END -->
+
+<!-- Interpretation -->
+<li id="ci_interpretation"><a class="toc-l1" href="/stats/confidence-interval/interpretation/">
+    \(13)\) Interpretation</span></a>
+<div style="display: inline-block;">
+    <a href="/stats/summary/confidence-interval/interpretation/#popup" class="fa fa-info-circle"> &nbsp; </a>
+    <a class="python-logo" href="/stats/introduction/python/"><img src="/data/img/python.png" alt=python></a>
+    <a class="julia-logo" href="/stats/introduction/julia/"><img src="/data/img/julia.png" alt="julia"></a>
+</div>
+<ul>
+    <li><a class="toc-l2" href="/stats/confidence-interval/interpretation/#main">
+    \(13.1\) &nbsp;&nbsp;&nbsp;&nbsp; Interpretation</a></li>
+    <li><a class="toc-l2" href="/stats/confidence-interval/interpretation/#py-one">
+    \(13.2\) &nbsp;&nbsp;&nbsp;&nbsp; python simulation for one single experiment</a></li>
+    <li><a class="toc-l2" href="/stats/confidence-interval/interpretation/#py-multi">
+    \(13.3\) &nbsp;&nbsp;&nbsp;&nbsp; python simulation for multiple experiment</a></li>
+</ul>
+</li>
+<!-- %% Interpretation END -->
+
+<!-- Hypothesis Testing-->
+<li id="hypothesis-testing"><a class="toc-l1" href="/stats/hypothesis-testing/">
+    \(14)\) Hypothesis Testing</span></a>
+<div style="display: inline-block;">
+    <a href="/stats/summary/hypothesis-testing/#popup" class="fa fa-info-circle"> &nbsp; </a>
+    <a class="python-logo" href="/stats/introduction/python/"><img src="/data/img/python.png" alt=python></a>
+    <a class="julia-logo" href="/stats/introduction/julia/"><img src="/data/img/julia.png" alt="julia"></a>
+</div>
+<ul>
+    <li><a class="toc-l2" href="/stats/hypothesis-testing/#main">
+    \(14.1\) &nbsp;&nbsp;&nbsp;&nbsp; Hypothesis Testing</a></li>
+    <li><a class="toc-l2" href="/stats/hypothesis-testing/#model">
+    \(14.2\) &nbsp;&nbsp;&nbsp;&nbsp; Model and Assumption</a></li>
+</ul>
+</li>
+<!-- %% Hypothesis Testing END -->
+
+<!-- Two Sample Test -->
+<li id="two-sample-test"><a class="toc-l1" href="/stats/hypothesis-testing/two-sample-test/">
+    \(15)\) Two Sample Test</span></a>
+<div style="display: inline-block;">
+    <a href="/stats/summary/hypothesis-testing/two-sample-test/#popup" class="fa fa-info-circle"> &nbsp; </a>
+    <a class="python-logo" href="/stats/introduction/python/"><img src="/data/img/python.png" alt=python></a>
+    <a class="julia-logo" href="/stats/introduction/julia/"><img src="/data/img/julia.png" alt="julia"></a>
+</div>
+<ul>
+    <li><a class="toc-l2" href="/stats/hypothesis-testing/two-sample-test/#main">
+    \(15.1\) &nbsp;&nbsp;&nbsp;&nbsp; Introduction</a></li>
+    <li><a class="toc-l2" href="/stats/hypothesis-testing/two-sample-test/#r2f-vs-wilma">
+    \(15.2\) &nbsp;&nbsp;&nbsp;&nbsp; Recall our R2F vs WilMA example</a></li>
+    <li><a class="toc-l2" href="/stats/hypothesis-testing/two-sample-test/#ex1">
+    \(15.3\) &nbsp;&nbsp;&nbsp;&nbsp; YouTube Example</a></li>
+    <li><a class="toc-l2" href="/stats/hypothesis-testing/two-sample-test/#ex2">
+    \(15.4\) &nbsp;&nbsp;&nbsp;&nbsp; Coin toss Example</a></li>
+</ul>
+</li>
+<!-- %% Two Sample Test -->
+
+<!-- Terminologies -->
+<li id="hypothesis_testing_terminologies"><a class="toc-l1" href="/stats/hypothesis-testing/terminologies/">
+    \(16)\) Terminologies</span></a>
+<div style="display: inline-block;">
+    <a href="/stats/summary/hypothesis-testing/two-sample-test/#popup" class="fa fa-info-circle"> &nbsp; </a>
+    <a class="python-logo" href="/stats/introduction/python/"><img src="/data/img/python.png" alt=python></a>
+    <a class="julia-logo" href="/stats/introduction/julia/"><img src="/data/img/julia.png" alt="julia"></a>
+</div>
+<ul>
+    <li><a class="toc-l2" href="/stats/hypothesis-testing/terminologies/#main">
+    \(16.1\) &nbsp;&nbsp;&nbsp;&nbsp; Terminologies</a></li>
+</ul>
+</li>
+<!-- %% Terminologies -->
+
+<!-- Statistical Test -->
+<li id="statistical-test"><a class="toc-l1" href="/stats/hypothesis-testing/statistical-test/">
+    \(17)\) Statistical Test</span></a>
+<div style="display: inline-block;">
+    <a href="/stats/summary/hypothesis-testing/statistical-test/#popup" class="fa fa-info-circle"> &nbsp; </a>
+    <a class="python-logo" href="/stats/introduction/python/"><img src="/data/img/python.png" alt=python></a>
+    <a class="julia-logo" href="/stats/introduction/julia/"><img src="/data/img/julia.png" alt="julia"></a>
+</div>
+<ul>
+    <li><a class="toc-l2" href="/stats/hypothesis-testing/statistical-test/#main">
+    \(17.1\) &nbsp;&nbsp;&nbsp;&nbsp; Recall</a></li>
+    <li><a class="toc-l2" href="/stats/hypothesis-testing/statistical-test/#stat-test">
+    \(17.2\) &nbsp;&nbsp;&nbsp;&nbsp; Statistical Test \((\psi)\)</a></li>
+    <li><a class="toc-l2" href="/stats/hypothesis-testing/statistical-test/#rejection-region">
+    \(17.3\) &nbsp;&nbsp;&nbsp;&nbsp; Rejection Region</a></li>
+    <li><a class="toc-l2" href="/stats/hypothesis-testing/statistical-test/#errors">
+    \(17.4\) &nbsp;&nbsp;&nbsp;&nbsp; Types of error</a></li>
+    <li><a class="toc-l2" href="/stats/hypothesis-testing/statistical-test/#type-1">
+    \(17.5\) &nbsp;&nbsp;&nbsp;&nbsp; Type \(1\) error of a test \(\psi\)</a></li>
+    <li><a class="toc-l2" href="/stats/hypothesis-testing/statistical-test/#type-2">
+    \(17.6\) &nbsp;&nbsp;&nbsp;&nbsp; Type \(2\) error of a test \(\psi\)</a></li>
+    <li><a class="toc-l2" href="/stats/hypothesis-testing/statistical-test/#power">
+    \(17.7\) &nbsp;&nbsp;&nbsp;&nbsp; Power of a Test \(\psi\)</a></li>
+    <li><a class="toc-l2" href="/stats/hypothesis-testing/statistical-test/#level">
+    \(17.8\) &nbsp;&nbsp;&nbsp;&nbsp; Level</a></li>
+    <li><a class="toc-l2" href="/stats/hypothesis-testing/statistical-test/#type-of-tests">
+    \(17.9\) &nbsp;&nbsp;&nbsp;&nbsp; Type of Tests</a></li>
+    <li><a class="toc-l2" href="/stats/hypothesis-testing/statistical-test/#coin-toss-example">
+    \(17.10\) &nbsp;&nbsp;&nbsp;&nbsp; Coin Toss Example</a></li>
+    <li><a class="toc-l2" href="/stats/hypothesis-testing/statistical-test/#youtube-example">
+    \(17.11\) &nbsp;&nbsp;&nbsp;&nbsp; YouTube Example</a></li>
+</ul>
+</li>
+<!-- %% Statistical Test -->
+
+<!-- p-value -->
+<li id="p-value"><a class="toc-l1" href="/stats/hypothesis-testing/p-value/">
+    \(18)\) \(\text{p-value}\)</span></a>
+<div style="display: inline-block;">
+    <a href="/stats/summary/hypothesis-testing/p-value/#popup" class="fa fa-info-circle"> &nbsp; </a>
+    <a class="python-logo" href="/stats/introduction/python/"><img src="/data/img/python.png" alt=python></a>
+    <a class="julia-logo" href="/stats/introduction/julia/"><img src="/data/img/julia.png" alt="julia"></a>
+</div>
+<ul>
+    <li><a class="toc-l2" href="/stats/hypothesis-testing/p-value/#main">
+    \(18.1\) &nbsp;&nbsp;&nbsp;&nbsp; Introduction</a></li>
+    <li><a class="toc-l2" href="/stats/hypothesis-testing/p-value/#p-value=0">
+    \(18.2\) &nbsp;&nbsp;&nbsp;&nbsp; What if \(\text{ p-value }\) \(\to 0\)</a></li>
+    <li><a class="toc-l2" href="/stats/hypothesis-testing/p-value/#coin-toss-example">
+    \(18.3\) &nbsp;&nbsp;&nbsp;&nbsp; Coin Toss Example</a></li>
+</ul>
+</li>
+<!-- %% p-value -->
+
+<!-- p-value Example -->
+<li id="p-value-example"><a class="toc-l1" href="/stats/hypothesis-testing/p-value/example">
+    \(18.1.1\) \(\text{p-value}\) Example</span></a>
+<div style="display: inline-block;">
+    <a href="/stats/summary/hypothesis-testing/p-value/example#popup" class="fa fa-info-circle"> &nbsp; </a>
+    <a class="python-logo" href="/stats/introduction/python/"><img src="/data/img/python.png" alt=python></a>
+    <a class="julia-logo" href="/stats/introduction/julia/"><img src="/data/img/julia.png" alt="julia"></a>
+</div>
+<ul>
+    <li><a class="toc-l2" href="/stats/hypothesis-testing/p-value/example#main">
+    \(18.1.1\) &nbsp;&nbsp;&nbsp;&nbsp; Kiss Example</a></li>
+    <li><a class="toc-l2" href="/stats/hypothesis-testing/p-value/example#model">
+    \(18.1.2\) &nbsp;&nbsp;&nbsp;&nbsp; Modelling Assumptions</a></li>
+    <li><a class="toc-l2" href="/stats/hypothesis-testing/p-value/example#estimator">
+    \(18.1.3\) &nbsp;&nbsp;&nbsp;&nbsp; Estimator</a></li>
+    <li><a class="toc-l2" href="/stats/hypothesis-testing/p-value/example#test-statistics">
+    \(18.1.4\) &nbsp;&nbsp;&nbsp;&nbsp; Test statistics</a></li>
+    <li><a class="toc-l2" href="/stats/hypothesis-testing/p-value/example#test">
+    \(18.1.5\) &nbsp;&nbsp;&nbsp;&nbsp; Test</a></li>
+    <li><a class="toc-l2" href="/stats/hypothesis-testing/p-value/example#p-value">
+    \(18.1.6\) &nbsp;&nbsp;&nbsp;&nbsp;
+    \(\text{p-value}\)</a></li>
+</ul>
+</li>
+<!-- %% p-value Example-->
+
+<!-- Methods of Estimation - Goal -->
+<li id="methods-of-estimation-goal"><a class="toc-l1" href="/stats/methods-of-estimation/">
+    \(19)\) Goal</span></a>
+<div style="display: inline-block;">
+    <a href="/stats/summary/methods-of-estimation-goal/#popup" class="fa fa-info-circle"> &nbsp; </a>
+    <a class="python-logo" href="/stats/introduction/python/"><img src="/data/img/python.png" alt=python></a>
+    <a class="julia-logo" href="/stats/introduction/julia/"><img src="/data/img/julia.png" alt="julia"></a>
+</div>
+<ul>
+    <li><a class="toc-l2" href="/stats/methods-of-estimation/#main">
+    \(19.1\) &nbsp;&nbsp;&nbsp;&nbsp; Goal</a></li>
+</ul>
+</li>
+<!-- %% Methods of Estimation - Goal -->
+
+                        </ul>
+                    </div>
+
+                    <div class="slack-discuss" onclick=" window.open('https://join.slack.com/t/quantml-org/shared_invite/zt-jffw86bo-6M260iyt1q2MgBma9elewg','_blank','noopener')">
+                        Join our Slack <img class="slack-logo" src="/data/img/slack.png" alt="Slack"> discussion forum
+                    </div><br>
+
+                    <div style="text-align: center; " >
+                        **<span style="font-size: larger; color:grey;">In Progress</span>**
+                    </div>
+
+                </div>
+
+<div id="modals-html"></div>
+
+
+                    </section>
+					</div>
+			</div>
+
+       
+        <!-- Scripts -->
+        <script src="/data/assets/js/script.js"></script>
+        <script>cssLoaded()</script>
+        <script>
+            
+        </script>
+    </body>
+</html>
