@@ -219,28 +219,30 @@ function initializeBody(){
 }
 
 function loadInit(theme){
-  div = document.getElementById('load-init')
-  load = document.createElement('div')
-  init = document.createElement('div')
+  document.querySelectorAll("#load-init").forEach(function(div, index){
+	// div = document.getElementById('load-init')
+	load = document.createElement('div')
+	init = document.createElement('div')
+	
+	load.style.display = "block"; load.id="pre-loading"
+	loadImg = document.createElement('img')
+	loadImg.class = "loading"; loadImg.alt=" "; loadImg.width="215"; loadImg.height="50"
   
-  load.style.display = "block"; load.id="pre-loading"
-  loadImg = document.createElement('img')
-  loadImg.class = "loading"; loadImg.alt=" "; loadImg.width="215"; loadImg.height="50"
-
-  init.style.display = "none"; init.id="pre-initializing"
-  initImg = document.createElement('img')
-  initImg.class = "loading"; initImg.alt=" "; initImg.width="285"; initImg.height="50"
-
-  if(theme=="dark"){
-	loadImg.src="/data/img-dark/loading.svg",
-	initImg.src="/data/img-dark/initializing.svg";
-  } else {
-	loadImg.src="/data/img/loading.svg",
-	initImg.src="/data/img/initializing.svg";
-  }
-  load.appendChild(loadImg)
-  init.appendChild(initImg)
-  div.appendChild(load); div.appendChild(init);
+	init.style.display = "none"; init.id="pre-initializing"
+	initImg = document.createElement('img')
+	initImg.class = "loading"; initImg.alt=" "; initImg.width="285"; initImg.height="50"
+  
+	if(theme=="dark"){
+	  loadImg.src="/data/img-dark/loading.svg",
+	  initImg.src="/data/img-dark/initializing.svg";
+	} else {
+	  loadImg.src="/data/img/loading.svg",
+	  initImg.src="/data/img/initializing.svg";
+	}
+	load.appendChild(loadImg)
+	init.appendChild(initImg)
+	div.appendChild(load); div.appendChild(init);		
+  })
 }
 
 changeThemeCSS(localStorage.getItem("quantmlTheme"));
