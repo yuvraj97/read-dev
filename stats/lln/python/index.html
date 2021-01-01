@@ -73,7 +73,7 @@
 <blockquote class="sidebar">
     First let's see how we can perform a <b>single simulation</b>, then we will see how to perform <b>multiple simulations</b> and <b>visualize</b> the Weak Law of Large Numbers.
 </blockquote><br>
-<h1>Single Simulation <img src="/data/img/python.png" alt="Python" width="112.5px" height="30px"></h1>
+<h1 id="single-simulation">Single Simulation <img src="/data/img/python.png" alt="Python" width="112.5px" height="30px"></h1>
 
 Say that you want to know the average height of your classroom students. <br>
 There are \(300\) students, and you want to know, what is the average height of those \(300\) students?<br>
@@ -83,7 +83,7 @@ So the <b>population size</b>\((N)\) is \(300\) and <b>sample size</b>\((n)\) is
 <a href="/stats/introduction/#dogma">Remember that dogma</a> <br>
 <img id='dogma' class="full-size-img" src="/stats/img/dogma.png" alt="Central Dogma of Probability and Statistics">
 
-<h2>Truth</h2>
+<h2 id="truth">Truth</h2>
 Now let's define the <b>truth</b>. <br>
 Say that the every student's height follows the <a href="https://en.wikipedia.org/wiki/Normal_distribution">Normal distribution</a> with <b>mean</b> \((\mu)= 175 \text{cm}\) and <b>variance</b> \((\sigma^2)=(10\text{cm})^2\). <br>
 So \(X_1,\cdots,X_{50}\sim\mathcal{N}(175,10^2)\) <br>
@@ -98,7 +98,7 @@ So \(X_1,\cdots,X_{50}\sim\mathcal{N}(175,10^2)\) <br>
     Then we assumed that there height is <b>Normally distributed</b>
 </blockquote> -->
 
-<h2>Probability</h2>
+<h2 id="probability">Probability</h2>
 We use probability to generate data using the <b>Truth</b> we defined above.<br>
 Now let's create the population of all \(300\) students. <br>
 
@@ -118,7 +118,7 @@ population = distribution.rvs(N)
 </code></pre>
 <br>
 
-<h2>Observation</h2>
+<h2 id="observation">Observation</h2>
 Now that we have all \(300\) students, and every student's height follows the <a href="https://en.wikipedia.org/wiki/Normal_distribution">Normal distribution</a> with <b>mean</b> \((\mu)= 175 \text{cm}\) and <b>variance</b> \((\sigma^2)=(10\text{cm})^2\). <br>
 Let's (randomly) take a sample of \(50\) students
 <pre data-start="14"><code class="language-python line-numbers">n = 50
@@ -126,7 +126,7 @@ sample = np.random.choice(population,n)
 </code></pre>
 <br>
 
-<h2>Statistics</h2>
+<h2 id="statistics">Statistics</h2>
 So now we have our sample of \(50\) students, let's estimate the average height of those \(50\) students <b>(sample mean)</b>. <br>
 
 <pre data-start="16"><code class="language-python line-numbers">sample_mean = np.mean(sample)
@@ -138,7 +138,7 @@ Exactly this is not the <b>Weak Law of Large Number</b>, but to visualize the We
 So let's dive into it. <br>
 <br>
 
-<h1>Multiple simulations <img src="/data/img/python.png" alt="Python" width="112.5px" height="30px"></h1>
+<h1 id="multiple-simulations">Multiple simulations <img src="/data/img/python.png" alt="Python" width="112.5px" height="30px"></h1>
 The <b>truth</b> is that every student's height follows the <a href="https://en.wikipedia.org/wiki/Normal_distribution">Normal distribution</a> with <b>mean</b> \((\mu)= 175 \text{cm}\) and <b>variance</b> \((\sigma^2)=(10\text{cm})^2\). <br>
 
 First create a population
