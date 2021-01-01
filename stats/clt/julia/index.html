@@ -74,14 +74,14 @@
 	First let's see how we can perform a <b>single simulation</b>, then we will see how to perform <b>multiple simulations</b> and <b>visualize</b> the Weak Law of Large Numbers.
 </blockquote><br>
 
-<h1>Single Simulation <img src="/data/img/julia.png" alt="Julia" width="53px" height="33px"></h1>
+<h1 id="single-simulation">Single Simulation <img src="/data/img/julia.png" alt="Julia" width="53px" height="33px"></h1>
 
 Assume that there are \(1000\) students in your school and you want to know, what is the average height of \(100\) randomly selected students? and how is that average height is distributed (or say the distribution of that average height)?<br>
 
 <a href="/stats/introduction/#dogma">Remember that dogma</a> <br>
 <img id='dogma' class="full-size-img" src="/stats/img/dogma.png" alt="Central Dogma of Probability and Statistics">
 
-<h2>Truth</h2>
+<h2 id="truth">Truth</h2>
 Now let's define the <b>truth</b>. <br>
 Say that every student's height follows the <a href="https://en.wikipedia.org/wiki/Continuous_uniform_distribution">Uniform distribution</a> with range of \([165\text{ cm },185\text{ cm}]\). <br>
 So \(X_1,\cdots,X_{50}\sim\text{Unif}[165, 185]\) <br>
@@ -90,7 +90,7 @@ So \(X_1,\cdots,X_{50}\sim\text{Unif}[165, 185]\) <br>
 </blockquote>
 <br>
 
-<h2>Probability</h2>
+<h2 id="probability">Probability</h2>
 We use probability to generate data using the <b>Truth</b> we defined above.<br>
 Now let's create the population of all \(1000\) students. <br>
 
@@ -105,7 +105,7 @@ population = rand(distribution, N)
 </code></pre>
 <br>
 
-<h2>Observation</h2>
+<h2 id="observation">Observation</h2>
 Now that we have all \(1000\) students, and every student's height follows the <a href="https://en.wikipedia.org/wiki/Continuous_uniform_distribution">Uniform distribution</a>. <br>
 Let's (randomly) take a sample of \(100\) students
 <pre data-start="11"><code class="language-julia line-numbers">n = 100
@@ -113,7 +113,7 @@ sample_ = sample(population,n)
 </code></pre>
 <br>
 
-<h2>Statistics</h2>
+<h2 id="statistics">Statistics</h2>
 So now we have our sample of \(100\) students, let's estimate the average height of those \(100\) students <b>(sample mean)</b>. <br>
 
 <pre data-start="13"><code class="language-julia line-numbers">sample_mean = mean(sample_)
@@ -125,7 +125,7 @@ Now let's see how the distribution of the average height of \(100\) randomly sel
 To achieve it we need to perform this simulation multiple times and plot all sample means as a histogram. <br>
 <br>
 
-<h1>Multiple simulations <img src="/data/img/julia.png" alt="Julia" width="53px" height="33px"></h1>
+<h1 id="multiple-simulations">Multiple simulations <img src="/data/img/julia.png" alt="Julia" width="53px" height="33px"></h1>
 The <b>truth</b> is that every student's height follows the <a href="https://en.wikipedia.org/wiki/Continuous_uniform_distribution">Uniform distribution</a> \(\text{Unif}[165, 185]\), so let's start with creating population. <br>
 
 <pre data-start="1"><code class="language-julia line-numbers">using Plots, Distributions, Random, Statistics, StatsBase
