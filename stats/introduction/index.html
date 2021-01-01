@@ -355,37 +355,44 @@ Now let's see some Simulation, choose your language of choice,<br>
 
 <div id="btn-container"></div><br>
 <br>
-<blockquote class="sidebar" style="padding-bottom: 0%;">
-	<h3>Recommended Watching</h3>
-	<details style="margin-top: 10px; margin-bottom: 10px;">
-		<summary><i><span style="text-align: center;" class="bb">What is Statistics</span> (by ma'am Cassie Kozyrkov)</i></summary>
-		<div style="text-align: center; margin-top:10px;">
-			<iframe width="560" height="315" src="https://www.youtube.com/embed/OJt-k9h9pmk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-		</div>
-	</details>
+<div id="recommended-watchings"></div>
+<script>
+	setTimeout(function(){
+		document.getElementById('recommended-watchings').innerHTML = `
+		<blockquote class="sidebar" style="padding-bottom: 0%;">
+			<h3>Recommended Watching</h3>
+			<details style="margin-top: 10px; margin-bottom: 10px;">
+				<summary><i><span style="text-align: center;" class="bb">What is Statistics</span> (by ma'am Cassie Kozyrkov)</i></summary>
+				<div style="text-align: center; margin-top:10px;">
+					<iframe width="560" height="315" src="https://www.youtube.com/embed/OJt-k9h9pmk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				</div>
+			</details>
 
-	<details style="margin-bottom: 10px;">
-		<summary><i><span style="text-align: center;" class="bb">Analytics v/s Statistics</span> (by ma'am Cassie Kozyrkov)</i></summary>
-		<div style="text-align: center; margin-top:10px;">
-			<iframe width="560" height="315" src="https://www.youtube.com/embed/YsrPImZyisI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-		</div>
-	</details>
+			<details style="margin-bottom: 10px;">
+				<summary><i><span style="text-align: center;" class="bb">Analytics v/s Statistics</span> (by ma'am Cassie Kozyrkov)</i></summary>
+				<div style="text-align: center; margin-top:10px;">
+					<iframe width="560" height="315" src="https://www.youtube.com/embed/YsrPImZyisI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				</div>
+			</details>
 
-	<details style="margin-bottom: 10px;">
-		<summary><i><span style="text-align: center;" class="bb">Are you Bayesian or Frequentist?</span> (by ma'am Cassie Kozyrkov)</i></summary>
-		<div style="text-align: center; margin-top:10px;">
-			<iframe width="560" height="315" src="https://www.youtube.com/embed/GEFxFVESQXc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>		</div>
-	</details>
-	
-	<details>
-		<summary><i><span style="text-align: center;" class="bb">Why Statistics</span> (by Sir Eric Newburger)</i></summary>
-		<div style="text-align: center; margin-top:10px;">
-			<iframe width="560" height="315" src="https://www.youtube.com/embed/yxXsPc0bphQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-		</div>
-	</details>
-	
-<br>
-</blockquote>
+			<details style="margin-bottom: 10px;">
+				<summary><i><span style="text-align: center;" class="bb">Are you Bayesian or Frequentist?</span> (by ma'am Cassie Kozyrkov)</i></summary>
+				<div style="text-align: center; margin-top:10px;">
+					<iframe width="560" height="315" src="https://www.youtube.com/embed/GEFxFVESQXc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>		</div>
+			</details>
+			
+			<details>
+				<summary><i><span style="text-align: center;" class="bb">Why Statistics</span> (by Sir Eric Newburger)</i></summary>
+				<div style="text-align: center; margin-top:10px;">
+					<iframe width="560" height="315" src="https://www.youtube.com/embed/yxXsPc0bphQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				</div>
+			</details>
+			
+		<br>
+		</blockquote>
+		`
+		}, 1000)
+	</script>
 <br><br>
 <div id="modals-html"></div>
 

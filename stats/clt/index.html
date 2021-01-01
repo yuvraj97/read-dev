@@ -178,7 +178,11 @@ So:<br>
 
 <div id="btn-container"></div><br>
 <br>
-<blockquote class="sidebar" style="padding-bottom: 0%;">
+<div id="recommended-watchings"></div>
+<script>
+	setTimeout(function(){
+		document.getElementById('recommended-watchings').innerHTML = `
+	<blockquote class="sidebar" style="padding-bottom: 0%;">
 	<h3>Recommended Watching</h3>
 	<details style="margin-top: 10px; margin-bottom: 10px;">
 		<summary><i><span style="text-align: center;" class="bb">Central Limit Theorem</span> (by Prof. John Tsitsiklis)</i></summary>
@@ -215,7 +219,10 @@ So:<br>
 		</div>
 	</details>
 	<br>
-</blockquote>
+	</blockquote>
+	`
+	}, 1000)
+</script>
 <br><br>
 </div>
 <div id="modals-html"></div>
