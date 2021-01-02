@@ -5,11 +5,11 @@
 <script>var d = new Date(); start = d.getTime()</script>
 		<script>
 			var nextPage = "/stats/lln/";
-			var prevPage = "/stats/"
+			var prevPage = "/stats/";
 			var nextPageTitle = "Weak Law of Large Numbers";
-			var prevPageTitle = "Home"
-			var arrowLeftPage = "/stats/"
-			var arrowRightPage = "/stats/introduction/python/"
+			var prevPageTitle = "Home";
+			var arrowLeftPage = "/stats/";
+			var arrowRightPage = "/stats/introduction/python/";
 		</script>
 
 		<link rel="stylesheet" href="/data/assets/css/main.css">
@@ -40,8 +40,8 @@
 					<a href="https://quantml.org" style="display: none;" class="logo image jump-big" id="quantml-cover-light"><img src="/data/img/cover.webp" alt="QuantML.org" /></a>
 					<a href="https://quantml.org" style="display: none;" class="logo image jump-big" id="quantml-cover-dark"><img src="/data/img-dark/cover.webp" alt="QuantML.org" /></a>
 					<script>
-						if(localStorage.getItem("quantmlTheme")=="dark") document.getElementById('quantml-cover-dark').style.display = "block"
-						else document.getElementById('quantml-cover-light').style.display = "block"
+						if(localStorage.getItem("quantmlTheme")=="dark") document.getElementById('quantml-cover-dark').style.display = "block";
+						else document.getElementById('quantml-cover-light').style.display = "block";
 					</script>
 				</header>
 
@@ -320,11 +320,11 @@ Coming up with a model consists of making assumptions on what those \(B_i\)'s ar
 	</div>
 	So \(B_i\) has no choice but to be a <a href="https://en.wikipedia.org/wiki/Bernoulli_distribution">Bernoulli</a> random variable. <br>
 	\[B_i\sim\text{Ber}(p)\]
-	
+
 	But wait there's a hidden assumption, <br>
 	&bull; \(p\) is same for every draw
 	<blockquote class="sidebar">
-		It means for every draw, probability of drawing a <span class="l1">Red ball</span> is \(p\) and 
+		It means for every draw, probability of drawing a <span class="l1">Red ball</span> is \(p\) and
 		probability of drawing a <span class="l2">Blue ball</span> is \(1-p\). <br>
 		So every Random variable \(B_i\) is <b>Identically distributed</b>.
 	</blockquote>
@@ -380,18 +380,18 @@ Now let's see some Simulation, choose your language of choice,<br>
 				<div style="text-align: center; margin-top:10px;">
 					<iframe width="560" height="315" src="https://www.youtube.com/embed/GEFxFVESQXc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>		</div>
 			</details>
-			
+
 			<details>
 				<summary><i><span style="text-align: center;" class="bb">Why Statistics</span> (by Sir Eric Newburger)</i></summary>
 				<div style="text-align: center; margin-top:10px;">
 					<iframe width="560" height="315" src="https://www.youtube.com/embed/yxXsPc0bphQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 				</div>
 			</details>
-			
+
 		<br>
 		</blockquote>
-		`
-		}, 1000)
+		`;
+		}, 1000);
 	</script>
 <br><br>
 <div id="modals-html"></div>

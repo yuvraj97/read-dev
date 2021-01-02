@@ -5,8 +5,8 @@
 
 		<script>
 			var isConcluded = true;
-			var arrowLeftPage = "/"
-			var arrowRightPage = "/donate/"
+			var arrowLeftPage = "/";
+			var arrowRightPage = "/donate/";
 		</script>
 
 		<link rel="stylesheet" href="/data/assets/css/main.css">
@@ -26,28 +26,28 @@
 		<script src="/data/assets/js/script.js"></script>
 		<script>
 			function correctingHeights(){
-				about  = document.getElementById('about')
-				aboutColumn  = document.getElementById('about-column')
-				authorContact = document.getElementById('author-contact')
-				author = document.getElementById('author')
-				contact = document.getElementById('contact')
+				about  = document.getElementById('about');
+				aboutColumn  = document.getElementById('about-column');
+				authorContact = document.getElementById('author-contact');
+				author = document.getElementById('author');
+				contact = document.getElementById('contact');
 				// console.log("about.offsetHeight:", about.offsetHeight, "author.offsetHeight:", author.offsetHeight, "contact.offsetHeight:", contact.offsetHeight)
 				if(about.offsetHeight < author.offsetHeight + contact.offsetHeight){
-					aboutColumn.style.height = String(authorContact.offsetHeight) + "px"
+					aboutColumn.style.height = String(authorContact.offsetHeight) + "px";
 					// console.log("about.style.height:", about.style.height)
 				} else {
-					contact.style.marginTop = String(about.offsetHeight - author.offsetHeight - contact.offsetHeight) + "px"
+					contact.style.marginTop = String(about.offsetHeight - author.offsetHeight - contact.offsetHeight) + "px";
 					// console.log(String(about.offsetHeight - author.offsetHeight - contact.offsetHeight), "contact.style.marginTop:", contact.style.marginTop )
 				}
 			}
-			l = document.createElement('link')
-			l.rel = "stylesheet"
-			l.id="home-stylesheet"
-			l.onload = function(){cssLoaded(false);if(window.innerWidth > 736){correctingHeights()}}
+			l = document.createElement('link');
+			l.rel = "stylesheet";
+			l.id="home-stylesheet";
+			l.onload = function(){cssLoaded(false);if(window.innerWidth > 736){correctingHeights()}};
 			if(localStorage.getItem("quantmlTheme") == "dark") l.href = "/style-dark.css";
-			else l.href = "/style-light.css"
-			document.getElementsByTagName("head")[0].appendChild(l)
-		</script>		
+			else l.href = "/style-light.css";
+			document.getElementsByTagName("head")[0].appendChild(l);
+		</script>
 	</head>
 
 	<body>
@@ -62,8 +62,8 @@
 					<a href="https://quantml.org" style="display: none;" class="logo image jump-big" id="quantml-cover-light"><img src="/data/img/cover.webp" alt="QuantML.org" /></a>
 					<a href="https://quantml.org" style="display: none;" class="logo image jump-big" id="quantml-cover-dark"><img src="/data/img-dark/cover.webp" alt="QuantML.org" /></a>
 					<script>
-						if(localStorage.getItem("quantmlTheme")=="dark") document.getElementById('quantml-cover-dark').style.display = "block"
-						else document.getElementById('quantml-cover-light').style.display = "block"
+						if(localStorage.getItem("quantmlTheme")=="dark") document.getElementById('quantml-cover-dark').style.display = "block";
+						else document.getElementById('quantml-cover-light').style.display = "block";
 					</script>
 				</header>
 
@@ -97,24 +97,24 @@
 										Here you will get various guides related to <b>Machine Learning</b> that will help you understand
 										the concepts better.<br>
 										<br>
-		
+
 										Currently, you can read the <b><a href="la/">guide</a></b>
 										for <b>Linear Algebra</b>,
-										I recommended you to take the <b><a rel="noreferrer" target="_blank" href="https://ocw.mit.edu/courses/mathematics/18-06sc-linear-algebra-fall-2011/">18.06sc</a></b> 
+										I recommended you to take the <b><a rel="noreferrer" target="_blank" href="https://ocw.mit.edu/courses/mathematics/18-06sc-linear-algebra-fall-2011/">18.06sc</a></b>
 										course and my <b><a href="la/">guide</a></b> parallelly.<br>
 										<br>
-		
-										Guide for <b>Statistics</b> is coming soon, 
+
+										Guide for <b>Statistics</b> is coming soon,
 										and there are plans for the guides of <b>Machine Learning</b> and <b>Reinforcement Learning</b>.<br>
 									</p>
 							  </div>
 							</div>
-						  
+
 							<div id="author-contact" class="column">
 								<div id="author" class="book">
 										<img style="float: right;" src="/data/icon.png" alt="logo" width="40" height="40">
 										<h1>
-											Author 
+											Author
 											<a rel="noreferrer" target="_blank" href="https://www.linkedin.com/in/yuvraj97/"><img src="/data/img/linkedin.png" alt="linkedin" width="30" height="30"></a>
 											<a rel="noreferrer" target="_blank" href="https://github.com/yuvraj97/"><img src="/data/img/github.png" alt="github" width="30" height="30"></a>
 										</h1>
@@ -159,6 +159,6 @@
 			</div>
 
 		<!-- Scripts -->
-		
+
 	</body>
 </html>

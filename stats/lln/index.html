@@ -4,11 +4,11 @@
 	<head>
 		<script>
 			var nextPage = "/stats/clt/";
-			var prevPage = "/stats/introduction/"
+			var prevPage = "/stats/introduction/";
 			var nextPageTitle = "Central Limit Theorem";
-			var prevPageTitle = "Introduction"
-			var arrowLeftPage = "/stats/introduction/julia/"
-			var arrowRightPage = "/stats/lln/python/"
+			var prevPageTitle = "Introduction";
+			var arrowLeftPage = "/stats/introduction/julia/";
+			var arrowRightPage = "/stats/lln/python/";
 		</script>
 
 		<link rel="stylesheet" href="/data/assets/css/main.css">
@@ -26,7 +26,7 @@
 	</head>
 
 	<body>
-		
+
 		<!-- Wrapper -->
 			<div style="display: none;" id="wrapper">
 				<div class="bg fixed" style="transform: none;"></div>
@@ -37,8 +37,8 @@
 					<a href="https://quantml.org" style="display: none;" class="logo image jump-big" id="quantml-cover-light"><img src="/data/img/cover.webp" alt="QuantML.org" /></a>
 					<a href="https://quantml.org" style="display: none;" class="logo image jump-big" id="quantml-cover-dark"><img src="/data/img-dark/cover.webp" alt="QuantML.org" /></a>
 					<script>
-						if(localStorage.getItem("quantmlTheme")=="dark") document.getElementById('quantml-cover-dark').style.display = "block"
-						else document.getElementById('quantml-cover-light').style.display = "block"
+						if(localStorage.getItem("quantmlTheme")=="dark") document.getElementById('quantml-cover-dark').style.display = "block";
+						else document.getElementById('quantml-cover-light').style.display = "block";
 					</script>
 				</header>
 
@@ -86,7 +86,7 @@ What we strive for is the average over total population (Average height of all \
 	<b>Note</b> <br>
 	<ul>
 		<li><b>True mean</b> \((\mu)\) over the entire population. <b>True mean</b> \((\mu)\) is <b>not</b> random, it's a number.</li>
-		
+
 		<li><b>Sample mean</b> \((\overline{X}_n)\) over the observed values during an experiment. <b>Sample mean</b> \((\overline{X}_n)\) is a <b>Random variable</b> because \(X_1,\cdots,X_n\) are random.</li>
 	</ul>
 </blockquote>
@@ -99,7 +99,7 @@ What we strive for is the average over total population (Average height of all \
 		\[\overline{X}_n:=\frac{1}{n}\sum _{i=1}^ n X_ i \xrightarrow [n\to \infty ] {\mathbb{P},\text{ a.s.}} \mu\]
 	</div><br> -->
 		<!-- <h3>Mathematically</h3> -->
-	<!-- So for \(X_1,X_2,\dots,X_n\) <b>i.i.d.</b> random variables with finite mean \(\mu\) and variance \(\sigma^2\). 
+	<!-- So for \(X_1,X_2,\dots,X_n\) <b>i.i.d.</b> random variables with finite mean \(\mu\) and variance \(\sigma^2\).
 	\[\mathbb{P}\left(|\overline{X}_n - \mu| \geq \epsilon\right) \xrightarrow [n\to \infty ] {} 0;\quad\forall\epsilon\gt 0\] -->
 </blockquote>
 
@@ -162,7 +162,7 @@ For \(X_1,X_2,\dots,X_n\) <b>i.i.d.</b> random variables with finite mean \(\mu\
 		So for any \(\epsilon\geq0\),
 		\[\mathbb{P}\left(|\overline{X}_n - \mu|\geq \epsilon\right) \xrightarrow [n\to \infty ]{} 0\]
 		<div style="font-size: smaller; text-align: center;">This is convergence in probability</div>
-		
+
 		Now think a very small number, like \(0.00001\)
 		now convergence in probability says that if \(n\) is large enough
 		then it's highly unlikely for \(\overline{X}_n\) to be more than \(0.00001\) units away from \(\mu\). <br>
@@ -184,11 +184,11 @@ For \(X_1,X_2,\dots,X_n\) <b>i.i.d.</b> random variables with finite mean \(\mu\
 </blockquote>
 	<!-- </blockquote> -->
 <!-- </details> -->
-		
+
 
 <br>
 So according to Weak Law of Large Numbers if we increases the number of students in our sample from \(n=50\) to say something like \(n=100\) then we <b>should</b> get a better estimate of the <b>true mean</b>. <br>
-<br> 
+<br>
 
 <h3>There is also a <b>Strong Law of large numbers</b>.</h3>
 <blockquote class="sidebar">
@@ -298,8 +298,9 @@ So even if we got \(1000\) \(\text{Heads}\) in a row, there is still \(\infty\) 
 				</div>
 			</details>
 			<br>
-		</blockquote>`
-	}, 1000)
+		</blockquote>
+	`;
+	}, 1000);
 </script>
 <br><br>
 </div>

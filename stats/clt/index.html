@@ -4,11 +4,11 @@
 	<head>
 		<script>
 			var nextPage = "/stats/gaussian-distribution/";
-			var prevPage = "/stats/lln/"
+			var prevPage = "/stats/lln/";
 			var nextPageTitle = "Gaussian Distribution";
-			var prevPageTitle = "Law of Large Numbers"
-			var arrowLeftPage = "/stats/lln/julia/"
-			var arrowRightPage = "/stats/clt/python/"
+			var prevPageTitle = "Law of Large Numbers";
+			var arrowLeftPage = "/stats/lln/julia/";
+			var arrowRightPage = "/stats/clt/python/";
 		</script>
 
 		<link rel="stylesheet" href="/data/assets/css/main.css">
@@ -26,7 +26,7 @@
 	</head>
 
 	<body>
-		
+
 		<!-- Wrapper -->
 			<div style="display: none;" id="wrapper">
 				<div class="bg fixed" style="transform: none;"></div>
@@ -37,8 +37,8 @@
 					<a href="https://quantml.org" style="display: none;" class="logo image jump-big" id="quantml-cover-light"><img src="/data/img/cover.webp" alt="QuantML.org" /></a>
 					<a href="https://quantml.org" style="display: none;" class="logo image jump-big" id="quantml-cover-dark"><img src="/data/img-dark/cover.webp" alt="QuantML.org" /></a>
 					<script>
-						if(localStorage.getItem("quantmlTheme")=="dark") document.getElementById('quantml-cover-dark').style.display = "block"
-						else document.getElementById('quantml-cover-light').style.display = "block"
+						if(localStorage.getItem("quantmlTheme")=="dark") document.getElementById('quantml-cover-dark').style.display = "block";
+						else document.getElementById('quantml-cover-light').style.display = "block";
 					</script>
 				</header>
 
@@ -95,7 +95,7 @@ And according to Weak Law of Large Numbers <span class="bb math">\(\overline{X}_
 		<div style="margin-bottom: 10px;">
 			\(\displaystyle\text{Var}(\overline{X}_n) = \frac{1}{n^2}(n\sigma^2)\) <br>
 		</div>
-			<span class="bb math">\(\displaystyle\text{Var}(\overline{X}_n)=\frac{\sigma^2}{n}\)</span>			
+			<span class="bb math">\(\displaystyle\text{Var}(\overline{X}_n)=\frac{\sigma^2}{n}\)</span>
 	</blockquote>
 </details>
 
@@ -106,7 +106,7 @@ Here we can see as \(n\to \infty\), \(\text{Var}(\overline{X}_n)\to 0\), then as
 <blockquote class="sidebar">
 <span class="bb math">\(\displaystyle\text{Var}(\sqrt{n}\overline{X}_n)=\sigma^2\)</span> for the distribution of \(\sqrt{n}\ \overline{X}_n\) variance remains unchanged. <br>
 
-<span class="bb math">\(\displaystyle\mathbb{E}[\sqrt{n}\overline{X}_n]=\sqrt{n}\mu\)</span> but \(\mathbb{E}[\sqrt{n}\overline{X}_n] \xrightarrow [n\to \infty ]{} \infty\), so let's center the distribution around \(0\). 
+<span class="bb math">\(\displaystyle\mathbb{E}[\sqrt{n}\overline{X}_n]=\sqrt{n}\mu\)</span> but \(\mathbb{E}[\sqrt{n}\overline{X}_n] \xrightarrow [n\to \infty ]{} \infty\), so let's center the distribution around \(0\).
 </blockquote><br>
 
 <li> Now let's look at the distribution of <span class="bb math">\(\sqrt{n}\ (\overline{X}_n - \mu)\)</span>. </li>
@@ -126,7 +126,7 @@ Say \(Z_n := \displaystyle\sqrt{n}\ \left( \frac{\overline{X}_n - \mu}{\sigma} \
 (\(Z\) is a standard normal random variable with mean \(0\) and variance \(1\)). <br>
 Now <b>Central Limit Theorem</b> states,
 <blockquote>
-	For every \(z:\) 
+	For every \(z:\)
 	\[\lim_{n\to\infty}\mathbb{P}(Z_n \lt z) = \mathbb{P}(Z \lt z)\]
 	\[\sqrt{n}\, \frac{\overline{X}_n-\mu }{\sigma } \xrightarrow [n\to \infty ]{(d)} \mathcal{N}(0,1) \]<br>
 </blockquote>
@@ -220,8 +220,8 @@ So:<br>
 	</details>
 	<br>
 	</blockquote>
-	`
-	}, 1000)
+	`;
+	}, 1000);
 </script>
 <br><br>
 </div>

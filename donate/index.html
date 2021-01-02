@@ -5,8 +5,8 @@
 
 		<script>
 			var isConcluded = true;
-			var arrowLeftPage = "/about/"
-			var arrowRightPage = "/"
+			var arrowLeftPage = "/about/";
+			var arrowRightPage = "/";
 		</script>
 
 		<link rel="stylesheet" href="/data/assets/css/main.css">
@@ -22,16 +22,16 @@
 		<meta name="keywords" content="Donate,Donation,QuantML,Visualization,Machine Learning,Statistics,Linear Algebra">
 		<meta name="author" content="Yuvraj Garg">
 		<script src="/data/assets/js/initialize.js"></script>
-		<script src="/data/assets/js/swiped-events.js"></script>		
+		<script src="/data/assets/js/swiped-events.js"></script>
 		<script src="/data/assets/js/script.js"></script>
 		<script>
-			l = document.createElement('link')
-			l.rel = "stylesheet"
-			l.id="home-stylesheet"
-			l.onload = function(){cssLoaded(false);}
+			l = document.createElement('link');
+			l.rel = "stylesheet";
+			l.id="home-stylesheet";
+			l.onload = function(){cssLoaded(false);};
 			if(localStorage.getItem("quantmlTheme") == "dark") l.href = "/style-dark.css";
-			else l.href = "/style-light.css"
-			document.getElementsByTagName("head")[0].appendChild(l)
+			else l.href = "/style-light.css";
+			document.getElementsByTagName("head")[0].appendChild(l);
 		</script>
 
 	</head>
@@ -48,8 +48,8 @@
 					<a href="https://quantml.org" style="display: none;" class="logo image jump-big" id="quantml-cover-light"><img src="/data/img/cover.webp" alt="QuantML.org" /></a>
 					<a href="https://quantml.org" style="display: none;" class="logo image jump-big" id="quantml-cover-dark"><img src="/data/img-dark/cover.webp" alt="QuantML.org" /></a>
 					<script>
-						if(localStorage.getItem("quantmlTheme")=="dark") document.getElementById('quantml-cover-dark').style.display = "block"
-						else document.getElementById('quantml-cover-light').style.display = "block"
+						if(localStorage.getItem("quantmlTheme")=="dark") document.getElementById('quantml-cover-dark').style.display = "block";
+						else document.getElementById('quantml-cover-light').style.display = "block";
 					</script>
 				</header>
 
@@ -91,7 +91,7 @@
 									<li>Some CSS/JS files to ensure performance</li>
 								</ul>
 								This website also uses cookies to store user's credentials.
-						
+
 							</blockquote>
 						</details>
 </div>
@@ -102,7 +102,7 @@
 			</div>
 
 		<!-- Scripts -->
-		
+
 
 	</body>
 </html>

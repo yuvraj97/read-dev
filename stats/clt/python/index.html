@@ -4,11 +4,11 @@
 	<head>
 		<script>
 			var nextPage = "/stats/gaussian-distribution/";
-			var prevPage = "/stats/lln/"
+			var prevPage = "/stats/lln/";
 			var nextPageTitle = "Gaussian Distribution";
-			var prevPageTitle = "Law of Large Numbers"
-			var arrowLeftPage = "/stats/clt/"
-			var arrowRightPage = "/stats/clt/julia/"
+			var prevPageTitle = "Law of Large Numbers";
+			var arrowLeftPage = "/stats/clt/";
+			var arrowRightPage = "/stats/clt/julia/";
 		</script>
 
 		<link rel="stylesheet" href="/data/assets/css/main.css">
@@ -41,8 +41,8 @@
 					<a href="https://quantml.org" style="display: none;" class="logo image jump-big" id="quantml-cover-light"><img src="/data/img/cover.webp" alt="QuantML.org" /></a>
 					<a href="https://quantml.org" style="display: none;" class="logo image jump-big" id="quantml-cover-dark"><img src="/data/img-dark/cover.webp" alt="QuantML.org" /></a>
 					<script>
-						if(localStorage.getItem("quantmlTheme")=="dark") document.getElementById('quantml-cover-dark').style.display = "block"
-						else document.getElementById('quantml-cover-light').style.display = "block"
+						if(localStorage.getItem("quantmlTheme")=="dark") document.getElementById('quantml-cover-dark').style.display = "block";
+						else document.getElementById('quantml-cover-light').style.display = "block";
 					</script>
 				</header>
 
@@ -181,14 +181,14 @@ ax.plot(x, pdf, c="g", label="Normal distribution (PDF)")
 
 # Getting Histogram
 num_bins = 50
-counts, bins = np.histogram(sample_means, 
-							np.linspace(min(sample_means), 
-										max(sample_means), 
+counts, bins = np.histogram(sample_means,
+							np.linspace(min(sample_means),
+										max(sample_means),
 										num_bins)
 							)
-n, bins, patches = ax.hist(sample_means, 
-							bins[:-1], 
-							facecolor='blue', 
+n, bins, patches = ax.hist(sample_means,
+							bins[:-1],
+							facecolor='blue',
 							alpha=0.5,
 							color="b",
 							weights=(1/sum(counts))*np.ones_like(sample_means),
@@ -224,14 +224,14 @@ ax.plot(x, pdf, c="g", label="Normal distribution (PDF)")
 
 # Getting Histogram
 num_bins = 50
-counts, bins = np.histogram(sample_means, 
-							np.linspace(min(sample_means), 
-										max(sample_means), 
+counts, bins = np.histogram(sample_means,
+							np.linspace(min(sample_means),
+										max(sample_means),
 										num_bins)
 							)
-n, bins, patches = ax.hist(sample_means, 
-							bins[:-1], 
-							facecolor='blue', 
+n, bins, patches = ax.hist(sample_means,
+							bins[:-1],
+							facecolor='blue',
 							alpha=0.5,
 							color="b",
 							weights=(1/sum(counts))*np.ones_like(sample_means),
@@ -253,7 +253,7 @@ And as we <a href="/stats/clt/#its-about-CDF">discussed earlier</a> that,
 
 Now let's see ourself,
 
-<pre data-start="44"><code class="language-python line-numbers"># Plot CDF 
+<pre data-start="44"><code class="language-python line-numbers"># Plot CDF
 fig, ax = plt.subplots()
 # CDF of Normal Distribution
 cdf = norm.cdf(x, samples_mean, samples_std)

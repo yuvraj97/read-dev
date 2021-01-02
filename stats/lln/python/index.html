@@ -4,11 +4,11 @@
 	<head>
 		<script>
 			var nextPage = "/stats/clt/";
-			var prevPage = "/stats/introduction/"
+			var prevPage = "/stats/introduction/";
 			var nextPageTitle = "Central Limit Theorem";
-			var prevPageTitle = "Introduction"
-			var arrowLeftPage = "/stats/lln/"
-			var arrowRightPage = "/stats/lln/julia/"
+			var prevPageTitle = "Introduction";
+			var arrowLeftPage = "/stats/lln/";
+			var arrowRightPage = "/stats/lln/julia/";
 		</script>
 
 		<link rel="stylesheet" href="/data/assets/css/main.css">
@@ -25,11 +25,11 @@
 
 	<script src="/data/assets/js/initialize.js"></script>
 		<script src="/data/assets/js/swiped-events.js"></script>
-		
+
 	</head>
 
 	<body>
-		
+
 		<!-- Wrapper -->
 			<div style="display: none;" id="wrapper">
 				<div class="bg fixed" style="transform: none;"></div>
@@ -41,8 +41,8 @@
 					<a href="https://quantml.org" style="display: none;" class="logo image jump-big" id="quantml-cover-light"><img src="/data/img/cover.webp" alt="QuantML.org" /></a>
 					<a href="https://quantml.org" style="display: none;" class="logo image jump-big" id="quantml-cover-dark"><img src="/data/img-dark/cover.webp" alt="QuantML.org" /></a>
 					<script>
-						if(localStorage.getItem("quantmlTheme")=="dark") document.getElementById('quantml-cover-dark').style.display = "block"
-						else document.getElementById('quantml-cover-light').style.display = "block"
+						if(localStorage.getItem("quantmlTheme")=="dark") document.getElementById('quantml-cover-dark').style.display = "block";
+						else document.getElementById('quantml-cover-light').style.display = "block";
 					</script>
 				</header>
 
@@ -155,7 +155,7 @@ standard_deviation = 10
 # Our notation of Normal distribution is N(mean, variance)
 # And scipy.stats.norm notation is N(mean, standard_deviation)
 distribution = norm(true_mean, np.sqrt(standard_deviation))
-population = distribution.rvs(N)</code></pre>        
+population = distribution.rvs(N)</code></pre>
 <br>
 
 Now take <b>sample mean</b> for \(n=1\) to \(n=300\) then plot them and observe the trend, do the sample mean converges as sample size \((n)\) increases.

@@ -4,11 +4,11 @@
 	<head>
 		<script>
 			var nextPage = "/stats/gaussian-distribution/";
-			var prevPage = "/stats/lln/"
+			var prevPage = "/stats/lln/";
 			var nextPageTitle = "Gaussian Distribution";
-			var prevPageTitle = "Law of Large Numbers"
-			var arrowLeftPage = "/stats/clt/python/"
-			var arrowRightPage = "/stats/hoeffdings-inequality/"
+			var prevPageTitle = "Law of Large Numbers";
+			var arrowLeftPage = "/stats/clt/python/";
+			var arrowRightPage = "/stats/hoeffdings-inequality/";
 		</script>
 
 		<link rel="stylesheet" href="/data/assets/css/main.css">
@@ -41,8 +41,8 @@
 					<a href="https://quantml.org" style="display: none;" class="logo image jump-big" id="quantml-cover-light"><img src="/data/img/cover.webp" alt="QuantML.org" /></a>
 					<a href="https://quantml.org" style="display: none;" class="logo image jump-big" id="quantml-cover-dark"><img src="/data/img-dark/cover.webp" alt="QuantML.org" /></a>
 					<script>
-						if(localStorage.getItem("quantmlTheme")=="dark") document.getElementById('quantml-cover-dark').style.display = "block"
-						else document.getElementById('quantml-cover-light').style.display = "block"
+						if(localStorage.getItem("quantmlTheme")=="dark") document.getElementById('quantml-cover-dark').style.display = "block";
+						else document.getElementById('quantml-cover-light').style.display = "block";
 					</script>
 				</header>
 
@@ -224,7 +224,7 @@ And as we discussed earlier that,
 
 Now let's see ourself,
 
-<pre data-start="31"><code class="language-julia line-numbers"># Plot CDF 
+<pre data-start="31"><code class="language-julia line-numbers"># Plot CDF
 # CDF of Normal Distribution
 cdf_ = cdf.(Normal(samples_mean, samples_std), x)
 plot(x, cdf_, c="green", label="Normal distribution CDF", lw=3)
