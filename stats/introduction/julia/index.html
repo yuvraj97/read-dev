@@ -124,7 +124,7 @@ so we took a sample out of those \(5000\) balls, and then we find the proportion
 <span class="l1">Red Balls</span> and
 <span class="l2">Blue Balls</span>
 in that small sample. <br>
-So let's took a sample of \(n=300\) balls. <br>
+So let's take a sample of \(n=300\) balls. <br>
 <pre data-start="12"><code class="language-julia line-numbers">n=300
 sample = rand(population,n)
 </code></pre>
@@ -139,8 +139,8 @@ So now we have our sample of \(300\) balls, let's start finding an estimate for
 To find the proportion of <span class="l1">Red Balls</span> we count number of <span class="l1">Red Balls</span>
 then we divide it by total number of balls (i.e. \(300\)). <br>
 
-<span class="l1">\(\hat{p}\)</span>: our estimate for proportion of <span class="l1">Red Balls</span> denoted by \(1\). <br>
-<span class="l2">\(\hat{q}\)</span>: out estimate for proportion of <span class="l2">Blue Balls (0)</span> denoted by \(0\). <br>
+<span class="l1">\(\hat{p}\)</span>: Our estimate for proportion of <span class="l1">Red Balls</span> denoted by \(1\). <br>
+<span class="l2">\(\hat{q}\)</span>: Our estimate for proportion of <span class="l2">Blue Balls</span> denoted by \(0\). <br>
 
 \[ \hat{p} = \frac{1}{300}\sum_{i=0}^{300}X_i\]
 \[ \hat{q} = 1-\hat{p} \]
@@ -148,7 +148,7 @@ then we divide it by total number of balls (i.e. \(300\)). <br>
 <pre data-start="14"><code class="language-julia line-numbers">p_hat = sum(sample)/n
 q_hat = 1- p_hat
 </code></pre>
-<span class="bb"><b>p_hat</b></span> is our estimate of for proportion of <span class="l1">Red Balls</span> (\(\hat{p}\)).<br>
+<span class="bb"><b>p_hat</b></span> is our estimate for proportion of <span class="l1">Red Balls</span> (\(\hat{p}\)).<br>
 
 This is a single simulation if we perform this simulation multiple times we can get some insights for the <b>distribution</b> of our <b>Random variable</b> \(\hat{p}\). <br>
 <br>
