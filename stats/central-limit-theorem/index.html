@@ -4,11 +4,11 @@
 	<head>
 		<script>
 			var nextPage = "/stats/gaussian-distribution/";
-			var prevPage = "/stats/lln/";
+			var prevPage = "/stats/weak-law-of-large-numbers/";
 			var nextPageTitle = "Gaussian Distribution";
 			var prevPageTitle = "Law of Large Numbers";
-			var arrowLeftPage = "/stats/lln/julia/";
-			var arrowRightPage = "/stats/clt/python/";
+			var arrowLeftPage = "/stats/weak-law-of-large-numbers/julia/";
+			var arrowRightPage = "/stats/central-limit-theorem/python/";
 		</script>
 
 		<link rel="stylesheet" href="/data/assets/css/main.css">
@@ -47,8 +47,8 @@
 						<ul class="links">
 							<li class="cover"><a href="/stats/"><img src="/data/img/STATISTICS-cover.png" alt="STATISTICS"></a></li>
 							<li class="active title">Central Limit Theorem</li>
-							<li class="python"><a href="/stats/clt/python/"><img src="/data/img/python.png" alt="Python"></a></li>
-							<li class="julia"><a href="/stats/clt/julia/"><img src="/data/img/julia.png" alt="Julia"></a></li>
+							<li class="python"><a href="/stats/central-limit-theorem/python/"><img src="/data/img/python.png" alt="Python"></a></li>
+							<li class="julia"><a href="/stats/central-limit-theorem/julia/"><img src="/data/img/julia.png" alt="Julia"></a></li>
 						</ul>
 					</nav>
 
@@ -73,14 +73,26 @@
 	</a>
 </blockquote>
 
-<!-- <a href="/stats/lln/">Previously in Weak Law of Large Numbers</a> we discussed that as our <b>sample size</b> \((n)\to\infty\) our <b>sample mean</b> \((\overline{X}_n)\to\) <b>true mean</b> \((\mu)\). <br> -->
+<!-- <a href="/stats/weak-law-of-large-numbers/">Previously in Weak Law of Large Numbers</a> we discussed that as our <b>sample size</b> \((n)\to\infty\) our <b>sample mean</b> \((\overline{X}_n)\to\) <b>true mean</b> \((\mu)\). <br> -->
+<blockquote class="sidebar">
+<a href="/stats/weak-law-of-large-numbers/#main">Continuing previous example</a>, <!--in previous example--> we discussed how <a href="/stats/weak-law-of-large-numbers/#main">Weak Law of Large Numbers</a> help us getting the average height of students. Remember that the average height we calculated \((\overline{X}_n)\) is a <b>random variable</b>, so it must have an underlying probability distribution and we don't know what that distribution is, <b>Central Limit Theorem</b> help us approximate that unknown distribution. Once we know the underlying distribution we can answer a lot of question.<br>
+</blockquote><br>
+Say we have a large population <!--Add hover over to specify what is population--> and we took a <b>sample</b> out of that population, and say we want to study the <b>distribution</b> of the <b>average</b> of some specific property of that sample. <br>
+<blockquote class="sidebar">
+	For example say we want to study the average height of students in our class.
+</blockquote>
+Central Limit Theorem(CLT) <!--Had over cover--> help us in this, CLT says
+<blockquote>
+	No matter what distribution(with finite mean and variance) our <b>population</b> follows, <b>distribution</b> of <b>Sample</b> mean   <b>convergence</b> to a <a href="https://en.wikipedia.org/wiki/Normal_distribution">Normal distribution</a>
+</blockquote>
 
-<a href="/stats/lln/#main">Continuing previous example</a>, <!--in previous example--> we discussed how <a href="/stats/lln/#main">Weak Law of Large Numbers</a> help us getting the average height of students. Remember that the average height we calculated \((\overline{X}_n)\) is a <b>random variable</b>, so it must have an underlying probability distribution and we don't know what that distribution is, <b>Central Limit Theorem</b> help us approximate that unknown distribution. Once we know the underlying distribution we can answer a lot of question.<br>
+<!--BREAK in concept-->
+Now let's say we have a population and we draw \(n\) random <b>i.i.d.</b> <!--Add hover over to specify what is iid--> observations \(X_1,X_2,\cdots,X_n\) from it. <br>
+These \(n\) <b>i.i.d.</b> observations are result of some random process with <b>unknown</b> distribution, this random process has a finite mean say \((\mu)\) and a finite variance say \((\sigma^2)\). <br>
 
-Say we have \(n\) <b>i.i.d.</b> observations of a random process, \(X_1,X_2,\cdots,X_n\), with <b>unknown</b> distribution, this random process has a finite mean say \((\mu)\) and a finite variance say \((\sigma^2)\). <br>
 <span class="bb"> \(\mathbb{E}[X]=\mu\)</span>  and <span class="bb"> \(Var(X)=\sigma^2\) </span><br>
 Estimator we used for \(\mu\) is \(\overline{X}_n=\frac{1}{n}\left(X_1+X_2+\cdots+X_n\right)\). <br>
-And according to Weak Law of Large Numbers <span class="bb math">\(\overline{X}_n \xrightarrow [n\to \infty ] {\mathbb{P}} \mu\)</span>
+And according to <a href="/stats/weak-law-of-large-numbers/">Weak Law of Large Numbers</a> <span class="bb math">\(\overline{X}_n \xrightarrow [n\to \infty ] {\mathbb{P}} \mu\)</span>
 
 <details>
 	<summary><span class="bb math">\(\displaystyle\text{Var}(\overline{X}_n)=\frac{\sigma^2}{n}\)</span></summary>
@@ -146,7 +158,7 @@ In real life we don't have \(\infty\) observations, maybe \(n\) is \(30\) or \(2
 </blockquote><br>
 <br>
 
-Now we can finally answer our <a href="/stats/lln/#how-fast">previous question</a> in <a href="/stats/lln/">Weak Law of Large Numbers</a> that, how fast(at what rate) \(\overline{X}_n\) approaches to \(\mu\). <br>
+Now we can finally answer our <a href="/stats/weak-law-of-large-numbers/#how-fast">previous question</a> in <a href="/stats/weak-law-of-large-numbers/">Weak Law of Large Numbers</a> that, how fast(at what rate) \(\overline{X}_n\) approaches to \(\mu\). <br>
 <blockquote class="sidebar">
 If we draw a standard gaussian  \(\mathcal{N}(0,1) \) (say) \(Z\), then with probability \(0.9974,\)  \(Z\in [-3,3]\)<br>
 \(P(-3\leq Z\leq3)=0.9974\quad\) we can calculate it <a rel="noreferrer" target="_blank" href="https://www.mathportal.org/calculators/statistics-calculator/normal-distribution-calculator.php">here</a><br>
@@ -165,8 +177,8 @@ So:<br>
 
 <blockquote class="noborder align-center">
 	Now let's see some Simulation, choose your language of choice,<br>
-	<a href="/stats/clt/python/"><img src="/data/img/python.png" alt="Python" width="75px" height="20px"></a> &nbsp;,&nbsp;
-	<a href="/stats/clt/julia/"><img src="/data/img/julia.png" alt="Julia" width="53px" height="33px"></a>
+	<a href="/stats/central-limit-theorem/python/"><img src="/data/img/python.png" alt="Python" width="75px" height="20px"></a> &nbsp;,&nbsp;
+	<a href="/stats/central-limit-theorem/julia/"><img src="/data/img/julia.png" alt="Julia" width="53px" height="33px"></a>
 	<br>
 	<a target="=_blank" href="https://app.quantml.org/stats/?ch=Central-Limit-Theorem&dist=Uniform+distribution">Launch Statistics App <img src="/data/img/app.png" alt="launch" width="30px" height="30px"></a>
 </blockquote><br>

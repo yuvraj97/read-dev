@@ -7,14 +7,14 @@
 			var prevPage = "/stats/weak-law-of-large-numbers/";
 			var nextPageTitle = "Gaussian Distribution";
 			var prevPageTitle = "Law of Large Numbers";
-			var arrowLeftPage = "/stats/clt/";
-			var arrowRightPage = "/stats/clt/julia/";
+			var arrowLeftPage = "/stats/central-limit-theorem/python/";
+			var arrowRightPage = "/stats/hoeffdings-inequality/";
 		</script>
 
 		<link rel="stylesheet" href="/data/assets/css/main.css">
 		<link rel="stylesheet" href="/data/assets/css/authStyle.css">
 
-		<title>Python | Central Limit Theorem | Fundamentals of Statistics - QuantML</title>
+		<title>Julia | Central Limit Theorem | Fundamentals of Statistics - QuantML</title>
 		<meta charset="utf-8" />
 		<link rel="icon" href="/data/icon.png" type="image/png" sizes="16x16">
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -50,10 +50,10 @@
 					<nav id="nav">
 						<ul class="links">
 							<li class="cover"><a href="/stats/"><img src="/data/img/STATISTICS-cover.png" alt="STATISTICS"></a></li>
-							<li class="link"><a href="/stats/clt/">Central Limit Theorem</a></li>
-							<li class="active python"><img src="/data/img/python.png" alt="Python"></li>
-							<li class="julia"><a href="/stats/clt/julia/"><img src="/data/img/julia.png" alt="Julia"></a></li>
-						</ul>
+							<li class="link"><a href="/stats/central-limit-theorem/">Central Limit Theorem</a></li>
+							<li class="python"><a href="/stats/central-limit-theorem/python/"><img src="/data/img/python.png" alt="Python"></a></li>
+							<li class="active julia"><img src="/data/img/julia.png" alt="Julia"></li>
+							</ul>
 					</nav>
 
 				<!-- Main -->
@@ -69,11 +69,12 @@
 	<div id="btn-container"></div><br>
 </div>
 
+
 <blockquote class="sidebar">
 	First let's see how we can perform a <b>single simulation</b>, then we will see how to perform <b>multiple simulations</b> and <b>visualize</b> the Weak Law of Large Numbers.
 </blockquote><br>
 
-<h1 id="single-simulation">Single Simulation <img src="/data/img/python.png" alt="Python" width="112.5px" height="30px"></h1>
+<h1 id="single-simulation">Single Simulation <img src="/data/img/julia.png" alt="Julia" width="53px" height="33px"></h1>
 
 Assume that there are \(1000\) students in your school and you want to know, what is the average height of \(100\) randomly selected students? and how is that average height is distributed (or say the distribution of that average height)?<br>
 
@@ -93,32 +94,29 @@ So \(X_1,\cdots,X_{50}\sim\text{Unif}[165, 185]\) <br>
 We use probability to generate data using the <b>Truth</b> we defined above.<br>
 Now let's create the population of all \(1000\) students. <br>
 
-<pre data-start="1"><code class="language-python line-numbers">import numpy as np
-import matplotlib.pyplot as plt
-from scipy.stats import uniform # to draw random variables from Uniform distribution
+<pre data-start="1"><code class="language-julia line-numbers">using Plots, Distributions, Random, Statistics, StatsBase
 
 N = 1000        # population size
-a = 165
-scale = 20
+a = 165 		# Left limit of Unif[a, b]
+b = 185 		# Right limit of Unif[a, b]
 
-# Unif[a, a + scale]
-distribution = uniform(a, scale)
-population = distribution.rvs(N)
+distribution = Uniform(a, b)
+population = rand(distribution, N)
 </code></pre>
 <br>
 
 <h2 id="observation">Observation</h2>
 Now that we have all \(1000\) students, and every student's height follows the <a href="https://en.wikipedia.org/wiki/Continuous_uniform_distribution">Uniform distribution</a>. <br>
 Let's (randomly) take a sample of \(100\) students
-<pre data-start="11"><code class="language-python line-numbers">n = 100
-sample = np.random.choice(population,n)
+<pre data-start="11"><code class="language-julia line-numbers">n = 100
+sample_ = sample(population,n)
 </code></pre>
 <br>
 
 <h2 id="statistics">Statistics</h2>
 So now we have our sample of \(100\) students, let's estimate the average height of those \(100\) students <b>(sample mean)</b>. <br>
 
-<pre data-start="13"><code class="language-python line-numbers">sample_mean = np.mean(sample)
+<pre data-start="13"><code class="language-julia line-numbers">sample_mean = mean(sample_)
 </code></pre>
 
 <span class="bb">sample_mean</span> is the average height of \(100\) randomly selected students. <br>
@@ -127,75 +125,60 @@ Now let's see how the distribution of the average height of \(100\) randomly sel
 To achieve it we need to perform this simulation multiple times and plot all sample means as a histogram. <br>
 <br>
 
-<h1 id="multiple-simulations">Multiple simulations <img src="/data/img/python.png" alt="Python" width="112.5px" height="30px"></h1>
+<h1 id="multiple-simulations">Multiple simulations <img src="/data/img/julia.png" alt="Julia" width="53px" height="33px"></h1>
 The <b>truth</b> is that every student's height follows the <a href="https://en.wikipedia.org/wiki/Continuous_uniform_distribution">Uniform distribution</a> \(\text{Unif}[165, 185]\), so let's start with creating population. <br>
 
-<pre data-start="1"><code class="language-python line-numbers">import numpy as np
-import matplotlib.pyplot as plt
-from scipy.stats import uniform # to draw random variables from Uniform distribution
-np.random.seed(1)
+<pre data-start="1"><code class="language-julia line-numbers">using Plots, Distributions, Random, Statistics, StatsBase
+gr(fmt = :png, size = (1540, 810))
+Random.seed!(0)
 
 N = 1000        # population size
-a = 165
-scale = 20
+a = 165 		# Left limit of Unif[a, b]
+b = 185 		# Right limit of Unif[a, b]
 
-# Unif[a, a + scale]
-distribution = uniform(a, scale)
-population = distribution.rvs(N)
+distribution = Uniform(a, b)
+population = rand(distribution, N)
 </code></pre>
 <br>
 
 Now let's collect <span class="bb">n_simulations</span> sample means of sample size \((n) = 30\). <br>
-(say n_simulations = 200)
-<pre data-start="12"><code class="language-python line-numbers">n = 30
+(say n_simulations = 500)
+<pre data-start="11"><code class="language-julia line-numbers">n = 30
 n_simulations = 200
-sample_means = np.zeros(n_simulations)
-for k in range(n_simulations):
-	sample_means[k] = np.mean(np.random.choice(population,n))
+sample_means = Array{Float64}(undef, n_simulations)
+for i = 1:n_simulations
+	sample_means[i] = mean(sample(population,n))
+end
 </code></pre>
 Now let's plot these sample means. <br>
 
-<pre data-start="17"><code class="language-python line-numbers">num_bins = 50
-n, bins, patches = plt.hist(sample_means, num_bins, facecolor='blue', alpha=0.5)
-plt.xlabel("Sample mean")
-plt.ylabel("# occurrences of sample mean")
-plt.show()
+<pre data-start="17"><code class="language-julia line-numbers">num_bins = 50
+Plots.xlabel!("Sample mean")
+Plots.ylabel!("# occurrences of sample mean")
+Plots.histogram(sample_means, bins=num_bins, label=false)
 </code></pre>
 
-<img class="full-size-img" src="/stats/img/clt/clt-sampeling-distribution.png" alt="">
-
+<img class="full-size-img" src="/stats/img/central-limit-theorem/clt-sampeling-distribution-jl.png" alt="">
 <div style="text-align: center;">Sample mean seems to be normally distributed.</div>
 Well it's a Central Limit Theorem Simulation right, and whole point of CLT is to approximate probability distribution of sample mean \(\overline{X}_n\) to it's corresponding Normal distribution <b>am I correct?</b> <br>
 Let's see ourself, let's overlay a Normal distribution with true mean and variance of <span class="bb">sample_means</span>. <br>
 
-<pre data-start="17"><code class="language-python line-numbers">from scipy.stats import norm
-samples_mean = np.mean(sample_means)
-samples_std = np.std(sample_means)
-
-fig, ax = plt.subplots()
+<pre data-start="17"><code class="language-julia line-numbers">samples_mean = mean(sample_means)
+samples_std = std(sample_means)
 
 # Getting PDF
-x = np.linspace(samples_mean - 3*samples_std, samples_mean + 3*samples_std, 100)
-pdf = norm.pdf(x, samples_mean, samples_std)
-ax.plot(x, pdf, c="g", label="Normal distribution (PDF)")
+x = LinRange(samples_mean - 3*samples_std, samples_mean + 3*samples_std, 100)
+pdf_ = pdf.(Normal(samples_mean, samples_std), x)
+plot(x, pdf_, c="green", label="Normal distribution (PDF)", lw=3)
 
 # Getting Histogram
 num_bins = 50
-counts, bins = np.histogram(sample_means,
-							np.linspace(min(sample_means),
-										max(sample_means),
-										num_bins)
-							)
-n, bins, patches = ax.hist(sample_means,
-							bins[:-1],
-							facecolor='blue',
-							alpha=0.5,
-							color="b",
-							weights=(1/sum(counts))*np.ones_like(sample_means),
-							label="Sampling distribution")
-leg = ax.legend();
+bins = Array(LinRange(minimum(sample_means), maximum(sample_means), num_bins))
+h = fit(Histogram, sample_means, bins)
+counts = h.weights
+Plots.histogram!(sample_means, bins=bins, weights=(1/sum(counts)).*ones(length(sample_means)))
 </code></pre>
-<img class="full-size-img" src="/stats/img/clt/clt-sim-pdf.png" alt="">
+<img class="full-size-img" src="/stats/img/central-limit-theorem/clt-sim-pdf-jl.png" alt="">
 Here height of the bins of Sampling distribution represent the probability of falling into that bin. <br>
 The Normal distribution that we plotted have same <b>mean</b> and <b>variance</b> as of our Sampling distribution, but their shapes are way off. <br>
 
@@ -206,39 +189,27 @@ The Normal distribution that we plotted have same <b>mean</b> and <b>variance</b
 	If you follow the result of the CLT,
 	\[\sqrt{n}\, (\overline{X}_n-\mu) \xrightarrow [n\to \infty ]{(d)} \mathcal{N}(0,\sigma^2) \]
 	Then you can see our <b>normally distributed</b> data. <br>
-	We just have to center our observations around \(0\) and then stretch it by a factor of \(\sqrt{n}\). <br>
+	We just have to  center our observations around \(0\) and then stretch it by a factor of \(\sqrt{n}\). <br>
 
-	<pre data-start="17"><code class="language-python line-numbers">from scipy.stats import norm
-mean = np.mean(np.sqrt(n) * (sample_means - distribution.mean()))
-std = np.sqrt(n) * np.std(sample_means)
+	<pre data-start="17"><code class="language-python line-numbers">mean_ = mean(sqrt(n) .* (sample_means .- mean(distribution)))
+std_ = sqrt(n) * std(sample_means)
 
 # Centered and stretched sample mean (r.v.)
-sample_means = np.sqrt(n) * (sample_means - distribution.mean())
-
-fig, ax = plt.subplots()
-
-# Getting PDF N(0, σ)
-x = np.linspace(- 3*std, 3*std, 100)
-pdf = norm.pdf(x, 0, std)
-ax.plot(x, pdf, c="g", label="Normal distribution (PDF)")
+sample_means = sqrt(n) .* (sample_means .- mean(distribution))
 
 # Getting Histogram
 num_bins = 50
-counts, bins = np.histogram(sample_means,
-							np.linspace(min(sample_means),
-										max(sample_means),
-										num_bins)
-							)
-n, bins, patches = ax.hist(sample_means,
-							bins[:-1],
-							facecolor='blue',
-							alpha=0.5,
-							color="b",
-							weights=(1/sum(counts))*np.ones_like(sample_means),
-							label="Sampling distribution")
-leg = ax.legend();
+bins = Array(LinRange(minimum(sample_means), maximum(sample_means), num_bins))
+h = fit(Histogram, sample_means, bins)
+counts = h.weights
+Plots.histogram(sample_means, bins=bins, weights=(1/sum(counts)).*ones(length(sample_means)))
+
+# Getting PDF N(0, σ)
+x = LinRange(-3*std_, 3*std_, 100)
+pdf_ = pdf.(Normal(0, std_), x)
+plot!(x, pdf_, c="green", label="Normal distribution (PDF)", lw=3)
 </code></pre>
-<img class="full-size-img" src="/stats/img/clt/clt-centered.png" alt="">
+<img class="full-size-img" src="/stats/img/central-limit-theorem/clt-centered-jl.png" alt="">
 Now the plot feels much more <b>Normal</b> but here the random variable is \(\sqrt{n}\, (\overline{X}_n-\mu) \) not \(\overline{X}_n\). <br>
 
 <br>
@@ -246,34 +217,32 @@ Now the plot feels much more <b>Normal</b> but here the random variable is \(\sq
 </details>
 <br>
 
-And as we <a href="/stats/clt/#its-about-CDF">discussed earlier</a> that,
+And as we discussed earlier that,
 <blockquote class="sidebar">
 	<b>Central Limit Theorem</b> is <b>not</b> a statement about the convergence of PDF or PMF. It's a statement about the convergence of <b>CDF</b>.
 </blockquote>
 
 Now let's see ourself,
 
-<pre data-start="44"><code class="language-python line-numbers"># Plot CDF
-fig, ax = plt.subplots()
+<pre data-start="31"><code class="language-julia line-numbers"># Plot CDF
 # CDF of Normal Distribution
-cdf = norm.cdf(x, samples_mean, samples_std)
-ax.plot(x, cdf, c='g', label="Normal distribution CDF")
+cdf_ = cdf.(Normal(samples_mean, samples_std), x)
+plot(x, cdf_, c="green", label="Normal distribution CDF", lw=3)
 
 # CDF of Sampling Distribution
-cdf = np.cumsum(n)/sum(n)
-ax.scatter(bins[:-1], cdf, c='b', marker="*", label="Sampling distribution CDF")
-leg = ax.legend();
-plt.show()
+cdf_ = cumsum(counts)/sum(counts)
+pop!(bins)
+scatter!(bins, cdf_, color="blue", label="Sampling distribution CDF")
 </code></pre>
 
-<img class="full-size-img" src="/stats/img/clt/clt-sim-cdf.png" alt="">
+<img class="full-size-img" src="/stats/img/central-limit-theorem/clt-sim-cdf-jl.png" alt="">
 Here we can see the beauty of <b>Central limit theorem</b>, we can see how close the CDF of our Sampling distribution get closer to the CDF of a Normal distribution. <br>
 
 Now try tweaking <span class="bb">\(n\)</span> and see how it affect the CDF convergence. <br>
-Also try different distributions form <a href="https://docs.scipy.org/doc/scipy/reference/stats.html">scipy.stats</a> <br>
+Also try different distributions form <a href="https://juliastats.org/Distributions.jl/stable/starting/">Distributions.jl</a> <br>
 
 <blockquote class="noborder align-center">
-	<a href="/stats/clt/julia/"><img src="/data/img/julia.png" alt="Julia" width="53px" height="33px"> Simulation</a>
+	<a href="/stats/central-limit-theorem/python/"><img src="/data/img/python.png" alt="Python" width="75px" height="20px"> Simulation</a>
 	<br>
     <a target="=_blank" href="https://app.quantml.org/stats/?ch=Central-Limit-Theorem&dist=Uniform+distribution">Visualize Central Limit Theorem &nbsp;<img src="/data/img/app.png" alt="launch" width="30px" height="30px"></a> <br>
     Try different distributions, tweak there parameters, sample size, number of simulations and see how it impacts the convergence of <b>CDF</b> of \(\overline{X}_n\).
