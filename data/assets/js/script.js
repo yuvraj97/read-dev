@@ -48,7 +48,7 @@ function setDisplay(ID, disp){
 	elements.forEach(function(element,index){
 			element.style.display=disp;
 	})
-	if(elements.length == 0) { console.log(ID, "is missing!") }
+	// if(elements.length == 0) { console.log(ID, "is missing!") }
 }
 
 function getDisplay(){
@@ -686,7 +686,7 @@ function otpValidated(){
 function passwordIsValidated(){
 	password = document.querySelectorAll('[type="password"]');
 	password.forEach(function(element, index) {
-		console.log(element)
+		// console.log(element)
 		element.style.boxShadow = "none";
 		element.style.border = "2px solid #0073b1";
 	})
@@ -747,7 +747,7 @@ function auth_identify_email(){
 		callbacks = {
 			"then": function() {nextButtonText.innerHTML = "Next &nbsp; &rarr;";},
 			"response": function(data) {
-				console.log(data);
+				// console.log(data);
 				if(data["status"] == "Registered") {
 					setDisplay('email-model', 'none');
 					setDisplay('password-model', 'block');
@@ -767,7 +767,7 @@ function auth_identify_email(){
 						callbacks = {
 							"then": function() {nextButtonText.innerHTML = "Next &nbsp; &rarr;";},
 							"response": function (data) {
-								console.log(data)
+								// console.log(data)
 								if(data["status"] == "Success") {
 									document.getElementById('otp-email-sent-text').innerHTML = `<h4>An OTP is sent over to ${window.quantml["email"]}</h4>`
 									open_otp_model()
@@ -813,7 +813,7 @@ function auth_authenticate(){
 		callbacks = {
 			"then": function() {loginButtonText.innerHTML = "Login &nbsp; &rarr;";},
 			"response": function (data){
-				console.log(data);
+				// console.log(data);
 				if(data["status"] == "Authenticated") {
 					document.cookie= `token=${data["token"]}`;
 					setDisplay('password-model', 'none');
@@ -853,7 +853,7 @@ function auth_createPassword(){
 			callbacks={
 				"then": function(){buttonText.innerHTML = "Create Password &nbsp; &rarr;";},
 				"response": function(data) {
-					console.log(data);
+					// console.log(data);
 					if(data["status"] == "Authenticated") {
 						setDisplay('create-password-model', 'none')
 						setDisplay('password-do-not-match', 'none')
@@ -888,7 +888,7 @@ function auth_forgotPassword(){
 		callbacks = {
 			"then": function() {forgotButtonText.innerHTML = "Forgot Password &nbsp; &rarr;";},
 			"response": function (data){
-				console.log(data)
+				// console.log(data)
 				if(data["status"] == "Success") {
 					document.getElementById('otp-email-sent-text').innerHTML = `<h4>An OTP is sent over to ${window.quantml["email"]}</h4>`
 					open_otp_model()
@@ -918,7 +918,7 @@ function otp_success(email) {
 		callbacks = {
 			"then": function() {verifyButtonText.innerHTML = "Verify &nbsp; &rarr;";},
 			"response": function(data){
-				console.log(data)
+				// console.log(data)
 				if(data["status"] == "OTP Verified") {
 					setDisplay('otp-model', 'none')
 					setDisplay('create-password-model', 'block')
@@ -936,12 +936,12 @@ function otp_success(email) {
 function otp_not_verified(){
 	resendButtonText = document.getElementById('resend-otp-text')
 	resendButtonText.innerHTML = `Sending OTP &nbsp; ${get_loader_img_str("forgot")}`
-	console.log("RESENDING OTP")
+	// console.log("RESENDING OTP")
 	fetching({email: window.quantml["email"]}, "send-otp", 
 		callbacks = {
 			"then": function(){resendButtonText.innerHTML = "Resend OTP &nbsp; &rarr;";},
 			"response": function (data) {
-				console.log(data)
+				// console.log(data)
 				if(data["status"] == "Success") {
 					setDisplay('resend-otp', 'none')
 					setDisplay('invalid-otp','none')
@@ -997,7 +997,7 @@ function auth_state_change(){
 	}
 	callbacks = {
 		"response": function(data) {
-			console.log(data);
+			// console.log(data);
 			if(data["status"] == "Authorized") {
 				setDisplay('login-button','none');
 				setDisplay('join-button','none');
@@ -1023,7 +1023,7 @@ function loadContent(chapterID){
 	fetching({chapter: chapterID, token: getCookie('token')}, 'get-chapter', 
 		callbacks={
 			"response": function(data){
-				console.log(data)
+				// console.log(data)
 				if(data["status"] == "Success"){
 					if("chapter" in data) writeData(data["chapter"]);
 				}

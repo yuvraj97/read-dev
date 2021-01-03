@@ -38,13 +38,13 @@ function _onLoad_(s, url, name, version, callback){
 
 function _loadScript(url, name, version, callback) {
   if(url.search(".css")!=-1){
-	console.log("files is CSS")
+	// console.log("files is CSS")
 	var e = document.createElement('link');
 	e.rel="stylesheet"
 	e.id=name
 	  e.href = url
   } else {
-	console.log("files is JS")
+	// console.log("files is JS")
 	var e = document.createElement('script');
 	e.setAttribute("src", url);
   }
@@ -79,10 +79,10 @@ function _injectScript(content, url, name, version, callback) {
 function requireScript(name, version, url, callback) {
   var c = localStorage.getItem(name);
   if (c == null) {
-	console.log("fatching", name)
+	// console.log("fatching", name)
 	_loadScript(url, name, version, callback);
   } else {
-	console.log(name, "LOGGED")
+	// console.log(name, "LOGGED")
 	_injectScript(c, url, name, version, callback);
   }
 }
@@ -204,7 +204,7 @@ function loadNavBar(){
 }
 
 function initializeBody(){
-  console.log("initializeBody()")
+//   console.log("initializeBody()")
   theme = localStorage.getItem("quantmlTheme")
   if(theme=="dark") {
 	document.querySelector('body').style.backgroundColor = "#2d2d2d"
