@@ -245,4 +245,6 @@ function loadInit(theme){
   })
 }
 
+if(typeof(importPrism) != "undefined" && importPrism == true) requireScript('prism-css', '0.1.0', '/data/prism/prism.css', function(){});
 changeThemeCSS(localStorage.getItem("quantmlTheme"));
+requireScript('auth-css', '0.1.0', '/data/css/authStyle.css', function(){})

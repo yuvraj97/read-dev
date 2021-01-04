@@ -8,8 +8,7 @@
 		</script>
 
 		<link rel="stylesheet" href="/data/css/main.css">
-		<link rel="stylesheet" href="/data/css/authStyle.css">
-
+		
 
 		<title>Fundamentals of Statistics - QuantML</title>
 		<meta charset="utf-8" />
@@ -18,7 +17,6 @@
 		<meta name="robots" content="index, follow">
 
 		<script src="/data/js/initialize.js"></script>
-		<script src="/data/js/swiped-events.js"></script>
 
 	</head>
 
@@ -977,9 +975,7 @@
 			</div>
 
 
-        <!-- Scripts -->
-        <script src="/data/js/script.js"></script>
-        <script>cssLoaded()</script>
+        <script>requireScript('script-js', '0.1.0', '/data/js/script.js', function(){cssLoaded()})</script>
 
     </body>
 </html>

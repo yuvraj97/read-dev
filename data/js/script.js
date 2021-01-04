@@ -149,6 +149,9 @@ function loadKatex(){
 		requireScript('auto-render-js', '0.6.0','/data/katex/auto-render.min.js', function(){
 			renderMathInElement(document.body);
 			katexLoaded()
+			setTimeout(function(){
+				requireScript('swiped-events-js', '0.1.0', '/data/js/swiped-events.js', function(){})				
+			}, 500)
 		})
 	})
 }

@@ -12,19 +12,15 @@
 		</script>
 
 		<link rel="stylesheet" href="/data/css/main.css">
-		<link rel="stylesheet" href="/data/css/authStyle.css">
-
+		
 		<title>Python | Weak Law of Large Numbers | Fundamentals of Statistics - QuantML</title>
 		<meta charset="utf-8" />
 		<link rel="icon" href="/data/icon.png" type="image/png" sizes="16x16">
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="robots" content="index, follow">
 
-		<!--Prism-->
-		<link rel="stylesheet" href="/data/prism/prism.css">
-
-	<script src="/data/js/initialize.js"></script>
-		<script src="/data/js/swiped-events.js"></script>
+		<script>importPrism = true</script>
+		<script src="/data/js/initialize.js"></script>
 
 	</head>
 
@@ -212,10 +208,8 @@ Try playing with <b>parameters</b>, also try different distributions.<br>
 			</div>
 
 
-		<!-- Scripts -->
-		<script src="/data/js/script.js"></script>
-		<script>cssLoaded()</script>
-		<script src="/data/prism/prism.js"></script>
+		<script>requireScript('script-js', '0.1.0', '/data/js/script.js', function(){cssLoaded()})</script>
+		<script>requireScript('prism-js', '0.1.0', '/data/prism/prism.js', function(){})</script>
 
 	</body>
 </html>
