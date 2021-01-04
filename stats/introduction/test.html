@@ -101,19 +101,19 @@
 		<label for="email"><b>Email Address</b></label>
 		<input id="login-email" onkeypress="emailAddressIsValidated();setDisplay('network-request-failed', 'none');" class="loginInput" ref="emailRef"  type="email" placeholder="Enter Email Address" name="email" required>
 		<div id="login-error-msg" class="error-msg">
-			<img style="float: left;" src="/data/auth/error.png" alt="!" width="50px" height="50px">
+			<img style="float: left;" src="/data/img/error.png" alt="!" width="50px" height="50px">
 			<div style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);">Invalid Email Address</div>
 		</div>
 		<div id="login-email-user-not-found" class="warn-msg"></div>
 		<label for="psw"><b>Password</b></label>
 		<input id="login-password" onkeypress="passwordIsValidated();setDisplay('network-request-failed', 'none');" class="loginInput" type="password" placeholder="Enter Password" name="psw" required>
 		<div id="password-error-msg" class="error-msg">
-			<img style="float: left;" src="/data/auth/error.png" alt="!" width="50px" height="50px">
+			<img style="float: left;" src="/data/img/error.png" alt="!" width="50px" height="50px">
 			<div style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);">Incorrect Password</div>
 		</div>
 
 		<div style="display: none;" id="network-request-failed" class="error-msg">
-			<img style="float: left;" src="/data/auth/error.png" alt="!" width="50px" height="50px">
+			<img style="float: left;" src="/data/img/error.png" alt="!" width="50px" height="50px">
 			<div style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);">Internet Connection Error</div>
 		</div>
 			

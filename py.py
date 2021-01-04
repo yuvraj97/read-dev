@@ -58,7 +58,7 @@ from csscompressor import compress
 
 failed_css = []
 for css_file in origin["css"]:
-    if css_file == 'C:\\Users\\OS\\Documents\\GitHub\\read-dev\\data\\assets\\css\\katex.min.css':
+    if css_file == 'C:\\Users\\OS\\Documents\\GitHub\\read-dev\\data\\katex\\katex.min.css':
         continue
     try:
         f = open(css_file, "r")

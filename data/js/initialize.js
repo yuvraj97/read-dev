@@ -119,16 +119,16 @@ function changeThemeCSS(currentTheme){
 		e = document.getElementById("auth-light-css")
 		if(e!=null) e.remove();
 		
-		requireScript("main-dark-css", "0.1.0", "/data/assets/css/main-dark.css", function(){})
-		requireScript("auth-dark-css", "0.1.0", "/data/assets/css/authStyle-dark.css", function(){})
+		requireScript("main-dark-css", "0.1.0", "/data/css/main-dark.css", function(){})
+		requireScript("auth-dark-css", "0.1.0", "/data/css/authStyle-dark.css", function(){})
 	} else {
 		e = document.getElementById("main-dark-css")
 		if(e!=null) e.remove();
 		e = document.getElementById("auth-dark-css")
 		if(e!=null) e.remove();
 		
-		requireScript("main-light-css", "0.1.0", "/data/assets/css/main-light.css", function(){})
-		requireScript("auth-light-css", "0.1.0", "/data/assets/css/authStyle-light.css", function(){})
+		requireScript("main-light-css", "0.1.0", "/data/css/main-light.css", function(){})
+		requireScript("auth-light-css", "0.1.0", "/data/css/authStyle-light.css", function(){})
 	}	
 }
 

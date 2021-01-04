@@ -11,8 +11,8 @@
 			var arrowRightPage = "/stats/central-limit-theorem/python/";
 		</script>
 
-		<link rel="stylesheet" href="/data/assets/css/main.css">
-		<link rel="stylesheet" href="/data/assets/css/authStyle.css">
+		<link rel="stylesheet" href="/data/css/main.css">
+		<link rel="stylesheet" href="/data/css/authStyle.css">
 
 		<title>Central Limit Theorem | Fundamentals of Statistics - QuantML</title>
 		<meta charset="utf-8" />
@@ -20,8 +20,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="robots" content="index, follow">
 
-		<script src="/data/assets/js/initialize.js"></script>
-		<script src="/data/assets/js/swiped-events.js"></script>
+		<script src="/data/js/initialize.js"></script>
+		<script src="/data/js/swiped-events.js"></script>
 
 	</head>
 
@@ -77,15 +77,26 @@
 <blockquote class="sidebar">
 <a href="/stats/weak-law-of-large-numbers/#main">Continuing previous example</a>, <!--in previous example--> we discussed how <a href="/stats/weak-law-of-large-numbers/#main">Weak Law of Large Numbers</a> help us getting the average height of students. Remember that the average height we calculated \((\overline{X}_n)\) is a <b>random variable</b>, so it must have an underlying probability distribution and we don't know what that distribution is, <b>Central Limit Theorem</b> help us approximate that unknown distribution. Once we know the underlying distribution we can answer a lot of question.<br>
 </blockquote><br>
+<h2>Introduction</h2>
 Say we have a large population <!--Add hover over to specify what is population--> and we took a <b>sample</b> out of that population, and say we want to study the <b>distribution</b> of the <b>average</b> of some specific property of that sample. <br>
 <blockquote class="sidebar">
 	For example say we want to study the average height of students in our class.
 </blockquote>
 Central Limit Theorem(CLT) <!--Had over cover--> help us in this, CLT says
 <blockquote>
-	No matter what distribution(with finite mean and variance) our <b>population</b> follows, <b>distribution</b> of <b>Sample</b> mean   <b>convergence</b> to a <a href="https://en.wikipedia.org/wiki/Normal_distribution">Normal distribution</a>
-</blockquote>
+	No matter what distribution(with finite mean and variance) our <b>population</b> follows, as we increase sample size <b>Sampling distribution</b> of the  mean   <b>convergence</b> to a <a href="https://en.wikipedia.org/wiki/Normal_distribution">Normal distribution</a>
+</blockquote><br>
 
+<h2>Sampling distribution of the mean</h2>
+Say you collected <b>multiple</b> samples (of same sample size) out of the population, then you take the average of all of those samples, and then you plot a histogram of those sample averages, this histogram is what we are referring as Sampling distribution of the mean. <br>
+Fortunately we don't need <b>multiple</b> samples, CLT help us to approximate 
+
+
+
+
+
+
+<br><br><br><br><br>
 <!--BREAK in concept-->
 Now let's say we have a population and we draw \(n\) random <b>i.i.d.</b> <!--Add hover over to specify what is iid--> observations \(X_1,X_2,\cdots,X_n\) from it. <br>
 These \(n\) <b>i.i.d.</b> observations are result of some random process with <b>unknown</b> distribution, this random process has a finite mean say \((\mu)\) and a finite variance say \((\sigma^2)\). <br>
@@ -244,7 +255,7 @@ So:<br>
 </div>
 
 		<!-- Scripts -->
-		<script src="/data/assets/js/script.js"></script>
+		<script src="/data/js/script.js"></script>
 		<script>cssLoaded()</script>
 
 	</body>
