@@ -151,6 +151,7 @@ function loadKatex(){
 			katexLoaded()
 			setTimeout(function(){
 				requireScript('swiped-events-js', '0.1.0', '/data/js/swiped-events.js', function(){})				
+				if(typeof(importPrism) != "undefined" && importPrism == true) requireScript('prism-js', '0.1.0', '/data/prism/prism.js', function(){})
 			}, 500)
 		})
 	})
