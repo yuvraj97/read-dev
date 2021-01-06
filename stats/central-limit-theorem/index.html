@@ -12,7 +12,7 @@
 		</script>
 
 		<link rel="stylesheet" href="/data/css/main.css">
-		
+
 		<title>Central Limit Theorem | Fundamentals of Statistics - QuantML</title>
 		<meta charset="utf-8" />
 		<link rel="icon" href="/data/icon.png" type="image/png" sizes="16x16">
@@ -73,29 +73,44 @@
 
 <!-- <a href="/stats/weak-law-of-large-numbers/">Previously in Weak Law of Large Numbers</a> we discussed that as our <b>sample size</b> \((n)\to\infty\) our <b>sample mean</b> \((\overline{X}_n)\to\) <b>true mean</b> \((\mu)\). <br> -->
 <blockquote class="sidebar">
-<a href="/stats/weak-law-of-large-numbers/#main">Continuing previous example</a>, <!--in previous example--> we discussed how <a href="/stats/weak-law-of-large-numbers/#main">Weak Law of Large Numbers</a> help us getting the average height of students. Remember that the average height we calculated \((\overline{X}_n)\) is a <b>random variable</b>, so it must have an underlying probability distribution and we don't know what that distribution is, <b>Central Limit Theorem</b> help us approximate that unknown distribution. Once we know the underlying distribution we can answer a lot of question.<br>
+<a href="/stats/weak-law-of-large-numbers/#main">Continuing previous example</a>, <!--in previous example--> we discussed how <a href="/stats/weak-law-of-large-numbers/#main">Weak Law of Large Numbers</a> helps us getting the average height of students. Remember that the average height we calculated \((\overline{X}_n)\) is a <b>random variable</b>, so it must have an underlying probability distribution and we don't know what that distribution is. <b>Central Limit Theorem</b> helps us to approximate that unknown distribution. Once we know the underlying distribution we can answer a lot of question.<br>
 </blockquote><br>
-<h2>Introduction</h2>
+<h2 id="introduction">Introduction<a href="#introduction" aria-label="introduction"><i class="fa fa-link" aria-hidden="true"></i></a></h2>
 Say we have a large population <!--Add hover over to specify what is population--> and we took a <b>sample</b> out of that population, and say we want to study the <b>distribution</b> of the <b>average</b> of some specific property of that sample. <br>
 <blockquote class="sidebar">
 	For example say we want to study the average height of students in our class.
 </blockquote>
-Central Limit Theorem(CLT) <!--Had over cover--> help us in this, CLT says
+Central Limit Theorem(CLT) <!--Had over cover--> helps us in this. CLT says:
 <blockquote>
-	No matter what distribution(with finite mean and variance) our <b>population</b> follows, as we increase sample size <b>Sampling distribution</b> of the  mean   <b>convergence</b> to a <a href="https://en.wikipedia.org/wiki/Normal_distribution">Normal distribution</a>
-</blockquote><br>
+	No matter what distribution(with finite mean and variance) our <b>population</b> follows, as we increase sample size, <b>Sampling distribution</b> of the  mean <b>converges</b> to a <a href="https://en.wikipedia.org/wiki/Normal_distribution">Normal distribution</a>
+</blockquote>
 
-<h2>Sampling distribution of the mean</h2>
-Say you collected <b>multiple</b> samples (of same sample size) out of the population, then you take the average of all of those samples, and then you plot a histogram of those sample averages, this histogram is what we are referring as Sampling distribution of the mean. <br>
-Fortunately we don't need <b>multiple</b> samples, CLT help us to approximate 
+<h3 id="sampling-distribution-of-the-mean" class="bold" style="margin-top: 20px;">Sampling Distribution of the Mean<a href="#sampling-distribution-of-the-mean" aria-label="sampling-distribution-of-the-mean"><i class="fa fa-link" aria-hidden="true"></i></a></h3>
+Say you collected <b>multiple</b> samples (of same sample size) out of the population, then you take the average of all of those samples, and then you plot a histogram of those sample averages. This histogram is what we are referring as Sampling distribution of the mean. <br>
+Fortunately we don't need <b>multiple</b> samples, CLT helps us to approximate Sampling distribution with just one sample. <br>
+We only have to take care that our sample size is sufficiently large. <br>
+Now the question arises, how large should our sample size be (say \(n\))? <br>
+<blockquote class="noborder">
+	<b>Rule of thumb</b>: If our distribution is symmetric around mean then \(n\geq 30\) is sufficient to apply Central Limit Theorem.
+</blockquote>
 
+<h4 class="bold" style="margin-top: 20px;"> But remember it's just a rule of thumb!</h4>
+	<blockquote class="sidebar">
+		The more the true distribution varies from the Normal distribution, the larger sample size is required.<br>
+		If the distribution is not symmetric around mean, then \(n\geq 30\) might not be near to sufficient! <br>
+		What you can do is plot the <b>CDF</b> of your data, and superimpose <b>CDF</b> of corresponding Normal distribution, and see that do they superimpose nicely?
+		(We have covered <this> it in our
+		<a href="/stats/central-limit-theorem/python/">Python</a> /
+		<a href="/stats/central-limit-theorem/julia/">Julia</a>
+		simulation.)
+</blockquote>
+<blockquote class="noborder">
+Definition of nicely is up to you, how much error are you willing to accept. <br>
+You can also use some statistical test to check if our Sampling distribution matches the Normal distribution (like <!-- Future Link --> Kolmogorov–Smirnov test). We will cover these tests in this guide.
+</blockquote>
+<br>
 
-
-
-
-
-<br><br><br><br><br>
-<!--BREAK in concept-->
+<h2 id="convergence-of-sampling-distribution">Convergence of Sampling Distribution<a href="#convergence-of-sampling-distribution" aria-label="convergence-of-sampling-distribution"><i class="fa fa-link" aria-hidden="true"></i></a></h2>
 Now let's say we have a population and we draw \(n\) random <b>i.i.d.</b> <!--Add hover over to specify what is iid--> observations \(X_1,X_2,\cdots,X_n\) from it. <br>
 These \(n\) <b>i.i.d.</b> observations are result of some random process with <b>unknown</b> distribution, this random process has a finite mean say \((\mu)\) and a finite variance say \((\sigma^2)\). <br>
 
@@ -120,7 +135,7 @@ And according to <a href="/stats/weak-law-of-large-numbers/">Weak Law of Large N
 	</blockquote>
 </details>
 
-Here we can see as \(n\to \infty\), \(\text{Var}(\overline{X}_n)\to 0\), then as a consequence the probability distribution of \(\overline{X}_n\) is highly concentrated in an arbitrarily small interval around mean \(\mu\), so this probability distribution don't help us in any way, as it's totally concentrated around one number \(\mu\). <br>
+Here we can see as \(n\to \infty\), \(\text{Var}(\overline{X}_n)\to 0\), then as a consequence the probability distribution of \(\overline{X}_n\) is highly concentrated in an arbitrarily small interval around mean \(\mu\), so this probability distribution doesn't help us in any way, as it's totally concentrated around one number \(\mu\). <br>
 <br>
 
 <li> Now let's look at the distribution of <span class="bb math">\(\sqrt{n}\ \overline{X}_n\)</span>. </li>
@@ -153,8 +168,8 @@ Now <b>Central Limit Theorem</b> states,
 </blockquote>
 So Central Limit Theorem says that, as \(n\to \infty\) then <b>CDF</b>(<a href="https://en.wikipedia.org/wiki/Cumulative_distribution_function">cumulative distribution function</a>) of the random variable \(Z_n\) converges to the <b>CDF</b> of standard normal random variable \(Z\). <br>
 
-<blockquote class="sidebar" id="its-about-CDF">
-	So <b>Central Limit Theorem</b> is a statement about the convergence of <b>CDF</b> it's <b>not</b> a statement about the convergence of PDF or PMF.
+<blockquote id="its-about-CDF">
+	So <b>Central Limit Theorem</b> is a statement about the convergence of <b>CDF</b>, it's <b>not</b> a statement about the convergence of PDF or PMF.
 
 	<!-- CLARIFICATION BY PLOTS!!! -->
 </blockquote>
@@ -162,15 +177,16 @@ So Central Limit Theorem says that, as \(n\to \infty\) then <b>CDF</b>(<a href="
 <!-- <h3>Can we use Central Limit Theorem when \(n\) is "moderate"?</h3>
 In real life we don't have \(\infty\) observations, maybe \(n\) is \(30\) or \(20\) or \(15\) can we use <b>CLT</b>? -->
 
-<blockquote>
+<blockquote class="sidebar">
 	<b>Rule of thumb to apply CLT</b>: when \(n\geq 30\) then \(\sqrt{n}\, \frac{\overline{X}_n-\mu }{\sigma } \xrightarrow []{(d)} \mathcal{N}(0,1) \)
 </blockquote><br>
-<br>
 
-Now we can finally answer our <a href="/stats/weak-law-of-large-numbers/#how-fast">previous question</a> in <a href="/stats/weak-law-of-large-numbers/">Weak Law of Large Numbers</a> that, how fast(at what rate) \(\overline{X}_n\) approaches to \(\mu\). <br>
-<blockquote class="sidebar">
+<h2 id="rate-of-convergence">Rate of Convergence<a href="#rate-of-convergence" aria-label="rate-of-convergence"><i class="fa fa-link" aria-hidden="true"></i></a></h2>
+Now we can finally answer our <a href="/stats/weak-law-of-large-numbers/#how-fast">previous question</a> in <a href="/stats/weak-law-of-large-numbers/">Weak Law of Large Numbers</a> that, 
+how fast(at what rate) \(\overline{X}_n\) approaches to \(\mu\). <br>
+
 If we draw a standard gaussian  \(\mathcal{N}(0,1) \) (say) \(Z\), then with probability \(0.9974,\)  \(Z\in [-3,3]\)<br>
-\(P(-3\leq Z\leq3)=0.9974\quad\) we can calculate it <a rel="noreferrer" target="_blank" href="https://www.mathportal.org/calculators/statistics-calculator/normal-distribution-calculator.php">here</a><br>
+\(P(-3\leq Z\leq3)=0.9974\)  (we can calculate it <a rel="noreferrer" target="_blank" href="https://www.mathportal.org/calculators/statistics-calculator/normal-distribution-calculator.php">here</a>).<br>
 So \(Z\) is almost in between -3 and 3<br>
 And we know that :<br>
 \[\sqrt{n}\, \frac{\overline{X}_n-\mu }{\sigma } \xrightarrow [n\to \infty ]{(d)} \mathcal{N}(0,1) \]<br>
@@ -181,8 +197,8 @@ So:<br>
 \Rightarrow  \left|\sqrt{n}\, \frac{\overline{X}_n-\mu }{\sigma } \right| \leq 3	\\
 \Rightarrow \left| \overline{X}_n-\mu  \right| \leq \frac{3\sigma}{\sqrt{n}}
 \]<br>
-<span id="sqrt-n">So according to CLT \(f(n)=\sqrt{n}\)</span><br>
-</blockquote><br>
+<span class="bb" id="sqrt-n">So according to CLT \(f(n)=\sqrt{n}\)</span><br>
+<br>
 
 <blockquote class="noborder align-center">
 	Now let's see some Simulation, choose your language of choice,<br>
