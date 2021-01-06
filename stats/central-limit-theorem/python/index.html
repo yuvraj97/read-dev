@@ -71,7 +71,7 @@
 
 <h1 id="single-simulation">Single Simulation <img src="/data/img/python.png" alt="Python" width="112.5px" height="30px"></h1>
 
-Assume that there are \(1000\) students in your school and you want to know, what is the average height of \(100\) randomly selected students? and how is that average height is distributed (or say the distribution of that average height)?<br>
+Assume that there are \(1000\) students in your school and you want to know, what is the average height of \(100\) randomly selected students? And how is that average height distributed (or say the distribution of that average height)?<br>
 
 <a href="/stats/introduction/#dogma">Remember that dogma</a> <br>
 <img id='dogma' class="full-size-img" src="/stats/img/dogma.png" alt="Central Dogma of Probability and Statistics">
@@ -81,7 +81,7 @@ Now let's define the <b>truth</b>. <br>
 Say that every student's height follows the <a href="https://en.wikipedia.org/wiki/Continuous_uniform_distribution">Uniform distribution</a> with range of \([165\text{ cm },185\text{ cm}]\). <br>
 So \(X_1,\cdots,X_{50}\sim\text{Unif}[165, 185]\) <br>
 <blockquote class="noborder">
-	<b>Note:</b> this information is completely unknown to us.
+	<b>Note:</b> This information is completely unknown to us.
 </blockquote>
 <br>
 
@@ -119,8 +119,8 @@ So now we have our sample of \(100\) students, let's estimate the average height
 
 <span class="bb">sample_mean</span> is the average height of \(100\) randomly selected students. <br>
 
-Now let's see how the distribution of the average height of \(100\) randomly selected students looks like. <br>
-To achieve it we need to perform this simulation multiple times and plot all sample means as a histogram. <br>
+Now let's see how the distribution of the average height of \(100\) randomly selected students look like. <br>
+To achieve this we need to perform this simulation multiple times and plot all sample means as a histogram. <br>
 <br>
 
 <h1 id="multiple-simulations">Multiple simulations <img src="/data/img/python.png" alt="Python" width="112.5px" height="30px"></h1>
@@ -161,8 +161,8 @@ plt.show()
 <img class="full-size-img" src="/stats/img/central-limit-theorem/clt-sampeling-distribution.png" alt="">
 
 <div style="text-align: center;">Sample mean seems to be normally distributed.</div>
-Well it's a Central Limit Theorem Simulation right, and whole point of CLT is to approximate probability distribution of sample mean \(\overline{X}_n\) to it's corresponding Normal distribution <b>am I correct?</b> <br>
-Let's see ourself, let's overlay a Normal distribution with true mean and variance of <span class="bb">sample_means</span>. <br>
+Well it's a Central Limit Theorem Simulation right, and the whole point of CLT is to approximate probability distribution of sample mean \(\overline{X}_n\) to it's corresponding Normal distribution, <b>am I correct?</b> <br>
+Let's see ourselves. Let's overlay a Normal distribution with true mean and variance of <span class="bb">sample_means</span>. <br>
 
 <pre data-start="17"><code class="language-python line-numbers">from scipy.stats import norm
 samples_mean = np.mean(sample_means)
@@ -247,7 +247,7 @@ And as we <a href="/stats/central-limit-theorem/#its-about-CDF">discussed earlie
 	<b>Central Limit Theorem</b> is <b>not</b> a statement about the convergence of PDF or PMF. It's a statement about the convergence of <b>CDF</b>.
 </blockquote>
 
-Now let's see ourself,
+Now let's see ourselves,
 
 <pre data-start="44"><code class="language-python line-numbers"># Plot CDF
 fig, ax = plt.subplots()
@@ -265,7 +265,7 @@ plt.show()
 <img class="full-size-img" src="/stats/img/central-limit-theorem/clt-sim-cdf.png" alt="">
 Here we can see the beauty of <b>Central limit theorem</b>, we can see how close the CDF of our Sampling distribution get closer to the CDF of a Normal distribution. <br>
 
-Now try tweaking <span class="bb">\(n\)</span> and see how it affect the CDF convergence. <br>
+Now try tweaking <span class="bb">\(n\)</span> and see how it affects the CDF convergence. <br>
 Also try different distributions form <a href="https://docs.scipy.org/doc/scipy/reference/stats.html">scipy.stats</a> <br>
 
 <blockquote class="noborder align-center">

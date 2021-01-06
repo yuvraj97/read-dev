@@ -133,8 +133,9 @@ What if there are <b>5Million</b> or say <b>50Million</b> data points!<br>
 <blockquote class="noborder">
 <b style="font-size: larger;">Data</b> comes from a <b>random process</b>. <br>
 They <b>aren't</b> just a <i>sequence of numbers</i>,
+<!-- CHANGE IT ["those" Unclear] -->
 and <span title="Here we are talking about our Data"><u>those</u></span>
- numbers are representative of that <b>random process</b>. <br>
+numbers are representative of that <b>random process</b>. <br>
 </blockquote>
 The goal of statistics is to <span title="Extrapolation is the process of finding a value outside a data set. It could even be said that it helps predict the future!"><u>extrapolate</u></span> from a finite number of observations to what we can get if we had an \(\infty\) amount of observation. If we have an \(\infty\) amount of data we can describe a random process (but there still be some randomness), and this process helps us to make a prediction.<br>
 To understand randomness, we need <b><i>Probability</i>.</b>.<br>
@@ -147,13 +148,13 @@ To understand randomness, we need <b><i>Probability</i>.</b>.<br>
 <span title="In probability"><u>Here</u></span>, we have a description of a <b>random process</b> and we are asked about the outcome from that random process, like <b>expectation, probability distribution, etc</b>.<br>
 
 Now the <b>question</b> is where does <b>Statistics</b> fit in all of this<b>?</b>.<br>
-We don't need statistics to understand that, <i>a fair die has \(\frac{1}{6}\) chance to outcome a 1</i>
+We don't need statistics to understand that, <i>a fair dice has \(\frac{1}{6}\) chance to outcome a 1</i>
 OR <i>a fair coin has \(\frac{1}{2}\) chance to outcome a heads</i>.<br>
 <blockquote class="noborder">
 <b>But</b> what if we don't know about that <b>random process</b>, then we need <b>statistics</b> to figure it out.
 </blockquote>
 What if the coin isn't fair?<br>
-We flip a coin, collect the number of <b>Heads</b> and <b>Tails</b> and calculate proportion of <b>Heads</b>  and see that is probability converging 1/2.<br>
+We flip a coin, collect the number of <b>Heads</b> and <b>Tails</b> and calculate proportion of <b>Heads</b>  and see that "Is probability converging 1/2?"<br>
 <br>
 <!-- <h2>Randomness</h2> -->
 Sometimes there is <b>real</b> randomness like a biased coin, measurement error,  etc.<br>
@@ -164,7 +165,7 @@ Sometimes there is <b>real</b> randomness like a biased coin, measurement error,
 </blockquote>
 &bull; Measurement Error
 <blockquote class="sidebar">
-	No instrument is perfect, every instrument have some error, and this error is completely random, an instrument doesn't decides how much error it should produce it's just random.
+	No instrument is perfect, every instrument have some error, and this error is completely random, an instrument doesn't decide how much error it should produce, it's just random.
 </blockquote><br>
 
 Sometimes there is <b>no </b>randomness, this is where most of the randomness comes from,<br>
@@ -192,12 +193,12 @@ Sometimes there is <b>no </b>randomness, this is where most of the randomness co
 </blockquote><br>
 
 
-When we talk about genes we are try to predict personalized medicines based on gene profiles. Gene profile tells a lot about some disease but not everything. So there are things that we don't understand, it's just not accessible to us.<br>
+When we talk about genes we try to predict personalized medicines based on gene profiles. Gene profile tells a lot about some disease but not everything. So there are things that we don't understand, it's just not accessible to us.<br>
 <br>
 
 <h1 id="statistical-modeling">Statistical Modeling <a href="#statistical-modeling" aria-label="statistical-modeling"><i class="fa fa-link" aria-hidden="true"></i></a></h1>
 What will we do when we encounter a Complicated situation? <br>
-We split the Complicated process into two parts, First is a <b>simple process</b> that we are able to understand, about the process, and the other one is <b>Random Noise</b> that we are not able to understand.<br>
+We split the Complicated process into two parts, First is a <b>simple process</b> that we are able to understand, and the other one is <b>Random Noise</b> that we are not able to understand.<br>
 <blockquote>
 	<b>\(\text{Complicated Process} \equiv \text{Simple Process} + \underbrace{\text{Random Noise}}_{\text{Modelling assumption}}\)</b>
 </blockquote>
@@ -205,7 +206,7 @@ We split the Complicated process into two parts, First is a <b>simple process</b
 <blockquote class="sidebar">
 	Say we want to travel from <b>Tokyo</b> to <b>India</b>, so what should we do?<br>
 	We book our tickets, pack our bags, then head over to India.<br>
-	That is what we know, but what we don't know is.<br>
+	This is what we know, but what we don't know is.<br>
 	<ul>
 		<li>What if seats are already full.</li>
 		<li>What if our cab malfunctions.</li>
@@ -236,17 +237,16 @@ If we don't know anything about the coin (like is it fair or not), then we use <
 
 <h1 id="counting-balls-example">The Counting Balls Example<a href="#counting-balls-example" aria-label="counting-balls-example"><i class="fa fa-link" aria-hidden="true"></i></a></h1>
 Say we have a <b>room</b> full of <span class="l1">Red balls</span> and <span class="l2">Blue balls</span>. <br>
-We want to determine among <span class="l1">Red balls</span> and <span class="l2">Blue balls</span> which of them have higher proportion,
-But we won't be able to count all the balls in the room as there are too many of them. <br>
+We want to determine among <span class="l1">Red balls</span> and <span class="l2">Blue balls</span> which of them have higher proportion, but we won't be able to count all the balls in the room as there are too many of them. <br>
 So instead what we do is, we took a small sample of <b>balls</b> from that <b>room</b>, then find the proportion of <span class="l1">Red balls</span> and <span class="l2">Blue balls</span> in that <b>sample</b>
 and hope that proportion we just estimated is somewhat near the <b>True proportion</b>(for the whole room). <br>
 <br class="newline">
 So how can we tackle this problem?<br>
 Assume that our small sample have 90% of <span class="l1">Red balls</span>, then it's an indication that proportion of <span class="l1">Red balls</span> is higher than proportion of <span class="l2">Blue balls</span>.<br>
-But how to decide the <b>cutoff</b> (beyond which we can say 'Yes' proportion of <span class="l1">Red balls</span> is higher than proportion of <span class="l2">Blue balls</span>)?<br>
+But how to decide the <b>cutoff</b> (beyond which we can say 'Yes' proportion of <span class="l1">Red balls</span> is higher than proportion of <span class="l2">Blue balls</span>?).<br>
 What if the data states that in our sample 51% of the balls are <span class="l1">Red balls</span>, then can we say it is an indication that proportion of <span class="l1">Red balls</span> is higher than proportion of <span class="l2">Blue balls</span>?<br>
 
-What we want is to understand the true proportion of proportion of <span class="l1">Red balls</span> and <span class="l2">Blue balls</span>, in the entire room.<br>
+What we want is to understand the true proportion of <span class="l1">Red balls</span> and <span class="l2">Blue balls</span> in the entire room.<br>
 <br>
 
 <h1 id="statistical-experiment">Statistical experiment <a href="#statistical-experiment" aria-label="statistical-experiment"><i class="fa fa-link" aria-hidden="true"></i></a></h1>
@@ -254,7 +254,7 @@ Let, <br>
 \(p\): Proportion of <span class="l1">Red balls</span>.<br>
 \(n\): Total number of balls in our sample. <br>
 \(\hat{p}\): estimator of \(p\).<br>
-Here we assign <span class="l1">\(1\)</span> for <span class="l1">Red balls</span> and <span class="l2">\(0\)</span> for <span class="l2">Blue balls</span><br>
+Here we assign <span class="l1">\(1\)</span> for <span class="l1">Red ball</span> and <span class="l2">\(0\)</span> for <span class="l2">Blue ball</span><br>
 <blockquote class="sidebar">
 So if we denote \(i^{th}\) ball by \(B_i\) then, <br>
 \(\sum_{i=1}^{n}B_i=\) Total number of <span class="l1">Red balls</span> in our sample. <br>
@@ -277,7 +277,7 @@ So the question here we are asking is, how large  should be our sample size \((n
 \(n=3\) is too small \(n=300\) may be large enough, so what is the right number for \(n\)?<br>
 This question is important, <b>What your sample size should be?</b><br>
 <br class="newline">
-We can also ask that, for \(n=300\) What is the minimum number of <span class="l1">Red balls</span> that we want to convince ourselves that proportion of <span class="l1">Red balls</span> is higher than proportion of <span class="l2">Blue balls</span><br>
+We can also ask that for \(n=300\), what is the minimum number of <span class="l1">Red balls</span> that we want to convince ourselves, that proportion of <span class="l1">Red balls</span> is higher than proportion of <span class="l2">Blue balls</span><br>
 <br>
 
 <h1 id="counting-balls-estimator">Estimator <a href="#counting-balls-estimator" aria-label="counting-balls-estimator"><i class="fa fa-link" aria-hidden="true"></i></a></h1>
@@ -290,9 +290,10 @@ We can also ask that, for \(n=300\) What is the minimum number of <span class="l
 \[\hat{p}=\overline{B}_n=\frac{1}{n}\sum^n_{i=1}B_i\]
 
 <!-- \(\sum^n_{i=1}B_i\) is the number of \(1's\) so if I have \(80\ 1's\) in the sequence then \(\sum^n_{i=1}B_i=80\)<br> -->
-\(\hat{p}\) is <b>Sample average</b> \(\overline{B}_n\) it's average over our sample.<br>
+\(\hat{p}\) is the <b>Sample average</b>.<br>
 
-Ok we got an estimator but what is it's <b>Accuracy</b>? But what does the accuracy even <b>mean? </b>. <br>
+Ok we got an estimator but what is it's <b>Accuracy</b>?<br>
+<!-- Let's get a slight hint of accuracy through an example. -->
 Accuracy of our estimator \(\hat{p}\) depends on sample size \(n\), \(3\) balls aren't enough but \(300\) balls might be enough.
 Accuracy of \(\hat{p}\) also depends on <b>true</b> \(p\) <b>which we don't even know</b>.
 We want to know how close is \(\hat{p}\) to the <b>true</b> \(p\) (this is where <b>randomness</b> comes into play). <br>
@@ -300,10 +301,10 @@ We think of \(B_i\) as random variables so \(\hat{p}\) is also a random variable
 <br>
 
 <h1 id="modeling-assumptions">Modeling assumptions <a href="#modeling-assumptions" aria-label="modeling-assumptions"><i class="fa fa-link" aria-hidden="true"></i></a></h1>
-Coming up with a model consists of making assumptions on what those \(B_i\)'s are. So here are the assumptions that we made:<br>
+Coming up with a model that consists of making assumptions on what those \(B_i\)'s are. So here are the assumptions that we made:<br>
 \(1.\quad\) Each \(B_i\) is a random variable.<br>
 <blockquote class="sidebar">
-	Each ball draw is random, the ball can be a <span class="l1">Red balls</span>(with probability \(p\)) or a <span class="l2">Blue balls</span>(with probability \(1-p\)). <br>
+	Each ball draw is random, the ball can be a <span class="l1">Red ball</span>(with probability \(p\)) or a <span class="l2">Blue ball</span>(with probability \(1-p\)). <br>
 	So every \(B_i\) is either <span class="l1">1</span>(with probability \(p\)) or <span class="l2">0</span>(with probability \(1-p\)), so \(B_i\) is a random variable.<br>
 </blockquote>
 <br class="newline">
@@ -331,7 +332,7 @@ Coming up with a model consists of making assumptions on what those \(B_i\)'s ar
 \(3.\quad\) \(B_1,B_2,...,B_n\) are mutually independent<br>
 <blockquote class="sidebar">
 	Every draw is an independent draw. <br>
-	If we draw a <span class="l1">Red balls</span> then it gives us no information about our next draw, proportion of drawing a <span class="l1">Red balls</span> is still \(p\). <br>
+	If we draw a <span class="l1">Red ball</span> then it gives us no information about our next draw, proportion of drawing a <span class="l1">Red ball</span> is still \(p\). <br>
 	So we can say that \(B_1,B_2,...,B_n\) are mutually independent<br>
 </blockquote>
 <br>
