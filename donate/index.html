@@ -21,15 +21,9 @@
 		<meta name="keywords" content="Donate,Donation,QuantML,Visualization,Machine Learning,Statistics,Linear Algebra">
 		<meta name="author" content="Yuvraj Garg">
 		<script src="/data/js/initialize.js"></script>
-		<script>requireScript('script-js', '0.1.0', '/data/js/script.js', function(){})</script>
 		<script>
-			l = document.createElement('link');
-			l.rel = "stylesheet";
-			l.id="home-stylesheet";
-			l.onload = function(){cssLoaded(false);};
-			if(localStorage.getItem("quantmlTheme") == "dark") l.href = "/style-dark.css";
-			else l.href = "/style-light.css";
-			document.getElementsByTagName("head")[0].appendChild(l);
+			if(localStorage.getItem("quantmlTheme") == "dark") requireScript('style-dark-css', '0.1.0', '/style-dark.css', function(){});
+			else requireScript('style-light-css', '0.1.0', '/style-light.css', function(){});
 		</script>
 
 	</head>
@@ -100,7 +94,9 @@
 			</div>
 
 		<!-- Scripts -->
-
+		<script>
+			requireScript('script-js', '0.1.0', '/data/js/script.js', function(){cssLoaded(false);})
+		</script>
 
 	</body>
 </html>

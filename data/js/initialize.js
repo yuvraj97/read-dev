@@ -118,9 +118,16 @@ function changeThemeCSS(currentTheme){
 		if(e!=null) e.remove();
 		e = document.getElementById("auth-light-css")
 		if(e!=null) e.remove();
-		
+	
 		requireScript("main-dark-css", "0.1.0", "/data/css/main-dark.css", function(){})
 		requireScript("auth-dark-css", "0.1.0", "/data/css/authStyle-dark.css", function(){})
+
+		e = document.getElementById("style-light-css")
+		if(e!=null) {
+			e.remove();
+			requireScript('style-dark-css', '0.1.0', '/style-dark.css', function(){})
+		}		
+	
 	} else {
 		e = document.getElementById("main-dark-css")
 		if(e!=null) e.remove();
@@ -129,6 +136,12 @@ function changeThemeCSS(currentTheme){
 		
 		requireScript("main-light-css", "0.1.0", "/data/css/main-light.css", function(){})
 		requireScript("auth-light-css", "0.1.0", "/data/css/authStyle-light.css", function(){})
+	
+		e = document.getElementById("style-dark-css")
+		if(e!=null) {
+			e.remove();
+			requireScript('style-light-css', '0.1.0', '/style-light.css', function(){})
+		}
 	}	
 }
 

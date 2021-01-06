@@ -19,21 +19,23 @@
 		<meta name="keywords" content="QuantML,Visualization,Machine Learning,Statistics,Linear Algebra">
 		<meta name="author" content="Yuvraj Garg">
 		<script src="/data/js/initialize.js"></script>
-		<script>requireScript('script-js', '0.1.0', '/data/js/script.js', function(){})</script>
 		<script>
+			if(localStorage.getItem("quantmlTheme") == "dark") requireScript('style-dark-css', '0.1.0', '/style-dark.css', function(){});
+			else requireScript('style-light-css', '0.1.0', '/style-light.css', function(){});
 			function homePageDOM(){
 				laReadNowBtn = document.getElementById('la-guide-read-now');
 				earlyAccess = document.getElementById('early-access');
-				commingSoon = document.getElementById('comming-soon');
+				coming_soon = document.getElementById('coming-soon');
 
 				laReadNowBtn.style.border = "none";
 				earlyAccess.style.border = "none";
-				commingSoon.style.border = "none";
+				coming_soon.style.border = "none";
 
 				earlyAccessDiv = document.getElementById('early-access-div');
-				if(earlyAccess.offsetWidth + commingSoon.offsetWidth > earlyAccessDiv.offsetWidth){
+				if((earlyAccess.offsetWidth + coming_soon.offsetWidth > earlyAccessDiv.offsetWidth) ||
+					(earlyAccessDiv.offsetWidth == 0 && window.quantml["notDesktop"] == true)){
 					earlyAccess.style.width = "100%";
-					commingSoon.style.width = "100%";
+					coming_soon.style.width = "100%";
 					earlyAccess.style.marginTop = "12px";
 
 
@@ -49,13 +51,6 @@
 					laGuide.style.height = String(statsGuide.offsetHeight) + "px";
 				}
 			}
-			l = document.createElement('link');
-			l.rel = "stylesheet";
-			l.id="home-stylesheet";
-			l.onload = function(){cssLoaded(false);homePageDOM()};
-			if(localStorage.getItem("quantmlTheme") == "dark") l.href = "/style-dark.css";
-			else l.href = "/style-light.css";
-			document.getElementsByTagName("head")[0].appendChild(l);
 		</script>
 	</head>
 
@@ -118,7 +113,7 @@
 										[by Professor <a rel="noreferrer" target="_blank" href="http://www-math.mit.edu/~rigollet/">Philippe Rigollet</a>]</p>
 										<br>
 										<div id="early-access-div" class="early-access-div">
-										<button id="comming-soon" style="float: right; bottom: 30px;" class="button btn disabled">Coming Soon</button>
+										<button id="coming-soon" style="float: right; bottom: 30px;" class="button btn disabled">Coming Soon</button>
 										<a style="border-bottom: none;" href="/stats/"><button id="early-access" class="button btn jump">Get early access &nbsp; <img class="patreon-logo" src="/data/img/patreon.png" alt="Patreon"></button></a>
 										</div>
 								  </div>
@@ -150,7 +145,16 @@
 
 
 		<!-- Scripts -->
-
+		<script>
+			requireScript('script-js', '0.1.0', '/data/js/script.js', function(){cssLoaded(false);})
+			widthInterval =  setInterval(function(){
+				earlyAccessDiv = document.getElementById('early-access-div');
+				if(earlyAccessDiv.offsetWidth != 0){
+					homePageDOM()
+					clearInterval(widthInterval)
+				}
+			}, 50)
+		</script>
 
 	</body>
 </html>
