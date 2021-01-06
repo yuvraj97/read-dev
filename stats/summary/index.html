@@ -41,8 +41,8 @@
 					<nav id="nav">
 						<ul class="links">
 							<li class="cover"><a href="/stats/"><img src="/data/img/STATISTICS-cover.png" alt="STATISTICS"></a></li>
-							<li class="active"><a href=".">Summary</a></li>
-							<li><a href="../thanks/">Thanks</a></li>
+							<li class="active title">Summary</li>
+							<li class="link"><a href="/stats/thanks/">Thanks</a></li>
 						</ul>
 					</nav>
 				<!-- Main -->
@@ -57,7 +57,7 @@
 								<summary><b><span class="details-title">Distribution</span></b></summary>
 								<ul>
 									<details  id="dist-unif">
-										<summary><span class="bb">Uniform Distribution</span></summary>
+										<summary><span class="details-title">Uniform Distribution (continuous)</span></summary>
 										<div  class="table-wrapper">
 										<table style="font-family: Open Sans">
 											<tr>
@@ -71,18 +71,22 @@
 												 \frac{1}{b-a}&; \text{for all x}\in [a,b] \\
 												 0& \text{otherwise}
 												\end{matrix}\right. \)</td>
+												<td></td>
 											</tr>
 											<tr>
 												<td>Mean</td>
 												<td>\(\frac{a+b}{2}\)</td>
+												<td></td>
 											</tr>
 											<tr>
 												<td>Median</td>
 												<td>\(\frac{a+b}{2}\)</td>
+												<td></td>
 											</tr>
 											<tr>
 												<td>Varience</td>
 												<td>\(\frac{(b-a)^2}{12}\)</td>
+												<td></td>
 											</tr>
 
 										</table>
@@ -90,7 +94,7 @@
 
 								</details>
 								<details id="dist-ber">
-								<summary><span class="bb">Bernoulli Distribution</span></summary>
+								<summary><span class="details-title">Bernoulli Distribution</span></summary>
 								<div class="table-wrapper">
 									<table style="font-family: Open Sans">
 										<tr>
@@ -106,11 +110,13 @@
 										<tr>
 											<td>Mean</td>
 											<td>\(p\)</td>
+											<td></td>
 										</tr>
 
 										<tr>
 											<td>Varience</td>
 											<td>\(p(1-p)\)</td>
+											<td></td>
 										</tr>
 
 
@@ -118,7 +124,7 @@
 								</div>
 								</details>
 								<details id="dist-bin">
-								<summary><span class="bb">Binomial Distribution</span></summary>
+								<summary><span class="details-title">Binomial Distribution</span></summary>
 									<div class="table-wrapper">
 
 									<table style="font-family: Open Sans">
@@ -141,11 +147,13 @@
 										<tr>
 											<td>Mean</td>
 											<td>\(np\)</td>
+											<td></td>
 										</tr>
 
 										<tr>
 											<td>Varience</td>
 											<td>\(np(1-p)\)</td>
+											<td></td>
 										</tr>
 
 
@@ -153,7 +161,7 @@
 								</div>
 								</details>
 								<details id="dist-geo">
-								<summary><span class="bb">Geometric Distribution</span></summary>
+								<summary><span class="details-title">Geometric Distribution</span></summary>
 									<div class="table-wrapper">
 									<table style="font-family: Open Sans">
 										<tr>
@@ -171,11 +179,13 @@
 										<tr>
 											<td>Mean</td>
 											<td>\(\frac{1}{p}\)</td>
+											<td></td>
 										</tr>
 
 										<tr>
 											<td>Varience</td>
 											<td>\(\frac{1-p}{p^2}\)</td>
+											<td></td>
 										</tr>
 
 
@@ -184,15 +194,11 @@
 								</details>
 
 							   <details id="dist-beta">
-								<summary><span class="bb">Beta Distribution</span></summary>
+								<summary><span class="details-title">Beta Distribution</span></summary>
 
 									<div class="table-wrapper">
 
 									<table style="font-family: Open Sans">
-										<tr>
-											<td></td>
-											<td></td>
-										</tr>
 										<tr>
 											<td>Notation</td>
 											<td>\(Beta(\alpha,\beta)\)</td>
@@ -207,11 +213,13 @@
 										<tr>
 											<td>Mean</td>
 											<td>\(\frac{\alpha}{\alpha+\beta}\)</td>
+											<td></td>
 										</tr>
 
 										<tr>
 											<td>Varience</td>
 											<td>\(\frac{\alpha\beta}{(\alpha+\beta)^2(\alpha+\beta+1)}\)</td>
+											<td></td>
 										</tr>
 
 
@@ -219,7 +227,7 @@
 									</div>
 							   </details>
 								<details id="dist-gauss">
-										<summary><span class="bb">Gaussian Distribution</span></summary>
+										<summary><span class="details-title">Gaussian Distribution</span></summary>
 										<div  class="table-wrapper">
 										<table style="font-family: Open Sans">
 											<tr>
@@ -235,10 +243,12 @@
 											<tr>
 												<td>Mean</td>
 												<td>\(\mu\)</td>
+												<td></td>
 											</tr>
 											<tr>
 												<td>Varience</td>
 												<td>\(\sigma^2\)</td>
+												<td></td>
 											</tr>
 
 										</table>
@@ -246,7 +256,7 @@
 
 								</details>
 								<details id="dist-exp">
-										<summary><span class="bb">Exponential Distribution</span></summary>
+										<summary><span class="details-title">Exponential Distribution</span></summary>
 										<div  class="table-wrapper">
 										<table style="font-family: Open Sans">
 											<tr>
@@ -262,10 +272,12 @@
 											<tr>
 												<td>Mean</td>
 												<td>\(\frac{1}{\lambda}\)</td>
+												<td></td>
 											</tr>
 											<tr>
 												<td>Varience</td>
 												<td>\(\frac{1}{\lambda^2}\)</td>
+												<td></td>
 											</tr>
 
 										</table>
@@ -276,9 +288,9 @@
 							</details>
 
 							<hr>
-							<a style="float: right;" href="index/intro/./weak-law-of-large-numbers/#lln" class="button">Visit Chapter</a>
+							<a style="float: right;" href="/stats/weak-law-of-large-numbers/" class="button">Visit Chapter</a>
 							<details open>
-								<summary><b><span class="details-title" id="lln">Law of large numbers(LLN)</span></b></summary>
+								<summary><b><span class="details-title" id="weak-law-of-large-numbers">Law of large numbers(LLN)</span></b></summary>
 								Say we have \(n\) observations. <br>
 								\(X,X_1,X_2,X_3,....,X_n\) be <b>i.i.d</b> random varibles, and \(\mathbb{E}[X]=\mu\)
 								Then:
@@ -287,10 +299,10 @@
 							</details>
 
 							<hr>
-							<a style="float: right;" href="index/intro/./weak-law-of-large-numbers/#clt" class="button">Visit Chapter</a>
+							<a style="float: right;" href="/stats/central-limit-theorem/" class="button">Visit Chapter</a>
 
 							<details open>
-								<summary><b><span class="details-title" id="clt">Central Limit Theorem(CLT)</span></b></summary>
+								<summary><b><span class="details-title" id="central-limit-theorem">Central Limit Theorem(CLT)</span></b></summary>
 								Say we have \(n\) observations \(X,X_1,X_2,X_3,....,X_n\) be \(i.i.d\) random varibles, \(\mathbb{E}[X]=\mu\) and \(Var(X)=\sigma^2\)<br>
 								\[\sqrt{n} \frac{\overline{X}_n-\mu }{\sigma } \xrightarrow [n\to \infty ]{(d)} \mathcal{N}(0,1) \]
 								equivalently:
@@ -298,8 +310,11 @@
 								And the quantity \(\sigma^2\) is called <b>asymptotic variance</b> of \(\overline{X}_n\)
 							</details>
 
-							<hr>
-							<a style="float: right;" href="index/intro/hoeffding.html" class="button">Visit Chapter</a>
+							<hr style="width: 100%;">
+							<div style="text-align: center;">
+								<span class="bb"><b>In progress ...</b></span>
+							</div>
+							<!-- <a style="float: right;" href="index/intro/hoeffding.html" class="button">Visit Chapter</a>
 							<details open>
 								<summary><b><span class="details-title" id="hoeffding">Hoeffding's inequality</span></b></summary>
 								Say that we have \(n\) i.i.d. random variables, \(X_1,X_2,....,X_n \stackrel{iid}{\sim } X\), such that \(\mathbb{E}[X]=\mu\) and<br>
@@ -504,7 +519,7 @@
 								</ul>
 								Then:<br>
 								\[\sqrt{n} \left(g(\hat{\theta}_n)-g(\theta)\right) \xrightarrow [n\to \infty ]{(d)} \mathcal{N}\left(0,(g'(\theta))^2\sigma^2\right)\]
-							</details>
+							</details> -->
 </div>
 <div id="modals-html"></div>
 
