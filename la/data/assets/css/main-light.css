@@ -1,0 +1,213 @@
+﻿blockquote, q {
+    background-color:#ECF1F6;
+}
+body {
+    background-color: #fff;
+}
+a {
+    color: #0033cc;
+    border-bottom-color: rgba(33, 41, 49, 0.5);
+}
+a:hover {
+    border-bottom-color: rgb(0, 39, 155);
+    border-style: solid;
+    color: rgb(0, 39, 155) !important;
+}
+strong, b {
+    color: #212931;
+}
+h1, h2, h3, h4, h5, h6 {
+    color: #212931;
+}
+blockquote {
+    border-left-color: #467AAC;
+}
+hr {
+    border-bottom-color: rgb(0, 39, 155, 0.4);
+}
+table tbody tr {
+    border-color: #000;
+}
+table tbody tr:nth-child(2n + 1) {
+    background-color: rgb(0, 0, 0, 0.1);
+}
+table th {
+    color: rgb(0, 39, 155);
+}
+table thead {
+    border-bottom-color: #000;
+}
+table tfoot {
+    border-top-color: #000;
+}
+table.alt tbody tr td {
+    border-color: #000;
+}
+#wrapper > .bg {
+    background-color: #212931;
+    background-image: linear-gradient(to right, #003d61 0%, rgb(226, 244, 255) 50%, #003d61 100%);
+}
+@media screen and (orientation: portrait) {
+    #wrapper > .bg {
+        background-image: linear-gradient(0deg, white 80%, #003d61 100%);
+    }
+}
+#nav {
+    color: #000;
+    /* background-color: ; */
+    background-image: linear-gradient(to right, rgb(226, 244, 255) 0%, #003d61 150%);
+}
+#nav a {
+    color: #000;
+    border-bottom-color: rgba(255, 255, 255, 0.5);
+}
+/* #nav a:hover {
+    border-bottom-color: transparent;
+    color: rgb(0, 39, 155) !important;
+} */
+#nav ul.links li a:hover {
+    /* color: inherit !important; */
+    background-color: rgba(0, 61, 97, 0.15);
+}
+#nav ul.links li.active {
+    background-color: #fff;
+}
+#nav ul.links li.active a {
+    /* color: #000; */
+}
+#nav ul.links li.active a:hover {
+    /* color: inherit; */
+    /* background-color: #fff; */
+}
+#main {
+    background-color: #fff;
+    color: #222;
+}
+#navPanelToggle {
+    color: rgb(0, 0, 0, 0.87);
+}
+#navPanelToggle.alt {
+    background-color: rgba(255, 255, 255, 0.875);
+    box-shadow: 0 0.125rem 0.75rem 0 rgba(30, 37, 45, 0.25);
+    color: rgb(0, 0, 0, 0.87);
+}
+#navPanelToggle.alt:hover {
+    background-color: #fff;
+}
+#navPanel {
+    background: #fff;
+    color: #212931;
+}
+#navPanel .links li {
+    border-top: solid 1px rgb(0, 0, 0, 0.5);
+}
+#navPanel .links li a {
+    color: black;
+}
+#navPanel ul.links li.active {
+    background-color: rgb(0, 61, 97, 0.3);
+}
+
+/* CUSTOM SCROLLBAR [START] */
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 15px #003d61; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: rgb(255,255,255, 0.7);
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgb(255,255,255, 0.8);
+  }
+
+/* CUSTOM SCROLLBAR [END] */
+
+
+/* Table of content [START] */
+#toc_container li, #toc_container ul, #toc_container ul li{
+    list-style: outside none none !important;
+}
+
+.toc-l1{
+    color: darkred;
+}
+.toc-l2{
+    color: darkorchid;
+}
+.toc-l3{
+    color: royalblue;
+}
+
+.fa {
+    color: black;
+}
+
+/* Table of content [END] */
+
+.button {
+    color: #000;
+    background-color: transparent;
+    border: 2.8px #0073b1 solid;
+}
+.button:hover, .button:focus {
+    background-color: rgb(0, 115, 177, 0.1);
+}
+summary span {
+    color: royalblue;
+}
+summary span:hover, summary span:focus {
+    /* border-style: solid; */
+    color: rgb(0, 39, 155) !important;
+    border-bottom: solid 1px rgb(0, 39, 155);    
+}
+.bb {
+    background-color: #f6f8fa;
+    border: 1px rgb(160, 160, 160) solid;
+}
+.login-logout-join {
+    background-color: #fff;
+    color: #212931 !important;
+}
+.login-logout-join:hover, .login-logout-join:focus {
+    background-color: #fff;
+}
+@media screen and (max-width: 980px) {
+    .login-logout-join {
+        border: 2.5px solid #0073b1; /* CHECK IT */
+    }
+}
+.login-require-txt {
+    background-color: rgb(0, 115, 177, 0.2);
+}
+/* SLACK DISCUSSION BUTTON WIDE */
+.slack-discuss {
+    box-shadow: .05rem .05rem 0.4rem .05rem #467AAC;
+    color: #0073b1; 
+}
+.slack-discuss:hover {
+    box-shadow: .05rem .05rem 0.5rem .1rem #467AAC;
+}
+.l1 {
+    color: darkred;
+}
+.l2 {
+    color: royalblue;
+}
+.l3 {
+    color: darkgreen;
+}
+.l4 {
+    color: darkorchid;
+}
+.l1.border{
+    border: 2px solid rgb(60, 164, 255);
+    color: rgb(60, 164, 255);
+}
+.math.border.dim{
+    border: 1.5px solid black;
+}

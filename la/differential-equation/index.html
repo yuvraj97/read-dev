@@ -1,64 +1,81 @@
 <!DOCTYPE HTML>
-<html lang="en">
+<!--
+    "Thanks to HTML5 UP for this template".
+    Massively by HTML5 UP
+    html5up.net | @ajlkn
+    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
     <head>
 
-        <script>
-            var isConcluded = true;
-            var arrowLeftPage = "/la/diagonalization/"
-            var arrowRightPage = "/la/markov-matrix/"
-        </script>
 
-        <link rel="stylesheet" href="/data/assets/css/main.css">
-        <link rel="stylesheet" href="/data/assets/css/authStyle.css">
+
+        <!--Prism-->
+        <link rel="stylesheet" href="/la/data/prism/prism.css">
+
+        <link rel="stylesheet" href="/la/data/assets/css/main.css">
+        <link rel="stylesheet" href="/la/data/auth/authStyle.css">
+        <link id="quantml-theme" rel="stylesheet" href="" />
+        <link id="quantml-auth-style" rel="stylesheet" href="">
+
+        <!--KATEX-->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+
+        <!-- The loading of KaTeX is deferred to speed up page rendering -->
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+
+        <!-- To automatically render math in text elements, include the auto-render extension: -->
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
         
-		<title>Differential Equation - QuantML</title>
+		<title>DIFFERENTIAL EQUATION</title>
 		<meta charset="utf-8" />
-        <link rel="icon" href="/data/icon.png" type="image/png" sizes="16x16">
+        <link rel="icon" href="/la/data/icon.png" type="image/png" sizes="16x16">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-        <meta name="robots" content="index, follow">
-        <meta name="author" content="Yuvraj Garg">
+		<noscript><link rel="stylesheet" href="/la/data/assets/css/main-light.css" /></noscript>
+        
 
-        <script src="/data/assets/js/initialize.js"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-LRSK4V6G1M"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
+  gtag('config', 'G-LRSK4V6G1M');
+</script>
 	</head>   
     
-    <body>
+    <body style="display: none">
 
         <!-- Wrapper -->
-			<div style="display: none;" id="wrapper">
-                <div class="bg fixed" style="transform: none;"></div>
-                <div id="navPanelToggle">Menu</div>
-
+            <div id="wrapper">
 
                 <!-- Header -->
-                <header id="header">
-                    <a href="https://quantml.org" class="logo image jump-big"><img id="quantml-cover" src="/data/img/cover.webp" alt="QuantML.org" /></a>
-                </header>
+                    <header id="header">
+                        <a href="https://quantml.org" class="logo image jump-big"><img id="quantml-cover" src="/la/data/img/cover.png" alt="QuantML.org" /></a>
+                    </header>
 
                 <!-- Nav -->
                     <nav id="nav">
                         <ul class="links">
-                            <li class="cover"><a href="/la/"><img src="/data/img/linear-algebra-cover.png" alt="Linear Algebra"></a></li>
+                            <li class="cover"><a href="/la/"><img src="/la/data/img/linear-algebra-cover.png" alt="Linear Algebra"></a></li>
                             <li class="active"><a href="/la/differential-equation/">Differential Equation</a></li>
                         </ul>
-                        <ul id="nav-bar-icons-head" class="icons"></ul>
+                        <ul class="icons">
+                            <li><a rel="noreferrer" target="_blank" href="https://app.quantml.org/stats/"><img src="/data/img/app.png" alt="App" width="28px" height="28px"></a></li>
+                            <li><a target="_blank" href="https://join.slack.com/t/quantml-org/shared_invite/zt-jffw86bo-6M260iyt1q2MgBma9elewg"><img src="/la/data/img/slack.png" alt="Slack"></a></li>
+                            <li><a target="_blank" href="https://www.linkedin.com/in/yuvraj97/"><img src="/la/data/img/linkedin.png" alt="LinkedIn"></a></li>
+                            <li id="join-button"><button onclick=" window.open('https://www.patreon.com/quantml','_blank')" id="join-btn-width" class="login-logout-join" >Join &nbsp; <img src="/la/data/img/patreon.png" alt="Join"></button></li>
+                            <li><a style="cursor: pointer;"><img id="change-theme" src="" alt="Change Theme"></a></li>
+                        </ul>
                     </nav>
-
                 <!-- Main -->
                     <div id="main">
-                        <section id="paragraph" class="post">
+                        <section class="post">
 <div id="btn-container">
     <button id="prev-btn" class="button" onclick="window.location.href = '/la/diagonalization/';">&#x25C0;&nbsp;&nbsp;Diagonalization of a Matrix</button>
     <button id="next-btn" class="button"  style="float: right;" onclick="window.location.href = '/la/markov-matrix/';">Markov Matrix &nbsp;&nbsp;&#x25B6;</button>
 </div><br>
-<div style="display: none;" id="pre-loading-light"><img class="loading" src="/data/img/loading.svg" alt=" " width="215px" height="50px"></div>
-<div style="display: none;" id="pre-loading-dark"><img class="loading" src="/data/img-dark/loading.svg" alt=" " width="215px" height="50px"></div>
-<div style="display: none;" id="pre-initializing-light"><img class="loading" src="/data/img/initializing.svg" alt=" " width="285px" height="50px"></div>
-<div style="display: none;" id="pre-initializing-dark"><img class="loading" src="/data/img-dark/initializing.svg" alt=" " width="285px" height="50px"></div>
-<script>initializeBody();document.getElementById('wrapper').style.display = "block";</script>
-
-<div id="paragraph-content">
-
 <blockquote class="noborder">
     <span><b>Note</b></span><br>
     In this lecture I struggle alot(because I have not much experience with differential equations) so there will be errors,
@@ -396,37 +413,30 @@ So we can say that for a blow-up \(\exists \lambda_k \gt 0 ;\quad k\in\{1,2,3,\c
 
 
 <div class="slack-discuss" onclick=" window.open('https://join.slack.com/t/quantml-org/shared_invite/zt-jffw86bo-6M260iyt1q2MgBma9elewg','_blank')">
-						    Join our Slack <img src="/data/img/slack.png" alt="Slack"> discussion forum
+						    Join our Slack <img src="/la/data/img/slack.png" alt="Slack"> discussion forum
 						</div>
 <br>
 
-</div>
 <div id="btn-container">
     <button id="prev-btn" class="button" onclick="window.location.href = '/la/diagonalization/';">&#x25C0;&nbsp;&nbsp;Diagonalization of a Matrix</button>
     <button id="next-btn" class="button"  style="float: right;" onclick="window.location.href = '/la/markov-matrix/';">Markov Matrix &nbsp;&nbsp;&#x25B6;</button>
 </div><br>
-    <div id="modals-html"></div>
-
-                    </section>
+                        </section>
                     </div>
             </div>
 
-            <div id="navPanel">
-                <nav>
-                    <ul class="links">
-                            <li class="cover"><a href="/la/"><img src="/data/img/linear-algebra-cover.png" alt="Linear Algebra"></a></li>
-                            <li class="active"><a href="/la/differential-equation/">Differential Equation</a></li>
-                    </ul>
-                    <ul id="nav-bar-icons-foot" class="icons">
-                    </ul>
-                </nav>
-                <div id="close-navbar" class="close"></div>
-            </div>
-
         <!-- Scripts -->
-        <script>loadNavBar('nav-bar-icons-foot')</script>
-        <script src="/data/assets/js/script.js"></script>
-        <script>cssLoaded()</script>
+			<script src="/la/data/assets/js/jquery.min.js"></script>
+			<script src="/la/data/assets/js/jquery.scrollex.min.js"></script>
+			<script src="/la/data/assets/js/jquery.scrolly.min.js"></script>
+			<script src="/la/data/assets/js/browser.min.js"></script>
+			<script src="/la/data/assets/js/breakpoints.min.js"></script>
+			<script src="/la/data/assets/js/util.js"></script>
+            <script src="/la/data/assets/js/main.js"></script>
+			<script src="/la/data/initialize-css.js"></script>
+            <script src="/la/data/index.js"></script>
+			<script src="/la/data/prism/prism.js"></script>
+            <script>setTimeout(() => {document.querySelector('body').style.display="block"}, 0)</script>
 
     </body>
 </html>
