@@ -1,80 +1,65 @@
 <!DOCTYPE HTML>
-<!--
-    "Thanks to HTML5 UP for this template".
-    Massively by HTML5 UP
-    html5up.net | @ajlkn
-    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
+<html lang="en">
     <head>
 
+        <script>
+            var isConcluded = true;
+            var arrowLeftPage = "/la/symmetric-matrices/"
+            var arrowRightPage = "/la/positive-definite-matrices/"
+        </script>
 
-
-        <!--Prism-->
-        <link rel="stylesheet" href="/la/data/prism/prism.css">
-
-
-        <link rel="stylesheet" href="/la/data/assets/css/main.css">
-        <link rel="stylesheet" href="/la/data/auth/authStyle.css">
-        <link id="quantml-theme" rel="stylesheet" href="" />
-        <link id="quantml-auth-style" rel="stylesheet" href="">
-
-        <!--KATEX-->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
-
-        <!-- The loading of KaTeX is deferred to speed up page rendering -->
-        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
-
-        <!-- To automatically render math in text elements, include the auto-render extension: -->
-        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+        <link rel="stylesheet" href="/data/css/main.css">
         
-		<title>Complex Matrices & Fast Fourier Transform</title>
+		<title>Complex Matrices & Fast Fourier Transform - QuantML</title>
 		<meta charset="utf-8" />
-        <link rel="icon" href="/la/data/icon.png" type="image/png" sizes="16x16">
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<noscript><link rel="stylesheet" href="/la/data/assets/css/main-light.css" /></noscript>
-        
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-LRSK4V6G1M"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+        <link rel="icon" href="/data/icon.png" type="image/png" sizes="16x16">
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="robots" content="index, follow">
+        <meta name="author" content="Yuvraj Garg">
 
-  gtag('config', 'G-LRSK4V6G1M');
-</script>
-	</head>   
-    <body style="display: none">
+        <script src="/data/js/initialize.js"></script>
 
-        <!-- Wrapper -->
-            <div id="wrapper">
+    </head>
 
-                <!-- Header -->
-                    <header id="header">
-                        <a href="https://quantml.org" class="logo image jump-big"><img id="quantml-cover" src="/la/data/img/cover.png" alt="QuantML.org" /></a>
-                    </header>
+    <body>
+
+		<!-- Wrapper -->
+        <div style="display: none;" id="wrapper">
+            <div class="bg fixed" style="transform: none;"></div>
+            <div id="navPanelToggle">Menu</div>
+
+
+				<!-- Header -->
+				<header id="header">
+					<a href="https://quantml.org" style="display: none;" class="logo image jump-big" id="quantml-cover-light"><img src="/data/img/cover.webp" alt="QuantML.org" /></a>
+					<a href="https://quantml.org" style="display: none;" class="logo image jump-big" id="quantml-cover-dark"><img src="/data/img-dark/cover.webp" alt="QuantML.org" /></a>
+					<script>
+						if(localStorage.getItem("quantmlTheme")=="dark") document.getElementById('quantml-cover-dark').style.display = "block";
+						else document.getElementById('quantml-cover-light').style.display = "block";
+					</script>
+				</header>
 
                 <!-- Nav -->
                     <nav id="nav">
                         <ul class="links">
-                            <li class="cover"><a href="/la/"><img src="/la/data/img/linear-algebra-cover.png" alt="Linear Algebra"></a></li>
-                            <li class="active"><a href="/la/cmfft/">Complex Matrices & Fast Fourier Transform</a></li>
+                            <li class="cover"><a href="/la/"><img src="/data/img/linear-algebra-cover.png" alt="Linear Algebra"></a></li>
+                            <li class="active title">Complex Matrices & FFT</li>
                         </ul>
-                        <ul class="icons">
-                            <li><a rel="noreferrer" target="_blank" href="https://app.quantml.org/stats/"><img src="/data/img/app.png" alt="App" width="28px" height="28px"></a></li>
-                            <li><a target="_blank" href="https://join.slack.com/t/quantml-org/shared_invite/zt-jffw86bo-6M260iyt1q2MgBma9elewg"><img src="/la/data/img/slack.png" alt="Slack"></a></li>
-                            <li><a target="_blank" href="https://www.linkedin.com/in/yuvraj97/"><img src="/la/data/img/linkedin.png" alt="LinkedIn"></a></li>
-                            <li id="join-button"><button onclick=" window.open('https://www.patreon.com/quantml','_blank')" id="join-btn-width" class="login-logout-join" >Join &nbsp; <img src="/la/data/img/patreon.png" alt="Join"></button></li>
-                            <li><a style="cursor: pointer;"><img id="change-theme" src="" alt="Change Theme"></a></li>
-                        </ul>
+                        <ul id="nav-bar-icons-head" class="icons"></ul>
                     </nav>
+
                 <!-- Main -->
                     <div id="main">
                         <section class="post">
+<div style="text-align: center;" id="load-init"></div>
+<script>initializeBody();</script>
+
+<div id="paragraph-content" data-swipe-threshold="80">
 <div id="btn-container">
     <button id="prev-btn" class="button" onclick="window.location.href = '/la/symmetric-matrices/';">&#x25C0;&nbsp;&nbsp;Symmetric Matrices</button>
     <button id="next-btn" class="button"  style="float: right;" onclick="window.location.href = '/la/positive-definite-matrices/';">Positive Definite Matrices&nbsp;&nbsp;&#x25B6;</button>
 </div><br>
+
 
 <p>
 <h1>Complex Matrices</h1>
@@ -96,7 +81,7 @@ We can get the magnitude of \(\vec{z}\) by taking dot product \(\vec{z}\cdot\vec
     Magnitude of a complex vector is given as,<br>
     <div class="l1 border">
     \[\begin{matrix}
-            
+
         % equation
         \|\mathbf{z}\|=\mathbf{z}\cdot\mathbf{z}=\mathbf{\overline{z}}^T\mathbf{z};\quad \mathbf{z}\in\mathbb{C}^n
         %equation
@@ -127,7 +112,7 @@ We can get the magnitude of \(\vec{z}\) by taking dot product \(\vec{z}\cdot\vec
 
 <h2 id="complex-symmetric-matrices">Complex symmetric matrices</h2>
 What we have seen for symmetric matrix is \(A^T=A\) but it's only true if all the elements of \(A\) are <b>Real</b>.<br>
-A <b>Complex matrix</b> is <i>symmetric</i> if 
+A <b>Complex matrix</b> is <i>symmetric</i> if
 <div class="l1 border">
 \[  \begin{matrix}
 
@@ -141,10 +126,10 @@ A <b>Complex matrix</b> is <i>symmetric</i> if
 And these matrices are known as <b>Hermitian matrices</b>.<br>
 <br>
 
-<h2 id="complex-orthogonal-matrices">Complex Orthogonal Matrices</h2>
+<h2 id="complex-orthogonal-matrices">Complex Orthonormal Vectors</h2>
 Say we have an orthogonal matrix \(Q\in\mathbb{C}^{n\times n}\) whose column vectors are perpendicular to each other.<br>
 \[Q=\begin{bmatrix}
-\vdots & \vdots &          & \vdots \\  
+\vdots & \vdots &          & \vdots \\
 q_1    &  q_2   & \cdots   &  q_n   \\
 \vdots & \vdots &          & \vdots \\
 \end{bmatrix}\]
@@ -184,7 +169,7 @@ Using these \(n\) samples we want to approximate the there fourier coefficient \
 \]
 </div>
 \[f_k=\frac{1}{n}\left(\sum_{j=0}^{n-1}\hat{f}_j \exp\left(\frac{   i2\pi jk}{n}\right)\right)\]
-Say, 
+Say,
 <div class="l1 border">
 \[  \begin{matrix}
 
@@ -196,17 +181,19 @@ Say,
 \]
 </div>
 We can rewrite the above equations as,<br>
+<div class="math-container">
 \[\begin{bmatrix} \hat{f}_0\\\hat{f}_1\\\hat{f}_2\\ \vdots \\\hat{f}_{n-1}\\  \end{bmatrix}=
-\underbrace{\begin{bmatrix} 
+\underbrace{\begin{bmatrix}
 1 & 1 & 1 & \cdots & 1 \\
-1 & \omega_n & \omega_n^2 & \cdots & \omega_n^{n-1}\\ 
-1 & \omega_n^2 & \omega_n^4 & \cdots & \omega_n^{2(n-1)}\\ 
+1 & \omega_n & \omega_n^2 & \cdots & \omega_n^{n-1}\\
+1 & \omega_n^2 & \omega_n^4 & \cdots & \omega_n^{2(n-1)}\\
 \vdots & \vdots & \vdots & \ddots & \vdots \\
-1 & \omega_n^{n-1} & \omega_n^{2(n-1)} & \cdots & \omega_n^{(n-1)^2}\\ 
+1 & \omega_n^{n-1} & \omega_n^{2(n-1)} & \cdots & \omega_n^{(n-1)^2}\\
 \end{bmatrix}}_{\text{DFT matrix say } F_n}
 \begin{bmatrix} f_0\\f_1\\f_2\\ \vdots \\f_{n-1}\\  \end{bmatrix}
 \]
-\(\omega_n\) is an <b>complex number</b> so <b>DFT</b> matrix is a <b>Complex Matrix</b>, so our fourier coefficient 
+</div>
+\(\omega_n\) is an <b>complex number</b> so <b>DFT</b> matrix is a <b>Complex Matrix</b>, so our fourier coefficient
 \((\hat{f}_0, \hat{f}_1, \cdots , \hat{f}_{n-1})\) are also <b>complex number</b>.<br>
 <li>Magnitude of \(\hat{f}_i\)  tells us the magnitude of the \(i^{th}\)   \(\sin\) and \(\cos\).<br></li>
 <li>Phase of \(\hat{f}_i\)  tells us the phase of the \(i^{th}\)  \(\sin\) and \(\cos\).<br></li><br>
@@ -214,7 +201,7 @@ We can rewrite the above equations as,<br>
     <b>DFT matrix</b> is an <b>Orthogonal Matrix</b>, all <b>column vectors</b> are <b>orthogonal</b> to each other.
     <div class="l1 border">
     \[  \begin{matrix}
-            
+
         % equation
         \overline{F}_n^TF_n=F_n^HF_n=\mathcal{I}_n
         %equation
@@ -224,15 +211,15 @@ We can rewrite the above equations as,<br>
     </div>
 </blockquote>
 <br>
-Now the problem is this matrix multiplication, time complexity of this matrix multiplication is \(O(n^2)\), 
+Now the problem is this matrix multiplication, time complexity of this matrix multiplication is \(O(n^2)\),
 for a matrix of size \(1024\times 1024\) then it requires \(‭1,048,576‬\) multiplications.<br>
 This problem is solved by <b>Fast Fourier Transform</b><br>
 <b>IDEA</b> behind <b>FFT</b> is we can write \(F_n\) as,<br>
-<div class="l1 border">
+<div class="l1 border math-container">
 \[\begin{matrix}
 
     % equation
-    F_n = 
+    F_n =
     \begin{bmatrix} \mathcal{I}_{n/2} & -D_{n/2}\\
     \mathcal{I}_{n/2} & D_{n/2}\\
     \end{bmatrix}
@@ -246,7 +233,7 @@ This problem is solved by <b>Fast Fourier Transform</b><br>
 \]
 </div>
 \(
-    D_{n/2}=\begin{bmatrix} 
+    D_{n/2}=\begin{bmatrix}
     1       &     0    &    0     & \cdots   &    0      \\
     0       & \omega_{n/2} &    0     & \cdots   &    0      \\
     0       &    0     & \omega_{n/2}^2 & \cdots   &    0      \\
@@ -256,7 +243,7 @@ This problem is solved by <b>Fast Fourier Transform</b><br>
 \)<br>
 \(P_n\) is a \(n\times n\) even and odd permutation matrix.<br>
 \(P_n=
-    \begin{bmatrix} 
+    \begin{bmatrix}
        \color{red}{1} & \color{red}{0} & \color{red}{0} & \color{red}{0} & \cdots & \color{red}{0} & \color{red}{0} \\
                     \color{red}{0} & \color{red}{0} & \color{red}{1} & \color{red}{0} & \cdots & \color{red}{0} & \color{red}{0} \\
                     \vdots  & \vdots   & \vdots   & \vdots   & \ddots  & \vdots  & \vdots \\
@@ -283,30 +270,23 @@ So here <b>FFT</b> is more then \(200x\) faster then <b>DFT</b><!--
 --></p>
 
 <div class="slack-discuss" onclick=" window.open('https://join.slack.com/t/quantml-org/shared_invite/zt-jffw86bo-6M260iyt1q2MgBma9elewg','_blank')">
-    Join our Slack <img src="/la/data/img/slack.png" alt="Slack"> discussion forum
+    Join our Slack <img src="/data/img/slack.png" alt="Slack"> discussion forum
 </div>
 <br>
 
+</div>
 <div id="btn-container">
     <button id="prev-btn" class="button" onclick="window.location.href = '/la/symmetric-matrices/';">&#x25C0;&nbsp;&nbsp;Symmetric Matrices</button>
     <button id="next-btn" class="button"  style="float: right;" onclick="window.location.href = '/la/positive-definite-matrices/';">Positive Definite Matrices&nbsp;&nbsp;&#x25B6;</button>
 </div><br>
-                        </section>
+    <div id="modals-html"></div>
+
+                    </section>
                     </div>
             </div>
 
         <!-- Scripts -->
-			<script src="/la/data/assets/js/jquery.min.js"></script>
-			<script src="/la/data/assets/js/jquery.scrollex.min.js"></script>
-			<script src="/la/data/assets/js/jquery.scrolly.min.js"></script>
-			<script src="/la/data/assets/js/browser.min.js"></script>
-			<script src="/la/data/assets/js/breakpoints.min.js"></script>
-			<script src="/la/data/assets/js/util.js"></script>
-            <script src="/la/data/assets/js/main.js"></script>
-			<script src="/la/data/initialize-css.js"></script>
-            <script src="/la/data/index.js"></script>
-			<script src="/la/data/prism/prism.js"></script>
-            <script>setTimeout(() => {document.querySelector('body').style.display="block"}, 0)</script>
+        <script>requireScript('script-js', '0.1.0', '/data/js/script.js', function(){cssLoaded()})</script>
 
     </body>
 </html>

@@ -228,26 +228,39 @@ function paginationButton(){
 function fullyLoaded(){
 	paginationButton()
 	createImageModals()
+	
 	// Set Next-Prev btn width
-	prev = document.querySelectorAll('#prev-btn')
-	next = document.querySelectorAll('#next-btn')
-	// console.log(prev)
-	if(prev.length!=0){
-		btnWidth = document.getElementById('btn-container').offsetWidth
-		// console.log(prev[0].offsetWidth , next[0].offsetWidth , btnWidth)
-		if(prev[0].offsetWidth + next[0].offsetWidth > btnWidth) {
-			prev[0].style.display="block";
-			// prev[1].style.display="block";
-			next[0].style.display="block";
-			// next[1].style.display="block";
-			prev[0].style.width="100%";
-			// prev[1].style.width="100%";
-			next[0].style.width="100%";
-			// next[1].style.width="100%";
-			next[0].style.marginTop="5px"
-			// next[1].style.marginTop="5px"
+	nextPrevBtnWidthInterval = setInterval(function(){
+		// console.log("nextPrevBtnWidthInterval")
+		btnContainer = document.getElementById('btn-container')
+		if(btnContainer == null) clearInterval(nextPrevBtnWidthInterval);
+		else if(btnContainer.offsetWidth != 0) {
+			prev = document.querySelectorAll('#prev-btn')
+			next = document.querySelectorAll('#next-btn')
+			// console.log(prev)
+			if(prev.length!=0){
+				// console.log(prev[0].offsetWidth , next[0].offsetWidth , btnContainer.offsetWidth)
+				if(prev[0].offsetWidth + next[0].offsetWidth > btnContainer.offsetWidth) {
+					prev[0].style.display="block";
+					next[0].style.display="block";
+					prev[0].style.width="100%";
+					next[0].style.width="100%";
+					next[0].style.marginTop="5px"
+					// console.log(prev.length)
+					if(prev.length == 2){
+						prev[1].style.display="block";
+						next[1].style.display="block";
+						prev[1].style.width="100%";
+						next[1].style.width="100%";
+						next[1].style.marginTop="5px"
+						next[1].style.marginBottom="15px"
+					}
+				}
+			}
+			clearInterval(nextPrevBtnWidthInterval)
 		}
-	}
+	}, 50)
+
 
 	imgsrc = "img"
 	if(localStorage.getItem("quantmlTheme") == "dark") imgsrc = "img-dark";
