@@ -979,7 +979,7 @@ function otp_failed(status) {
 }
 
 function fetching(data, endpoint, callbacks = {}){
-	fetch(`http://127.0.0.1:5000/${endpoint}`, {
+	fetch(`https://app-aws2.quantml.org/api/${endpoint}`, {
 		method: 'POST', // *GET, POST, PUT, DELETE, etc.
 		mode: 'cors', // no-cors, *cors, same-origin
 		cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
