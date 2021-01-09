@@ -191,7 +191,7 @@ function loadNavBar(){
 	} else if(isConcluded == true) {
 		log_in_out = ``
 	}
-	ul.innerHTML = `<li class="link"><a rel="noreferrer" target="_blank" href="https://app.quantml.org/stats/"><img src="${imgsrc}app.png" alt="App"></a></li>
+	ul.innerHTML = `<li class="link"><a rel="noreferrer" target="_blank" href="https://app.quantml.org/statistics/"><img src="${imgsrc}app.png" alt="App"></a></li>
 	<li class="link"><a rel="noreferrer" target="_blank" href="https://join.slack.com/t/quantml-org/shared_invite/zt-jffw86bo-6M260iyt1q2MgBma9elewg"><img class="whiteback" src="${imgsrc}slack.png" alt="Slack"></a></li>
 	<li class="link"><a rel="noreferrer" target="_blank" href="https://www.linkedin.com/in/yuvraj97/"><img src="${imgsrc}linkedin.png" alt="LinkedIn"></a></li>
 	<!--<li class="link"><a rel="noreferrer" target="_blank" href="https://github.com/yuvraj97/"><img src="${imgsrc}github.png" alt="GitHub"></a></li>-->

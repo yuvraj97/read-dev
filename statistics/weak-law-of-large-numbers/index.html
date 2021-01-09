@@ -1,0 +1,314 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+	<head>
+		<script>
+			var nextPage = "/statistics/central-limit-theorem/";
+			var prevPage = "/statistics/introduction/";
+			var nextPageTitle = "Central Limit Theorem";
+			var prevPageTitle = "Introduction";
+			var arrowLeftPage = "/statistics/introduction/julia/";
+			var arrowRightPage = "/statistics/weak-law-of-large-numbers/python/";
+		</script>
+
+		<link rel="stylesheet" href="/data/css/main.css">
+		
+		<title>Weak Law Of Large numbers | Fundamentals of Statistics - QuantML</title>
+		<meta charset="utf-8" />
+		<link rel="icon" href="/data/icon.png" type="image/png" sizes="16x16">
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="robots" content="index, follow">
+
+		<script src="/data/js/initialize.js"></script>
+
+	</head>
+
+	<body>
+
+		<!-- Wrapper -->
+			<div style="display: none;" id="wrapper">
+				<div class="bg fixed" style="transform: none;"></div>
+				<div id="navPanelToggle">Menu</div>
+
+				<!-- Header -->
+				<header id="header">
+					<a href="https://quantml.org" style="display: none;" class="logo image jump-big" id="quantml-cover-light"><img src="/data/img/cover.webp" alt="QuantML.org" /></a>
+					<a href="https://quantml.org" style="display: none;" class="logo image jump-big" id="quantml-cover-dark"><img src="/data/img-dark/cover.webp" alt="QuantML.org" /></a>
+					<script>
+						if(localStorage.getItem("quantmlTheme")=="dark") document.getElementById('quantml-cover-dark').style.display = "block";
+						else document.getElementById('quantml-cover-light').style.display = "block";
+					</script>
+				</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li class="cover"><a href="/statistics/"><img src="/data/img/STATISTICS-cover.png" alt="STATISTICS"></a></li>
+							<li class="active title">Weak Law Of Large Numbers</li>
+							<li class="python"><a href="/statistics/weak-law-of-large-numbers/python/"><img src="/data/img/python.png" alt="Python"></a></li>
+							<li class="julia"><a href="/statistics/weak-law-of-large-numbers/julia/"><img src="/data/img/julia.png" alt="Julia"></a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+						<section class="post">
+
+<div style="text-align: center;" id="load-init"></div>
+<script>initializeBody();</script>
+
+<div id="paragraph-content" data-swipe-threshold="80">
+
+<div id="desktop-mode">
+	<div id="btn-container"></div><br>
+</div>
+
+<h1 id="weak-law-of-large-numbers">Weak Law of Large Numbers<a href="#weak-law-of-large-numbers" aria-label="weak-law-of-large-numbers"><i class="fa fa-link" aria-hidden="true"></i></a></h1>
+<blockquote class="noborder align-center">
+	<a target="=_blank" href="https://app.quantml.org/statistics/?ch=Weak-Law-of-Large-Numbers&dist=Normal+distribution">
+		Visualize Law of Large Numbers <img src="/data/img/app.png" alt="launch" width="30px" height="30px">
+	</a>
+</blockquote>
+Suppose your classroom consists of \(300\) students, and you want to know, what is the average height of those \(300\) students?<br>
+Now say you measure height of \(50\) students, and suppose that the average height of those \(50\) students, is somewhat near to the average height of all \(300\) students. <br>
+<blockquote class="sidebar">
+	Here all \(300\) students is the <b>population</b> , and those \(50\) students is the <b>sample</b> <br>
+	so <b>population size</b> is \(300\) and <b>sample size</b>\((n)\) is \(50\)
+</blockquote>
+So now we have our \(50\) observations \(X_1,X_2,\cdots,X_{50}\), and these observations are <b>random</b>, they are the result of some unknown <b>random process</b>, so we call these random observations as <b>Random variables</b>. <br>
+These random variables are resultant of a common random process therefore they are <b>identically distributed</b> and all of them are independent of each other, so we call then <b>i.i.d</b>(Independent and identically distributed) random variables. <br>
+
+So average height of those \(50\) students <b>(sample mean)</b> is <span style="display: inline-block;"> \(\displaystyle\overline{X}_n=\frac{X_1+X_2+\cdots+X_{50}}{n}\)</span>. <br>
+What we strive for is the average over total population (Average height of all \(300\) students) the <b>True mean</b>, let's say that the true mean is <span class="bb">\(\mu\left(=\mathbb{E}[X_i]\right)\)</span>.
+<blockquote class="noborder">
+	<b>Note</b> <br>
+	<ul>
+		<li><b>True mean</b> \((\mu)\) over the entire population. <b>True mean</b> \((\mu)\) is <b>not</b> random, it's a number.</li>
+
+		<li><b>Sample mean</b> \((\overline{X}_n)\) over the observed values during an experiment. <b>Sample mean</b> \((\overline{X}_n)\) is a <b>Random variable</b> because \(X_1,\cdots,X_n\) are random.</li>
+	</ul>
+</blockquote>
+
+
+<blockquote>
+	<!-- <h3>Plain English</h3> -->
+	Weak Law of Large Numbers says as we increases our <b>sample size</b> \((n)\) then <b>in probability</b> our <b>sample mean</b> goes toward the <b>True mean</b> (this is  what we referred as <b>Truth</b> in our central <a href="/statistics/introduction/#dogma">dogma</a> ) <br>
+	<!-- <div class="l2 border">
+		\[\overline{X}_n:=\frac{1}{n}\sum _{i=1}^ n X_ i \xrightarrow [n\to \infty ] {\mathbb{P},\text{ a.s.}} \mu\]
+	</div><br> -->
+		<!-- <h3>Mathematically</h3> -->
+	<!-- So for \(X_1,X_2,\dots,X_n\) <b>i.i.d.</b> random variables with finite mean \(\mu\) and variance \(\sigma^2\).
+	\[\mathbb{P}\left(|\overline{X}_n - \mu| \geq \epsilon\right) \xrightarrow [n\to \infty ] {} 0;\quad\forall\epsilon\gt 0\] -->
+</blockquote>
+
+So according to the Weak Law of Large Numbers,
+<div class="l2 border">
+\[\overline{X}_n:=\frac{1}{n}\sum _{i=1}^ n X_ i \xrightarrow [n\to \infty ] {\mathbb{P}} \mu\]
+</div><br>
+<blockquote class="sidebar">
+\(:=\quad\) this symbol means <b>"by definition"</b><br>
+\(\mathbb{P}\quad\) it means <b>"in Probability"</b><br>
+</blockquote>
+<!-- \(\text{a.s.}\quad\) it means <a href="https://en.wikipedia.org/wiki/Almost_surely">"almost surely"</a>(with probability \(1\))<br> -->
+
+<br>
+<H3>Explanation</H3>
+<!-- <details open> -->
+	<!-- <summary><span class="bb">Explanation</span></summary> -->
+	<!-- <blockquote class="sidebar"> -->
+For \(X_1,X_2,\dots,X_n\) <b>i.i.d.</b> random variables with finite mean \(\mu\) and variance \(\sigma^2\). <br>
+<b>Sample mean</b> \(\displaystyle\overline{X}_n=\frac{X_1+\cdots+X_n}{n}\) <br>
+
+
+<details open>
+	<summary><span class="bb math">\(\displaystyle\mathbb{E}[\overline{X}_n]=\mu\)</span></summary>
+	<blockquote class="sidebar">
+		\(\displaystyle\mathbb{E}[\overline{X}_n]=\mathbb{E}\left[\frac{X_1+\cdots+X_n}{n}\right]\) <br>
+		<br >
+		\(\displaystyle\mathbb{E}[\overline{X}_n]=\frac{\mathbb{E}[X_1]+\cdots+\mathbb{E}[X_n]}{n}\) <br>
+		<br>
+		\(\displaystyle\mathbb{E}[\overline{X}_n]=\frac{n\mu}{n}\)</span> <br>
+		<br>
+		<span class="bb math">
+		\(\displaystyle\mathbb{E}[\overline{X}_n]=\mu\)</span>
+	</blockquote><br>
+</details>
+
+<details open>
+	<summary><span class="bb math">\(\displaystyle\text{Var}[\overline{X}_n]=\frac{n\sigma^2}{n^2}=\frac{\sigma^2}{n}\)</span></summary>
+	<blockquote class="sidebar">
+		\(\displaystyle\text{Var}[\overline{X}_n]=\text{Var}\left[\frac{X_1+\cdots+X_n}{n}\right]\) <br>
+		<br >
+		\(\displaystyle\text{Var}[\overline{X}_n]=\frac{\text{Var}[X_1]+\cdots+\text{Var}[X_n]}{n^2}\) <br>
+		<br>
+		<span class="bb math">
+		\(\displaystyle\text{Var}[\overline{X}_n]=\frac{n\sigma^2}{n^2}=\frac{\sigma^2}{n}\)</span>
+	</blockquote><br>
+</details>
+
+<details open>
+	<summary><span class="bb math">\(\mathbb{P}\left(|\overline{X}_n - \mu| \geq \epsilon\right) \xrightarrow [n\to \infty ] {} 0;\quad\forall\epsilon\gt 0\)</span></summary>
+	<blockquote class="sidebar">
+
+		By <a href="https://en.wikipedia.org/wiki/Chebyshev%27s_inequality">Chebyshev's inequality</a> <sup></sup>
+
+		<br>
+		\(\displaystyle \mathbb{P}\left(|\overline{X}_n - \mu| \geq \epsilon\right) \leq \frac{\text{Var}(\overline{X}_n)}{\epsilon^2}\) <br>
+		<br>
+		\(\displaystyle \mathbb{P}\left(|\overline{X}_n - \mu| \geq \epsilon\right) \leq \frac{\sigma^2}{n\epsilon^2}\xrightarrow [n\to \infty ] {} 0;\quad\forall\epsilon\gt 0\) <br>
+		<br>
+		So for any \(\epsilon\geq0\),
+		\[\mathbb{P}\left(|\overline{X}_n - \mu|\geq \epsilon\right) \xrightarrow [n\to \infty ]{} 0\]
+		<div style="font-size: smaller; text-align: center;">This is convergence in probability</div>
+
+		Now think a very small number, like \(0.00001\)
+		now convergence in probability says that if \(n\) is large enough
+		then it's highly unlikely for \(\overline{X}_n\) to be more than \(0.00001\) units away from \(\mu\). <br>
+		Or say that if \(n\) is large then it's extreamly likely that \(\overline{X}_n\)
+		is extreamly close to \(\mu\)
+	</blockquote><br>
+</details>
+<h4>Interpretation</h4>
+<blockquote class="sidebar">
+	For any \(\epsilon\gt0\) (it's constant) probability that the <b>sample mean\((\overline{X}_n)\)</b> falls away from the <b>true mean\((\mu)\)</b> by <b>more than</b> \(\epsilon\) goes to \(0\) as our <span style="display: inline-block;">sample size \((n)\to\infty\)</span> <br>
+	<br>
+	In our above example we have a population of \(300\) students, among those \(300\) students we randomly select \(50\) students and measure their heights \(X_1,\cdots,X_{50}\). <br>
+	If the <b>true mean</b> of all \(300\) students is \(\mu(=\mathbb{E}[X_i])\), then we can say that, <br>
+	<ul><li>
+		Height of the \(i^{th}\) student is <span class="bb">\(X_i = \mu + W_i\)</span>, where \(W_i\) is the measurement noise for the \(i^{th}\) student, and the Weak Law of Large Numbers tells us that as \(n\to\infty\) then <b>in probability</b> the <b>average</b> sample noise \(\to 0\)
+	</li></ul>
+	So our <b>sample mean</b> \((\overline{X}_n)\) is <b>unlikely</b> to be far from the <b>true mean</b> \((\mu)\)
+
+</blockquote>
+	<!-- </blockquote> -->
+<!-- </details> -->
+
+
+<br>
+So according to Weak Law of Large Numbers if we increase the number of students in our sample from \(n=50\) to say something like \(n=100\) then we <b>should</b> get a better estimate of the <b>true mean</b>. <br>
+<br>
+
+<h3>There is also a <b>Strong Law of large numbers</b>.</h3>
+<blockquote class="sidebar">
+		Strong Law of Large Numbers,
+		<div class="l2 border">
+		\[\overline{X}_n:=\frac{1}{n}\sum _{i=1}^ n X_ i \xrightarrow [n\to \infty ] {\mathbb{P},\text{ a.s.}} \mu\]
+		</div><br>
+		\(:=\quad\) this symbol means <b>"by definition"</b><br>
+		\(\mathbb{P}\quad\) it means <b>"in Probability"</b><br>
+		\(\text{a.s.}\quad\) it means <a href="https://en.wikipedia.org/wiki/Almost_surely">"almost surely"</a>(with probability \(1\))<br>
+		<br>
+				<!-- \[\overline{X}_n:=\frac{1}{n}\sum _{i=1}^ n X_ i \xrightarrow [n\to \infty ]{\text{ a.s.}} \mu\] -->
+<b>Note:</b> \(\text{ a.s.}\) implies \(\mathbb{P}\)
+</blockquote><br>
+
+<span id="how-fast"></span>
+Ok now we know that the Law of large numbers says, if we have large enough Sample size then our estimator \(\overline{X}_n\) and real parameter \(\mu\) are close <span class="bb">\(\overline{X}_n \xrightarrow [n\to \infty] {} \mu\)</span>, but how much close, we don't know! We don't know that how fast(at what rate) \(\overline{X}_n\) approaches to \(\mu\). <br>
+<br>
+We can think it as:<br>
+\[ \left|\overline{X}_n -\mu \right| \propto \frac{1}{f(n)} \]
+
+where \(f(n)\) is an increasing function <span title="with respect to"><u>w.r.t.</u></span> \(n\).<br>
+As \(f(n)\) increases \(\left|\overline{X}_n -\mu\right| \) decreases, so we want a function \(f(n)\)  that increases rapidly w.r.t. \(n\). <br>
+For example \(log(log(n))\) increases very slowly so function like this are not useful.<br>
+So what is the rate at which \(\overline{X}_n\) approaches \(\mu\)? <br>
+The answer is hidden in <a href="/statistics/central-limit-theorem/">Central Limit Theorem</a>. <br>
+<br><br>
+
+<h2 id="gamblers-fallacy">Gambler's Fallacy <a href="#gamblers-fallacy" aria-label="gamblers-fallacy"><i class="fa fa-link" aria-hidden="true"></i></a></h2>
+<b>Gambler's Fallacy</b> also known as <b>Monte Carlo Fallacy</b> is a rather popular <b>mistaken belief</b> that,
+<blockquote>
+If an <b>independent</b> event is occurring <b>more</b> frequently (then it normally does), then it's <b>less</b> likely to occur in the future.<br>
+
+<div style="text-align: center;"><i>Note that this statement is not true, as it's a mistaken belief</i></div>
+</blockquote>
+
+<b>Example:</b><br>
+Say you start flipping a <b>fair</b> coin \((p=0.5)\), and you observe that first \(20\) tosses to be \(\text{Heads}\). <br>
+Then some might say that, <br>
+"According to Law of Large Numbers the average proportion of \(\text{Heads}\) shall be \(50\%\) and we got \(20\) \(\text{Heads}\) in a row so there are high chances for our next toss to be \(\text{Tails}\)." <br>
+<!-- <div class="align-center"> -->
+	<b>But the above statement is <span class="l1">Incorrect</span></b> <br>
+<!-- </div> -->
+Even if you got \(1000\) \(\text{Heads}\) in a row, but the probability of next toss to be \(\text{Tails}\) is still \(50\%\). <br>
+<br>
+
+<b style="font-size: large;">But why exactly is above statement False?</b> <br>
+Because <b>Law of Large Numbers</b> says <b>as \(n\to\infty\) our Sample mean \(\to\) True mean</b>. <br>
+So even if we got \(1000\) \(\text{Heads}\) in a row, there is still \(\infty\) tosses are left to make our <b>Sample mean</b> a <b>True mean</b>.<br>
+
+
+<blockquote class="noborder align-center">
+	Now let's see some Simulation, choose your language of choice,<br>
+	<a href="/statistics/weak-law-of-large-numbers/python/"><img src="/data/img/python.png" alt="Python" width="75px" height="20px"></a> &nbsp;,&nbsp;
+	<a href="/statistics/weak-law-of-large-numbers/julia/"><img src="/data/img/julia.png" alt="Julia" width="53px" height="33px"></a>
+	<br>
+	<a target="=_blank" href="https://app.quantml.org/statistics/?ch=Weak-Law-of-Large-Numbers&dist=Normal+distribution">Launch Statistics App <img src="/data/img/app.png" alt="launch" width="30px" height="30px"></a>
+</blockquote>
+<br>
+
+
+
+<div class="slack-discuss" onclick=" window.open('https://join.slack.com/t/quantml-org/shared_invite/zt-jffw86bo-6M260iyt1q2MgBma9elewg','_blank','noopener')">
+	Join our Slack <img class="slack-logo" src="/data/img/slack.png" alt="Slack"> discussion forum
+</div><br>
+
+<div id="btn-container"></div><br>
+<br>
+<div id="recommended-watchings"></div>
+<script>
+	setTimeout(function(){
+		document.getElementById('recommended-watchings').innerHTML = `
+		<blockquote class="sidebar" style="padding-bottom: 0%;">
+			<h3>Recommended Watching</h3>
+			<details style="margin-top: 10px; margin-bottom: 10px;">
+				<summary><i><span style="text-align: center;" class="bb">Chebyshev's Inequality?</span> (by Prof. John Tsitsiklis)</i></summary>
+				<div style="text-align: center; margin-top:10px;">
+					<iframe width="560" height="315" src="https://www.youtube.com/embed/d5pnfFvggYk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				</div>
+			</details>
+
+			<details style="margin-top: 10px; margin-bottom: 10px;">
+				<summary><i><span style="text-align: center;" class="bb">Chebyshev's Inequality?</span> (by Sir Ben Lambert)</i></summary>
+				<div style="text-align: center; margin-top:10px;">
+					<iframe width="560" height="315" src="https://www.youtube.com/embed/h0YH79kLuOA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				</div>
+			</details>
+
+			<details style="margin-top: 10px; margin-bottom: 10px;">
+				<summary><i><span style="text-align: center;" class="bb">The Weak Law of Large Numbers</span> (by Prof. John Tsitsiklis)</i></summary>
+				<div style="text-align: center; margin-top:10px;">
+					<iframe width="560" height="315" src="https://www.youtube.com/embed/Yh5bR7X3ch8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				</div>
+			</details>
+
+			<details style="margin-bottom: 10px;">
+				<summary><i><span style="text-align: center;" class="bb">Law of Large Numbers</span> (by Sir Jeremy Jones)</i></summary>
+				<div style="text-align: center; margin-top:10px;">
+				<iframe width="560" height="315" src="https://www.youtube.com/embed/MntX3zWNWec" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				</div>
+			</details>
+			<details>
+				<summary><i><span style="text-align: center;" class="bb">The Gambler's Fallacy</span> (by Sir Kevin deLaplante)</i></summary>
+				<div style="text-align: center; margin-top:10px;">
+				<iframe width="560" height="315" src="https://www.youtube.com/embed/3bQEd1aNgxE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br>
+				Also checkout Sir's <a href="https://youtube.com/playlist?list=PLCPXzKiZn7OEUyAKfnLmPxuXxhwjH9bTl">Probability Fallacies playlist</a>
+				</div>
+			</details>
+			<br>
+		</blockquote>
+	`;
+	}, 1000);
+</script>
+<br><br>
+</div>
+<div id="modals-html"></div>
+
+		</section>
+	</div>
+</div>
+
+		<script>requireScript('script-js', '0.1.0', '/data/js/script.js', function(){cssLoaded()})</script>
+
+	</body>
+</html>

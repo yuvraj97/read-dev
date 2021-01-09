@@ -1,0 +1,267 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+	<head>
+		<script>
+			var nextPage = "/statistics/gaussian-distribution/";
+			var prevPage = "/statistics/weak-law-of-large-numbers/";
+			var nextPageTitle = "Gaussian Distribution";
+			var prevPageTitle = "Law of Large Numbers";
+			var arrowLeftPage = "/statistics/central-limit-theorem/python/";
+			var arrowRightPage = "/statistics/hoeffdings-inequality/";
+		</script>
+
+		<link rel="stylesheet" href="/data/css/main.css">
+		
+		<title>Julia | Central Limit Theorem | Fundamentals of Statistics - QuantML</title>
+		<meta charset="utf-8" />
+		<link rel="icon" href="/data/icon.png" type="image/png" sizes="16x16">
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="robots" content="index, follow">
+
+		<script>importPrism = true</script>
+		<script src="/data/js/initialize.js"></script>
+
+	</head>
+
+	<body>
+
+		<!-- Wrapper -->
+			<div style="display: none;" id="wrapper">
+				<div class="bg fixed" style="transform: none;"></div>
+				<div id="navPanelToggle">Menu</div>
+
+
+				<!-- Header -->
+				<header id="header">
+					<a href="https://quantml.org" style="display: none;" class="logo image jump-big" id="quantml-cover-light"><img src="/data/img/cover.webp" alt="QuantML.org" /></a>
+					<a href="https://quantml.org" style="display: none;" class="logo image jump-big" id="quantml-cover-dark"><img src="/data/img-dark/cover.webp" alt="QuantML.org" /></a>
+					<script>
+						if(localStorage.getItem("quantmlTheme")=="dark") document.getElementById('quantml-cover-dark').style.display = "block";
+						else document.getElementById('quantml-cover-light').style.display = "block";
+					</script>
+				</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li class="cover"><a href="/statistics/"><img src="/data/img/STATISTICS-cover.png" alt="STATISTICS"></a></li>
+							<li class="link"><a href="/statistics/central-limit-theorem/">Central Limit Theorem</a></li>
+							<li class="python"><a href="/statistics/central-limit-theorem/python/"><img src="/data/img/python.png" alt="Python"></a></li>
+							<li class="active julia"><img src="/data/img/julia.png" alt="Julia"></li>
+							</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+						<section class="post">
+
+<div style="text-align: center;" id="load-init"></div>
+<script>initializeBody();</script>
+
+<div id="paragraph-content" data-swipe-threshold="80">
+
+<div id="desktop-mode">
+	<div id="btn-container"></div><br>
+</div>
+
+
+<blockquote class="sidebar">
+	First let's see how we can perform a <b>single simulation</b>, then we will see how to perform <b>multiple simulations</b> and <b>visualize</b> the Weak Law of Large Numbers.
+</blockquote><br>
+
+<h1 id="single-simulation">Single Simulation <img src="/data/img/julia.png" alt="Julia" width="53px" height="33px"><a href="#single-simulation" aria-label="single-simulation"><i class="fa fa-link" aria-hidden="true"></i></a></h1>
+
+Assume that there are \(1000\) students in your school and you want to know, what is the average height of \(100\) randomly selected students? And how is that average height distributed (or say the distribution of that average height)?<br>
+
+<a href="/statistics/introduction/#dogma">Remember that dogma</a> <br>
+<img id='dogma' class="full-size-img" src="/statistics/img/dogma.png" alt="Central Dogma of Probability and Statistics">
+
+<h2 id="truth">Truth<a href="#truth" aria-label="truth"><i class="fa fa-link" aria-hidden="true"></i></a></h2>
+Now let's define the <b>truth</b>. <br>
+Say that every student's height follows the <a href="https://en.wikipedia.org/wiki/Continuous_uniform_distribution">Uniform distribution</a> with range of \([165\text{ cm },185\text{ cm}]\). <br>
+So \(X_1,\cdots,X_{50}\sim\text{Unif}[165, 185]\) <br>
+<blockquote class="noborder">
+	<b>Note:</b> This information is completely unknown to us.
+</blockquote>
+<br>
+
+<h2 id="probability">Probability<a href="#probability" aria-label="probability"><i class="fa fa-link" aria-hidden="true"></i></a></h2>
+We use probability to generate data using the <b>Truth</b> we defined above.<br>
+Now let's create the population of all \(1000\) students. <br>
+
+<pre data-start="1"><code class="language-julia line-numbers">using Plots, Distributions, Random, Statistics, StatsBase
+
+N = 1000        # population size
+a = 165 		# Left limit of Unif[a, b]
+b = 185 		# Right limit of Unif[a, b]
+
+distribution = Uniform(a, b)
+population = rand(distribution, N)
+</code></pre>
+<br>
+
+<h2 id="observation">Observation<a href="#observation" aria-label="observation"><i class="fa fa-link" aria-hidden="true"></i></a></h2>
+Now that we have all \(1000\) students, and every student's height follows the <a href="https://en.wikipedia.org/wiki/Continuous_uniform_distribution">Uniform distribution</a>. <br>
+Let's (randomly) take a sample of \(100\) students
+<pre data-start="11"><code class="language-julia line-numbers">n = 100
+sample_ = sample(population,n)
+</code></pre>
+<br>
+
+<h2 id="statistics">Statistics<a href="#statistics" aria-label="statistics"><i class="fa fa-link" aria-hidden="true"></i></a></h2>
+So now we have our sample of \(100\) students, let's estimate the average height of those \(100\) students <b>(sample mean)</b>. <br>
+
+<pre data-start="13"><code class="language-julia line-numbers">sample_mean = mean(sample_)
+</code></pre>
+
+<span class="bb">sample_mean</span> is the average height of \(100\) randomly selected students. <br>
+
+Now let's see how the distribution of the average height of \(100\) randomly selected students look like. <br>
+To achieve this we need to perform this simulation multiple times and plot all sample means as a histogram. <br>
+<br>
+
+<h1 id="multiple-simulations">Multiple simulations <img src="/data/img/julia.png" alt="Julia" width="53px" height="33px"><a href="#multiple-simulations" aria-label="multiple-simulations"><i class="fa fa-link" aria-hidden="true"></i></a></h1>
+The <b>truth</b> is that every student's height follows the <a href="https://en.wikipedia.org/wiki/Continuous_uniform_distribution">Uniform distribution</a> \(\text{Unif}[165, 185]\), so let's start with creating population. <br>
+
+<pre data-start="1"><code class="language-julia line-numbers">using Plots, Distributions, Random, Statistics, StatsBase
+gr(fmt = :png, size = (1540, 810))
+Random.seed!(0)
+
+N = 1000        # population size
+a = 165 		# Left limit of Unif[a, b]
+b = 185 		# Right limit of Unif[a, b]
+
+distribution = Uniform(a, b)
+population = rand(distribution, N)
+</code></pre>
+<br>
+
+Now let's collect <span class="bb">n_simulations</span> sample means of sample size \((n) = 30\). <br>
+(say n_simulations = 500)
+<pre data-start="11"><code class="language-julia line-numbers">n = 30
+n_simulations = 200
+sample_means = Array{Float64}(undef, n_simulations)
+for i = 1:n_simulations
+	sample_means[i] = mean(sample(population,n))
+end
+</code></pre>
+Now let's plot these sample means. <br>
+
+<pre data-start="17"><code class="language-julia line-numbers">num_bins = 50
+Plots.xlabel!("Sample mean")
+Plots.ylabel!("# occurrences of sample mean")
+Plots.histogram(sample_means, bins=num_bins, label=false)
+</code></pre>
+
+<img class="full-size-img" src="/statistics/img/central-limit-theorem/clt-sampeling-distribution-jl.png" alt="">
+<div style="text-align: center;">Sample mean seems to be normally distributed.</div>
+Well it's a Central Limit Theorem Simulation right, and the whole point of CLT is to approximate probability distribution of sample mean \(\overline{X}_n\) to it's corresponding Normal distribution, <b>am I correct?</b> <br>
+Let's see ourselves. Let's overlay a Normal distribution with true mean and variance of <span class="bb">sample_means</span>. <br>
+
+<pre data-start="17"><code class="language-julia line-numbers">samples_mean = mean(sample_means)
+samples_std = std(sample_means)
+
+# Getting PDF
+x = LinRange(samples_mean - 3*samples_std, samples_mean + 3*samples_std, 100)
+pdf_ = pdf.(Normal(samples_mean, samples_std), x)
+plot(x, pdf_, c="green", label="Normal distribution (PDF)", lw=3)
+
+# Getting Histogram
+num_bins = 50
+bins = Array(LinRange(minimum(sample_means), maximum(sample_means), num_bins))
+h = fit(Histogram, sample_means, bins)
+counts = h.weights
+Plots.histogram!(sample_means, bins=bins, weights=(1/sum(counts)).*ones(length(sample_means)))
+</code></pre>
+<img class="full-size-img" src="/statistics/img/central-limit-theorem/clt-sim-pdf-jl.png" alt="">
+Here height of the bins of Sampling distribution represent the probability of falling into that bin. <br>
+The Normal distribution that we plotted have same <b>mean</b> and <b>variance</b> as of our Sampling distribution, but their shapes are way off. <br>
+
+<br>
+<details>
+	<summary><i><span class="bb">Sampling distribution of \(\sqrt{n}\, (\overline{X}_n-\mu)\) is much better fit for Normal distribution</span></i></summary>
+<blockquote class="noborder">
+	If you follow the result of the CLT,
+	\[\sqrt{n}\, (\overline{X}_n-\mu) \xrightarrow [n\to \infty ]{(d)} \mathcal{N}(0,\sigma^2) \]
+	Then you can see our <b>normally distributed</b> data. <br>
+	We just have to  center our observations around \(0\) and then stretch it by a factor of \(\sqrt{n}\). <br>
+
+	<pre data-start="17"><code class="language-python line-numbers">mean_ = mean(sqrt(n) .* (sample_means .- mean(distribution)))
+std_ = sqrt(n) * std(sample_means)
+
+# Centered and stretched sample mean (r.v.)
+sample_means = sqrt(n) .* (sample_means .- mean(distribution))
+
+# Getting Histogram
+num_bins = 50
+bins = Array(LinRange(minimum(sample_means), maximum(sample_means), num_bins))
+h = fit(Histogram, sample_means, bins)
+counts = h.weights
+Plots.histogram(sample_means, bins=bins, weights=(1/sum(counts)).*ones(length(sample_means)))
+
+# Getting PDF N(0, σ)
+x = LinRange(-3*std_, 3*std_, 100)
+pdf_ = pdf.(Normal(0, std_), x)
+plot!(x, pdf_, c="green", label="Normal distribution (PDF)", lw=3)
+</code></pre>
+<img class="full-size-img" src="/statistics/img/central-limit-theorem/clt-centered-jl.png" alt="">
+Now the plot feels much more <b>Normal</b> but here the random variable is \(\sqrt{n}\, (\overline{X}_n-\mu) \) not \(\overline{X}_n\). <br>
+
+<br>
+</blockquote>
+</details>
+<br>
+
+And as we discussed earlier that,
+<blockquote class="sidebar">
+	<b>Central Limit Theorem</b> is <b>not</b> a statement about the convergence of PDF or PMF. It's a statement about the convergence of <b>CDF</b>.
+</blockquote>
+
+Now let's see ourselves,
+
+<pre data-start="31"><code class="language-julia line-numbers"># Plot CDF
+# CDF of Normal Distribution
+cdf_ = cdf.(Normal(samples_mean, samples_std), x)
+plot(x, cdf_, c="green", label="Normal distribution CDF", lw=3)
+
+# CDF of Sampling Distribution
+cdf_ = cumsum(counts)/sum(counts)
+pop!(bins)
+scatter!(bins, cdf_, color="blue", label="Sampling distribution CDF")
+</code></pre>
+
+<img class="full-size-img" src="/statistics/img/central-limit-theorem/clt-sim-cdf-jl.png" alt="">
+Here we can see the beauty of <b>Central limit theorem</b>, we can see how close the CDF of our Sampling distribution get closer to the CDF of a Normal distribution. <br>
+
+Now try tweaking <span class="bb">\(n\)</span> and see how it affects the CDF convergence. <br>
+Also try different distributions form <a href="https://juliastats.org/Distributions.jl/stable/starting/">Distributions.jl</a> <br>
+
+<blockquote class="noborder align-center">
+	<a href="/statistics/central-limit-theorem/python/"><img src="/data/img/python.png" alt="Python" width="75px" height="20px"> Simulation</a>
+	<br>
+    <a target="=_blank" href="https://app.quantml.org/statistics/?ch=Central-Limit-Theorem&dist=Uniform+distribution">Visualize Central Limit Theorem &nbsp;<img src="/data/img/app.png" alt="launch" width="30px" height="30px"></a> <br>
+    Try different distributions, tweak there parameters, sample size, number of simulations and see how it impacts the convergence of <b>CDF</b> of \(\overline{X}_n\).
+</blockquote><br>
+
+
+<div class="slack-discuss" onclick=" window.open('https://join.slack.com/t/quantml-org/shared_invite/zt-jffw86bo-6M260iyt1q2MgBma9elewg','_blank','noopener')">
+	Join our Slack <img class="slack-logo" src="/data/img/slack.png" alt="Slack"> discussion forum
+</div><br>
+
+</div>
+
+<div id="btn-container"></div><br>
+
+
+<div id="modals-html"></div>
+
+					</section>
+					</div>
+			</div>
+
+
+		<script>requireScript('script-js', '0.1.0', '/data/js/script.js', function(){cssLoaded()})</script>
+				
+	</body>
+</html>

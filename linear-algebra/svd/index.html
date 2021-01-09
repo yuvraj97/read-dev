@@ -1,0 +1,763 @@
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+
+        <script>
+            var isConcluded = true;
+            var arrowLeftPage = "/linear-algebra/similar-matrices/"
+            var arrowRightPage = "https://www.quantml.org/"
+        </script>
+
+        <link rel="stylesheet" href="/data/css/main.css">
+                
+		<title>Singular Value Decomposition - QuantML</title>
+		<meta charset="utf-8" />
+        <link rel="icon" href="/data/icon.png" type="image/png" sizes="16x16">
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="robots" content="index, follow">
+        <meta name="author" content="Yuvraj Garg">
+
+        <script src="/data/js/initialize.js"></script>
+
+	</head>   
+    
+    <body>
+
+        <!-- Wrapper -->
+			<div style="display: none;" id="wrapper">
+                <div class="bg fixed" style="transform: none;"></div>
+                <div id="navPanelToggle">Menu</div>
+
+
+				<!-- Header -->
+				<header id="header">
+					<a href="https://quantml.org" style="display: none;" class="logo image jump-big" id="quantml-cover-light"><img src="/data/img/cover.webp" alt="QuantML.org" /></a>
+					<a href="https://quantml.org" style="display: none;" class="logo image jump-big" id="quantml-cover-dark"><img src="/data/img-dark/cover.webp" alt="QuantML.org" /></a>
+					<script>
+						if(localStorage.getItem("quantmlTheme")=="dark") document.getElementById('quantml-cover-dark').style.display = "block";
+						else document.getElementById('quantml-cover-light').style.display = "block";
+					</script>
+				</header>
+
+                <!-- Nav -->
+                    <nav id="nav">
+                        <ul class="links">
+                            <li class="cover"><a href="/linear-algebra/"><img src="/data/img/linear-algebra-cover.png" alt="Linear Algebra"></a></li>
+                            <li class="active title">Singular Value Decomposition</li>
+                        </ul>
+                        <ul id="nav-bar-icons-head" class="icons"></ul>
+                    </nav>
+
+                <!-- Main -->
+                    <div id="main">
+                        <section class="post">
+<div style="text-align: center;" id="load-init"></div>
+<script>initializeBody();</script>
+
+<div id="paragraph-content" data-swipe-threshold="80">
+<div id="btn-container">
+    <button id="prev-btn" class="button" onclick="window.location.href = '/linear-algebra/similar-matrices/';">&#x25C0;&nbsp;&nbsp;Similar Matrices</button>
+    <button style="display: none;" id="next-btn" class="button"  style="float: right;" onclick="window.location.href = 'https://read.quantml.org/statistics/';">Statistics &nbsp; <img style="-webkit-transform: translateY(0.5rem); transform: translateY(0.5rem);" src="/data/icon.png" alt="logo" width="25px" height="25px"></button>
+</div><br>
+
+
+<p>
+<h1>Singular Value Decomposition</h1>
+<blockquote class="noborder">
+<a  href="/linear-algebra/diagonalization/">Previously</a> we have seen that for <b>\(n\times n\)</b> 
+matrix (say\(A\)) with \(n\) independent eigenvectors factorization is,
+<div class="l1 border">
+\[
+    \begin{matrix}
+
+    % equation
+    A=S\Lambda S^{-1}
+    %equation
+
+    \end{matrix}
+\]
+</div>
+<a  href="/linear-algebra/orthonormal-vectors/">Previously</a> we have seen that if eigenvectors of
+matrix \(A\) are <b>orthogonal</b> then \(Q^{-1}=Q^T\), then the factorization is,<br>
+(We discussed it in detail <a  href="/linear-algebra/symmetric-matrices/">HERE</a>)
+<div class="l1 border">
+\[
+    \begin{matrix}
+
+    % equation
+    A=Q\Lambda Q^{T}
+    %equation
+
+    \end{matrix}
+\]
+</div>
+But generally eigenvectors are not orthogonal.
+</blockquote>
+
+<b>Singular Value Decomposition(SVD)</b> is a factorization of <b>any</b> \(m\times n\) matrix.<br>
+<h2><div class="l1 border">
+\[
+    \begin{matrix}
+
+    % equation
+    A=U\Sigma V^T
+    %equation
+
+    \end{matrix}
+\]
+</div></h2>
+Say that we have a \(m\times n\) matrix \(A\) and \(\text{Rank}(A)=r\),<br>
+\[A_{m\times n}=\begin{bmatrix}
+a_{11} & a_{12} & \cdots & a_{1n} \\  
+a_{21} & a_{22} & \cdots &  a_{2n}   \\
+\vdots & \vdots & \ddots & \vdots \\
+a_{m1} & a_{m2} & \cdots & a_{mn} \\
+\end{bmatrix}\]<br>
+
+<blockquote>
+    <u><b>IDEA:</b></u> behind SVD is to map an <b>orthonormal basis</b> in \(\mathbb{R}^n\) 
+    (<a  href="/linear-algebra/fundamental-subspaces/#row-space">Row space</a> + <a  href="/linear-algebra/null-space/">Null Space</a> of matrix \(A^TA\)) to the <b>orthonormal basis</b> in \(\mathbb{R}^m\) 
+    (<a  href="/linear-algebra/column-space/">Column space</a> + <a  href="/linear-algebra/fundamental-subspaces/#left-null-space">Left Null Space</a> of matrix \(AA^T\)).<br>
+</blockquote><br> <!--\(\text{Rank}(A)=r\)-->
+
+<div style="padding-bottom: 15%;">
+<img style="float: right; max-width: 100%;" class="full-size-img" src="/linear-algebra/img/fundamental-subspaces.webp" width="50%" height="50%" alt="">
+The <b>row space</b> is in \(\mathbb{R}^n\), here our row vectors are,<br>
+\(\begin{bmatrix} a_{11} \\ a_{12} \\ \vdots \\ a_{1n}  \end{bmatrix}\in\mathbb{R}^n\), 
+\(\begin{bmatrix} a_{21} \\ a_{22} \\ \vdots \\ a_{2n}  \end{bmatrix}\in\mathbb{R}^n\), 
+\(\cdots\),
+\(\begin{bmatrix} a_{m1} \\ a_{m2} \\ \vdots \\ a_{mn}  \end{bmatrix}\in\mathbb{R}^n\)<br>
+The <b>column space</b> is in \(\mathbb{R}^m\), our column vectors are,<br>
+\(\begin{bmatrix} a_{11} \\ a_{21} \\ \vdots \\ a_{m1}  \end{bmatrix}\in\mathbb{R}^m\), 
+\(\begin{bmatrix} a_{12} \\ a_{22} \\ \vdots \\ a_{m2}  \end{bmatrix}\in\mathbb{R}^m\), 
+\(\cdots\),
+\(\begin{bmatrix} a_{1n} \\ a_{2n} \\ \vdots \\ a_{mn}  \end{bmatrix}\in\mathbb{R}^m\)<br>
+</div>
+
+<blockquote class="noborder">
+A vector (say) \(\vec{v}\in\mathbb{R}^n\) has some portion in <b>Row Space</b> and some in <b>Left Null Space</b>, 
+when we transform that vector  \(\vec{v}\in\mathbb{R}^n\) using matrix \(A\), \(A\vec{v}=\vec{u}\in\mathbb{R}^m\) now this vector
+\(\vec{u}\in\mathbb{R}^m\) has some portion in <b>Column Space</b> and some in <b>Null Space</b><br>
+\(\vec{u}=\vec{u}_p+\vec{u}_n\) <a  href="/linear-algebra/complete-space/">[Reference]</a>
+</blockquote>
+
+<li id="row-space"><b><span class="l1">Row space</span></b> <span class="l1">\((C(A^T))\)</span> (Gather Orthonormal Basis vectors for Row Space)</li>
+<blockquote>
+    <span class="l1">Row vectors</span> lives in \(n\)-dimensional vector space.<br>
+    \(\text{Rank}(A)=r\) so we have \(r\) independent row vectors.<br>
+    So the space spanned by row vectors is \(r\)-dimensional  vector space<b>(Row Space)</b>, so to span this whole 
+    \(r\)-dimensional vector space we need \(r\) independent <b>basis vectors</b>.<br>
+    Among those we choose <b>orthonormal</b> basis vectors.<br>
+    
+    (<i>we can get them using <a  href="/linear-algebra/orthonormal-vectors/#gram-schmidt">Gram Schmidt</a> method, 
+    but here we will use \(A^TA\) to get them we will discuss it below)</i><br>
+    (say) our <b>orthonormal</b> basis vector for <b>Row Space</b> are <span class="bb l1">\(\vec{v}_1,\vec{v}_2,\cdots,\vec{v}_r\)</span>.<br>
+</blockquote>
+
+<li id="null-space"><b><span class="l4">Null Space \((N(A))\)</span></b> (Orthonormal Basis vectors of Null Space)</li>
+<blockquote>
+    <b><span class="l4">Null Space</span></b> is perpendicular to <b>Row Space</b>(we talked about orthogonal subspaces <a  href="/linear-algebra/orthogonal-subspaces/">HERE</a>), 
+    so every vector in Null Space is perpendicular to Row Space.<br>
+    \(\text{Rank}(A)=r\) so we have \(n-r\) dependent(free) row vectors.<br>
+    So the space spanned by vectors in Null Space is \((n-r)\)-dimensional  vector space<b>(Null Space)</b>, so to span this whole 
+    \((n-r)\)-dimensional vector space we need \(n-r\) independent basis vectors in Null Space.<br>    
+    (we don't need to find basis vectors for SVD we discuss it below in Column Space\((C(A))\) section )<br>
+    (say) our <b>orthonormal</b> basis vector for <b>Null Space</b> are <span class="bb l4">\(\vec{v}_{r+1},\vec{v}_{r+2},\cdots,\vec{v}_n\)</span>.<br>
+</blockquote>
+
+<li id="column-space"><b><span class="l2">Column Space \((C(A))\)</span></b> (Map the Orthonormal Basis vectors from the <b>Row Space</b> to <b>Column Space</b>)</li>
+<blockquote>
+    After we got our orthonormal basis vector for <b>Row Space</b> <span class="bb l2">\(\vec{v}_1,\vec{v}_2,\cdots,\vec{v}_n\)</span>, 
+    we map them to the <b>Column Space</b> using matrix \(A\).<br>
+    \(\text{Rank}(A)=r\) so,<br>
+    <div class="l1 border math-container dim">
+    \[
+        \begin{matrix}
+            
+        % equation
+        A\vec{v}_i=\sigma_i\vec{u}_i;\quad\forall i\in\{1,2,\cdots,r\}
+        %equation
+
+        \end{matrix}
+    \]
+    </div>
+
+    For \(i\in\{1,2,\cdots,r\}\) \(A\) maps \(\vec{v}_i\) to \(\sigma_i\vec{u}_i\) then we normalize it to get \(\vec{u}_i\)(unit vector), \(\sigma_i\) is the length of \(A\vec{v}_i\).<br>
+    Now we got the <b>orthonormal basis vector</b> for our column space <span class="bb l2">\(\vec{u}_1,\vec{u}_2,\cdots,\vec{u}_r\)</span><br>
+    <br>
+    <div class="l1 border math-container dim">
+    \[
+        \begin{matrix}
+            
+        % equation
+        A\vec{v}_i=\vec{0};\quad\forall i\in\{r+1,r+2,\cdots,n\}
+        %equation
+
+        \end{matrix}
+    \]
+    </div>
+
+    For \(i\in\{r+1,r+2,\cdots,n\}\)  \(\vec{v}_i\) lives in the <b>Null Space</b> of \(A\)<br>
+    So <span class="bb l3">\(\vec{u}_{r+1},\vec{u}_{r+2},\cdots,\vec{u}_n\)</span> are all \(\vec{0}\)<br>
+    <br>
+
+    <b>But wait <u>WHY</u> all \(\vec{u}_i\)'s are perpendicular to each other?</b><br>
+    we discussed it below in \(A^TA\) section.
+
+</blockquote>
+
+<li id="left-null-space"><b><span class="l3">Left Null Space \((N(A^T))\)</span></b> (Map the Orthonormal Basis vectors from the <b>Null Space</b> to <b>Left Null Space</b>)</li>
+<blockquote>
+    <b><span class="l3">Left Null Space</span></b> is perpendicular to <b>Column Space</b>(we talked about orthogonal subspaces <a  href="/linear-algebra/orthogonal-subspaces/">HERE</a>), 
+    so every vector in Left Null Space is perpendicular to Column Space.<br>
+    \(\text{Rank}(A)=r\) so we have \(m-r\) dependent(free) column vectors.<br>
+    So the space spanned by vectors in Left Null Space is \((m-r)\)-dimensional  vector space<b>(Null Space)</b>, so to span this whole 
+    \((m-r)\)-dimensional vector space we need \(m-r\) independent basis vectors in Left Null Space.<br>
+    (say) our <b>orthonormal</b> basis vector for <b>Left Null Space</b> are <span class="bb l3">\(\vec{u}_{r+1},\vec{u}_{r+2},\cdots,\vec{u}_n\)</span>.<br>
+</blockquote>
+<b id="terminologies"> Terminologies </b><br>
+Say <span class="bb l1">\(\vec{v}_1,\vec{v}_2,\cdots,\vec{v}_r\)</span> are Orthonormal Basis vectors for <b><span class="l1">Row Space \((C(A^T))\) </span></b>,<br>
+and <span class="bb l4">\(\vec{v}_{r+1},\vec{v}_{r+2},\cdots,\vec{v}_n\)</span> are Orthonormal Basis vectors for <b><span class="l4">Null Space \((N(A^T))\)</span></b><br>
+<div class="math-container">
+(say) \(\mathbf{V}'=
+    \begin{bmatrix}
+
+    \begin{matrix}
+    \vdots    & \vdots    &          & \vdots       \\  
+    \vec{v}_1 & \vec{v}_2 & \cdots   &  \vec{v}_r   \\
+    \vdots    & \vdots    &          & \vdots 
+    \end{matrix}
+    &
+    \begin{matrix}
+    \vdots          & \vdots        &          & \vdots \\
+    \vec{v}_{r+1}   & \vec{v}_{r+2} & \cdots   & \vec{v}_n \\
+    \vdots    & \vdots    &          & \vdots 
+    \end{matrix}
+
+    \end{bmatrix}_{n\times n}
+\)<br>
+</div><br>
+<div class="math-container">
+(say) \(\mathbf{U}'=
+    \begin{bmatrix}
+
+    \begin{matrix}
+    \vdots    & \vdots    &          & \vdots       \\  
+    \vec{u}_1 & \vec{u}_2 & \cdots   &  \vec{u}_r   \\
+    \vdots    & \vdots    &          & \vdots 
+    \end{matrix}
+    &
+    \begin{matrix}
+    \vdots          & \vdots        &          & \vdots \\
+    \vec{u}_{r+1}   & \vec{u}_{r+2} & \cdots   & \vec{u}_n \\
+    \underbrace{\vdots}_{=\vec{0}} & \underbrace{\vdots}_{=\vec{0}} & & \underbrace{\vdots}_{=\vec{0}}
+    \end{matrix}
+
+    \end{bmatrix}_{m\times n}
+\)<br>
+</div><br>
+<div class="math-container">
+(say) \(\Sigma'=
+    \begin{bmatrix}
+    \begin{bmatrix}
+    \sigma_1 &             &  & \huge0  \\  
+             &  \sigma_2   &  &           \\
+             &       & \ddots &          \\
+    \huge0   &             &  &  \sigma_r \\
+      
+    \end  {bmatrix}_{r\times r}
+    &
+    \mathbf{0}_{r\times (n-r)}
+    \\
+    \mathbf{0}_{(n-r)\times r} & \mathbf{0}_{(n-r)\times (n-r)}
+    \end{bmatrix}_{n\times n}
+\)<br>
+</div><br>
+
+Mapping from \(\mathbb{R}^n\) to \(\mathbb{R}^m\) is,<br>
+<div class="l1 border">
+\[
+    \begin{matrix}
+
+    % equation
+    A\vec{v}_i=\sigma_i\vec{u}_i;\quad\forall i\in\{1,2,\cdots,n\}
+    %equation
+
+    \end{matrix}
+\]
+</div>
+We can Write it as,
+<div class="math-container">
+\[A\underbrace{\begin{bmatrix}
+\vdots & \vdots &          & \vdots \\  
+\vec{v}_1    &  \vec{v}_2   & \cdots   &  \vec{v}_n   \\
+\vdots & \vdots &          & \vdots 
+\end{bmatrix}}_{ V'_{_{n\times n}} }
+=
+\underbrace{\begin{bmatrix}
+\vdots & \vdots &          & \vdots \\  
+\vec{u}_1    &  \vec{u}_2   & \cdots   &  \vec{u}_n   \\
+\vdots & \vdots &          & \vdots 
+\end{bmatrix}}_{ U'_{m\times n} }
+\underbrace{\begin{bmatrix}
+\begin{bmatrix}
+\sigma_1 &             &            & \huge0         \\  
+         &  \sigma_2   &            &           \\
+         &             & \ddots     &          \\
+\huge0   &             &            &  \sigma_r \\
+  
+\end  {bmatrix}_{r\times r}
+&
+\mathbf{0}_{r\times (n-r)}
+\\
+\mathbf{0}_{(n-r)\times r} & \mathbf{0}_{(n-r)\times (n-r)}
+\end  {bmatrix}}_{ \Sigma'_{n\times n} }\]
+</div>
+So,
+\[
+    AV'_{n\times n}=U'_{m\times n}\Sigma'_{n\times n}
+\]
+
+<li id="full-svd"><b><u>Full SVD</u></b></li>
+<blockquote class="noborder">
+    Say that all columns of our matrix \(A\) are independent \(\Rightarrow \text{Rank}(A)=m\), so<br>
+    <li>Dimension of Row Space is: \(m\)</li>
+    <li>Dimension of Null Space is: \(n-m\)</li>
+    <li>Dimension of Column Space is: \(m\)</li>
+    <li>Dimension of Left Null Space is: \(m-m=0\)</li>
+    Our equation was,<br>
+    <div class="math-container">
+        \[A\underbrace{\begin{bmatrix}
+        \vdots & \vdots &          & \vdots \\  
+        \vec{v}_1    &  \vec{v}_2   & \cdots   &  \vec{v}_n   \\
+        \vdots & \vdots &          & \vdots 
+        \end{bmatrix}}_{ V'_{_{n\times n}} }
+        =
+        \underbrace{\begin{bmatrix}
+        \vdots & \vdots &          & \vdots \\  
+        \vec{u}_1    &  \vec{u}_2   & \cdots   &  \vec{u}_n   \\
+        \vdots & \vdots &          & \vdots 
+        \end{bmatrix}}_{ U'_{m\times n} }
+        \underbrace{\begin{bmatrix}
+        \begin{bmatrix}
+        \sigma_1 &            &            &  \huge0         \\  
+                &  \sigma_2   &             &           \\
+                &             & \ddots     &          \\
+        \huge0  &             &            &  \sigma_m \\
+        
+        \end  {bmatrix}_{m\times m}
+        &
+        \mathbf{0}_{m\times (n-m)}
+        \\
+        \mathbf{0}_{(n-m)\times m} & \mathbf{0}_{(n-m)\times (n-m)}
+        \end  {bmatrix}}_{ \Sigma'_{n\times n} }\]
+    </div>
+
+    So,
+        \[
+            AV'_{n\times n}=U'_{m\times n}\Sigma'_{n\times n}
+        \]
+
+    And as we discussed above that <span class="l3">\(\vec{u}_{r+1},\vec{u}_{r+2},\cdots,\vec{u}_n\)</span> are all \(\vec{0}\), 
+    so we can discard those vectors from our equation so now our equation will become,<br>
+
+    <div class="math-container">
+        \[A\underbrace{\begin{bmatrix}
+        \vdots & \vdots &          & \vdots \\  
+        \vec{v}_1    &  \vec{v}_2   & \cdots   &  \vec{v}_n   \\
+        \vdots & \vdots &          & \vdots 
+        \end{bmatrix}}_{ V_{_{n\times n}} }
+        =
+        \underbrace{\begin{bmatrix}
+        \vdots & \vdots &          & \vdots \\  
+        \vec{u}_1    &  \vec{u}_2   & \cdots   &  \vec{u}_m   \\
+        \vdots & \vdots &          & \vdots 
+        \end{bmatrix}}_{ U_{m\times m} }
+        \underbrace{\begin{bmatrix}
+        \begin{bmatrix}
+        \sigma_1 &             &            & \huge0          \\  
+                &  \sigma_2   &             &           \\
+                &             & \ddots     &          \\
+        \huge0  &             &            &  \sigma_m \\
+        
+        \end  {bmatrix}_{m\times m}
+        &
+        \mathbf{0}_{m\times (n-m)}
+        
+        \end  {bmatrix}}_{ \Sigma_{m\times n} }\]
+    </div>
+    So,
+    <div class="l1 border">
+    \[
+        \begin{matrix}
+            
+        % equation
+        A_{m\times n}V_{n\times n}=U_{m\times m}\Sigma_{m\times n}
+        %equation
+
+        \end{matrix}
+      
+    \]
+    </div>
+    This equation is what we call <b>Full SVD</b>
+</blockquote><br><li id="reduced-svd"><b><u>Reduced SVD</u></b></li>
+    <blockquote class="noborder">
+    If some of the columns of our matrix \(A\) are dependent and say \(\text{Rank}(A)=r\), so<br>
+    <li>Dimension of Row Space is: \(r\)</li>
+    <li>Dimension of Null Space is: \(n-r\)</li>
+    <li>Dimension of Column Space is: \(r\)</li>
+    <li>Dimension of Left Null Space is: \(m-r\)</li>
+    Our equation was,<br>
+    <div class="math-container">
+        \[A\underbrace{\begin{bmatrix}
+        \vdots & \vdots &          & \vdots \\  
+        \vec{v}_1    &  \vec{v}_2   & \cdots   &  \vec{v}_n   \\
+        \vdots & \vdots &          & \vdots 
+        \end{bmatrix}}_{ V'_{_{n\times n}} }
+        =
+        \underbrace{\begin{bmatrix}
+        \vdots & \vdots &          & \vdots \\  
+        \vec{u}_1    &  \vec{u}_2   & \cdots   &  \vec{u}_n   \\
+        \vdots & \vdots &          & \vdots 
+        \end{bmatrix}}_{ U'_{m\times n} }
+        \underbrace{\begin{bmatrix}
+        \begin{bmatrix}
+        \sigma_1 &            &            & \huge0          \\  
+                &  \sigma_2   &            &           \\
+                &             & \ddots     &          \\
+        \huge0  &             &            &  \sigma_m \\
+        
+        \end  {bmatrix}_{m\times m}
+        &
+        \mathbf{0}_{m\times (n-m)}
+        \\
+        \mathbf{0}_{(n-m)\times m} & \mathbf{0}_{(n-m)\times (n-m)}
+        \end  {bmatrix}}_{ \Sigma'_{n\times n} }\]
+    </div>
+
+    So,
+        \[
+            AV'_{n\times n}=U'_{m\times n}\Sigma'_{n\times n}
+        \]
+
+    And as we discussed above that <span class="l3">\(\vec{v}_{r+1},\vec{u}_{r+2},\cdots,\vec{u}_n\)</span> are all \(\vec{0}\), 
+    so these vectors are redundant we can discard those vectors from our equation so now our equation will become,<br>
+
+    <div class="math-container">
+        \[A\underbrace{\begin{bmatrix}
+        \vdots & \vdots &          & \vdots \\  
+        \vec{v}_1    &  \vec{v}_2   & \cdots   &  \vec{v}_r   \\
+        \vdots & \vdots &          & \vdots 
+        \end{bmatrix}}_{ V_{_{n\times r}} }
+        =
+        \underbrace{\begin{bmatrix}
+        \vdots & \vdots &          & \vdots \\  
+        \vec{u}_1    &  \vec{u}_2   & \cdots   &  \vec{u}_r   \\
+        \vdots & \vdots &          & \vdots 
+        \end{bmatrix}}_{ U_{m\times r} }
+        \underbrace{\begin{bmatrix}
+        
+        \sigma_1 &             &            & \huge0         \\  
+                 &  \sigma_2   &            &           \\
+                 &             & \ddots     &          \\
+        \huge0   &             &            &  \sigma_r \\      
+        
+        \end  {bmatrix}}_{ \Sigma_{r\times r} }\]
+    </div>
+    So,
+    <div class="l1 border">
+    \[  \begin{matrix}
+            
+        % equation
+        A_{m\times n}V_{n\times r}=U_{m\times r}\Sigma_{r\times r}
+        %equation
+
+        \end{matrix}
+    \]
+    </div>
+    This equation is what we call <b>Reduced SVD</b>
+</blockquote><br>
+
+We have seen that we can write any \(m\times n\) matrix \(A\) as <span class="bb">\(AV=U\Sigma\)</span> where \(V\) and \(U\)
+are <b>Orthonormal</b> matrix.<br>
+Now the real challange is to find these \(V\) and \(U\) <b>Orthonormal</b> matrix.<br>
+Once we got those \(V\) and \(U\) <b>Orthonormal</b> matrix then we can find \(A\) as,<br>
+\(AV=U\Sigma\)<br>
+\(A=U\Sigma V^{-1}\)<br>
+And because \(V\) is an orthogonal matrix so we know that \(V^{-1}=V^T\)<br>
+To achieve it we need \(V\) to be square matrix so we have to use <b>Full SVD</b> method, then we get<br>
+
+<div class="l1 border">
+\[  \begin{matrix}
+
+    % equation
+    A_{m\times n}=U_{m\times m}\Sigma_{m\times n}V_{n\times n}^{T}
+    %equation
+
+    \end{matrix}
+\]
+</div>
+<span id="find-U-and-V"></span>
+Everything looks good <b>but</b> how to find these \(V\) and \(U\) <b>Orthonormal</b> matrix.<br>
+<blockquote>
+    <b><u>IDEA:</u></b> to find the \(V\) and \(U\) are the Matrices \(A^TA\) and \(AA^T\)
+</blockquote>
+<blockquote>
+    <li><span class="l1">Row space</span> of \(A\) is same as <span class="l1">Row space</span> of \(A^TA\).</li>
+    <i>It is easy to find the basis for <span class="l1">Row space</span> of \(A^TA\), so rather than finding
+    basis for <span class="l1">Row space</span> of \(A\) we will find basis for <span class="l1">Row space</span> of \(A^TA\)</i>
+</blockquote>
+
+<blockquote class="noborder">
+<b>Explanation:</b><br>
+\(A_{m\times n}=\begin{bmatrix}
+a_{11} & a_{12} & \cdots & a_{1n} \\  
+a_{21} & a_{22} & \cdots &  a_{2n}   \\
+\vdots & \vdots & \ddots & \vdots \\
+a_{m1} & a_{m2} & \cdots & a_{mn} \\
+\end{bmatrix}\)<br>
+Let's rewrite \(A^TA\)<br>
+\(A^TA=A^T\begin{bmatrix}
+a_{11} & a_{12} & \cdots & a_{1n} \\  
+a_{21} & a_{22} & \cdots &  a_{2n}   \\
+\vdots & \vdots & \ddots & \vdots \\
+a_{m1} & a_{m2} & \cdots & a_{mn} \\
+\end{bmatrix}\)<br>
+
+Here we can see that we are mapping the <span class="l1">row vectors</span> of \(A\) onto 
+the <span class="l1">Row Space</span> of \(A^T\).<br>
+
+And if \(\text{Rank}(A)=r\) then \(\Rightarrow \text{Rank}(A^T)=r\) so \(A\) and \(A^T\) both are 
+\(r\)-dimensions <span class="l1">Row Space</span>.<br>
+
+So when we map <span class="l1">row vector</span> of \(A\) onto the <span class="l1">Row Space</span> 
+of \(A^T\) then the resulting <span class="l1">Row Space</span> also has \(r\)-dimensions, so we can say that \(\text{Rank}(A^TA)=r\)<br>
+
+Now we can say that <span class="l1">Row Space</span> of \(A\) is same as 
+<span class="l1">Row Space</span> of \(A^TA\).<br>
+<br>
+\((A^TA)^T=A^TA \Rightarrow A^TA\) is symmetric matrix, so <br>
+<span class="l1">Row Space</span> of \(A^TA=\) <span class="l2">Column Space</span> of \(A^TA=\) <span class="l1">Row Space</span> of \(A\)<br>  
+
+</blockquote><br>
+
+<blockquote>
+    <li><span class="l2">Column Space</span> of \(A\) is same as <span class="l2">Column Space</span> of \(AA^T\)</li>
+    <i>It is easy to find the basis for <span class="l2">Column Space</span> of \(AA^T\), so rather than finding
+    basis for <span class="l2">Column Space</span> of \(A\) we will find basis for <span class="l2">Column Space</span> of \(AA^T\)</i>
+</blockquote>
+
+<blockquote class="noborder">
+<b>Explanation:</b><br>
+\(A^T_{m\times n}=\begin{bmatrix}
+a_{11} & a_{21} & \cdots & a_{m1} \\  
+a_{12} & a_{22} & \cdots &  a_{m2}   \\
+\vdots & \vdots & \ddots & \vdots \\
+a_{1n} & a_{2n} & \cdots & a_{mn} \\
+\end{bmatrix}\)<br>
+Let's rewrite \(AA^T\)<br>
+\(AA^T=A\begin{bmatrix}
+a_{11} & a_{21} & \cdots & a_{m1} \\  
+a_{12} & a_{22} & \cdots &  a_{m2}   \\
+\vdots & \vdots & \ddots & \vdots \\
+a_{1n} & a_{2n} & \cdots & a_{mn} \\
+\end{bmatrix}\)<br>
+
+Here we can see that we are mapping the <span >column vectors</span> of \(A^T\) onto 
+the <span class="l2">Column Space</span> of \(A\).<br>
+
+And if \(\text{Rank}(A)=r\) then \(\Rightarrow \text{Rank}(A^T)=r\) so \(A\) and \(A^T\) both are 
+\(r\)-dimensions <span class="l2">Column Space</span>.<br>
+
+So when we map <span >column vector</span> of \(A^T\) onto the <span class="l2">Column Space</span> 
+of \(A\) then the resulting <span class="l2">Column Space</span> also has \(r\)-dimensions, so we can say that \(\text{Rank}(AA^T)=r\)<br>
+
+Now we can say that <span class="l2">Column Space</span> of \(A\) is same as 
+<span class="l2">Column Space</span> of \(AA^T\).<br>
+<br>
+\((AA^T)^T=AA^T \Rightarrow AA^T\) is symmetric matrix, so <br>
+<span class="l2">Column Space</span> of \(AA^T=\) <span class="l1">Row Space</span> of \(AA^T=\) <span class="l2">Column Space</span> of \(A\)<br>
+</blockquote>
+<br>
+
+<h2 id="V">Finding orthonormal Row vectors\((V)\) for matrix \(A\)</h2>
+
+    We discussed that <span class="l1">Row space</span> of \(A\) is same as <span class="l1">Row space</span> of \(A^TA\).<br>
+    So we need to find orthonormal Row vectors for matrix \(A^TA\).<br>
+
+    \(A_{m\times n}=U_{m\times m}\Sigma_{m\times n}V_{n\times n}^{T}\)<br>
+    \((\Sigma^T_{m\times n}=\Sigma_{n\times m})\)<br>
+    \(\Rightarrow (A^T)_{n\times m} = V_{n\times n}\Sigma_{n\times m}U_{m\times m}^{T}\)<br>    
+    \(\Rightarrow (A^T)_{n\times m}A_{m\times n} = V_{n\times n}\Sigma_{n\times m} \underbrace{U_{m\times m}^{T} U_{m\times m}}_{=\mathcal{I}_m} \Sigma_{m\times n}V_{n\times n}^{T}\)<br>
+
+    <blockquote class="noborder">
+    <div class="math-container">
+    \[\Sigma_{n\times m}\Sigma_{m\times n}=  
+    \underbrace{\begin{bmatrix}
+    \begin{bmatrix}
+    \sigma_1 &             &            & \huge0          \\  
+            &  \sigma_2   &             &           \\
+            &             & \ddots     &          \\
+    \huge0  &             &            &  \sigma_m \\
+
+    \end  {bmatrix}_{m\times m}
+    \\
+    \mathbf{0}_{(n-m)\times m}
+    \end  {bmatrix}}_{ \Sigma_{n\times m} } 
+
+    \underbrace{\begin{bmatrix}
+    \begin{bmatrix}
+    \sigma_1 &             &            & \huge0          \\  
+            &  \sigma_2   &             &           \\
+            &             & \ddots     &          \\
+    \huge0  &             &            &  \sigma_m \\
+
+    \end  {bmatrix}_{m\times m}
+    &
+    \mathbf{0}_{m\times (n-m)}
+    \end  {bmatrix}}_{ \Sigma_{m\times n} } 
+    \]
+    </div>
+    <div class="math-container">
+    \[\Sigma_{n\times m}\Sigma_{m\times n}=  
+    \underbrace{\begin{bmatrix}
+    \begin{bmatrix}
+    \sigma_1^2 &             &            & \huge0          \\  
+            &  \sigma_2^2   &             &           \\
+            &             & \ddots     &          \\
+    \huge0  &             &            &  \sigma_m^2 \\
+
+    \end  {bmatrix}_{m\times m}
+    &
+    \mathbf{0}_{m\times (n-m)} \\
+    \mathbf{0}_{(n-m)\times m}  & \mathbf{0}_{(n-m)\times (n-m)} \\
+    \end{bmatrix}}_{ \Sigma^2_{n\times n}}
+    = \Sigma^2_{n\times n}
+    \]
+    </div>
+    <div class="math-container">
+    \[\Sigma^2_{n\times n}=
+    \begin{bmatrix}
+    \begin{bmatrix}
+    \sigma_1^2 &             &            & \huge0          \\  
+            &  \sigma_2^2   &             &           \\
+            &             & \ddots     &          \\
+    \huge0  &             &            &  \sigma_m^2 \\
+
+    \end  {bmatrix}_{m\times m}
+    &
+    \mathbf{0}_{m\times (n-m)} \\
+    \mathbf{0}_{(n-m)\times m}  & \mathbf{0}_{(n-m)\times (n-m)} \\
+    \end{bmatrix}_{n\times n}\]
+    </div>
+    </blockquote><br>
+    \(\Rightarrow (A^T)_{n\times m}A_{m\times n} = V_{n\times n}\Sigma^2_{n\times n}V_{n\times n}^{T}\)<br>
+        Those \(3\) \(\mathbf{0}\) matrices are interesting,
+        <li>\(\mathbf{0}_{m\times (n-m)}\)</li>
+        <li>\(\mathbf{0}_{(n-m)\times m}\)</li>
+        <li>\(\mathbf{0}_{(n-m)\times (n-m)}\)</li>
+        Remember that in Full SVD we said that \(\text{Rank}(A)=m\) so there must be \(n-m\) dependent row vectors.
+        and these \(\mathbf{0}\) matrices are negating those dependent vectors.<br>
+        
+    <blockquote>
+        <a  href="/linear-algebra/symmetric-matrices/#p2">Remember \([A=Q\Lambda Q^T]\)</a> where \(A\) is symmetric matrix.<br>
+    </blockquote>
+    \(A^TA\) is a symmetric matrix, so
+    <blockquote>
+        Columns of \(V\) are <b>eigenvectors</b> of matrix \(A^TA\),  and \(\sigma_i^2\) are the \(i^{th}\) <b>eigenvalue</b> of matrix \(A^TA\)
+    </blockquote><br>
+    <h2 id="U">Finding orthonormal Column Vectors\((U)\) for matrix \(A\)</h2>
+
+    We discussed that <span class="l2">Column Space</span> of \(A\) is same as <span class="l2">Column Space</span> of \(AA^T\).<br>
+    So we need to find orthonormal Column vectors for matrix \(AA^T\).<br>
+
+    \(A_{m\times n}=U_{m\times m}\Sigma_{m\times n}V_{n\times n}^{T}\)<br>
+    \((\Sigma^T_{m\times n}=\Sigma_{n\times m})\)<br>
+    \(\Rightarrow (A^T)_{n\times m} = V_{n\times n}\Sigma_{n\times m}U_{m\times m}^{T}\)<br>    
+    \(\Rightarrow A_{m\times n}(A^T)_{n\times m} = U_{m\times m}\Sigma_{m\times n} \underbrace{V_{n\times n}^{T} V_{n\times n}}_{=\mathcal{I}_n} \Sigma_{n\times m}U_{m\times m}^{T}\)<br>
+
+    <blockquote class="noborder">
+    <div class="math-container">
+        \[\Sigma_{m\times n}\Sigma_{n\times m}=  
+        \underbrace{\begin{bmatrix}
+        \begin{bmatrix}
+        \sigma_1 &             &            & \huge0          \\  
+                &  \sigma_2   &             &           \\
+                &             & \ddots     &          \\
+        \huge0  &             &            &  \sigma_m \\
+
+        \end  {bmatrix}_{m\times m}
+        &
+        \mathbf{0}_{m\times (n-m)}
+        \end  {bmatrix}}_{ \Sigma_{m\times n} } 
+
+        \underbrace{\begin{bmatrix}
+        \begin{bmatrix}
+        \sigma_1 &             &            & \huge0          \\  
+                &  \sigma_2   &             &           \\
+                &             & \ddots     &          \\
+        \huge0  &             &            &  \sigma_m \\
+
+        \end  {bmatrix}_{m\times m}
+        \\
+        \mathbf{0}_{(n-m)\times m}
+        \end  {bmatrix}}_{ \Sigma_{n\times m} }
+        \]
+    </div>
+    
+    <div class="math-container">
+        \[\Sigma_{n\times m}\Sigma_{m\times n}=  
+        \underbrace{\begin{bmatrix}
+        \sigma_1^2 &             &            & \huge0          \\  
+                &  \sigma_2^2   &             &           \\
+                &             & \ddots     &          \\
+        \huge0  &             &            &  \sigma_m^2 \\
+
+        \end{bmatrix}}_{ \Sigma^2_{m\times m}}
+        = \Sigma^2_{m\times m}
+        \]
+    </div>
+    \[\Sigma^2_{m\times m}=
+    \begin{bmatrix}
+    \sigma_1^2 &             &            & \huge0          \\  
+            &  \sigma_2^2   &             &           \\
+            &             & \ddots     &          \\
+    \huge0  &             &            &  \sigma_m^2 \\
+
+    \end{bmatrix}_{m\times m}\]
+    </blockquote><br>
+    \(\Rightarrow A_{m\times n}(A^T)_{n\times m} = U_{m\times m}\Sigma^2_{m\times m}U_{m\times m}^{T}\)<br>
+    This time there isn't any  \(\mathbf{0}\) matrix, because as we discussed,
+    in Full SVD \(\text{Rank}(A)=m\) so all columns vectors and row vectors of \(U\) are independent.<br>
+    <br>
+
+    <blockquote>
+        <a  href="/linear-algebra/symmetric-matrices/#p2">Remember \([A=Q\Lambda Q^T]\)</a> where \(A\) is symmetric matrix.<br>
+    </blockquote>
+    \(AA^T\) is a symmetric matrix, so
+    <blockquote>
+        Columns of \(U\) are <b>eigenvectors</b> of matrix \(AA^T\),  and \(\sigma_i^2\) are the \(i^{th}\) <b>eigenvalue</b> of matrix \(AA^T\)
+    </blockquote>
+
+</p>
+<div class="slack-discuss" onclick=" window.open('https://join.slack.com/t/quantml-org/shared_invite/zt-jffw86bo-6M260iyt1q2MgBma9elewg','_blank')">
+    Join our Slack <img src="/data/img/slack.png" alt="Slack"> discussion forum
+</div>
+<br>
+</div>
+<div id="btn-container">
+    <button id="prev-btn" class="button" onclick="window.location.href = '/linear-algebra/positive-definite-matrices/';">&#x25C0;&nbsp;&nbsp;Positive Definite Matrices</button>
+    <button style="display: none;" id="next-btn" class="button"  style="float: right;" onclick="window.location.href = 'https://read.quantml.org/statistics/';">Statistics &nbsp; <img style="-webkit-transform: translateY(0.5rem); transform: translateY(0.5rem);" src="/data/icon.png" alt="logo" width="25px" height="25px"></button>
+</div><br>
+
+    <div id="modals-html"></div>
+
+                    </section>
+                    </div>
+            </div>
+
+        <!-- Scripts -->
+        <script>requireScript('script-js', '0.1.0', '/data/js/script.js', function(){cssLoaded()})</script>
+
+    </body>
+</html>

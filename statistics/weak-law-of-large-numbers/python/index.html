@@ -1,0 +1,214 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+	<head>
+		<script>
+			var nextPage = "/statistics/central-limit-theorem/";
+			var prevPage = "/statistics/introduction/";
+			var nextPageTitle = "Central Limit Theorem";
+			var prevPageTitle = "Introduction";
+			var arrowLeftPage = "/statistics/weak-law-of-large-numbers/";
+			var arrowRightPage = "/statistics/weak-law-of-large-numbers/julia/";
+		</script>
+
+		<link rel="stylesheet" href="/data/css/main.css">
+		
+		<title>Python | Weak Law of Large Numbers | Fundamentals of Statistics - QuantML</title>
+		<meta charset="utf-8" />
+		<link rel="icon" href="/data/icon.png" type="image/png" sizes="16x16">
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="robots" content="index, follow">
+
+		<script>importPrism = true</script>
+		<script src="/data/js/initialize.js"></script>
+
+	</head>
+
+	<body>
+
+		<!-- Wrapper -->
+			<div style="display: none;" id="wrapper">
+				<div class="bg fixed" style="transform: none;"></div>
+				<div id="navPanelToggle">Menu</div>
+
+
+				<!-- Header -->
+				<header id="header">
+					<a href="https://quantml.org" style="display: none;" class="logo image jump-big" id="quantml-cover-light"><img src="/data/img/cover.webp" alt="QuantML.org" /></a>
+					<a href="https://quantml.org" style="display: none;" class="logo image jump-big" id="quantml-cover-dark"><img src="/data/img-dark/cover.webp" alt="QuantML.org" /></a>
+					<script>
+						if(localStorage.getItem("quantmlTheme")=="dark") document.getElementById('quantml-cover-dark').style.display = "block";
+						else document.getElementById('quantml-cover-light').style.display = "block";
+					</script>
+				</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li class="cover"><a href="/statistics/"><img src="/data/img/STATISTICS-cover.png" alt="STATISTICS"></a></li>
+							<li class="link"><a href="/statistics/weak-law-of-large-numbers/">Weak Law of Large Numbers</a></li>
+							<li class="active python"><img src="/data/img/python.png" alt="Python"></li>
+							<li class="julia"><a href="/statistics/weak-law-of-large-numbers/julia/"><img src="/data/img/julia.png" alt="Julia"></a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+						<section class="post">
+
+<div style="text-align: center;" id="load-init"></div>
+<script>initializeBody();</script>
+
+<div id="paragraph-content" data-swipe-threshold="80">
+
+<div id="desktop-mode">
+	<div id="btn-container"></div><br>
+</div>
+
+
+<blockquote class="sidebar">
+    First let's see how we can perform a <b>single simulation</b>, then we will see how to perform <b>multiple simulations</b> and <b>visualize</b> the Weak Law of Large Numbers.
+</blockquote><br>
+<h1 id="single-simulation">Single Simulation <img src="/data/img/python.png" alt="Python" width="112.5px" height="30px"></h1>
+
+Say that you want to know the average height of your classroom students. <br>
+There are \(300\) students, and you want to know, what is the average height of those \(300\) students?<br>
+You can<b>'t</b> measure height of all \(300\) students, so you took small sample of \(50\) students, and measure their heights, and suppose that the average height of those \(50\) students <b>(sample mean)</b>, is somewhat near to the average height of all \(300\) students <b>(true mean)</b>. <br>
+So the <b>population size</b>\((N)\) is \(300\) and <b>sample size</b>\((n)\) is \(50\). <br>
+<br>
+<a href="/statistics/introduction/#dogma">Remember that dogma</a> <br>
+<img id='dogma' class="full-size-img" src="/statistics/img/dogma.png" alt="Central Dogma of Probability and Statistics">
+
+<h2 id="truth">Truth</h2>
+Now let's define the <b>truth</b>. <br>
+Say that the every student's height follows the <a href="https://en.wikipedia.org/wiki/Normal_distribution">Normal distribution</a> with <b>mean</b> \((\mu)= 175 \text{cm}\) and <b>variance</b> \((\sigma^2)=(10\text{cm})^2\). <br>
+So \(X_1,\cdots,X_{50}\sim\mathcal{N}(175,10^2)\) <br>
+<blockquote class="sidebar">
+    Here we can argue that Normal distribution take values between \((-\infty,\infty)\), but heights aren't negative. <br>
+    <b>Clarification:</b> <br>
+    Yes \(\mathcal{N}(175,10^2)\) can take negative values but for \(\mathcal{N}(175,10^2)\) probability of taking negative values in insanely small.
+</blockquote> <br>
+<!-- <blockquote>
+    <b>Note</b> that we don<b>'t</b> know the population <b>mean</b>, <b>variance</b> and the underlying <b>distribution</b> behind the students height. <br>
+    Here we assumed that the average height of all \(300\) students is \(175\text{cm}\) and their heights varies with variance of \((10\text{cm})^2\). <br>
+    Then we assumed that their height is <b>Normally distributed</b>
+</blockquote> -->
+
+<h2 id="probability">Probability</h2>
+We use probability to generate data using the <b>Truth</b> we defined above.<br>
+Now let's create the population of all \(300\) students. <br>
+
+<pre data-start="1"><code class="language-python line-numbers">import numpy as np
+import matplotlib.pyplot as plt
+from scipy.stats import norm # to draw random variables from Normal distribution
+
+N = 300         # population size
+true_mean = 175 # average height of all 300 students
+standard_deviation = 10
+
+# For clarification:
+# Our notation of Normal distribution is N(mean, variance)
+# And scipy.stats.norm notation is N(mean, standard_deviation)
+distribution = norm(true_mean, np.sqrt(standard_deviation))
+population = distribution.rvs(N)
+</code></pre>
+<br>
+
+<h2 id="observation">Observation</h2>
+Now that we have all \(300\) students, and every student's height follows the <a href="https://en.wikipedia.org/wiki/Normal_distribution">Normal distribution</a> with <b>mean</b> \((\mu)= 175 \text{cm}\) and <b>variance</b> \((\sigma^2)=(10\text{cm})^2\). <br>
+Let's (randomly) take a sample of \(50\) students
+<pre data-start="14"><code class="language-python line-numbers">n = 50
+sample = np.random.choice(population,n)
+</code></pre>
+<br>
+
+<h2 id="statistics">Statistics</h2>
+So now we have our sample of \(50\) students, let's estimate the average height of those \(50\) students <b>(sample mean)</b>. <br>
+
+<pre data-start="16"><code class="language-python line-numbers">sample_mean = np.mean(sample)
+</code></pre>
+
+Congratulation we got our sample mean. <br>
+<!-- (student)  -->
+<b>But</b> wait this is not the <b>Weak Law of Large Number</b>, it's just a sample mean. <br>
+Exactly this is not the <b>Weak Law of Large Number</b>, but to visualize the Weak Law of Large Number we just need to perform this simulation with increasing <b>sample size</b>\((n)\) and see if our <b>sample mean</b> converges to \(175\text{cm}\). <br>
+So let's dive into it. <br>
+<br>
+
+<h1 id="multiple-simulations">Multiple simulations <img src="/data/img/python.png" alt="Python" width="112.5px" height="30px"></h1>
+The <b>truth</b> is that every student's height follows the <a href="https://en.wikipedia.org/wiki/Normal_distribution">Normal distribution</a> with <b>mean</b> \((\mu)= 175 \text{cm}\) and <b>variance</b> \((\sigma^2)=(10\text{cm})^2\). <br>
+
+First create a population
+<pre data-start="1"><code class="language-python line-numbers">import numpy as np
+import matplotlib.pyplot as plt
+from scipy.stats import norm # to draw random variables from Normal distribution
+np.random.seed(1)
+
+N = 300         # population size
+true_mean = 175 # average height of all 300 students
+standard_deviation = 10
+
+# For clarification:
+# Our notation of Normal distribution is N(mean, variance)
+# And scipy.stats.norm notation is N(mean, standard_deviation)
+distribution = norm(true_mean, np.sqrt(standard_deviation))
+population = distribution.rvs(N)</code></pre>
+<br>
+
+Now take <b>sample mean</b> for \(n=1\) to \(n=300\) then plot them and observe the trend, do the sample mean converges as sample size \((n)\) increases.
+<pre data-start="14"><code class="language-python line-numbers">sample_mean = []     # sample mean for each n
+for n in range(N):
+    sample_mean.append(np.mean(population[:n+1]))
+
+x_axis = [i+1 for i in range(N)] # [1,2,...,N]
+plt.plot(x_axis, population, 'o', color='grey', alpha=0.5)
+label = f'$\\bar X_n$ for $X_i \sim N({true_mean},{standard_deviation})$'
+plt.plot(x_axis, sample_mean, 'g-', lw=3, alpha=0.6, label=label)
+plt.plot(x_axis, [true_mean] * N, 'k--', lw=1.5, label='$\mu$')
+plt.vlines(x_axis, true_mean, population, lw=0.2)
+bbox = (0.0, 1.0 , 1.0, 0.1)
+legend_args = {'ncol': 2,
+               'bbox_to_anchor': bbox,
+               'mode': 'expand'}
+
+plt.legend(**legend_args, fontsize=12)
+</code></pre>
+
+<img class="full-size-img" src="/statistics/img/lln.png" alt=""><br>
+<div style="text-align: center;">
+    x-axis represents number of students \((n)\)  <br>
+    y-axis represents random variable \(\overline{X}_n\)
+</div>
+Here in this simulation we can see that as \(n\) increases \(\overline{X}_n\) do approaches to \(\mu\). <br>
+Try playing with <b>parameters</b>, also try different distributions.<br>
+<br>
+
+
+<blockquote class="noborder align-center">
+	<a href="/statistics/weak-law-of-large-numbers/julia/"><img src="/data/img/julia.png" alt="Julia" width="53px" height="33px"> Simulation</a>
+	<br>
+    <a target="=_blank" href="https://app.quantml.org/statistics/?ch=Weak-Law-of-Large-Numbers&dist=Normal+distribution">Visualize Weak Law of Large Numbers &nbsp;<img src="/data/img/app.png" alt="launch" width="30px" height="30px"></a> <br>
+    Try different distributions, tweak there parameters, and see how it impacts the convergence of \(\overline{X}_n\).
+</blockquote>
+
+<br><br>
+<div class="slack-discuss" onclick=" window.open('https://join.slack.com/t/quantml-org/shared_invite/zt-jffw86bo-6M260iyt1q2MgBma9elewg','_blank','noopener')">
+	Join our Slack <img class="slack-logo" src="/data/img/slack.png" alt="Slack"> discussion forum
+</div><br>
+
+</div>
+
+<div id="btn-container"></div><br>
+
+
+<div id="modals-html"></div>
+
+					</section>
+					</div>
+			</div>
+
+
+		<script>requireScript('script-js', '0.1.0', '/data/js/script.js', function(){cssLoaded()})</script>
+		
+	</body>
+</html>

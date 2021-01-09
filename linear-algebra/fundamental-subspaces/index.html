@@ -1,0 +1,307 @@
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+
+        <script>
+            var isConcluded = true;
+            var arrowLeftPage = "/linear-algebra/rank/"
+            var arrowRightPage = "/linear-algebra/matrix-space/"
+        </script>
+
+        <link rel="stylesheet" href="/data/css/main.css">
+                
+		<title>4 fundamental subspaces - QuantML</title>
+		<meta charset="utf-8" />
+        <link rel="icon" href="/data/icon.png" type="image/png" sizes="16x16">
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="robots" content="index, follow">
+        <meta name="author" content="Yuvraj Garg">
+
+        <script src="/data/js/initialize.js"></script>
+
+	</head>   
+    
+    <body>
+
+        <!-- Wrapper -->
+			<div style="display: none;" id="wrapper">
+                <div class="bg fixed" style="transform: none;"></div>
+                <div id="navPanelToggle">Menu</div>
+
+
+				<!-- Header -->
+				<header id="header">
+					<a href="https://quantml.org" style="display: none;" class="logo image jump-big" id="quantml-cover-light"><img src="/data/img/cover.webp" alt="QuantML.org" /></a>
+					<a href="https://quantml.org" style="display: none;" class="logo image jump-big" id="quantml-cover-dark"><img src="/data/img-dark/cover.webp" alt="QuantML.org" /></a>
+					<script>
+						if(localStorage.getItem("quantmlTheme")=="dark") document.getElementById('quantml-cover-dark').style.display = "block";
+						else document.getElementById('quantml-cover-light').style.display = "block";
+					</script>
+				</header>
+
+                <!-- Nav -->
+                    <nav id="nav">
+                        <ul class="links">
+                            <li class="cover"><a href="/linear-algebra/"><img src="/data/img/linear-algebra-cover.png" alt="Linear Algebra"></a></li>
+                            <li class="active title">4 fundamental subspaces</li>
+                        </ul>
+                        <ul id="nav-bar-icons-head" class="icons"></ul>
+                    </nav>
+
+                <!-- Main -->
+                    <div id="main">
+                        <section class="post">
+<div style="text-align: center;" id="load-init"></div>
+<script>initializeBody();</script>
+
+<div id="paragraph-content" data-swipe-threshold="80">
+<div id="btn-container">
+    <button id="prev-btn" class="button" onclick="window.location.href = '/linear-algebra/rank/';">&#x25C0;&nbsp;&nbsp;Rank Of a Matrix</button>
+    <button id="next-btn" class="button"  style="float: right;" onclick="window.location.href = '/linear-algebra/matrix-space/';">Matrix Space&nbsp;&nbsp;&#x25B6;</button>
+</div><br>
+
+
+<p>
+<h1>4 fundamental subspaces</h1>
+
+Our \(4\) fundamental subspaces are,<br>
+<li><a  href="/linear-algebra/complete-space/">Column Space\((C(A))\)</a></li>
+<li><a  href="/linear-algebra/null-space/">Null Space\((N(A))\)</a></li>
+<li>Row Space</li>
+<li>Left Null Space</li>
+We discussed about
+<a  href="/linear-algebra/complete-space/">Column Space</a> and
+<a  href="/linear-algebra/null-space/">Null Space</a>, 
+what new is <b>Row Space</b> and <b>Left Null Space</b>.<br>
+<br>
+
+<h2 id="row-space">Row Space</h2>
+Say we have a \(m\times n\) matrix \(A\).<br>
+<b>Row Space</b> of \(A\) is all the <b>linear combination</b> of <b>rows</b> of matrix \(A\).<br>
+We can also say that <b>Row space</b> of \(A\) is all the <b>linear combination</b> of <b>columns</b> of matrix \(A^T\).<br>
+<blockquote>
+So <b>Row space</b> of matrix \(A\) is the Column Space of matrix \(A^T\).<br>
+<b>Row space</b> is \(C(A^T)\)
+</blockquote><br>
+<br>
+
+<h2 id="left-null-space">Left Null Space</h2>
+Say we have a \(m\times n\) matrix \(A\).<br>
+Then <b>Left Null Space</b> is the Null Space of \(A^T\), so, <br>
+<blockquote>For a matrix \(A\) the <b>Left Null space</b> is the space of all \(\vec{x}\) that solves \(A^T\vec{x}=\vec{0}\)</blockquote><br>
+
+<h1 id="dim">Dimensions of fundamental spaces</h1>
+<br>
+
+<h2 id="dim-column-space">Dimensions of Column space</h2>
+Say we have a \(m\times n\) matrix \(A\) and \(\text{Rank}(A)=r\).<br>
+Here we have \(n\) columns and each column have \(m\) components.<br>
+<blockquote>
+So every <b>column vector</b> of matrix \(A\) \(\in\mathbb{R}^m\).<br>
+So the <b>Column space</b> of matrix \(A\) lives in \(\mathbb{R}^m\).<br>
+</blockquote>
+\(\text{Rank}(A)=r\) so we know that we have \(r\) <b>independent columns</b> in matrix \(A\).<br>
+<blockquote>
+The <b>Column space</b> of \(A\) is spanned by these \(r\) <b>independent columns vectors</b> of matrix \(A\).<br>
+So then dimension of the <b>column space</b> is \(r\).<br>
+\[\text{dim }C(A)=r\]
+</blockquote><br>
+
+<h2 id="dim-null-space">Dimensions of Null space</h2>
+Say we have a \(m\times n\) matrix \(A\) and \(\text{Rank}(A)=r\).<br>
+For matrix \(A\) the <b>Null space</b> is the space of all \(\vec{x}\) that solves \(A\vec{x}=\vec{0}\).<br>
+<blockquote>
+We know that \(A\) is a \(m\times n\) matrix, so \(\vec{x}\in\mathbb{R}^n\).<br>
+So the <b>Null space</b> of matrix \(A\) lives in \(\mathbb{R}^n\).<br>
+</blockquote>
+\(\text{Rank}(A)=r\) so we know that we have \(r\) <b>independent columns</b> in matrix \(A\).<br>
+So there are \(n-r\) <b>dependent column vector</b>(special solution) in matrix \(A\).<br>
+<blockquote>
+The <b>Null space</b> is spanned by these \(n-r\) <b>dependent column vector</b> of matrix \(A\).<br>
+So then dimension of the <b>null space</b> of matrix \(A\) is \(n-r\).<br>
+\[\text{dim }N(A)=n-r\]
+</blockquote><br>
+
+<h2 id="dim-row-space">Dimensions of Row space</h2>
+Say we have a \(m\times n\) matrix \(A\) and \(\text{Rank}(A)=r\).<br>
+Here we have \(m\) rows and each row have \(n\) components.<br>
+<blockquote>
+So every <b>row vector</b> of matrix \(A\) \(\in\mathbb{R}^n\).<br>
+So the <b>Row space</b> of matrix \(A\) lives in \(\mathbb{R}^n\).<br>
+</blockquote>
+\(\text{Rank}(A)=\text{Rank}(A^T)\) <a  href="https://www.khanacademy.org/math/linear-algebra/matrix-transformations/matrix-transpose/v/linear-algebra-rank-a-rank-transpose-of-a">[proof]</a><br>
+\(\text{Rank}(A)=r\Rightarrow\) \(\text{Rank}(A^T)=r\) so we know that we have \(r\) <b>independent columns</b> in matrix \(A^T\).<br>
+OR say that we have \(r\) <b>independent rows</b> in matrix \(A\).<br>
+<blockquote>
+The <b>Row space</b> of \(A\) is spanned by these \(r\)  <b>independent row vectors</b> of \(A\).<br>
+<b>OR</b> say that, 
+the <b>Column space</b> of \(A^T\) is spanned by these \(r\) <b>independent columns vectors</b> of \(A^T\).<br>
+So then dimension of the <b>row space</b> of matrix \(A\) is \(r\).<br>
+\[\text{dim }C(A^T)=r\]
+</blockquote><br>
+
+<h2 id="dim-left-null-space">Dimensions of Left Null space</h2>
+Say we have a \(m\times n\) matrix \(A\) and \(\text{Rank}(A)=r\).<br>
+For a matrix \(A\) the <b>Left Null space</b> is the space of all \(\vec{x}\) that solves \(A^T\vec{x}=\vec{0}\).<br>
+<blockquote>
+We know that \(A^T\) is a \(n\times m\) matrix, so \(\vec{x}\in\mathbb{R}^m\).<br>
+So the <b>Left Null space</b> of matrix \(A\) lives in \(\mathbb{R}^m\).<br>
+</blockquote>
+\(\text{Rank}(A)=\text{Rank}(A^T)\) <a  href="https://www.khanacademy.org/math/linear-algebra/matrix-transformations/matrix-transpose/v/linear-algebra-rank-a-rank-transpose-of-a">[proof]</a><br>
+\(\text{Rank}(A)=r\Rightarrow\) \(\text{Rank}(A^T)=r\) so we know that we have \(r\) <b>independent columns</b> in matrix \(A^T\).<br>
+OR say that we have \(r\) <b>independent rows</b> in matrix \(A\).<br>
+<blockquote>
+So there are \(m-r\) <b>dependent column vector</b>(special solution) in matrix \(A^T\).<br>
+The <b>Left Null space</b> is spanned by these \(m-r\) <b>dependent column vector</b> in matrix \(A\).<br>
+So then dimension of the <b>left null space</b> is \(m-r\).<br>
+\[\text{dim }N(A^T)=m-r\]
+</blockquote><br>
+<br><img class="full-size-img" src="/linear-algebra/img/fundamental-subspaces.webp" width="447" height="357" alt=""><br>
+<br>
+
+<h1 id="basis">Basis of fundamental spaces</h1>
+<br>
+
+<h2 id="basis-column">Basis of Column space</h2>
+Say we have a \(m\times n\) matrix \(A\) and \(\text{Rank}(A)=r\).<br>
+<blockquote>
+Here we have \(r\) <b>independent columns</b> in \(A\).<br>
+And these <b>independent columns</b> are the basis of <b>Column space</b>.
+</blockquote>
+We talked about <b>Basis of Column space</b> <a  href="/linear-algebra/rank/#cs">[HERE]</a><br>
+<br>
+
+<h2 id="basis-null">Basis of Null space</h2>
+Say we have a \(m\times n\) matrix \(A\) and \(\text{Rank}(A)=r\).<br>
+<blockquote>
+Here we have \(n-r\) <b>special solutions</b>.<br>
+And these <b>special solutions</b> are the basis of <b>Null space</b>.
+</blockquote>
+We talked about <b>Basis of Null space</b> <a  href="/linear-algebra/rank/#ns">[HERE]</a><br>
+<br>
+
+<h2 id="basis-row">Basis of Row space</h2>
+Say we have a \(m\times n\) matrix \(A\) and \(\text{Rank}(A)=r\).<br>
+<blockquote>
+\(\text{Rank}(A)=r\Rightarrow\) \(\text{Rank}(A^T)=r\) so here we have \(r\) 
+<b>independent columns</b> in \(A^T\).<br>
+So we can also say that there are \(r\) <b>independent rows</b> in \(A\).<br>
+And these <b>independent rows</b> of \(A\) are the basis of <b>Row space</b>.
+</blockquote>
+<b>Example,</b><br>
+<dl><dd>
+Say \(A=\begin{bmatrix}
+1 & 2 & 3 & 1\\
+1 & 1 & 2 & 1\\
+1 & 2 & 3 & 1\\
+\end{bmatrix}\)<br>
+It's <b>reduced row echelon form</b> is,<br>
+\(R=\begin{bmatrix}
+\color{blue}{\fbox{1}} & \color{blue}{0} & \color{red}{1}        & \color{red}{1} \\
+\color{blue}{0}        & \color{blue}{\fbox{1}} & \color{red}{1} & \color{red}{0}  \\
+            0         &         0       &           0           &       0          \\
+\end{bmatrix}\)<br>
+Here we can clearly see that rank\((r)\) is \(2\).<br>
+<blockquote class="noborder">
+    Our row operation preserve the <b>row space</b>.<br>
+    It mean our row space is unaffected during row operations while reducing it to reduced row echelon form.<br>
+    Because we are just taking the <b>linear combinations</b> of rows and linear combinations of two vectors
+    in row space remains in row space.<br>
+    <br>
+    But column space might changed.
+</blockquote><br>
+Here the basis for <b>Row space</b> is first \(r\) row vectors in \(R\).<br>
+So our basis are 
+\(\begin{bmatrix} 1\\0\\1\\1\\ \end{bmatrix}\), 
+\(\begin{bmatrix} 0\\1\\1\\0\\ \end{bmatrix}\)
+</dd></dl>
+
+<h2 id="basis-left-null">Basis of Left Null space</h2>
+Say we have a \(m\times n\) matrix \(A\) and \(\text{Rank}(A)=r\).<br>
+For matrix \(A\) the <b>Left Null space</b> is the space of all \(\vec{x}\) that solves \(A^T\vec{x}=\vec{0}\).<br>
+When we reduce \(A\) in <b>reduced row echelon form</b>, then <b># zero</b> rows are \(m-r\).<br>
+So we have \(m-r\) <b>special solutions</b> for our <b>Left null space</b>.<br>
+And these <b>special solutions</b> are the basis of <b>Left Null space</b>.<br>
+<br>
+To find the basis we <b>can</b> take the transpose of \(A\) and find the null space of \(A^T\).<br>
+But this is not intuitive for <b>row space</b> perspective.<br>
+So what we do is while reducing the matrix \(A\) to the <b>reduced row echelon form</b>\((R)\),
+by using <a  href="http://math.mit.edu/~mckernan/Teaching/08-09/Autumn/18.700/l_5.pdf">Gauss-Jordan elimination</a> technique
+we can keep the track of our action.<br>
+And it will result in a matrix say \(E\).<br>
+\(EA=R\)<br>
+then last \(m-r\) rows of \(E\) will be our <b>basis</b> for <b>Left null space</b>.<br>
+<b>Example,</b>
+
+<dl><dd>
+Say \(A=\begin{bmatrix}
+1 & 2 & 3 & 1\\
+1 & 1 & 2 & 1\\
+1 & 2 & 3 & 1\\
+\end{bmatrix}\)<br>
+Now let's find it's <b>reduced row echelon form</b> Gauss Jordan,<br>
+
+\(\left[  \begin{array}{cccc|ccc}
+1 & 2 & 3 & 1   &     1 & 0 & 0 \\
+1 & 1 & 2 & 1   &     0 & 1 & 0 \\
+1 & 2 & 3 & 1   &     0 & 0 & 1 \\
+\end{array}   \right]
+\)<br>
+\(R_2 \leftarrow R_2 - R_1\) and \(R_3 \leftarrow R_3 - R_1\)<br>
+
+\(\left[  \begin{array}{cccc|ccc}
+\color{blue}{\fbox{1}} &  2 &  3 & 1     &    1 & 0 & 0 \\
+                     0 & -1 & -1 & 0     &   -1 & 1 & 0 \\
+                     0 &  0 &  0 & 0     &   -1 & 0 & 1 \\
+\end{array}   \right]
+\)<br>
+
+\(R_2 \leftarrow -R_2 \)<br>
+
+\(\left[  \begin{array}{cccc|ccc}
+\color{blue}{\fbox{1}} &                       2 &  3 &  1     &     1 &  0 &  0 \\
+                     0 &  \color{blue}{\fbox{1}} &  1 &  0     &     1 & -1 &  0 \\
+                     0 &                       0 &  0 &  0     &    -1 &  0 & 1 \\
+\end{array}   \right]
+\)<br>
+
+\(R_1 \leftarrow R_1 -R_2\)<br>
+
+\(\left[  \begin{array}{cccc|ccc}
+\color{blue}{\fbox{1}} &  \color{blue}{0}        &  \color{red}{1} &  \color{red}{1}     &    -1 &  2 &  0 \\
+        \color{blue}{0}&  \color{blue}{\fbox{1}} &  \color{red}{1} &  \color{red}{0}     &     1 & -1 &  0 \\
+                     0 &                       0 &               0 &  0                  &    \color{green}{-1} &  \color{green}{0} & \color{green}{1} \\
+\end{array}   \right]
+\)<br>
+What is special in \(\begin{bmatrix} \color{green}{-1}\\\color{green}{0}\\\color{green}{1}\\ \end{bmatrix}\)?<br>
+It's suggesting that if we take 
+\(\color{green}{-1}\cdot R_1  +  \color{green}{0}\cdot R_2  + \color{green}{1}\cdot R_3\) &nbsp;&nbsp;
+ of \(A\) then we will get \(\vec{0}\).<br>
+So our <b>left null space</b> is,<br>
+\[c\cdot \begin{bmatrix} \color{green}{-1}\\\color{green}{0}\\\color{green}{1}\\ \end{bmatrix};
+\quad c\in\mathbb{R}\]
+
+</dd></dl>
+</p>
+
+<div class="slack-discuss" onclick=" window.open('https://join.slack.com/t/quantml-org/shared_invite/zt-jffw86bo-6M260iyt1q2MgBma9elewg','_blank')">
+    Join our Slack <img src="/data/img/slack.png" alt="Slack"> discussion forum
+</div>
+<br>
+
+</div>
+<div id="btn-container">
+    <button id="prev-btn" class="button" onclick="window.location.href = '/linear-algebra/rank/';">&#x25C0;&nbsp;&nbsp;Rank Of a Matrix</button>
+    <button id="next-btn" class="button"  style="float: right;" onclick="window.location.href = '/linear-algebra/matrix-space/';">Matrix Space&nbsp;&nbsp;&#x25B6;</button>
+</div><br>
+    <div id="modals-html"></div>
+
+                    </section>
+                    </div>
+            </div>
+
+        <!-- Scripts -->
+        <script>requireScript('script-js', '0.1.0', '/data/js/script.js', function(){cssLoaded()})</script>
+
+    </body>
+</html>

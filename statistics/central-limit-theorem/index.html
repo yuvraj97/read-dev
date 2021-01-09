@@ -1,0 +1,274 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+	<head>
+		<script>
+			var nextPage = "/statistics/gaussian-distribution/";
+			var prevPage = "/statistics/weak-law-of-large-numbers/";
+			var nextPageTitle = "Gaussian Distribution";
+			var prevPageTitle = "Law of Large Numbers";
+			var arrowLeftPage = "/statistics/weak-law-of-large-numbers/julia/";
+			var arrowRightPage = "/statistics/central-limit-theorem/python/";
+		</script>
+
+		<link rel="stylesheet" href="/data/css/main.css">
+
+		<title>Central Limit Theorem | Fundamentals of Statistics - QuantML</title>
+		<meta charset="utf-8" />
+		<link rel="icon" href="/data/icon.png" type="image/png" sizes="16x16">
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="robots" content="index, follow">
+
+		<script src="/data/js/initialize.js"></script>
+
+	</head>
+
+	<body>
+
+		<!-- Wrapper -->
+			<div style="display: none;" id="wrapper">
+				<div class="bg fixed" style="transform: none;"></div>
+				<div id="navPanelToggle">Menu</div>
+
+				<!-- Header -->
+				<header id="header">
+					<a href="https://quantml.org" style="display: none;" class="logo image jump-big" id="quantml-cover-light"><img src="/data/img/cover.webp" alt="QuantML.org" /></a>
+					<a href="https://quantml.org" style="display: none;" class="logo image jump-big" id="quantml-cover-dark"><img src="/data/img-dark/cover.webp" alt="QuantML.org" /></a>
+					<script>
+						if(localStorage.getItem("quantmlTheme")=="dark") document.getElementById('quantml-cover-dark').style.display = "block";
+						else document.getElementById('quantml-cover-light').style.display = "block";
+					</script>
+				</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li class="cover"><a href="/statistics/"><img src="/data/img/STATISTICS-cover.png" alt="STATISTICS"></a></li>
+							<li class="active title">Central Limit Theorem</li>
+							<li class="python"><a href="/statistics/central-limit-theorem/python/"><img src="/data/img/python.png" alt="Python"></a></li>
+							<li class="julia"><a href="/statistics/central-limit-theorem/julia/"><img src="/data/img/julia.png" alt="Julia"></a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+						<section class="post">
+
+<div style="text-align: center;" id="load-init"></div>
+<script>initializeBody();</script>
+
+<div id="paragraph-content" data-swipe-threshold="80">
+
+<div id="desktop-mode">
+	<div id="btn-container"></div><br>
+</div>
+
+
+<h1 id="central-limit-theorem">Central Limit Theorem<a href="#central-limit-theorem" aria-label="central-limit-theorem"><i class="fa fa-link" aria-hidden="true"></i></a></h1>
+<blockquote class="noborder align-center">
+	<a target="=_blank" href="https://app.quantml.org/statistics/?ch=Central-Limit-Theorem&dist=Uniform+distribution">
+		Visualize Central Limit Theorem <img src="/data/img/app.png" alt="launch" width="30px" height="30px">
+	</a>
+</blockquote>
+
+<!-- <a href="/statistics/weak-law-of-large-numbers/">Previously in Weak Law of Large Numbers</a> we discussed that as our <b>sample size</b> \((n)\to\infty\) our <b>sample mean</b> \((\overline{X}_n)\to\) <b>true mean</b> \((\mu)\). <br> -->
+<blockquote class="sidebar">
+<a href="/statistics/weak-law-of-large-numbers/#main">Continuing previous example</a>, <!--in previous example--> we discussed how <a href="/statistics/weak-law-of-large-numbers/#main">Weak Law of Large Numbers</a> helps us getting the average height of students. Remember that the average height we calculated \((\overline{X}_n)\) is a <b>random variable</b>, so it must have an underlying probability distribution and we don't know what that distribution is. <b>Central Limit Theorem</b> helps us to approximate that unknown distribution. Once we know the underlying distribution we can answer a lot of question.<br>
+</blockquote><br>
+<h2 id="introduction">Introduction<a href="#introduction" aria-label="introduction"><i class="fa fa-link" aria-hidden="true"></i></a></h2>
+Say we have a large population <!--Add hover over to specify what is population--> and we took a <b>sample</b> out of that population, and say we want to study the <b>distribution</b> of the <b>average</b> of some specific property of that sample. <br>
+<blockquote class="sidebar">
+	For example say we want to study the average height of students in our class.
+</blockquote>
+Central Limit Theorem(CLT) <!--Had over cover--> helps us in this. CLT says:
+<blockquote>
+	No matter what distribution(with finite mean and variance) our <b>population</b> follows, as we increase sample size, <b>Sampling distribution</b> of the  mean <b>converges</b> to a <a href="https://en.wikipedia.org/wiki/Normal_distribution">Normal distribution</a>
+</blockquote>
+
+<h3 id="sampling-distribution-of-the-mean" class="bold" style="margin-top: 20px;">Sampling Distribution of the Mean<a href="#sampling-distribution-of-the-mean" aria-label="sampling-distribution-of-the-mean"><i class="fa fa-link" aria-hidden="true"></i></a></h3>
+Say you collected <b>multiple</b> samples (of same sample size) out of the population, then you take the average of all of those samples, and then you plot a histogram of those sample averages. This histogram is what we are referring as Sampling distribution of the mean. <br>
+Fortunately we don't need <b>multiple</b> samples, CLT helps us to approximate Sampling distribution with just one sample. <br>
+We only have to take care that our sample size is sufficiently large. <br>
+Now the question arises, how large should our sample size be (say \(n\))? <br>
+<blockquote class="noborder">
+	<b>Rule of thumb</b>: If our distribution is symmetric around mean then \(n\geq 30\) is sufficient to apply Central Limit Theorem.
+</blockquote>
+
+<h4 class="bold" style="margin-top: 20px;"> But remember it's just a rule of thumb!</h4>
+	<blockquote class="sidebar">
+		The more the true distribution varies from the Normal distribution, the larger sample size is required.<br>
+		If the distribution is not symmetric around mean, then \(n\geq 30\) might not be near to sufficient! <br>
+		What you can do is plot the <b>CDF</b> of your data, and superimpose <b>CDF</b> of corresponding Normal distribution, and see that do they superimpose nicely?
+		(We have covered <this> it in our
+		<a href="/statistics/central-limit-theorem/python/">Python</a> /
+		<a href="/statistics/central-limit-theorem/julia/">Julia</a>
+		simulation.)
+</blockquote>
+<blockquote class="noborder">
+Definition of nicely is up to you, how much error are you willing to accept. <br>
+You can also use some statistical test to check if our Sampling distribution matches the Normal distribution (like <!-- Future Link --> Kolmogorov–Smirnov test). We will cover these tests in this guide.
+</blockquote>
+<br>
+
+<h2 id="convergence-of-sampling-distribution">Convergence of Sampling Distribution<a href="#convergence-of-sampling-distribution" aria-label="convergence-of-sampling-distribution"><i class="fa fa-link" aria-hidden="true"></i></a></h2>
+Now let's say we have a population and we draw \(n\) random <b>i.i.d.</b> <!--Add hover over to specify what is iid--> observations \(X_1,X_2,\cdots,X_n\) from it. <br>
+These \(n\) <b>i.i.d.</b> observations are result of some random process with <b>unknown</b> distribution, this random process has a finite mean say \((\mu)\) and a finite variance say \((\sigma^2)\). <br>
+
+<span class="bb"> \(\mathbb{E}[X]=\mu\)</span>  and <span class="bb"> \(Var(X)=\sigma^2\) </span><br>
+Estimator we used for \(\mu\) is \(\overline{X}_n=\frac{1}{n}\left(X_1+X_2+\cdots+X_n\right)\). <br>
+And according to <a href="/statistics/weak-law-of-large-numbers/">Weak Law of Large Numbers</a> <span class="bb math">\(\overline{X}_n \xrightarrow [n\to \infty ] {\mathbb{P}} \mu\)</span>
+
+<details>
+	<summary><span class="bb math">\(\displaystyle\text{Var}(\overline{X}_n)=\frac{\sigma^2}{n}\)</span></summary>
+	<blockquote class="sidebar">
+		\(\displaystyle\text{Var}(\overline{X}_n)=\text{Var}\left(\frac{1}{n}\left(X_1+X_2+\cdots+X_n\right)\right)\)
+		<div style="margin-bottom: 15px; margin-top: 10px;">
+			\(\displaystyle\text{Var}(\overline{X}_n) = \frac{1}{n^2}(\text{Var}(X_1) + \text{Var}(X_2) + \cdots + \text{Var}(X_n))\)
+		</div>
+		<div style="margin-bottom: 15px; margin-top: 10px;">
+			\(\displaystyle\text{Var}(\overline{X}_n) = \frac{1}{n^2}(\underbrace{\sigma^2 + \cdots + \sigma^2}_{\text{n times}}  )\)
+		</div>
+		<div style="margin-bottom: 10px;">
+			\(\displaystyle\text{Var}(\overline{X}_n) = \frac{1}{n^2}(n\sigma^2)\) <br>
+		</div>
+			<span class="bb math">\(\displaystyle\text{Var}(\overline{X}_n)=\frac{\sigma^2}{n}\)</span>
+	</blockquote>
+</details>
+
+Here we can see as \(n\to \infty\), \(\text{Var}(\overline{X}_n)\to 0\), then as a consequence the probability distribution of \(\overline{X}_n\) is highly concentrated in an arbitrarily small interval around mean \(\mu\), so this probability distribution doesn't help us in any way, as it's totally concentrated around one number \(\mu\). <br>
+<br>
+
+<li> Now let's look at the distribution of <span class="bb math">\(\sqrt{n}\ \overline{X}_n\)</span>. </li>
+<blockquote class="sidebar">
+<span class="bb math">\(\displaystyle\text{Var}(\sqrt{n}\overline{X}_n)=\sigma^2\)</span> for the distribution of \(\sqrt{n}\ \overline{X}_n\) variance remains unchanged. <br>
+
+<span class="bb math">\(\displaystyle\mathbb{E}[\sqrt{n}\overline{X}_n]=\sqrt{n}\mu\)</span> but \(\mathbb{E}[\sqrt{n}\overline{X}_n] \xrightarrow [n\to \infty ]{} \infty\), so let's center the distribution around \(0\).
+</blockquote><br>
+
+<li> Now let's look at the distribution of <span class="bb math">\(\sqrt{n}\ (\overline{X}_n - \mu)\)</span>. </li>
+<blockquote class="sidebar">
+<span class="bb math">\(\displaystyle\text{Var}\left(\sqrt{n}\ (\overline{X}_n - \mu)\right)=\sigma^2\)</span>
+<span class="bb math">\(\displaystyle\mathbb{E}\left[\sqrt{n}\ (\overline{X}_n - \mu)\right]=0\)</span><br>
+Now there is no effect of \(n\) on both the variance and the expectation of the distribution of \(\sqrt{n}\ (\overline{X}_n - \mu)\). <br>
+</blockquote>
+
+<li> Now let's look at the distribution of <span class="bb math">\(\displaystyle\sqrt{n}\ \left( \frac{\overline{X}_n - \mu}{\sigma} \right)\)</span>. </li>
+<blockquote class="sidebar">
+<span class="bb math">\(\displaystyle\text{Var}\left(\sqrt{n}\ \left( \frac{\overline{X}_n - \mu}{\sigma} \right)\right)=1\)</span>
+<span class="bb math">\(\displaystyle\mathbb{E}\left[\sqrt{n}\ \left( \frac{\overline{X}_n - \mu}{\sigma} \right)\right]=0\)</span><br>
+Now we have standardize our random variable \(\overline{X}_n\) for every <b>mean</b>\((\mu)\), <b>variance</b>\((\sigma^2)\) and <b>sample size</b>\((n)\)  <br>
+</blockquote><br>
+Say \(Z_n := \displaystyle\sqrt{n}\ \left( \frac{\overline{X}_n - \mu}{\sigma} \right)\), and \(Z\sim\mathcal{N}(0,1)\). <br>
+(\(Z\) is a standard normal random variable with mean \(0\) and variance \(1\)). <br>
+Now <b>Central Limit Theorem</b> states,
+<blockquote>
+	For every \(z:\)
+	\[\lim_{n\to\infty}\mathbb{P}(Z_n \lt z) = \mathbb{P}(Z \lt z)\]
+	\[\sqrt{n}\, \frac{\overline{X}_n-\mu }{\sigma } \xrightarrow [n\to \infty ]{(d)} \mathcal{N}(0,1) \]<br>
+</blockquote>
+So Central Limit Theorem says that, as \(n\to \infty\) then <b>CDF</b>(<a href="https://en.wikipedia.org/wiki/Cumulative_distribution_function">cumulative distribution function</a>) of the random variable \(Z_n\) converges to the <b>CDF</b> of standard normal random variable \(Z\). <br>
+
+<blockquote id="its-about-CDF">
+	So <b>Central Limit Theorem</b> is a statement about the convergence of <b>CDF</b>, it's <b>not</b> a statement about the convergence of PDF or PMF.
+
+	<!-- CLARIFICATION BY PLOTS!!! -->
+</blockquote>
+
+<!-- <h3>Can we use Central Limit Theorem when \(n\) is "moderate"?</h3>
+In real life we don't have \(\infty\) observations, maybe \(n\) is \(30\) or \(20\) or \(15\) can we use <b>CLT</b>? -->
+
+<blockquote class="sidebar">
+	<b>Rule of thumb to apply CLT</b>: when \(n\geq 30\) then \(\sqrt{n}\, \frac{\overline{X}_n-\mu }{\sigma } \xrightarrow []{(d)} \mathcal{N}(0,1) \)
+</blockquote><br>
+
+<h2 id="rate-of-convergence">Rate of Convergence<a href="#rate-of-convergence" aria-label="rate-of-convergence"><i class="fa fa-link" aria-hidden="true"></i></a></h2>
+Now we can finally answer our <a href="/statistics/weak-law-of-large-numbers/#how-fast">previous question</a> in <a href="/statistics/weak-law-of-large-numbers/">Weak Law of Large Numbers</a> that, 
+how fast(at what rate) \(\overline{X}_n\) approaches to \(\mu\). <br>
+
+If we draw a standard gaussian  \(\mathcal{N}(0,1) \) (say) \(Z\), then with probability \(0.9974,\)  \(Z\in [-3,3]\)<br>
+\(P(-3\leq Z\leq3)=0.9974\)  (we can calculate it <a rel="noreferrer" target="_blank" href="https://www.mathportal.org/calculators/statistics-calculator/normal-distribution-calculator.php">here</a>).<br>
+So \(Z\) is almost in between -3 and 3<br>
+And we know that :<br>
+\[\sqrt{n}\, \frac{\overline{X}_n-\mu }{\sigma } \xrightarrow [n\to \infty ]{(d)} \mathcal{N}(0,1) \]<br>
+And we say that \(-3\leq\mathcal{N}(0,1)\leq3\)<br>
+So:<br>
+\[
+-3\leq \sqrt{n}\, \frac{\overline{X}_n-\mu }{\sigma }  \leq3 \\
+\Rightarrow  \left|\sqrt{n}\, \frac{\overline{X}_n-\mu }{\sigma } \right| \leq 3	\\
+\Rightarrow \left| \overline{X}_n-\mu  \right| \leq \frac{3\sigma}{\sqrt{n}}
+\]<br>
+<span class="bb" id="sqrt-n">So according to CLT \(f(n)=\sqrt{n}\)</span><br>
+<br>
+
+<blockquote class="noborder align-center">
+	Now let's see some Simulation, choose your language of choice,<br>
+	<a href="/statistics/central-limit-theorem/python/"><img src="/data/img/python.png" alt="Python" width="75px" height="20px"></a> &nbsp;,&nbsp;
+	<a href="/statistics/central-limit-theorem/julia/"><img src="/data/img/julia.png" alt="Julia" width="53px" height="33px"></a>
+	<br>
+	<a target="=_blank" href="https://app.quantml.org/statistics/?ch=Central-Limit-Theorem&dist=Uniform+distribution">Launch Statistics App <img src="/data/img/app.png" alt="launch" width="30px" height="30px"></a>
+</blockquote><br>
+
+
+<div class="slack-discuss" onclick=" window.open('https://join.slack.com/t/quantml-org/shared_invite/zt-jffw86bo-6M260iyt1q2MgBma9elewg','_blank','noopener')">
+	Join our Slack <img class="slack-logo" src="/data/img/slack.png" alt="Slack"> discussion forum
+</div><br>
+
+<div id="btn-container"></div><br>
+<br>
+<div id="recommended-watchings"></div>
+<script>
+	setTimeout(function(){
+		document.getElementById('recommended-watchings').innerHTML = `
+	<blockquote class="sidebar" style="padding-bottom: 0%;">
+	<h3>Recommended Watching</h3>
+	<details style="margin-top: 10px; margin-bottom: 10px;">
+		<summary><i><span style="text-align: center;" class="bb">Central Limit Theorem</span> (by Prof. John Tsitsiklis)</i></summary>
+		<div style="text-align: center; margin-top:10px;">
+			<iframe width="560" height="315" src="https://www.youtube.com/embed/IrKUM3nNXJE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+		</div>
+	</details>
+
+	<details style="margin-top: 10px; margin-bottom: 10px;">
+		<summary><i><span style="text-align: center;" class="bb">Central Limit Theorem</span> (by Khan Academy)</i></summary>
+		<div style="text-align: center; margin-top:10px;">
+			<iframe width="560" height="315" src="https://www.youtube.com/embed/JNm3M9cqWyc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+		</div>
+	</details>
+
+	<details style="margin-top: 10px; margin-bottom: 10px;">
+		<summary><i><span style="text-align: center;" class="bb">Central Limit Theorem</span> (by Sir Josh Starmer)</i></summary>
+		<div style="text-align: center; margin-top:10px;">
+			<iframe width="560" height="315" src="https://www.youtube.com/embed/YAlJCEDH2uY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+		</div>
+	</details>
+
+	<details style="margin-top: 10px; margin-bottom: 10px;">
+		<summary><i><span style="text-align: center;" class="bb">Central Limit Theorem</span> (by Sir Jeremy Balka)</i></summary>
+		<div style="text-align: center; margin-top:10px;">
+			<iframe width="560" height="315" src="https://www.youtube.com/embed/Pujol1yC1_A" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+		</div>
+	</details>
+
+	<details style="margin-bottom: 10px;">
+		<summary><i><span style="text-align: center;" class="bb">Real-world application of the CLT</span> (by 365 Data Science)</i></summary>
+		<div style="text-align: center; margin-top:10px;">
+			<iframe width="560" height="315" src="https://www.youtube.com/embed/N7wW1dlmMaE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+		</div>
+	</details>
+	<br>
+	</blockquote>
+	`;
+	}, 1000);
+</script>
+<br><br>
+</div>
+<div id="modals-html"></div>
+
+		</section>
+	</div>
+</div>
+
+		<script>requireScript('script-js', '0.1.0', '/data/js/script.js', function(){cssLoaded()})</script>
+
+	</body>
+</html>

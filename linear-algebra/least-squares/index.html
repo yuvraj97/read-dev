@@ -1,0 +1,200 @@
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+
+        <script>
+            var isConcluded = true;
+            var arrowLeftPage = "/linear-algebra/projection/"
+            var arrowRightPage = "/linear-algebra/orthonormal-vectors/"
+        </script>
+
+        <link rel="stylesheet" href="/data/css/main.css">
+                
+		<title>Least Squares(Application of projection) - QuantML</title>
+		<meta charset="utf-8" />
+        <link rel="icon" href="/data/icon.png" type="image/png" sizes="16x16">
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="robots" content="index, follow">
+        <meta name="author" content="Yuvraj Garg">
+
+        <script src="/data/js/initialize.js"></script>
+
+	</head>   
+    
+    <body>
+
+        <!-- Wrapper -->
+			<div style="display: none;" id="wrapper">
+                <div class="bg fixed" style="transform: none;"></div>
+                <div id="navPanelToggle">Menu</div>
+
+
+				<!-- Header -->
+				<header id="header">
+					<a href="https://quantml.org" style="display: none;" class="logo image jump-big" id="quantml-cover-light"><img src="/data/img/cover.webp" alt="QuantML.org" /></a>
+					<a href="https://quantml.org" style="display: none;" class="logo image jump-big" id="quantml-cover-dark"><img src="/data/img-dark/cover.webp" alt="QuantML.org" /></a>
+					<script>
+						if(localStorage.getItem("quantmlTheme")=="dark") document.getElementById('quantml-cover-dark').style.display = "block";
+						else document.getElementById('quantml-cover-light').style.display = "block";
+					</script>
+				</header>
+
+                <!-- Nav -->
+                    <nav id="nav">
+                        <ul class="links">
+                            <li class="cover"><a href="/linear-algebra/"><img src="/data/img/linear-algebra-cover.png" alt="Linear Algebra"></a></li>
+                            <li><a href="/linear-algebra/projection/">Projection</a></li>
+                            <li class="active title">Least Squares(Application of projection)</li>
+                        </ul>
+                        <ul id="nav-bar-icons-head" class="icons"></ul>
+                    </nav>
+
+                <!-- Main -->
+                    <div id="main">
+                        <section class="post">
+<div style="text-align: center;" id="load-init"></div>
+<script>initializeBody();</script>
+
+<div id="paragraph-content" data-swipe-threshold="80">
+<div id="btn-container">
+    <button id="prev-btn" class="button" onclick="window.location.href = '/linear-algebra/projection/';">&#x25C0;&nbsp;&nbsp;Projection</button>
+    <button id="next-btn" class="button"  style="float: right;" onclick="window.location.href = '/linear-algebra/orthonormal-vectors/';">Orthonormal Vectors&nbsp;&nbsp;&#x25B6;</button>
+</div><br>
+
+
+<p>
+<h1>Least Squares</h1>
+<h2 od="vec-proj">(Application of projection)</h2>
+
+Recall our <a  href="/linear-algebra/projection/#example">previous example</a>, here we have a 
+system of equation <span class="bb">\(\mathbb{A}\mathbb{X}=\mathbb{Y}\)</span>.<br>
+let's take an example, suppose we have \(3\) points (in form of \(a_1,a_2\)) \((1,1),(2,2),(3,2)\).<br>
+Our objective is to get a best possible linear function for \(a_2\), say that function be \(f\).<br>
+our function might not give exact \(a_2\) that corresponds to \(a_1\) but it will give us best possible 
+approximation for \(a_2\).<br>
+The simplest linear function is <span class="bb">\(a_2 = f(a_1) = x_1 + a_1 x_2\)</span>.<br>
+here \(x_1, x_2\) are our parameters
+(unknown)<br>
+Our observations says,<br>
+\(f=x_1 + 1 x_2 =1\),<br>
+\(f=x_1 + 2 x_2 =2\),<br>
+\(f=x_1 + 3 x_2 =2\),<br>
+We can also write it as,<br>
+\(
+\underbrace{\begin{bmatrix}
+1 & 1 \\
+1 & 2 \\
+1 & 3 \\
+\end{bmatrix}}_{\mathbb{A}}
+\underbrace{\begin{bmatrix}
+x_1\\
+x_2\\
+\end{bmatrix}}_{\mathbb{X}}
+=
+\underbrace{\begin{bmatrix}
+1\\
+2\\
+2\\
+\end{bmatrix}}_{\mathbb{Y}}
+\).<br>
+\(\mathbb{A}\mathbb{X}=\mathbb{Y}\)<br>
+So we want to find the <b>linear combinations</b> of column vectors of \(\mathbb{A}\) that gives us
+\(\mathbb{Y}\), but \(\mathbb{Y}\) does not lives in the <b>column space</b> of \(\mathbb{A}\).<br>
+So now we will find a vector \(\widehat{\mathbb{Y}}\) in the <b>column space</b> of \(\mathbb{A}\)
+that is <b>closest</b> to \(\mathbb{Y}\), here closeness is determined by the <b>Euclidean distance</b> between 
+\(\mathbb{Y}\) and \(\widehat{\mathbb{Y}}\).<br>
+So instead we will solve,<br>
+<span class="bb">\(\mathbb{A}\widehat{\mathbb{X}}=\widehat{\mathbb{Y}}\)</span><br>
+<i>(And \(\widehat{\mathbb{X}}\) is just a way to tell that our solution is an estimate of exact solution)</i>.<br>
+\(\widehat{\mathbb{Y}}\) lives in the <b>column space</b> of \(\mathbb{A}\), <b>and</b> \(\mathbb{Y}\)
+is out of the <b>column space</b> of \(\mathbb{A}\), so<br>
+The vector \(\mathbb{Y} - \widehat{\mathbb{Y}}\) is perpendicular to the <b>column space</b> of \(\mathbb{A}\).<br>
+\(\Rightarrow \mathbb{Y} - \widehat{\mathbb{Y}}\) is in the <b>Null space</b> of \(\mathbb{A}^T\).<br>
+\(\Rightarrow \mathbb{A}^T(\mathbb{Y} - \widehat{\mathbb{Y}})=0\) and we know that \(\widehat{\mathbb{Y}}=\mathbb{A}\widehat{\mathbb{X}}\).<br>
+\(\Rightarrow \mathbb{A}^T(\mathbb{Y} - \mathbb{A}\widehat{\mathbb{X}})=0\)<br>
+\(\Rightarrow \mathbb{A}^T\mathbb{A}\widehat{\mathbb{X}}=\mathbb{A}^T \mathbb{Y}\)<br>
+
+\(\mathbb{A}^T\mathbb{A}=
+\begin{bmatrix}
+3 &  6 \\
+6 & 14 \\
+\end{bmatrix},\quad\)
+\(\mathbb{A}^T\mathbb{Y}=
+\begin{bmatrix}
+ 5\\
+11\\
+\end{bmatrix},\quad\)
+Now we have so solve,<br>
+\(
+\begin{bmatrix}
+3 &  6 \\
+6 & 14 \\
+\end{bmatrix}
+\begin{bmatrix}
+x_1\\
+x_2\\
+\end{bmatrix}
+=
+\begin{bmatrix}
+ 5\\
+11\\
+\end{bmatrix}
+\)<br>
+We can write it as,<br>
+\(3x_1 +  6x_2 = 5\)<br>
+\(6x_1 + 14x_2 = 11\)<br>
+By solving we get \(x_1=2/3\) and \(x_2=1/2\)<br>
+
+So our function \(f(a_1) = x_1 + a_1 x_2\) becomes, 
+\[f(a_1) = \frac{2}{3} + \frac{1}{2}a_1\]
+
+Let's take a look at our estimate for our \(3\) data points and it's error(which is \(a_2 - \hat{a_2}\)).<br>
+<li>For \((a_1,a_2)=(1,1)\)</li>
+<dl><dd>
+    \(\hat{a_2} = \frac{2}{3} + \frac{1}{2}(1)=\frac{7}{6}\)<br>
+    \(e_1= 1 - \frac{7}{6} = -\frac{1}{6}\)
+</dd></dl>
+<li>For \((a_1,a_2)=(2,2)\)</li>
+<dl><dd>
+    \(\hat{a_2} = \frac{2}{3} + \frac{1}{2}(2)=\frac{5}{3}\)<br>
+    \(e_2= 2 - \frac{5}{3}= \frac{1}{3}\)
+</dd></dl>
+<li>For \((a_1,a_2)=(3,2)\)</li>
+<dl><dd>
+    \(\hat{a_2} = \frac{2}{3} + \frac{1}{2}(3)=\frac{13}{6}\)<br>
+    \(e_3= 2 - \frac{13}{6} = -\frac{1}{6}\)
+</dd></dl>
+
+Now represent our estimate and errors as vector,<br>
+\( \widehat{\mathbb{Y}} = \begin{bmatrix} \frac{7}{6}\\ \frac{5}{3} \\ \frac{13}{6} \\ \end{bmatrix} ,\quad\)
+\( e=\mathbb{Y}-\widehat{\mathbb{Y}} = \begin{bmatrix} -\frac{1}{6}\\ \frac{1}{3} \\ -\frac{1}{6} \\ \end{bmatrix} \)<br>
+As we discussed above that \( \widehat{\mathbb{Y}} \) is in <b>column space</b> of \(\mathbb{A}\) 
+and \(\mathbb{Y}-\widehat{\mathbb{Y}}\) is <b>perpendicular</b> to that <b>column space</b>.<br>
+We can now see it in this example.<br>
+First notice that dot product of \(\mathbb{Y}\) and \(\mathbb{Y}-\widehat{\mathbb{Y}}\) is \(0\).<br>
+\(\mathbb{Y}\cdot(\mathbb{Y}-\widehat{\mathbb{Y}})=\mathbb{Y}^T(\mathbb{Y}-\widehat{\mathbb{Y}})=0\)<br>
+As we said that <span class="bb">\(\mathbb{Y}-\widehat{\mathbb{Y}}\)</span> is <b>perpendicular</b> to the whole <b>column space</b>,
+you can took any <b>linear combinations</b> of the columns of \(\mathbb{A}\) it will be 
+<b>perpendicular</b> to <span class="bb">\(\mathbb{Y}-\widehat{\mathbb{Y}}\)</span>.<br></p>
+
+<div class="slack-discuss" onclick=" window.open('https://join.slack.com/t/quantml-org/shared_invite/zt-jffw86bo-6M260iyt1q2MgBma9elewg','_blank')">
+    Join our Slack <img src="/data/img/slack.png" alt="Slack"> discussion forum
+</div>
+<br>
+
+</div>
+<div id="btn-container">
+    <button id="prev-btn" class="button" onclick="window.location.href = '/linear-algebra/projection/';">&#x25C0;&nbsp;&nbsp;Projection</button>
+    <button id="next-btn" class="button"  style="float: right;" onclick="window.location.href = '/linear-algebra/orthonormal-vectors/';">Orthonormal Vectors&nbsp;&nbsp;&#x25B6;</button>
+</div><br>
+    <div id="modals-html"></div>
+
+                    </section>
+                    </div>
+            </div>
+
+        <!-- Scripts -->
+        <script>requireScript('script-js', '0.1.0', '/data/js/script.js', function(){cssLoaded()})</script>
+
+    </body>
+</html>

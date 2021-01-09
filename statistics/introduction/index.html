@@ -4,7 +4,7 @@
 	<head>
 <!-- <script>var d = new Date(); start = d.getTime()</script> -->
 		<script>
-			var nextPage = "/statistics/lln/";
+			var nextPage = "/statistics/weak-law-of-large-numbers/";
 			var prevPage = "/statistics/";
 			var nextPageTitle = "Weak Law of Large Numbers";
 			var prevPageTitle = "Home";
@@ -12,9 +12,8 @@
 			var arrowRightPage = "/statistics/introduction/python/";
 		</script>
 
-		<link rel="stylesheet" href="/data/assets/css/main.css">
-		<link rel="stylesheet" href="/data/assets/css/authStyle.css">
-
+		<link rel="stylesheet" href="/data/css/main.css">
+		
 		<title>Introduction | Fundamentals of Statistics - QuantML</title>
 		<meta charset="utf-8" />
 		<link rel="icon" href="/data/icon.png" type="image/png" sizes="16x16">
@@ -23,8 +22,7 @@
 		<!-- <meta name="description" content="Learn Statistical by Visualization  then implement it in (python/Julia) about - Why statistics, Probability, Statistical Modaling, Statistical Experiment, Estimator, Modelling Assumption."> -->
 		<meta name="keywords" content="Introduction to Statistics,Probability,Statistical Modeling,Statistical Experiment,Estimator,Modeling Assumptions,Why Statistics,Visualization,Implementation,python,Julia">
 
-		<script src="/data/assets/js/initialize.js"></script>
-		<script src="/data/assets/js/swiped-events.js"></script>
+		<script src="/data/js/initialize.js"></script>
 
 	</head>
 
@@ -68,15 +66,15 @@
 </div>
 
 
-<h1 id="goals">Goals <a href="#goals" aria-label="goals"><i class="fa fa-link" aria-hidden="true"></i></a></h1>
+<!-- <h1 id="goals">Goals <a href="#goals" aria-label="goals"><i class="fa fa-link" aria-hidden="true"></i></a></h1>
 Goals of this chapter are: <br>
 \(1.)\) To give an introduction to the <b>mathematical theory</b> behind <b>statistical models</b>.<br>
 \(2.)\) Understand the <b>limitations</b> of the <b>statistical models</b>.<br>
 \(3.)\) Talk about theoretical guarantees (Which method is better than the other)<br>
 After this chapter, we will be able to formulate a real-life situation in mathematics by selecting an appropriate statistical model.<br>
-<br>
+<br> -->
 
-<h1 id="what">What is statistics? <a href="#what" aria-label="what-is-statistics"><i class="fa fa-link" aria-hidden="true"></i></a></h1>
+<h1 id="what">What is Statistics? <a href="#what" aria-label="what-is-statistics"><i class="fa fa-link" aria-hidden="true"></i></a></h1>
 <blockquote>
 	<b>Statistics</b> is the science of collecting, analyzing and interpreting <b>data</b>  in order to make decisions. <br>
 	<!-- Statistics is the science of making decisions under uncertainty. <br> -->
@@ -113,14 +111,11 @@ Now You ask, <br>
 	</blockquote>
 	<br>
 
-	<details id="what-is-statistics-sir-michel" style="margin-top: 10px; margin-bottom: 10px;">
+	<details>
 		<summary><i><span style="text-align: center;" class="bb">What is Statistics (by Sir Michael I. Jordan)</span></i></summary>
-		<div id="what-is-statistics-sir-michel-iframe" style="text-align: center; margin-top:10px;"></div>
-		<script>
-			document.getElementById("what-is-statistics-sir-michel").addEventListener("click", function(){
-				document.getElementById("what-is-statistics-sir-michel-iframe").innerHTML=`<iframe width="560" height="315" src="https://www.youtube.com/embed/AQUAPiHahVY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
-			})
-		</script>
+		<blockquote style="text-align: center;" class="sidebar">
+			<iframe width="560" height="315" src="https://www.youtube.com/embed/AQUAPiHahVY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+		</blockquote>
 	</details>
 
 	<br>
@@ -138,10 +133,11 @@ What if there are <b>5Million</b> or say <b>50Million</b> data points!<br>
 <blockquote class="noborder">
 <b style="font-size: larger;">Data</b> comes from a <b>random process</b>. <br>
 They <b>aren't</b> just a <i>sequence of numbers</i>,
+<!-- CHANGE IT ["those" Unclear] -->
 and <span title="Here we are talking about our Data"><u>those</u></span>
- numbers are representative of that <b>random process</b>. <br>
+numbers are representative of that <b>random process</b>. <br>
 </blockquote>
-The goal of statistics is to <span title="Extrapolation is the process of finding a value outside a data set. It could even be said that it helps predict the future!"><u>extrapolate</u></span> from a finite number of data to what we can get if we had an \(\infty\) amount of observation. If we have an \(\infty\) amount of data we can describe a random process (but there still be some randomness), and this process helps us to make a prediction.<br>
+The goal of statistics is to <span title="Extrapolation is the process of finding a value outside a data set. It could even be said that it helps predict the future!"><u>extrapolate</u></span> from a finite number of observations to what we can get if we had an \(\infty\) amount of observation. If we have an \(\infty\) amount of data we can describe a random process (but there still be some randomness), and this process helps us to make a prediction.<br>
 To understand randomness, we need <b><i>Probability</i>.</b>.<br>
 <br>
 
@@ -152,13 +148,13 @@ To understand randomness, we need <b><i>Probability</i>.</b>.<br>
 <span title="In probability"><u>Here</u></span>, we have a description of a <b>random process</b> and we are asked about the outcome from that random process, like <b>expectation, probability distribution, etc</b>.<br>
 
 Now the <b>question</b> is where does <b>Statistics</b> fit in all of this<b>?</b>.<br>
-We don't need statistics to understand that, <i>a fair die has \(\frac{1}{6}\) chance to outcome a 1</i>
+We don't need statistics to understand that, <i>a fair dice has \(\frac{1}{6}\) chance to outcome a 1</i>
 OR <i>a fair coin has \(\frac{1}{2}\) chance to outcome a heads</i>.<br>
 <blockquote class="noborder">
 <b>But</b> what if we don't know about that <b>random process</b>, then we need <b>statistics</b> to figure it out.
 </blockquote>
 What if the coin isn't fair?<br>
-We flip a coin, collect the number of <b>Heads</b> and <b>Tails</b> and calculate proportion of <b>Heads</b>  and see that is probability converging 1/2.<br>
+We flip a coin, collect the number of <b>Heads</b> and <b>Tails</b> and calculate proportion of <b>Heads</b>  and see that "Is probability converging 1/2?"<br>
 <br>
 <!-- <h2>Randomness</h2> -->
 Sometimes there is <b>real</b> randomness like a biased coin, measurement error,  etc.<br>
@@ -169,7 +165,7 @@ Sometimes there is <b>real</b> randomness like a biased coin, measurement error,
 </blockquote>
 &bull; Measurement Error
 <blockquote class="sidebar">
-	No instrument is perfect, every instrument have some error, and this error is completely random, an instrument doesn't decides how much error it should produce it's just random.
+	No instrument is perfect, every instrument have some error, and this error is completely random, an instrument doesn't decide how much error it should produce, it's just random.
 </blockquote><br>
 
 Sometimes there is <b>no </b>randomness, this is where most of the randomness comes from,<br>
@@ -197,12 +193,12 @@ Sometimes there is <b>no </b>randomness, this is where most of the randomness co
 </blockquote><br>
 
 
-When we talk about genes we are try to predict personalized medicines based on gene profiles. Gene profile tells a lot about some disease but not everything. So there are things that we don't understand, it's just not accessible to us.<br>
+When we talk about genes we try to predict personalized medicines based on gene profiles. Gene profile tells a lot about some disease but not everything. So there are things that we don't understand, it's just not accessible to us.<br>
 <br>
 
 <h1 id="statistical-modeling">Statistical Modeling <a href="#statistical-modeling" aria-label="statistical-modeling"><i class="fa fa-link" aria-hidden="true"></i></a></h1>
 What will we do when we encounter a Complicated situation? <br>
-We split the Complicated process into two parts, First is a <b>simple process</b> that we are able to understand, about the process, and the other one is <b>Random Noise</b> that we are not able to understand.<br>
+We split the Complicated process into two parts, First is a <b>simple process</b> that we are able to understand, and the other one is <b>Random Noise</b> that we are not able to understand.<br>
 <blockquote>
 	<b>\(\text{Complicated Process} \equiv \text{Simple Process} + \underbrace{\text{Random Noise}}_{\text{Modelling assumption}}\)</b>
 </blockquote>
@@ -210,7 +206,7 @@ We split the Complicated process into two parts, First is a <b>simple process</b
 <blockquote class="sidebar">
 	Say we want to travel from <b>Tokyo</b> to <b>India</b>, so what should we do?<br>
 	We book our tickets, pack our bags, then head over to India.<br>
-	That is what we know, but what we don't know is.<br>
+	This is what we know, but what we don't know is.<br>
 	<ul>
 		<li>What if seats are already full.</li>
 		<li>What if our cab malfunctions.</li>
@@ -241,17 +237,16 @@ If we don't know anything about the coin (like is it fair or not), then we use <
 
 <h1 id="counting-balls-example">The Counting Balls Example<a href="#counting-balls-example" aria-label="counting-balls-example"><i class="fa fa-link" aria-hidden="true"></i></a></h1>
 Say we have a <b>room</b> full of <span class="l1">Red balls</span> and <span class="l2">Blue balls</span>. <br>
-We want to determine among <span class="l1">Red balls</span> and <span class="l2">Blue balls</span> which of them have higher proportion,
-But we won't be able to count all the balls in the room as there are too many of them. <br>
+We want to determine among <span class="l1">Red balls</span> and <span class="l2">Blue balls</span> which of them have higher proportion, but we won't be able to count all the balls in the room as there are too many of them. <br>
 So instead what we do is, we took a small sample of <b>balls</b> from that <b>room</b>, then find the proportion of <span class="l1">Red balls</span> and <span class="l2">Blue balls</span> in that <b>sample</b>
 and hope that proportion we just estimated is somewhat near the <b>True proportion</b>(for the whole room). <br>
 <br class="newline">
 So how can we tackle this problem?<br>
-Assume that our small sample have 90% of <span class="l1">Red balls</span>, then it's an indication that proportion of <span class="l1">Red balls</span> is higher then proportion of <span class="l2">Blue balls</span>.<br>
-But how to decide the <b>cutoff</b> (beyond which we can say 'Yes' proportion of <span class="l1">Red balls</span> is higher then proportion of <span class="l2">Blue balls</span>)?<br>
-What if the data states that in our sample 51% of the balls are <span class="l1">Red balls</span>, then can we say it is an indication that proportion of <span class="l1">Red balls</span> is higher then proportion of <span class="l2">Blue balls</span>?<br>
+Assume that our small sample have 90% of <span class="l1">Red balls</span>, then it's an indication that proportion of <span class="l1">Red balls</span> is higher than proportion of <span class="l2">Blue balls</span>.<br>
+But how to decide the <b>cutoff</b> (beyond which we can say 'Yes' proportion of <span class="l1">Red balls</span> is higher than proportion of <span class="l2">Blue balls</span>?).<br>
+What if the data states that in our sample 51% of the balls are <span class="l1">Red balls</span>, then can we say it is an indication that proportion of <span class="l1">Red balls</span> is higher than proportion of <span class="l2">Blue balls</span>?<br>
 
-What we want is to understand the true proportion of proportion of <span class="l1">Red balls</span> and <span class="l2">Blue balls</span>, in the entire room.<br>
+What we want is to understand the true proportion of <span class="l1">Red balls</span> and <span class="l2">Blue balls</span> in the entire room.<br>
 <br>
 
 <h1 id="statistical-experiment">Statistical experiment <a href="#statistical-experiment" aria-label="statistical-experiment"><i class="fa fa-link" aria-hidden="true"></i></a></h1>
@@ -259,7 +254,7 @@ Let, <br>
 \(p\): Proportion of <span class="l1">Red balls</span>.<br>
 \(n\): Total number of balls in our sample. <br>
 \(\hat{p}\): estimator of \(p\).<br>
-Here we assign <span class="l1">\(1\)</span> for <span class="l1">Red balls</span> and <span class="l2">\(0\)</span> for <span class="l2">Blue balls</span><br>
+Here we assign <span class="l1">\(1\)</span> for <span class="l1">Red ball</span> and <span class="l2">\(0\)</span> for <span class="l2">Blue ball</span><br>
 <blockquote class="sidebar">
 So if we denote \(i^{th}\) ball by \(B_i\) then, <br>
 \(\sum_{i=1}^{n}B_i=\) Total number of <span class="l1">Red balls</span> in our sample. <br>
@@ -274,15 +269,15 @@ Say we took a sample of \(n=300\) balls and in that sample \(180\) balls are <sp
 <br class="newline">
 Say that we have <b>only 3 data points</b>.
 <ul>
-	<li>Will you convince if we have 3 <span class="l1">Red balls</span> (\(\hat{p}=100\%\))?</li>
-	<li>Will you convince if we have 2 <span class="l1">Red balls</span> (\(\hat{p}=66.66\%\))?</li>
+	<li>Will you be convinced if we have 3 <span class="l1">Red balls</span> (\(\hat{p}=100\%\))?</li>
+	<li>Will you be convinced if we have 2 <span class="l1">Red balls</span> (\(\hat{p}=66.66\%\))?</li>
 </ul>
 
 So the question here we are asking is, how large  should be our sample size \((n)\). <br>
 \(n=3\) is too small \(n=300\) may be large enough, so what is the right number for \(n\)?<br>
 This question is important, <b>What your sample size should be?</b><br>
 <br class="newline">
-We can also ask that, for \(n=300\) What is the minimum number of <span class="l1">Red balls</span> that we want to convince ourselves that proportion of <span class="l1">Red balls</span> is higher then proportion of <span class="l2">Blue balls</span><br>
+We can also ask that for \(n=300\), what is the minimum number of <span class="l1">Red balls</span> that we want to convince ourselves, that proportion of <span class="l1">Red balls</span> is higher than proportion of <span class="l2">Blue balls</span><br>
 <br>
 
 <h1 id="counting-balls-estimator">Estimator <a href="#counting-balls-estimator" aria-label="counting-balls-estimator"><i class="fa fa-link" aria-hidden="true"></i></a></h1>
@@ -295,20 +290,21 @@ We can also ask that, for \(n=300\) What is the minimum number of <span class="l
 \[\hat{p}=\overline{B}_n=\frac{1}{n}\sum^n_{i=1}B_i\]
 
 <!-- \(\sum^n_{i=1}B_i\) is the number of \(1's\) so if I have \(80\ 1's\) in the sequence then \(\sum^n_{i=1}B_i=80\)<br> -->
-\(\hat{p}\) is <b>Sample average</b> \(\overline{B}_n\) it's average over our sample.<br>
+\(\hat{p}\) is the <b>Sample average</b>.<br>
 
-Ok we got an estimator but what is it's <b>Accuracy</b>?, but what does the accuracy even <b>mean? </b>. <br>
+Ok we got an estimator but what is it's <b>Accuracy</b>?<br>
+<!-- Let's get a slight hint of accuracy through an example. -->
 Accuracy of our estimator \(\hat{p}\) depends on sample size \(n\), \(3\) balls aren't enough but \(300\) balls might be enough.
-Accuracy of \(\hat{p}\) is also depends on <b>true</b> \(p\) <b>which we don't even know</b>.
+Accuracy of \(\hat{p}\) also depends on <b>true</b> \(p\) <b>which we don't even know</b>.
 We want to know how close is \(\hat{p}\) to the <b>true</b> \(p\) (this is where <b>randomness</b> comes into play). <br>
 We think of \(B_i\) as random variables so \(\hat{p}\) is also a random variable, \(\hat{p}\) will tend to take some values \(\in [0,1]\).<br>
 <br>
 
 <h1 id="modeling-assumptions">Modeling assumptions <a href="#modeling-assumptions" aria-label="modeling-assumptions"><i class="fa fa-link" aria-hidden="true"></i></a></h1>
-Coming up with a model consists of making assumptions on what those \(B_i\)'s are. So here are the assumptions that we made:<br>
+Coming up with a model that consists of making assumptions on what those \(B_i\)'s are. So here are the assumptions that we made:<br>
 \(1.\quad\) Each \(B_i\) is a random variable.<br>
 <blockquote class="sidebar">
-	Each ball draw is random, the ball can be a <span class="l1">Red balls</span>(with probability \(p\)) or a <span class="l2">Blue balls</span>(with probability \(1-p\)). <br>
+	Each ball draw is random, the ball can be a <span class="l1">Red ball</span>(with probability \(p\)) or a <span class="l2">Blue ball</span>(with probability \(1-p\)). <br>
 	So every \(B_i\) is either <span class="l1">1</span>(with probability \(p\)) or <span class="l2">0</span>(with probability \(1-p\)), so \(B_i\) is a random variable.<br>
 </blockquote>
 <br class="newline">
@@ -336,7 +332,7 @@ Coming up with a model consists of making assumptions on what those \(B_i\)'s ar
 \(3.\quad\) \(B_1,B_2,...,B_n\) are mutually independent<br>
 <blockquote class="sidebar">
 	Every draw is an independent draw. <br>
-	If we draw a <span class="l1">Red balls</span> then it gives us no information about our next draw, proportion of drawing a <span class="l1">Red balls</span> is still \(p\). <br>
+	If we draw a <span class="l1">Red ball</span> then it gives us no information about our next draw, proportion of drawing a <span class="l1">Red ball</span> is still \(p\). <br>
 	So we can say that \(B_1,B_2,...,B_n\) are mutually independent<br>
 </blockquote>
 <br>
@@ -358,50 +354,44 @@ Now let's see some Simulation, choose your language of choice,<br>
 
 <div id="btn-container"></div><br>
 <br>
-<blockquote class="sidebar" style="padding-bottom: 0%;">
-	<h3>Recommended Watching</h3>
-	<details id="recommended-watchings-1" style="margin-top: 10px; margin-bottom: 10px;">
-		<summary><i><span style="text-align: center;" class="bb">What is Statistics</span> (by ma'am Cassie Kozyrkov)</i></summary>
-		<div id="recommended-watchings-1-iframe" style="text-align: center; margin-top:10px;"></div>
-		<script>
-			document.getElementById("recommended-watchings-1").addEventListener("click", function(){
-				document.getElementById("recommended-watchings-1-iframe").innerHTML=`<iframe width="560" height="315" src="https://www.youtube.com/embed/OJt-k9h9pmk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
-			})
-		</script>		
-	</details>
+<div id="recommended-watchings"></div>
+<script>
+	setTimeout(function(){
+		document.getElementById('recommended-watchings').innerHTML = `
+		<blockquote class="sidebar" style="padding-bottom: 0%;">
+			<h3>Recommended Watching</h3>
+			<details style="margin-top: 10px; margin-bottom: 10px;">
+				<summary><i><span style="text-align: center;" class="bb">What is Statistics</span> (by ma'am Cassie Kozyrkov)</i></summary>
+				<div style="text-align: center; margin-top:10px;">
+					<iframe width="560" height="315" src="https://www.youtube.com/embed/OJt-k9h9pmk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				</div>
+			</details>
 
-	<details id="recommended-watchings-2" style="margin-bottom: 10px;">
-		<summary><i><span style="text-align: center;" class="bb">Analytics v/s Statistics</span> (by ma'am Cassie Kozyrkov)</i></summary>
-			<div id="recommended-watchings-2-iframe" style="text-align: center; margin-top:10px;"></div>
-			<script>
-				document.getElementById("recommended-watchings-2").addEventListener("click", function(){
-					document.getElementById("recommended-watchings-2-iframe").innerHTML=`<iframe width="560" height="315" src="https://www.youtube.com/embed/YsrPImZyisI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
-				})
-			</script>
-	</details>
+			<details style="margin-bottom: 10px;">
+				<summary><i><span style="text-align: center;" class="bb">Analytics v/s Statistics</span> (by ma'am Cassie Kozyrkov)</i></summary>
+				<div style="text-align: center; margin-top:10px;">
+					<iframe width="560" height="315" src="https://www.youtube.com/embed/YsrPImZyisI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				</div>
+			</details>
 
-	<details id="recommended-watchings-3" style="margin-bottom: 10px;">
-		<summary><i><span style="text-align: center;" class="bb">Are you Bayesian or Frequentist?</span> (by ma'am Cassie Kozyrkov)</i></summary>
-			<div id="recommended-watchings-3-iframe" style="text-align: center; margin-top:10px;"></div>
-			<script>
-				document.getElementById("recommended-watchings-3").addEventListener("click", function(){
-					document.getElementById("recommended-watchings-3-iframe").innerHTML=`<iframe width="560" height="315" src="https://www.youtube.com/embed/GEFxFVESQXc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
-				})
-			</script>
-	</details>
+			<details style="margin-bottom: 10px;">
+				<summary><i><span style="text-align: center;" class="bb">Are you Bayesian or Frequentist?</span> (by ma'am Cassie Kozyrkov)</i></summary>
+				<div style="text-align: center; margin-top:10px;">
+					<iframe width="560" height="315" src="https://www.youtube.com/embed/GEFxFVESQXc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>		</div>
+			</details>
 
-	<details id="recommended-watchings-4">
-		<summary><i><span style="text-align: center;" class="bb">Why Statistics</span> (by Sir Eric Newburger)</i></summary>
-			<div id="recommended-watchings-4-iframe" style="text-align: center; margin-top:10px;"></div>
-			<script>
-				document.getElementById("recommended-watchings-4").addEventListener("click", function(){
-					document.getElementById("recommended-watchings-4-iframe").innerHTML=`<iframe width="560" height="315" src="https://www.youtube.com/embed/yxXsPc0bphQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
-				})
-			</script>
-	</details>
+			<details>
+				<summary><i><span style="text-align: center;" class="bb">Why Statistics</span> (by Sir Eric Newburger)</i></summary>
+				<div style="text-align: center; margin-top:10px;">
+					<iframe width="560" height="315" src="https://www.youtube.com/embed/yxXsPc0bphQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				</div>
+			</details>
 
-<br>
-</blockquote>
+		<br>
+		</blockquote>
+		`;
+		}, 1000);
+	</script>
 <br><br>
 <div id="modals-html"></div>
 
@@ -409,9 +399,7 @@ Now let's see some Simulation, choose your language of choice,<br>
 					</div>
 			</div>
 
-		<!-- Scripts -->
-		<script src="/data/assets/js/script.js"></script>
-		<script>cssLoaded()</script>
+		<script>requireScript('script-js', '0.1.0', '/data/js/script.js', function(){cssLoaded()})</script>
 
 <!-- <script>d = new Date();end = d.getTime();console.log(end-start)</script> -->
 	</body>

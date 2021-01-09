@@ -1,0 +1,292 @@
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+
+        <script>
+            var isConcluded = true;
+            var arrowLeftPage = "/linear-algebra/symmetric-matrices/"
+            var arrowRightPage = "/linear-algebra/positive-definite-matrices/"
+        </script>
+
+        <link rel="stylesheet" href="/data/css/main.css">
+        
+		<title>Complex Matrices & Fast Fourier Transform - QuantML</title>
+		<meta charset="utf-8" />
+        <link rel="icon" href="/data/icon.png" type="image/png" sizes="16x16">
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="robots" content="index, follow">
+        <meta name="author" content="Yuvraj Garg">
+
+        <script src="/data/js/initialize.js"></script>
+
+    </head>
+
+    <body>
+
+		<!-- Wrapper -->
+        <div style="display: none;" id="wrapper">
+            <div class="bg fixed" style="transform: none;"></div>
+            <div id="navPanelToggle">Menu</div>
+
+
+				<!-- Header -->
+				<header id="header">
+					<a href="https://quantml.org" style="display: none;" class="logo image jump-big" id="quantml-cover-light"><img src="/data/img/cover.webp" alt="QuantML.org" /></a>
+					<a href="https://quantml.org" style="display: none;" class="logo image jump-big" id="quantml-cover-dark"><img src="/data/img-dark/cover.webp" alt="QuantML.org" /></a>
+					<script>
+						if(localStorage.getItem("quantmlTheme")=="dark") document.getElementById('quantml-cover-dark').style.display = "block";
+						else document.getElementById('quantml-cover-light').style.display = "block";
+					</script>
+				</header>
+
+                <!-- Nav -->
+                    <nav id="nav">
+                        <ul class="links">
+                            <li class="cover"><a href="/linear-algebra/"><img src="/data/img/linear-algebra-cover.png" alt="Linear Algebra"></a></li>
+                            <li class="active title">Complex Matrices & FFT</li>
+                        </ul>
+                        <ul id="nav-bar-icons-head" class="icons"></ul>
+                    </nav>
+
+                <!-- Main -->
+                    <div id="main">
+                        <section class="post">
+<div style="text-align: center;" id="load-init"></div>
+<script>initializeBody();</script>
+
+<div id="paragraph-content" data-swipe-threshold="80">
+<div id="btn-container">
+    <button id="prev-btn" class="button" onclick="window.location.href = '/linear-algebra/symmetric-matrices/';">&#x25C0;&nbsp;&nbsp;Symmetric Matrices</button>
+    <button id="next-btn" class="button"  style="float: right;" onclick="window.location.href = '/linear-algebra/positive-definite-matrices/';">Positive Definite Matrices&nbsp;&nbsp;&#x25B6;</button>
+</div><br>
+
+
+<p>
+<h1>Complex Matrices</h1>
+
+Say we have a vector \(\vec{z}\in\mathbb{C}^n\) here elements of \(\vec{z}\) are complex, \(z_i=a_i+ib_i\)<br>
+ \(\vec{z}=\begin{bmatrix} z_1\\z_2\\ \vdots \\z_n\\  \end{bmatrix}\) how can we find the length of vector \(\vec{z}\)<br>
+<blockquote>
+    Magnitude of a complex number \(z_i\) is,<br>
+    \(\|z_i\|=\|\overline{z_i}\|\|z_i\|\)<br>
+    \(\|z_i\|=(a_i - ib_i)(a_i + ib_i)\)<br>
+    \(\|z_i\|=a_i^2 + b_i^2\)<br>
+</blockquote>
+We can get the magnitude of \(\vec{z}\) by taking dot product \(\vec{z}\cdot\vec{z}\), but how to take the dot product of of two complex vectors.<br>
+<blockquote class="noborder">
+    We can <b>not</b> compute dot product like \(\vec{z}\cdot\vec{z}=\vec{z}^T\vec{z}\)<br>
+    Say \(\vec{z}=\begin{bmatrix} 1\\i\\  \end{bmatrix}\) then \(\vec{z}^T\vec{z}=a^2+i^2=0\)<br>
+    But we can clearly see that the magnitude of \(\vec{z}\) is <b>not</b> \(0\)<br>
+    <br>
+    Magnitude of a complex vector is given as,<br>
+    <div class="l1 border">
+    \[\begin{matrix}
+
+        % equation
+        \|\mathbf{z}\|=\mathbf{z}\cdot\mathbf{z}=\mathbf{\overline{z}}^T\mathbf{z};\quad \mathbf{z}\in\mathbb{C}^n
+        %equation
+
+        \end{matrix}
+    \]
+    </div>
+    So for \(\vec{z}=\begin{bmatrix} 1\\i\\  \end{bmatrix}\) magnitude of \(\mathbf{z}\) is \(\|\mathbf{z}\|=\mathbf{\overline{z}}^T\mathbf{z}\)<br>
+    \(\|\mathbf{z}\|=\begin{bmatrix} \overline{1} & \overline{i}\\  \end{bmatrix} \begin{bmatrix} 1\\i\\  \end{bmatrix}\)<br>
+    \(\|\mathbf{z}\|=1 \times \overline{1} + i\overline{i}\)<br>
+    \(\|\mathbf{z}\|= 1  - i^2\)<br>
+    \(\|\mathbf{z}\|= 1  + 1\)<br>
+    \(\|\mathbf{z}\|= 2\)<br>
+</blockquote><br>
+
+\(\mathbf{\overline{z}}^T\mathbf{z}\) is also written as \(\mathbf{z}^H\mathbf{z}\) we pronounce it as <i>"z Hermitian z"</i>.<br>
+<b>Dot product</b> between two complex vector say \(\mathbf{u},\mathbf{v} \in\mathbb{C}^n\) is given as.<br>
+<div class="l1 border">
+\[  \begin{matrix}
+
+    % equation
+    \mathbf{u}\cdot\mathbf{v}=\mathbf{\overline{u}}^T\mathbf{v}=\mathbf{u}^H\mathbf{v};\quad \mathbf{u},\mathbf{v}\in\mathbb{C}^n
+    %equation
+
+    \end{matrix}
+\]
+</div><br>
+
+<h2 id="complex-symmetric-matrices">Complex symmetric matrices</h2>
+What we have seen for symmetric matrix is \(A^T=A\) but it's only true if all the elements of \(A\) are <b>Real</b>.<br>
+A <b>Complex matrix</b> is <i>symmetric</i> if
+<div class="l1 border">
+\[  \begin{matrix}
+
+    % equation
+    \overline{A}^T=A
+    %equation
+
+    \end{matrix}
+\]
+</div>
+And these matrices are known as <b>Hermitian matrices</b>.<br>
+<br>
+
+<h2 id="complex-orthogonal-matrices">Complex Orthonormal Vectors</h2>
+Say we have an orthogonal matrix \(Q\in\mathbb{C}^{n\times n}\) whose column vectors are perpendicular to each other.<br>
+\[Q=\begin{bmatrix}
+\vdots & \vdots &          & \vdots \\
+q_1    &  q_2   & \cdots   &  q_n   \\
+\vdots & \vdots &          & \vdots \\
+\end{bmatrix}\]
+<b>all</b> columns vectors are <b>perpendicular</b> to each other,
+\[
+\overline{q_i}^Tq_j=\left\{\begin{matrix}
+    0& \text{if }i\neq j\\
+    1& \text{if }i=j \\
+    \end{matrix}\right.
+\]
+And we can also say,<br>
+<div class="l1 border">
+\[  \begin{matrix}
+
+    % equation
+    \overline{Q}^TQ=Q^HQ=\mathcal{I}
+    %equation
+
+    \end{matrix}
+\]
+</div>
+<br>
+<h2 id="fft">Fast Fourier Transform</h2>
+
+We <a href="/linear-algebra/markov-matrix/#fourier" >discussed</a> about <b>Fourier Series</b>.<br>
+\[f(x)=a_0 1+a_1\cos(x)+b_1\sin(x)+a_2\cos(2x)+b_2\sin(2x)+\cdots\]
+Now assume we have \(n\) samples \((f_0,f_2,\cdots,f_{n-1})\) from a signal \(f\), we only have some realizations of \(f\) so we can only have a <b>Discrete Fourier Transform</b>  .<br>
+Using these \(n\) samples we want to approximate the there fourier coefficient \((\hat{f}_0, \hat{f}_1, \cdots , \hat{f}_{n-1})\).<br>
+<div class="l1 border">
+\[  \begin{matrix}
+
+    % equation
+    \displaystyle \hat{f}_k=\sum_{j=0}^{n-1}f_j \exp\left(\frac{-i2\pi jk}{n}\right)
+    %equation
+
+    \end{matrix}
+\]
+</div>
+\[f_k=\frac{1}{n}\left(\sum_{j=0}^{n-1}\hat{f}_j \exp\left(\frac{   i2\pi jk}{n}\right)\right)\]
+Say,
+<div class="l1 border">
+\[  \begin{matrix}
+
+    % equation
+    \displaystyle \omega_n=\exp\left(\frac{i2\pi}{n}\right)
+    %equation
+
+    \end{matrix}
+\]
+</div>
+We can rewrite the above equations as,<br>
+<div class="math-container">
+\[\begin{bmatrix} \hat{f}_0\\\hat{f}_1\\\hat{f}_2\\ \vdots \\\hat{f}_{n-1}\\  \end{bmatrix}=
+\underbrace{\begin{bmatrix}
+1 & 1 & 1 & \cdots & 1 \\
+1 & \omega_n & \omega_n^2 & \cdots & \omega_n^{n-1}\\
+1 & \omega_n^2 & \omega_n^4 & \cdots & \omega_n^{2(n-1)}\\
+\vdots & \vdots & \vdots & \ddots & \vdots \\
+1 & \omega_n^{n-1} & \omega_n^{2(n-1)} & \cdots & \omega_n^{(n-1)^2}\\
+\end{bmatrix}}_{\text{DFT matrix say } F_n}
+\begin{bmatrix} f_0\\f_1\\f_2\\ \vdots \\f_{n-1}\\  \end{bmatrix}
+\]
+</div>
+\(\omega_n\) is an <b>complex number</b> so <b>DFT</b> matrix is a <b>Complex Matrix</b>, so our fourier coefficient
+\((\hat{f}_0, \hat{f}_1, \cdots , \hat{f}_{n-1})\) are also <b>complex number</b>.<br>
+<li>Magnitude of \(\hat{f}_i\)  tells us the magnitude of the \(i^{th}\)   \(\sin\) and \(\cos\).<br></li>
+<li>Phase of \(\hat{f}_i\)  tells us the phase of the \(i^{th}\)  \(\sin\) and \(\cos\).<br></li><br>
+<blockquote>
+    <b>DFT matrix</b> is an <b>Orthogonal Matrix</b>, all <b>column vectors</b> are <b>orthogonal</b> to each other.
+    <div class="l1 border">
+    \[  \begin{matrix}
+
+        % equation
+        \overline{F}_n^TF_n=F_n^HF_n=\mathcal{I}_n
+        %equation
+
+        \end{matrix}
+    \]
+    </div>
+</blockquote>
+<br>
+Now the problem is this matrix multiplication, time complexity of this matrix multiplication is \(O(n^2)\),
+for a matrix of size \(1024\times 1024\) then it requires \(‭1,048,576‬\) multiplications.<br>
+This problem is solved by <b>Fast Fourier Transform</b><br>
+<b>IDEA</b> behind <b>FFT</b> is we can write \(F_n\) as,<br>
+<div class="l1 border math-container">
+\[\begin{matrix}
+
+    % equation
+    F_n =
+    \begin{bmatrix} \mathcal{I}_{n/2} & -D_{n/2}\\
+    \mathcal{I}_{n/2} & D_{n/2}\\
+    \end{bmatrix}
+    \begin{bmatrix} F_{n/2} & 0\\
+    0 & F_{n/2}\\
+    \end{bmatrix}
+    P_n
+    %equation
+
+    \end{matrix}
+\]
+</div>
+\(
+    D_{n/2}=\begin{bmatrix}
+    1       &     0    &    0     & \cdots   &    0      \\
+    0       & \omega_{n/2} &    0     & \cdots   &    0      \\
+    0       &    0     & \omega_{n/2}^2 & \cdots   &    0      \\
+    \vdots  & \vdots   & \vdots   & \ddots   & \vdots    \\
+    0       &    0     &    0     &  \cdots  & \omega_{n/2}^{n/2-1}
+    \end{bmatrix}
+\)<br>
+\(P_n\) is a \(n\times n\) even and odd permutation matrix.<br>
+\(P_n=
+    \begin{bmatrix}
+       \color{red}{1} & \color{red}{0} & \color{red}{0} & \color{red}{0} & \cdots & \color{red}{0} & \color{red}{0} \\
+                    \color{red}{0} & \color{red}{0} & \color{red}{1} & \color{red}{0} & \cdots & \color{red}{0} & \color{red}{0} \\
+                    \vdots  & \vdots   & \vdots   & \vdots   & \ddots  & \vdots  & \vdots \\
+                    \color{red}{0} & \color{red}{0} & \color{red}{0} & \color{red}{0} & \cdots & \color{red}{1} & \color{red}{0} \\
+
+        \color{blue}{0} & \color{blue}{1} & \color{blue}{0} & \color{blue}{0} & \cdots & \color{blue}{0} & \color{blue}{0} \\
+                    \color{blue}{0} & \color{blue}{0} & \color{blue}{0} & \color{blue}{1} & \cdots & \color{blue}{0} & \color{blue}{0} \\
+                    \vdots  & \vdots   & \vdots   & \vdots   & \ddots  & \vdots  & \vdots \\
+                    \color{blue}{0} & \color{blue}{0} & \color{blue}{0} & \color{blue}{0} & \cdots & \color{blue}{0} & \color{blue}{1} \\
+    \end{bmatrix}
+\)<br>
+<br>
+<b>FFT</b> will have to make \(\frac{1}{2}n\log_2(n)‬\) calculations<br>
+<br>
+<blockquote>
+    <b>FFT</b> gives time complexity of \(n\log_2(n)\)
+</blockquote><br>
+For \(n=1024=2^{10}\)<br>
+<li><b>DFT</b> will have to make \(n^2=‭1,048,576‬\) calculations</li>
+<li><b>FFT</b> will have to make only \(\frac{1}{2}n\log_2(n)=5,120‬\) calculations</li>
+So here <b>FFT</b> is more then \(200x\) faster then <b>DFT</b><!--
+    https://youtu.be/nl9TZanwbBk?list=PLMrJAkhIeNNRjxJ_sMtJ02geqw_-vuB7O
+    https://youtu.be/E8HeD-MUrjY?list=PLMrJAkhIeNNRjxJ_sMtJ02geqw_-vuB7O
+--></p>
+
+<div class="slack-discuss" onclick=" window.open('https://join.slack.com/t/quantml-org/shared_invite/zt-jffw86bo-6M260iyt1q2MgBma9elewg','_blank')">
+    Join our Slack <img src="/data/img/slack.png" alt="Slack"> discussion forum
+</div>
+<br>
+
+</div>
+<div id="btn-container">
+    <button id="prev-btn" class="button" onclick="window.location.href = '/linear-algebra/symmetric-matrices/';">&#x25C0;&nbsp;&nbsp;Symmetric Matrices</button>
+    <button id="next-btn" class="button"  style="float: right;" onclick="window.location.href = '/linear-algebra/positive-definite-matrices/';">Positive Definite Matrices&nbsp;&nbsp;&#x25B6;</button>
+</div><br>
+    <div id="modals-html"></div>
+
+                    </section>
+                    </div>
+            </div>
+
+        <!-- Scripts -->
+        <script>requireScript('script-js', '0.1.0', '/data/js/script.js', function(){cssLoaded()})</script>
+
+    </body>
+</html>

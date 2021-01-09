@@ -23,147 +23,147 @@
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://read.quantml.org/la/</loc>
+  <loc>https://read.quantml.org/linear-algebra/</loc>
   <lastmod>2020-11-24T20:30:17+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://read.quantml.org/la/thanks/</loc>
+  <loc>https://read.quantml.org/linear-algebra/thanks/</loc>
   <lastmod>2020-11-24T20:30:17+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://read.quantml.org/la/vector-space/</loc>
+  <loc>https://read.quantml.org/linear-algebra/vector-space/</loc>
   <lastmod>2020-11-24T20:30:17+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://read.quantml.org/la/column-space/</loc>
+  <loc>https://read.quantml.org/linear-algebra/column-space/</loc>
   <lastmod>2020-11-24T20:30:17+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://read.quantml.org/la/null-space/</loc>
+  <loc>https://read.quantml.org/linear-algebra/null-space/</loc>
   <lastmod>2020-11-24T20:30:17+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://read.quantml.org/la/complete-space/</loc>
+  <loc>https://read.quantml.org/linear-algebra/complete-space/</loc>
   <lastmod>2020-11-24T20:30:17+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://read.quantml.org/la/rank/</loc>
+  <loc>https://read.quantml.org/linear-algebra/rank/</loc>
   <lastmod>2020-11-24T20:30:17+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://read.quantml.org/la/fundamental-subspaces/</loc>
+  <loc>https://read.quantml.org/linear-algebra/fundamental-subspaces/</loc>
   <lastmod>2020-11-24T20:30:17+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://read.quantml.org/la/matrix-space/</loc>
+  <loc>https://read.quantml.org/linear-algebra/matrix-space/</loc>
   <lastmod>2020-11-24T20:30:17+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://read.quantml.org/la/matrix-space/dim/</loc>
+  <loc>https://read.quantml.org/linear-algebra/matrix-space/dim/</loc>
   <lastmod>2020-11-24T20:30:17+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://read.quantml.org/la/matrix-space/ops/</loc>
+  <loc>https://read.quantml.org/linear-algebra/matrix-space/ops/</loc>
   <lastmod>2020-11-24T20:30:17+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://read.quantml.org/la/matrix-space/ex/</loc>
+  <loc>https://read.quantml.org/linear-algebra/matrix-space/ex/</loc>
   <lastmod>2020-11-24T20:30:17+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://read.quantml.org/la/orthogonal-subspaces/</loc>
+  <loc>https://read.quantml.org/linear-algebra/orthogonal-subspaces/</loc>
   <lastmod>2020-11-24T20:30:17+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://read.quantml.org/la/projection/</loc>
+  <loc>https://read.quantml.org/linear-algebra/projection/</loc>
   <lastmod>2020-11-24T20:30:17+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://read.quantml.org/la/least-squares/</loc>
+  <loc>https://read.quantml.org/linear-algebra/least-squares/</loc>
   <lastmod>2020-11-24T20:30:17+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://read.quantml.org/la/orthonormal-vectors/</loc>
+  <loc>https://read.quantml.org/linear-algebra/orthonormal-vectors/</loc>
   <lastmod>2020-11-24T20:30:17+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://read.quantml.org/la/eigenvalues-eigenvectors/</loc>
+  <loc>https://read.quantml.org/linear-algebra/eigenvalues-eigenvectors/</loc>
   <lastmod>2020-11-24T20:30:17+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://read.quantml.org/la/diagonalization/</loc>
+  <loc>https://read.quantml.org/linear-algebra/diagonalization/</loc>
   <lastmod>2020-11-24T20:30:17+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://read.quantml.org/la/differential-equation/</loc>
+  <loc>https://read.quantml.org/linear-algebra/differential-equation/</loc>
   <lastmod>2020-11-24T20:30:17+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://read.quantml.org/la/markov-matrix/</loc>
+  <loc>https://read.quantml.org/linear-algebra/markov-matrix/</loc>
   <lastmod>2020-11-24T20:30:17+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://read.quantml.org/la/symmetric-matrices/</loc>
+  <loc>https://read.quantml.org/linear-algebra/symmetric-matrices/</loc>
   <lastmod>2020-11-24T20:30:17+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://read.quantml.org/la/cmfft/</loc>
+  <loc>https://read.quantml.org/linear-algebra/cmfft/</loc>
   <lastmod>2020-11-24T20:30:17+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://read.quantml.org/la/positive-definite-matrices/</loc>
+  <loc>https://read.quantml.org/linear-algebra/positive-definite-matrices/</loc>
   <lastmod>2020-11-24T20:30:17+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://read.quantml.org/la/similar-matrices/</loc>
+  <loc>https://read.quantml.org/linear-algebra/similar-matrices/</loc>
   <lastmod>2020-11-24T20:30:17+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://read.quantml.org/la/svd/</loc>
+  <loc>https://read.quantml.org/linear-algebra/svd/</loc>
   <lastmod>2020-11-24T20:30:17+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://read.quantml.org/la/thanks/.</loc>
+  <loc>https://read.quantml.org/linear-algebra/thanks/.</loc>
   <lastmod>2020-11-24T20:30:17+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>https://read.quantml.org/la/null-space/echelon-form/</loc>
+  <loc>https://read.quantml.org/linear-algebra/null-space/echelon-form/</loc>
   <lastmod>2020-11-24T20:30:17+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>https://read.quantml.org/la/null-space/solve/</loc>
+  <loc>https://read.quantml.org/linear-algebra/null-space/solve/</loc>
   <lastmod>2020-11-24T20:30:17+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>https://read.quantml.org/la/null-space/reduced-row-echelon-form/</loc>
+  <loc>https://read.quantml.org/linear-algebra/null-space/reduced-row-echelon-form/</loc>
   <lastmod>2020-11-24T20:30:17+00:00</lastmod>
   <priority>0.51</priority>
 </url>
