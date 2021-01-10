@@ -198,5 +198,4 @@ window.quantml["chapters"] ={
     //     }
     // }
 }
-
-if(typeof(chapterID) != "undefined") window.quantml["chapters"][chapterID].run();
+if(chapterID in window.quantml["chapters"]) window.quantml["chapters"][chapterID].run();

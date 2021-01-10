@@ -84,13 +84,14 @@ function clearModelOnBackgroundClick(modal){
 }
 
 function changeTheme() {
-	currentTheme = localStorage.getItem("quantmlTheme");
+	currentTheme = window.quantml["theme"];
 	homeStylesheet = document.getElementById('home-stylesheet')
 	if(currentTheme == "light"){
 		// console.log("Light2Dark");
 		changeThemeCSS("dark")
 		loadCorrectThemeImages("dark")
 		localStorage.setItem("quantmlTheme", "dark");
+		window.quantml["theme"] = "dark";
 		if(homeStylesheet != null) homeStylesheet.href = "/style-dark.css"
 	}
 	else if (currentTheme == "dark"){
@@ -98,6 +99,7 @@ function changeTheme() {
 		changeThemeCSS("light")
 		loadCorrectThemeImages("light")
 		localStorage.setItem("quantmlTheme", "light");
+		window.quantml["theme"] = "light";
 		if(homeStylesheet != null) homeStylesheet.href = "/style-light.css"
 	}
 }
@@ -137,14 +139,14 @@ function isInputRequires(){
 function katexLoaded(){
 	setDisplay('pre-loading', 'none')
 	setDisplay('pre-initializing', 'none')
-	loadCorrectThemeImages(localStorage.getItem("quantmlTheme"));
+	loadCorrectThemeImages(window.quantml["theme"]);
 	if(localStorage.getItem('paragraph-font-size') == null) resetFontSize();
 	setFontSize()
 	setDisplay('paragraph-content', 'block')
 }
 
 function loadKatex(){
-	theme = localStorage.getItem("quantmlTheme")
+	theme = window.quantml["theme"]
 	if(!localStorage.hasOwnProperty('katex')){
 		setDisplay('pre-loading', 'none')
 		setDisplay('pre-initializing', 'block')
@@ -268,7 +270,7 @@ function fullyLoaded(){
 
 
 	imgsrc = "img"
-	if(localStorage.getItem("quantmlTheme") == "dark") imgsrc = "img-dark";
+	if(window.quantml["theme"] == "dark") imgsrc = "img-dark";
 	document.getElementById('modals-html').innerHTML =`
 	<!--=================== MODELS ===================-->
 
@@ -760,7 +762,7 @@ function auth_identify_email(){
 	// Get User Info
 	email = email_form['login-email'].value;
 	nextButtonText = document.getElementById('login-button-text');
-	if(localStorage.getItem("quantmlTheme")=="light"){
+	if(window.quantml["theme"]=="light"){
 		var src = "/data/img/loading-login.svg";
 	} else {
 		var src = "/data/img-dark/loading-login.svg";
@@ -827,7 +829,7 @@ function auth_authenticate(){
 	// Get User Info
 	password = email_form['password'].value;
 	loginButtonText = document.getElementById('password-button-text');
-	if(localStorage.getItem("quantmlTheme")=="light"){
+	if(window.quantml["theme"]=="light"){
 		var src = "/data/img/loading-login.svg";
 	} else {
 		var src = "/data/img-dark/loading-login.svg";
@@ -866,7 +868,7 @@ function auth_createPassword(){
 	newpass = loginForm['new-password'].value;
 	confirmpass = loginForm['confirm-password'].value;
 	buttonText = document.getElementById('create-password-text');
-	if(localStorage.getItem("quantmlTheme")=="light"){
+	if(window.quantml["theme"]=="light"){
 		var src = "/data/img/loading-login.svg";
 	} else {
 		var src = "/data/img-dark/loading-login.svg";
@@ -902,7 +904,7 @@ function auth_createPassword(){
 
 function auth_forgotPassword(){
 	forgotButtonText = document.getElementById('forgot-button-text')
-	if(localStorage.getItem("quantmlTheme")=="light"){
+	if(window.quantml["theme"]=="light"){
 		var src = "/data/img/loading-forgot.svg";
 	} else {
 		var src = "/data/img-dark/loading-forgot.svg";

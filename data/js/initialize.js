@@ -1,4 +1,6 @@
-window.quantml = {}
+window.quantml = {
+	theme: localStorage.getItem("quantmlTheme")
+}
 
 function _cacheFile_(name, version, url) {
 	var xmlhttp = new XMLHttpRequest(); // code for IE7+, Firefox, Chrome, Opera, Safari
@@ -99,7 +101,7 @@ function getCookie(name) {
 }
 
 function get_loader_img_str(which = "login"){
-	if(localStorage.getItem("quantmlTheme")=="light"){
+	if(window.quantml["theme"]=="light"){
 		var src = `/data/img/loading-${which}.svg`;
 	} else {
 		var src = `/data/img-dark/loading-${which}.svg`;
@@ -108,8 +110,9 @@ function get_loader_img_str(which = "login"){
 }
 
 // Setting Theme
-if(localStorage.getItem("quantmlTheme")==null){
+if(window.quantml["theme"]==null){
 	localStorage.setItem("quantmlTheme", "light");
+	window.quantml["theme"] = "light"
 }
 
 function changeThemeCSS(currentTheme){
@@ -179,15 +182,15 @@ function loadNavBar(){
 	nav = document.getElementById('nav')
 	ul = document.createElement('ul')
 	ul.classList.add('icons')
-	if(localStorage.getItem("quantmlTheme")=="light"){
+	if(window.quantml["theme"]=="light"){
 		imgsrc = "/data/img/"
 	} else {
 		imgsrc = "/data/img-dark/"
   	}
 	if(typeof(isConcluded) == "undefined" || isConcluded == false){
 		log_in_out = `<li style=" text-align: center;" id="fb-loading"><img class="fb-loading" src="${imgsrc}fb-loading.gif" alt=" "></li>
-		<li style="display: none;" id="login-button"><button id="login-btn-width" class="login-logout-join" >Login <img src="${imgsrc}patreon.png" alt="Patreon"></button></li>
-		<li style="display: none;" id="logout-button"><button id="logout-btn-width" class="login-logout-join" >Logout <img src="${imgsrc}patreon.png" alt="Logout"></button></li>`
+		<li style="display: none;" id="login-button"><button class="login-logout-join login-btn-width" >Login <img src="${imgsrc}patreon.png" alt="Patreon"></button></li>
+		<li style="display: none;" id="logout-button"><button class="login-logout-join" >Logout <img src="${imgsrc}patreon.png" alt="Logout"></button></li>`
 	} else if(isConcluded == true) {
 		log_in_out = ``
 	}
@@ -196,7 +199,7 @@ function loadNavBar(){
 	<li class="link"><a rel="noreferrer" target="_blank" href="https://www.linkedin.com/in/yuvraj97/"><img src="${imgsrc}linkedin.png" alt="LinkedIn"></a></li>
 	<!--<li class="link"><a rel="noreferrer" target="_blank" href="https://github.com/yuvraj97/"><img src="${imgsrc}github.png" alt="GitHub"></a></li>-->
 	${log_in_out}
-	<li style="display: none;" id="join-button"><button onclick=" window.open('https://www.patreon.com/quantml','_blank','noopener')" id="join-btn-width" class="login-logout-join" >Join <img src="${imgsrc}patreon.png" alt="Patreon"></button></li>
+	<li style="display: none;" id="join-button"><button onclick=" window.open('https://www.patreon.com/quantml','_blank','noopener')" class="login-logout-join join-btn-width" >Join <img src="${imgsrc}patreon.png" alt="Patreon"></button></li>
 	<li class="link" title="Change Theme" ><img onclick="changeTheme()" id="change-theme" src="${imgsrc}change-theme.png" alt="Change Theme"></li>
 	<li title="Settings" class="jump link"><img onclick="showSettings()" src="${imgsrc}setings.png" alt="Settings" width="25px" height="25px"></li>
 	`
@@ -218,7 +221,7 @@ function loadNavBar(){
 
 function initializeBody(){
 //   console.log("initializeBody()")
-  theme = localStorage.getItem("quantmlTheme")
+  theme = window.quantml["theme"]
   if(theme=="dark") {
 	document.querySelector('body').style.backgroundColor = "#2d2d2d"
   }
@@ -259,5 +262,5 @@ function loadInit(theme){
 }
 
 if(typeof(importPrism) != "undefined" && importPrism == true) requireScript('prism-css', '0.1.0', '/data/prism/prism.css', function(){});
-changeThemeCSS(localStorage.getItem("quantmlTheme"));
+changeThemeCSS(window.quantml["theme"]);
 requireScript('auth-css', '0.1.0', '/data/css/authStyle.css', function(){})

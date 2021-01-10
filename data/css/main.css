@@ -953,10 +953,10 @@ summary span {
 		display: block;
 	}
 
-	#login-btn-width{
+	.login-btn-width{
 		margin-bottom: 3px !important;
 	}
-	#join-btn-width{
+	.join-btn-width{
 		margin-top: 0px !important;
 		margin-bottom: 0px !important;
 	}

@@ -22,7 +22,7 @@
 		<meta name="keywords" content="QuantML,About,Visualization,Machine Learning,Statistics,Linear Algebra">
 		<meta name="author" content="Yuvraj Garg">
 		<script src="/data/js/initialize.js"></script>
-		<script>if(localStorage.getItem("quantmlTheme") == "dark") requireScript('style-dark-css', '0.1.0', '/style-dark.css', function(){});else requireScript('style-light-css', '0.1.0', '/style-light.css', function(){});</script>
+		<script>if(window.quantml["theme"] == "dark") requireScript('style-dark-css', '0.1.0', '/style-dark.css', function(){});else requireScript('style-light-css', '0.1.0', '/style-light.css', function(){});</script>
 	</head>
 
 	<body>
@@ -36,7 +36,7 @@
 				<header id="header">
 					<a href="https://quantml.org" style="display: none;" class="logo image jump-big" id="quantml-cover-light"><img src="/data/img/cover.webp" alt="QuantML.org" /></a>
 					<a href="https://quantml.org" style="display: none;" class="logo image jump-big" id="quantml-cover-dark"><img src="/data/img-dark/cover.webp" alt="QuantML.org" /></a>
-					<script>if(localStorage.getItem("quantmlTheme")=="dark") document.getElementById('quantml-cover-dark').style.display = "block";else document.getElementById('quantml-cover-light').style.display = "block";</script>
+					<script>if(window.quantml["theme"]=="dark") document.getElementById('quantml-cover-dark').style.display = "block";else document.getElementById('quantml-cover-light').style.display = "block";</script>
 				</header>
 
 				<!-- Nav -->

@@ -16,7 +16,7 @@ input {
 }
 
 .success-msg{
-  border-color: rgba(150, 255, 150, 0.5);
+  border-color: rgba(150, 255, 150, 0.35);
   background-color: rgba(150, 255, 150, 0.02);
   color: rgb(150, 255, 150);
 }
