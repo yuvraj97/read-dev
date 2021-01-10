@@ -255,51 +255,71 @@ So even if we got \(1000\) \(\text{Heads}\) in a row, there is still \(\infty\) 
 
 <div id="btn-container"></div><br>
 <br>
-<div id="recommended-watchings"></div>
-<script>
-	setTimeout(function(){
-		document.getElementById('recommended-watchings').innerHTML = `
-		<blockquote class="sidebar" style="padding-bottom: 0%;">
-			<h3>Recommended Watching</h3>
-			<details style="margin-top: 10px; margin-bottom: 10px;">
-				<summary><i><span style="text-align: center;" class="bb">Chebyshev's Inequality?</span> (by Prof. John Tsitsiklis)</i></summary>
-				<div style="text-align: center; margin-top:10px;">
-					<iframe width="560" height="315" src="https://www.youtube.com/embed/d5pnfFvggYk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-				</div>
-			</details>
+	<blockquote class="sidebar" style="padding-bottom: 0%;">
+		<h3>Recommended Watching</h3>
+		<details style="margin-top: 10px; margin-bottom: 10px;" id="recommended-watchings-1">
+			<summary><i><span style="text-align: center;" class="bb">Chebyshev's Inequality?</span> (by Prof. John Tsitsiklis)</i></summary>
+				<img style="display: none; margin-top: 1rem;" id="loading-iframe-1" class="loading" src="/data/img/loading.svg" alt="">
+				<div id="recommended-watchings-1-iframe" style="text-align: center; margin-top:10px;"></div>
+				<script>
+					document.getElementById("recommended-watchings-1").addEventListener("click", function(){
+						setDisplay("loading-iframe-1","block")
+						document.getElementById("recommended-watchings-1-iframe").innerHTML=`<iframe onload='setDisplay("loading-iframe-1","none")' width="560" height="315" src="https://www.youtube.com/embed/d5pnfFvggYk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+					})
+				</script>
+		</details>
 
-			<details style="margin-top: 10px; margin-bottom: 10px;">
-				<summary><i><span style="text-align: center;" class="bb">Chebyshev's Inequality?</span> (by Sir Ben Lambert)</i></summary>
-				<div style="text-align: center; margin-top:10px;">
-					<iframe width="560" height="315" src="https://www.youtube.com/embed/h0YH79kLuOA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-				</div>
-			</details>
+		<details style="margin-top: 10px; margin-bottom: 10px;" id="recommended-watchings-2">
+			<summary><i><span style="text-align: center;" class="bb">Chebyshev's Inequality?</span> (by Sir Ben Lambert)</i></summary>
+				<img style="display: none; margin-top: 1rem;" id="loading-iframe-2" class="loading" src="/data/img/loading.svg" alt="">
+				<div id="recommended-watchings-2-iframe" style="text-align: center; margin-top:10px;"></div>
+				<script>
+					document.getElementById("recommended-watchings-2").addEventListener("click", function(){
+						setDisplay("loading-iframe-2","block")
+						document.getElementById("recommended-watchings-2-iframe").innerHTML=`<iframe onload='setDisplay("loading-iframe-2","none")' width="560" height="315" src="https://www.youtube.com/embed/h0YH79kLuOA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+					})
+				</script>
+		</details>
+		
+		<details style="margin-top: 10px; margin-bottom: 10px;" id="recommended-watchings-3">
+			<summary><i><span style="text-align: center;" class="bb">The Weak Law of Large Numbers</span> (by Prof. John Tsitsiklis)</i></summary>
+				<img style="display: none; margin-top: 1rem;" id="loading-iframe-3" class="loading" src="/data/img/loading.svg" alt="">
+				<div id="recommended-watchings-3-iframe" style="text-align: center; margin-top:10px;"></div>
+				<script>
+					document.getElementById("recommended-watchings-3").addEventListener("click", function(){
+						setDisplay("loading-iframe-3","block")
+						document.getElementById("recommended-watchings-3-iframe").innerHTML=`<iframe onload='setDisplay("loading-iframe-3","none")' width="560" height="315" src="https://www.youtube.com/embed/Yh5bR7X3ch8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+					})
+				</script>
+		</details>
 
-			<details style="margin-top: 10px; margin-bottom: 10px;">
-				<summary><i><span style="text-align: center;" class="bb">The Weak Law of Large Numbers</span> (by Prof. John Tsitsiklis)</i></summary>
-				<div style="text-align: center; margin-top:10px;">
-					<iframe width="560" height="315" src="https://www.youtube.com/embed/Yh5bR7X3ch8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-				</div>
-			</details>
+		<details style="margin-top: 10px; margin-bottom: 10px;" id="recommended-watchings-4">
+			<summary><i><span style="text-align: center;" class="bb">Law of Large Numbers</span> (by Sir Jeremy Jones)</i></summary>
+				<img style="display: none; margin-top: 1rem;" id="loading-iframe-4" class="loading" src="/data/img/loading.svg" alt="">
+				<div id="recommended-watchings-4-iframe" style="text-align: center; margin-top:10px;"></div>
+				<script>
+					document.getElementById("recommended-watchings-4").addEventListener("click", function(){
+						setDisplay("loading-iframe-4","block")
+						document.getElementById("recommended-watchings-4-iframe").innerHTML=`<iframe onload='setDisplay("loading-iframe-4","none")' width="560" height="315" src="https://www.youtube.com/embed/MntX3zWNWec" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+					})
+				</script>
+		</details>
 
-			<details style="margin-bottom: 10px;">
-				<summary><i><span style="text-align: center;" class="bb">Law of Large Numbers</span> (by Sir Jeremy Jones)</i></summary>
-				<div style="text-align: center; margin-top:10px;">
-				<iframe width="560" height="315" src="https://www.youtube.com/embed/MntX3zWNWec" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-				</div>
-			</details>
-			<details>
-				<summary><i><span style="text-align: center;" class="bb">The Gambler's Fallacy</span> (by Sir Kevin deLaplante)</i></summary>
-				<div style="text-align: center; margin-top:10px;">
-				<iframe width="560" height="315" src="https://www.youtube.com/embed/3bQEd1aNgxE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br>
-				Also checkout Sir's <a href="https://youtube.com/playlist?list=PLCPXzKiZn7OEUyAKfnLmPxuXxhwjH9bTl">Probability Fallacies playlist</a>
-				</div>
-			</details>
-			<br>
-		</blockquote>
-	`;
-	}, 1000);
-</script>
+		<details style="margin-top: 10px; margin-bottom: 10px;" id="recommended-watchings-5">
+			<summary><i><span style="text-align: center;" class="bb">The Gambler's Fallacy</span> (by Sir Kevin deLaplante)</i></summary>
+				<img style="display: none; margin-top: 1rem;" id="loading-iframe-5" class="loading" src="/data/img/loading.svg" alt="">
+				<div id="recommended-watchings-5-iframe" style="text-align: center; margin-top:10px;"></div>
+				<script>
+					document.getElementById("recommended-watchings-5").addEventListener("click", function(){
+						setDisplay("loading-iframe-5","block")
+						document.getElementById("recommended-watchings-5-iframe").innerHTML=`<iframe onload='setDisplay("loading-iframe-5","none")' width="560" height="315" src="https://www.youtube.com/embed/3bQEd1aNgxE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+					})
+				</script>
+			Also checkout Sir's <a href="https://youtube.com/playlist?list=PLCPXzKiZn7OEUyAKfnLmPxuXxhwjH9bTl">Probability Fallacies playlist</a>
+			
+		</details>
+		<br>
+	</blockquote>
 <br><br>
 </div>
 <div id="modals-html"></div>
