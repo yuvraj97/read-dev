@@ -5,6 +5,7 @@
 		<script>
 			// var arrowLeftPage = "/statistics/";
 			var arrowRightPage = "/about/";
+			var chapterID = "home";
 		</script>
 
 		<link rel="stylesheet" href="/data/css/main.css">
@@ -19,39 +20,7 @@
 		<meta name="keywords" content="QuantML,Visualization,Machine Learning,Statistics,Linear Algebra">
 		<meta name="author" content="Yuvraj Garg">
 		<script src="/data/js/initialize.js"></script>
-		<script>
-			if(localStorage.getItem("quantmlTheme") == "dark") requireScript('style-dark-css', '0.1.0', '/style-dark.css', function(){});
-			else requireScript('style-light-css', '0.1.0', '/style-light.css', function(){});
-			function homePageDOM(){
-				laReadNowBtn = document.getElementById('la-guide-read-now');
-				earlyAccess = document.getElementById('early-access');
-				coming_soon = document.getElementById('coming-soon');
-
-				laReadNowBtn.style.border = "none";
-				earlyAccess.style.border = "none";
-				coming_soon.style.border = "none";
-
-				earlyAccessDiv = document.getElementById('early-access-div');
-				if((earlyAccess.offsetWidth + coming_soon.offsetWidth > earlyAccessDiv.offsetWidth) ||
-					(earlyAccessDiv.offsetWidth == 0 && window.quantml["notDesktop"] == true)){
-					earlyAccess.style.width = "100%";
-					coming_soon.style.width = "100%";
-					earlyAccess.style.marginTop = "12px";
-
-
-					laReadNowBtn = document.getElementById('la-guide-read-now');
-					laReadNowBtn.style.width="80%";
-					laReadNowBtn.style.right = "10%";
-					// laReadNowBtn.style.bottom = "30px";
-				}
-
-				laGuide = document.getElementById('la-guide');
-				statsGuide = document.getElementById('stats-guide');
-				if(laGuide.offsetHeight < statsGuide.offsetHeight && document.querySelector('body').offsetWidth > 736){
-					laGuide.style.height = String(statsGuide.offsetHeight) + "px";
-				}
-			}
-		</script>
+		<script>if(localStorage.getItem("quantmlTheme") == "dark") requireScript('style-dark-css', '0.1.0', '/style-dark.css', function(){});else requireScript('style-light-css', '0.1.0', '/style-light.css', function(){});</script>
 	</head>
 
 	<body>
@@ -143,18 +112,8 @@
 
 			</div>
 
-
 		<!-- Scripts -->
-		<script>
-			requireScript('script-js', '0.1.0', '/data/js/script.js', function(){cssLoaded(false);})
-			widthInterval =  setInterval(function(){
-				earlyAccessDiv = document.getElementById('early-access-div');
-				if(earlyAccessDiv.offsetWidth != 0){
-					homePageDOM()
-					clearInterval(widthInterval)
-				}
-			}, 50)
-		</script>
+		<script>requireScript('script-js', '0.1.0', '/data/js/script.js', function(){cssLoaded(false);})</script>
 
 	</body>
 </html>

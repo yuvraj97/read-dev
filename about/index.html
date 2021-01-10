@@ -7,6 +7,7 @@
 			var isConcluded = true;
 			var arrowLeftPage = "/";
 			var arrowRightPage = "/donate/";
+			var chapterID = "about"
 		</script>
 
 		<link rel="stylesheet" href="/data/css/main.css">
@@ -21,25 +22,7 @@
 		<meta name="keywords" content="QuantML,About,Visualization,Machine Learning,Statistics,Linear Algebra">
 		<meta name="author" content="Yuvraj Garg">
 		<script src="/data/js/initialize.js"></script>
-		<script>
-			if(localStorage.getItem("quantmlTheme") == "dark") requireScript('style-dark-css', '0.1.0', '/style-dark.css', function(){});
-			else requireScript('style-light-css', '0.1.0', '/style-light.css', function(){});
-			function correctingHeights(){
-				about  = document.getElementById('about');
-				aboutColumn  = document.getElementById('about-column');
-				authorContact = document.getElementById('author-contact');
-				author = document.getElementById('author');
-				contact = document.getElementById('contact');
-				// console.log("about.offsetHeight:", about.offsetHeight, "author.offsetHeight:", author.offsetHeight, "contact.offsetHeight:", contact.offsetHeight)
-				if(about.offsetHeight < author.offsetHeight + contact.offsetHeight){
-					aboutColumn.style.height = String(authorContact.offsetHeight) + "px";
-					// console.log("about.style.height:", about.style.height)
-				} else {
-					contact.style.marginTop = String(about.offsetHeight - author.offsetHeight - contact.offsetHeight) + "px";
-					// console.log(String(about.offsetHeight - author.offsetHeight - contact.offsetHeight), "contact.style.marginTop:", contact.style.marginTop )
-				}
-			}
-		</script>
+		<script>if(localStorage.getItem("quantmlTheme") == "dark") requireScript('style-dark-css', '0.1.0', '/style-dark.css', function(){});else requireScript('style-light-css', '0.1.0', '/style-light.css', function(){});</script>
 	</head>
 
 	<body>
@@ -53,10 +36,7 @@
 				<header id="header">
 					<a href="https://quantml.org" style="display: none;" class="logo image jump-big" id="quantml-cover-light"><img src="/data/img/cover.webp" alt="QuantML.org" /></a>
 					<a href="https://quantml.org" style="display: none;" class="logo image jump-big" id="quantml-cover-dark"><img src="/data/img-dark/cover.webp" alt="QuantML.org" /></a>
-					<script>
-						if(localStorage.getItem("quantmlTheme")=="dark") document.getElementById('quantml-cover-dark').style.display = "block";
-						else document.getElementById('quantml-cover-light').style.display = "block";
-					</script>
+					<script>if(localStorage.getItem("quantmlTheme")=="dark") document.getElementById('quantml-cover-dark').style.display = "block";else document.getElementById('quantml-cover-light').style.display = "block";</script>
 				</header>
 
 				<!-- Nav -->
@@ -151,15 +131,6 @@
 			</div>
 
 		<!-- Scripts -->
-		<script>
-			requireScript('script-js', '0.1.0', '/data/js/script.js', function(){cssLoaded(false);})
-			widthInterval =  setInterval(function(){
-				contact = document.getElementById('contact');
-				if(contact.offsetWidth != 0){
-					if(window.innerWidth > 736){correctingHeights()}
-					clearInterval(widthInterval)
-				}
-			}, 50)
-		</script>
+		<script>requireScript('script-js', '0.1.0', '/data/js/script.js', function(){cssLoaded(false);})</script>
 	</body>
 </html>

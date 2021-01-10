@@ -1,3 +1,8 @@
+if(typeof(chapterID) != "undefined") requireScript('chapter-js', '0.1.0', '/data/js/chapter.js', function(){});
+
+
+// Functions
+
 function prevPageBtn(){
 	window.location.href = prevPage;
 }
