@@ -1010,20 +1010,24 @@ summary span {
 .login-require-txt {
 	/* border:2px #0073b1 solid; */
 	margin: 8px 0;
-	font-size: 18px;
+	font-size: 22px;
 	border-radius: 20px;
 	text-align: center;
 	font-weight: 700;
+	margin-bottom: 15px;
+	line-height: 4rem;
 	/* cursor: pointer; */
 }
 
-.login-require > button {
+.login-require > button,
+.login-require > a > button {
 	width:48%;
 	top: 0;
 	text-align: center;
 	font-size: 18px;
 }
-.login-require > button >img {
+.login-require > button > img,
+.login-require > a > button > img {
 	margin-right: -10px;
 	-webkit-transform: translateY(.2rem);
 	transform: translateY(.2rem);
@@ -1032,11 +1036,11 @@ summary span {
 }
 
 @media screen and (max-width: 736px) {
-	.login-require > button {
+	.login-require > button,
+	.login-require > a > button {
 		font-size: 16px;
 	}
 }
-
 
 /* SLACK DISCUSSION BUTTON WIDE */
 .slack-discuss {

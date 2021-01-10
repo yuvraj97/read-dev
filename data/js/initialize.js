@@ -185,7 +185,7 @@ function loadNavBar(){
 		imgsrc = "/data/img-dark/"
   	}
 	if(typeof(isConcluded) == "undefined" || isConcluded == false){
-		log_in_out = `<li style="display: none; text-align: center;" id="fb-loading"><img class="fb-loading" src="${imgsrc}fb-loading.gif" alt=" "></li>
+		log_in_out = `<li style=" text-align: center;" id="fb-loading"><img class="fb-loading" src="${imgsrc}fb-loading.gif" alt=" "></li>
 		<li style="display: none;" id="login-button"><button id="login-btn-width" class="login-logout-join" >Login <img src="${imgsrc}patreon.png" alt="Patreon"></button></li>
 		<li style="display: none;" id="logout-button"><button id="logout-btn-width" class="login-logout-join" >Logout <img src="${imgsrc}patreon.png" alt="Logout"></button></li>`
 	} else if(isConcluded == true) {

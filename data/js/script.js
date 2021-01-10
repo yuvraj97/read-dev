@@ -1014,6 +1014,13 @@ function auth_state_change(){
 		setDisplay('fb-loading','none');
 		return
 	}
+	if(!navigator.onLine){
+		secrets = document.getElementById('secrets');
+		if(secrets != null) {
+			secrets.innerHTML = ''
+			setDisplay("no-internet", "block")
+		}
+	}
 	callbacks = {
 		"response": function(data) {
 			// console.log(data);
@@ -1024,6 +1031,7 @@ function auth_state_change(){
 				setDisplay('secrets',getDisplay());
 				setDisplay('login-require','none');
 				setDisplay('fb-loading','none');
+				loadContent()
 			} else {
 				setDisplay('login-button',getDisplay());
 				setDisplay('join-button',getDisplay());
@@ -1037,9 +1045,10 @@ function auth_state_change(){
 	fetching({token:token}, "is-authorized", callbacks)
 }
 
-function loadContent(chapterID){
-	var data = ""
-	fetching({chapter: chapterID, token: getCookie('token')}, 'get-chapter', 
+function loadContent(){
+	chapterID = window.quantml["chapterID"]
+	if(chapterID == undefined) return;
+	fetching({chapter: chapterID, token: getCookie('token')}, 'get-chapter',
 		callbacks={
 			"response": function(data){
 				// console.log(data)
