@@ -1,6 +1,6 @@
 window.quantml["chapters"] ={
     "central-limit-theorem": {
-        run: ()=>{
+        run: function(){
             // IFRAME [START]
                 document.getElementById("recommended-watchings-5").addEventListener("click", function(){
                     iframe = document.getElementById("recommended-watchings-5-iframe")
@@ -41,7 +41,7 @@ window.quantml["chapters"] ={
         }
     },
     "weak-law-of-large-numbers": {
-        run: ()=>{
+        run: function(){
             // IFRAME [START]
             document.getElementById("recommended-watchings-1").addEventListener("click", function(){
                 iframe = document.getElementById("recommended-watchings-1-iframe")
@@ -82,7 +82,7 @@ window.quantml["chapters"] ={
         }
     },
     "introduction": {
-        run: ()=>{
+        run: function(){
             // IFRAME [START]
                 document.getElementById("recommended-watchings-4").addEventListener("click", function(){
                     iframe = document.getElementById("recommended-watchings-4-iframe")
