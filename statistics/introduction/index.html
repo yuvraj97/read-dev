@@ -117,8 +117,11 @@ Now You ask, <br>
 		<div id="what-is-statistics-sir-michel-iframe" style="text-align: center; margin-top:10px;"></div>
 		<script>
 			document.getElementById("what-is-statistics-sir-michel").addEventListener("click", function(){
+				iframe = document.getElementById("what-is-statistics-sir-michel-iframe")
+				if(iframe.innerHTML==''){
 					setDisplay("loading-iframe-0","block")
-				document.getElementById("what-is-statistics-sir-michel-iframe").innerHTML=`<iframe onload='setDisplay("loading-iframe-0","none")' width="560" height="315" src="https://www.youtube.com/embed/AQUAPiHahVY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+					iframe.innerHTML=`<iframe onload='setDisplay("loading-iframe-0","none")' width="560" height="315" src="https://www.youtube.com/embed/AQUAPiHahVY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+				}
 			})
 		</script>
 	</details>
@@ -367,8 +370,11 @@ Now let's see some Simulation, choose your language of choice,<br>
 		<div id="recommended-watchings-1-iframe" style="text-align: center; margin-top:10px;"></div>
 		<script>
 			document.getElementById("recommended-watchings-1").addEventListener("click", function(){
+				iframe = document.getElementById("recommended-watchings-1-iframe")
+				if(iframe.innerHTML==''){
 					setDisplay("loading-iframe-1","block")
-				document.getElementById("recommended-watchings-1-iframe").innerHTML=`<iframe onload='setDisplay("loading-iframe-1","none")' width="560" height="315" src="https://www.youtube.com/embed/OJt-k9h9pmk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+					iframe.innerHTML=`<iframe onload='setDisplay("loading-iframe-1","none")' width="560" height="315" src="https://www.youtube.com/embed/OJt-k9h9pmk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+				}
 			})
 		</script>		
 	</details>
@@ -379,8 +385,11 @@ Now let's see some Simulation, choose your language of choice,<br>
 			<div id="recommended-watchings-2-iframe" style="text-align: center; margin-top:10px;"></div>
 			<script>
 				document.getElementById("recommended-watchings-2").addEventListener("click", function(){
-					setDisplay("loading-iframe-2","block")
-					document.getElementById("recommended-watchings-2-iframe").innerHTML=`<iframe onload='setDisplay("loading-iframe-2","none")' width="560" height="315" src="https://www.youtube.com/embed/YsrPImZyisI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+					iframe = document.getElementById("recommended-watchings-2-iframe")
+					if(iframe.innerHTML==''){
+						setDisplay("loading-iframe-2","block")
+						iframe.innerHTML=`<iframe onload='setDisplay("loading-iframe-2","none")' width="560" height="315" src="https://www.youtube.com/embed/YsrPImZyisI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+					}
 				})
 			</script>
 	</details>
@@ -391,8 +400,11 @@ Now let's see some Simulation, choose your language of choice,<br>
 			<div id="recommended-watchings-3-iframe" style="text-align: center; margin-top:10px;"></div>
 			<script>
 				document.getElementById("recommended-watchings-3").addEventListener("click", function(){
-					setDisplay("loading-iframe-3","block")
-					document.getElementById("recommended-watchings-3-iframe").innerHTML=`<iframe onload='setDisplay("loading-iframe-3","none")' width="560" height="315" src="https://www.youtube.com/embed/GEFxFVESQXc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+					iframe = document.getElementById("recommended-watchings-3-iframe")
+					if(iframe.innerHTML==''){
+						setDisplay("loading-iframe-3","block")
+						iframe.innerHTML=`<iframe onload='setDisplay("loading-iframe-3","none")' width="560" height="315" src="https://www.youtube.com/embed/GEFxFVESQXc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+					}
 				})
 			</script>
 	</details>
@@ -403,8 +415,11 @@ Now let's see some Simulation, choose your language of choice,<br>
 			<div id="recommended-watchings-4-iframe" style="text-align: center; margin-top:10px;"></div>
 			<script>
 				document.getElementById("recommended-watchings-4").addEventListener("click", function(){
-					setDisplay("loading-iframe-4","block")
-					document.getElementById("recommended-watchings-4-iframe").innerHTML=`<iframe onload='setDisplay("loading-iframe-4","none")' width="560" height="315" src="https://www.youtube.com/embed/yxXsPc0bphQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+					iframe = document.getElementById("recommended-watchings-4-iframe")
+					if(iframe.innerHTML==''){
+						setDisplay("loading-iframe-4","block")
+						iframe.innerHTML=`<iframe onload='setDisplay("loading-iframe-4","none")' width="560" height="315" src="https://www.youtube.com/embed/yxXsPc0bphQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+					}
 				})
 			</script>
 	</details>
