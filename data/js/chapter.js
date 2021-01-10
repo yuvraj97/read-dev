@@ -39,6 +39,47 @@ window.quantml["chapters"] ={
                 })               
             // IFRAME [END]
         }
+    },
+    "weak-law-of-large-numbers": {
+        run: ()=>{
+            // IFRAME [START]
+            document.getElementById("recommended-watchings-1").addEventListener("click", function(){
+                iframe = document.getElementById("recommended-watchings-1-iframe")
+                if(iframe.innerHTML==''){
+                    setDisplay("loading-iframe-1","block")
+                    iframe.innerHTML=`<iframe onload='setDisplay("loading-iframe-1","none")' width="560" height="315" src="https://www.youtube.com/embed/d5pnfFvggYk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+                }
+            })
+            document.getElementById("recommended-watchings-2").addEventListener("click", function(){
+                iframe = document.getElementById("recommended-watchings-2-iframe")
+                if(iframe.innerHTML==''){
+                    setDisplay("loading-iframe-2","block")
+                    iframe.innerHTML=`<iframe onload='setDisplay("loading-iframe-2","none")' width="560" height="315" src="https://www.youtube.com/embed/h0YH79kLuOA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+                }
+            })
+            document.getElementById("recommended-watchings-3").addEventListener("click", function(){
+                iframe = document.getElementById("recommended-watchings-3-iframe")
+                if(iframe.innerHTML==''){
+                    setDisplay("loading-iframe-3","block")
+                    iframe.innerHTML=`<iframe onload='setDisplay("loading-iframe-3","none")' width="560" height="315" src="https://www.youtube.com/embed/Yh5bR7X3ch8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+                }
+            })
+            document.getElementById("recommended-watchings-4").addEventListener("click", function(){
+                iframe = document.getElementById("recommended-watchings-4-iframe")
+                if(iframe.innerHTML==''){
+                    setDisplay("loading-iframe-4","block")
+                    iframe.innerHTML=`<iframe onload='setDisplay("loading-iframe-4","none")' width="560" height="315" src="https://www.youtube.com/embed/MntX3zWNWec" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+                }
+            })
+            document.getElementById("recommended-watchings-5").addEventListener("click", function(){
+                iframe = document.getElementById("recommended-watchings-5-iframe")
+                if(iframe.innerHTML==''){
+                    setDisplay("loading-iframe-5","block")
+                    iframe.innerHTML=`<iframe onload='setDisplay("loading-iframe-5","none")' width="560" height="315" src="https://www.youtube.com/embed/3bQEd1aNgxE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+                }
+            })
+            // IFRAME [END]
+        }
     }
     // "chapterID": {
     //     run: ()=>{
