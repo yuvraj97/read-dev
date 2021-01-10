@@ -80,6 +80,47 @@ window.quantml["chapters"] ={
             })
             // IFRAME [END]
         }
+    },
+    "introduction": {
+        run: ()=>{
+            // IFRAME [START]
+                document.getElementById("recommended-watchings-4").addEventListener("click", function(){
+                    iframe = document.getElementById("recommended-watchings-4-iframe")
+                    if(iframe.innerHTML==''){
+                        setDisplay("loading-iframe-4","block")
+                        iframe.innerHTML=`<iframe onload='setDisplay("loading-iframe-4","none")' width="560" height="315" src="https://www.youtube.com/embed/yxXsPc0bphQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+                    }
+                })
+                document.getElementById("recommended-watchings-3").addEventListener("click", function(){
+                    iframe = document.getElementById("recommended-watchings-3-iframe")
+                    if(iframe.innerHTML==''){
+                        setDisplay("loading-iframe-3","block")
+                        iframe.innerHTML=`<iframe onload='setDisplay("loading-iframe-3","none")' width="560" height="315" src="https://www.youtube.com/embed/GEFxFVESQXc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+                    }
+                })
+                document.getElementById("recommended-watchings-2").addEventListener("click", function(){
+                    iframe = document.getElementById("recommended-watchings-2-iframe")
+                    if(iframe.innerHTML==''){
+                        setDisplay("loading-iframe-2","block")
+                        iframe.innerHTML=`<iframe onload='setDisplay("loading-iframe-2","none")' width="560" height="315" src="https://www.youtube.com/embed/YsrPImZyisI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+                    }
+                })
+                document.getElementById("recommended-watchings-1").addEventListener("click", function(){
+                    iframe = document.getElementById("recommended-watchings-1-iframe")
+                    if(iframe.innerHTML==''){
+                        setDisplay("loading-iframe-1","block")
+                        iframe.innerHTML=`<iframe onload='setDisplay("loading-iframe-1","none")' width="560" height="315" src="https://www.youtube.com/embed/OJt-k9h9pmk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+                    }
+                })
+                document.getElementById("what-is-statistics-sir-michel").addEventListener("click", function(){
+                    iframe = document.getElementById("what-is-statistics-sir-michel-iframe")
+                    if(iframe.innerHTML==''){
+                        setDisplay("loading-iframe-0","block")
+                        iframe.innerHTML=`<iframe onload='setDisplay("loading-iframe-0","none")' width="560" height="315" src="https://www.youtube.com/embed/AQUAPiHahVY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+                    }
+                })
+            // IFRAME [END]
+        }
     }
     // "chapterID": {
     //     run: ()=>{
