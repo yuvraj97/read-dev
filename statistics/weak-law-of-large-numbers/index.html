@@ -263,8 +263,11 @@ So even if we got \(1000\) \(\text{Heads}\) in a row, there is still \(\infty\) 
 				<div id="recommended-watchings-1-iframe" style="text-align: center; margin-top:10px;"></div>
 				<script>
 					document.getElementById("recommended-watchings-1").addEventListener("click", function(){
-						setDisplay("loading-iframe-1","block")
-						document.getElementById("recommended-watchings-1-iframe").innerHTML=`<iframe onload='setDisplay("loading-iframe-1","none")' width="560" height="315" src="https://www.youtube.com/embed/d5pnfFvggYk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+						iframe = document.getElementById("recommended-watchings-1-iframe")
+						if(iframe.innerHTML==''){
+							setDisplay("loading-iframe-1","block")
+							iframe.innerHTML=`<iframe onload='setDisplay("loading-iframe-1","none")' width="560" height="315" src="https://www.youtube.com/embed/d5pnfFvggYk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+						}
 					})
 				</script>
 		</details>
@@ -275,8 +278,11 @@ So even if we got \(1000\) \(\text{Heads}\) in a row, there is still \(\infty\) 
 				<div id="recommended-watchings-2-iframe" style="text-align: center; margin-top:10px;"></div>
 				<script>
 					document.getElementById("recommended-watchings-2").addEventListener("click", function(){
-						setDisplay("loading-iframe-2","block")
-						document.getElementById("recommended-watchings-2-iframe").innerHTML=`<iframe onload='setDisplay("loading-iframe-2","none")' width="560" height="315" src="https://www.youtube.com/embed/h0YH79kLuOA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+						iframe = document.getElementById("recommended-watchings-2-iframe")
+						if(iframe.innerHTML==''){
+							setDisplay("loading-iframe-2","block")
+							iframe.innerHTML=`<iframe onload='setDisplay("loading-iframe-2","none")' width="560" height="315" src="https://www.youtube.com/embed/h0YH79kLuOA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+						}
 					})
 				</script>
 		</details>
@@ -287,8 +293,11 @@ So even if we got \(1000\) \(\text{Heads}\) in a row, there is still \(\infty\) 
 				<div id="recommended-watchings-3-iframe" style="text-align: center; margin-top:10px;"></div>
 				<script>
 					document.getElementById("recommended-watchings-3").addEventListener("click", function(){
-						setDisplay("loading-iframe-3","block")
-						document.getElementById("recommended-watchings-3-iframe").innerHTML=`<iframe onload='setDisplay("loading-iframe-3","none")' width="560" height="315" src="https://www.youtube.com/embed/Yh5bR7X3ch8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+						iframe = document.getElementById("recommended-watchings-3-iframe")
+						if(iframe.innerHTML==''){
+							setDisplay("loading-iframe-3","block")
+							iframe.innerHTML=`<iframe onload='setDisplay("loading-iframe-3","none")' width="560" height="315" src="https://www.youtube.com/embed/Yh5bR7X3ch8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+						}
 					})
 				</script>
 		</details>
@@ -299,8 +308,11 @@ So even if we got \(1000\) \(\text{Heads}\) in a row, there is still \(\infty\) 
 				<div id="recommended-watchings-4-iframe" style="text-align: center; margin-top:10px;"></div>
 				<script>
 					document.getElementById("recommended-watchings-4").addEventListener("click", function(){
-						setDisplay("loading-iframe-4","block")
-						document.getElementById("recommended-watchings-4-iframe").innerHTML=`<iframe onload='setDisplay("loading-iframe-4","none")' width="560" height="315" src="https://www.youtube.com/embed/MntX3zWNWec" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+						iframe = document.getElementById("recommended-watchings-4-iframe")
+						if(iframe.innerHTML==''){
+							setDisplay("loading-iframe-4","block")
+							iframe.innerHTML=`<iframe onload='setDisplay("loading-iframe-4","none")' width="560" height="315" src="https://www.youtube.com/embed/MntX3zWNWec" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+						}
 					})
 				</script>
 		</details>
@@ -311,8 +323,11 @@ So even if we got \(1000\) \(\text{Heads}\) in a row, there is still \(\infty\) 
 				<div id="recommended-watchings-5-iframe" style="text-align: center; margin-top:10px;"></div>
 				<script>
 					document.getElementById("recommended-watchings-5").addEventListener("click", function(){
-						setDisplay("loading-iframe-5","block")
-						document.getElementById("recommended-watchings-5-iframe").innerHTML=`<iframe onload='setDisplay("loading-iframe-5","none")' width="560" height="315" src="https://www.youtube.com/embed/3bQEd1aNgxE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+						iframe = document.getElementById("recommended-watchings-5-iframe")
+						if(iframe.innerHTML==''){
+							setDisplay("loading-iframe-5","block")
+							iframe.innerHTML=`<iframe onload='setDisplay("loading-iframe-5","none")' width="560" height="315" src="https://www.youtube.com/embed/3bQEd1aNgxE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+						}
 					})
 				</script>
 			Also checkout Sir's <a href="https://youtube.com/playlist?list=PLCPXzKiZn7OEUyAKfnLmPxuXxhwjH9bTl">Probability Fallacies playlist</a>
