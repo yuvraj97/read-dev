@@ -223,14 +223,14 @@ function createImageModals(){
 
 function paginationButton(){
 	btnContainer = document.querySelectorAll('#btn-container')
-	if(typeof(nextPage) !="undefined" && typeof(prevPage) !="undefined" ){
-		btnContainer.forEach(function(element, index){
-			element.innerHTML=`
-			<a href="${prevPage}"><button id="prev-btn" class="button">&#x25C0;&nbsp;&nbsp; ${prevPageTitle}</button></a>
-			<a href="${nextPage}"><button id="next-btn" class="button"  style="float: right;">${nextPageTitle}&nbsp;&nbsp;&#x25B6;</button></a>
-			`
-		})
-	}
+	btnContainerHTML = ''
+	if(typeof(nextPage) !="undefined") btnContainerHTML += `<a href="${nextPage}"><button id="next-btn" class="button"  style="float: right;">${nextPageTitle}&nbsp;&nbsp;&#x25B6;</button></a>`;
+	if(typeof(prevPage) !="undefined") btnContainerHTML += `<a href="${prevPage}"><button id="prev-btn" class="button">&#x25C0;&nbsp;&nbsp; ${prevPageTitle}</button></a>`;
+	
+	btnContainer.forEach(function(element, index){
+		element.innerHTML=btnContainerHTML
+	})
+
 	btnContainer = document.querySelectorAll('#btn-container-top')
 	if(typeof(nextPage) !="undefined" && typeof(prevPage) !="undefined" ){
 		btnContainer.forEach(function(element, index){
@@ -255,7 +255,7 @@ function fullyLoaded(){
 			prev = document.querySelectorAll('#prev-btn')
 			next = document.querySelectorAll('#next-btn')
 			// console.log(prev)
-			if(prev.length!=0){
+			if(prev.length!=0 && next.length!=0){
 				// console.log(prev[0].offsetWidth , next[0].offsetWidth , btnContainer.offsetWidth)
 				if(prev[0].offsetWidth + next[0].offsetWidth > btnContainer.offsetWidth) {
 					prev[0].style.display="block";
@@ -851,7 +851,7 @@ function auth_authenticate(){
 			"response": function (data){
 				// console.log(data);
 				if(data["status"] == "Authenticated") {
-					document.cookie= `token=${data["token"]}`;
+					document.cookie= `token=${data["token"]}` + "; path=/";
 					setDisplay('password-model', 'none');
 					auth_state_change()
 				} else if(data["status"] == "Unregistered") {
@@ -894,7 +894,7 @@ function auth_createPassword(){
 						setDisplay('create-password-model', 'none')
 						setDisplay('password-do-not-match', 'none')
 						setDisplay('password-is-weak', 'none')
-						document.cookie= `token=${data["token"]}`;
+						document.cookie= `token=${data["token"]}` + "; path=/";
 						auth_state_change()
 					} else if(data["status"] == "Dont match") {
 						invalidPassword()
@@ -1066,6 +1066,7 @@ function auth_patreon_suggestion(){
 	setDisplay("success-patreon-suggestion","none")
 	setDisplay("empty-patreon-suggestion","none")
 	setDisplay("unknown-error-patreon-suggestion","none")
+	
 	suggestion = document.getElementById('patreon-suggestion')
 	if(suggestion.value == "") {
 		setDisplay("empty-patreon-suggestion","block")
