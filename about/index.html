@@ -3,13 +3,6 @@
 
 	<head>
 
-		<script>
-			var isConcluded = true;
-			var arrowLeftPage = "/";
-			var arrowRightPage = "/donate/";
-			var chapterID = "about"
-		</script>
-
 		<link rel="stylesheet" href="/data/css/main.css">
 		<link rel="stylesheet" href="/style.css">
 
@@ -41,6 +34,14 @@
 		
 		<script src="/data/js/initialize.js"></script>
 		<script>if(window.quantml["theme"] == "dark") requireScript('style-dark-css', '0.1.0', '/style-dark.css', function(){});else requireScript('style-light-css', '0.1.0', '/style-light.css', function(){});</script>
+		
+		<script>
+			var isConcluded = true;
+			var arrowLeftPage = "/";
+			var arrowRightPage = "/donate/";
+			window.quantml["chapterID"] = "about"
+		</script>
+
 	</head>
 
 	<body>
