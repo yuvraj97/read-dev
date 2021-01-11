@@ -10,22 +10,28 @@ import htmlmin
 import http.client as httplib
 from urllib.parse import urlencode
 import sys
+from shutil import copyfile
 
 def get_files_loc(curr_loc, d):
     for f in os.listdir(curr_loc):
-        if "." not in f:
+        if f == ".git":
+            continue
+        if '.' not in f and f != "_redirects":
             get_files_loc(os.path.join(curr_loc, f), d)
         else:
-            if(f.split('.')[-1] == "css"):
+            splited = f.split('.')
+            if("css" in splited and "min" not in splited):
                 d["css"].append(os.path.join(curr_loc, f))
-            elif(f.split('.')[-1] == "js"):
-                d["js"].append(os.path.join(curr_loc, f))
-            elif(f.split('.')[-1] == "html"):
+            # elif("js" in splited):
+            #     d["js"].append(os.path.join(curr_loc, f))
+            elif("html" in splited):
                 d["html"].append(os.path.join(curr_loc, f))
+            else:
+                d["others"].append(os.path.join(curr_loc, f))
 
-origin = {"css": [], "js": [], "html": []}
+origin = {"css": [], "js": [], "html": [], "others": []}
 get_files_loc(os.getcwd(), origin)
-    
+
 # # stream = os.popen('dir')
 # # output = stream.read()
 
@@ -39,18 +45,14 @@ for html_file in origin["html"]:
         minified = htmlmin.minify(html, 
                                   remove_empty_space=True,
                                   remove_comments=True)
-        # minified = minified.replace('\t', ' ')
-        # minified = minified.replace('\n', ' ')
-        # minified = minified.replace('\r', ' ')
-        # while minified.find("  ") != -1:
-        #     minified = minified.replace("  ", " ")
         output_file = html_file.replace("read-dev","read-dev-deploy")
         os.makedirs(os.path.dirname(output_file), exist_ok=True)
         f = open(output_file, "w+")
         f.write(minified)
         f.close()
     except Exception as e:
-        print(e)
+        # print(e)
+        print("FAILED", html_file)
         failed_html.append(html_file)
 
 
@@ -72,8 +74,21 @@ for css_file in origin["css"]:
         f.write(minified)
         f.close()
     except:
+        print("FAILED", css_file)
         failed_css.append(css_file)
-        
+# print()
+# print()
+
+failed = []
+failed.extend(failed_html)
+failed.extend(failed_css)
+origin["others"].extend(failed)
+
+for input_file in origin["others"]:
+    # print(input_file)
+    output_file = input_file.replace("read-dev","read-dev-deploy")
+    os.makedirs(os.path.dirname(output_file), exist_ok=True)
+    copyfile(input_file, output_file)
 
 
 # '''  JS Minification '''
