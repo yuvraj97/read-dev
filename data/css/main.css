@@ -735,9 +735,11 @@ table.alt tbody tr:first-child td {
 #navPanel ul.links li.title {
 	padding: 0.75rem 0;
 }
-#navPanel ul.links li.python,
-#navPanel ul.links li.python a{
+#navPanel ul.links li.python {
 	padding: 0.7rem 0;
+}
+#navPanel ul.links li.python a{
+	padding: 0px;
 }
 #navPanel ul.links li.python img,
 #navPanel ul.links li.python a img {
@@ -746,9 +748,12 @@ table.alt tbody tr:first-child td {
 	-webkit-transform: translateY(0.35rem);
 	transform: translateY(0.35rem)
 }
-#navPanel ul.links li.julia,
-#navPanel ul.links li.julia a {
+#navPanel ul.links li.julia {
 	padding-top: 0px;
+	padding-bottom: 0.5rem;
+}
+#navPanel ul.links li.julia a {
+	padding: 0px;
 }
 #navPanel ul.links li.julia img,
 #navPanel ul.links li.julia a img {
@@ -1148,4 +1153,7 @@ textarea {
 	width: 100%;
 	font-size: 20px;
 	border-radius: 5px;
+}
+#disabled-links:hover{
+	cursor: default;
 }
