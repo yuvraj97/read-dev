@@ -472,6 +472,7 @@ table.alt tbody tr:first-child td {
 #nav ul.links li.title {
 	padding: 0 1rem;
 }
+#nav ul.links li.python,
 #nav ul.links li.python a {
 	border-bottom: none;
 	padding: 0 1rem;
@@ -734,18 +735,22 @@ table.alt tbody tr:first-child td {
 #navPanel ul.links li.title {
 	padding: 0.75rem 0;
 }
+#navPanel ul.links li.python,
 #navPanel ul.links li.python a{
 	padding: 0.7rem 0;
 }
+#navPanel ul.links li.python img,
 #navPanel ul.links li.python a img {
 	width: 75px;
 	height: 20px;
 	-webkit-transform: translateY(0.35rem);
 	transform: translateY(0.35rem)
 }
+#navPanel ul.links li.julia,
 #navPanel ul.links li.julia a {
 	padding-top: 0px;
 }
+#navPanel ul.links li.julia img,
 #navPanel ul.links li.julia a img {
 	width: 53px;
 	height: 33px;
@@ -1137,4 +1142,10 @@ br.newline {
 }
 .toc-chapter-ul {
 	margin: 0 0 1rem 0;
+}
+textarea {
+	padding: 20px;
+	width: 100%;
+	font-size: 20px;
+	border-radius: 5px;
 }

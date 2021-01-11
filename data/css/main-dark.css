@@ -233,3 +233,8 @@ pre[class*="language-"] {
 .settings > div > button  {
     border: 2px solid rgb(255, 255, 255, 0.5);
 }
+textarea {
+    background-color: rgb(25, 25, 25);
+    color: rgb(231, 232, 235);
+    border: 2px rgb(25, 25, 25) solid;
+}

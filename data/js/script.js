@@ -1,4 +1,4 @@
-if(typeof(chapterID) != "undefined") requireScript('chapter-js', '0.1.0', '/data/js/chapter.js', function(){});
+if(typeof(window.quantml["chapterID"]) != "undefined") requireScript('chapter-js', '0.1.0', '/data/js/chapter.js', function(){});
 
 
 // Functions
@@ -132,6 +132,16 @@ function isInputRequires(){
 			return true
 		}
 	}
+	isactive = [
+		document.getElementById('patreon-suggestion')
+	]
+	for (let index = 0; index < isactive.length; index++) {
+		element = isactive[index];
+		if(typeof(element) !="undefined" && document.activeElement===element){
+			return true
+		}
+	}
+	
 	return false
 
 }
@@ -1052,15 +1062,50 @@ function auth_state_change(){
 	fetching({token:token}, "is-authorized", callbacks)
 }
 
+function auth_patreon_suggestion(){
+	setDisplay("success-patreon-suggestion","none")
+	setDisplay("empty-patreon-suggestion","none")
+	setDisplay("unknown-error-patreon-suggestion","none")
+	suggestion = document.getElementById('patreon-suggestion')
+	if(suggestion.value == "") {
+		setDisplay("empty-patreon-suggestion","block")
+		return
+	}
+	suggestionButtonText = document.getElementById('submit-patreon-suggestion')
+	suggestionButtonText.innerHTML = `Submit ${get_loader_img_str()}`
+	fetching({token: getCookie("token") ,content: suggestion.value, chapterID: window.quantml["chapterID"]}, "send-suggestion", 
+		callbacks = {
+			"then": function() {suggestionButtonText.innerHTML = "Submit &nbsp; &rarr;";},
+			"response": function(data){
+				// console.log(data)
+				if(data["status"] == "Success") {
+					setDisplay("success-patreon-suggestion","block")
+				} else {
+					setDisplay("unknown-error-patreon-suggestion","block")
+				}	
+			},
+			"catch": function() {suggestionButtonText.innerHTML = "Submit &nbsp; &rarr;";},
+		})
+}
+
 function loadContent(){
+	if(window.quantml["fetch-chapter"] == false) return;
 	chapterID = window.quantml["chapterID"]
-	if(chapterID == undefined) return;
 	fetching({chapter: chapterID, token: getCookie('token')}, 'get-chapter',
 		callbacks={
 			"response": function(data){
 				// console.log(data)
 				if(data["status"] == "Success"){
-					if("chapter" in data) writeData(data["chapter"]);
+					if("chapter" in data) {
+						writeData(data["chapter"]);
+						// Submit Patreon Suggestion
+						submitPatreonSuggestion = document.getElementById('submit-patreon-suggestion')
+						if(submitPatreonSuggestion != null) {
+							submitPatreonSuggestion.addEventListener("click", function(){
+								auth_patreon_suggestion()
+							})
+						}
+					}
 				}
 			}
 		}

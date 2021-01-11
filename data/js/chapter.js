@@ -821,4 +821,4 @@ window.quantml["chapters"] ={
     //     }
     // }
 }
-if(chapterID in window.quantml["chapters"]) window.quantml["chapters"][chapterID].run();
+if(window.quantml["chapterID"] in window.quantml["chapters"]) window.quantml["chapters"][window.quantml["chapterID"]].run();

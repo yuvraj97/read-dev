@@ -229,3 +229,8 @@ pre[class*="language-"] {
 .fb-loading{
     box-shadow: .0rem .0rem 0.4rem 0.05rem #003d61;
 }
+textarea {
+    background-color: #ECF1F6;
+    color: #222;
+    border: 2px rgb(0, 115, 177, 0.8) solid;
+}
