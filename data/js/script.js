@@ -832,7 +832,7 @@ function auth_identify_email(){
 		
 }
 
-function auth_authenticate(){
+async function auth_authenticate(){
 	setDisplay('network-request-failed', 'none');
 	if(!navigator.onLine) {
 		networkRequestFailed();
@@ -840,7 +840,7 @@ function auth_authenticate(){
 	}
 	email_form = document.getElementById('password-form')
 	// Get User Info
-	password = email_form['password'].value;
+	password = await encryptMessage(email_form['password'].value);
 	loginButtonText = document.getElementById('password-button-text');
 	loginButtonText.innerHTML = `Login &nbsp; ${get_loader_img_str()}`
 	fetching({email: window.quantml["email"], password: password}, "login", 
@@ -865,7 +865,7 @@ function auth_authenticate(){
 		})		
 }
 
-function auth_createPassword(){
+async function auth_createPassword(){
 	setDisplay('network-request-failed', 'none');
 	if(!navigator.onLine) {
 		networkRequestFailed();
@@ -873,8 +873,8 @@ function auth_createPassword(){
 	}
 	loginForm = document.getElementById('create-password')
 	// Get User Info
-	newpass = loginForm['new-password'].value;
-	confirmpass = loginForm['confirm-password'].value;
+	newpass = await encryptMessage(loginForm['new-password'].value);
+	confirmpass = await encryptMessage(loginForm['confirm-password'].value);
 	buttonText = document.getElementById('create-password-text');
 	if(window.quantml["theme"]=="light"){
 		var src = "/data/img/loading-login.svg";

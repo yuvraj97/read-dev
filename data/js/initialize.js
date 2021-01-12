@@ -265,6 +265,16 @@ function loadInit(theme){
   })
 }
 
+async function encryptMessage(message) {
+	msgUint8 = new TextEncoder().encode(message);                           // encode as (utf-8) Uint8Array
+	hashBuffer = await crypto.subtle.digest('SHA-256', msgUint8);           // hash the message
+	hashArray = Array.from(new Uint8Array(hashBuffer));                     // convert buffer to byte array
+	hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join(''); // convert bytes to hex string
+	return hashHex;
+}
+// const encrypted_msg = await encryptMessage("text");
+// console.log(encrypted_msg);
+
 if(typeof(importPrism) != "undefined" && importPrism == true) requireScript('prism-css', '0.1.0', '/data/prism/prism.css', function(){});
 changeThemeCSS(window.quantml["theme"]);
 requireScript('auth-css', '0.1.0', '/data/css/authStyle.css', function(){})
