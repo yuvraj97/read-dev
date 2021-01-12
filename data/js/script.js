@@ -590,7 +590,7 @@ function fullyLoaded(){
 		else if( !e.target.classList.contains("language-python") &&
 			!e.target.classList.contains("language-julia") &&
 			!e.target.classList.contains("token")  &&
-			!isClassNamePresent(e.target, ["math-container", "modal", "code-toolbar"])  ){
+			!isClassNamePresent(e.target, ["math-container", "modal", "code-toolbar", "table-wrapper"])  ){
 				if(typeof(arrowRightPage) !="undefined") window.location.href = arrowRightPage;
 				// console.log("GO LEFT")
 			}
@@ -602,7 +602,7 @@ function fullyLoaded(){
 		if( !e.target.classList.contains("language-python") &&
 			!e.target.classList.contains("language-julia") &&
 			!e.target.classList.contains("token")  &&
-			!isClassNamePresent(e.target,  ["math-container", "modal", "code-toolbar"]) ){
+			!isClassNamePresent(e.target,  ["math-container", "modal", "code-toolbar", "table-wrapper"]) ){
                 if(typeof(arrowLeftPage) !="undefined") window.location.href = arrowLeftPage;
 				// console.log("GO RIGHT")
 			}
