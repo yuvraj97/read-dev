@@ -418,6 +418,8 @@ table.alt tbody tr:first-child td {
 #nav ul.icons li.link img {
 	cursor: pointer;
 	margin-top: 20px;
+}
+#nav ul.icons li.link.size img {
 	width: 25px;
 	height: 25px;
 }
@@ -1051,26 +1053,6 @@ summary span {
 	}
 }
 
-/* SLACK DISCUSSION BUTTON WIDE */
-.slack-discuss {
-	/* font-family: Arial,"Helvetica Neue",Helvetica,sans-serif; */
-	font-weight: 600;
-	/* font-size: 16px; */
-	text-align: center;
-	width: 100%;
-	cursor: pointer;
-	border-radius: 20px;
-	width: 100%;
-	border-bottom: none;
-}
-
-.slack-discuss >img {
-	width: 28px;
-	height: 28px;
-	-webkit-transform: translateY(0.4rem);
-	transform: translateY(0.4rem);
-}
-
 .post > img {
 	max-width: 100%;
 }
@@ -1155,4 +1137,8 @@ textarea {
 }
 #disabled-links:hover{
 	cursor: default;
+}
+.discord-logo{
+	-webkit-transform: translateY(0.4rem);
+	transform: translateY(0.4rem);
 }

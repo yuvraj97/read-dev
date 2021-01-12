@@ -223,22 +223,24 @@ function createImageModals(){
 
 function paginationButton(){
 	btnContainer = document.querySelectorAll('#btn-container')
-	btnContainerHTML = ''
-	if(typeof(nextPage) !="undefined") btnContainerHTML += `<a href="${nextPage}"><button id="next-btn" class="button"  style="float: right;">${nextPageTitle}&nbsp;&nbsp;&#x25B6;</button></a>`;
-	if(typeof(prevPage) !="undefined") btnContainerHTML += `<a href="${prevPage}"><button id="prev-btn" class="button">&#x25C0;&nbsp;&nbsp; ${prevPageTitle}</button></a>`;
-	
-	btnContainer.forEach(function(element, index){
-		element.innerHTML=btnContainerHTML
-	})
-
-	btnContainer = document.querySelectorAll('#btn-container-top')
-	if(typeof(nextPage) !="undefined" && typeof(prevPage) !="undefined" ){
+	if(btnContainer.innerHTML == '') {
+		btnContainerHTML = ''
+		if(typeof(nextPage) !="undefined") btnContainerHTML += `<a href="${nextPage}"><button id="next-btn" class="button"  style="float: right;">${nextPageTitle}&nbsp;&nbsp;&#x25B6;</button></a>`;
+		if(typeof(prevPage) !="undefined") btnContainerHTML += `<a href="${prevPage}"><button id="prev-btn" class="button">&#x25C0;&nbsp;&nbsp; ${prevPageTitle}</button></a>`;
+		
 		btnContainer.forEach(function(element, index){
-			element.innerHTML=`
-			<a href="${prevPage}"><button id="prev-btn" class="button">&#x25C0;&nbsp;&nbsp; ${prevPageTitle}</button></a>
-			<a href="${nextPage}"><button id="next-btn" class="button"  style="float: right;">${nextPageTitle}&nbsp;&nbsp;&#x25B6;</button></a>
-			`
+			element.innerHTML=btnContainerHTML
 		})
+
+		btnContainer = document.querySelectorAll('#btn-container-top')
+		if(typeof(nextPage) !="undefined" && typeof(prevPage) !="undefined" ){
+			btnContainer.forEach(function(element, index){
+				element.innerHTML=`
+				<a href="${prevPage}"><button id="prev-btn" class="button">&#x25C0;&nbsp;&nbsp; ${prevPageTitle}</button></a>
+				<a href="${nextPage}"><button id="next-btn" class="button"  style="float: right;">${nextPageTitle}&nbsp;&nbsp;&#x25B6;</button></a>
+				`
+			})
+		}
 	}
 }
 
@@ -996,7 +998,7 @@ function otp_failed(status) {
 }
 
 function fetching(data, endpoint, callbacks = {}){
-	fetch(`https://app-aws2.quantml.org/api/${endpoint}`, {
+	fetch(`http://127.0.0.1:5000/${endpoint}`, {
 		method: 'POST', // *GET, POST, PUT, DELETE, etc.
 		mode: 'cors', // no-cors, *cors, same-origin
 		cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached

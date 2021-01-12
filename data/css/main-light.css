@@ -202,14 +202,6 @@ summary span:hover, summary span:focus {
 .login-require-txt {
     background-color: rgb(0, 115, 177, 0.2);
 }
-/* SLACK DISCUSSION BUTTON WIDE */
-.slack-discuss {
-    box-shadow: .05rem .05rem 0.4rem .05rem #467AAC;
-    color: #0073b1; 
-}
-.slack-discuss:hover {
-    box-shadow: .05rem .05rem 0.5rem .1rem #467AAC;
-}
 .l1 {    color: darkred;        }
 .l2 {    color: darkblue;      }
 .l3 {    color: darkgreen;      }
