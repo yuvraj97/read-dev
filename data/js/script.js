@@ -780,8 +780,8 @@ function auth_identify_email(){
 		var src = "/data/img-dark/loading-login.svg";
 	}
 	nextButtonText.innerHTML = 'Next &nbsp; <img style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);" src='+ src +' alt="..." width="30px" height="30px"/>'
-	window.quantml["email"] = email
-	fetching({email: email}, "identify-user",
+	window.quantml["email"] = email.toLowerCase()
+	fetching({email: email.toLowerCase()}, "identify-user",
 		callbacks = {
 			"then": function() {nextButtonText.innerHTML = "Next &nbsp; &rarr;";},
 			"response": function(data) {
@@ -841,12 +841,7 @@ function auth_authenticate(){
 	// Get User Info
 	password = email_form['password'].value;
 	loginButtonText = document.getElementById('password-button-text');
-	if(window.quantml["theme"]=="light"){
-		var src = "/data/img/loading-login.svg";
-	} else {
-		var src = "/data/img-dark/loading-login.svg";
-	}
-	loginButtonText.innerHTML = 'Login &nbsp; &rarr; <img style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);" src='+ src +' alt="..." width="30px" height="30px"/>'
+	loginButtonText.innerHTML = `Login &nbsp; ${get_loader_img_str()}`
 	fetching({email: window.quantml["email"], password: password}, "login", 
 		callbacks = {
 			"then": function() {loginButtonText.innerHTML = "Login &nbsp; &rarr;";},
