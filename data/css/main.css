@@ -694,8 +694,7 @@ table.alt tbody tr:first-child td {
 #navPanel ul.icons li.link img {
 	cursor: pointer;
 	margin-top: 20px;
-	width: 25px;
-	height: 25px;
+
 }
 #navPanel ul.icons li.link img:hover {
 	-webkit-transform: translateY(-0.2rem);
