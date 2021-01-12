@@ -223,7 +223,7 @@ function createImageModals(){
 
 function paginationButton(){
 	btnContainer = document.querySelectorAll('#btn-container')
-	if(btnContainer.innerHTML == '') {
+	if(btnContainer.length !=0 && btnContainer[0].innerHTML == '') {
 		btnContainerHTML = ''
 		if(typeof(nextPage) !="undefined") btnContainerHTML += `<a href="${nextPage}"><button id="next-btn" class="button"  style="float: right;">${nextPageTitle}&nbsp;&nbsp;&#x25B6;</button></a>`;
 		if(typeof(prevPage) !="undefined") btnContainerHTML += `<a href="${prevPage}"><button id="prev-btn" class="button">&#x25C0;&nbsp;&nbsp; ${prevPageTitle}</button></a>`;
@@ -1024,6 +1024,7 @@ function fetching(data, endpoint, callbacks = {}){
 
 function auth_state_change(){
 	token = getCookie("token")
+	// console.log("token", token)
 	if(token == null) {
 		setDisplay('login-button',getDisplay());
 		setDisplay('join-button',getDisplay());
@@ -1092,7 +1093,7 @@ function auth_patreon_suggestion(){
 }
 
 function loadContent(){
-	if(window.quantml["fetch-chapter"] == false) return;
+	if(!("fetch-chapter" in window.quantml) || window.quantml["fetch-chapter"] == false) return;
 	chapterID = window.quantml["chapterID"]
 	fetching({chapter: chapterID, token: getCookie('token')}, 'get-chapter',
 		callbacks={

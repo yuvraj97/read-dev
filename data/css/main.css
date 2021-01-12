@@ -417,12 +417,12 @@ table.alt tbody tr:first-child td {
 /******************** custom [start] ********************/
 #nav ul.icons li.link img {
 	cursor: pointer;
-	margin-top: 20px;
+	margin-top: 15px;
 }
-#nav ul.icons li.link.size img {
+/* #nav ul.icons li.link.size img {
 	width: 25px;
 	height: 25px;
-}
+} */
 #nav ul.icons li.link img:hover {
 	-webkit-transform: translateY(-0.2rem);
 	transform: translateY(-0.2rem);
@@ -446,15 +446,6 @@ table.alt tbody tr:first-child td {
 	transform: translateY(.25rem); */
 	cursor: pointer;
 }
-#nav ul.icons li.link img.whiteback{
-	background-color: white;
-	border-radius: 5px;
-	/* margin-top: 15px; */
-	padding: 3.5px;
-	width: 25px;
-	height: 25px;
-}
-
 
 /* LINKS */
 /* #nav ul.links li.active a:hover {
@@ -1141,4 +1132,18 @@ textarea {
 .discord-logo{
 	-webkit-transform: translateY(0.4rem);
 	transform: translateY(0.4rem);
+}
+.whiteback > .app-img{
+	border-radius: 5px;
+	padding: 3px;
+	/* -webkit-transform: translateY(-0.4rem);
+	transform: translateY(-0.4rem); */
+	margin-top: 15px;
+}
+.whiteback > .discord-img{
+	border-radius: 5px;
+	padding: 0px;
+	/* -webkit-transform: translateY(-0.4rem);
+	transform: translateY(-0.4rem); */
+	margin-top: 15px;
 }

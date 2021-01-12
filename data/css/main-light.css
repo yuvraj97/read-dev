@@ -226,3 +226,7 @@ textarea {
     color: #222;
     border: 2px rgb(0, 115, 177, 0.8) solid;
 }
+.whiteback > .app-img, 
+.whiteback > .discord-img{
+	background-color: white;
+}

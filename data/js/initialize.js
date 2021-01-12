@@ -194,14 +194,16 @@ function loadNavBar(){
 	} else if(isConcluded == true) {
 		log_in_out = ``
 	}
-	ul.innerHTML = `<li class="link size"><a rel="noreferrer" target="_blank" href="https://app.quantml.org/statistics/"><img src="${imgsrc}app.png" alt="App"></a></li>
-	<li class="link"><a rel="noreferrer" target="_blank" href="https://discord.gg/8wpzGhfXJR"><img src="${imgsrc}discord.svg" alt="Discord" width="30px" height="30px"></a></li>
-	<li class="link size"><a rel="noreferrer" target="_blank" href="https://www.linkedin.com/in/yuvraj97/"><img src="${imgsrc}linkedin.png" alt="LinkedIn"></a></li>
+	whiteback = ""
+	if(window.quantml["theme"]=="light") whiteback = "whiteback";
+	ul.innerHTML = `<li class="link size"><a rel="noreferrer" target="_blank" class="${whiteback}" href="https://app.quantml.org/statistics/"><img class="app-img" src="${imgsrc}app.png" alt="App" width="30px" height="30px"></a></li>
+	<li class="link"><a rel="noreferrer" target="_blank" class="${whiteback}" href="https://discord.gg/8wpzGhfXJR"><img class="discord-img" src="${imgsrc}discord.svg" alt="Discord" width="30px" height="30px"></a></li>
+	<li class="link size"><a rel="noreferrer" target="_blank" href="https://www.linkedin.com/in/yuvraj97/"><img src="${imgsrc}linkedin.png" alt="LinkedIn" width="30" height="30"></a></li>
 	<!--<li class="link size"><a rel="noreferrer" target="_blank" href="https://github.com/yuvraj97/"><img src="${imgsrc}github.png" alt="GitHub"></a></li>-->
 	${log_in_out}
 	<li style="display: none;" id="join-button"><button onclick=" window.open('https://www.patreon.com/quantml','_blank','noopener')" class="login-logout-join join-btn-width" >Join <img src="${imgsrc}patreon.png" alt="Patreon"></button></li>
-	<li class="link size" title="Change Theme" ><img onclick="changeTheme()" id="change-theme" src="${imgsrc}change-theme.png" alt="Change Theme"></li>
-	<li title="Settings" class="jump link size"><img onclick="showSettings()" src="${imgsrc}setings.png" alt="Settings" width="25px" height="25px"></li>
+	<li class="link size" title="Change Theme" ><img onclick="changeTheme()" id="change-theme" src="${imgsrc}change-theme.png" alt="Change Theme" width="30px" height="30px"></li>
+	<li title="Settings" class="jump link size"><img onclick="showSettings()" src="${imgsrc}setings.png" alt="Settings" width="30px" height="30px"></li>
 	`
 	nav.appendChild(ul)
   navPanel = document.createElement('div')
