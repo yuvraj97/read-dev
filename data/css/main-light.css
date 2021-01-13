@@ -230,3 +230,6 @@ textarea {
 .whiteback > .discord-img{
 	background-color: white;
 }
+.details-title{
+	border-bottom: 1px dotted #0033cc;
+}

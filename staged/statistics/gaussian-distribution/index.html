@@ -5,15 +5,32 @@
 
 		<link rel="stylesheet" href="/data/css/main.css">
 		
-		<title>Gaussian Distribution | Fundamentals of Statistics - QuantML</title>
-		<meta charset="utf-8" />
 		<link rel="icon" href="/data/icon.png" type="image/png" sizes="16x16">
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<meta name="robots" content="noindex">
-		<!-- <meta name="robots" content="index, follow"> -->
 
-		<!-- <script>importPrism = true</script> -->
-		<script src="/data/js/initialize.js"></script>
+        <!-- Primary Meta Tags -->
+		<title>Gaussian Distribution | Fundamentals of Statistics - QuantML</title>
+		<meta name="title" content="Gaussian Distribution | Fundamentals of Statistics - QuantML">
+		<!-- <meta name="description" content=""> -->
+		<meta name="author" content="Yuvraj Garg">
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+        <!-- <meta name="robots" content="index, follow"> -->
+        <meta name="robots" content="noindex">
+		<meta charset="utf-8" />
+		<!-- <meta name="keywords" content="QuantML,Visualization,Machine Learning,Statistics,Linear Algebra"> -->
+		
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website">
+		<meta property="og:url" content="https://read.quantml.org/statistics/gaussian-distribution/">
+		<meta property="og:title" content="Gaussian Distribution | Fundamentals of Statistics - QuantML">
+		<!-- <meta property="og:description" content=""> -->
+		<meta property="og:image" content="https://read.quantml.org/data/meta-img/gauss.webp">
+
+		<!-- Twitter -->
+		<meta property="twitter:card" content="summary_large_image">
+		<meta property="twitter:url" content="https://read.quantml.org/statistics/gaussian-distribution/">
+		<meta property="twitter:title" content="Gaussian Distribution | Fundamentals of Statistics - QuantML">
+		<!-- <meta property="twitter:description" content=""> -->
+        <meta property="twitter:image" content="https://read.quantml.org/data/meta-img/statistics.webp">
 
 		<script>
 			// var nextPage = "/statistics/gaussian-distribution/";
@@ -22,9 +39,13 @@
 			var prevPageTitle = "Central Limit Theorem";
 			var arrowLeftPage = "/statistics/central-limit-theorem/julia/";
 			// var arrowRightPage = "/statistics/gaussian-distribution/";
+            var importPrism = true
 			window.quantml["chapterID"] ="gaussian-distribution";
-			window.quantml["fetch-chapter"] = true;
-		</script>
+            window.quantml["fetch-chapter"] = true;
+        </script>
+        
+		<script src="/data/js/initialize.js"></script>
+
 	</head>
 
 	<body>
@@ -64,8 +85,8 @@
 <div id="desktop-mode">
 	<div id="btn-container"></div>
 </div><br>
-<p>  
-<span id="main"></span>
+<h1>Gaussian Distribution</h1>
+<!-- Gaussian Distribution (aka Normal distribution, Bell curve)  -->
 <div  style="font-family: inherit;" class="table-wrapper">
     <table style="font-family: Open Sans">
         <tr>
@@ -86,24 +107,24 @@
     </table>
 </div>
 <div class="'new_image">
-    <img class="full-size-img" src="../img/gauss_1_plot.png" width="640" height="476" alt="">
+    <img class="full-size-img" src="../img/gauss_1_plot.png" width="640" height="fit-content" alt="">
 </div>
-<span id="py"></span>
-<details>
-    <summary><span class="bb" style="color: royalblue; background-color: lightyellow; cursor:pointer;">Python code to plot this distribution</span></summary>
-    <pre  class="brush: python">
-        import numpy as np
-        import matplotlib.pyplot as plt
-        def gaussian_plot(mu,sigma,x_left_limit=-10,x_right_limit=30, partitions=1000):
-            x_axis = np.linspace(x_left_limit, x_right_limit, partitions)
-            y_axis = (1/(sigma*np.sqrt(2*np.pi))) * np.exp(-((x_axis-mu)**2)/(2*sigma**2))
-            plt.plot(x_axis,y_axis,label="N("+str(mu)+","+str(sigma)+")")
-            plt.legend()
-            plt.show()
+<details id="py">
+    <summary><span class="details-title">Python code to plot this distribution</span></summary>
+<pre data-start="1"><code class="language-python line-numbers">import numpy as np
+import matplotlib.pyplot as plt
+def gaussian_plot(mu: float,
+                  sigma: float,
+                  partitions: int = 1000):
+    rvs = np.linspace(mu -3 * sigma, mu + 3 * sigma, partitions)
+    pdf = (1/(sigma*np.sqrt(2*np.pi))) * np.exp(-((rvs-mu)**2)/(2*sigma**2))
+    plt.plot(rvs, pdf, label = f"N({mu},{sigma})")
+    plt.legend()
+    plt.show()
 
-        gaussian_plot(0,1)
-        gaussian_plot(10,4)
-    </pre>
+gaussian_plot(0,1)
+gaussian_plot(10,4)
+</code></pre>
 </details>
 <br>
 
@@ -111,7 +132,7 @@
 Gaussians are invariant under affine(linear) transformation, it means when we do a linear transformation of a Gaussian random variable it remains a Gaussian random variable. <br>
 Like if <span class="bb">\(X\sim\mathcal{N}(\mu,\sigma^2)\)</span> and <span class="bb">\(Y=aX+b\)</span> then <span class="bb">\(Y\sim\mathcal{N}(a\mu+b,a^2\sigma^2)\)</span>
 <details open>
-    <summary><span class="bb" style="color: royalblue; background-color: lightyellow; cursor:pointer;">Explanation</span></summary>
+    <summary><span class="details-title">Explanation</span></summary>
     <blockquote> 
         <div class="math-container">
         \(\mathbb{E}[Y] =\mathbb{E}[aX+b] \\
@@ -157,7 +178,7 @@ CDF of \(\mathcal{N}(0,1)=\Phi(x)\)<br>
 </div>
 
 <span  style="font-size: larger; font-family: inherit;">\(\text{Table for }\Phi(x)\)</span>
-    <img style="display:block; margin-left:auto; margin-right:auto;" style="width: 100%;" src="/statistics/img/std-normal.png" width="400" height="140" alt=""><br>
+    <img class="full-size-img" src="/statistics/img/std-normal.png" width="fit-content" height="fit-content" alt=""><br>
     <div  style="font-family: inherit;" class="table-wrapper">
     <table style="height:20em; overflow-y:scroll; display:block">
     <tr>
@@ -848,7 +869,7 @@ The first 2 digits represent a row and 3rd digit represents a column.<br>
         <span id="ex_3"></span>
         Now we can also find \(\mathbb{P}( 0.07 \leq \mathcal{N}(0,1) \leq  1.26)\):
         <details>
-            <summary><span class="bb" style="color: royalblue; background-color: lightyellow; cursor:pointer;">See solution</span></summary>
+            <summary><span class="details-title">See solution</span></summary>
             <div class="math-container">
                 <blockquote>
                     \(\mathbb{P}( 0.07 \leq \mathcal{N}(0,1) \leq  1.26)=\) \(\mathbb{P}(\mathcal{N}(0,1) \leq  1.26)-\mathbb{P}(\mathcal{N}(0,1) \leq  0.07)\) \(=0.89617 - 0.5279=0.36827\)</blockquote>
@@ -860,7 +881,7 @@ The first 2 digits represent a row and 3rd digit represents a column.<br>
         <span id="ex_4"></span>
         Now let's calculate \(\Phi(-0.07) = \mathbb{P}(\mathcal{N}(0,1) \leq -0.07)\)<br>
         <details>
-            <summary><span class="bb" style="color: royalblue; background-color: lightyellow; cursor:pointer;">See solution</span></summary>
+            <summary><span class="details-title">See solution</span></summary>
             <div class="math-container">
             <blockquote>
                 Say \(Z=\mathcal{N}(0,1)\)<br>
@@ -879,7 +900,7 @@ The first 2 digits represent a row and 3rd digit represents a column.<br>
         <span id="ex_5"></span>
         Now let's calculate \(\mathbb{P}(|\mathcal{N}(0,1)| \gt 0.07)\)<br>
         <details>
-            <summary><span class="bb" style="color: royalblue; background-color: lightyellow; cursor:pointer;">See solution</span></summary>
+            <summary><span class="details-title">See solution</span></summary>
             <blockquote>
                 <div class="math-container">
                 Say \(Z=\mathcal{N}(0,1)\)<br>
@@ -906,7 +927,7 @@ The first 2 digits represent a row and 3rd digit represents a column.<br>
         <span id="ex_6"></span>
         Say \(  X\sim \mathcal{N}(70,36)  \) now calculate \(\mathbb{P}(X>80)\)<br>
         <details>
-            <summary><span class="bb" style="color: royalblue; background-color: lightyellow; cursor:pointer;">See solution</span></summary>
+            <summary><span class="details-title">See solution</span></summary>
             <blockquote>
                 <div class="math-container">
                 Say \(Z=\mathcal{N}(0,1)\)<br>
@@ -930,7 +951,7 @@ The first 2 digits represent a row and 3rd digit represents a column.<br>
         Say \(X\sim \mathcal{N}(70,36)\) now we have to find \(x\) such that \(\mathbb{P}(X\leq x)=80\%\)<br>
         Now we have to read the table backward.
         <details>
-            <summary><span class="bb" style="color: royalblue; background-color: lightyellow; cursor:pointer;">See solution</span></summary>
+            <summary><span class="details-title">See solution</span></summary>
             <blockquote>
                 <div class="math-container">
                 Say \(Z=\mathcal{N}(0,1)\)<br>
@@ -1011,7 +1032,7 @@ Some important quantiles of \(Z\sim \mathcal{N}(0,1)\):
 <br>
 \(\mathbb{P}(|Z| \gt 1.96)=5\%\)
 <div class="'new_image">
-    <img class="full-size-img" src="../img/2.5.png" width="499" height="290" alt="">
+    <img class="full-size-img" src="../img/2.5.png" width="499" height="fit-content" alt="">
 </div>
 </div>
 

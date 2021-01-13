@@ -234,3 +234,6 @@ textarea {
 .whiteback > .discord-img{
 	background-color: transparent;
 }
+.details-title{
+	border-bottom: 1px dotted rgba(255, 180, 100, 1);
+}
