@@ -67,7 +67,7 @@
 
 <h1 id="single-simulation">Single Simulation <img src="/data/img/python.png" alt="Python" width="112.5px" height="30px"><a href="#single-simulation" aria-label="single-simulation"><i class="fa fa-link" aria-hidden="true"></i></a></h1>
 
-Assume that there are \(1000\) students in your school and you want to know, what is the average height of \(100\) randomly selected students? And how is that average height distributed (or say the distribution of that average height)?<br>
+Assume that there are \(1000\) students in your school and you want to know, what is the average height of \(100\) randomly selected students and how is that average height distributed (or say the distribution of that average height)?<br>
 
 <a href="/statistics/introduction/#dogma">Remember that dogma</a> <br>
 <img id='dogma' class="full-size-img" src="/statistics/img/dogma.png" alt="Central Dogma of Probability and Statistics">
@@ -82,7 +82,7 @@ So \(X_1,\cdots,X_{50}\sim\text{Unif}[165, 185]\) <br>
 <br>
 
 <h2 id="probability">Probability<a href="#probability" aria-label="probability"><i class="fa fa-link" aria-hidden="true"></i></a></h2>
-We use probability to generate data using the <b>Truth</b> we defined above.<br>
+Here we apply probability to generate data using the <b>Truth</b> we defined above.<br>
 Now let's create the population of all \(1000\) students. <br>
 
 <pre data-start="1"><code class="language-python line-numbers">import numpy as np
@@ -101,7 +101,7 @@ population = distribution.rvs(N)
 
 <h2 id="observation">Observation<a href="#observation" aria-label="observation"><i class="fa fa-link" aria-hidden="true"></i></a></h2>
 Now that we have all \(1000\) students, and every student's height follows the <a href="https://en.wikipedia.org/wiki/Continuous_uniform_distribution">Uniform distribution</a>. <br>
-Let's (randomly) take a sample of \(100\) students
+Let's (randomly) take a sample of \(100\) students.
 <pre data-start="11"><code class="language-python line-numbers">n = 100
 sample = np.random.choice(population,n)
 </code></pre>
@@ -259,7 +259,7 @@ plt.show()
 </code></pre>
 
 <img class="full-size-img" src="/statistics/img/central-limit-theorem/clt-sim-cdf.png" alt="">
-Here we can see the beauty of <b>Central limit theorem</b>, we can see how close the CDF of our Sampling distribution get closer to the CDF of a Normal distribution. <br>
+Here we can see the beauty of <b>Central limit theorem</b>, we can see how the CDF of our Sampling distribution get closer to the CDF of a Normal distribution. <br>
 
 Now try tweaking <span class="bb">\(n\)</span> and see how it affects the CDF convergence. <br>
 Also try different distributions form <a href="https://docs.scipy.org/doc/scipy/reference/stats.html">scipy.stats</a> <br>
