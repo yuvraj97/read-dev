@@ -218,7 +218,7 @@ summary span:hover, summary span:focus {
 pre[class*="language-"] {
 	background: #1C1B1B;
 }
-.fb-loading{
+.btn-loading{
     box-shadow: .0rem .0rem 0.4rem 0.05rem rgb(255, 255, 255, 0.7);
 }
 .settings > button,

@@ -1027,7 +1027,7 @@ function auth_state_change(){
 		setDisplay('logout-button','none');
 		setDisplay('secrets','none');
 		setDisplay('login-require',getDisplay());
-		setDisplay('fb-loading','none');
+		setDisplay('btn-loading','none');
 		return
 	}
 	if(!navigator.onLine){
@@ -1046,7 +1046,7 @@ function auth_state_change(){
 				setDisplay('logout-button',getDisplay());
 				setDisplay('secrets',getDisplay());
 				setDisplay('login-require','none');
-				setDisplay('fb-loading','none');
+				setDisplay('btn-loading','none');
 				loadContent()
 			} else {
 				setDisplay('login-button',getDisplay());
@@ -1054,7 +1054,7 @@ function auth_state_change(){
 				setDisplay('logout-button','none');
 				setDisplay('secrets','none');
 				setDisplay('login-require',getDisplay());
-				setDisplay('fb-loading','none');
+				setDisplay('btn-loading','none');
 			}
 		},
 	}
