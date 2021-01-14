@@ -222,8 +222,8 @@ function paginationButton(){
 	btnContainer = document.querySelectorAll('#btn-container')
 	if(btnContainer.length !=0 && btnContainer[0].innerHTML == '') {
 		btnContainerHTML = ''
-		if(typeof(nextPage) !="undefined") btnContainerHTML += `<a href="${nextPage}"><button id="next-btn" class="button"  style="float: right;">${nextPageTitle}&nbsp;&nbsp;&#x25B6;</button></a>`;
 		if(typeof(prevPage) !="undefined") btnContainerHTML += `<a href="${prevPage}"><button id="prev-btn" class="button">&#x25C0;&nbsp;&nbsp; ${prevPageTitle}</button></a>`;
+		if(typeof(nextPage) !="undefined") btnContainerHTML += `<a href="${nextPage}"><button id="next-btn" class="button"  style="float: right;">${nextPageTitle}&nbsp;&nbsp;&#x25B6;</button></a>`;
 		
 		btnContainer.forEach(function(element, index){
 			element.innerHTML=btnContainerHTML
@@ -246,24 +246,25 @@ function fullyLoaded(){
 	createImageModals()
 	
 	// Set Next-Prev btn width
-	nextPrevBtnWidthInterval = setInterval(function(){
-		// console.log("nextPrevBtnWidthInterval")
-		btnContainer = document.getElementById('btn-container')
-		if(btnContainer == null) clearInterval(nextPrevBtnWidthInterval);
-		else if(btnContainer.offsetWidth != 0) {
-			prev = document.querySelectorAll('#prev-btn')
-			next = document.querySelectorAll('#next-btn')
-			// console.log(prev)
-			if(prev.length!=0 && next.length!=0){
-				// console.log(prev[0].offsetWidth , next[0].offsetWidth , btnContainer.offsetWidth)
-				if(prev[0].offsetWidth + next[0].offsetWidth > btnContainer.offsetWidth) {
-					prev[0].style.display="block";
-					next[0].style.display="block";
-					prev[0].style.width="100%";
-					next[0].style.width="100%";
-					next[0].style.marginTop="5px"
-					// console.log(prev.length)
-					if(prev.length == 2){
+	btnContainer = document.querySelectorAll('#btn-container')
+	if(btnContainer.length != 0) {
+		const nextPrevBtnWidthInterval = setInterval(function(){
+			btnContainer = document.querySelectorAll('#btn-container')
+			// console.log(btnContainer)
+			// console.log("nextPrevBtnWidthInterval", btnContainer[1].offsetWidth)
+			if(btnContainer[1].offsetWidth != 0) {
+				prev = document.querySelectorAll('#prev-btn')
+				next = document.querySelectorAll('#next-btn')
+				// console.log(prev)
+				if(prev.length!=0 && next.length!=0){
+					// console.log(prev[1].offsetWidth , next[1].offsetWidth , btnContainer[1].offsetWidth)
+					if(prev[1].offsetWidth + next[1].offsetWidth > btnContainer[1].offsetWidth) {
+						prev[0].style.display="block";
+						next[0].style.display="block";
+						prev[0].style.width="100%";
+						next[0].style.width="100%";
+						next[0].style.marginTop="5px"
+
 						prev[1].style.display="block";
 						next[1].style.display="block";
 						prev[1].style.width="100%";
@@ -271,11 +272,19 @@ function fullyLoaded(){
 						next[1].style.marginTop="5px"
 						next[1].style.marginBottom="15px"
 					}
+				} else if(prev.length!=0) {
+					if(prev[1].offsetWidth > btnContainer[1].offsetWidth * 0.75){
+						prev[0].style.display="block";
+						prev[0].style.width="100%";
+						prev[1].style.display="block";
+						prev[1].style.width="100%";
+					}
 				}
+				clearInterval(nextPrevBtnWidthInterval)
 			}
-			clearInterval(nextPrevBtnWidthInterval)
-		}
-	}, 50)
+			// clearInterval(nextPrevBtnWidthInterval);	
+		}, 50)
+	}
 
 
 	imgsrc = "img"
