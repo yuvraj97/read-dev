@@ -165,6 +165,7 @@ function loadKatex(isKatexImportant, callback){
 	requireScript('katex-js', '0.6.0','/data/katex/katex.min.js', function(){
 		requireScript('auto-render-js', '0.6.0','/data/katex/auto-render.min.js', function(){
 			renderMathInElement(document.body);
+			if(isKatexImportant) katexLoaded();
 			if(callback) callback();
 		})
 	})
@@ -630,7 +631,7 @@ function cssLoaded(isKatexImportant = true, callback){
 		if(typeof(importPrism) != "undefined" && importPrism == true) requireScript('prism-js', '0.1.0', '/data/prism/prism.js', function(){})
 	}, 500)
 	if(isKatexImportant == true){
-		loadKatex(isKatexImportant, callback = katexLoaded)
+		loadKatex(isKatexImportant)
 	} else {
 		katexLoaded()
 		setTimeout(function(){loadKatex()}, 1500)
