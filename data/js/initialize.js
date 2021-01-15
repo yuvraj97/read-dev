@@ -282,6 +282,98 @@ async function encryptMessage(message) {
 // const encrypted_msg = await encryptMessage("text");
 // console.log(encrypted_msg);
 
+function applyMetaTags(){
+
+	var link = document.createElement('link');
+	link.setAttribute("rel", "icon")
+	link.setAttribute("href", "/data/icon.png")
+	link.setAttribute("type", "image/png")
+	link.setAttribute("sizes", "16x16")
+    document.getElementsByTagName("head")[0].appendChild(link);
+
+	var meta = document.createElement('meta');
+    meta.setAttribute('charset', 'utf-8')
+    document.getElementsByTagName("head")[0].appendChild(meta);
+	
+	var meta = document.createElement('meta');
+    meta.name = "title"
+    meta.content = document.querySelector('title').innerText
+    document.getElementsByTagName("head")[0].appendChild(meta);
+
+	var meta = document.createElement('meta');
+    meta.name = "author"
+    meta.content = "Yuvraj Garg"
+    document.getElementsByTagName("head")[0].appendChild(meta);
+
+    var meta = document.createElement('meta');
+    meta.name = "viewport"
+    meta.content = "width=device-width, initial-scale=1"
+    document.getElementsByTagName("head")[0].appendChild(meta);
+
+    var meta = document.createElement('meta');
+    meta.name = "robots"
+    meta.content = "index, follow"
+    if("meta" in quantml && "allow-robots" in quantml["meta"] && quantml["meta"]["allow-robots"] == false) meta.content = "noindex";
+    document.getElementsByTagName("head")[0].appendChild(meta);
+
+	if(!("meta" in quantml)) return;
+
+    var meta = document.createElement('meta');
+    meta.name = "description"
+    meta.content = quantml["meta"]["description"]
+    document.getElementsByTagName("head")[0].appendChild(meta);
+
+	var meta = document.createElement('meta');
+	meta.setAttribute("property", "og:type")
+    meta.content = "website"
+    document.getElementsByTagName("head")[0].appendChild(meta);
+	
+    var meta = document.createElement('meta');
+	meta.setAttribute("property", "og:url")
+    meta.content = document.URL.replace("index.html","") // quantml["meta"]["url"]
+    document.getElementsByTagName("head")[0].appendChild(meta);
+
+	var meta = document.createElement('meta');
+	meta.setAttribute("property", "og:title")
+    meta.content = document.querySelector('title').innerText
+	document.getElementsByTagName("head")[0].appendChild(meta);
+	
+	var meta = document.createElement('meta');
+	meta.setAttribute("property", "og:description")
+    meta.content = quantml["meta"]["description"]
+    document.getElementsByTagName("head")[0].appendChild(meta);
+
+    var meta = document.createElement('meta');
+	meta.setAttribute("property", "og:image")
+    meta.content = quantml["meta"]["image-url"]
+    document.getElementsByTagName("head")[0].appendChild(meta);
+
+    var meta = document.createElement('meta');
+	meta.setAttribute("property", "twitter:card")
+    meta.content = "summary_large_image"
+    document.getElementsByTagName("head")[0].appendChild(meta);
+
+	var meta = document.createElement('meta');
+	meta.setAttribute("property", "twitter:url")
+    meta.content = document.URL.replace("index.html","") //quantml["meta"]["url"]
+    document.getElementsByTagName("head")[0].appendChild(meta);
+
+	var meta = document.createElement('meta');
+	meta.setAttribute("property", "twitter:title")
+    meta.content = document.querySelector('title').innerText
+    document.getElementsByTagName("head")[0].appendChild(meta);
+
+	var meta = document.createElement('meta');
+	meta.setAttribute("property", "twitter:description")
+    meta.content = quantml["meta"]["description"]
+    document.getElementsByTagName("head")[0].appendChild(meta);
+
+	var meta = document.createElement('meta');
+	meta.setAttribute("property", "twitter:image")
+    meta.content = quantml["meta"]["image-url"]
+    document.getElementsByTagName("head")[0].appendChild(meta);
+}
+
 if(typeof(importPrism) != "undefined" && importPrism == true) requireScript('prism-css', '0.1.0', '/data/prism/prism.css', function(){});
 changeThemeCSS(window.quantml["theme"]);
 requireScript('auth-css', '0.1.0', '/data/css/authStyle.css', function(){})

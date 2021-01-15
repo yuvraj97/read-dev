@@ -1,4 +1,4 @@
-if(typeof(window.quantml["chapterID"]) != "undefined") requireScript('chapter-js', '0.1.0', '/data/js/chapter.js', function(){});
+if("chapterID" in window.quantml) requireScript('chapter-js', '0.1.0', '/data/js/chapter.js', function(){});
 
 
 // Functions
