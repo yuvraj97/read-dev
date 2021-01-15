@@ -302,12 +302,12 @@ function fullyLoaded(){
 			<label for="psw"><b>Password</b></label>
 			<input id="password" onkeypress="passwordIsValidated();setDisplay('network-request-failed', 'none');" class="loginInput" type="password" placeholder="Enter Password" name="psw" required>
 			<div style="display:none" id="password-error-msg" class="error-msg">
-				<img style="float: left;" src="/data/${imgsrc}/error.png" alt="!" width="50px" height="50px">
+				<img style="float: left;" src="/data/${imgsrc}/error.webp" alt="!" width="50px" height="50px">
 				<div style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);">Incorrect Password</div>
 			</div>
 
 			<div style="display: none;" id="network-request-failed" class="error-msg">
-				<img style="float: left;" src="/data/${imgsrc}/error.png" alt="!" width="50px" height="50px">
+				<img style="float: left;" src="/data/${imgsrc}/error.webp" alt="!" width="50px" height="50px">
 				<div style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);">Internet Connection Error</div>
 			</div>
 
@@ -334,13 +334,13 @@ function fullyLoaded(){
 			<label for="email"><b>Email Address</b>(<a rel="noreferrer" target="_blank" href="https://www.patreon.com/quantml">patreon</a>)</label>
 			<input id="login-email" onkeypress="emailAddressIsValidated();setDisplay('network-request-failed', 'none');" class="loginInput" ref="emailRef"  type="email" placeholder="Enter Email Address" name="email" required>
 			<div id="login-error-msg" class="error-msg">
-				<img style="float: left;" src="/data/${imgsrc}/error.png" alt="!" width="50px" height="50px">
+				<img style="float: left;" src="/data/${imgsrc}/error.webp" alt="!" width="50px" height="50px">
 				<div style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);">Invalid Email Address</div>
 			</div>
 			<div id="login-email-user-not-found" class="warn-msg"></div>
 
 			<div style="display: none;" id="network-request-failed" class="error-msg">
-				<img style="float: left;" src="/data/${imgsrc}/error.png" alt="!" width="50px" height="50px">
+				<img style="float: left;" src="/data/${imgsrc}/error.webp" alt="!" width="50px" height="50px">
 				<div style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);">Internet Connection Error</div>
 			</div>
 
@@ -368,15 +368,15 @@ function fullyLoaded(){
 			<label for="psw"><b>Password</b></label>
 			<input id="confirm-password" onkeypress="passwordIsValidated();setDisplay('network-request-failed', 'none');" class="loginInput" type="password" placeholder="Confirm Password" name="psw" required>
 			<div style="display: none" id="password-do-not-match" class="error-msg">
-				<img style="float: left;" src="/data/${imgsrc}/error.png" alt="!" width="50px" height="50px">
+				<img style="float: left;" src="/data/${imgsrc}/error.webp" alt="!" width="50px" height="50px">
 				<div style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);">Password does not match</div>
 			</div>
 			<div style="display: none" id="password-is-weak" class="error-msg">
-				<img style="float: left;" src="/data/${imgsrc}/error.png" alt="!" width="50px" height="50px">
+				<img style="float: left;" src="/data/${imgsrc}/error.webp" alt="!" width="50px" height="50px">
 				<div style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);">Weak Password, password should be at least 8 character long</div>
 			</div>
 			<div style="display: none;" id="network-request-failed" class="error-msg">
-				<img style="float: left;" src="/data/${imgsrc}/error.png" alt="!" width="50px" height="50px">
+				<img style="float: left;" src="/data/${imgsrc}/error.webp" alt="!" width="50px" height="50px">
 				<div style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);">Internet Connection Error</div>
 			</div>
 
@@ -404,7 +404,7 @@ function fullyLoaded(){
 			<input id="otp" onkeypress="otpValidated();setDisplay('network-request-failed', 'none');" class="loginInput" placeholder="Enter OTP" name="otp" required>
 
 			<div style="display: none;" id="invalid-otp" class="error-msg">
-				<img style="float: left;" src="/data/${imgsrc}/error.png" alt="!" width="50px" height="50px">
+				<img style="float: left;" src="/data/${imgsrc}/error.webp" alt="!" width="50px" height="50px">
 				<div style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);">Invalid OTP</div>
 			</div>
 

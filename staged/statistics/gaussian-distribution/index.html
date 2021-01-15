@@ -22,7 +22,7 @@
             quantml["fetch-chapter"] = true;
             quantml["meta"] = {
                 "allow-robots": false,
-                "description": "",
+                // "description": "",
                 // "image-url": "",
             }
             applyMetaTags()
@@ -48,10 +48,10 @@
 				<!-- Nav -->
 					<nav id="nav">
 						<ul class="links">
-							<li class="cover"><a href="/statistics/"><img src="/data/img/STATISTICS-cover.png" alt="STATISTICS"></a></li>
+							<li class="cover"><a href="/statistics/"><img src="/data/img/STATISTICS-cover.webp" alt="STATISTICS"></a></li>
 							<li class="active title">Gaussian Distribution</li>
-							<li class="python title"><img src="/data/img/python.png" alt="Python"></li>
-							<li class="julia title"><img src="/data/img/julia.png" alt="Julia"></li>
+							<li class="python title"><img src="/data/img/python.webp" alt="Python"></li>
+							<li class="julia title"><img src="/data/img/julia.webp" alt="Julia"></li>
 							</ul>
 					</nav>
 
@@ -89,7 +89,7 @@
     </table>
 </div>
 <div class="'new_image">
-    <img class="full-size-img" src="../img/gauss_1_plot.png" width="640" height="fit-content" alt="">
+    <img class="full-size-img" src="../img/gaussian-distribution/gauss_1_plot.png" width="640" height="fit-content" alt="">
 </div>
 <details id="py">
     <summary><span class="details-title">Python code to plot this distribution</span></summary>
@@ -117,14 +117,14 @@ Like if <span class="bb">\(X\sim\mathcal{N}(\mu,\sigma^2)\)</span> and <span cla
     <summary><span class="details-title">Explanation</span></summary>
     <blockquote> 
         <div class="math-container">
-        \(\mathbb{E}[Y] =\mathbb{E}[aX+b] \\
-        \mathbb{E}[Y] =\mathbb{E}[aX]+b  \quad; \text{by linearity of expectation} \\
-        \mathbb{E}[Y] =a\mathbb{E}[X] +b  \\
-        \mathbb{E}[Y] = a\mu+b          \\
-        Var(Y) = Var(aX+b)  \\
-        Var(Y) = Var(aX) \\
-        Var(Y) =a^2Var(X) \\
-        Var(Y) =a^2\sigma^2\)
+        \(\mathbb{E}[Y] =\mathbb{E}[aX+b]\) <br>
+        \(\mathbb{E}[Y] =\mathbb{E}[aX]+b  \quad; \text{by linearity of expectation}\) <br>
+        \(\mathbb{E}[Y] =a\mathbb{E}[X] +b\)  <br>
+        \(\mathbb{E}[Y] = a\mu+b\)          <br>
+        \(Var(Y) = Var(aX+b)\)  <br>
+        \(Var(Y) = Var(aX)\) <br>
+        \(Var(Y) =a^2Var(X)\) <br>
+        \(Var(Y) =a^2\sigma^2\)
         </div>
     </blockquote>
 </details><br>
@@ -134,10 +134,9 @@ As we know that CDF of Gaussian distribution has no close form, so we can't solv
 The solution for this is Standardization. by it we can convert any Gaussian r.v. to a Standard Gaussian r.v \(\mathcal{N}(0,1)\).<br>
 If \(X\sim\mathcal{N}(\mu,\sigma^2)\) then:<br>
 <div class="math-container">
-\[X-\mu\sim\mathcal{N}(0,\sigma^2) \\
-   \frac{X-\mu}{\sigma}\sim\mathcal{N}(0,1) \\
-   \Rightarrow Z=\frac{X-\mu}{\sigma}\sim\mathcal{N}(0,1)
-\]
+\[X-\mu\sim\mathcal{N}(0,\sigma^2) \]
+\[\frac{X-\mu}{\sigma}\sim\mathcal{N}(0,1) \]
+\[\Rightarrow Z=\frac{X-\mu}{\sigma}\sim\mathcal{N}(0,1)\]
 </div>
 
 Now we can compute probabilities for any Gaussian distribution:
@@ -1014,7 +1013,7 @@ Some important quantiles of \(Z\sim \mathcal{N}(0,1)\):
 <br>
 \(\mathbb{P}(|Z| \gt 1.96)=5\%\)
 <div class="'new_image">
-    <img class="full-size-img" src="../img/2.5.png" width="499" height="fit-content" alt="">
+    <img class="full-size-img" src="../img/gaussian-distribution/2.5.png" width="499" height="fit-content" alt="">
 </div>
 </div>
 
