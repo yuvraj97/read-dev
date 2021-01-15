@@ -195,14 +195,17 @@ function loadNavBar(){
 		log_in_out = ``
 	}
 	whiteback = ""
+	app_size = "30px"
+	if(window.quantml["theme"]=="dark") app_size = "25px"
+	if(window.quantml["notDesktop"]) app_size = "30px"
 	if(window.quantml["theme"]=="light" && window.quantml["notDesktop"] == false) whiteback = "whiteback";
 	discord_size = "30px"
 	linkedin_size = "25px"
 	if(window.quantml["notDesktop"] == true) {
-		discord_size = "35px";
+		discord_size = "32px";
 		linkedin_size = "30px"
 	}
-	ul.innerHTML = `<li class="link size"><a rel="noreferrer" target="_blank" class="${whiteback}" href="https://app.quantml.org/statistics/"><img class="app-img" src="${imgsrc}app.png" alt="App" width="30px" height="30px"></a></li>
+	ul.innerHTML = `<li class="link size"><a rel="noreferrer" target="_blank" class="${whiteback}" href="https://app.quantml.org/statistics/"><img class="app-img" src="${imgsrc}app.png" alt="App" width="${app_size}" height="${app_size}"></a></li>
 	<li class="link"><a rel="noreferrer" target="_blank" class="${whiteback}" href="https://discord.gg/8wpzGhfXJR"><img class="discord-img" src="${imgsrc}discord.svg" alt="Discord" width="${discord_size}" height="${discord_size}"></a></li>
 	<li class="link size"><a rel="noreferrer" target="_blank" href="https://www.linkedin.com/in/yuvraj97/"><img src="${imgsrc}linkedin.png" alt="LinkedIn" width="${linkedin_size}" height="${linkedin_size}"></a></li>
 	<!--<li class="link size"><a rel="noreferrer" target="_blank" href="https://github.com/yuvraj97/"><img src="${imgsrc}github.png" alt="GitHub"></a></li>-->
