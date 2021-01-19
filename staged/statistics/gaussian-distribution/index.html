@@ -68,12 +68,16 @@
 	<div id="btn-container"></div>
 </div><br>
 <h1>Gaussian Distribution</h1>
-<!-- Gaussian Distribution (aka Normal distribution, Bell curve)  -->
+Gaussian Distribution (aka Normal distribution, Bell curve) is perhaps the most important probability distribution in statistics, we can see it in numerous natural phenomena like: heights, weight, age, measurement error, <a rel="noreferrer" target="_blank" href="https://www.123test.com/interpretation-of-an-iq-score/">IQ score</a>, etc. <br> 
+We had already witnessed it's importance in <a rel="noreferrer" target="_blank" href="/statistics/central-limit-theorem/">Central Limit Theorem</a>. <br>
+<br>
+
+<h3>Gaussian Distribution</h3>
 <div  style="font-family: inherit;" class="table-wrapper">
     <table style="font-family: Open Sans">
         <tr>
             <td>Notation</td>
-            <td>\(\mathcal{N}(\mu,\sigma^2)\)</td>
+            <td>\[\mathcal{N}(\mu,\sigma^2)\]</td>
             <td>Here \(\mu\) and \(\sigma^2\) are parameters<br>Where \(-\infty &lt \mu &lt +\infty\)<br>And \(\sigma^2 \gt \infty\)</td>
         </tr>
         <tr>
@@ -84,23 +88,21 @@
         <tr>
             <td>CDF</td>
             <td>\[F(x)=\frac{1}{\sigma \sqrt{2\pi }} \int_{-\infty}^{x}\exp \left(-\frac{(t-\mu )^2}{2 \sigma ^2}\right)dt\]</td>
-            <td>There is no closed form for CDF</td>
+            <td>There is no closed form solution, <br> for CDF of a Normal distribution</td>
         </tr>
     </table>
 </div>
-<div class="'new_image">
-    <img class="full-size-img" src="../img/gaussian-distribution/gauss_1_plot.png" width="640" height="fit-content" alt="">
-</div>
+<img class="full-size-img" src="../img/gaussian-distribution/gauss_1_plot.png" width="640" height="fit-content" alt="">
 <details id="py">
-    <summary><span class="details-title">Python code to plot this distribution</span></summary>
+    <summary><span class="bb">Python code to plot this distribution</span></summary>
 <pre data-start="1"><code class="language-python line-numbers">import numpy as np
 import matplotlib.pyplot as plt
 def gaussian_plot(mu: float,
                   sigma: float,
                   partitions: int = 1000):
-    rvs = np.linspace(mu -3 * sigma, mu + 3 * sigma, partitions)
+    rvs = np.linspace(mu - 3 * sigma, mu + 3 * sigma, partitions)
     pdf = (1/(sigma*np.sqrt(2*np.pi))) * np.exp(-((rvs-mu)**2)/(2*sigma**2))
-    plt.plot(rvs, pdf, label = f"N({mu},{sigma})")
+    plt.plot(rvs, pdf, label = f"N(μ = {mu}, σ = {sigma})")
     plt.legend()
     plt.show()
 
@@ -111,11 +113,24 @@ gaussian_plot(10,4)
 <br>
 
 <h2 id="gauss_properties">Properties of Gaussian<a style="color: rgb(20, 57, 168);" href="#gauss_properties"><i class="fa fa-link" aria-hidden="true"></i></a></h2>
+
+<h3 style="margin-top: 20px;">The Empirical Rule</h3>
+<div style="display: block; min-height: 473px;">
+The Empirical Rule \((\text{aka }68-95-99.7\text{ rule})\) says: <br>
+<img class="full-size-img" src="../img/gaussian-distribution/68-95-99.7.png" alt="" width="437px" height="430px">
+<ul>
+    <li>\(68\%\) of population lies within \(1\) standard deviation\((\sigma)\) from the mean\((\mu)\).</li>
+    <li>\(95\%\) of population lies within \(2\) standard deviation\((\sigma)\) from the mean\((\mu)\).</li>
+    <li>\(99.7\%\) of population lies within \(3\) standard deviation\((\sigma)\) from the mean\((\mu)\).</li>
+</ul>
+</div>
+
+<h3 style="margin-top: 20px;">Linear functions of Normal random variable</h3>
 Gaussians are invariant under affine(linear) transformation, it means when we do a linear transformation of a Gaussian random variable it remains a Gaussian random variable. <br>
 Like if <span class="bb">\(X\sim\mathcal{N}(\mu,\sigma^2)\)</span> and <span class="bb">\(Y=aX+b\)</span> then <span class="bb">\(Y\sim\mathcal{N}(a\mu+b,a^2\sigma^2)\)</span>
 <details open>
-    <summary><span class="details-title">Explanation</span></summary>
-    <blockquote> 
+    <summary><span class="bb">Explanation</span></summary>
+    <blockquote class="sidebar"> 
         <div class="math-container">
         \(\mathbb{E}[Y] =\mathbb{E}[aX+b]\) <br>
         \(\mathbb{E}[Y] =\mathbb{E}[aX]+b  \quad; \text{by linearity of expectation}\) <br>
@@ -148,7 +163,7 @@ Now we can compute probabilities for any Gaussian distribution:
 Any Gaussian r.v. with mean\((\mu)=0\) is symmetric<br>
 If \(X\sim \mathcal{N}(0,\sigma^2)\) then \(-X\) has the same distribution as \(X\)<br>
 \(\Rightarrow -X \sim \mathcal{N}(0,\sigma^2)\)<br>
-<br><br>
+<br>
 
 <h3 id="gauss_table">Gaussian Probability Table<a style="color: rgb(20, 57, 168);" href="#gauss_table"><i class="fa fa-link" aria-hidden="true"></i></a></h3>
 So as we know that CDF of a gaussian has no close form, therefore we use tables to get those CDF's.<br>
@@ -773,8 +788,7 @@ CDF of \(\mathcal{N}(0,1)=\Phi(x)\)<br>
 <b>How to read the table:</b><br>
 The first 2 digits represent a row and 3rd digit represents a column.<br>
 <br>
-<span id="examples"></span>
-<b>Examples</b>
+<h4 id="examples">Examples</h4>
 <ul>
     <li>
         <span id="ex_1"></span>
@@ -792,7 +806,7 @@ The first 2 digits represent a row and 3rd digit represents a column.<br>
 
             <th>+0.05</th>
             <th>+0.06</th>
-            <th bgcolor="#00FF00">+0.07</th>
+            <th class="table-highlighted-cell">+0.07</th>
             <th>+0.08</th>
             <th>+0.09</th></tr>
             <tr>
@@ -804,7 +818,7 @@ The first 2 digits represent a row and 3rd digit represents a column.<br>
             <td>0.51595</td>
             <td>0.51994</td>
             <td>0.52392</td>
-            <td bgcolor="#00FF00">0.52790</td>
+            <td class="table-highlighted-cell">0.52790</td>
             <td>0.53188</td>
             <td>0.53586</td>
         </tr></table></div>
@@ -825,7 +839,7 @@ The first 2 digits represent a row and 3rd digit represents a column.<br>
             <th>+0.04</th>
 
             <th>+0.05</th>
-            <th bgcolor="#00FF00">+0.06</th>
+            <th class="table-highlighted-cell">+0.06</th>
             <th>+0.07</th>
             <th>+0.08</th>
             <th>+0.09
@@ -839,7 +853,7 @@ The first 2 digits represent a row and 3rd digit represents a column.<br>
             <td>0.89065</td>
             <td>0.89251</td>
             <td>0.89435</td>
-            <td bgcolor="#00FF00">0.89617</td>
+            <td class="table-highlighted-cell">0.89617</td>
             <td>0.89796</td>
             <td>0.89973</td>
             <td>0.90147
@@ -850,9 +864,9 @@ The first 2 digits represent a row and 3rd digit represents a column.<br>
         <span id="ex_3"></span>
         Now we can also find \(\mathbb{P}( 0.07 \leq \mathcal{N}(0,1) \leq  1.26)\):
         <details>
-            <summary><span class="details-title">See solution</span></summary>
+            <summary><span class="bb">See solution</span></summary>
             <div class="math-container">
-                <blockquote>
+                <blockquote class="sidebar"> 
                     \(\mathbb{P}( 0.07 \leq \mathcal{N}(0,1) \leq  1.26)=\) \(\mathbb{P}(\mathcal{N}(0,1) \leq  1.26)-\mathbb{P}(\mathcal{N}(0,1) \leq  0.07)\) \(=0.89617 - 0.5279=0.36827\)</blockquote>
             </div>
         </details>
@@ -862,9 +876,9 @@ The first 2 digits represent a row and 3rd digit represents a column.<br>
         <span id="ex_4"></span>
         Now let's calculate \(\Phi(-0.07) = \mathbb{P}(\mathcal{N}(0,1) \leq -0.07)\)<br>
         <details>
-            <summary><span class="details-title">See solution</span></summary>
+            <summary><span class="bb">See solution</span></summary>
             <div class="math-container">
-            <blockquote>
+            <blockquote class="sidebar"> 
                 Say \(Z=\mathcal{N}(0,1)\)<br>
                 \(\mathbb{P}(Z \leq -0.07)=\mathbb{P}(-Z \geq 0.07)\)<br>
                 And \(\mathbb{P}(-Z \geq 0.07)=\mathbb{P}(Z \geq 0.07)\) <b>;by symmetry</b><br>
@@ -881,8 +895,8 @@ The first 2 digits represent a row and 3rd digit represents a column.<br>
         <span id="ex_5"></span>
         Now let's calculate \(\mathbb{P}(|\mathcal{N}(0,1)| \gt 0.07)\)<br>
         <details>
-            <summary><span class="details-title">See solution</span></summary>
-            <blockquote>
+            <summary><span class="bb">See solution</span></summary>
+            <blockquote class="sidebar"> 
                 <div class="math-container">
                 Say \(Z=\mathcal{N}(0,1)\)<br>
                 \(\mathbb{P}(|Z| \gt 0.07)=\mathbb{P}(Z \gt 0.07 \cup Z \lt -0.07)=\) &nbsp;\( \mathbb{P}(Z \gt 0.07)+\mathbb{P}(Z\lt -0.07)  \)<br>
@@ -908,8 +922,8 @@ The first 2 digits represent a row and 3rd digit represents a column.<br>
         <span id="ex_6"></span>
         Say \(  X\sim \mathcal{N}(70,36)  \) now calculate \(\mathbb{P}(X>80)\)<br>
         <details>
-            <summary><span class="details-title">See solution</span></summary>
-            <blockquote>
+            <summary><span class="bb">See solution</span></summary>
+            <blockquote class="sidebar"> 
                 <div class="math-container">
                 Say \(Z=\mathcal{N}(0,1)\)<br>
                 \(  \mathbb{P}(X\gt 80)  =\mathbb{P}(X-70 \gt 80-70)\)<br>
@@ -932,8 +946,8 @@ The first 2 digits represent a row and 3rd digit represents a column.<br>
         Say \(X\sim \mathcal{N}(70,36)\) now we have to find \(x\) such that \(\mathbb{P}(X\leq x)=80\%\)<br>
         Now we have to read the table backward.
         <details>
-            <summary><span class="details-title">See solution</span></summary>
-            <blockquote>
+            <summary><span class="bb">See solution</span></summary>
+            <blockquote class="sidebar"> 
                 <div class="math-container">
                 Say \(Z=\mathcal{N}(0,1)\)<br>
                 \(  \mathbb{P}(X\leq x)  =0.8\)<br>
@@ -952,7 +966,7 @@ The first 2 digits represent a row and 3rd digit represents a column.<br>
                 <th>+0.03</th>
                 <th>+0.04</th>
 
-                <th bgcolor="#00FF00">+0.05</th>
+                <th class="table-highlighted-cell">+0.05</th>
                 <th>+0.06</th>
                 <th>+0.07</th>
                 <th>+0.08</th>
@@ -965,7 +979,7 @@ The first 2 digits represent a row and 3rd digit represents a column.<br>
                 <td>0.79389</td>
                 <td>0.79673</td>
                 <td>0.79955</td>
-                <td bgcolor="#00FF00">0.80234</td>
+                <td class="table-highlighted-cell">0.80234</td>
                 <td>0.80511</td>
                 <td>0.80785</td>
                 <td>0.81057</td>
@@ -1018,7 +1032,6 @@ Some important quantiles of \(Z\sim \mathcal{N}(0,1)\):
 </div>
 
 <div id="btn-container"></div><br>
-
 
 <div id="modals-html"></div>
 

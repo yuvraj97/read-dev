@@ -813,6 +813,11 @@ window.quantml["chapters"] ={
             })
             
         }
+    },
+    "gaussian-distribution": {
+        run: function(){
+            // 
+        }
     }
     // "chapterID": {
     //     run: function(){

@@ -237,3 +237,6 @@ textarea {
 .details-title{
 	border-bottom: 1px dotted rgba(255, 180, 100, 1);
 }
+.table-highlighted-cell{
+    background-color: rgb(255, 255, 255, 0.15);
+}
