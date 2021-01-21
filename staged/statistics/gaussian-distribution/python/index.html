@@ -1,0 +1,214 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+	<head>
+
+		<title>Python | Gaussian Distribution | Fundamentals of Statistics - QuantML</title>
+		<link rel="stylesheet" href="/data/css/main.css">
+
+		<script>
+			// var nextPage = "/statistics/gaussian-distribution/";
+			var prevPage = "/statistics/central-limit-theorem/";
+			// var nextPageTitle = "Gaussian Distribution";
+			var prevPageTitle = "Central Limit Theorem";
+			var arrowLeftPage = "/statistics/gaussian-distribution/";
+			var arrowRightPage = "/statistics/gaussian-distribution/julia/";
+            var importPrism = true
+		</script>
+		
+		<script src="/data/js/initialize.js"></script>
+        <script>
+            quantml["chapterID"] ="gaussian-distribution-py";
+            quantml["fetch-chapter"] = true;
+            quantml["meta"] = {
+                "allow-robots": false,
+                // "description": "",
+                // "image-url": "",
+            }
+            applyMetaTags()
+        </script>
+
+	</head>
+
+	<body>
+
+		<!-- Wrapper -->
+			<div style="display: none;" id="wrapper">
+				<div class="bg fixed" style="transform: none;"></div>
+				<div id="navPanelToggle">Menu</div>
+
+
+				<!-- Header -->
+				<header id="header">
+					<a href="https://quantml.org" style="display: none;" class="logo image jump-big" id="quantml-cover-light"><img src="/data/img/cover.webp" alt="QuantML.org" /></a>
+					<a href="https://quantml.org" style="display: none;" class="logo image jump-big" id="quantml-cover-dark"><img src="/data/img-dark/cover.webp" alt="QuantML.org" /></a>
+					<script>if(window.quantml["theme"]=="dark") document.getElementById('quantml-cover-dark').style.display = "block";else document.getElementById('quantml-cover-light').style.display = "block";</script>
+				</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li class="cover"><a href="/statistics/"><img src="/data/img/STATISTICS-cover.webp" alt="STATISTICS"></a></li>
+							<li class="link"><a href="/statistics/gaussian-distribution/">Gaussian Distribution</a></li>
+							<li class="active python"><img src="/data/img/python.webp" alt="Python"></li>
+							<li class="julia"><a href="/statistics/gaussian-distribution/julia/"><img src="/data/img/julia.webp" alt="Julia"></a></li>
+						</ul>
+					</nav>
+
+<!-- Main -->
+<div id="main">
+    <section class="post">
+<div style="text-align: center;" id="load-init"></div>
+<script>initializeBody();</script>
+
+<div id="paragraph-content" data-swipe-threshold="80">
+<div id="desktop-mode"><div id="btn-container"></div><br></div>
+
+<h1>Gaussian Distribution Implementation <img src="/data/img/python.webp" alt="Python" width="112.5px" height="30px"></h1>
+Now let's see a real life example for Gaussian Distribution and Implement it in <b>python</b>. <br>
+Here we use a dataset containing Adult's Height(inches) and Weight(pounds). <br>
+(You can find the dataset at <a rel="noreferrer" target="_blank" href="http://wiki.stat.ucla.edu/socr/index.php/SOCR_Data_Dinov_020108_HeightsWeights">http://wiki.stat.ucla.edu/socr/index.php/SOCR_Data_Dinov_020108_HeightsWeights</a>.) <br>
+Here we will study how Adult's Height(inches) is distributed. And you should try to study the distribution of Adult's Weight(pounds).<br>
+So let's get started. <br>
+
+
+First get the data from <a rel="noreferrer" target="_blank" href="http://wiki.stat.ucla.edu/socr/index.php/SOCR_Data_Dinov_020108_HeightsWeights">http://wiki.stat.ucla.edu/socr/index.php/SOCR_Data_Dinov_020108_HeightsWeights</a>. <br>
+Our data contains \(25,000\) Adult's Height(inches) and Weight(pounds). <br>
+So let's load this data in python. <br>
+<pre data-start="1"><code class="language-python line-numbers">import numpy as np
+from scipy.stats import norm
+import pandas as pd
+import matplotlib.pyplot as plt
+
+path_csv = 'height_weight.csv'
+population = pd.read_csv(path_csv)
+print(population.head())
+</code></pre>
+O/P: 
+<img class="full-size-img" src="../../img/gaussian-distribution/py/dataset-head.png" alt="dataset-head.png ...">
+<br>
+Now extract all the Heights from the data. <br>
+
+<pre data-start="9"><code class="language-python line-numbers">population_height = population["Height(Inches)"]
+print(population_height.head())
+</code></pre>
+O/P:
+<img class="full-size-img" src="../../img/gaussian-distribution/py/heights-head.png" alt="heights-head.png ..."><br>
+
+Now let's plot a histogram out of <span class="bb">population_height</span>. <br>
+<pre data-start="11"><code class="language-python line-numbers">fig, ax = plt.subplots()
+num_bins = 100
+
+# Histogram(PMF) of Sampling Distribution
+counts, bins = np.histogram(population_height ,
+							np.linspace(min(population_height),
+										max(population_height),
+										num_bins)
+							)
+ax.hist(population_height ,
+		bins[:-1],
+  		facecolor='blue',
+  		alpha=0.5,
+  		color="b",
+  		weights=(1/sum(counts))*np.ones_like(population_height),
+  		label="Sampling distribution")
+plt.xlabel("Adult male height(Inches)")
+plt.ylabel("Proportion of male falling into certain height range")
+plt.show()
+</code></pre>
+<img class="full-size-img" src="../../img/gaussian-distribution/py/height-histogram.png" alt="">
+Histogram looks to be normally distributed. Now let's visually inspect that, do our data follows a  Normal Distribution (with emperical mean and emperical variance). <br>
+So how can we visually inspect our data to be normally distributed. <br>
+
+One can say that we should impose a Normal Distribution with emperical mean and emperical variance on this histogram and see if our data follows a Normal Distribution. <br>
+<blockquote class="sidebar">
+	But height of histogram denotes the <b>probability</b> of a male height falling into certain range, but the height of a Normal Distribution <b>does not</b> denotes probability. So we can't get any info by imposing a Normal Distribution on our histogram.
+</blockquote>
+Let's impose a Normal Distribution on our histogram and see it overselve. <br>
+
+<img class="full-size-img" src="../../img/gaussian-distribution/py/height-histogram+normal.png" alt="">
+
+<details><summary><span class="bb">Code to plot this (python)</span></summary>
+<pre data-start="11"><code class="language-python line-numbers">fig, ax = plt.subplots()
+num_bins = 100
+
+# Histogram(PMF) of Sampling Distribution
+counts, bins = np.histogram(population_height ,
+							np.linspace(min(population_height),
+										max(population_height),
+										num_bins)
+							)
+ax.hist(population_height ,
+		bins[:-1],
+  		facecolor='blue',
+  		alpha=0.5,
+  		color="b",
+  		weights=(1/sum(counts))*np.ones_like(population_height),
+  		label="Sampling distribution")
+
+# PDF of Normal Distribution
+mean, std = np.mean(population_height), np.std(population_height)
+rvs = np.linspace(mean - 3*std, mean + 3*std, 100)
+pdf = norm.pdf(rvs, mean, std)
+ax.plot(rvs, pdf, c="g", label="Normal distribution (PDF)") # N({'{:.2f}'.format(mean)}, {'{:.2f}'.format(std)})
+
+plt.xlabel("Adult male height(Inches)")
+plt.ylabel("Proportion of male falling into certain height range \n PDF of Normal distribution")
+leg = ax.legend()
+plt.show()
+</code></pre>
+</details>
+
+Ok we get that, we can't use <b>PDF</b> to visually justify the normal trend of our data, then what can we use to justify that our data follow a Normal distribution. <br>
+<blockquote class="sidebar">
+	And the answer is <b>CDF</b>, CDF of Normal distribution and Sampling distribution both denotes same thing. So we can overlay CDF of Normal distribution and CDF of Sampling distribution <!--Check--> on each other, and see if both CDF overlay nicely.
+</blockquote>
+So let's plot it,
+
+<pre data-start="11"><code class="language-python line-numbers">fig, ax = plt.subplots()
+num_bins = 100
+
+# CDF of Sampling Distribution
+counts, bins = np.histogram(population_height ,
+ 							np.linspace(min(population_height),
+										max(population_height),
+										num_bins)
+ 							)
+pmf = counts/sum(counts)
+cdf = np.cumsum(pmf)
+ax.scatter(bins[:-1], cdf, c='b', marker="+", label="Sampling distribution CDF")
+
+# CDF of Normal Distribution
+mean, std = np.mean(population_height), np.std(population_height)
+rvs = np.linspace(mean - 3*std, mean + 3*std, 100)
+cdf = norm.cdf(rvs, mean, std)
+ax.plot(rvs, cdf, c='g', label="Normal distribution CDF")
+leg = ax.legend()
+
+plt.xlabel("Adult male height(Inches)")
+plt.ylabel("CDF of Sampling Distribution \n CDF of Normal Distribution")
+plt.show()
+</code></pre>
+<img class="full-size-img" src="../../img/gaussian-distribution/py/cdf.png" alt="">
+Now we can say that our data do follow Normal Distribution (with emperical mean and emperical variance). <br>
+<!-- <blockquote class="noborder align-center">
+	<a href="/statistics/gaussian-distribution/julia/"><img src="/data/img/julia.webp" alt="Julia" width="53px" height="33px"> Simulation</a>
+	<br>
+    <a rel="noreferrer" target="_blank" href="https://app.quantml.org/statistics/?ch=Gaussian+Distribution">Visualize Gaussian Distribution &nbsp;<img src="/data/img/app.webp" alt="launch" width="30px" height="30px"></a> <br>
+</blockquote> -->
+
+<br><br>
+
+
+</div>
+
+<div id="btn-container"></div><br>
+<div id="modals-html"></div>
+
+</section>
+</div><!-- Main [END]-->
+</div><!-- Wrapper [END]-->
+<script>requireScript('script-js', '0.1.0', '/data/js/script.js', function(){cssLoaded()})</script>
+
+</body>
+</html>
