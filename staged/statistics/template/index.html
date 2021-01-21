@@ -1,0 +1,101 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+	<head>
+
+        <title>ChapterName | Fundamentals of Statistics - QuantML</title>
+		<link rel="stylesheet" href="/data/css/main.css">
+		
+		<script>
+			// var nextPage = "/statistics/NextPage/";
+			var prevPage = "/statistics/PrevPage/";
+			// var nextPageTitle = "NextPageTitle";
+			var prevPageTitle = "PrevPageTitle";
+			var arrowLeftPage = "/statistics/PrevPage/julia/";
+			var arrowRightPage = "/statistics/CurrentPage/python/";
+            var importPrism = true
+        </script>
+        
+		<script src="/data/js/initialize.js"></script>
+        <script>
+            quantml["chapterID"] ="ChapterID";
+            quantml["fetch-chapter"] = true;
+            quantml["meta"] = {
+                "allow-robots": false,
+                // "description": "",
+                // "image-url": "",
+            }
+            applyMetaTags()
+        </script>
+
+	</head>
+
+	<body>
+
+		<!-- Wrapper -->
+			<div style="display: none;" id="wrapper">
+				<div class="bg fixed" style="transform: none;"></div>
+				<div id="navPanelToggle">Menu</div>
+
+
+				<!-- Header -->
+				<header id="header">
+					<a href="https://quantml.org" style="display: none;" class="logo image jump-big" id="quantml-cover-light"><img src="/data/img/cover.webp" alt="QuantML.org" /></a>
+					<a href="https://quantml.org" style="display: none;" class="logo image jump-big" id="quantml-cover-dark"><img src="/data/img-dark/cover.webp" alt="QuantML.org" /></a>
+					<script>if(window.quantml["theme"]=="dark") document.getElementById('quantml-cover-dark').style.display = "block";else document.getElementById('quantml-cover-light').style.display = "block";</script>
+				</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li class="cover"><a href="/statistics/"><img src="/data/img/STATISTICS-cover.webp" alt="STATISTICS"></a></li>
+							<li class="active title">ChapterName</li>
+							<!-- <li class="python title"><img src="/data/img/python.webp" alt="Python"></li>
+							<li class="julia title"><img src="/data/img/julia.webp" alt="Julia"></li>                             -->
+                        	<li class="python"><a href="/statistics/CurrentPage/python/"><img src="/data/img/python.webp" alt="Python"></a></li>
+							<li class="julia"><a href="/statistics/CurrentPage/julia/"><img src="/data/img/julia.webp" alt="Julia"></a></li>
+						</ul>
+					</nav>
+
+<!-- Main -->
+<div id="main">
+    <section class="post">
+
+<div style="text-align: center;" id="load-init"></div>
+<script>initializeBody();</script>
+
+<div id="paragraph-content" data-swipe-threshold="80">
+<div id="desktop-mode"><div id="btn-container"></div></div><br>
+
+<div style="display: none; text-align: center; width: 20rem; margin-left: auto; margin-right: auto;" id="no-internet" class="error-msg">
+    <img style="float: left;" src="/data/img/error.webp" alt="!" width="50px" height="50px">
+    <div style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);">Internet Connection Error</div>
+</div>
+
+<div id="secrets">
+	<img id="secrets" class="loading" src="/data/img/loading.svg" alt="">
+</div>
+<!-- <script>document.addEventListener("keydown",()=>{console.log(document.activeElement)})</script> -->
+<div style="display: none;" id="login-require" class="login-require">
+	<div class="login-require-txt">Login is required</div>
+	<button onclick='setDisplay("email-model","block");' class="button">Login &nbsp; <img src="/data/img/patreon.webp" alt="P"></button>
+    <a rel="noreferrer" target="_blank" href="https://www.patreon.com/quantml">
+        <button class="button" style="float: right;" >Join &nbsp; <img src="/data/img/patreon.webp" alt="Join"></button>
+    </a>
+</div>
+<blockquote style="margin-top: 20px;">
+    Expected date of release: <b>DD/MM/YYYY</b>
+</blockquote><br>
+
+
+</div><!-- paragraph-content [END] -->
+<div id="btn-container"></div><br>
+<div id="modals-html"></div>
+
+</section>
+</div><!-- Main [END]-->
+</div><!-- Wrapper [END]-->
+<script>requireScript('script-js', '0.1.0', '/data/js/script.js', function(){cssLoaded()})</script>
+
+</body>
+</html>
