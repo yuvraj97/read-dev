@@ -25,7 +25,8 @@
                 // "description": "",
                 // "image-url": "",
             }
-            applyMetaTags()
+			applyMetaTags()
+			// quantml["dont-apply-katex"] = true
         </script>
 
 	</head>
@@ -65,22 +66,22 @@
 <div id="desktop-mode"><div id="btn-container"></div><br></div>
 
 <h1>Gaussian Distribution Implementation <img src="/data/img/python.webp" alt="Python" width="112.5px" height="30px"></h1>
-Now let's see a real life example for Gaussian Distribution and Implement it in <b>python</b>. <br>
-Here we use a dataset containing Adult's Height(inches) and Weight(pounds). <br>
-(You can find the dataset at <a rel="noreferrer" target="_blank" href="http://wiki.stat.ucla.edu/socr/index.php/SOCR_Data_Dinov_020108_HeightsWeights">http://wiki.stat.ucla.edu/socr/index.php/SOCR_Data_Dinov_020108_HeightsWeights</a>.) <br>
-Here we will study how Adult's Height(inches) is distributed. And you should try to study the distribution of Adult's Weight(pounds).<br>
+Now let's see a real life example for Gaussian Distribution and implement it in <b>python</b>. <br>
+Here we use a dataset containing \(25,000\) record of human heights(inches) and weights(pounds). 
+<a href="../height_weight.csv" download="height_weight.csv">Download ⬇</a> <br>
+(Source <a rel="noreferrer" target="_blank" href="http://wiki.stat.ucla.edu/socr/index.php/SOCR_Data_Dinov_020108_HeightsWeights">http://wiki.stat.ucla.edu/socr/index.php/SOCR_Data_Dinov_020108_HeightsWeights</a>.) <br>
+Here we will study how height(inches) is distributed. And you should try to study the distribution of weights(pounds).<br>
 So let's get started. <br>
 
 
-First get the data from <a rel="noreferrer" target="_blank" href="http://wiki.stat.ucla.edu/socr/index.php/SOCR_Data_Dinov_020108_HeightsWeights">http://wiki.stat.ucla.edu/socr/index.php/SOCR_Data_Dinov_020108_HeightsWeights</a>. <br>
-Our data contains \(25,000\) Adult's Height(inches) and Weight(pounds). <br>
-So let's load this data in python. <br>
+First get the data <a href="../height_weight.csv" download="height_weight.csv">Download ⬇</a> (<a  rel="noreferrer" target="_blank" href="http://wiki.stat.ucla.edu/socr/index.php/SOCR_Data_Dinov_020108_HeightsWeights">Source</a>). <br>
+Now load this data in python. <br>
 <pre data-start="1"><code class="language-python line-numbers">import numpy as np
 from scipy.stats import norm
 import pandas as pd
 import matplotlib.pyplot as plt
 
-path_csv = 'height_weight.csv'
+path_csv = 'height_weight.csv' # [Download ⬇](../height_weight.csv)
 population = pd.read_csv(path_csv)
 print(population.head())
 </code></pre>
@@ -99,7 +100,7 @@ Now let's plot a histogram out of <span class="bb">population_height</span>. <br
 <pre data-start="11"><code class="language-python line-numbers">fig, ax = plt.subplots()
 num_bins = 100
 
-# Histogram(PMF) of Sampling Distribution
+# Histogram(PMF) of Heights
 counts, bins = np.histogram(population_height ,
 							np.linspace(min(population_height),
 										max(population_height),
@@ -111,20 +112,20 @@ ax.hist(population_height ,
   		alpha=0.5,
   		color="b",
   		weights=(1/sum(counts))*np.ones_like(population_height),
-  		label="Sampling distribution")
-plt.xlabel("Adult male height(Inches)")
+  		label="Height's distribution")
+plt.xlabel("Height(Inches)")
 plt.ylabel("Proportion of male falling into certain height range")
 plt.show()
 </code></pre>
 <img class="full-size-img" src="../../img/gaussian-distribution/py/height-histogram.png" alt="">
-Histogram looks to be normally distributed. Now let's visually inspect that, do our data follows a  Normal Distribution (with emperical mean and emperical variance). <br>
-So how can we visually inspect our data to be normally distributed. <br>
+Histogram looks to be normally distributed. Now let's visually inspect that, does our data follows a  Normal Distribution (with empirical mean and empirical variance)? <br>
+So, how can we visually inspect our data to be normally distributed? <br>
 
-One can say that we should impose a Normal Distribution with emperical mean and emperical variance on this histogram and see if our data follows a Normal Distribution. <br>
+One can say that we should impose a Normal Distribution with empirical mean and empirical variance on the height's histogram and see if our data follows a Normal Distribution. <br>
 <blockquote class="sidebar">
-	But height of histogram denotes the <b>probability</b> of a male height falling into certain range, but the height of a Normal Distribution <b>does not</b> denotes probability. So we can't get any info by imposing a Normal Distribution on our histogram.
+	The height of histogram denotes the <b>probability</b> of a male height falling into certain range, but the height of a Normal Distribution <b>does not</b> denote <b>probability</b>. So we can't get any info by imposing a Normal Distribution on our histogram.
 </blockquote>
-Let's impose a Normal Distribution on our histogram and see it overselve. <br>
+Let's impose a Normal Distribution on our histogram and see it ourselves. <br>
 
 <img class="full-size-img" src="../../img/gaussian-distribution/py/height-histogram+normal.png" alt="">
 
@@ -132,7 +133,7 @@ Let's impose a Normal Distribution on our histogram and see it overselve. <br>
 <pre data-start="11"><code class="language-python line-numbers">fig, ax = plt.subplots()
 num_bins = 100
 
-# Histogram(PMF) of Sampling Distribution
+# Histogram(PMF) of Height
 counts, bins = np.histogram(population_height ,
 							np.linspace(min(population_height),
 										max(population_height),
@@ -144,7 +145,7 @@ ax.hist(population_height ,
   		alpha=0.5,
   		color="b",
   		weights=(1/sum(counts))*np.ones_like(population_height),
-  		label="Sampling distribution")
+  		label="Height's distribution")
 
 # PDF of Normal Distribution
 mean, std = np.mean(population_height), np.std(population_height)
@@ -152,23 +153,23 @@ rvs = np.linspace(mean - 3*std, mean + 3*std, 100)
 pdf = norm.pdf(rvs, mean, std)
 ax.plot(rvs, pdf, c="g", label="Normal distribution (PDF)") # N({'{:.2f}'.format(mean)}, {'{:.2f}'.format(std)})
 
-plt.xlabel("Adult male height(Inches)")
+plt.xlabel("Height(Inches)")
 plt.ylabel("Proportion of male falling into certain height range \n PDF of Normal distribution")
 leg = ax.legend()
 plt.show()
 </code></pre>
-</details>
+</details><br>
 
 Ok we get that, we can't use <b>PDF</b> to visually justify the normal trend of our data, then what can we use to justify that our data follow a Normal distribution. <br>
 <blockquote class="sidebar">
-	And the answer is <b>CDF</b>, CDF of Normal distribution and Sampling distribution both denotes same thing. So we can overlay CDF of Normal distribution and CDF of Sampling distribution <!--Check--> on each other, and see if both CDF overlay nicely.
+	And the answer is <b>CDF</b>, CDF of Normal distribution and Height's distribution both denote the same thing. So we can overlay CDF of Normal distribution and CDF of Height's distribution on each other, and see if both CDF overlay nicely.
 </blockquote>
 So let's plot it,
 
 <pre data-start="11"><code class="language-python line-numbers">fig, ax = plt.subplots()
 num_bins = 100
 
-# CDF of Sampling Distribution
+# CDF of Heights
 counts, bins = np.histogram(population_height ,
  							np.linspace(min(population_height),
 										max(population_height),
@@ -176,7 +177,7 @@ counts, bins = np.histogram(population_height ,
  							)
 pmf = counts/sum(counts)
 cdf = np.cumsum(pmf)
-ax.scatter(bins[:-1], cdf, c='b', marker="+", label="Sampling distribution CDF")
+ax.scatter(bins[:-1], cdf, c='b', marker="+", label="Height's distribution CDF")
 
 # CDF of Normal Distribution
 mean, std = np.mean(population_height), np.std(population_height)
@@ -185,12 +186,100 @@ cdf = norm.cdf(rvs, mean, std)
 ax.plot(rvs, cdf, c='g', label="Normal distribution CDF")
 leg = ax.legend()
 
-plt.xlabel("Adult male height(Inches)")
-plt.ylabel("CDF of Sampling Distribution \n CDF of Normal Distribution")
+plt.xlabel("Height(Inches)")
+plt.ylabel("CDF of Height's distribution \n CDF of Normal Distribution")
 plt.show()
 </code></pre>
 <img class="full-size-img" src="../../img/gaussian-distribution/py/cdf.png" alt="">
-Now we can say that our data do follow Normal Distribution (with emperical mean and emperical variance). <br>
+Now we can say that our data do follow Normal Distribution (with empirical mean and empirical variance). <br>
+<br>
+
+<h2>Now Let's answer some questions</h2>
+<br>
+<blockquote class="sidebar">
+	First let's get the empirical mean and empirical variance because we will need then below.
+<pre data-start="1"><code class="language-python line-numbers">import numpy as np
+import pandas as pd
+population_height = pd.read_csv("height_weight.csv")["Height(Inches)"]
+print(f"""
+       Empirical Mean: {np.mean(population_height)} \n 
+       Empirical Variance: {np.var(population_height)}
+       """)
+</code></pre>
+O/P:
+<blockquote class="noborder">
+	Empirical Mean: 67.99311359679979 <br>
+	Empirical Variance: 3.6162374935681028
+</blockquote>
+So \(\quad\widehat{\mu}=67.9931,\quad\) \(\widehat{\sigma^2}=3.6162\quad\) also \(\quad\widehat{\sigma}=1.9016\)
+</blockquote>
+<!-- <div style="margin-top: 20px;"></div> -->
+<br>
+<h4>Question \(1\)</h4>
+What is the probability of randomly selected human is taller then \(67.12\) inches? <br>
+Say \(X\) is a random variable denoting height, then we want to find the probability of \(X\gt 67.12\) or say \(\mathbb{P}(X\gt 67.12)\) <br>
+↪ Finding \(\mathbb{P}(X\gt 67.12)\) using mathematics <br>
+<blockquote class="sidebar">
+We are pretty confident that our height data follows a Normal Distribution. <br>
+So we can say that \(X\sim\mathcal{N}(\widehat{\mu},\widehat{\sigma^2})\), where \(\widehat{\mu}\) is empirical mean and \(\widehat{\sigma^2}\) is empirical variance. <br>
+\[X\sim\mathcal{N}(\widehat{\mu},\widehat{\sigma^2})\]
+\[X - \widehat{\mu} \sim\mathcal{N}(0,\widehat{\sigma^2})\] 
+<div style="margin-top: 10px;"></div>
+\[\displaystyle\frac{X - \widehat{\mu}}{\widehat{\sigma}} \sim\mathcal{N}(0,1)\]
+So,
+\[\mathbb{P}\left(X\gt 67.12\right) = 1- \mathbb{P}\left(X\leq 67.12\right)\]
+\[\mathbb{P}\left(X\gt 67.12\right) = 1- \mathbb{P}\left(\underbrace{\frac{X - \widehat{\mu}}{\widehat{\sigma}}}_{\sim\mathcal{N}(0,1)} \leq \frac{67.12 - \widehat{\mu}}{\widehat{\sigma}}\right)\]
+\[\mathbb{P}\left(X\gt 67.12\right) = 1- \Phi\left(\frac{67.12 - \widehat{\mu}}{\widehat{\sigma}}\right)\]
+\[\mathbb{P}\left(X\gt 67.12\right) = 1- \Phi\left(\frac{67.12 - 67.9931}{1.9016}\right)\]
+\[\mathbb{P}\left(X\gt 67.12\right) = 1- \underbrace{\Phi\left(-0.4591\right)}_{1-\Phi(0.4591)}\]
+\[\mathbb{P}\left(X\gt 67.12\right) = \Phi(0.4591)\]
+\[\mathbb{P}\left(X\gt 67.12\right) = 0.67724\]
+</blockquote>
+↪ Finding \(\mathbb{P}(X\gt 67.12)\) using <img src="/data/img/python.webp" alt="Python" width="75px" height="20px"> <br>
+<blockquote class="sidebar">
+<pre data-start="8"><code class="language-python line-numbers">result = sum(population_height > 67.12)/len(population_height)
+print(f"Proportion of heights greater then 67.12 inches: {result}")
+</code></pre>
+O/P:
+<blockquote class="noborder">Proportion of heights greater then \(67.12\) inches: \(0.67784\)</blockquote>
+</blockquote>
+Both values are pretty close, there's a error of \(\approx 0.9\%\). <br>
+<br>
+
+<h4>Question \(2\)</h4>
+What is the probability that a randomly selected human has a height between \(59.25\) and \(67.12\) inches? <br>
+Say \(X\) is a random variable denoting height, then we want to find the probability of \(59.25 \lt X\lt 67.12\) or say \(\mathbb{P}(59.25 \lt X\lt 67.12)\) <br>
+↪ Finding \(\mathbb{P}(59.25 \lt X\lt 67.12)\) using mathematics <br>
+<blockquote class="sidebar">
+\[\mathbb{P}(59.25 \lt X\lt 67.12) = \mathbb{P}\left(\frac{59.25 - \hat{\mu}}{\hat{\sigma}} \lt \frac{X - \hat{\mu}}{\hat{\sigma}}\lt \frac{67.12 - \hat{\mu}}{\hat{\sigma}}\right) \]
+\[\mathbb{P}(59.25 \lt X\lt 67.12) = \mathbb{P}\left(\frac{59.25 - 67.9931}{1.9016} \lt \underbrace{\frac{X - \hat{\mu}}{\hat{\sigma}}}_{\sim\mathcal{N}(0,1)} \lt \frac{67.12 - 67.9931}{1.9016}\right) \]
+\[\mathbb{P}(59.25 \lt X\lt 67.12) = \mathbb{P}\left(-4.6 \lt Z \lt -0.46 \right) \]
+\[\mathbb{P}(59.25 \lt X\lt 67.12) = 1 - \left(\mathbb{P}\left(Z \lt -4.6 \right) + \mathbb{P}\left(Z \gt -0.46 \right)\right) \]
+\[\mathbb{P}(59.25 \lt X\lt 67.12) = 1 - \left(\mathbb{P}\left(Z \lt -4.6 \right) + \mathbb{P}\left(Z \lt 0.46 \right)\right) \]
+\[\mathbb{P}(59.25 \lt X\lt 67.12) = 1 - \left(1 - \mathbb{P}\left(Z \lt 4.6 \right) + \mathbb{P}\left(Z \lt 0.46 \right)\right) \]
+\[\mathbb{P}(59.25 \lt X\lt 67.12) = \mathbb{P}\left(Z \lt 4.6 \right) - \mathbb{P}\left(Z \lt 0.46 \right) \]
+\[\mathbb{P}(59.25 \lt X\lt 67.12) = 0.999998 - 0.677242 = 0.322756 \]
+</blockquote>
+
+↪ Finding \(\mathbb{P}(59.25 \lt X\lt 67.12)\) using <img src="/data/img/python.webp" alt="Python" width="75px" height="20px"> <br>
+<blockquote class="sidebar">
+<pre data-start="8"><code class="language-python line-numbers">result = sum((population_height &gt; 59.25) & (population_height &lt; 67.12))/len(population_height)
+print(f"Proportion of heights in between 59.25 and 67.12 inches: {result}")
+</code></pre>
+O/P:
+<blockquote class="noborder">Proportion of heights in between \(59.25\) and \(67.12\) inches: \(0.32216\)</blockquote>
+</blockquote>
+Both values are pretty close, there's a error of \(\approx 0.19\%\). <br>
+<br>
+
+
+
+
+
+
+
+
+
 <!-- <blockquote class="noborder align-center">
 	<a href="/statistics/gaussian-distribution/julia/"><img src="/data/img/julia.webp" alt="Julia" width="53px" height="33px"> Simulation</a>
 	<br>
