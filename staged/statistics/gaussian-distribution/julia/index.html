@@ -1,9 +1,10 @@
+<!-- https://datatofish.com/add-julia-to-jupyter/ -->
 <!DOCTYPE HTML>
 <html lang="en">
 
 	<head>
 
-		<title>Python | Gaussian Distribution | Fundamentals of Statistics - QuantML</title>
+		<title>Julia | Gaussian Distribution | Fundamentals of Statistics - QuantML</title>
 		<link rel="stylesheet" href="/data/css/main.css">
 
 		<script>
@@ -11,14 +12,14 @@
 			var prevPage = "/statistics/central-limit-theorem/";
 			// var nextPageTitle = "Gaussian Distribution";
 			var prevPageTitle = "Central Limit Theorem";
-			var arrowLeftPage = "/statistics/gaussian-distribution/";
-			var arrowRightPage = "/statistics/gaussian-distribution/julia/";
+			var arrowLeftPage = "/statistics/gaussian-distribution/python";
+			// var arrowRightPage = "/statistics/NextPage/";
             var importPrism = true
 		</script>
 		
 		<script src="/data/js/initialize.js"></script>
         <script>
-            quantml["chapterID"] ="gaussian-distribution-py";
+            quantml["chapterID"] ="gaussian-distribution-jl";
             quantml["fetch-chapter"] = true;
             quantml["meta"] = {
                 "allow-robots": false,
@@ -51,8 +52,8 @@
 						<ul class="links">
 							<li class="cover"><a href="/statistics/"><img src="/data/img/STATISTICS-cover.webp" alt="STATISTICS"></a></li>
 							<li class="link"><a href="/statistics/gaussian-distribution/">Gaussian Distribution</a></li>
-							<li class="active python"><img src="/data/img/python.webp" alt="Python"></li>
-							<li class="julia"><a href="/statistics/gaussian-distribution/julia/"><img src="/data/img/julia.webp" alt="Julia"></a></li>
+							<li class="python"><a href="/statistics/gaussian-distribution/python/ "><img src="/data/img/python.webp" alt="Python"></a></li>
+							<li class="active julia"><img src="/data/img/julia.webp" alt="Julia"></li>
 						</ul>
 					</nav>
 
@@ -65,8 +66,8 @@
 <div id="paragraph-content" data-swipe-threshold="80">
 <div id="desktop-mode"><div id="btn-container"></div><br></div>
 
-<h1>Gaussian Distribution Implementation <img src="/data/img/python.webp" alt="Python" width="112.5px" height="30px"></h1>
-Now let's see a real life example for Gaussian Distribution and implement it in <b>python</b>. <br>
+<h1>Gaussian Distribution Implementation <img src="/data/img/julia.webp" alt="Julia" width="53px" height="33px"></h1>
+Now let's see a real life example for Gaussian Distribution and implement it in <b><a rel="noreferrer" target="_blank" href="https://julialang.org/">Julia</a></b>. <br>
 Here we use a dataset containing \(25,000\) record of human heights(inches) and weights(pounds). 
 <a href="../height_weight.csv" download="height_weight.csv">Download ⬇</a> <br>
 (Source <a rel="noreferrer" target="_blank" href="http://wiki.stat.ucla.edu/socr/index.php/SOCR_Data_Dinov_020108_HeightsWeights">http://wiki.stat.ucla.edu/socr/index.php/SOCR_Data_Dinov_020108_HeightsWeights</a>.) <br>
@@ -75,88 +76,67 @@ So let's get started. <br>
 
 
 First get the data <a href="../height_weight.csv" download="height_weight.csv">Download ⬇</a> (<a  rel="noreferrer" target="_blank" href="http://wiki.stat.ucla.edu/socr/index.php/SOCR_Data_Dinov_020108_HeightsWeights">Source</a>). <br>
-Now load this data in python. <br>
-<pre data-start="1"><code class="language-python line-numbers">import numpy as np
-from scipy.stats import norm
-import pandas as pd
-import matplotlib.pyplot as plt
-
-path_csv = 'height_weight.csv' # [Download ⬇](../height_weight.csv)
-population = pd.read_csv(path_csv)
-print(population.head())
+Now load this data in julia. <br>
+<pre data-start="1"><code class="language-julia line-numbers">using DataFrames, CSV, Plots, StatsBase, Statistics, Distributions, Random
+population = CSV.read("height_weight.csv", DataFrame) # [Download ⬇](../height_weight.csv)
+first(population, 6)
 </code></pre>
 O/P: 
-<img class="full-size-img" src="../../img/gaussian-distribution/py/dataset-head.png" alt="dataset-head.png ...">
+<img class="full-size-img" src="../../img/gaussian-distribution/jl/dataset-head.png" alt="dataset-head.png ...">
 <br>
 Now extract all the Heights from the data. <br>
 
-<pre data-start="9"><code class="language-python line-numbers">population_height = population["Height(Inches)"]
-print(population_height.head())
+<pre data-start="4"><code class="language-julia line-numbers">population_height = population."Height(Inches)"
+population_height[1:5]
 </code></pre>
 O/P:
-<img class="full-size-img" src="../../img/gaussian-distribution/py/heights-head.png" alt="heights-head.png ..."><br>
+<img class="full-size-img" src="../../img/gaussian-distribution/jl/heights-head.png" alt="heights-head.png ..." width="372px" height="196px"><br>
 
 Now let's plot a histogram out of <span class="bb">population_height</span>. <br>
-<pre data-start="11"><code class="language-python line-numbers">fig, ax = plt.subplots()
-num_bins = 100
+<pre data-start="6"><code class="language-julia line-numbers">num_bins = 100
 
 # Histogram(PMF) of Heights
-counts, bins = np.histogram(population_height ,
-							np.linspace(min(population_height),
-										max(population_height),
-										num_bins)
-							)
-ax.hist(population_height ,
-		bins[:-1],
-  		facecolor='blue',
-  		alpha=0.5,
-  		color="b",
-  		weights=(1/sum(counts))*np.ones_like(population_height),
-  		label="Height's distribution")
-plt.xlabel("Height(Inches)")
-plt.ylabel("Proportion of height falling in certain range")
-plt.show()
+bins = Array(LinRange(minimum(population_height), maximum(population_height), num_bins))
+counts = fit(Histogram, population_height, bins).weights
+Plots.histogram(population_height, 
+                 bins=bins, 
+                 weights=(1/sum(counts)).*ones(length(population_height)), 
+                 title = "Height's Distribution",
+                 label = false)
+Plots.xlabel!("Height(Inches)")
+Plots.ylabel!("Proportion of height falling in certain range")
 </code></pre>
-<img class="full-size-img" src="../../img/gaussian-distribution/py/height-histogram.png" alt="">
+<img class="full-size-img" src="../../img/gaussian-distribution/jl/height-histogram.png" alt="" width="640px" height="476px">
 Histogram looks to be normally distributed. Now let's visually inspect that, does our data follows a  Normal Distribution (with empirical mean and empirical variance)? <br>
 So, how can we visually inspect our data to be normally distributed? <br>
 
 One can say that we should impose a Normal Distribution with empirical mean and empirical variance on the height's histogram and see if our data follows a Normal Distribution. <br>
 <blockquote class="sidebar">
-	The height of histogram denotes the <b>probability</b> of a height falling in certain range, but the height of a Normal Distribution <b>does not</b> denote <b>probability</b>. So we can't get any info by imposing a Normal Distribution on our histogram.
+	The height of histogram denotes the <b>probability</b> of a height falling into certain range, but the height of a Normal Distribution <b>does not</b> denote <b>probability</b>. So we can't get any info by imposing a Normal Distribution on our histogram.
 </blockquote>
 Let's impose a Normal Distribution on our histogram and see it ourselves. <br>
 
-<img class="full-size-img" src="../../img/gaussian-distribution/py/height-histogram+normal.png" alt="">
+<img class="full-size-img" src="../../img/gaussian-distribution/jl/height-histogram+normal.png" alt="" width="640px" height="476px">
 
-<details><summary><span class="bb">Code to plot this (python)</span></summary>
-<pre data-start="11"><code class="language-python line-numbers">fig, ax = plt.subplots()
-num_bins = 100
+<details><summary><span class="bb">Code to plot this (julia)</span></summary>
+<pre data-start="6"><code class="language-julia line-numbers">num_bins = 100
 
-# Histogram(PMF) of Height
-counts, bins = np.histogram(population_height ,
-							np.linspace(min(population_height),
-										max(population_height),
-										num_bins)
-							)
-ax.hist(population_height ,
-		bins[:-1],
-  		facecolor='blue',
-  		alpha=0.5,
-  		color="b",
-  		weights=(1/sum(counts))*np.ones_like(population_height),
-  		label="Height's distribution")
+# Histogram(PMF) of Heights
+bins = Array(LinRange(minimum(population_height), maximum(population_height), num_bins))
+counts = fit(Histogram, population_height, bins).weights
+Plots.histogram(population_height, 
+                 bins=bins, 
+                 weights=(1/sum(counts)).*ones(length(population_height)), 
+                 label = "Height's Distribution")
 
 # PDF of Normal Distribution
-mean, std = np.mean(population_height), np.std(population_height)
-rvs = np.linspace(mean - 3*std, mean + 3*std, 100)
-pdf = norm.pdf(rvs, mean, std)
-ax.plot(rvs, pdf, c="g", label="Normal distribution (PDF)") # N({'{:.2f}'.format(mean)}, {'{:.2f}'.format(std)})
+_mean, _std = mean(population_height), std(population_height)
+rvs = LinRange(_mean - 3 * _std, _mean + 3 * _std, 100)
+_pdf = pdf.(Normal(_mean, _std), rvs)
+plot!(rvs, _pdf, c="green", label="Normal distribution (PDF)", lw=3)
 
-plt.xlabel("Height(Inches)")
-plt.ylabel("Proportion of height falling in certain range \n PDF of Normal distribution")
-leg = ax.legend()
-plt.show()
+Plots.xlabel!("Height(Inches)")
+Plots.ylabel!("Proportion of height falling in certain range \n PDF of Normal distribution")
 </code></pre>
 </details><br>
 
@@ -166,31 +146,25 @@ Ok we get that, we can't use <b>PDF</b> to visually justify the normal trend of 
 </blockquote>
 So let's plot it,
 
-<pre data-start="11"><code class="language-python line-numbers">fig, ax = plt.subplots()
-num_bins = 100
+<pre data-start="6"><code class="language-julia line-numbers">num_bins = 100
 
 # CDF of Heights
-counts, bins = np.histogram(population_height ,
- 							np.linspace(min(population_height),
-										max(population_height),
-										num_bins)
- 							)
-pmf = counts/sum(counts)
-cdf = np.cumsum(pmf)
-ax.scatter(bins[:-1], cdf, c='b', marker="+", label="Height's distribution CDF")
+bins = Array(LinRange(minimum(population_height), maximum(population_height), num_bins))
+counts = fit(Histogram, population_height, bins).weights
+_cdf = cumsum(counts)/sum(counts)
+pop!(bins)
+scatter(bins, _cdf, color="blue", markersize=2, label="Height's distribution CDF")
 
 # CDF of Normal Distribution
-mean, std = np.mean(population_height), np.std(population_height)
-rvs = np.linspace(mean - 3*std, mean + 3*std, 100)
-cdf = norm.cdf(rvs, mean, std)
-ax.plot(rvs, cdf, c='g', label="Normal distribution CDF")
-leg = ax.legend()
-
-plt.xlabel("Height(Inches)")
-plt.ylabel("CDF of Height's distribution \n CDF of Normal Distribution")
-plt.show()
+_mean, _std = mean(population_height), std(population_height)
+rvs = LinRange(_mean - 4 * _std, _mean + 4 * _std, 100)
+_cdf = cdf.(Normal(_mean, _std), rvs)
+plot!(rvs, _cdf, c="green", label="Normal distribution CDF", lw=3)
+Plots.xlabel!("Height(Inches)")
+Plots.ylabel!("CDF of Height's distribution \n CDF of Normal Distribution")
+plot!(legend=:topleft)
 </code></pre>
-<img class="full-size-img" src="../../img/gaussian-distribution/py/cdf.png" alt="">
+<img class="full-size-img" src="../../img/gaussian-distribution/jl/cdf.png" alt="" width="640px" height="476px">
 Now we can say that our data do follow Normal Distribution (with empirical mean and empirical variance). <br>
 <br>
 
@@ -198,12 +172,13 @@ Now we can say that our data do follow Normal Distribution (with empirical mean 
 <br>
 <blockquote class="sidebar">
 	First let's get the empirical mean and empirical variance because we will need then below.
-<pre data-start="1"><code class="language-python line-numbers">import numpy as np
-import pandas as pd
-population_height = pd.read_csv("height_weight.csv")["Height(Inches)"]
-print(f"""
-       Empirical Mean: {np.mean(population_height)} \n 
-       Empirical Variance: {np.var(population_height)}
+<pre data-start="1"><code class="language-julia line-numbers">using Statistics, DataFrames, CSV
+population = CSV.read("height_weight.csv", DataFrame)
+population_height = population."Height(Inches)"
+_mean, _var = mean(population_height), var(population_height)
+println("""
+       Empirical Mean:  $_mean
+       Empirical Variance: $_var
        """)
 </code></pre>
 O/P:
@@ -235,10 +210,10 @@ So,
 \[\mathbb{P}\left(X\gt 67.12\right) = \Phi(0.4591)\]
 \[\mathbb{P}\left(X\gt 67.12\right) = 0.67724\]
 </blockquote>
-↪ Finding \(\mathbb{P}(X\gt 67.12)\) using <img src="/data/img/python.webp" alt="Python" width="75px" height="20px"> <br>
+↪ Finding \(\mathbb{P}(X\gt 67.12)\) using <img src="/data/img/julia.webp" alt="Julia" width="53px" height="33px"> <br>
 <blockquote class="sidebar">
-<pre data-start="8"><code class="language-python line-numbers">result = sum(population_height > 67.12)/len(population_height)
-print(f"Proportion of heights greater then 67.12 inches: {result}")
+<pre data-start="9"><code class="language-julia line-numbers">result = sum(population_height .> 67.12)/length(population_height)
+print("Proportion of heights greater then 67.12 inches: $result")
 </code></pre>
 O/P:
 <blockquote class="noborder">Proportion of heights greater then \(67.12\) inches: \(0.67784\)</blockquote>
@@ -261,10 +236,10 @@ Say \(X\) is a random variable denoting height, then we want to find the probabi
 \[\mathbb{P}(59.25 \lt X\lt 67.12) = 0.999998 - 0.677242 = 0.322756 \]
 </blockquote>
 
-↪ Finding \(\mathbb{P}(59.25 \lt X\lt 67.12)\) using <img src="/data/img/python.webp" alt="Python" width="75px" height="20px"> <br>
+↪ Finding \(\mathbb{P}(59.25 \lt X\lt 67.12)\) using <img src="/data/img/julia.webp" alt="Julia" width="53px" height="33px"> <br>
 <blockquote class="sidebar">
-<pre data-start="8"><code class="language-python line-numbers">result = sum((population_height &gt; 59.25) & (population_height &lt; 67.12))/len(population_height)
-print(f"Proportion of heights in between 59.25 and 67.12 inches: {result}")
+<pre data-start="9"><code class="language-julia line-numbers">result = sum((population_height .&gt; 59.25) .& (population_height .&lt; 67.12))/length(population_height)
+print("Proportion of heights in between 59.25 and 67.12 inches: $result")
 </code></pre>
 O/P:
 <blockquote class="noborder">Proportion of heights in between \(59.25\) and \(67.12\) inches: \(0.32216\)</blockquote>
