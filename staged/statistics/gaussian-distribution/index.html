@@ -29,6 +29,7 @@
                 // "image-url": "",
             }
             applyMetaTags()
+			// quantml["dont-apply-katex"] = true
         </script>
 
 	</head>
@@ -79,24 +80,47 @@ We had already witnessed it's importance in <a rel="noreferrer" target="_blank" 
 <br>
 
 <h3>Gaussian Distribution</h3>
-<div  style="font-family: inherit;" class="table-wrapper">
-    <table style="font-family: Open Sans">
-        <tr>
-            <td>Notation</td>
-            <td>\[\mathcal{N}(\mu,\sigma^2)\]</td>
-            <td>Here \(\mu\) and \(\sigma^2\) are parameters<br>Where \(-\infty &lt \mu &lt +\infty\)<br>And \(\sigma^2 \gt \infty\)</td>
-        </tr>
-        <tr>
-            <td>PDF</td>
-            <td>\[f(x)=\frac{1}{\sigma \sqrt{2\pi }} \exp \left(-\frac{(x-\mu )^2}{2 \sigma ^2}\right)\]</td>
-            <td>\(-\infty \lt x \lt \infty\)</td>
-        </tr>
-        <tr>
-            <td>CDF</td>
-            <td>\[F(x)=\frac{1}{\sigma \sqrt{2\pi }} \int_{-\infty}^{x}\exp \left(-\frac{(t-\mu )^2}{2 \sigma ^2}\right)dt\]</td>
-            <td>There is no closed form solution, <br> for CDF of a Normal distribution</td>
-        </tr>
-    </table>
+<div id="desktop-mode">
+    <div  style="font-family: inherit;" class="table-wrapper">
+        <table style="font-family: Open Sans">
+            <tr>
+                <td>Notation</td>
+                <td>\[\mathcal{N}(\mu,\sigma^2)\]</td>
+                <td>Here \(\mu\) and \(\sigma^2\) are parameters<br>Where \(-\infty &lt \mu &lt +\infty\)<br>And \(\sigma^2 \gt \infty\)</td>
+            </tr>
+            <tr>
+                <td>PDF</td>
+                <td>\[f(x)=\frac{1}{\sigma \sqrt{2\pi }} \exp \left(-\frac{(x-\mu )^2}{2 \sigma ^2}\right)\]</td>
+                <td>\(-\infty \lt x \lt \infty\)</td>
+            </tr>
+            <tr>
+                <td>CDF</td>
+                <td>\[F(x)=\frac{1}{\sigma \sqrt{2\pi }} \int_{-\infty}^{x}\exp \left(-\frac{(t-\mu )^2}{2 \sigma ^2}\right)dt\]</td>
+                <td>There is no closed form solution, <br> for CDF of a Normal distribution</td>
+            </tr>
+        </table>
+    </div>
+</div>
+<div id="mobile-mode">
+    <div  style="font-family: inherit;" class="table-wrapper">
+        <table style="font-family: Open Sans">
+            <tr>
+                <td>Notation</td>
+                <td style="text-align: center;">\[\mathcal{N}(\mu,\sigma^2)\] 
+                Here \(\mu\) and \(\sigma^2\) are parameters<br>Where \(-\infty &lt \mu &lt +\infty\)<br>And \(\sigma^2 \gt \infty\)</td>
+            </tr>
+            <tr>
+                <td>PDF</td>
+                <td style="text-align: center;">\[f(x)=\frac{1}{\sigma \sqrt{2\pi }} \exp \left(-\frac{(x-\mu )^2}{2 \sigma ^2}\right)\] 
+                \(-\infty \lt x \lt \infty\)</td>
+            </tr>
+            <tr>
+                <td>CDF</td>
+                <td style="text-align: center;">\[F(x)=\frac{1}{\sigma \sqrt{2\pi }} \int_{-\infty}^{x}\exp \left(-\frac{(t-\mu )^2}{2 \sigma ^2}\right)dt\] 
+                There is no closed form solution, <br> for CDF of a Normal distribution</td>
+            </tr>
+        </table>
+    </div>
 </div>
 <img class="full-size-img" src="../img/gaussian-distribution/gauss_1_plot.png" width="640" height="fit-content" alt="">
 <details id="py">
@@ -130,7 +154,7 @@ The Empirical Rule \((\text{a.k.a. }68-95-99.7\text{ rule})\) says: <br>
 </ul>
 
 <h3 style="margin-top: 20px;">Linear functions of Normal random variable</h3>
-Gaussians are invariant under affine(linear) transformation, it means when we do a linear transformation of a Gaussian random variable it remains a Gaussian random variable. <br>
+Gaussians are invariant under affine(linear) transformation, it means when we do a linear transformation of a Gaussian random variable, it remains a Gaussian random variable. <br>
 Like if <span class="bb">\(X\sim\mathcal{N}(\mu,\sigma^2)\)</span> and <span class="bb">\(Y=aX+b\)</span> then <span class="bb">\(Y\sim\mathcal{N}(a\mu+b,a^2\sigma^2)\)</span>
 <details open>
     <summary><span class="bb">Explanation</span></summary>
@@ -150,7 +174,7 @@ Like if <span class="bb">\(X\sim\mathcal{N}(\mu,\sigma^2)\)</span> and <span cla
 
 <h3 id="standardization">Standardization (a.k.a. Normalization/Z-score)<a style="color: rgb(20, 57, 168);" href="#standardization"><i class="fa fa-link" aria-hidden="true"></i></a></h3>
 As we know that CDF of Gaussian distribution has no close form, so we can't solve it by hand. So we need a computer to do it for us. But the problem is, there are so many Gaussian r.v. with different \(\mu\) and \(\sigma^2\).<br>
-The solution for this is Standardization. by it we can convert any Gaussian r.v. to a Standard Gaussian r.v \(\mathcal{N}(0,1)\).<br>
+The solution for this is Standardization. By it we can convert any Gaussian r.v. to a Standard Gaussian r.v \(\mathcal{N}(0,1)\).<br>
 If \(X\sim\mathcal{N}(\mu,\sigma^2)\) then:<br>
 <div class="math-container">
 \[X-\mu\sim\mathcal{N}(0,\sigma^2) \]
