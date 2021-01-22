@@ -73,7 +73,8 @@
 	<div id="btn-container"></div>
 </div><br>
 <h1>Gaussian Distribution</h1>
-Gaussian Distribution (a.k.a. Normal distribution, Bell curve) is perhaps the most important probability distribution in statistics, we can see it in numerous natural phenomena like: heights, weight, age, measurement error, <a rel="noreferrer" target="_blank" href="https://www.123test.com/interpretation-of-an-iq-score/">IQ score</a>, etc. <br> 
+<!-- <h4 style="margin-bottom: 1.5rem;">A Quick Recap</h4> -->
+Gaussian Distribution (a.k.a. Normal distribution, Bell curve) is perhaps the most important probability distribution in statistics. We can see it in numerous natural phenomena like: heights, weight, age, measurement error, <a rel="noreferrer" target="_blank" href="https://www.123test.com/interpretation-of-an-iq-score/">IQ score</a>, etc. <br> 
 We had already witnessed it's importance in <a rel="noreferrer" target="_blank" href="/statistics/central-limit-theorem/">Central Limit Theorem</a>. <br>
 <br>
 
@@ -120,16 +121,13 @@ gaussian_plot(10,4)
 <h2 id="gauss_properties">Properties of Gaussian<a style="color: rgb(20, 57, 168);" href="#gauss_properties"><i class="fa fa-link" aria-hidden="true"></i></a></h2>
 
 <h3 style="margin-top: 20px;">The Empirical Rule</h3>
-<!--Correct this div height-->
-<div style="display: block; min-height: 473px;">
-The Empirical Rule \((\text{aka }68-95-99.7\text{ rule})\) says: <br>
+The Empirical Rule \((\text{a.k.a. }68-95-99.7\text{ rule})\) says: <br>
 <img class="full-size-img" src="../img/gaussian-distribution/68-95-99.7.png" alt="" width="437px" height="430px">
 <ul>
     <li>\(68\%\) of population lies within \(1\) standard deviation\((\sigma)\) from the mean\((\mu)\).</li>
     <li>\(95\%\) of population lies within \(2\) standard deviation\((\sigma)\) from the mean\((\mu)\).</li>
     <li>\(99.7\%\) of population lies within \(3\) standard deviation\((\sigma)\) from the mean\((\mu)\).</li>
 </ul>
-</div>
 
 <h3 style="margin-top: 20px;">Linear functions of Normal random variable</h3>
 Gaussians are invariant under affine(linear) transformation, it means when we do a linear transformation of a Gaussian random variable it remains a Gaussian random variable. <br>
@@ -1006,7 +1004,7 @@ The first 2 digits represent a row and 3rd digit represents a column.<br>
     </li>
 </ul>
 
-<h3 id="quantiles">Quantiles<a style="color: rgb(20, 57, 168);" href="#quantiles"><i class="fa fa-link" aria-hidden="true"></i></a></h3>
+<h3 id="quantile">Quantile<a style="color: rgb(20, 57, 168);" href="#quantile"><i class="fa fa-link" aria-hidden="true"></i></a></h3>
 Here we have to find a number \(q_\alpha\) or say the quantile of order \(1- \alpha\) of a r.v. \(X\) such that the
 CDF of \(X\) at \(q_\alpha\) is:<br>
 \(F(q_\alpha)=\mathbb{P}(X \leq q_\alpha)=1-\alpha\)<br>
