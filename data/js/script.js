@@ -155,6 +155,54 @@ function katexLoaded(){
 	setDisplay('paragraph-content', 'block')
 }
 
+function isInViewport(element) {
+    const rect = element.getBoundingClientRect();
+    return (
+        rect.top + 60 >= 0 &&
+        rect.left + 60 >= 0 &&
+        rect.bottom - 60 <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right - 60 <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+}
+
+function loadQuantmlKatexDisplay(){
+
+	// ChangeIt
+	document.querySelectorAll('details').forEach(function(element, index){
+		renderMathInElement(element)
+	});
+
+	elements = document.querySelectorAll('.quantml-katex-display')
+	quantml["quantml-katex-display-elements"] = []
+	for (let index = 0; index < elements.length; index++) {
+		quantml["quantml-katex-display-elements"].push([elements[index], false])
+	}
+
+	handler = function(){
+		// console.log("Running handler")
+		for (let index = 0; index < quantml["quantml-katex-display-elements"].length; index++) {
+			if(quantml["quantml-katex-display-elements"][index][1]==false && isInViewport(quantml["quantml-katex-display-elements"][index][0])){
+				// console.log(quantml["quantml-katex-display-elements"][index][0])
+				// console.log(quantml["quantml-katex-display-elements"][index][0].getBoundingClientRect())
+				quantml["quantml-katex-display-elements"][index][1] = true
+				renderMathInElement(quantml["quantml-katex-display-elements"][index][0])
+			}
+		}
+	}
+
+	if (window.addEventListener) {
+		addEventListener('DOMContentLoaded', handler, false);
+		addEventListener('load', handler, false);
+		addEventListener('scroll', handler, false);
+		addEventListener('resize', handler, false);
+	} else if (window.attachEvent)  {
+		attachEvent('onDOMContentLoaded', handler); // Internet Explorer 9+ :(
+		attachEvent('onload', handler);
+		attachEvent('onscroll', handler);
+		attachEvent('onresize', handler);
+	}
+}
+
 function loadKatex(isKatexImportant, callback){
 	theme = window.quantml["theme"]
 	if(localStorage.hasOwnProperty('katex-js') == false && isKatexImportant == true){
@@ -164,7 +212,8 @@ function loadKatex(isKatexImportant, callback){
 	requireScript('katex-css', '0.6.0', '/data/katex/katex.min.css', function(){})
 	requireScript('katex-js', '0.6.0','/data/katex/katex.min.js', function(){
 		requireScript('auto-render-js', '0.6.0','/data/katex/auto-render.min.js', function(){
-			renderMathInElement(document.body);
+			if(!quantml["dont-apply-katex"]) renderMathInElement(document.body);
+			else loadQuantmlKatexDisplay();
 			if(isKatexImportant) katexLoaded();
 			if(callback) callback();
 		})

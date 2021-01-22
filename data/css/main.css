@@ -1146,3 +1146,6 @@ textarea {
 	transform: translateY(-0.4rem); */
 	margin-top: 15px;
 }
+.quantml-katex-display.inline{
+	display: inline-block;
+}
