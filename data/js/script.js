@@ -156,7 +156,8 @@ function katexLoaded(){
 }
 
 function isInViewport(element) {
-    const rect = element.getBoundingClientRect();
+	const rect = element.getBoundingClientRect();
+	if(rect.top == 0 && rect.left == 0 && rect.bottom == 0 && rect.right == 0) return false;
     return (
         rect.top + 60 >= 0 &&
         rect.left + 60 >= 0 &&
@@ -167,25 +168,24 @@ function isInViewport(element) {
 
 function loadQuantmlKatexDisplay(){
 
-	// ChangeIt
-	document.querySelectorAll('details').forEach(function(element, index){
-		renderMathInElement(element)
-	});
-
 	elements = document.querySelectorAll('.quantml-katex-display')
-	quantml["quantml-katex-display-elements"] = []
+	quantml["katex"] = {
+		"elements": [],
+		"status": []
+	}
 	for (let index = 0; index < elements.length; index++) {
-		quantml["quantml-katex-display-elements"].push([elements[index], false])
+		quantml["katex"]["elements"].push(elements[index])
+		quantml["katex"]["status"].push(false)
 	}
 
 	handler = function(){
 		// console.log("Running handler")
-		for (let index = 0; index < quantml["quantml-katex-display-elements"].length; index++) {
-			if(quantml["quantml-katex-display-elements"][index][1]==false && isInViewport(quantml["quantml-katex-display-elements"][index][0])){
-				// console.log(quantml["quantml-katex-display-elements"][index][0])
-				// console.log(quantml["quantml-katex-display-elements"][index][0].getBoundingClientRect())
-				quantml["quantml-katex-display-elements"][index][1] = true
-				renderMathInElement(quantml["quantml-katex-display-elements"][index][0])
+		for (let index = 0; index < quantml["katex"]["elements"].length; index++) {
+			if(quantml["katex"]["status"][index]==false && isInViewport(quantml["katex"]["elements"][index])){
+				// console.log(quantml["katex"]["elements"][index])
+				// console.log(quantml["katex"]["elements"][index].getBoundingClientRect())
+				quantml["katex"]["status"][index] = true
+				renderMathInElement(quantml["katex"]["elements"][index])
 			}
 		}
 	}
@@ -201,6 +201,24 @@ function loadQuantmlKatexDisplay(){
 		attachEvent('onscroll', handler);
 		attachEvent('onresize', handler);
 	}
+
+	document.querySelectorAll('details').forEach(function(element, index_){
+		element.addEventListener('click', function(){
+			elements = element.querySelectorAll('.quantml-katex-display')
+			// console.log(elements)
+			for (let index = 0; index < elements.length; index++) {
+				idx = quantml["katex"]["elements"].indexOf(elements[index])
+				// console.log("idx", idx)
+				// console.log("element", elements[index])
+
+				if(idx != -1 && quantml["katex"]["status"][idx] == false){
+					quantml["katex"]["status"][idx] = true
+					renderMathInElement(elements[index])
+				}
+			}
+		})
+	});
+
 }
 
 function loadKatex(isKatexImportant, callback){
