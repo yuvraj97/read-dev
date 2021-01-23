@@ -63,13 +63,13 @@
 
 <p>
 <h1>Vector Space</h1>
-Consider a vector \(\vec{v}\in\mathbb{R}^d\), here \(\vec{v}\) lives in \(d\) dimensional space this space is a <b>vector space</b>.<br>
-For example for \(d=3\),
+Consider a vector <div class="quantml-katex-display inline">\(\vec{v}\in\mathbb{R}^d\)</div>, here <div class="quantml-katex-display inline">\(\vec{v}\)</div> lives in <div class="quantml-katex-display inline">\(d\)</div> dimensional space this space is a <b>vector space</b>.<br>
+For example for <div class="quantml-katex-display inline">\(d=3\)</div>,
 <br>
 <img class="full-size-img" src="/linear-algebra/img/1.webp" width="557" height="334" alt="">
 <br>
 
-Vector shown in the blue is a vector \(\vec{x}\in\mathbb{R}^3\). All the space surrounding this vector is \(3\)-dimensional vector space.<br>
+Vector shown in the blue is a vector <div class="quantml-katex-display inline">\(\vec{x}\in\mathbb{R}^3\)</div>. All the space surrounding this vector is <div class="quantml-katex-display inline">\(3\)</div>-dimensional vector space.<br>
 
 <details><summary><span class="bb">Code to plot this vector (python)</span></summary>
 <pre><code class="language-python line-numbers">import MultiVariable as mvar
@@ -87,14 +87,14 @@ m.setZ_limit((-0.5,2))
 </details>
 
 <br>
-If we multiply a vector \(\vec{v}\) by a constant say \(c\) then the resulting vector is in direction of \(\vec{v}\) (or in opposite direction).<br>
-Say the resulting vector is \(\vec{v}'\) then we can say \(\vec{v}' = c \vec{v} \) where \(c\in\mathbb{R}\), it is a line along vector \(\vec{v}\).<br>
-Here you can see that \(\vec{v}'\) has it's own space inside that \(d\) dimensional space, it's a vector space inside a vector space.<br>
-Example for \(d=3\)
+If we multiply a vector <div class="quantml-katex-display inline">\(\vec{v}\)</div> by a constant say <div class="quantml-katex-display inline">\(c\)</div> then the resulting vector is in direction of <div class="quantml-katex-display inline">\(\vec{v}\)</div> (or in opposite direction).<br>
+Say the resulting vector is <div class="quantml-katex-display inline">\(\vec{v}'\)</div> then we can say <div class="quantml-katex-display inline">\(\vec{v}' = c \vec{v} \)</div> where <div class="quantml-katex-display inline">\(c\in\mathbb{R}\)</div>, it is a line along vector <div class="quantml-katex-display inline">\(\vec{v}\)</div>.<br>
+Here you can see that <div class="quantml-katex-display inline">\(\vec{v}'\)</div> has it's own space inside that <div class="quantml-katex-display inline">\(d\)</div> dimensional space, it's a vector space inside a vector space.<br>
+Example for <div class="quantml-katex-display inline">\(d=3\)</div>
 <br>
 <img class="full-size-img" src="/linear-algebra/img/2.webp" width="557" height="334" alt="">
 <br>
-Here you can see the vector \(\vec{x}\in\mathbb{R}^3\) has it's own vector space that is that line.<br>
+Here you can see the vector <div class="quantml-katex-display inline">\(\vec{x}\in\mathbb{R}^3\)</div> has it's own vector space that is that line.<br>
 <details><summary><span class="bb">Code To plot this vector (python)</span></summary>
 <pre><code class="language-python line-numbers">import MultiVariable as mvar
 import numpy as np
@@ -111,7 +111,7 @@ m.set_axes_limit((-3,3))
 <a href="/linear-algebra/MultiVariable.py">Download MultiVariable class</a>
 </details>
 <br>
-Now Consider a plane(passing through origin) inside a \(3\)-dimensional space, so that plane lives inside \(3\)-dimensional vector space, but it has it's own vector space.<br>
+Now Consider a plane(passing through origin) inside a <div class="quantml-katex-display inline">\(3\)</div>-dimensional space, so that plane lives inside <div class="quantml-katex-display inline">\(3\)</div>-dimensional vector space, but it has it's own vector space.<br>
 <br>
 <img class="full-size-img" src="/linear-algebra/img/3.webp" width="557" height="334" alt="">
 <br>
@@ -129,17 +129,17 @@ m.plot_surface_color_3D(f, plot_separately=True, alpha=0.7)
 <a href="/linear-algebra/MultiVariable.py">Download MultiVariable class</a>
 <hr>
 </details>
-Here you can see the plane \(x+y+z=0\) has it's own vector space inside \(3\)-dimensional vector space.<br>
+Here you can see the plane <div class="quantml-katex-display inline">\(x+y+z=0\)</div> has it's own vector space inside <div class="quantml-katex-display inline">\(3\)</div>-dimensional vector space.<br>
 <br>
 
-If we add any two \(d\)-dimensional vectors, we get a \(d\)-dimensional vector as a output.<br>
-Say we have two vectors \(\vec{v}\in\mathbb{R}^d\) and \(\vec{w}\in\mathbb{R}^d\), then if we take there <b>linear</b> combination,
+If we add any two <div class="quantml-katex-display inline">\(d\)</div>-dimensional vectors, we get a <div class="quantml-katex-display inline">\(d\)</div>-dimensional vector as a output.<br>
+Say we have two vectors <div class="quantml-katex-display inline">\(\vec{v}\in\mathbb{R}^d\)</div> and <div class="quantml-katex-display inline">\(\vec{w}\in\mathbb{R}^d\)</div>, then if we take there <b>linear</b> combination,
 then that <b>linear</b> combination will have it's own vector space, but what that vector space looks like?<br>
-Well it depends, on how  \(\vec{v}\) and \(\vec{w}\) are oriented.<br>
-<b>Case 1: if \(\vec{v}\) is parallel to \(\vec{w}\)</b><br>
-If \(\vec{v}\) and \(\vec{w}\) are parallel then \(\vec{w}= c \vec{v};\quad c\in\mathbb{R}\), So vector space is just a line.<br>
-Example for \(d=3\):<br>
-Say the vectors are \(\vec{v} = \begin{bmatrix} 1 \\ 1\\ 1\\ \end{bmatrix}\) and \(\vec{w} = \begin{bmatrix} 2 \\ 2\\ 2\\ \end{bmatrix}\)<br>
+Well it depends, on how  <div class="quantml-katex-display inline">\(\vec{v}\)</div> and <div class="quantml-katex-display inline">\(\vec{w}\)</div> are oriented.<br>
+<b>Case 1: if <div class="quantml-katex-display inline">\(\vec{v}\)</div> is parallel to <div class="quantml-katex-display inline">\(\vec{w}\)</div></b><br>
+If <div class="quantml-katex-display inline">\(\vec{v}\)</div> and <div class="quantml-katex-display inline">\(\vec{w}\)</div> are parallel then <div class="quantml-katex-display inline">\(\vec{w}= c \vec{v};\quad c\in\mathbb{R}\)</div>, So vector space is just a line.<br>
+Example for <div class="quantml-katex-display inline">\(d=3\)</div>:<br>
+Say the vectors are <div class="quantml-katex-display inline">\(\vec{v} = \begin{bmatrix} 1 \\ 1\\ 1\\ \end{bmatrix}\)</div> and <div class="quantml-katex-display inline">\(\vec{w} = \begin{bmatrix} 2 \\ 2\\ 2\\ \end{bmatrix}\)</div><br>
 <img class="full-size-img" src="/linear-algebra/img/6.webp" width="600" height="350" alt=""><br>
 Then the vector space is just a line passing through these vectors.<br>
 <img class="full-size-img" src="/linear-algebra/img/7.webp" width="600" height="350" alt=""><br>
@@ -166,10 +166,10 @@ m.set_axes_limit((-3,3))
 </details>
 
 <br>
-<b>Case 2: if \(\vec{v}\) is not parallel to \(\vec{w}\)</b><br>
-If \(\vec{v}\) and \(\vec{w}\) are not parallel then the vector space of <b>linear</b> combination of \(\vec{v}\) and \(\vec{w}\) is a plane.<br>
-Example for \(d=3\):<br>
-Say the vectors are \(\vec{v} = \begin{bmatrix} 2 \\ -1\\ -1\\ \end{bmatrix}\) and \(\vec{w} = \begin{bmatrix} -1 \\ 2\\ -1\\ \end{bmatrix}\)
+<b>Case 2: if <div class="quantml-katex-display inline">\(\vec{v}\)</div> is not parallel to <div class="quantml-katex-display inline">\(\vec{w}\)</div></b><br>
+If <div class="quantml-katex-display inline">\(\vec{v}\)</div> and <div class="quantml-katex-display inline">\(\vec{w}\)</div> are not parallel then the vector space of <b>linear</b> combination of <div class="quantml-katex-display inline">\(\vec{v}\)</div> and <div class="quantml-katex-display inline">\(\vec{w}\)</div> is a plane.<br>
+Example for <div class="quantml-katex-display inline">\(d=3\)</div>:<br>
+Say the vectors are <div class="quantml-katex-display inline">\(\vec{v} = \begin{bmatrix} 2 \\ -1\\ -1\\ \end{bmatrix}\)</div> and <div class="quantml-katex-display inline">\(\vec{w} = \begin{bmatrix} -1 \\ 2\\ -1\\ \end{bmatrix}\)</div>
 <br>
 <img class="full-size-img" src="/linear-algebra/img/4.webp" width="600" height="350" alt=""><br>
 Then the vector space is the plane passing through these vectors.<br>
@@ -201,16 +201,16 @@ m.set_axes_limit((-3,3))
 So when can we say that a <b>space</b> can be a <b>vector space</b>?<br>
 A space is a <b>vector space</b> if it full fill these conditions:<br>
 <ol>
-<li>If there is a vector in that space and we multiply that vector with a constant \(c\in\mathbb{R}\) then the resulting vector must be in the space</li>
-<li>Say we took two vectors \(\vec{v}\) and \(\vec{w}\) then there sum must be in that space.</li>
+<li>If there is a vector in that space and we multiply that vector with a constant <div class="quantml-katex-display inline">\(c\in\mathbb{R}\)</div> then the resulting vector must be in the space</li>
+<li>Say we took two vectors <div class="quantml-katex-display inline">\(\vec{v}\)</div> and <div class="quantml-katex-display inline">\(\vec{w}\)</div> then there sum must be in that space.</li>
 </ol>
 Let's see an example of a space which is <b>not a vector space</b>.<br>
-Think of a 2 dimensional space where \(x\gt0\) and \(y\gt0\)<br>
+Think of a 2 dimensional space where <div class="quantml-katex-display inline">\(x\gt0\)</div> and <div class="quantml-katex-display inline">\(y\gt0\)</div><br>
 <img class="full-size-img" src="/linear-algebra/img/9.webp" width="600" height="300" alt=""><br>
 We can add vector safely and we don't go out of the space.<br>
-What about multiplying a constant to a vector, take a vector in that space \(\vec{v}=\begin{bmatrix} 4 \\ 3\\  \end{bmatrix}\).<br>
+What about multiplying a constant to a vector, take a vector in that space <div class="quantml-katex-display inline">\(\vec{v}=\begin{bmatrix} 4 \\ 3\\  \end{bmatrix}\)</div>.<br>
 <img class="full-size-img" src="/linear-algebra/img/10.webp" width="600" height="300" alt=""><br>
-if we multiply \(\vec{v}\)  by \(-1\) then if goes out of space.<br>
+if we multiply <div class="quantml-katex-display inline">\(\vec{v}\)</div>  by <div class="quantml-katex-display inline">\(-1\)</div> then if goes out of space.<br>
 <img class="full-size-img" src="/linear-algebra/img/11.webp" width="600" height="300" alt=""><br>
 <details><summary><span class="bb">Code To plot this (python)</span></summary>
 <pre><code class="language-python line-numbers">import MultiVariable as mvar
@@ -240,11 +240,11 @@ So it can't be a vector space.<br>
 <blockquote>A <b>vector space</b> must pass through the <b>origin</b>.</blockquote>
 <!-- <br> -->
 Vector space inside a vector space is referred as a subspace.<br>
-Possible subspace of a \(2\)-dimensional space.<br>
+Possible subspace of a <div class="quantml-katex-display inline">\(2\)</div>-dimensional space.<br>
 <ol>
-    <li>All \(\mathbb{R}^2\) space</li>
+    <li>All <div class="quantml-katex-display inline">\(\mathbb{R}^2\)</div> space</li>
     <li>All lines passing through origin.</li>
-    <li>Origin itself(\(\vec{0}\))</li>
+    <li>Origin itself(<div class="quantml-katex-display inline">\(\vec{0}\)</div>)</li>
 </ol>
 </p>
 

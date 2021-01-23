@@ -60,66 +60,66 @@
 
 <p>
 <h1>Orthogonal Subspaces</h1>
-Recall our \(4\) <a href="/linear-algebra/fundamental-subspaces/#main">fundamental subspaces</a> that are,<br>
-<li><a href="/linear-algebra/complete-space/">Column Space\((C(A))\)</a></li>
-<li><a href="/linear-algebra/null-space/">Null Space\((N(A))\)</a></li>
-<li><a href="/linear-algebra/fundamental-subspaces/#row-space">Row Space\((C(A^T))\)</a></li>
-<li><a href="/linear-algebra/fundamental-subspaces/#left-null-space">Left Null Space\((N(A^T))\)</a></li><br>
+Recall our <div class="quantml-katex-display inline">\(4\)</div> <a href="/linear-algebra/fundamental-subspaces/#main">fundamental subspaces</a> that are,<br>
+<li><a href="/linear-algebra/complete-space/">Column Space<div class="quantml-katex-display inline">\((C(A))\)</div></a></li>
+<li><a href="/linear-algebra/null-space/">Null Space<div class="quantml-katex-display inline">\((N(A))\)</div></a></li>
+<li><a href="/linear-algebra/fundamental-subspaces/#row-space">Row Space<div class="quantml-katex-display inline">\((C(A^T))\)</div></a></li>
+<li><a href="/linear-algebra/fundamental-subspaces/#left-null-space">Left Null Space<div class="quantml-katex-display inline">\((N(A^T))\)</div></a></li><br>
 <img class="full-size-img" src="/linear-algebra/img/fundamental-subspaces.webp" width="447" height="357" alt=""><br>
 <br>
 
 <h1 id="orthogonal-vector">Orthogonal Vector</h1>
-Orthogonal means perpendicular, say we have two \(n\) dimensional vectors,<br>
-\(\vec{v}=   \begin{bmatrix} v_1\\v_1\\\vdots\\v_n\\ \end{bmatrix}   \in\mathbb{R}^n\) and 
-\(\vec{w}=   \begin{bmatrix} w_1\\w_1\\\vdots\\w_n\\ \end{bmatrix}   \in\mathbb{R}^n\)
+Orthogonal means perpendicular, say we have two <div class="quantml-katex-display inline">\(n\)</div> dimensional vectors,<br>
+<div class="quantml-katex-display inline">\(\vec{v}=   \begin{bmatrix} v_1\\v_1\\\vdots\\v_n\\ \end{bmatrix}   \in\mathbb{R}^n\)</div> and 
+<div class="quantml-katex-display inline">\(\vec{w}=   \begin{bmatrix} w_1\\w_1\\\vdots\\w_n\\ \end{bmatrix}   \in\mathbb{R}^n\)</div>
 then they are orthogonal if,<br>
-\[\vec{v}\cdot \vec{w}=0\]
+<div class="quantml-katex-display">\[\vec{v}\cdot \vec{w}=0\]</div>
 OR
-\[\vec{v}^T \vec{w}=0\]
-<blockquote>\(\vec{0}\) is orthogonal to every vector.</blockquote>
+<div class="quantml-katex-display">\[\vec{v}^T \vec{w}=0\]</div>
+<blockquote><div class="quantml-katex-display inline">\(\vec{0}\)</div> is orthogonal to every vector.</blockquote>
 <br>
 
 <h2 id="pythagoras">Pythagoras right angles triangle</h2> 
 <blockquote class="noborder">
-    Say we have two \(n\) dimensional vectors 
-    \(\vec{x}=   \begin{bmatrix} x_1\\x_1\\\vdots\\x_n\\ \end{bmatrix}   \in\mathbb{R}^n\) and 
-    \(\vec{y}=   \begin{bmatrix} y_1\\y_1\\\vdots\\y_n\\ \end{bmatrix}   \in\mathbb{R}^n\)
+    Say we have two <div class="quantml-katex-display inline">\(n\)</div> dimensional vectors 
+    <div class="quantml-katex-display inline">\(\vec{x}=   \begin{bmatrix} x_1\\x_1\\\vdots\\x_n\\ \end{bmatrix}   \in\mathbb{R}^n\)</div> and 
+    <div class="quantml-katex-display inline">\(\vec{y}=   \begin{bmatrix} y_1\\y_1\\\vdots\\y_n\\ \end{bmatrix}   \in\mathbb{R}^n\)</div>
     <img style="float:right; margin-left: 5px; margin-right: 5px; max-width: 100%;" class="full-size-img" src="/linear-algebra/img/right-triangle.webp" width="220" height="220" alt="">
-    then the vectors \(\vec{x}, \vec{y}, \vec{x}+\vec{y}\) form a right angles triangle if, \(\vec{x}\) and
-    \(\vec{y}\) are <b>orthogonal</b> <b>IF</b>.<br>
-    \[\vec{x}^T \vec{y}=0\]
+    then the vectors <div class="quantml-katex-display inline">\(\vec{x}, \vec{y}, \vec{x}+\vec{y}\)</div> form a right angles triangle if, <div class="quantml-katex-display inline">\(\vec{x}\)</div> and
+    <div class="quantml-katex-display inline">\(\vec{y}\)</div> are <b>orthogonal</b> <b>IF</b>.<br>
+    <div class="quantml-katex-display">\[\vec{x}^T \vec{y}=0\]</div>
     According to <a href="https://en.wikipedia.org/wiki/Pythagorean_theorem">Pythagorean theorem</a>,<br>
-    \( \|\vec{x}\|^2 + \|\vec{y}^2\| =\|\vec{x}+\vec{y}\|^2;\quad\)\(\color{red}{\text{if }\vec{x} \text{ and } \vec{y} \text{ are orthogonal}}\)<br>
+    <div class="quantml-katex-display inline">\( \|\vec{x}\|^2 + \|\vec{y}^2\| =\|\vec{x}+\vec{y}\|^2;\quad\)</div><div class="quantml-katex-display inline">\(\color{red}{\text{if }\vec{x} \text{ and } \vec{y} \text{ are orthogonal}}\)</div><br>
 
     <DL><DD>
     <div class="math-container ">
-    \(\Rightarrow \vec{x}^T\vec{x} + \vec{y}^T\vec{y} =(\vec{x}+\vec{y})^T(\vec{x}+\vec{y})\)<br>
+    <div class="quantml-katex-display inline">\(\Rightarrow \vec{x}^T\vec{x} + \vec{y}^T\vec{y} =(\vec{x}+\vec{y})^T(\vec{x}+\vec{y})\)</div><br>
     </div>
     
     <div class="math-container ">
-    \(\Rightarrow \vec{x}^T\vec{x} + \vec{y}^T\vec{y} =(\vec{x}^T+\vec{y}^T)(\vec{x}+\vec{y})\)<br>
+    <div class="quantml-katex-display inline">\(\Rightarrow \vec{x}^T\vec{x} + \vec{y}^T\vec{y} =(\vec{x}^T+\vec{y}^T)(\vec{x}+\vec{y})\)</div><br>
     </div>
     
     <div class="math-container ">
-    \(\Rightarrow \vec{x}^T\vec{x} + \vec{y}^T\vec{y} = \vec{x}^T\vec{x} + \vec{x}^T\vec{y} + \vec{y}^T\vec{x} + \vec{y}^T\vec{y}       \)<br>
+    <div class="quantml-katex-display inline">\(\Rightarrow \vec{x}^T\vec{x} + \vec{y}^T\vec{y} = \vec{x}^T\vec{x} + \vec{x}^T\vec{y} + \vec{y}^T\vec{x} + \vec{y}^T\vec{y}       \)</div><br>
     </div>
     
     <div class="math-container ">
-    \(\Rightarrow \vec{x}^T\vec{x} + \vec{y}^T\vec{y} = \vec{x}^T\vec{x} + \vec{x}^T\vec{y} + \vec{y}^T\vec{x} + \vec{y}^T\vec{y}       \)<br>
+    <div class="quantml-katex-display inline">\(\Rightarrow \vec{x}^T\vec{x} + \vec{y}^T\vec{y} = \vec{x}^T\vec{x} + \vec{x}^T\vec{y} + \vec{y}^T\vec{x} + \vec{y}^T\vec{y}       \)</div><br>
     </div>
     
     <div class="math-container ">
-    \(\Rightarrow \vec{x}\cdot\vec{y} + \vec{y}\cdot\vec{x} =0       \)<br>
+    <div class="quantml-katex-display inline">\(\Rightarrow \vec{x}\cdot\vec{y} + \vec{y}\cdot\vec{x} =0       \)</div><br>
     </div>
     
     <div class="math-container ">
-    \(\Rightarrow \vec{x}^T\vec{y} =0\)<br>
+    <div class="quantml-katex-display inline">\(\Rightarrow \vec{x}^T\vec{y} =0\)</div><br>
     </div>
 
     </DD></DL>
 
     <div class="math-container ">
-    \[\Rightarrow \color{blue}{\vec{x}^T\vec{y} =0};\quad \color{red}{\text{if }\vec{x} \text{ and } \vec{y} \text{ are orthogonal}}\]<br>
+    <div class="quantml-katex-display">\[\Rightarrow \color{blue}{\vec{x}^T\vec{y} =0};\quad \color{red}{\text{if }\vec{x} \text{ and } \vec{y} \text{ are orthogonal}}\]</div><br>
     </div>    
     
     
@@ -129,10 +129,10 @@ OR
 <h1 id="orthogonal-subspaces">Orthogonal Subspaces</h1>
 We do understand orthogonal vectors, but what are orthogonal subspaces.<br>
 What is it meant for two subspaces to be orthogonal?<br>
-Let's consider two subspaces \(\mathbb{S}\)  and \(\mathbb{U}\).<br>
-\(\mathbb{S}\)  and \(\mathbb{U}\)  are orthogonal if,
+Let's consider two subspaces <div class="quantml-katex-display inline">\(\mathbb{S}\)</div>  and <div class="quantml-katex-display inline">\(\mathbb{U}\)</div>.<br>
+<div class="quantml-katex-display inline">\(\mathbb{S}\)</div>  and <div class="quantml-katex-display inline">\(\mathbb{U}\)</div>  are orthogonal if,
 <blockquote class="noborder">
-Every vectors in \(\mathbb{S}\) is orthogonal to every vectors in \(\mathbb{U}\).
+Every vectors in <div class="quantml-katex-display inline">\(\mathbb{S}\)</div> is orthogonal to every vectors in <div class="quantml-katex-display inline">\(\mathbb{U}\)</div>.
 </blockquote>
 
 <b>Example,</b>
@@ -140,55 +140,55 @@ Every vectors in \(\mathbb{S}\) is orthogonal to every vectors in \(\mathbb{U}\)
 For a 3-Dimensional space are X-Y plane and X-Z plane orthogonal?<br>
 <b>NO,</b>
 consider two vectors,<br>
-\(\vec{x}_{XY}=   \begin{bmatrix} 1\\1\\0\\ \end{bmatrix}   \in\mathbb{R}^n\), 
-\(\vec{y}_{YZ}=   \begin{bmatrix} 0\\1\\1\\ \end{bmatrix}   \in\mathbb{R}^n\)<br>
-and \(\vec{x}_{XY}\cdot\vec{y}_{YZ}\neq 0\) so they are not orthogonal to each other.
+<div class="quantml-katex-display inline">\(\vec{x}_{XY}=   \begin{bmatrix} 1\\1\\0\\ \end{bmatrix}   \in\mathbb{R}^n\)</div>, 
+<div class="quantml-katex-display inline">\(\vec{y}_{YZ}=   \begin{bmatrix} 0\\1\\1\\ \end{bmatrix}   \in\mathbb{R}^n\)</div><br>
+and <div class="quantml-katex-display inline">\(\vec{x}_{XY}\cdot\vec{y}_{YZ}\neq 0\)</div> so they are not orthogonal to each other.
 </blockquote>
 
 <blockquote>
-If two subspaces meet on some vector then they are <b>not</b> orthogonal, except \(\vec{0}\).
+If two subspaces meet on some vector then they are <b>not</b> orthogonal, except <div class="quantml-katex-display inline">\(\vec{0}\)</div>.
 </blockquote><br>
 
 <h2 id="row-null">Row space is orthogonal to null space</h2>
 
-Say that we have a \(m\times n\) matrix \(A\), then, <br>
-All vectors say \(\vec{x}\) is in the <b>null space</b> if \(A\vec{x}=\vec{0}\)<br>
-This tells us that \(\vec{x}\) is orthogonal to all <b>row vectors</b>.<br>
+Say that we have a <div class="quantml-katex-display inline">\(m\times n\)</div> matrix <div class="quantml-katex-display inline">\(A\)</div>, then, <br>
+All vectors say <div class="quantml-katex-display inline">\(\vec{x}\)</div> is in the <b>null space</b> if <div class="quantml-katex-display inline">\(A\vec{x}=\vec{0}\)</div><br>
+This tells us that <div class="quantml-katex-display inline">\(\vec{x}\)</div> is orthogonal to all <b>row vectors</b>.<br>
 <blockquote class="noborder">
-Let's denote the ith row as \(r_i\).<br>
-\(A=\begin{bmatrix}
+Let's denote the ith row as <div class="quantml-katex-display inline">\(r_i\)</div>.<br>
+<div class="quantml-katex-display inline">\(A=\begin{bmatrix}
 \cdots r_1 \cdots\\
 \cdots r_2 \cdots\\
 \vdots\\
 \cdots r_m \cdots\\
-\end{bmatrix}\quad\) so,<br>
+\end{bmatrix}\quad\)</div> so,<br>
 
-\(A\vec{x}=0\equiv\begin{bmatrix}
+<div class="quantml-katex-display inline">\(A\vec{x}=0\equiv\begin{bmatrix}
 \cdots r_1 \cdots\\
 \cdots r_2 \cdots\\
 \vdots\\
 \cdots r_m \cdots\\
 \end{bmatrix}
 \begin{bmatrix} x_1\\x_2\\\vdots \\ x_n\\ \end{bmatrix} =
-\begin{bmatrix} 0\\0\\\vdots \\ 0\\ \end{bmatrix}\)<br>
+\begin{bmatrix} 0\\0\\\vdots \\ 0\\ \end{bmatrix}\)</div><br>
 
-\(\Rightarrow
+<div class="quantml-katex-display inline">\(\Rightarrow
 \begin{bmatrix} r_1^T x\\r_2^T x\\\vdots \\ r_m^T x\\ \end{bmatrix} =
-\begin{bmatrix} 0\\0\\\vdots \\ 0\\ \end{bmatrix}\)<br>
-\(\Rightarrow r_i^Tx=0;\quad \forall\ i=\{1,2,\cdots,m\}\)<br>
+\begin{bmatrix} 0\\0\\\vdots \\ 0\\ \end{bmatrix}\)</div><br>
+<div class="quantml-katex-display inline">\(\Rightarrow r_i^Tx=0;\quad \forall\ i=\{1,2,\cdots,m\}\)</div><br>
 So x is orthogonal to all row vectors.<br>
 </blockquote>
 
-We said that \(\vec{x}\in N(A)\) is orthogonal to all <b>row vectors</b>.<br>
+We said that <div class="quantml-katex-display inline">\(\vec{x}\in N(A)\)</div> is orthogonal to all <b>row vectors</b>.<br>
 But this doesn't mean that <b>null space</b>  is <b>orthogonal</b> to the <b>row space</b>.<br>
 For that we need to check for all of the <b>linear combinations</b> of <b>row vectors</b>.<br>
-If all of the <b>linear combinations</b> of <b>row vectors</b> are orthogonal to \(\vec{x}\in N(A)\), 
+If all of the <b>linear combinations</b> of <b>row vectors</b> are orthogonal to <div class="quantml-katex-display inline">\(\vec{x}\in N(A)\)</div>, 
 then we can say that <b>Row space</b> is <b>orthogonal</b> to <b>Null space</b>.<br>
 <blockquote class="noborder">
-    We discovered that \(r_i^Tx=0;\quad \forall\ i=\{1,2,\cdots,m\}\)<br>
-    \(\Rightarrow c_ir_i^Tx=0;\quad \forall\ i=\{1,2,\cdots,m\}\) and \(c_i\in\mathbb{R}\)<br>
-    so any combination of \(c_ir_i^Tx=0\).<br>
-    So we can see that <b>linear combinations</b> of <b>row vectors</b> are orthogonal to \(\vec{x}\in N(A)\).<br>
+    We discovered that <div class="quantml-katex-display inline">\(r_i^Tx=0;\quad \forall\ i=\{1,2,\cdots,m\}\)</div><br>
+    <div class="quantml-katex-display inline">\(\Rightarrow c_ir_i^Tx=0;\quad \forall\ i=\{1,2,\cdots,m\}\)</div> and <div class="quantml-katex-display inline">\(c_i\in\mathbb{R}\)</div><br>
+    so any combination of <div class="quantml-katex-display inline">\(c_ir_i^Tx=0\)</div>.<br>
+    So we can see that <b>linear combinations</b> of <b>row vectors</b> are orthogonal to <div class="quantml-katex-display inline">\(\vec{x}\in N(A)\)</div>.<br>
 </blockquote>
 
 <blockquote>
@@ -197,43 +197,43 @@ then we can say that <b>Row space</b> is <b>orthogonal</b> to <b>Null space</b>.
 
 <h2 id="column-leftnull">Column space is orthogonal to left null space</h2>
 
-Say that we have a \(m\times n\) matrix \(A\), then, <br>
-All vectors say \(\vec{x}\) is in the <b>left null space</b> if \(A^T\vec{x}=\vec{0}\)<br>
-This tells us that \(\vec{x}\) is orthogonal to all <b>column vectors</b>.<br>
+Say that we have a <div class="quantml-katex-display inline">\(m\times n\)</div> matrix <div class="quantml-katex-display inline">\(A\)</div>, then, <br>
+All vectors say <div class="quantml-katex-display inline">\(\vec{x}\)</div> is in the <b>left null space</b> if <div class="quantml-katex-display inline">\(A^T\vec{x}=\vec{0}\)</div><br>
+This tells us that <div class="quantml-katex-display inline">\(\vec{x}\)</div> is orthogonal to all <b>column vectors</b>.<br>
 <blockquote class="noborder">
-Let's denote the ith column as \(c_i\).<br>
-\(A=\begin{bmatrix}
+Let's denote the ith column as <div class="quantml-katex-display inline">\(c_i\)</div>.<br>
+<div class="quantml-katex-display inline">\(A=\begin{bmatrix}
  \vdots & \vdots &          & \vdots \\  
  c_1    &  c_2   & \cdots   &  c_n   \\
  \vdots & \vdots &          & \vdots \\
- \end{bmatrix}\quad\) so,<br>
+ \end{bmatrix}\quad\)</div> so,<br>
 
-\(A^T\vec{x}=0\equiv\begin{bmatrix}
+<div class="quantml-katex-display inline">\(A^T\vec{x}=0\equiv\begin{bmatrix}
 \cdots c_1 \cdots\\
 \cdots c_2 \cdots\\
 \vdots\\
 \cdots c_n \cdots\\
 \end{bmatrix}
 \begin{bmatrix} x_1\\x_2\\\vdots \\ x_m\\ \end{bmatrix} =
-\begin{bmatrix} 0\\0\\\vdots \\ 0\\ \end{bmatrix}\)<br>
+\begin{bmatrix} 0\\0\\\vdots \\ 0\\ \end{bmatrix}\)</div><br>
 
-\(\Rightarrow
+<div class="quantml-katex-display inline">\(\Rightarrow
 \begin{bmatrix} c_1^T x\\c_2^T x\\\vdots \\ c_n^T x\\ \end{bmatrix} =
-\begin{bmatrix} 0\\0\\\vdots \\ 0\\ \end{bmatrix}\)<br>
-\(\Rightarrow c_i^Tx=0;\quad \forall\ i=\{1,2,\cdots,n\}\)<br>
-So x is orthogonal to all <b>column vectors</b> of \(A\).<br>
+\begin{bmatrix} 0\\0\\\vdots \\ 0\\ \end{bmatrix}\)</div><br>
+<div class="quantml-katex-display inline">\(\Rightarrow c_i^Tx=0;\quad \forall\ i=\{1,2,\cdots,n\}\)</div><br>
+So x is orthogonal to all <b>column vectors</b> of <div class="quantml-katex-display inline">\(A\)</div>.<br>
 </blockquote>
 
-We said that \(\vec{x}\in N(A^T)\) is orthogonal to all <b>column vectors</b>.<br>
+We said that <div class="quantml-katex-display inline">\(\vec{x}\in N(A^T)\)</div> is orthogonal to all <b>column vectors</b>.<br>
 But this doesn't mean that <b>left null space</b>  is <b>orthogonal</b> to the <b>column space</b>.<br>
 For that we need to check for all of the <b>linear combinations</b> of <b>column vectors</b>.<br>
-If all of the <b>linear combinations</b> of <b>column vectors</b> are orthogonal to \(\vec{x}\in N(A^T)\), 
+If all of the <b>linear combinations</b> of <b>column vectors</b> are orthogonal to <div class="quantml-katex-display inline">\(\vec{x}\in N(A^T)\)</div>, 
 then we can say that <b>column space</b> is <b>orthogonal</b> to <b>left null space</b>.<br>
 <blockquote class="noborder">
-    We discovered that \(\Rightarrow c_i^Tx=0;\quad \forall\ i=\{1,2,\cdots,n\}\)<br>
-    \(\Rightarrow \alpha_ic_i^Tx=0;\quad \forall\ i=\{1,2,\cdots,n\}\) and \(\alpha_i\in\mathbb{R}\)<br>
-    so any combination of \(\alpha_ic_i^Tx=0\).<br>
-    So we can see that <b>linear combinations</b> of <b>column vectors</b> are orthogonal to \(\vec{x}\in N(A^T)\).<br>
+    We discovered that <div class="quantml-katex-display inline">\(\Rightarrow c_i^Tx=0;\quad \forall\ i=\{1,2,\cdots,n\}\)</div><br>
+    <div class="quantml-katex-display inline">\(\Rightarrow \alpha_ic_i^Tx=0;\quad \forall\ i=\{1,2,\cdots,n\}\)</div> and <div class="quantml-katex-display inline">\(\alpha_i\in\mathbb{R}\)</div><br>
+    so any combination of <div class="quantml-katex-display inline">\(\alpha_ic_i^Tx=0\)</div>.<br>
+    So we can see that <b>linear combinations</b> of <b>column vectors</b> are orthogonal to <div class="quantml-katex-display inline">\(\vec{x}\in N(A^T)\)</div>.<br>
 </blockquote>
 
 <blockquote>

@@ -61,157 +61,157 @@
 <p>
 <h1>Markov Matrix</h1>
 
-A \(n\times n\) matrix whose elements are <b>non-negative</b> and every column vector sums to \(1\) 
+A <div class="quantml-katex-display inline">\(n\times n\)</div> matrix whose elements are <b>non-negative</b> and every column vector sums to <div class="quantml-katex-display inline">\(1\)</div> 
 is known as <b>Markov Matrix</b>(a.k.a. <b>stochastic matrix</b>).<br>
-Say \[A=\begin{bmatrix}
+Say <div class="quantml-katex-display">\[A=\begin{bmatrix}
 a_{11} & a_{12} & \cdots & a_{1n} \\  
 a_{21} & a_{22} & \cdots &  a_{2n}   \\
 \vdots & \vdots & \ddots & \vdots \\
 a_{n1} & a_{n2} & \cdots & a_{nn} \\
-\end{bmatrix}\]
+\end{bmatrix}\]</div>
 So,
-<li>\(a_{ij}\geq 0;\quad\forall i,j\in\{1,2,\cdots,n\}\)</li>
-<li>\(\sum_{i=0}^{n}a_{ij}=1\quad\forall j\in\{1,2,\cdots,n\}\)</li>
+<li><div class="quantml-katex-display inline">\(a_{ij}\geq 0;\quad\forall i,j\in\{1,2,\cdots,n\}\)</div></li>
+<li><div class="quantml-katex-display inline">\(\sum_{i=0}^{n}a_{ij}=1\quad\forall j\in\{1,2,\cdots,n\}\)</div></li>
 <br>
 
-<h2>\(\lambda_1=1\)</h2>
+<h2><div class="quantml-katex-display inline">\(\lambda_1=1\)</div></h2>
 <blockquote>
-Markov matrix always have one of the eigenvalues \(=1\).
+Markov matrix always have one of the eigenvalues <div class="quantml-katex-display inline">\(=1\)</div>.
 </blockquote>
 <b>Proof:</b><br>
 <blockquote class="noborder">
 <dl><dd>
-\(A=\begin{bmatrix}
+<div class="quantml-katex-display inline">\(A=\begin{bmatrix}
 a_{11} & a_{12} & \cdots & a_{1n} \\  
 a_{21} & a_{22} & \cdots &  a_{2n}   \\
 \vdots & \vdots & \ddots & \vdots \\
 a_{n1} & a_{n2} & \cdots & a_{nn} \\
-\end{bmatrix}\)<br>
+\end{bmatrix}\)</div><br>
 
 <div class="math-container">
-\(A-1\mathcal{I}=\begin{bmatrix}
+<div class="quantml-katex-display inline">\(A-1\mathcal{I}=\begin{bmatrix}
 a_{11}-1 & a_{12} & \cdots & a_{1n} \\  
 a_{21} & a_{22}-1 & \cdots &  a_{2n}   \\
 \vdots & \vdots & \ddots & \vdots \\
 a_{n1} & a_{n2} & \cdots & a_{nn}-1 \\
-\end{bmatrix}\)
+\end{bmatrix}\)</div>
 </div>
 <br>
-Now we apply \(R_n \leftarrow R_1 + R_2 + \cdots + R_n\)<br>
+Now we apply <div class="quantml-katex-display inline">\(R_n \leftarrow R_1 + R_2 + \cdots + R_n\)</div><br>
 <br>
 <div class="math-container">
-\(A-\mathcal{I}=\begin{bmatrix}
+<div class="quantml-katex-display inline">\(A-\mathcal{I}=\begin{bmatrix}
 a_{11}-1 & a_{12} & \cdots & a_{1n} \\  
 a_{21} & a_{22}-1 & \cdots &  a_{2n}   \\
 \vdots & \vdots & \ddots & \vdots \\
 \sum_{i=0}^{n}a_{i1} -1 & \sum_{i=0}^{n}a_{i2} -1 & \cdots & \sum_{i=0}^{n}a_{in} -1 \\
-\end{bmatrix}\)
+\end{bmatrix}\)</div>
 </div>
 <br>
-And as we know that \(\sum_{i=0}^{n}a_{ij}=1\quad\forall j\in\{1,2,\cdots,n\}\)<br>
+And as we know that <div class="quantml-katex-display inline">\(\sum_{i=0}^{n}a_{ij}=1\quad\forall j\in\{1,2,\cdots,n\}\)</div><br>
 <br>
 <div class="math-container">
-\(A-\mathcal{I}=\begin{bmatrix}
+<div class="quantml-katex-display inline">\(A-\mathcal{I}=\begin{bmatrix}
 a_{11}-1 & a_{12} & \cdots & a_{1n}  \\  
 a_{21} & a_{22}-1 & \cdots &  a_{2n} \\
 \vdots & \vdots & \ddots & \vdots    \\
 0      &    0   & \cdots &    0      \\
-\end{bmatrix}\)
+\end{bmatrix}\)</div>
 </div>
 
-So now we can see that \(\text{det}(A-\mathcal{I})=0\)<br>
-So indeed \(\lambda=1\).<br>
+So now we can see that <div class="quantml-katex-display inline">\(\text{det}(A-\mathcal{I})=0\)</div><br>
+So indeed <div class="quantml-katex-display inline">\(\lambda=1\)</div>.<br>
 </dd></dl>
 </blockquote><br>
 
 <h2 id="example">Example of Markov Matrices</h2>
 
-Assume that we have two cities \(A\) and \(B\) and  at the end of the year we calculate the 
-<li>Proportion of peoples remains in city \(A\), we denote it by \(p_{a}\) </li>
-<li>Proportion of peoples remains in city \(B\), we denote it by \(p_{b}\) </li>
-<li>Proportion of peoples moved from city \(A\) to  \(B\), we denote it by \(p_{ab}\) </li>
-<li>Proportion of peoples moved from city \(B\) to  \(A\), we denote it by \(p_{ba}\) </li>
+Assume that we have two cities <div class="quantml-katex-display inline">\(A\)</div> and <div class="quantml-katex-display inline">\(B\)</div> and  at the end of the year we calculate the 
+<li>Proportion of peoples remains in city <div class="quantml-katex-display inline">\(A\)</div>, we denote it by <div class="quantml-katex-display inline">\(p_{a}\)</div> </li>
+<li>Proportion of peoples remains in city <div class="quantml-katex-display inline">\(B\)</div>, we denote it by <div class="quantml-katex-display inline">\(p_{b}\)</div> </li>
+<li>Proportion of peoples moved from city <div class="quantml-katex-display inline">\(A\)</div> to  <div class="quantml-katex-display inline">\(B\)</div>, we denote it by <div class="quantml-katex-display inline">\(p_{ab}\)</div> </li>
+<li>Proportion of peoples moved from city <div class="quantml-katex-display inline">\(B\)</div> to  <div class="quantml-katex-display inline">\(A\)</div>, we denote it by <div class="quantml-katex-display inline">\(p_{ba}\)</div> </li>
 
-We can represent this information as a Markov Matrix (say \(M\)).<br>
+We can represent this information as a Markov Matrix (say <div class="quantml-katex-display inline">\(M\)</div>).<br>
 <div class="math-container">
-\[\begin{matrix}
+<div class="quantml-katex-display">\[\begin{matrix}
                    &  \text{Moved to } A  & \text{Moved to } B \\
 \text{From } A  & p_{a} & p_{ba}\\  
 \text{From } B  & p_{ab} & p_{b}\\
-\end{matrix}\]
+\end{matrix}\]</div>
 </div>
 
-\[M=\begin{bmatrix}
+<div class="quantml-katex-display">\[M=\begin{bmatrix}
 p_{a} & p_{ba}\\  
 p_{ab} & p_{b}\\
-\end{bmatrix}\]
-<span class="bb">\(p_a + p_{ab}=1\)</span> (here we took all peoples in city \(A\))<br>
-<span class="bb">\(p_b + p_{ba}=1\)</span> (here we took all peoples in city \(B\))<br>
-And proportions are positive and cannot be greater then \(1\)<br>
+\end{bmatrix}\]</div>
+<span class="bb"><div class="quantml-katex-display inline">\(p_a + p_{ab}=1\)</div></span> (here we took all peoples in city <div class="quantml-katex-display inline">\(A\)</div>)<br>
+<span class="bb"><div class="quantml-katex-display inline">\(p_b + p_{ba}=1\)</div></span> (here we took all peoples in city <div class="quantml-katex-display inline">\(B\)</div>)<br>
+And proportions are positive and cannot be greater then <div class="quantml-katex-display inline">\(1\)</div><br>
 So it is a <b>Markov Matrix</b><br>
 <br>
-Now say that at time \(t=k\).<br>
-<li>Number of peoples in city \(A\) are \(u_A\)</li>
-<li>Number of peoples in city \(B\) are \(u_B\)</li>
-So at that at time \(t=k+1\) we can say,<br>
+Now say that at time <div class="quantml-katex-display inline">\(t=k\)</div>.<br>
+<li>Number of peoples in city <div class="quantml-katex-display inline">\(A\)</div> are <div class="quantml-katex-display inline">\(u_A\)</div></li>
+<li>Number of peoples in city <div class="quantml-katex-display inline">\(B\)</div> are <div class="quantml-katex-display inline">\(u_B\)</div></li>
+So at that at time <div class="quantml-katex-display inline">\(t=k+1\)</div> we can say,<br>
 
-\[\begin{bmatrix} u_{A}\\u_{B}\\ \end{bmatrix}_{t=k+1}=\begin{bmatrix}
+<div class="quantml-katex-display">\[\begin{bmatrix} u_{A}\\u_{B}\\ \end{bmatrix}_{t=k+1}=\begin{bmatrix}
 p_{a} & p_{ba}\\  
 p_{ab} & p_{b}\\
-\end{bmatrix}\begin{bmatrix} u_{A}\\u_{B}\\ \end{bmatrix}_{t=k}\]
-Say that we know \(u_{t=0}\) and we want to find \(u_{t=100}\) then we have to compute \(M^{100}\) but 
-for large \(M\) it's impractical to compute.<br>
-Now say that <i>eigenvalues</i> of \(M\) is \(\lambda_1\) and \(\lambda_2\) and <i>eigenvectos</i> of \(M\) is \(x_1\) and \(x_2\)<br>
+\end{bmatrix}\begin{bmatrix} u_{A}\\u_{B}\\ \end{bmatrix}_{t=k}\]</div>
+Say that we know <div class="quantml-katex-display inline">\(u_{t=0}\)</div> and we want to find <div class="quantml-katex-display inline">\(u_{t=100}\)</div> then we have to compute <div class="quantml-katex-display inline">\(M^{100}\)</div> but 
+for large <div class="quantml-katex-display inline">\(M\)</div> it's impractical to compute.<br>
+Now say that <i>eigenvalues</i> of <div class="quantml-katex-display inline">\(M\)</div> is <div class="quantml-katex-display inline">\(\lambda_1\)</div> and <div class="quantml-katex-display inline">\(\lambda_2\)</div> and <i>eigenvectos</i> of <div class="quantml-katex-display inline">\(M\)</div> is <div class="quantml-katex-display inline">\(x_1\)</div> and <div class="quantml-katex-display inline">\(x_2\)</div><br>
 So,<br>
 <div class="math-container l1 border">
-\[  \begin{matrix}
+<div class="quantml-katex-display">\[  \begin{matrix}
 
     % equation
     \displaystyle \vec{u}_{t=k}=c_1\lambda_1^k\vec{u}_{t=0} + c_2\lambda_2^k\vec{u}_{t=0} 
     %equation
 
     \end{matrix}
-\]
+\]</div>
 </div>
 <br>
 
 <h2 id="expansion">Expansion with Orthogonal basis</h2>
-Say that we are in \(n\) dimensional space and \(\vec{q}_1, \vec{q}_2, \cdots, \vec{q}_n\) are the <b>basis</b> for that \(n\) dimensional space.<br>
-Here all  \(\vec{q}_1, \vec{q}_2, \cdots, \vec{q}_n\) are <b>orthogonal</b><br>
-We can express any vector in this \(n\) dimensional space as the <b>linear combination</b> of basis vectors.<br>
-Assume a vector \(\vec{v}\in\mathbb{R}^n\) in this \(n\) dimensional space.<br>
-we can express \(\vec{v}\) as,<br>
-<span class="bb">\(\vec{v}=x_1\vec{q}_1 + x_2\vec{q}_2 + \cdots + x_n\vec{q}_n\)</span><br>
-Ok we can express \(\vec{v}\) as <b>linear combination</b> of basis vectors but we are interested in these
-\(x_1, x_2, \cdots, x_n\).<br>
+Say that we are in <div class="quantml-katex-display inline">\(n\)</div> dimensional space and <div class="quantml-katex-display inline">\(\vec{q}_1, \vec{q}_2, \cdots, \vec{q}_n\)</div> are the <b>basis</b> for that <div class="quantml-katex-display inline">\(n\)</div> dimensional space.<br>
+Here all  <div class="quantml-katex-display inline">\(\vec{q}_1, \vec{q}_2, \cdots, \vec{q}_n\)</div> are <b>orthogonal</b><br>
+We can express any vector in this <div class="quantml-katex-display inline">\(n\)</div> dimensional space as the <b>linear combination</b> of basis vectors.<br>
+Assume a vector <div class="quantml-katex-display inline">\(\vec{v}\in\mathbb{R}^n\)</div> in this <div class="quantml-katex-display inline">\(n\)</div> dimensional space.<br>
+we can express <div class="quantml-katex-display inline">\(\vec{v}\)</div> as,<br>
+<span class="bb"><div class="quantml-katex-display inline">\(\vec{v}=x_1\vec{q}_1 + x_2\vec{q}_2 + \cdots + x_n\vec{q}_n\)</div></span><br>
+Ok we can express <div class="quantml-katex-display inline">\(\vec{v}\)</div> as <b>linear combination</b> of basis vectors but we are interested in these
+<div class="quantml-katex-display inline">\(x_1, x_2, \cdots, x_n\)</div>.<br>
 <br>
-How can we compute \(x_1, x_2, \cdots, x_n\)?<br> 
-First let's see how can we get \(x_1\)?<br>
-<b>IDEA:</b> All  \(\vec{q}_1, \vec{q}_2, \cdots, \vec{q}_n\) are <b>orthogonal</b> so \(\vec{q}_i^T\vec{q}_j=0;\quad \forall i\neq j\)<br>
-so take dot product w.r.t. \(x_1\).<br>
+How can we compute <div class="quantml-katex-display inline">\(x_1, x_2, \cdots, x_n\)</div>?<br> 
+First let's see how can we get <div class="quantml-katex-display inline">\(x_1\)</div>?<br>
+<b>IDEA:</b> All  <div class="quantml-katex-display inline">\(\vec{q}_1, \vec{q}_2, \cdots, \vec{q}_n\)</div> are <b>orthogonal</b> so <div class="quantml-katex-display inline">\(\vec{q}_i^T\vec{q}_j=0;\quad \forall i\neq j\)</div><br>
+so take dot product w.r.t. <div class="quantml-katex-display inline">\(x_1\)</div>.<br>
 <div class="math-container">
-\(\vec{v}^T\vec{q}_1=x_1\underbrace{\vec{q}_1^T\vec{q}_1}_{=1} + x_2\underbrace{\vec{q}_2^T\vec{q}_1}_{=0} + \cdots + x_n\underbrace{\vec{q}_n^T\vec{q}_1}_{=0}\)
+<div class="quantml-katex-display inline">\(\vec{v}^T\vec{q}_1=x_1\underbrace{\vec{q}_1^T\vec{q}_1}_{=1} + x_2\underbrace{\vec{q}_2^T\vec{q}_1}_{=0} + \cdots + x_n\underbrace{\vec{q}_n^T\vec{q}_1}_{=0}\)</div>
 </div>
-\(\Rightarrow x_1=\vec{v}^T\vec{q}_1\)<br>
+<div class="quantml-katex-display inline">\(\Rightarrow x_1=\vec{v}^T\vec{q}_1\)</div><br>
 <div class="math-container l1 border">
-\[  \begin{matrix}
+<div class="quantml-katex-display">\[  \begin{matrix}
 
     % equation
     \displaystyle x_i=\vec{v}^T\vec{q}_i;\quad\forall i\in\{1,2,\cdots, n\}
     %equation
 
     \end{matrix}
-\]
+\]</div>
 </div>
 Say 
-\(\begin{bmatrix}
+<div class="quantml-katex-display inline">\(\begin{bmatrix}
 \vdots & \vdots &  & \vdots \\  
 \vec{q}_{1} & \vec{q}_{2} & \cdots &  \vec{q}_{n}   \\
 \vdots & \vdots &  & \vdots \\
-\end{bmatrix}=Q\) and \(\vec{x}=\begin{bmatrix} x_1\\ \vdots \\x_n\\  \end{bmatrix}\)<br>
+\end{bmatrix}=Q\)</div> and <div class="quantml-katex-display inline">\(\vec{x}=\begin{bmatrix} x_1\\ \vdots \\x_n\\  \end{bmatrix}\)</div><br>
 We can also write it in matrix form,<br>
 <div class="math-container">
-\[\begin{bmatrix}
+<div class="quantml-katex-display">\[\begin{bmatrix}
 \vdots & \vdots &  & \vdots \\  
 \vec{q}_{1} & \vec{q}_{2} & \cdots &  \vec{q}_{n}   \\
 \vdots & \vdots &  & \vdots \\
@@ -219,83 +219,83 @@ We can also write it in matrix form,<br>
 \begin{bmatrix} x_1\\ \vdots \\x_n\\  \end{bmatrix}
 =
 \vec{v}
-\]
+\]</div>
 </div>
-\(\Rightarrow Q\vec{x}=\vec{v}\)<br>
-\(\Rightarrow \underbrace{Q^TQ}_{\mathcal{I}}\vec{x}=Q^T\vec{v}\)<br>
+<div class="quantml-katex-display inline">\(\Rightarrow Q\vec{x}=\vec{v}\)</div><br>
+<div class="quantml-katex-display inline">\(\Rightarrow \underbrace{Q^TQ}_{\mathcal{I}}\vec{x}=Q^T\vec{v}\)</div><br>
 <div class="l1 border">
-\[  \begin{matrix}
+<div class="quantml-katex-display">\[  \begin{matrix}
 
     % equation
     \displaystyle \vec{x}=Q^T\vec{v}
     %equation
 
     \end{matrix}
-\]
+\]</div>
 </div>
 <br>
 
 <h1 id="fourier">Fourier Series</h1>
 <div class="math-container">
-\[f(x)=a_0 1+a_1\cos(x)+b_1\sin(x)+a_2\cos(2x)+b_2\sin(2x)+\cdots\]
+<div class="quantml-katex-display">\[f(x)=a_0 1+a_1\cos(x)+b_1\sin(x)+a_2\cos(2x)+b_2\sin(2x)+\cdots\]</div>
 </div>
 Here instead of vectors we are using <i>functions</i>, so here we are computing <b>linear combinations</b>
 of functions (instead of vectors).<br>
-Here our space is \(\infty\) dimensional<br>
+Here our space is <div class="quantml-katex-display inline">\(\infty\)</div> dimensional<br>
 <li>In vector case <i>dot product</i> is like,</li>
 <dL><dd>
-    Say \(\vec{v}= \begin{bmatrix} v_1\\ \vdots \\v_n\\  \end{bmatrix}\)
-    and \(\vec{u}= \begin{bmatrix} u_1\\ \vdots \\u_n\\  \end{bmatrix}\)<br>
-    <span class="bb">\(\vec{v}\cdot\vec{u}=v_1u_1 + v_2u_2 + \cdots + v_1u_n \)</span>
+    Say <div class="quantml-katex-display inline">\(\vec{v}= \begin{bmatrix} v_1\\ \vdots \\v_n\\  \end{bmatrix}\)</div>
+    and <div class="quantml-katex-display inline">\(\vec{u}= \begin{bmatrix} u_1\\ \vdots \\u_n\\  \end{bmatrix}\)</div><br>
+    <span class="bb"><div class="quantml-katex-display inline">\(\vec{v}\cdot\vec{u}=v_1u_1 + v_2u_2 + \cdots + v_1u_n \)</div></span>
 </dd></dL>
 
 <li>For function <i>dot product</i> is like,</li>
 <dl><dd>
-    Vectors have some set of values like \(\vec{v}= \begin{bmatrix} v_1\\ \vdots \\v_n\\  \end{bmatrix}\).<br>
-    But a function has a range of values like for \(\cos(x)\) range is \([0,2\pi]\).<br>
-    And a dot product of two functions say \(f\) and \(g\) with interval \([0,2\pi]\) is defined as.<br>
+    Vectors have some set of values like <div class="quantml-katex-display inline">\(\vec{v}= \begin{bmatrix} v_1\\ \vdots \\v_n\\  \end{bmatrix}\)</div>.<br>
+    But a function has a range of values like for <div class="quantml-katex-display inline">\(\cos(x)\)</div> range is <div class="quantml-katex-display inline">\([0,2\pi]\)</div>.<br>
+    And a dot product of two functions say <div class="quantml-katex-display inline">\(f\)</div> and <div class="quantml-katex-display inline">\(g\)</div> with interval <div class="quantml-katex-display inline">\([0,2\pi]\)</div> is defined as.<br>
     <div class="l1 border">
-    \[  \begin{matrix}
+    <div class="quantml-katex-display">\[  \begin{matrix}
             
         % equation
          f\cdot g=\int_{0}^{2\pi}f(x)g(x)dx
         %equation
 
         \end{matrix}
-    \]
+    \]</div>
     </div>
 </dd></dl>
 
-Here our functions are \(1,\cos(x),\sin(x),\cos(2x),\sin(2x),\cdots\)<br>
-\(\cos\) and \(\sin\) are periodic function with period of \([0,2\pi]\), so \(0\leq x\leq 2\pi\)<br>
-So we have \(\infty\) orthogonal basis.<br>
-Now we want to find \(a_0,a_1,b_1,a_2,b_2,\cdots\)<br>
-First let's see how to find \(a_1\)?<br>
-\(f(x)=a_0 1+a_1\cos(x)+b_1\sin(x)+a_2\cos(2x)+b_2\sin(2x)+\cdots\)<br>
-<b>IDEA: </b> take dot product with function with \(a_1\)<br>
+Here our functions are <div class="quantml-katex-display inline">\(1,\cos(x),\sin(x),\cos(2x),\sin(2x),\cdots\)</div><br>
+<div class="quantml-katex-display inline">\(\cos\)</div> and <div class="quantml-katex-display inline">\(\sin\)</div> are periodic function with period of <div class="quantml-katex-display inline">\([0,2\pi]\)</div>, so <div class="quantml-katex-display inline">\(0\leq x\leq 2\pi\)</div><br>
+So we have <div class="quantml-katex-display inline">\(\infty\)</div> orthogonal basis.<br>
+Now we want to find <div class="quantml-katex-display inline">\(a_0,a_1,b_1,a_2,b_2,\cdots\)</div><br>
+First let's see how to find <div class="quantml-katex-display inline">\(a_1\)</div>?<br>
+<div class="quantml-katex-display inline">\(f(x)=a_0 1+a_1\cos(x)+b_1\sin(x)+a_2\cos(2x)+b_2\sin(2x)+\cdots\)</div><br>
+<b>IDEA: </b> take dot product with function with <div class="quantml-katex-display inline">\(a_1\)</div><br>
 <div class="math-container">
-    \(f(x)\cdot\cos(x)  =a_0 1\cdot\cos(x) +a_1\cos(x)\cdot\cos(x) +b_1\sin(x)\cdot\cos(x) +a_2\cos(2x)\cdot\cos(x) +b_2\sin(2x)\cdot\cos(x) +\cdots\)<br>
+    <div class="quantml-katex-display inline">\(f(x)\cdot\cos(x)  =a_0 1\cdot\cos(x) +a_1\cos(x)\cdot\cos(x) +b_1\sin(x)\cdot\cos(x) +a_2\cos(2x)\cdot\cos(x) +b_2\sin(2x)\cdot\cos(x) +\cdots\)</div><br>
 </div><br>
 <div class="math-container">
-    \(\Rightarrow \int_{0}^{2\pi}f(x)\cos(x)  =\underbrace{\int_{0}^{2\pi}a_0 1\cos(x)}_{=0} + \int_{0}^{2\pi}a_1\cos(x)\cos(x) + \underbrace{\int_{0}^{2\pi}b_1\sin(x)\cos(x)}_{=0} + \underbrace{\int_{0}^{2\pi}a_2\cos(2x)\cos(x)}_{=0} + \underbrace{\int_{0}^{2\pi}b_2\sin(2x)\cos(x)}_{=0} +\cdots\)<br>
+    <div class="quantml-katex-display inline">\(\Rightarrow \int_{0}^{2\pi}f(x)\cos(x)  =\underbrace{\int_{0}^{2\pi}a_0 1\cos(x)}_{=0} + \int_{0}^{2\pi}a_1\cos(x)\cos(x) + \underbrace{\int_{0}^{2\pi}b_1\sin(x)\cos(x)}_{=0} + \underbrace{\int_{0}^{2\pi}a_2\cos(2x)\cos(x)}_{=0} + \underbrace{\int_{0}^{2\pi}b_2\sin(2x)\cos(x)}_{=0} +\cdots\)</div><br>
 </div>
 <!--\begin{bmatrix}   \end{bmatrix}-->
 
-\(\Rightarrow \int_{0}^{2\pi}f(x)\cos(x)  =\int_{0}^{2\pi}a_1\cos(x)\cos(x)\)<br>
-\(\Rightarrow \int_{0}^{2\pi}f(x)\cos(x)  =a_1\pi\)<br>
-\(\Rightarrow \int_{0}^{2\pi}f(x)\cos(x)  =a_1\pi\)<br>
+<div class="quantml-katex-display inline">\(\Rightarrow \int_{0}^{2\pi}f(x)\cos(x)  =\int_{0}^{2\pi}a_1\cos(x)\cos(x)\)</div><br>
+<div class="quantml-katex-display inline">\(\Rightarrow \int_{0}^{2\pi}f(x)\cos(x)  =a_1\pi\)</div><br>
+<div class="quantml-katex-display inline">\(\Rightarrow \int_{0}^{2\pi}f(x)\cos(x)  =a_1\pi\)</div><br>
 So,
 <div class="l1 border">
-\[  \begin{matrix}
+<div class="quantml-katex-display">\[  \begin{matrix}
 
     % equation
     a_1=\frac{1}{\pi}\int_{0}^{2\pi}f(x)\cos(x)
     %equation
 
     \end{matrix}
-\]
+\]</div>
 </div>
-Similarly we can find rest of \(a_i\)'s
+Similarly we can find rest of <div class="quantml-katex-display inline">\(a_i\)</div>'s
 </p>
 
 

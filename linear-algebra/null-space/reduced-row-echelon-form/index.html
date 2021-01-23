@@ -42,7 +42,7 @@
                             <li class="cover"><a href="/linear-algebra/"><img src="/data/img/linear-algebra-cover.webp" alt="Linear Algebra"></a></li>
                             <li><a href="/linear-algebra/null-space/">Null Space</a></li>
                             <li><a href="/linear-algebra/null-space/echelon-form/">Echelon Form</a></li>
-                            <li><a href="/linear-algebra/null-space/solve/">Solve \(A\vec{x}=0\)</a></li>
+                            <li><a href="/linear-algebra/null-space/solve/">Solve <div class="quantml-katex-display inline">\(A\vec{x}=0\)</div></a></li>
                             <li class="active title">RREF</li>
                         </ul>
                         <ul id="nav-bar-icons-head" class="icons"></ul>
@@ -56,160 +56,160 @@
 
 <div id="paragraph-content" data-swipe-threshold="80">
 <div id="btn-container">
-    <button id="prev-btn" class="button" onclick="window.location.href = '/linear-algebra/null-space/solve/';">&#x25C0;&nbsp;&nbsp; Solve \(A\vec{x}=0\)</button>
-    <button id="next-btn" class="button"  style="float: right;" onclick="window.location.href = '/linear-algebra/complete-space/';">Solving \(A\vec{x}=\vec{b}\)&nbsp;&nbsp;&#x25B6;</button>
+    <button id="prev-btn" class="button" onclick="window.location.href = '/linear-algebra/null-space/solve/';">&#x25C0;&nbsp;&nbsp; Solve <div class="quantml-katex-display inline">\(A\vec{x}=0\)</div></button>
+    <button id="next-btn" class="button"  style="float: right;" onclick="window.location.href = '/linear-algebra/complete-space/';">Solving <div class="quantml-katex-display inline">\(A\vec{x}=\vec{b}\)</div>&nbsp;&nbsp;&#x25B6;</button>
 </div><br>
 
 
 <p>
     <a href="/linear-algebra/null-space/echelon-form/" >Previously</a> we saw how to get 
-    <b>echelon form, pivot/free column vectors</b> of a matrix say \(A\) also saw how to solve \(A\vec{x}=0\).<br>
-    Now let's push it little further and see the <b>reduce row echelon form</b> of our matrix \(A\).<br>
+    <b>echelon form, pivot/free column vectors</b> of a matrix say <div class="quantml-katex-display inline">\(A\)</div> also saw how to solve <div class="quantml-katex-display inline">\(A\vec{x}=0\)</div>.<br>
+    Now let's push it little further and see the <b>reduce row echelon form</b> of our matrix <div class="quantml-katex-display inline">\(A\)</div>.<br>
 
     <h1 id="rref">Reduced Row Echelon Form</h1>
-    In <b>reduced row echelon form</b> we use elimination and make all elements \(0\) above and below <b>pivot</b> elements.<br>
-    We saw the <b>echelon form</b> of \(A=\begin{bmatrix}
+    In <b>reduced row echelon form</b> we use elimination and make all elements <div class="quantml-katex-display inline">\(0\)</div> above and below <b>pivot</b> elements.<br>
+    We saw the <b>echelon form</b> of <div class="quantml-katex-display inline">\(A=\begin{bmatrix}
     1 & 2 & 2 & 2\\
     2 & 4 & 6 & 8\\
     3 & 6 & 8 & 10\\
-    \end{bmatrix}\) is say \(U\)<br>
-    \(U=\begin{bmatrix}
+    \end{bmatrix}\)</div> is say <div class="quantml-katex-display inline">\(U\)</div><br>
+    <div class="quantml-katex-display inline">\(U=\begin{bmatrix}
     \fbox{1} & 2 & 2 & 2\\
     0 & 0 & \fbox{2} & 4\\
     0 & 0 & 0 & 0\\
-    \end{bmatrix}\)<br>
-    Now we make element above <b>pivot</b> \(=0\)<br>
+    \end{bmatrix}\)</div><br>
+    Now we make element above <b>pivot</b> <div class="quantml-katex-display inline">\(=0\)</div><br>
     So let's use elimination to do it.<br>
-    \(U=\begin{bmatrix}
+    <div class="quantml-katex-display inline">\(U=\begin{bmatrix}
     \fbox{1} & 2 & 2 & 2\\
     0 & 0 & \fbox{2} & 4\\
     0 & 0 & 0 & 0\\
-    \end{bmatrix}\)<br>
-    \(r_1\leftarrow r_1-r_2\)<br>
-    \(U'=\begin{bmatrix}
+    \end{bmatrix}\)</div><br>
+    <div class="quantml-katex-display inline">\(r_1\leftarrow r_1-r_2\)</div><br>
+    <div class="quantml-katex-display inline">\(U'=\begin{bmatrix}
     \fbox{1} & 2 & 0 & -2\\
     0 & 0 & \fbox{2} & 4\\
     0 & 0 & 0 & 0\\
-    \end{bmatrix}\)<br>
-    Now make pivot elements \(=1\)<br>
-    \(r_2\leftarrow r_2/2\)<br>
-    \(U'=\begin{bmatrix}
+    \end{bmatrix}\)</div><br>
+    Now make pivot elements <div class="quantml-katex-display inline">\(=1\)</div><br>
+    <div class="quantml-katex-display inline">\(r_2\leftarrow r_2/2\)</div><br>
+    <div class="quantml-katex-display inline">\(U'=\begin{bmatrix}
     \fbox{1} & 2 & 0 & -2\\
     0 & 0 & \fbox{1} & 2\\
     0 & 0 & 0 & 0\\
-    \end{bmatrix}\)<br>
-    Say this matrix is \(R\).<br>
-    \(R=\begin{bmatrix}
+    \end{bmatrix}\)</div><br>
+    Say this matrix is <div class="quantml-katex-display inline">\(R\)</div>.<br>
+    <div class="quantml-katex-display inline">\(R=\begin{bmatrix}
     \color{red}{\fbox{1}} & \color{blue}{2} & \color{red}{0}        & \color{blue}{-2} \\
     \color{red}{0}        & \color{blue}{0} & \color{red}{\fbox{1}} & \color{blue}{2}  \\
                 0         &         0       &           0           &       0          \\
-    \end{bmatrix}\)<br>
-    Here you can see that there is a \(2\times 2\) Identity matrix shown in \(\color{red}{\text{red}}\)<br>
-    and one more \(2\times 2\) matrix shown in \(\color{blue}{\text{blue}}\)<br>
-    So \(R\) is something like:<br>
-    \(R'=\begin{bmatrix}
+    \end{bmatrix}\)</div><br>
+    Here you can see that there is a <div class="quantml-katex-display inline">\(2\times 2\)</div> Identity matrix shown in <div class="quantml-katex-display inline">\(\color{red}{\text{red}}\)</div><br>
+    and one more <div class="quantml-katex-display inline">\(2\times 2\)</div> matrix shown in <div class="quantml-katex-display inline">\(\color{blue}{\text{blue}}\)</div><br>
+    So <div class="quantml-katex-display inline">\(R\)</div> is something like:<br>
+    <div class="quantml-katex-display inline">\(R'=\begin{bmatrix}
     \color{red}{\text{I}} & \color{blue}{\text{F}} \\
                 0         &         0              \\
-    \end{bmatrix}\)<br>
-    and here \(\color{red}{  I=\begin{bmatrix} 1&0\\0&1\\ \end{bmatrix}  }\) and \(\color{blue}{  F=\begin{bmatrix} 2&-2\\0&2\\ \end{bmatrix}  }\)<br>
+    \end{bmatrix}\)</div><br>
+    and here <div class="quantml-katex-display inline">\(\color{red}{  I=\begin{bmatrix} 1&0\\0&1\\ \end{bmatrix}  }\)</div> and <div class="quantml-katex-display inline">\(\color{blue}{  F=\begin{bmatrix} 2&-2\\0&2\\ \end{bmatrix}  }\)</div><br>
     <blockquote class="noborder">
     Here you can see that there is some reordering of columns but it's fine.<br>
-    Because we are striving for \(\vec{x}\) that solves \(R\vec{x}=0\)<br>
-    \(R\vec{x}=\begin{bmatrix}
+    Because we are striving for <div class="quantml-katex-display inline">\(\vec{x}\)</div> that solves <div class="quantml-katex-display inline">\(R\vec{x}=0\)</div><br>
+    <div class="quantml-katex-display inline">\(R\vec{x}=\begin{bmatrix}
     \color{red}{\fbox{1}} & \color{blue}{2} & \color{red}{0}        & \color{blue}{-2} \\
     \color{red}{0}        & \color{blue}{0} & \color{red}{\fbox{1}} & \color{blue}{2}  \\
                 0         &         0       &           0           &       0          \\
     \end{bmatrix}
     \begin{bmatrix} \color{red}{x_1}\\\color{blue}{x_2}\\\color{red}{x_3}\\\color{blue}{x_4}\\ \end{bmatrix}
-    =0\)<br>
+    =0\)</div><br>
     We can also write it as:<br>
-    \(R'\vec{x}'=\begin{bmatrix}
+    <div class="quantml-katex-display inline">\(R'\vec{x}'=\begin{bmatrix}
     \color{red}{\fbox{1}} & \color{red}{0}        & \color{blue}{2} & \color{blue}{-2} \\
     \color{red}{0}        & \color{red}{\fbox{1}} & \color{blue}{0} & \color{blue}{2}  \\
                 0         &         0       &           0           &       0          \\
     \end{bmatrix}
     \begin{bmatrix} \color{red}{x_1}\\\color{red}{x_3}\\\color{blue}{x_2}\\\color{blue}{x_4}    \\ \end{bmatrix}
-    =0\)<br>
-    Now you can see \(R\) as:<br>
-    \(R'=\begin{bmatrix}
+    =0\)</div><br>
+    Now you can see <div class="quantml-katex-display inline">\(R\)</div> as:<br>
+    <div class="quantml-katex-display inline">\(R'=\begin{bmatrix}
     \color{red}{\text{I}} & \color{blue}{\text{F}} \\
                 0         &         0              \\
-    \end{bmatrix}\)
+    \end{bmatrix}\)</div>
     </blockquote>
-    Remember that number of special solution is \(\color{blue}{2}\) because we have 2 free column vectors.<br>
-    So we know that there are \(\color{blue}{2}\) special solution possible.<br>
+    Remember that number of special solution is <div class="quantml-katex-display inline">\(\color{blue}{2}\)</div> because we have 2 free column vectors.<br>
+    So we know that there are <div class="quantml-katex-display inline">\(\color{blue}{2}\)</div> special solution possible.<br>
     Say that special solutions are:
-    \(\vec{x}^{(1)}=\begin{bmatrix} \color{red}{x^{(1)}_1}\\\color{blue}{x^{(1)}_2}\\\color{red}{x^{(1)}_3}\\\color{blue}{x^{(1)}_4}\\ \end{bmatrix}\) and
-    \(\vec{x}^{(2)}=\begin{bmatrix} \color{red}{x^{(2)}_1}\\\color{blue}{x^{(2)}_2}\\\color{red}{x^{(2)}_3}\\\color{blue}{x^{(2)}_4}\\ \end{bmatrix}\)<br>
+    <div class="quantml-katex-display inline">\(\vec{x}^{(1)}=\begin{bmatrix} \color{red}{x^{(1)}_1}\\\color{blue}{x^{(1)}_2}\\\color{red}{x^{(1)}_3}\\\color{blue}{x^{(1)}_4}\\ \end{bmatrix}\)</div> and
+    <div class="quantml-katex-display inline">\(\vec{x}^{(2)}=\begin{bmatrix} \color{red}{x^{(2)}_1}\\\color{blue}{x^{(2)}_2}\\\color{red}{x^{(2)}_3}\\\color{blue}{x^{(2)}_4}\\ \end{bmatrix}\)</div><br>
     Now rearrange then
-    \(\vec{x}'^{(1)}=\begin{bmatrix} \color{red}{x^{(1)}_1}\\\color{red}{x^{(1)}_3}\\\color{blue}{x^{(1)}_2}\\\color{blue}{x^{(1)}_4}\\ \end{bmatrix}\) and
-    \(\vec{x}'^{(2)}=\begin{bmatrix} \color{red}{x^{(2)}_1}\\\color{red}{x^{(2)}_3}\\\color{blue}{x^{(2)}_2}\\\color{blue}{x^{(2)}_4}\\ \end{bmatrix}\)<br>
-    Now stack then in a matrix say (\(N\))<br>
-    \(N=\begin{bmatrix}
+    <div class="quantml-katex-display inline">\(\vec{x}'^{(1)}=\begin{bmatrix} \color{red}{x^{(1)}_1}\\\color{red}{x^{(1)}_3}\\\color{blue}{x^{(1)}_2}\\\color{blue}{x^{(1)}_4}\\ \end{bmatrix}\)</div> and
+    <div class="quantml-katex-display inline">\(\vec{x}'^{(2)}=\begin{bmatrix} \color{red}{x^{(2)}_1}\\\color{red}{x^{(2)}_3}\\\color{blue}{x^{(2)}_2}\\\color{blue}{x^{(2)}_4}\\ \end{bmatrix}\)</div><br>
+    Now stack then in a matrix say (<div class="quantml-katex-display inline">\(N\)</div>)<br>
+    <div class="quantml-katex-display inline">\(N=\begin{bmatrix}
     \color{red}{x^{(1)}_1}   & \color{red}{x^{(2)}_1}  \\
     \color{red}{x^{(1)}_3}   & \color{red}{x^{(2)}_3}  \\
     \color{blue}{x^{(1)}_2}  & \color{blue}{x^{(2)}_2} \\
     \color{blue}{x^{(1)}_4}  & \color{blue}{x^{(2)}_4} \\
-    \end{bmatrix};\quad\)
+    \end{bmatrix};\quad\)</div>
     and say
-    \(x_{\text{pivot}}=\begin{bmatrix}
+    <div class="quantml-katex-display inline">\(x_{\text{pivot}}=\begin{bmatrix}
     \color{red}{x^{(1)}_1}   & \color{red}{x^{(2)}_1}  \\
     \color{red}{x^{(1)}_3}   & \color{red}{x^{(2)}_3}  \\
-    \end{bmatrix}\)
-    \(x_{\text{free}} =\begin{bmatrix}
+    \end{bmatrix}\)</div>
+    <div class="quantml-katex-display inline">\(x_{\text{free}} =\begin{bmatrix}
     \color{blue}{x^{(1)}_2}  & \color{blue}{x^{(2)}_2} \\
     \color{blue}{x^{(1)}_4}  & \color{blue}{x^{(2)}_4} \\
-    \end{bmatrix}\)<br>
+    \end{bmatrix}\)</div><br>
     And we are free to choose free variables so let
-    \(x_{\text{free}} =\begin{bmatrix}
+    <div class="quantml-katex-display inline">\(x_{\text{free}} =\begin{bmatrix}
     \color{blue}{1}  & \color{blue}{0} \\
     \color{blue}{0}  & \color{blue}{1} \\
-    \end{bmatrix}\)<br>
-    Now \(N=\begin{bmatrix}
+    \end{bmatrix}\)</div><br>
+    Now <div class="quantml-katex-display inline">\(N=\begin{bmatrix}
     \color{red}{x_\text{pivot}}\\\color{blue}{I_{2\times2}}
-    \end{bmatrix}\)<br>
-    We want \(R\vec{x}^{(1)}=0\) and \(R\vec{x}^{(2)}=0\)<br>
-    \(\Rightarrow R'\vec{x}'^{(1)}=0\) and \(R'\vec{x}'^{(2)}=0\)<br>
-    \(\Rightarrow R'N=0\)<br>
-    So \(R'N=\begin{bmatrix}
+    \end{bmatrix}\)</div><br>
+    We want <div class="quantml-katex-display inline">\(R\vec{x}^{(1)}=0\)</div> and <div class="quantml-katex-display inline">\(R\vec{x}^{(2)}=0\)</div><br>
+    <div class="quantml-katex-display inline">\(\Rightarrow R'\vec{x}'^{(1)}=0\)</div> and <div class="quantml-katex-display inline">\(R'\vec{x}'^{(2)}=0\)</div><br>
+    <div class="quantml-katex-display inline">\(\Rightarrow R'N=0\)</div><br>
+    So <div class="quantml-katex-display inline">\(R'N=\begin{bmatrix}
     \color{red}{I_{2\times2}} & \color{blue}{\text{F}} \\
                 0         &         0              \\
     \end{bmatrix}
     \begin{bmatrix}
     \color{red}{x_\text{pivot}}\\\color{blue}{I_{2\times2}}
     \end{bmatrix} = 0
-    \)<br>
-    \(\Rightarrow \color{red}{x_\text{pivot}} \color{red}{I_{2\times2}} + \color{blue}{\text{F}} \color{blue}{I_{2\times2}} =0 \)<br>
-    \(\Rightarrow \color{red}{x_\text{pivot}} = - \color{blue}{\text{F}}\)<br>
-    So \(N=\begin{bmatrix}
+    \)</div><br>
+    <div class="quantml-katex-display inline">\(\Rightarrow \color{red}{x_\text{pivot}} \color{red}{I_{2\times2}} + \color{blue}{\text{F}} \color{blue}{I_{2\times2}} =0 \)</div><br>
+    <div class="quantml-katex-display inline">\(\Rightarrow \color{red}{x_\text{pivot}} = - \color{blue}{\text{F}}\)</div><br>
+    So <div class="quantml-katex-display inline">\(N=\begin{bmatrix}
     - \color{blue}{\text{F}} \\ \color{blue}{I_{2\times2}}\\
     \end{bmatrix}
-    \)<br>
-    And we know that \(\color{blue}{  F=\begin{bmatrix} 2&-2\\0&2\\ \end{bmatrix}  }\)<br>
-    So \(N=\begin{bmatrix}
+    \)</div><br>
+    And we know that <div class="quantml-katex-display inline">\(\color{blue}{  F=\begin{bmatrix} 2&-2\\0&2\\ \end{bmatrix}  }\)</div><br>
+    So <div class="quantml-katex-display inline">\(N=\begin{bmatrix}
     \color{red}{-2}   & \color{red}{2}  \\
     \color{red}{0}   & \color{red}{-2}  \\
     \color{blue}{1}  & \color{blue}{0} \\
     \color{blue}{0}  & \color{blue}{1} \\
-    \end{bmatrix};\quad\)<br>
-    \(\Rightarrow\)
-    \(\vec{x}'^{(1)}=\begin{bmatrix} \color{red}{x^{(1)}_1}\\\color{red}{x^{(1)}_3}\\\color{blue}{x^{(1)}_2}\\\color{blue}{x^{(1)}_4}\\ \end{bmatrix} =
-    \begin{bmatrix} \color{red}{-2}\\\color{red}{0}\\\color{blue}{1}\\\color{blue}{0}\\ \end{bmatrix}\) and
-    \(\vec{x}'^{(2)}=\begin{bmatrix} \color{red}{x^{(2)}_1}\\\color{red}{x^{(2)}_3}\\\color{blue}{x^{(2)}_2}\\\color{blue}{x^{(2)}_4}\\ \end{bmatrix} =
-    \begin{bmatrix} \color{red}{2}\\\color{red}{-2}\\\color{blue}{0}\\\color{blue}{1}\\ \end{bmatrix}\)<br>
+    \end{bmatrix};\quad\)</div><br>
+    <div class="quantml-katex-display inline">\(\Rightarrow\)</div>
+    <div class="quantml-katex-display inline">\(\vec{x}'^{(1)}=\begin{bmatrix} \color{red}{x^{(1)}_1}\\\color{red}{x^{(1)}_3}\\\color{blue}{x^{(1)}_2}\\\color{blue}{x^{(1)}_4}\\ \end{bmatrix} =
+    \begin{bmatrix} \color{red}{-2}\\\color{red}{0}\\\color{blue}{1}\\\color{blue}{0}\\ \end{bmatrix}\)</div> and
+    <div class="quantml-katex-display inline">\(\vec{x}'^{(2)}=\begin{bmatrix} \color{red}{x^{(2)}_1}\\\color{red}{x^{(2)}_3}\\\color{blue}{x^{(2)}_2}\\\color{blue}{x^{(2)}_4}\\ \end{bmatrix} =
+    \begin{bmatrix} \color{red}{2}\\\color{red}{-2}\\\color{blue}{0}\\\color{blue}{1}\\ \end{bmatrix}\)</div><br>
     
     
-    \(\Rightarrow\)
+    <div class="quantml-katex-display inline">\(\Rightarrow\)</div>
     
-    \(\vec{x}^{(1)}=\begin{bmatrix} \color{red}{x^{(1)}_1}\\\color{blue}{x^{(1)}_2}\\\color{red}{x^{(1)}_3}\\\color{blue}{x^{(1)}_4}\\ \end{bmatrix} =
-    \begin{bmatrix} \color{red}{-2}\\\color{red}{1}\\\color{blue}{0}\\\color{blue}{0}\\ \end{bmatrix}\) and
-    \(\vec{x}^{(2)}=\begin{bmatrix} \color{red}{x^{(2)}_1}\\\color{blue}{x^{(2)}_2}\\\color{red}{x^{(2)}_3}\\\color{blue}{x^{(2)}_4}\\ \end{bmatrix} =
-    \begin{bmatrix} \color{red}{2}\\\color{red}{0}\\\color{blue}{-2}\\\color{blue}{1}\\ \end{bmatrix}\)<br>
+    <div class="quantml-katex-display inline">\(\vec{x}^{(1)}=\begin{bmatrix} \color{red}{x^{(1)}_1}\\\color{blue}{x^{(1)}_2}\\\color{red}{x^{(1)}_3}\\\color{blue}{x^{(1)}_4}\\ \end{bmatrix} =
+    \begin{bmatrix} \color{red}{-2}\\\color{red}{1}\\\color{blue}{0}\\\color{blue}{0}\\ \end{bmatrix}\)</div> and
+    <div class="quantml-katex-display inline">\(\vec{x}^{(2)}=\begin{bmatrix} \color{red}{x^{(2)}_1}\\\color{blue}{x^{(2)}_2}\\\color{red}{x^{(2)}_3}\\\color{blue}{x^{(2)}_4}\\ \end{bmatrix} =
+    \begin{bmatrix} \color{red}{2}\\\color{red}{0}\\\color{blue}{-2}\\\color{blue}{1}\\ \end{bmatrix}\)</div><br>
     <br>
-    So our Null space is space of all \(\vec{x}\) that are linear combinations of
-    \(\begin{bmatrix} -2\\1\\0\\0\\ \end{bmatrix} \) and
-    \(\begin{bmatrix} 2\\0\\-2\\1\\ \end{bmatrix}\)<br>
-    \(x=\alpha \begin{bmatrix} -2\\1\\0\\0\\ \end{bmatrix} + \beta \begin{bmatrix} 2\\0\\-2\\1\\ \end{bmatrix};\quad\) \(\alpha,\beta\in\mathbb{R}\)<br>
+    So our Null space is space of all <div class="quantml-katex-display inline">\(\vec{x}\)</div> that are linear combinations of
+    <div class="quantml-katex-display inline">\(\begin{bmatrix} -2\\1\\0\\0\\ \end{bmatrix} \)</div> and
+    <div class="quantml-katex-display inline">\(\begin{bmatrix} 2\\0\\-2\\1\\ \end{bmatrix}\)</div><br>
+    <div class="quantml-katex-display inline">\(x=\alpha \begin{bmatrix} -2\\1\\0\\0\\ \end{bmatrix} + \beta \begin{bmatrix} 2\\0\\-2\\1\\ \end{bmatrix};\quad\)</div> <div class="quantml-katex-display inline">\(\alpha,\beta\in\mathbb{R}\)</div><br>
     </p>
     
 
@@ -217,8 +217,8 @@
 </div>
 <div id="btn-container">
 
-    <button id="prev-btn" class="button" onclick="window.location.href = '/linear-algebra/null-space/solve/';">&#x25C0;&nbsp;&nbsp; Solve \(A\vec{x}=0\)</button>
-    <button id="next-btn" class="button"  style="float: right;" onclick="window.location.href = '/linear-algebra/complete-space/';">Solving \(A\vec{x}=\vec{b}\)&nbsp;&nbsp;&#x25B6;</button>
+    <button id="prev-btn" class="button" onclick="window.location.href = '/linear-algebra/null-space/solve/';">&#x25C0;&nbsp;&nbsp; Solve <div class="quantml-katex-display inline">\(A\vec{x}=0\)</div></button>
+    <button id="next-btn" class="button"  style="float: right;" onclick="window.location.href = '/linear-algebra/complete-space/';">Solving <div class="quantml-katex-display inline">\(A\vec{x}=\vec{b}\)</div>&nbsp;&nbsp;&#x25B6;</button>
 </div><br>
     <div id="modals-html"></div>
 

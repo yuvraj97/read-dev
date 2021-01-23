@@ -61,125 +61,125 @@
 <p>
 <h1>Complex Matrices</h1>
 
-Say we have a vector \(\vec{z}\in\mathbb{C}^n\) here elements of \(\vec{z}\) are complex, \(z_i=a_i+ib_i\)<br>
- \(\vec{z}=\begin{bmatrix} z_1\\z_2\\ \vdots \\z_n\\  \end{bmatrix}\) how can we find the length of vector \(\vec{z}\)<br>
+Say we have a vector <div class="quantml-katex-display inline">\(\vec{z}\in\mathbb{C}^n\)</div> here elements of <div class="quantml-katex-display inline">\(\vec{z}\)</div> are complex, <div class="quantml-katex-display inline">\(z_i=a_i+ib_i\)</div><br>
+ <div class="quantml-katex-display inline">\(\vec{z}=\begin{bmatrix} z_1\\z_2\\ \vdots \\z_n\\  \end{bmatrix}\)</div> how can we find the length of vector <div class="quantml-katex-display inline">\(\vec{z}\)</div><br>
 <blockquote>
-    Magnitude of a complex number \(z_i\) is,<br>
-    \(\|z_i\|=\|\overline{z_i}\|\|z_i\|\)<br>
-    \(\|z_i\|=(a_i - ib_i)(a_i + ib_i)\)<br>
-    \(\|z_i\|=a_i^2 + b_i^2\)<br>
+    Magnitude of a complex number <div class="quantml-katex-display inline">\(z_i\)</div> is,<br>
+    <div class="quantml-katex-display inline">\(\|z_i\|=\|\overline{z_i}\|\|z_i\|\)</div><br>
+    <div class="quantml-katex-display inline">\(\|z_i\|=(a_i - ib_i)(a_i + ib_i)\)</div><br>
+    <div class="quantml-katex-display inline">\(\|z_i\|=a_i^2 + b_i^2\)</div><br>
 </blockquote>
-We can get the magnitude of \(\vec{z}\) by taking dot product \(\vec{z}\cdot\vec{z}\), but how to take the dot product of of two complex vectors.<br>
+We can get the magnitude of <div class="quantml-katex-display inline">\(\vec{z}\)</div> by taking dot product <div class="quantml-katex-display inline">\(\vec{z}\cdot\vec{z}\)</div>, but how to take the dot product of of two complex vectors.<br>
 <blockquote class="noborder">
-    We can <b>not</b> compute dot product like \(\vec{z}\cdot\vec{z}=\vec{z}^T\vec{z}\)<br>
-    Say \(\vec{z}=\begin{bmatrix} 1\\i\\  \end{bmatrix}\) then \(\vec{z}^T\vec{z}=a^2+i^2=0\)<br>
-    But we can clearly see that the magnitude of \(\vec{z}\) is <b>not</b> \(0\)<br>
+    We can <b>not</b> compute dot product like <div class="quantml-katex-display inline">\(\vec{z}\cdot\vec{z}=\vec{z}^T\vec{z}\)</div><br>
+    Say <div class="quantml-katex-display inline">\(\vec{z}=\begin{bmatrix} 1\\i\\  \end{bmatrix}\)</div> then <div class="quantml-katex-display inline">\(\vec{z}^T\vec{z}=a^2+i^2=0\)</div><br>
+    But we can clearly see that the magnitude of <div class="quantml-katex-display inline">\(\vec{z}\)</div> is <b>not</b> <div class="quantml-katex-display inline">\(0\)</div><br>
     <br>
     Magnitude of a complex vector is given as,<br>
     <div class="l1 border">
-    \[\begin{matrix}
+    <div class="quantml-katex-display">\[\begin{matrix}
 
         % equation
         \|\mathbf{z}\|=\mathbf{z}\cdot\mathbf{z}=\mathbf{\overline{z}}^T\mathbf{z};\quad \mathbf{z}\in\mathbb{C}^n
         %equation
 
         \end{matrix}
-    \]
+    \]</div>
     </div>
-    So for \(\vec{z}=\begin{bmatrix} 1\\i\\  \end{bmatrix}\) magnitude of \(\mathbf{z}\) is \(\|\mathbf{z}\|=\mathbf{\overline{z}}^T\mathbf{z}\)<br>
-    \(\|\mathbf{z}\|=\begin{bmatrix} \overline{1} & \overline{i}\\  \end{bmatrix} \begin{bmatrix} 1\\i\\  \end{bmatrix}\)<br>
-    \(\|\mathbf{z}\|=1 \times \overline{1} + i\overline{i}\)<br>
-    \(\|\mathbf{z}\|= 1  - i^2\)<br>
-    \(\|\mathbf{z}\|= 1  + 1\)<br>
-    \(\|\mathbf{z}\|= 2\)<br>
+    So for <div class="quantml-katex-display inline">\(\vec{z}=\begin{bmatrix} 1\\i\\  \end{bmatrix}\)</div> magnitude of <div class="quantml-katex-display inline">\(\mathbf{z}\)</div> is <div class="quantml-katex-display inline">\(\|\mathbf{z}\|=\mathbf{\overline{z}}^T\mathbf{z}\)</div><br>
+    <div class="quantml-katex-display inline">\(\|\mathbf{z}\|=\begin{bmatrix} \overline{1} & \overline{i}\\  \end{bmatrix} \begin{bmatrix} 1\\i\\  \end{bmatrix}\)</div><br>
+    <div class="quantml-katex-display inline">\(\|\mathbf{z}\|=1 \times \overline{1} + i\overline{i}\)</div><br>
+    <div class="quantml-katex-display inline">\(\|\mathbf{z}\|= 1  - i^2\)</div><br>
+    <div class="quantml-katex-display inline">\(\|\mathbf{z}\|= 1  + 1\)</div><br>
+    <div class="quantml-katex-display inline">\(\|\mathbf{z}\|= 2\)</div><br>
 </blockquote><br>
 
-\(\mathbf{\overline{z}}^T\mathbf{z}\) is also written as \(\mathbf{z}^H\mathbf{z}\) we pronounce it as <i>"z Hermitian z"</i>.<br>
-<b>Dot product</b> between two complex vector say \(\mathbf{u},\mathbf{v} \in\mathbb{C}^n\) is given as.<br>
+<div class="quantml-katex-display inline">\(\mathbf{\overline{z}}^T\mathbf{z}\)</div> is also written as <div class="quantml-katex-display inline">\(\mathbf{z}^H\mathbf{z}\)</div> we pronounce it as <i>"z Hermitian z"</i>.<br>
+<b>Dot product</b> between two complex vector say <div class="quantml-katex-display inline">\(\mathbf{u},\mathbf{v} \in\mathbb{C}^n\)</div> is given as.<br>
 <div class="l1 border">
-\[  \begin{matrix}
+<div class="quantml-katex-display">\[  \begin{matrix}
 
     % equation
     \mathbf{u}\cdot\mathbf{v}=\mathbf{\overline{u}}^T\mathbf{v}=\mathbf{u}^H\mathbf{v};\quad \mathbf{u},\mathbf{v}\in\mathbb{C}^n
     %equation
 
     \end{matrix}
-\]
+\]</div>
 </div><br>
 
 <h2 id="complex-symmetric-matrices">Complex symmetric matrices</h2>
-What we have seen for symmetric matrix is \(A^T=A\) but it's only true if all the elements of \(A\) are <b>Real</b>.<br>
+What we have seen for symmetric matrix is <div class="quantml-katex-display inline">\(A^T=A\)</div> but it's only true if all the elements of <div class="quantml-katex-display inline">\(A\)</div> are <b>Real</b>.<br>
 A <b>Complex matrix</b> is <i>symmetric</i> if
 <div class="l1 border">
-\[  \begin{matrix}
+<div class="quantml-katex-display">\[  \begin{matrix}
 
     % equation
     \overline{A}^T=A
     %equation
 
     \end{matrix}
-\]
+\]</div>
 </div>
 And these matrices are known as <b>Hermitian matrices</b>.<br>
 <br>
 
 <h2 id="complex-orthogonal-matrices">Complex Orthonormal Vectors</h2>
-Say we have an orthogonal matrix \(Q\in\mathbb{C}^{n\times n}\) whose column vectors are perpendicular to each other.<br>
-\[Q=\begin{bmatrix}
+Say we have an orthogonal matrix <div class="quantml-katex-display inline">\(Q\in\mathbb{C}^{n\times n}\)</div> whose column vectors are perpendicular to each other.<br>
+<div class="quantml-katex-display">\[Q=\begin{bmatrix}
 \vdots & \vdots &          & \vdots \\
 q_1    &  q_2   & \cdots   &  q_n   \\
 \vdots & \vdots &          & \vdots \\
-\end{bmatrix}\]
+\end{bmatrix}\]</div>
 <b>all</b> columns vectors are <b>perpendicular</b> to each other,
-\[
+<div class="quantml-katex-display">\[
 \overline{q_i}^Tq_j=\left\{\begin{matrix}
     0& \text{if }i\neq j\\
     1& \text{if }i=j \\
     \end{matrix}\right.
-\]
+\]</div>
 And we can also say,<br>
 <div class="l1 border">
-\[  \begin{matrix}
+<div class="quantml-katex-display">\[  \begin{matrix}
 
     % equation
     \overline{Q}^TQ=Q^HQ=\mathcal{I}
     %equation
 
     \end{matrix}
-\]
+\]</div>
 </div>
 <br>
 <h2 id="fft">Fast Fourier Transform</h2>
 
 We <a href="/linear-algebra/markov-matrix/#fourier" >discussed</a> about <b>Fourier Series</b>.<br>
-\[f(x)=a_0 1+a_1\cos(x)+b_1\sin(x)+a_2\cos(2x)+b_2\sin(2x)+\cdots\]
-Now assume we have \(n\) samples \((f_0,f_2,\cdots,f_{n-1})\) from a signal \(f\), we only have some realizations of \(f\) so we can only have a <b>Discrete Fourier Transform</b>  .<br>
-Using these \(n\) samples we want to approximate the there fourier coefficient \((\hat{f}_0, \hat{f}_1, \cdots , \hat{f}_{n-1})\).<br>
+<div class="quantml-katex-display">\[f(x)=a_0 1+a_1\cos(x)+b_1\sin(x)+a_2\cos(2x)+b_2\sin(2x)+\cdots\]</div>
+Now assume we have <div class="quantml-katex-display inline">\(n\)</div> samples <div class="quantml-katex-display inline">\((f_0,f_2,\cdots,f_{n-1})\)</div> from a signal <div class="quantml-katex-display inline">\(f\)</div>, we only have some realizations of <div class="quantml-katex-display inline">\(f\)</div> so we can only have a <b>Discrete Fourier Transform</b>  .<br>
+Using these <div class="quantml-katex-display inline">\(n\)</div> samples we want to approximate the there fourier coefficient <div class="quantml-katex-display inline">\((\hat{f}_0, \hat{f}_1, \cdots , \hat{f}_{n-1})\)</div>.<br>
 <div class="l1 border">
-\[  \begin{matrix}
+<div class="quantml-katex-display">\[  \begin{matrix}
 
     % equation
     \displaystyle \hat{f}_k=\sum_{j=0}^{n-1}f_j \exp\left(\frac{-i2\pi jk}{n}\right)
     %equation
 
     \end{matrix}
-\]
+\]</div>
 </div>
-\[f_k=\frac{1}{n}\left(\sum_{j=0}^{n-1}\hat{f}_j \exp\left(\frac{   i2\pi jk}{n}\right)\right)\]
+<div class="quantml-katex-display">\[f_k=\frac{1}{n}\left(\sum_{j=0}^{n-1}\hat{f}_j \exp\left(\frac{   i2\pi jk}{n}\right)\right)\]</div>
 Say,
 <div class="l1 border">
-\[  \begin{matrix}
+<div class="quantml-katex-display">\[  \begin{matrix}
 
     % equation
     \displaystyle \omega_n=\exp\left(\frac{i2\pi}{n}\right)
     %equation
 
     \end{matrix}
-\]
+\]</div>
 </div>
 We can rewrite the above equations as,<br>
 <div class="math-container">
-\[\begin{bmatrix} \hat{f}_0\\\hat{f}_1\\\hat{f}_2\\ \vdots \\\hat{f}_{n-1}\\  \end{bmatrix}=
+<div class="quantml-katex-display">\[\begin{bmatrix} \hat{f}_0\\\hat{f}_1\\\hat{f}_2\\ \vdots \\\hat{f}_{n-1}\\  \end{bmatrix}=
 \underbrace{\begin{bmatrix}
 1 & 1 & 1 & \cdots & 1 \\
 1 & \omega_n & \omega_n^2 & \cdots & \omega_n^{n-1}\\
@@ -188,32 +188,32 @@ We can rewrite the above equations as,<br>
 1 & \omega_n^{n-1} & \omega_n^{2(n-1)} & \cdots & \omega_n^{(n-1)^2}\\
 \end{bmatrix}}_{\text{DFT matrix say } F_n}
 \begin{bmatrix} f_0\\f_1\\f_2\\ \vdots \\f_{n-1}\\  \end{bmatrix}
-\]
+\]</div>
 </div>
-\(\omega_n\) is an <b>complex number</b> so <b>DFT</b> matrix is a <b>Complex Matrix</b>, so our fourier coefficient
-\((\hat{f}_0, \hat{f}_1, \cdots , \hat{f}_{n-1})\) are also <b>complex number</b>.<br>
-<li>Magnitude of \(\hat{f}_i\)  tells us the magnitude of the \(i^{th}\)   \(\sin\) and \(\cos\).<br></li>
-<li>Phase of \(\hat{f}_i\)  tells us the phase of the \(i^{th}\)  \(\sin\) and \(\cos\).<br></li><br>
+<div class="quantml-katex-display inline">\(\omega_n\)</div> is an <b>complex number</b> so <b>DFT</b> matrix is a <b>Complex Matrix</b>, so our fourier coefficient
+<div class="quantml-katex-display inline">\((\hat{f}_0, \hat{f}_1, \cdots , \hat{f}_{n-1})\)</div> are also <b>complex number</b>.<br>
+<li>Magnitude of <div class="quantml-katex-display inline">\(\hat{f}_i\)</div>  tells us the magnitude of the <div class="quantml-katex-display inline">\(i^{th}\)</div>   <div class="quantml-katex-display inline">\(\sin\)</div> and <div class="quantml-katex-display inline">\(\cos\)</div>.<br></li>
+<li>Phase of <div class="quantml-katex-display inline">\(\hat{f}_i\)</div>  tells us the phase of the <div class="quantml-katex-display inline">\(i^{th}\)</div>  <div class="quantml-katex-display inline">\(\sin\)</div> and <div class="quantml-katex-display inline">\(\cos\)</div>.<br></li><br>
 <blockquote>
     <b>DFT matrix</b> is an <b>Orthogonal Matrix</b>, all <b>column vectors</b> are <b>orthogonal</b> to each other.
     <div class="l1 border">
-    \[  \begin{matrix}
+    <div class="quantml-katex-display">\[  \begin{matrix}
 
         % equation
         \overline{F}_n^TF_n=F_n^HF_n=\mathcal{I}_n
         %equation
 
         \end{matrix}
-    \]
+    \]</div>
     </div>
 </blockquote>
 <br>
-Now the problem is this matrix multiplication, time complexity of this matrix multiplication is \(O(n^2)\),
-for a matrix of size \(1024\times 1024\) then it requires \(‭1,048,576‬\) multiplications.<br>
+Now the problem is this matrix multiplication, time complexity of this matrix multiplication is <div class="quantml-katex-display inline">\(O(n^2)\)</div>,
+for a matrix of size <div class="quantml-katex-display inline">\(1024\times 1024\)</div> then it requires <div class="quantml-katex-display inline">\(‭1,048,576‬\)</div> multiplications.<br>
 This problem is solved by <b>Fast Fourier Transform</b><br>
-<b>IDEA</b> behind <b>FFT</b> is we can write \(F_n\) as,<br>
+<b>IDEA</b> behind <b>FFT</b> is we can write <div class="quantml-katex-display inline">\(F_n\)</div> as,<br>
 <div class="l1 border math-container">
-\[\begin{matrix}
+<div class="quantml-katex-display">\[\begin{matrix}
 
     % equation
     F_n =
@@ -227,9 +227,9 @@ This problem is solved by <b>Fast Fourier Transform</b><br>
     %equation
 
     \end{matrix}
-\]
+\]</div>
 </div>
-\(
+<div class="quantml-katex-display inline">\(
     D_{n/2}=\begin{bmatrix}
     1       &     0    &    0     & \cdots   &    0      \\
     0       & \omega_{n/2} &    0     & \cdots   &    0      \\
@@ -237,9 +237,9 @@ This problem is solved by <b>Fast Fourier Transform</b><br>
     \vdots  & \vdots   & \vdots   & \ddots   & \vdots    \\
     0       &    0     &    0     &  \cdots  & \omega_{n/2}^{n/2-1}
     \end{bmatrix}
-\)<br>
-\(P_n\) is a \(n\times n\) even and odd permutation matrix.<br>
-\(P_n=
+\)</div><br>
+<div class="quantml-katex-display inline">\(P_n\)</div> is a <div class="quantml-katex-display inline">\(n\times n\)</div> even and odd permutation matrix.<br>
+<div class="quantml-katex-display inline">\(P_n=
     \begin{bmatrix}
        \color{red}{1} & \color{red}{0} & \color{red}{0} & \color{red}{0} & \cdots & \color{red}{0} & \color{red}{0} \\
                     \color{red}{0} & \color{red}{0} & \color{red}{1} & \color{red}{0} & \cdots & \color{red}{0} & \color{red}{0} \\
@@ -251,17 +251,17 @@ This problem is solved by <b>Fast Fourier Transform</b><br>
                     \vdots  & \vdots   & \vdots   & \vdots   & \ddots  & \vdots  & \vdots \\
                     \color{blue}{0} & \color{blue}{0} & \color{blue}{0} & \color{blue}{0} & \cdots & \color{blue}{0} & \color{blue}{1} \\
     \end{bmatrix}
-\)<br>
+\)</div><br>
 <br>
-<b>FFT</b> will have to make \(\frac{1}{2}n\log_2(n)‬\) calculations<br>
+<b>FFT</b> will have to make <div class="quantml-katex-display inline">\(\frac{1}{2}n\log_2(n)‬\)</div> calculations<br>
 <br>
 <blockquote>
-    <b>FFT</b> gives time complexity of \(n\log_2(n)\)
+    <b>FFT</b> gives time complexity of <div class="quantml-katex-display inline">\(n\log_2(n)\)</div>
 </blockquote><br>
-For \(n=1024=2^{10}\)<br>
-<li><b>DFT</b> will have to make \(n^2=‭1,048,576‬\) calculations</li>
-<li><b>FFT</b> will have to make only \(\frac{1}{2}n\log_2(n)=5,120‬\) calculations</li>
-So here <b>FFT</b> is more then \(200x\) faster then <b>DFT</b><!--
+For <div class="quantml-katex-display inline">\(n=1024=2^{10}\)</div><br>
+<li><b>DFT</b> will have to make <div class="quantml-katex-display inline">\(n^2=‭1,048,576‬\)</div> calculations</li>
+<li><b>FFT</b> will have to make only <div class="quantml-katex-display inline">\(\frac{1}{2}n\log_2(n)=5,120‬\)</div> calculations</li>
+So here <b>FFT</b> is more then <div class="quantml-katex-display inline">\(200x\)</div> faster then <b>DFT</b><!--
     https://youtu.be/nl9TZanwbBk?list=PLMrJAkhIeNNRjxJ_sMtJ02geqw_-vuB7O
     https://youtu.be/E8HeD-MUrjY?list=PLMrJAkhIeNNRjxJ_sMtJ02geqw_-vuB7O
 --></p>

@@ -61,10 +61,10 @@
 <p>
 <h1>Singular Value Decomposition</h1>
 <blockquote class="noborder">
-<a  href="/linear-algebra/diagonalization/">Previously</a> we have seen that for <b>\(n\times n\)</b> 
-matrix (say\(A\)) with \(n\) independent eigenvectors factorization is,
+<a  href="/linear-algebra/diagonalization/">Previously</a> we have seen that for <b><div class="quantml-katex-display inline">\(n\times n\)</div></b> 
+matrix (say<div class="quantml-katex-display inline">\(A\)</div>) with <div class="quantml-katex-display inline">\(n\)</div> independent eigenvectors factorization is,
 <div class="l1 border">
-\[
+<div class="quantml-katex-display">\[
     \begin{matrix}
 
     % equation
@@ -72,13 +72,13 @@ matrix (say\(A\)) with \(n\) independent eigenvectors factorization is,
     %equation
 
     \end{matrix}
-\]
+\]</div>
 </div>
 <a  href="/linear-algebra/orthonormal-vectors/">Previously</a> we have seen that if eigenvectors of
-matrix \(A\) are <b>orthogonal</b> then \(Q^{-1}=Q^T\), then the factorization is,<br>
+matrix <div class="quantml-katex-display inline">\(A\)</div> are <b>orthogonal</b> then <div class="quantml-katex-display inline">\(Q^{-1}=Q^T\)</div>, then the factorization is,<br>
 (We discussed it in detail <a  href="/linear-algebra/symmetric-matrices/">HERE</a>)
 <div class="l1 border">
-\[
+<div class="quantml-katex-display">\[
     \begin{matrix}
 
     % equation
@@ -86,14 +86,14 @@ matrix \(A\) are <b>orthogonal</b> then \(Q^{-1}=Q^T\), then the factorization i
     %equation
 
     \end{matrix}
-\]
+\]</div>
 </div>
 But generally eigenvectors are not orthogonal.
 </blockquote>
 
-<b>Singular Value Decomposition(SVD)</b> is a factorization of <b>any</b> \(m\times n\) matrix.<br>
+<b>Singular Value Decomposition(SVD)</b> is a factorization of <b>any</b> <div class="quantml-katex-display inline">\(m\times n\)</div> matrix.<br>
 <h2><div class="l1 border">
-\[
+<div class="quantml-katex-display">\[
     \begin{matrix}
 
     % equation
@@ -101,74 +101,74 @@ But generally eigenvectors are not orthogonal.
     %equation
 
     \end{matrix}
-\]
+\]</div>
 </div></h2>
-Say that we have a \(m\times n\) matrix \(A\) and \(\text{Rank}(A)=r\),<br>
-\[A_{m\times n}=\begin{bmatrix}
+Say that we have a <div class="quantml-katex-display inline">\(m\times n\)</div> matrix <div class="quantml-katex-display inline">\(A\)</div> and <div class="quantml-katex-display inline">\(\text{Rank}(A)=r\)</div>,<br>
+<div class="quantml-katex-display">\[A_{m\times n}=\begin{bmatrix}
 a_{11} & a_{12} & \cdots & a_{1n} \\  
 a_{21} & a_{22} & \cdots &  a_{2n}   \\
 \vdots & \vdots & \ddots & \vdots \\
 a_{m1} & a_{m2} & \cdots & a_{mn} \\
-\end{bmatrix}\]<br>
+\end{bmatrix}\]</div><br>
 
 <blockquote>
-    <u><b>IDEA:</b></u> behind SVD is to map an <b>orthonormal basis</b> in \(\mathbb{R}^n\) 
-    (<a  href="/linear-algebra/fundamental-subspaces/#row-space">Row space</a> + <a  href="/linear-algebra/null-space/">Null Space</a> of matrix \(A^TA\)) to the <b>orthonormal basis</b> in \(\mathbb{R}^m\) 
-    (<a  href="/linear-algebra/column-space/">Column space</a> + <a  href="/linear-algebra/fundamental-subspaces/#left-null-space">Left Null Space</a> of matrix \(AA^T\)).<br>
-</blockquote><br> <!--\(\text{Rank}(A)=r\)-->
+    <u><b>IDEA:</b></u> behind SVD is to map an <b>orthonormal basis</b> in <div class="quantml-katex-display inline">\(\mathbb{R}^n\)</div> 
+    (<a  href="/linear-algebra/fundamental-subspaces/#row-space">Row space</a> + <a  href="/linear-algebra/null-space/">Null Space</a> of matrix <div class="quantml-katex-display inline">\(A^TA\)</div>) to the <b>orthonormal basis</b> in <div class="quantml-katex-display inline">\(\mathbb{R}^m\)</div> 
+    (<a  href="/linear-algebra/column-space/">Column space</a> + <a  href="/linear-algebra/fundamental-subspaces/#left-null-space">Left Null Space</a> of matrix <div class="quantml-katex-display inline">\(AA^T\)</div>).<br>
+</blockquote><br> <!--<div class="quantml-katex-display inline">\(\text{Rank}(A)=r\)</div>-->
 
 <div style="padding-bottom: 15%;">
 <img style="float: right; max-width: 100%;" class="full-size-img" src="/linear-algebra/img/fundamental-subspaces.webp" width="50%" height="50%" alt="">
-The <b>row space</b> is in \(\mathbb{R}^n\), here our row vectors are,<br>
-\(\begin{bmatrix} a_{11} \\ a_{12} \\ \vdots \\ a_{1n}  \end{bmatrix}\in\mathbb{R}^n\), 
-\(\begin{bmatrix} a_{21} \\ a_{22} \\ \vdots \\ a_{2n}  \end{bmatrix}\in\mathbb{R}^n\), 
-\(\cdots\),
-\(\begin{bmatrix} a_{m1} \\ a_{m2} \\ \vdots \\ a_{mn}  \end{bmatrix}\in\mathbb{R}^n\)<br>
-The <b>column space</b> is in \(\mathbb{R}^m\), our column vectors are,<br>
-\(\begin{bmatrix} a_{11} \\ a_{21} \\ \vdots \\ a_{m1}  \end{bmatrix}\in\mathbb{R}^m\), 
-\(\begin{bmatrix} a_{12} \\ a_{22} \\ \vdots \\ a_{m2}  \end{bmatrix}\in\mathbb{R}^m\), 
-\(\cdots\),
-\(\begin{bmatrix} a_{1n} \\ a_{2n} \\ \vdots \\ a_{mn}  \end{bmatrix}\in\mathbb{R}^m\)<br>
+The <b>row space</b> is in <div class="quantml-katex-display inline">\(\mathbb{R}^n\)</div>, here our row vectors are,<br>
+<div class="quantml-katex-display inline">\(\begin{bmatrix} a_{11} \\ a_{12} \\ \vdots \\ a_{1n}  \end{bmatrix}\in\mathbb{R}^n\)</div>, 
+<div class="quantml-katex-display inline">\(\begin{bmatrix} a_{21} \\ a_{22} \\ \vdots \\ a_{2n}  \end{bmatrix}\in\mathbb{R}^n\)</div>, 
+<div class="quantml-katex-display inline">\(\cdots\)</div>,
+<div class="quantml-katex-display inline">\(\begin{bmatrix} a_{m1} \\ a_{m2} \\ \vdots \\ a_{mn}  \end{bmatrix}\in\mathbb{R}^n\)</div><br>
+The <b>column space</b> is in <div class="quantml-katex-display inline">\(\mathbb{R}^m\)</div>, our column vectors are,<br>
+<div class="quantml-katex-display inline">\(\begin{bmatrix} a_{11} \\ a_{21} \\ \vdots \\ a_{m1}  \end{bmatrix}\in\mathbb{R}^m\)</div>, 
+<div class="quantml-katex-display inline">\(\begin{bmatrix} a_{12} \\ a_{22} \\ \vdots \\ a_{m2}  \end{bmatrix}\in\mathbb{R}^m\)</div>, 
+<div class="quantml-katex-display inline">\(\cdots\)</div>,
+<div class="quantml-katex-display inline">\(\begin{bmatrix} a_{1n} \\ a_{2n} \\ \vdots \\ a_{mn}  \end{bmatrix}\in\mathbb{R}^m\)</div><br>
 </div>
 
 <blockquote class="noborder">
-A vector (say) \(\vec{v}\in\mathbb{R}^n\) has some portion in <b>Row Space</b> and some in <b>Left Null Space</b>, 
-when we transform that vector  \(\vec{v}\in\mathbb{R}^n\) using matrix \(A\), \(A\vec{v}=\vec{u}\in\mathbb{R}^m\) now this vector
-\(\vec{u}\in\mathbb{R}^m\) has some portion in <b>Column Space</b> and some in <b>Null Space</b><br>
-\(\vec{u}=\vec{u}_p+\vec{u}_n\) <a  href="/linear-algebra/complete-space/">[Reference]</a>
+A vector (say) <div class="quantml-katex-display inline">\(\vec{v}\in\mathbb{R}^n\)</div> has some portion in <b>Row Space</b> and some in <b>Left Null Space</b>, 
+when we transform that vector  <div class="quantml-katex-display inline">\(\vec{v}\in\mathbb{R}^n\)</div> using matrix <div class="quantml-katex-display inline">\(A\)</div>, <div class="quantml-katex-display inline">\(A\vec{v}=\vec{u}\in\mathbb{R}^m\)</div> now this vector
+<div class="quantml-katex-display inline">\(\vec{u}\in\mathbb{R}^m\)</div> has some portion in <b>Column Space</b> and some in <b>Null Space</b><br>
+<div class="quantml-katex-display inline">\(\vec{u}=\vec{u}_p+\vec{u}_n\)</div> <a  href="/linear-algebra/complete-space/">[Reference]</a>
 </blockquote>
 
-<li id="row-space"><b><span class="l1">Row space</span></b> <span class="l1">\((C(A^T))\)</span> (Gather Orthonormal Basis vectors for Row Space)</li>
+<li id="row-space"><b><span class="l1">Row space</span></b> <span class="l1"><div class="quantml-katex-display inline">\((C(A^T))\)</div></span> (Gather Orthonormal Basis vectors for Row Space)</li>
 <blockquote>
-    <span class="l1">Row vectors</span> lives in \(n\)-dimensional vector space.<br>
-    \(\text{Rank}(A)=r\) so we have \(r\) independent row vectors.<br>
-    So the space spanned by row vectors is \(r\)-dimensional  vector space<b>(Row Space)</b>, so to span this whole 
-    \(r\)-dimensional vector space we need \(r\) independent <b>basis vectors</b>.<br>
+    <span class="l1">Row vectors</span> lives in <div class="quantml-katex-display inline">\(n\)</div>-dimensional vector space.<br>
+    <div class="quantml-katex-display inline">\(\text{Rank}(A)=r\)</div> so we have <div class="quantml-katex-display inline">\(r\)</div> independent row vectors.<br>
+    So the space spanned by row vectors is <div class="quantml-katex-display inline">\(r\)</div>-dimensional  vector space<b>(Row Space)</b>, so to span this whole 
+    <div class="quantml-katex-display inline">\(r\)</div>-dimensional vector space we need <div class="quantml-katex-display inline">\(r\)</div> independent <b>basis vectors</b>.<br>
     Among those we choose <b>orthonormal</b> basis vectors.<br>
     
     (<i>we can get them using <a  href="/linear-algebra/orthonormal-vectors/#gram-schmidt">Gram Schmidt</a> method, 
-    but here we will use \(A^TA\) to get them we will discuss it below)</i><br>
-    (say) our <b>orthonormal</b> basis vector for <b>Row Space</b> are <span class="bb l1">\(\vec{v}_1,\vec{v}_2,\cdots,\vec{v}_r\)</span>.<br>
+    but here we will use <div class="quantml-katex-display inline">\(A^TA\)</div> to get them we will discuss it below)</i><br>
+    (say) our <b>orthonormal</b> basis vector for <b>Row Space</b> are <span class="bb l1"><div class="quantml-katex-display inline">\(\vec{v}_1,\vec{v}_2,\cdots,\vec{v}_r\)</div></span>.<br>
 </blockquote>
 
-<li id="null-space"><b><span class="l4">Null Space \((N(A))\)</span></b> (Orthonormal Basis vectors of Null Space)</li>
+<li id="null-space"><b><span class="l4">Null Space <div class="quantml-katex-display inline">\((N(A))\)</div></span></b> (Orthonormal Basis vectors of Null Space)</li>
 <blockquote>
     <b><span class="l4">Null Space</span></b> is perpendicular to <b>Row Space</b>(we talked about orthogonal subspaces <a  href="/linear-algebra/orthogonal-subspaces/">HERE</a>), 
     so every vector in Null Space is perpendicular to Row Space.<br>
-    \(\text{Rank}(A)=r\) so we have \(n-r\) dependent(free) row vectors.<br>
-    So the space spanned by vectors in Null Space is \((n-r)\)-dimensional  vector space<b>(Null Space)</b>, so to span this whole 
-    \((n-r)\)-dimensional vector space we need \(n-r\) independent basis vectors in Null Space.<br>    
-    (we don't need to find basis vectors for SVD we discuss it below in Column Space\((C(A))\) section )<br>
-    (say) our <b>orthonormal</b> basis vector for <b>Null Space</b> are <span class="bb l4">\(\vec{v}_{r+1},\vec{v}_{r+2},\cdots,\vec{v}_n\)</span>.<br>
+    <div class="quantml-katex-display inline">\(\text{Rank}(A)=r\)</div> so we have <div class="quantml-katex-display inline">\(n-r\)</div> dependent(free) row vectors.<br>
+    So the space spanned by vectors in Null Space is <div class="quantml-katex-display inline">\((n-r)\)</div>-dimensional  vector space<b>(Null Space)</b>, so to span this whole 
+    <div class="quantml-katex-display inline">\((n-r)\)</div>-dimensional vector space we need <div class="quantml-katex-display inline">\(n-r\)</div> independent basis vectors in Null Space.<br>    
+    (we don't need to find basis vectors for SVD we discuss it below in Column Space<div class="quantml-katex-display inline">\((C(A))\)</div> section )<br>
+    (say) our <b>orthonormal</b> basis vector for <b>Null Space</b> are <span class="bb l4"><div class="quantml-katex-display inline">\(\vec{v}_{r+1},\vec{v}_{r+2},\cdots,\vec{v}_n\)</div></span>.<br>
 </blockquote>
 
-<li id="column-space"><b><span class="l2">Column Space \((C(A))\)</span></b> (Map the Orthonormal Basis vectors from the <b>Row Space</b> to <b>Column Space</b>)</li>
+<li id="column-space"><b><span class="l2">Column Space <div class="quantml-katex-display inline">\((C(A))\)</div></span></b> (Map the Orthonormal Basis vectors from the <b>Row Space</b> to <b>Column Space</b>)</li>
 <blockquote>
-    After we got our orthonormal basis vector for <b>Row Space</b> <span class="bb l2">\(\vec{v}_1,\vec{v}_2,\cdots,\vec{v}_n\)</span>, 
-    we map them to the <b>Column Space</b> using matrix \(A\).<br>
-    \(\text{Rank}(A)=r\) so,<br>
+    After we got our orthonormal basis vector for <b>Row Space</b> <span class="bb l2"><div class="quantml-katex-display inline">\(\vec{v}_1,\vec{v}_2,\cdots,\vec{v}_n\)</div></span>, 
+    we map them to the <b>Column Space</b> using matrix <div class="quantml-katex-display inline">\(A\)</div>.<br>
+    <div class="quantml-katex-display inline">\(\text{Rank}(A)=r\)</div> so,<br>
     <div class="l1 border math-container dim">
-    \[
+    <div class="quantml-katex-display">\[
         \begin{matrix}
             
         % equation
@@ -176,14 +176,14 @@ when we transform that vector  \(\vec{v}\in\mathbb{R}^n\) using matrix \(A\), \(
         %equation
 
         \end{matrix}
-    \]
+    \]</div>
     </div>
 
-    For \(i\in\{1,2,\cdots,r\}\) \(A\) maps \(\vec{v}_i\) to \(\sigma_i\vec{u}_i\) then we normalize it to get \(\vec{u}_i\)(unit vector), \(\sigma_i\) is the length of \(A\vec{v}_i\).<br>
-    Now we got the <b>orthonormal basis vector</b> for our column space <span class="bb l2">\(\vec{u}_1,\vec{u}_2,\cdots,\vec{u}_r\)</span><br>
+    For <div class="quantml-katex-display inline">\(i\in\{1,2,\cdots,r\}\)</div> <div class="quantml-katex-display inline">\(A\)</div> maps <div class="quantml-katex-display inline">\(\vec{v}_i\)</div> to <div class="quantml-katex-display inline">\(\sigma_i\vec{u}_i\)</div> then we normalize it to get <div class="quantml-katex-display inline">\(\vec{u}_i\)</div>(unit vector), <div class="quantml-katex-display inline">\(\sigma_i\)</div> is the length of <div class="quantml-katex-display inline">\(A\vec{v}_i\)</div>.<br>
+    Now we got the <b>orthonormal basis vector</b> for our column space <span class="bb l2"><div class="quantml-katex-display inline">\(\vec{u}_1,\vec{u}_2,\cdots,\vec{u}_r\)</div></span><br>
     <br>
     <div class="l1 border math-container dim">
-    \[
+    <div class="quantml-katex-display">\[
         \begin{matrix}
             
         % equation
@@ -191,32 +191,32 @@ when we transform that vector  \(\vec{v}\in\mathbb{R}^n\) using matrix \(A\), \(
         %equation
 
         \end{matrix}
-    \]
+    \]</div>
     </div>
 
-    For \(i\in\{r+1,r+2,\cdots,n\}\)  \(\vec{v}_i\) lives in the <b>Null Space</b> of \(A\)<br>
-    So <span class="bb l3">\(\vec{u}_{r+1},\vec{u}_{r+2},\cdots,\vec{u}_n\)</span> are all \(\vec{0}\)<br>
+    For <div class="quantml-katex-display inline">\(i\in\{r+1,r+2,\cdots,n\}\)</div>  <div class="quantml-katex-display inline">\(\vec{v}_i\)</div> lives in the <b>Null Space</b> of <div class="quantml-katex-display inline">\(A\)</div><br>
+    So <span class="bb l3"><div class="quantml-katex-display inline">\(\vec{u}_{r+1},\vec{u}_{r+2},\cdots,\vec{u}_n\)</div></span> are all <div class="quantml-katex-display inline">\(\vec{0}\)</div><br>
     <br>
 
-    <b>But wait <u>WHY</u> all \(\vec{u}_i\)'s are perpendicular to each other?</b><br>
-    we discussed it below in \(A^TA\) section.
+    <b>But wait <u>WHY</u> all <div class="quantml-katex-display inline">\(\vec{u}_i\)</div>'s are perpendicular to each other?</b><br>
+    we discussed it below in <div class="quantml-katex-display inline">\(A^TA\)</div> section.
 
 </blockquote>
 
-<li id="left-null-space"><b><span class="l3">Left Null Space \((N(A^T))\)</span></b> (Map the Orthonormal Basis vectors from the <b>Null Space</b> to <b>Left Null Space</b>)</li>
+<li id="left-null-space"><b><span class="l3">Left Null Space <div class="quantml-katex-display inline">\((N(A^T))\)</div></span></b> (Map the Orthonormal Basis vectors from the <b>Null Space</b> to <b>Left Null Space</b>)</li>
 <blockquote>
     <b><span class="l3">Left Null Space</span></b> is perpendicular to <b>Column Space</b>(we talked about orthogonal subspaces <a  href="/linear-algebra/orthogonal-subspaces/">HERE</a>), 
     so every vector in Left Null Space is perpendicular to Column Space.<br>
-    \(\text{Rank}(A)=r\) so we have \(m-r\) dependent(free) column vectors.<br>
-    So the space spanned by vectors in Left Null Space is \((m-r)\)-dimensional  vector space<b>(Null Space)</b>, so to span this whole 
-    \((m-r)\)-dimensional vector space we need \(m-r\) independent basis vectors in Left Null Space.<br>
-    (say) our <b>orthonormal</b> basis vector for <b>Left Null Space</b> are <span class="bb l3">\(\vec{u}_{r+1},\vec{u}_{r+2},\cdots,\vec{u}_n\)</span>.<br>
+    <div class="quantml-katex-display inline">\(\text{Rank}(A)=r\)</div> so we have <div class="quantml-katex-display inline">\(m-r\)</div> dependent(free) column vectors.<br>
+    So the space spanned by vectors in Left Null Space is <div class="quantml-katex-display inline">\((m-r)\)</div>-dimensional  vector space<b>(Null Space)</b>, so to span this whole 
+    <div class="quantml-katex-display inline">\((m-r)\)</div>-dimensional vector space we need <div class="quantml-katex-display inline">\(m-r\)</div> independent basis vectors in Left Null Space.<br>
+    (say) our <b>orthonormal</b> basis vector for <b>Left Null Space</b> are <span class="bb l3"><div class="quantml-katex-display inline">\(\vec{u}_{r+1},\vec{u}_{r+2},\cdots,\vec{u}_n\)</div></span>.<br>
 </blockquote>
 <b id="terminologies"> Terminologies </b><br>
-Say <span class="bb l1">\(\vec{v}_1,\vec{v}_2,\cdots,\vec{v}_r\)</span> are Orthonormal Basis vectors for <b><span class="l1">Row Space \((C(A^T))\) </span></b>,<br>
-and <span class="bb l4">\(\vec{v}_{r+1},\vec{v}_{r+2},\cdots,\vec{v}_n\)</span> are Orthonormal Basis vectors for <b><span class="l4">Null Space \((N(A^T))\)</span></b><br>
+Say <span class="bb l1"><div class="quantml-katex-display inline">\(\vec{v}_1,\vec{v}_2,\cdots,\vec{v}_r\)</div></span> are Orthonormal Basis vectors for <b><span class="l1">Row Space <div class="quantml-katex-display inline">\((C(A^T))\)</div> </span></b>,<br>
+and <span class="bb l4"><div class="quantml-katex-display inline">\(\vec{v}_{r+1},\vec{v}_{r+2},\cdots,\vec{v}_n\)</div></span> are Orthonormal Basis vectors for <b><span class="l4">Null Space <div class="quantml-katex-display inline">\((N(A^T))\)</div></span></b><br>
 <div class="math-container">
-(say) \(\mathbf{V}'=
+(say) <div class="quantml-katex-display inline">\(\mathbf{V}'=
     \begin{bmatrix}
 
     \begin{matrix}
@@ -232,10 +232,10 @@ and <span class="bb l4">\(\vec{v}_{r+1},\vec{v}_{r+2},\cdots,\vec{v}_n\)</span> 
     \end{matrix}
 
     \end{bmatrix}_{n\times n}
-\)<br>
+\)</div><br>
 </div><br>
 <div class="math-container">
-(say) \(\mathbf{U}'=
+(say) <div class="quantml-katex-display inline">\(\mathbf{U}'=
     \begin{bmatrix}
 
     \begin{matrix}
@@ -251,10 +251,10 @@ and <span class="bb l4">\(\vec{v}_{r+1},\vec{v}_{r+2},\cdots,\vec{v}_n\)</span> 
     \end{matrix}
 
     \end{bmatrix}_{m\times n}
-\)<br>
+\)</div><br>
 </div><br>
 <div class="math-container">
-(say) \(\Sigma'=
+(say) <div class="quantml-katex-display inline">\(\Sigma'=
     \begin{bmatrix}
     \begin{bmatrix}
     \sigma_1 &             &  & \huge0  \\  
@@ -268,12 +268,12 @@ and <span class="bb l4">\(\vec{v}_{r+1},\vec{v}_{r+2},\cdots,\vec{v}_n\)</span> 
     \\
     \mathbf{0}_{(n-r)\times r} & \mathbf{0}_{(n-r)\times (n-r)}
     \end{bmatrix}_{n\times n}
-\)<br>
+\)</div><br>
 </div><br>
 
-Mapping from \(\mathbb{R}^n\) to \(\mathbb{R}^m\) is,<br>
+Mapping from <div class="quantml-katex-display inline">\(\mathbb{R}^n\)</div> to <div class="quantml-katex-display inline">\(\mathbb{R}^m\)</div> is,<br>
 <div class="l1 border">
-\[
+<div class="quantml-katex-display">\[
     \begin{matrix}
 
     % equation
@@ -281,11 +281,11 @@ Mapping from \(\mathbb{R}^n\) to \(\mathbb{R}^m\) is,<br>
     %equation
 
     \end{matrix}
-\]
+\]</div>
 </div>
 We can Write it as,
 <div class="math-container">
-\[A\underbrace{\begin{bmatrix}
+<div class="quantml-katex-display">\[A\underbrace{\begin{bmatrix}
 \vdots & \vdots &          & \vdots \\  
 \vec{v}_1    &  \vec{v}_2   & \cdots   &  \vec{v}_n   \\
 \vdots & \vdots &          & \vdots 
@@ -308,23 +308,23 @@ We can Write it as,
 \mathbf{0}_{r\times (n-r)}
 \\
 \mathbf{0}_{(n-r)\times r} & \mathbf{0}_{(n-r)\times (n-r)}
-\end  {bmatrix}}_{ \Sigma'_{n\times n} }\]
+\end  {bmatrix}}_{ \Sigma'_{n\times n} }\]</div>
 </div>
 So,
-\[
+<div class="quantml-katex-display">\[
     AV'_{n\times n}=U'_{m\times n}\Sigma'_{n\times n}
-\]
+\]</div>
 
 <li id="full-svd"><b><u>Full SVD</u></b></li>
 <blockquote class="noborder">
-    Say that all columns of our matrix \(A\) are independent \(\Rightarrow \text{Rank}(A)=m\), so<br>
-    <li>Dimension of Row Space is: \(m\)</li>
-    <li>Dimension of Null Space is: \(n-m\)</li>
-    <li>Dimension of Column Space is: \(m\)</li>
-    <li>Dimension of Left Null Space is: \(m-m=0\)</li>
+    Say that all columns of our matrix <div class="quantml-katex-display inline">\(A\)</div> are independent <div class="quantml-katex-display inline">\(\Rightarrow \text{Rank}(A)=m\)</div>, so<br>
+    <li>Dimension of Row Space is: <div class="quantml-katex-display inline">\(m\)</div></li>
+    <li>Dimension of Null Space is: <div class="quantml-katex-display inline">\(n-m\)</div></li>
+    <li>Dimension of Column Space is: <div class="quantml-katex-display inline">\(m\)</div></li>
+    <li>Dimension of Left Null Space is: <div class="quantml-katex-display inline">\(m-m=0\)</div></li>
     Our equation was,<br>
     <div class="math-container">
-        \[A\underbrace{\begin{bmatrix}
+        <div class="quantml-katex-display">\[A\underbrace{\begin{bmatrix}
         \vdots & \vdots &          & \vdots \\  
         \vec{v}_1    &  \vec{v}_2   & \cdots   &  \vec{v}_n   \\
         \vdots & \vdots &          & \vdots 
@@ -347,19 +347,19 @@ So,
         \mathbf{0}_{m\times (n-m)}
         \\
         \mathbf{0}_{(n-m)\times m} & \mathbf{0}_{(n-m)\times (n-m)}
-        \end  {bmatrix}}_{ \Sigma'_{n\times n} }\]
+        \end  {bmatrix}}_{ \Sigma'_{n\times n} }\]</div>
     </div>
 
     So,
-        \[
+        <div class="quantml-katex-display">\[
             AV'_{n\times n}=U'_{m\times n}\Sigma'_{n\times n}
-        \]
+        \]</div>
 
-    And as we discussed above that <span class="l3">\(\vec{u}_{r+1},\vec{u}_{r+2},\cdots,\vec{u}_n\)</span> are all \(\vec{0}\), 
+    And as we discussed above that <span class="l3"><div class="quantml-katex-display inline">\(\vec{u}_{r+1},\vec{u}_{r+2},\cdots,\vec{u}_n\)</div></span> are all <div class="quantml-katex-display inline">\(\vec{0}\)</div>, 
     so we can discard those vectors from our equation so now our equation will become,<br>
 
     <div class="math-container">
-        \[A\underbrace{\begin{bmatrix}
+        <div class="quantml-katex-display">\[A\underbrace{\begin{bmatrix}
         \vdots & \vdots &          & \vdots \\  
         \vec{v}_1    &  \vec{v}_2   & \cdots   &  \vec{v}_n   \\
         \vdots & \vdots &          & \vdots 
@@ -381,11 +381,11 @@ So,
         &
         \mathbf{0}_{m\times (n-m)}
         
-        \end  {bmatrix}}_{ \Sigma_{m\times n} }\]
+        \end  {bmatrix}}_{ \Sigma_{m\times n} }\]</div>
     </div>
     So,
     <div class="l1 border">
-    \[
+    <div class="quantml-katex-display">\[
         \begin{matrix}
             
         % equation
@@ -394,19 +394,19 @@ So,
 
         \end{matrix}
       
-    \]
+    \]</div>
     </div>
     This equation is what we call <b>Full SVD</b>
 </blockquote><br><li id="reduced-svd"><b><u>Reduced SVD</u></b></li>
     <blockquote class="noborder">
-    If some of the columns of our matrix \(A\) are dependent and say \(\text{Rank}(A)=r\), so<br>
-    <li>Dimension of Row Space is: \(r\)</li>
-    <li>Dimension of Null Space is: \(n-r\)</li>
-    <li>Dimension of Column Space is: \(r\)</li>
-    <li>Dimension of Left Null Space is: \(m-r\)</li>
+    If some of the columns of our matrix <div class="quantml-katex-display inline">\(A\)</div> are dependent and say <div class="quantml-katex-display inline">\(\text{Rank}(A)=r\)</div>, so<br>
+    <li>Dimension of Row Space is: <div class="quantml-katex-display inline">\(r\)</div></li>
+    <li>Dimension of Null Space is: <div class="quantml-katex-display inline">\(n-r\)</div></li>
+    <li>Dimension of Column Space is: <div class="quantml-katex-display inline">\(r\)</div></li>
+    <li>Dimension of Left Null Space is: <div class="quantml-katex-display inline">\(m-r\)</div></li>
     Our equation was,<br>
     <div class="math-container">
-        \[A\underbrace{\begin{bmatrix}
+        <div class="quantml-katex-display">\[A\underbrace{\begin{bmatrix}
         \vdots & \vdots &          & \vdots \\  
         \vec{v}_1    &  \vec{v}_2   & \cdots   &  \vec{v}_n   \\
         \vdots & \vdots &          & \vdots 
@@ -429,19 +429,19 @@ So,
         \mathbf{0}_{m\times (n-m)}
         \\
         \mathbf{0}_{(n-m)\times m} & \mathbf{0}_{(n-m)\times (n-m)}
-        \end  {bmatrix}}_{ \Sigma'_{n\times n} }\]
+        \end  {bmatrix}}_{ \Sigma'_{n\times n} }\]</div>
     </div>
 
     So,
-        \[
+        <div class="quantml-katex-display">\[
             AV'_{n\times n}=U'_{m\times n}\Sigma'_{n\times n}
-        \]
+        \]</div>
 
-    And as we discussed above that <span class="l3">\(\vec{v}_{r+1},\vec{u}_{r+2},\cdots,\vec{u}_n\)</span> are all \(\vec{0}\), 
+    And as we discussed above that <span class="l3"><div class="quantml-katex-display inline">\(\vec{v}_{r+1},\vec{u}_{r+2},\cdots,\vec{u}_n\)</div></span> are all <div class="quantml-katex-display inline">\(\vec{0}\)</div>, 
     so these vectors are redundant we can discard those vectors from our equation so now our equation will become,<br>
 
     <div class="math-container">
-        \[A\underbrace{\begin{bmatrix}
+        <div class="quantml-katex-display">\[A\underbrace{\begin{bmatrix}
         \vdots & \vdots &          & \vdots \\  
         \vec{v}_1    &  \vec{v}_2   & \cdots   &  \vec{v}_r   \\
         \vdots & \vdots &          & \vdots 
@@ -459,137 +459,137 @@ So,
                  &             & \ddots     &          \\
         \huge0   &             &            &  \sigma_r \\      
         
-        \end  {bmatrix}}_{ \Sigma_{r\times r} }\]
+        \end  {bmatrix}}_{ \Sigma_{r\times r} }\]</div>
     </div>
     So,
     <div class="l1 border">
-    \[  \begin{matrix}
+    <div class="quantml-katex-display">\[  \begin{matrix}
             
         % equation
         A_{m\times n}V_{n\times r}=U_{m\times r}\Sigma_{r\times r}
         %equation
 
         \end{matrix}
-    \]
+    \]</div>
     </div>
     This equation is what we call <b>Reduced SVD</b>
 </blockquote><br>
 
-We have seen that we can write any \(m\times n\) matrix \(A\) as <span class="bb">\(AV=U\Sigma\)</span> where \(V\) and \(U\)
+We have seen that we can write any <div class="quantml-katex-display inline">\(m\times n\)</div> matrix <div class="quantml-katex-display inline">\(A\)</div> as <span class="bb"><div class="quantml-katex-display inline">\(AV=U\Sigma\)</div></span> where <div class="quantml-katex-display inline">\(V\)</div> and <div class="quantml-katex-display inline">\(U\)</div>
 are <b>Orthonormal</b> matrix.<br>
-Now the real challange is to find these \(V\) and \(U\) <b>Orthonormal</b> matrix.<br>
-Once we got those \(V\) and \(U\) <b>Orthonormal</b> matrix then we can find \(A\) as,<br>
-\(AV=U\Sigma\)<br>
-\(A=U\Sigma V^{-1}\)<br>
-And because \(V\) is an orthogonal matrix so we know that \(V^{-1}=V^T\)<br>
-To achieve it we need \(V\) to be square matrix so we have to use <b>Full SVD</b> method, then we get<br>
+Now the real challange is to find these <div class="quantml-katex-display inline">\(V\)</div> and <div class="quantml-katex-display inline">\(U\)</div> <b>Orthonormal</b> matrix.<br>
+Once we got those <div class="quantml-katex-display inline">\(V\)</div> and <div class="quantml-katex-display inline">\(U\)</div> <b>Orthonormal</b> matrix then we can find <div class="quantml-katex-display inline">\(A\)</div> as,<br>
+<div class="quantml-katex-display inline">\(AV=U\Sigma\)</div><br>
+<div class="quantml-katex-display inline">\(A=U\Sigma V^{-1}\)</div><br>
+And because <div class="quantml-katex-display inline">\(V\)</div> is an orthogonal matrix so we know that <div class="quantml-katex-display inline">\(V^{-1}=V^T\)</div><br>
+To achieve it we need <div class="quantml-katex-display inline">\(V\)</div> to be square matrix so we have to use <b>Full SVD</b> method, then we get<br>
 
 <div class="l1 border">
-\[  \begin{matrix}
+<div class="quantml-katex-display">\[  \begin{matrix}
 
     % equation
     A_{m\times n}=U_{m\times m}\Sigma_{m\times n}V_{n\times n}^{T}
     %equation
 
     \end{matrix}
-\]
+\]</div>
 </div>
 <span id="find-U-and-V"></span>
-Everything looks good <b>but</b> how to find these \(V\) and \(U\) <b>Orthonormal</b> matrix.<br>
+Everything looks good <b>but</b> how to find these <div class="quantml-katex-display inline">\(V\)</div> and <div class="quantml-katex-display inline">\(U\)</div> <b>Orthonormal</b> matrix.<br>
 <blockquote>
-    <b><u>IDEA:</u></b> to find the \(V\) and \(U\) are the Matrices \(A^TA\) and \(AA^T\)
+    <b><u>IDEA:</u></b> to find the <div class="quantml-katex-display inline">\(V\)</div> and <div class="quantml-katex-display inline">\(U\)</div> are the Matrices <div class="quantml-katex-display inline">\(A^TA\)</div> and <div class="quantml-katex-display inline">\(AA^T\)</div>
 </blockquote>
 <blockquote>
-    <li><span class="l1">Row space</span> of \(A\) is same as <span class="l1">Row space</span> of \(A^TA\).</li>
-    <i>It is easy to find the basis for <span class="l1">Row space</span> of \(A^TA\), so rather than finding
-    basis for <span class="l1">Row space</span> of \(A\) we will find basis for <span class="l1">Row space</span> of \(A^TA\)</i>
+    <li><span class="l1">Row space</span> of <div class="quantml-katex-display inline">\(A\)</div> is same as <span class="l1">Row space</span> of <div class="quantml-katex-display inline">\(A^TA\)</div>.</li>
+    <i>It is easy to find the basis for <span class="l1">Row space</span> of <div class="quantml-katex-display inline">\(A^TA\)</div>, so rather than finding
+    basis for <span class="l1">Row space</span> of <div class="quantml-katex-display inline">\(A\)</div> we will find basis for <span class="l1">Row space</span> of <div class="quantml-katex-display inline">\(A^TA\)</div></i>
 </blockquote>
 
 <blockquote class="noborder">
 <b>Explanation:</b><br>
-\(A_{m\times n}=\begin{bmatrix}
+<div class="quantml-katex-display inline">\(A_{m\times n}=\begin{bmatrix}
 a_{11} & a_{12} & \cdots & a_{1n} \\  
 a_{21} & a_{22} & \cdots &  a_{2n}   \\
 \vdots & \vdots & \ddots & \vdots \\
 a_{m1} & a_{m2} & \cdots & a_{mn} \\
-\end{bmatrix}\)<br>
-Let's rewrite \(A^TA\)<br>
-\(A^TA=A^T\begin{bmatrix}
+\end{bmatrix}\)</div><br>
+Let's rewrite <div class="quantml-katex-display inline">\(A^TA\)</div><br>
+<div class="quantml-katex-display inline">\(A^TA=A^T\begin{bmatrix}
 a_{11} & a_{12} & \cdots & a_{1n} \\  
 a_{21} & a_{22} & \cdots &  a_{2n}   \\
 \vdots & \vdots & \ddots & \vdots \\
 a_{m1} & a_{m2} & \cdots & a_{mn} \\
-\end{bmatrix}\)<br>
+\end{bmatrix}\)</div><br>
 
-Here we can see that we are mapping the <span class="l1">row vectors</span> of \(A\) onto 
-the <span class="l1">Row Space</span> of \(A^T\).<br>
+Here we can see that we are mapping the <span class="l1">row vectors</span> of <div class="quantml-katex-display inline">\(A\)</div> onto 
+the <span class="l1">Row Space</span> of <div class="quantml-katex-display inline">\(A^T\)</div>.<br>
 
-And if \(\text{Rank}(A)=r\) then \(\Rightarrow \text{Rank}(A^T)=r\) so \(A\) and \(A^T\) both are 
-\(r\)-dimensions <span class="l1">Row Space</span>.<br>
+And if <div class="quantml-katex-display inline">\(\text{Rank}(A)=r\)</div> then <div class="quantml-katex-display inline">\(\Rightarrow \text{Rank}(A^T)=r\)</div> so <div class="quantml-katex-display inline">\(A\)</div> and <div class="quantml-katex-display inline">\(A^T\)</div> both are 
+<div class="quantml-katex-display inline">\(r\)</div>-dimensions <span class="l1">Row Space</span>.<br>
 
-So when we map <span class="l1">row vector</span> of \(A\) onto the <span class="l1">Row Space</span> 
-of \(A^T\) then the resulting <span class="l1">Row Space</span> also has \(r\)-dimensions, so we can say that \(\text{Rank}(A^TA)=r\)<br>
+So when we map <span class="l1">row vector</span> of <div class="quantml-katex-display inline">\(A\)</div> onto the <span class="l1">Row Space</span> 
+of <div class="quantml-katex-display inline">\(A^T\)</div> then the resulting <span class="l1">Row Space</span> also has <div class="quantml-katex-display inline">\(r\)</div>-dimensions, so we can say that <div class="quantml-katex-display inline">\(\text{Rank}(A^TA)=r\)</div><br>
 
-Now we can say that <span class="l1">Row Space</span> of \(A\) is same as 
-<span class="l1">Row Space</span> of \(A^TA\).<br>
+Now we can say that <span class="l1">Row Space</span> of <div class="quantml-katex-display inline">\(A\)</div> is same as 
+<span class="l1">Row Space</span> of <div class="quantml-katex-display inline">\(A^TA\)</div>.<br>
 <br>
-\((A^TA)^T=A^TA \Rightarrow A^TA\) is symmetric matrix, so <br>
-<span class="l1">Row Space</span> of \(A^TA=\) <span class="l2">Column Space</span> of \(A^TA=\) <span class="l1">Row Space</span> of \(A\)<br>  
+<div class="quantml-katex-display inline">\((A^TA)^T=A^TA \Rightarrow A^TA\)</div> is symmetric matrix, so <br>
+<span class="l1">Row Space</span> of <div class="quantml-katex-display inline">\(A^TA=\)</div> <span class="l2">Column Space</span> of <div class="quantml-katex-display inline">\(A^TA=\)</div> <span class="l1">Row Space</span> of <div class="quantml-katex-display inline">\(A\)</div><br>  
 
 </blockquote><br>
 
 <blockquote>
-    <li><span class="l2">Column Space</span> of \(A\) is same as <span class="l2">Column Space</span> of \(AA^T\)</li>
-    <i>It is easy to find the basis for <span class="l2">Column Space</span> of \(AA^T\), so rather than finding
-    basis for <span class="l2">Column Space</span> of \(A\) we will find basis for <span class="l2">Column Space</span> of \(AA^T\)</i>
+    <li><span class="l2">Column Space</span> of <div class="quantml-katex-display inline">\(A\)</div> is same as <span class="l2">Column Space</span> of <div class="quantml-katex-display inline">\(AA^T\)</div></li>
+    <i>It is easy to find the basis for <span class="l2">Column Space</span> of <div class="quantml-katex-display inline">\(AA^T\)</div>, so rather than finding
+    basis for <span class="l2">Column Space</span> of <div class="quantml-katex-display inline">\(A\)</div> we will find basis for <span class="l2">Column Space</span> of <div class="quantml-katex-display inline">\(AA^T\)</div></i>
 </blockquote>
 
 <blockquote class="noborder">
 <b>Explanation:</b><br>
-\(A^T_{m\times n}=\begin{bmatrix}
+<div class="quantml-katex-display inline">\(A^T_{m\times n}=\begin{bmatrix}
 a_{11} & a_{21} & \cdots & a_{m1} \\  
 a_{12} & a_{22} & \cdots &  a_{m2}   \\
 \vdots & \vdots & \ddots & \vdots \\
 a_{1n} & a_{2n} & \cdots & a_{mn} \\
-\end{bmatrix}\)<br>
-Let's rewrite \(AA^T\)<br>
-\(AA^T=A\begin{bmatrix}
+\end{bmatrix}\)</div><br>
+Let's rewrite <div class="quantml-katex-display inline">\(AA^T\)</div><br>
+<div class="quantml-katex-display inline">\(AA^T=A\begin{bmatrix}
 a_{11} & a_{21} & \cdots & a_{m1} \\  
 a_{12} & a_{22} & \cdots &  a_{m2}   \\
 \vdots & \vdots & \ddots & \vdots \\
 a_{1n} & a_{2n} & \cdots & a_{mn} \\
-\end{bmatrix}\)<br>
+\end{bmatrix}\)</div><br>
 
-Here we can see that we are mapping the <span >column vectors</span> of \(A^T\) onto 
-the <span class="l2">Column Space</span> of \(A\).<br>
+Here we can see that we are mapping the <span >column vectors</span> of <div class="quantml-katex-display inline">\(A^T\)</div> onto 
+the <span class="l2">Column Space</span> of <div class="quantml-katex-display inline">\(A\)</div>.<br>
 
-And if \(\text{Rank}(A)=r\) then \(\Rightarrow \text{Rank}(A^T)=r\) so \(A\) and \(A^T\) both are 
-\(r\)-dimensions <span class="l2">Column Space</span>.<br>
+And if <div class="quantml-katex-display inline">\(\text{Rank}(A)=r\)</div> then <div class="quantml-katex-display inline">\(\Rightarrow \text{Rank}(A^T)=r\)</div> so <div class="quantml-katex-display inline">\(A\)</div> and <div class="quantml-katex-display inline">\(A^T\)</div> both are 
+<div class="quantml-katex-display inline">\(r\)</div>-dimensions <span class="l2">Column Space</span>.<br>
 
-So when we map <span >column vector</span> of \(A^T\) onto the <span class="l2">Column Space</span> 
-of \(A\) then the resulting <span class="l2">Column Space</span> also has \(r\)-dimensions, so we can say that \(\text{Rank}(AA^T)=r\)<br>
+So when we map <span >column vector</span> of <div class="quantml-katex-display inline">\(A^T\)</div> onto the <span class="l2">Column Space</span> 
+of <div class="quantml-katex-display inline">\(A\)</div> then the resulting <span class="l2">Column Space</span> also has <div class="quantml-katex-display inline">\(r\)</div>-dimensions, so we can say that <div class="quantml-katex-display inline">\(\text{Rank}(AA^T)=r\)</div><br>
 
-Now we can say that <span class="l2">Column Space</span> of \(A\) is same as 
-<span class="l2">Column Space</span> of \(AA^T\).<br>
+Now we can say that <span class="l2">Column Space</span> of <div class="quantml-katex-display inline">\(A\)</div> is same as 
+<span class="l2">Column Space</span> of <div class="quantml-katex-display inline">\(AA^T\)</div>.<br>
 <br>
-\((AA^T)^T=AA^T \Rightarrow AA^T\) is symmetric matrix, so <br>
-<span class="l2">Column Space</span> of \(AA^T=\) <span class="l1">Row Space</span> of \(AA^T=\) <span class="l2">Column Space</span> of \(A\)<br>
+<div class="quantml-katex-display inline">\((AA^T)^T=AA^T \Rightarrow AA^T\)</div> is symmetric matrix, so <br>
+<span class="l2">Column Space</span> of <div class="quantml-katex-display inline">\(AA^T=\)</div> <span class="l1">Row Space</span> of <div class="quantml-katex-display inline">\(AA^T=\)</div> <span class="l2">Column Space</span> of <div class="quantml-katex-display inline">\(A\)</div><br>
 </blockquote>
 <br>
 
-<h2 id="V">Finding orthonormal Row vectors\((V)\) for matrix \(A\)</h2>
+<h2 id="V">Finding orthonormal Row vectors<div class="quantml-katex-display inline">\((V)\)</div> for matrix <div class="quantml-katex-display inline">\(A\)</div></h2>
 
-    We discussed that <span class="l1">Row space</span> of \(A\) is same as <span class="l1">Row space</span> of \(A^TA\).<br>
-    So we need to find orthonormal Row vectors for matrix \(A^TA\).<br>
+    We discussed that <span class="l1">Row space</span> of <div class="quantml-katex-display inline">\(A\)</div> is same as <span class="l1">Row space</span> of <div class="quantml-katex-display inline">\(A^TA\)</div>.<br>
+    So we need to find orthonormal Row vectors for matrix <div class="quantml-katex-display inline">\(A^TA\)</div>.<br>
 
-    \(A_{m\times n}=U_{m\times m}\Sigma_{m\times n}V_{n\times n}^{T}\)<br>
-    \((\Sigma^T_{m\times n}=\Sigma_{n\times m})\)<br>
-    \(\Rightarrow (A^T)_{n\times m} = V_{n\times n}\Sigma_{n\times m}U_{m\times m}^{T}\)<br>    
-    \(\Rightarrow (A^T)_{n\times m}A_{m\times n} = V_{n\times n}\Sigma_{n\times m} \underbrace{U_{m\times m}^{T} U_{m\times m}}_{=\mathcal{I}_m} \Sigma_{m\times n}V_{n\times n}^{T}\)<br>
+    <div class="quantml-katex-display inline">\(A_{m\times n}=U_{m\times m}\Sigma_{m\times n}V_{n\times n}^{T}\)</div><br>
+    <div class="quantml-katex-display inline">\((\Sigma^T_{m\times n}=\Sigma_{n\times m})\)</div><br>
+    <div class="quantml-katex-display inline">\(\Rightarrow (A^T)_{n\times m} = V_{n\times n}\Sigma_{n\times m}U_{m\times m}^{T}\)</div><br>    
+    <div class="quantml-katex-display inline">\(\Rightarrow (A^T)_{n\times m}A_{m\times n} = V_{n\times n}\Sigma_{n\times m} \underbrace{U_{m\times m}^{T} U_{m\times m}}_{=\mathcal{I}_m} \Sigma_{m\times n}V_{n\times n}^{T}\)</div><br>
 
     <blockquote class="noborder">
     <div class="math-container">
-    \[\Sigma_{n\times m}\Sigma_{m\times n}=  
+    <div class="quantml-katex-display">\[\Sigma_{n\times m}\Sigma_{m\times n}=  
     \underbrace{\begin{bmatrix}
     \begin{bmatrix}
     \sigma_1 &             &            & \huge0          \\  
@@ -613,10 +613,10 @@ Now we can say that <span class="l2">Column Space</span> of \(A\) is same as
     &
     \mathbf{0}_{m\times (n-m)}
     \end  {bmatrix}}_{ \Sigma_{m\times n} } 
-    \]
+    \]</div>
     </div>
     <div class="math-container">
-    \[\Sigma_{n\times m}\Sigma_{m\times n}=  
+    <div class="quantml-katex-display">\[\Sigma_{n\times m}\Sigma_{m\times n}=  
     \underbrace{\begin{bmatrix}
     \begin{bmatrix}
     \sigma_1^2 &             &            & \huge0          \\  
@@ -630,10 +630,10 @@ Now we can say that <span class="l2">Column Space</span> of \(A\) is same as
     \mathbf{0}_{(n-m)\times m}  & \mathbf{0}_{(n-m)\times (n-m)} \\
     \end{bmatrix}}_{ \Sigma^2_{n\times n}}
     = \Sigma^2_{n\times n}
-    \]
+    \]</div>
     </div>
     <div class="math-container">
-    \[\Sigma^2_{n\times n}=
+    <div class="quantml-katex-display">\[\Sigma^2_{n\times n}=
     \begin{bmatrix}
     \begin{bmatrix}
     \sigma_1^2 &             &            & \huge0          \\  
@@ -645,37 +645,37 @@ Now we can say that <span class="l2">Column Space</span> of \(A\) is same as
     &
     \mathbf{0}_{m\times (n-m)} \\
     \mathbf{0}_{(n-m)\times m}  & \mathbf{0}_{(n-m)\times (n-m)} \\
-    \end{bmatrix}_{n\times n}\]
+    \end{bmatrix}_{n\times n}\]</div>
     </div>
     </blockquote><br>
-    \(\Rightarrow (A^T)_{n\times m}A_{m\times n} = V_{n\times n}\Sigma^2_{n\times n}V_{n\times n}^{T}\)<br>
-        Those \(3\) \(\mathbf{0}\) matrices are interesting,
-        <li>\(\mathbf{0}_{m\times (n-m)}\)</li>
-        <li>\(\mathbf{0}_{(n-m)\times m}\)</li>
-        <li>\(\mathbf{0}_{(n-m)\times (n-m)}\)</li>
-        Remember that in Full SVD we said that \(\text{Rank}(A)=m\) so there must be \(n-m\) dependent row vectors.
-        and these \(\mathbf{0}\) matrices are negating those dependent vectors.<br>
+    <div class="quantml-katex-display inline">\(\Rightarrow (A^T)_{n\times m}A_{m\times n} = V_{n\times n}\Sigma^2_{n\times n}V_{n\times n}^{T}\)</div><br>
+        Those <div class="quantml-katex-display inline">\(3\)</div> <div class="quantml-katex-display inline">\(\mathbf{0}\)</div> matrices are interesting,
+        <li><div class="quantml-katex-display inline">\(\mathbf{0}_{m\times (n-m)}\)</div></li>
+        <li><div class="quantml-katex-display inline">\(\mathbf{0}_{(n-m)\times m}\)</div></li>
+        <li><div class="quantml-katex-display inline">\(\mathbf{0}_{(n-m)\times (n-m)}\)</div></li>
+        Remember that in Full SVD we said that <div class="quantml-katex-display inline">\(\text{Rank}(A)=m\)</div> so there must be <div class="quantml-katex-display inline">\(n-m\)</div> dependent row vectors.
+        and these <div class="quantml-katex-display inline">\(\mathbf{0}\)</div> matrices are negating those dependent vectors.<br>
         
     <blockquote>
-        <a  href="/linear-algebra/symmetric-matrices/#p2">Remember \([A=Q\Lambda Q^T]\)</a> where \(A\) is symmetric matrix.<br>
+        <a  href="/linear-algebra/symmetric-matrices/#p2">Remember <div class="quantml-katex-display inline">\([A=Q\Lambda Q^T]\)</div></a> where <div class="quantml-katex-display inline">\(A\)</div> is symmetric matrix.<br>
     </blockquote>
-    \(A^TA\) is a symmetric matrix, so
+    <div class="quantml-katex-display inline">\(A^TA\)</div> is a symmetric matrix, so
     <blockquote>
-        Columns of \(V\) are <b>eigenvectors</b> of matrix \(A^TA\),  and \(\sigma_i^2\) are the \(i^{th}\) <b>eigenvalue</b> of matrix \(A^TA\)
+        Columns of <div class="quantml-katex-display inline">\(V\)</div> are <b>eigenvectors</b> of matrix <div class="quantml-katex-display inline">\(A^TA\)</div>,  and <div class="quantml-katex-display inline">\(\sigma_i^2\)</div> are the <div class="quantml-katex-display inline">\(i^{th}\)</div> <b>eigenvalue</b> of matrix <div class="quantml-katex-display inline">\(A^TA\)</div>
     </blockquote><br>
-    <h2 id="U">Finding orthonormal Column Vectors\((U)\) for matrix \(A\)</h2>
+    <h2 id="U">Finding orthonormal Column Vectors<div class="quantml-katex-display inline">\((U)\)</div> for matrix <div class="quantml-katex-display inline">\(A\)</div></h2>
 
-    We discussed that <span class="l2">Column Space</span> of \(A\) is same as <span class="l2">Column Space</span> of \(AA^T\).<br>
-    So we need to find orthonormal Column vectors for matrix \(AA^T\).<br>
+    We discussed that <span class="l2">Column Space</span> of <div class="quantml-katex-display inline">\(A\)</div> is same as <span class="l2">Column Space</span> of <div class="quantml-katex-display inline">\(AA^T\)</div>.<br>
+    So we need to find orthonormal Column vectors for matrix <div class="quantml-katex-display inline">\(AA^T\)</div>.<br>
 
-    \(A_{m\times n}=U_{m\times m}\Sigma_{m\times n}V_{n\times n}^{T}\)<br>
-    \((\Sigma^T_{m\times n}=\Sigma_{n\times m})\)<br>
-    \(\Rightarrow (A^T)_{n\times m} = V_{n\times n}\Sigma_{n\times m}U_{m\times m}^{T}\)<br>    
-    \(\Rightarrow A_{m\times n}(A^T)_{n\times m} = U_{m\times m}\Sigma_{m\times n} \underbrace{V_{n\times n}^{T} V_{n\times n}}_{=\mathcal{I}_n} \Sigma_{n\times m}U_{m\times m}^{T}\)<br>
+    <div class="quantml-katex-display inline">\(A_{m\times n}=U_{m\times m}\Sigma_{m\times n}V_{n\times n}^{T}\)</div><br>
+    <div class="quantml-katex-display inline">\((\Sigma^T_{m\times n}=\Sigma_{n\times m})\)</div><br>
+    <div class="quantml-katex-display inline">\(\Rightarrow (A^T)_{n\times m} = V_{n\times n}\Sigma_{n\times m}U_{m\times m}^{T}\)</div><br>    
+    <div class="quantml-katex-display inline">\(\Rightarrow A_{m\times n}(A^T)_{n\times m} = U_{m\times m}\Sigma_{m\times n} \underbrace{V_{n\times n}^{T} V_{n\times n}}_{=\mathcal{I}_n} \Sigma_{n\times m}U_{m\times m}^{T}\)</div><br>
 
     <blockquote class="noborder">
     <div class="math-container">
-        \[\Sigma_{m\times n}\Sigma_{n\times m}=  
+        <div class="quantml-katex-display">\[\Sigma_{m\times n}\Sigma_{n\times m}=  
         \underbrace{\begin{bmatrix}
         \begin{bmatrix}
         \sigma_1 &             &            & \huge0          \\  
@@ -699,11 +699,11 @@ Now we can say that <span class="l2">Column Space</span> of \(A\) is same as
         \\
         \mathbf{0}_{(n-m)\times m}
         \end  {bmatrix}}_{ \Sigma_{n\times m} }
-        \]
+        \]</div>
     </div>
     
     <div class="math-container">
-        \[\Sigma_{n\times m}\Sigma_{m\times n}=  
+        <div class="quantml-katex-display">\[\Sigma_{n\times m}\Sigma_{m\times n}=  
         \underbrace{\begin{bmatrix}
         \sigma_1^2 &             &            & \huge0          \\  
                 &  \sigma_2^2   &             &           \\
@@ -712,28 +712,28 @@ Now we can say that <span class="l2">Column Space</span> of \(A\) is same as
 
         \end{bmatrix}}_{ \Sigma^2_{m\times m}}
         = \Sigma^2_{m\times m}
-        \]
+        \]</div>
     </div>
-    \[\Sigma^2_{m\times m}=
+    <div class="quantml-katex-display">\[\Sigma^2_{m\times m}=
     \begin{bmatrix}
     \sigma_1^2 &             &            & \huge0          \\  
             &  \sigma_2^2   &             &           \\
             &             & \ddots     &          \\
     \huge0  &             &            &  \sigma_m^2 \\
 
-    \end{bmatrix}_{m\times m}\]
+    \end{bmatrix}_{m\times m}\]</div>
     </blockquote><br>
-    \(\Rightarrow A_{m\times n}(A^T)_{n\times m} = U_{m\times m}\Sigma^2_{m\times m}U_{m\times m}^{T}\)<br>
-    This time there isn't any  \(\mathbf{0}\) matrix, because as we discussed,
-    in Full SVD \(\text{Rank}(A)=m\) so all columns vectors and row vectors of \(U\) are independent.<br>
+    <div class="quantml-katex-display inline">\(\Rightarrow A_{m\times n}(A^T)_{n\times m} = U_{m\times m}\Sigma^2_{m\times m}U_{m\times m}^{T}\)</div><br>
+    This time there isn't any  <div class="quantml-katex-display inline">\(\mathbf{0}\)</div> matrix, because as we discussed,
+    in Full SVD <div class="quantml-katex-display inline">\(\text{Rank}(A)=m\)</div> so all columns vectors and row vectors of <div class="quantml-katex-display inline">\(U\)</div> are independent.<br>
     <br>
 
     <blockquote>
-        <a  href="/linear-algebra/symmetric-matrices/#p2">Remember \([A=Q\Lambda Q^T]\)</a> where \(A\) is symmetric matrix.<br>
+        <a  href="/linear-algebra/symmetric-matrices/#p2">Remember <div class="quantml-katex-display inline">\([A=Q\Lambda Q^T]\)</div></a> where <div class="quantml-katex-display inline">\(A\)</div> is symmetric matrix.<br>
     </blockquote>
-    \(AA^T\) is a symmetric matrix, so
+    <div class="quantml-katex-display inline">\(AA^T\)</div> is a symmetric matrix, so
     <blockquote>
-        Columns of \(U\) are <b>eigenvectors</b> of matrix \(AA^T\),  and \(\sigma_i^2\) are the \(i^{th}\) <b>eigenvalue</b> of matrix \(AA^T\)
+        Columns of <div class="quantml-katex-display inline">\(U\)</div> are <b>eigenvectors</b> of matrix <div class="quantml-katex-display inline">\(AA^T\)</div>,  and <div class="quantml-katex-display inline">\(\sigma_i^2\)</div> are the <div class="quantml-katex-display inline">\(i^{th}\)</div> <b>eigenvalue</b> of matrix <div class="quantml-katex-display inline">\(AA^T\)</div>
     </blockquote>
 
 </p>

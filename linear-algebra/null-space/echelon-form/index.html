@@ -42,7 +42,7 @@
                             <li class="cover"><a href="/linear-algebra/"><img src="/data/img/linear-algebra-cover.webp" alt="Linear Algebra"></a></li>
                             <li><a href="/linear-algebra/null-space/">Null Space</a></li>
                             <li class="active title">Echelon Form</li>
-                            <li><a href="/linear-algebra/null-space/solve/">Solve \(A\vec{x}=0\)</a></li>
+                            <li><a href="/linear-algebra/null-space/solve/">Solve <div class="quantml-katex-display inline">\(A\vec{x}=0\)</div></a></li>
                             <li><a href="/linear-algebra/null-space/reduced-row-echelon-form/">RREF</a></li>
                         </ul>
                         <ul id="nav-bar-icons-head" class="icons"></ul>
@@ -57,7 +57,7 @@
 <div id="paragraph-content" data-swipe-threshold="80">
 <div id="btn-container">
     <button id="prev-btn" class="button" onclick="window.location.href = '/linear-algebra/null-space/';">&#x25C0;&nbsp;&nbsp; Null Space</button>
-    <button id="next-btn" class="button"  style="float: right;" onclick="window.location.href = '/linear-algebra/null-space/solve/';">Solve \(A\vec{x}=0\)&nbsp;&nbsp;&#x25B6;</button>
+    <button id="next-btn" class="button"  style="float: right;" onclick="window.location.href = '/linear-algebra/null-space/solve/';">Solve <div class="quantml-katex-display inline">\(A\vec{x}=0\)</div>&nbsp;&nbsp;&#x25B6;</button>
 </div><br>
 
 
@@ -66,58 +66,58 @@
     but how to find a Null space for an arbitrary large matrix, We can't do that by hands.
     So what are the steps (Algorithm) to find the Null space.<br>
     <h1>Echelon Form</h1>
-    To find Null Space first we convert our matrix (say \(A\)) in <b>echelon form</b> using Elimination technique.<br>
+    To find Null Space first we convert our matrix (say <div class="quantml-katex-display inline">\(A\)</div>) in <b>echelon form</b> using Elimination technique.<br>
     For example Say our matrix is
-    \(A=\begin{bmatrix}
+    <div class="quantml-katex-display inline">\(A=\begin{bmatrix}
     1 & 2 & 2 & 2\\
     2 & 4 & 6 & 8\\
     3 & 6 & 8 & 10\\
-    \end{bmatrix}\)<br>
-    From now on we refer to \(i^{th}\) Row as \(r_i\) and \(j^{th}\) column as \(c_j\)<br>
-    box \(\fbox{}\) represent pivot element.<br>
-    <!-- we can see that \(c_2=2c_1\) so column 1 and column 2 are parallel, \(r_3 = r_1+r_2\).<br> <change>-->
-    <b>Step 1</b>: of elimination method, here we make all element \(0\) in \(c_1\) below the \(1^{st}\) element.<br>
-    \(r_2\leftarrow r_2-2r_1\)<br>
-    \(A=\begin{bmatrix}
+    \end{bmatrix}\)</div><br>
+    From now on we refer to <div class="quantml-katex-display inline">\(i^{th}\)</div> Row as <div class="quantml-katex-display inline">\(r_i\)</div> and <div class="quantml-katex-display inline">\(j^{th}\)</div> column as <div class="quantml-katex-display inline">\(c_j\)</div><br>
+    box <div class="quantml-katex-display inline">\(\fbox{}\)</div> represent pivot element.<br>
+    <!-- we can see that <div class="quantml-katex-display inline">\(c_2=2c_1\)</div> so column 1 and column 2 are parallel, <div class="quantml-katex-display inline">\(r_3 = r_1+r_2\)</div>.<br> <change>-->
+    <b>Step 1</b>: of elimination method, here we make all element <div class="quantml-katex-display inline">\(0\)</div> in <div class="quantml-katex-display inline">\(c_1\)</div> below the <div class="quantml-katex-display inline">\(1^{st}\)</div> element.<br>
+    <div class="quantml-katex-display inline">\(r_2\leftarrow r_2-2r_1\)</div><br>
+    <div class="quantml-katex-display inline">\(A=\begin{bmatrix}
     \fbox{1} & 2 & 2 & 2\\
     0 & 0 & 2 & 4\\
     3 & 6 & 8 & 10\\
-    \end{bmatrix}\)<br>
-    \(r_3\leftarrow r_3-3r_1\)<br>
-    \(A=\begin{bmatrix}
+    \end{bmatrix}\)</div><br>
+    <div class="quantml-katex-display inline">\(r_3\leftarrow r_3-3r_1\)</div><br>
+    <div class="quantml-katex-display inline">\(A=\begin{bmatrix}
     \fbox{1} & 2 & 2 & 2\\
     0 & 0 & 2 & 4\\
     0 & 0 & 2 & 4\\
-    \end{bmatrix}\)<br>
+    \end{bmatrix}\)</div><br>
     
-    <b>Step 2</b>: of elimination method, here we make all element \(0\) in \(c_2\) below the \(2^{nd}\) element.<br>
-    \(A=\begin{bmatrix}
+    <b>Step 2</b>: of elimination method, here we make all element <div class="quantml-katex-display inline">\(0\)</div> in <div class="quantml-katex-display inline">\(c_2\)</div> below the <div class="quantml-katex-display inline">\(2^{nd}\)</div> element.<br>
+    <div class="quantml-katex-display inline">\(A=\begin{bmatrix}
     \fbox{1} & 2 & 2 & 2\\
     0 & 0 & 2 & 4\\
     0 & 0 & 2 & 4\\
-    \end{bmatrix}\)<br>
-    Here \(2^{nd}\) element itself is \(0\), and all element below it also \(0\), so move forward.<br>
+    \end{bmatrix}\)</div><br>
+    Here <div class="quantml-katex-display inline">\(2^{nd}\)</div> element itself is <div class="quantml-katex-display inline">\(0\)</div>, and all element below it also <div class="quantml-katex-display inline">\(0\)</div>, so move forward.<br>
     
-    <b>Step 3</b>: of elimination method, here we make all element \(0\) in \(c_3\) below the \(2^{nd}\) element.<br>
-    \(A=\begin{bmatrix}
+    <b>Step 3</b>: of elimination method, here we make all element <div class="quantml-katex-display inline">\(0\)</div> in <div class="quantml-katex-display inline">\(c_3\)</div> below the <div class="quantml-katex-display inline">\(2^{nd}\)</div> element.<br>
+    <div class="quantml-katex-display inline">\(A=\begin{bmatrix}
     \fbox{1} & 2 & 2 & 2\\
     0 & 0 & 2 & 4\\
     0 & 0 & 2 & 4\\
-    \end{bmatrix}\)<br>
+    \end{bmatrix}\)</div><br>
     
-    \(r_3\leftarrow r_3-r_2\)<br>
-    \(A=\begin{bmatrix}
+    <div class="quantml-katex-display inline">\(r_3\leftarrow r_3-r_2\)</div><br>
+    <div class="quantml-katex-display inline">\(A=\begin{bmatrix}
     \fbox{1} & 2 & 2 & 2\\
     0 & 0 & \fbox{2} & 4\\
     0 & 0 & 0 & 0\\
-    \end{bmatrix}\)<br>
+    \end{bmatrix}\)</div><br>
     
-    We end here because \(3^{rd}\) element of \(c_4\) is itself \(0\)<br>
-    So we got total \(2\) pivots, this is also the rank of this matrix.<br>
+    We end here because <div class="quantml-katex-display inline">\(3^{rd}\)</div> element of <div class="quantml-katex-display inline">\(c_4\)</div> is itself <div class="quantml-katex-display inline">\(0\)</div><br>
+    So we got total <div class="quantml-katex-display inline">\(2\)</div> pivots, this is also the rank of this matrix.<br>
     <blockquote>
-    <b>\(\text{Rank}(A)\) = # of pivots</b>
+    <b><div class="quantml-katex-display inline">\(\text{Rank}(A)\)</div> = # of pivots</b>
     </blockquote>
-    Our matrix has 4 columns, \(2\) of them are <b>pivot columns</b> and other we call <b>free columns</b><br>
+    Our matrix has 4 columns, <div class="quantml-katex-display inline">\(2\)</div> of them are <b>pivot columns</b> and other we call <b>free columns</b><br>
     
     <br>
     <h2 id="pivot-free-columns" >What are those <u>pivot column</u> and <u>free columns</u>?</h2>
@@ -126,14 +126,14 @@
     And <b>Pivot columns</b> are independent columns.<br>
     we can get those <b>free columns</b> by a linear combination of <b>pivot columns</b>.
     </blockquote>
-    As in our example our <b>pivot columns</b> are \(c_1\) and \(c_3\), and <b>free columns</b> are \(c_2\) and \(c_4\)<br>
-    \(A=\begin{bmatrix}
+    As in our example our <b>pivot columns</b> are <div class="quantml-katex-display inline">\(c_1\)</div> and <div class="quantml-katex-display inline">\(c_3\)</div>, and <b>free columns</b> are <div class="quantml-katex-display inline">\(c_2\)</div> and <div class="quantml-katex-display inline">\(c_4\)</div><br>
+    <div class="quantml-katex-display inline">\(A=\begin{bmatrix}
     1 & 2 & 2 & 2\\
     2 & 4 & 6 & 8\\
     3 & 6 & 8 & 10\\
-    \end{bmatrix}\)<br>
-    We can get \(c_2\) as: \(c_2 = 2c_1\)<br>
-    We can get \(c_4\) as: \(c_4 = 2(c_3-c_1)\)
+    \end{bmatrix}\)</div><br>
+    We can get <div class="quantml-katex-display inline">\(c_2\)</div> as: <div class="quantml-katex-display inline">\(c_2 = 2c_1\)</div><br>
+    We can get <div class="quantml-katex-display inline">\(c_4\)</div> as: <div class="quantml-katex-display inline">\(c_4 = 2(c_3-c_1)\)</div>
 </p>
     
 
@@ -141,7 +141,7 @@
 </div>
 <div id="btn-container">
     <button id="prev-btn" class="button" onclick="window.location.href = '/linear-algebra/null-space/';">&#x25C0;&nbsp;&nbsp; Null Space</button>
-    <button id="next-btn" class="button"  style="float: right;" onclick="window.location.href = '/linear-algebra/null-space/solve/';">Solve \(A\vec{x}=0\)&nbsp;&nbsp;&#x25B6;</button>
+    <button id="next-btn" class="button"  style="float: right;" onclick="window.location.href = '/linear-algebra/null-space/solve/';">Solve <div class="quantml-katex-display inline">\(A\vec{x}=0\)</div>&nbsp;&nbsp;&#x25B6;</button>
 </div><br>
         <div id="modals-html"></div>
 

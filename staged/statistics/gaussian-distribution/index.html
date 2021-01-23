@@ -85,17 +85,17 @@ We had already witnessed it's importance in <a rel="noreferrer" target="_blank" 
         <table style="font-family: Open Sans">
             <tr>
                 <td>Notation</td>
-                <td>\[\mathcal{N}(\mu,\sigma^2)\]</td>
-                <td>Here \(\mu\) and \(\sigma^2\) are parameters<br>Where \(-\infty &lt \mu &lt +\infty\)<br>And \(\sigma^2 \gt \infty\)</td>
+                <td><div class="quantml-katex-display">\[\mathcal{N}(\mu,\sigma^2)\]</div></td>
+                <td>Here <div class="quantml-katex-display inline">\(\mu\)</div> and <div class="quantml-katex-display inline">\(\sigma^2\)</div> are parameters<br>Where <div class="quantml-katex-display inline">\(-\infty &lt \mu &lt +\infty\)</div><br>And <div class="quantml-katex-display inline">\(\sigma^2 \gt \infty\)</div></td>
             </tr>
             <tr>
                 <td>PDF</td>
-                <td>\[f(x)=\frac{1}{\sigma \sqrt{2\pi }} \exp \left(-\frac{(x-\mu )^2}{2 \sigma ^2}\right)\]</td>
-                <td>\(-\infty \lt x \lt \infty\)</td>
+                <td><div class="quantml-katex-display">\[f(x)=\frac{1}{\sigma \sqrt{2\pi }} \exp \left(-\frac{(x-\mu )^2}{2 \sigma ^2}\right)\]</div></td>
+                <td><div class="quantml-katex-display inline">\(-\infty \lt x \lt \infty\)</div></td>
             </tr>
             <tr>
                 <td>CDF</td>
-                <td>\[F(x)=\frac{1}{\sigma \sqrt{2\pi }} \int_{-\infty}^{x}\exp \left(-\frac{(t-\mu )^2}{2 \sigma ^2}\right)dt\]</td>
+                <td><div class="quantml-katex-display">\[F(x)=\frac{1}{\sigma \sqrt{2\pi }} \int_{-\infty}^{x}\exp \left(-\frac{(t-\mu )^2}{2 \sigma ^2}\right)dt\]</div></td>
                 <td>There is no closed form solution, <br> for CDF of a Normal distribution</td>
             </tr>
         </table>
@@ -106,17 +106,17 @@ We had already witnessed it's importance in <a rel="noreferrer" target="_blank" 
         <table style="font-family: Open Sans">
             <tr>
                 <td>Notation</td>
-                <td style="text-align: center;">\[\mathcal{N}(\mu,\sigma^2)\] 
-                Here \(\mu\) and \(\sigma^2\) are parameters<br>Where \(-\infty &lt \mu &lt +\infty\)<br>And \(\sigma^2 \gt \infty\)</td>
+                <td style="text-align: center;"><div class="quantml-katex-display">\[\mathcal{N}(\mu,\sigma^2)\]</div> 
+                Here <div class="quantml-katex-display inline">\(\mu\)</div> and <div class="quantml-katex-display inline">\(\sigma^2\)</div> are parameters<br>Where <div class="quantml-katex-display inline">\(-\infty &lt \mu &lt +\infty\)</div><br>And <div class="quantml-katex-display inline">\(\sigma^2 \gt \infty\)</div></td>
             </tr>
             <tr>
                 <td>PDF</td>
-                <td style="text-align: center;">\[f(x)=\frac{1}{\sigma \sqrt{2\pi }} \exp \left(-\frac{(x-\mu )^2}{2 \sigma ^2}\right)\] 
-                \(-\infty \lt x \lt \infty\)</td>
+                <td style="text-align: center;"><div class="quantml-katex-display">\[f(x)=\frac{1}{\sigma \sqrt{2\pi }} \exp \left(-\frac{(x-\mu )^2}{2 \sigma ^2}\right)\]</div> 
+                <div class="quantml-katex-display inline">\(-\infty \lt x \lt \infty\)</div></td>
             </tr>
             <tr>
                 <td>CDF</td>
-                <td style="text-align: center;">\[F(x)=\frac{1}{\sigma \sqrt{2\pi }} \int_{-\infty}^{x}\exp \left(-\frac{(t-\mu )^2}{2 \sigma ^2}\right)dt\] 
+                <td style="text-align: center;"><div class="quantml-katex-display">\[F(x)=\frac{1}{\sigma \sqrt{2\pi }} \int_{-\infty}^{x}\exp \left(-\frac{(t-\mu )^2}{2 \sigma ^2}\right)dt\]</div> 
                 There is no closed form solution, <br> for CDF of a Normal distribution</td>
             </tr>
         </table>
@@ -145,63 +145,63 @@ gaussian_plot(10,4)
 <h2 id="gauss_properties">Properties of Gaussian<a style="color: rgb(20, 57, 168);" href="#gauss_properties"><i class="fa fa-link" aria-hidden="true"></i></a></h2>
 
 <h3 style="margin-top: 20px;">The Empirical Rule</h3>
-The Empirical Rule \((\text{a.k.a. }68-95-99.7\text{ rule})\) says: <br>
+The Empirical Rule <div class="quantml-katex-display inline">\((\text{a.k.a. }68-95-99.7\text{ rule})\)</div> says: <br>
 <img class="full-size-img" src="../img/gaussian-distribution/68-95-99.7.png" alt="" width="437px" height="430px">
 <ul>
-    <li>\(68\%\) of population lies within \(1\) standard deviation\((\sigma)\) from the mean\((\mu)\).</li>
-    <li>\(95\%\) of population lies within \(2\) standard deviation\((\sigma)\) from the mean\((\mu)\).</li>
-    <li>\(99.7\%\) of population lies within \(3\) standard deviation\((\sigma)\) from the mean\((\mu)\).</li>
+    <li><div class="quantml-katex-display inline">\(68\%\)</div> of population lies within <div class="quantml-katex-display inline">\(1\)</div> standard deviation<div class="quantml-katex-display inline">\((\sigma)\)</div> from the mean<div class="quantml-katex-display inline">\((\mu)\)</div>.</li>
+    <li><div class="quantml-katex-display inline">\(95\%\)</div> of population lies within <div class="quantml-katex-display inline">\(2\)</div> standard deviation<div class="quantml-katex-display inline">\((\sigma)\)</div> from the mean<div class="quantml-katex-display inline">\((\mu)\)</div>.</li>
+    <li><div class="quantml-katex-display inline">\(99.7\%\)</div> of population lies within <div class="quantml-katex-display inline">\(3\)</div> standard deviation<div class="quantml-katex-display inline">\((\sigma)\)</div> from the mean<div class="quantml-katex-display inline">\((\mu)\)</div>.</li>
 </ul>
 
 <h3 style="margin-top: 20px;">Linear functions of Normal random variable</h3>
 Gaussians are invariant under affine(linear) transformation, it means when we do a linear transformation of a Gaussian random variable, it remains a Gaussian random variable. <br>
-Like if <span class="bb">\(X\sim\mathcal{N}(\mu,\sigma^2)\)</span> and <span class="bb">\(Y=aX+b\)</span> then <span class="bb">\(Y\sim\mathcal{N}(a\mu+b,a^2\sigma^2)\)</span>
+Like if <span class="bb"><div class="quantml-katex-display inline">\(X\sim\mathcal{N}(\mu,\sigma^2)\)</div></span> and <span class="bb"><div class="quantml-katex-display inline">\(Y=aX+b\)</div></span> then <span class="bb"><div class="quantml-katex-display inline">\(Y\sim\mathcal{N}(a\mu+b,a^2\sigma^2)\)</div></span>
 <details open>
     <summary><span class="bb">Explanation</span></summary>
     <blockquote class="sidebar"> 
         <div class="math-container">
-        \(\mathbb{E}[Y] =\mathbb{E}[aX+b]\) <br>
-        \(\mathbb{E}[Y] =\mathbb{E}[aX]+b  \quad; \text{by linearity of expectation}\) <br>
-        \(\mathbb{E}[Y] =a\mathbb{E}[X] +b\)  <br>
-        \(\mathbb{E}[Y] = a\mu+b\)          <br>
-        \(Var(Y) = Var(aX+b)\)  <br>
-        \(Var(Y) = Var(aX)\) <br>
-        \(Var(Y) =a^2Var(X)\) <br>
-        \(Var(Y) =a^2\sigma^2\)
+        <div class="quantml-katex-display inline">\(\mathbb{E}[Y] =\mathbb{E}[aX+b]\)</div> <br>
+        <div class="quantml-katex-display inline">\(\mathbb{E}[Y] =\mathbb{E}[aX]+b  \quad; \text{by linearity of expectation}\)</div> <br>
+        <div class="quantml-katex-display inline">\(\mathbb{E}[Y] =a\mathbb{E}[X] +b\)</div>  <br>
+        <div class="quantml-katex-display inline">\(\mathbb{E}[Y] = a\mu+b\)</div>          <br>
+        <div class="quantml-katex-display inline">\(Var(Y) = Var(aX+b)\)</div>  <br>
+        <div class="quantml-katex-display inline">\(Var(Y) = Var(aX)\)</div> <br>
+        <div class="quantml-katex-display inline">\(Var(Y) =a^2Var(X)\)</div> <br>
+        <div class="quantml-katex-display inline">\(Var(Y) =a^2\sigma^2\)</div>
         </div>
     </blockquote>
 </details><br>
 
 <h3 id="standardization">Standardization (a.k.a. Normalization/Z-score)<a style="color: rgb(20, 57, 168);" href="#standardization"><i class="fa fa-link" aria-hidden="true"></i></a></h3>
-As we know that CDF of Gaussian distribution has no close form, so we can't solve it by hand. So we need a computer to do it for us. But the problem is, there are so many Gaussian r.v. with different \(\mu\) and \(\sigma^2\).<br>
-The solution for this is Standardization. By it we can convert any Gaussian r.v. to a Standard Gaussian r.v \(\mathcal{N}(0,1)\).<br>
-If \(X\sim\mathcal{N}(\mu,\sigma^2)\) then:<br>
+As we know that CDF of Gaussian distribution has no close form, so we can't solve it by hand. So we need a computer to do it for us. But the problem is, there are so many Gaussian r.v. with different <div class="quantml-katex-display inline">\(\mu\)</div> and <div class="quantml-katex-display inline">\(\sigma^2\)</div>.<br>
+The solution for this is Standardization. By it we can convert any Gaussian r.v. to a Standard Gaussian r.v <div class="quantml-katex-display inline">\(\mathcal{N}(0,1)\)</div>.<br>
+If <div class="quantml-katex-display inline">\(X\sim\mathcal{N}(\mu,\sigma^2)\)</div> then:<br>
 <div class="math-container">
-\[X-\mu\sim\mathcal{N}(0,\sigma^2) \]
-\[\frac{X-\mu}{\sigma}\sim\mathcal{N}(0,1) \]
-\[\Rightarrow Z=\frac{X-\mu}{\sigma}\sim\mathcal{N}(0,1)\]
+<div class="quantml-katex-display">\[X-\mu\sim\mathcal{N}(0,\sigma^2) \]</div>
+<div class="quantml-katex-display">\[\frac{X-\mu}{\sigma}\sim\mathcal{N}(0,1) \]</div>
+<div class="quantml-katex-display">\[\Rightarrow Z=\frac{X-\mu}{\sigma}\sim\mathcal{N}(0,1)\]</div>
 </div>
 
 Now we can compute probabilities for any Gaussian distribution:
 <div class="math-container">
-\[\mathbb{P}\left(u\lt X\lt v\right)=\mathbb{P}\left(\frac{u-\mu}{\sigma} \lt Z \lt \frac{v-\mu}{\sigma}\right)\]
+<div class="quantml-katex-display">\[\mathbb{P}\left(u\lt X\lt v\right)=\mathbb{P}\left(\frac{u-\mu}{\sigma} \lt Z \lt \frac{v-\mu}{\sigma}\right)\]</div>
 </div>
 
 <h3 id="symmetry">Symmetry<a style="color: rgb(20, 57, 168);" href="#symmetry"><i class="fa fa-link" aria-hidden="true"></i></a></h3>
-Any Gaussian r.v. with mean\((\mu)=0\) is symmetric<br>
-If \(X\sim \mathcal{N}(0,\sigma^2)\) then \(-X\) has the same distribution as \(X\)<br>
-\(\Rightarrow -X \sim \mathcal{N}(0,\sigma^2)\)<br>
+Any Gaussian r.v. with mean<div class="quantml-katex-display inline">\((\mu)=0\)</div> is symmetric<br>
+If <div class="quantml-katex-display inline">\(X\sim \mathcal{N}(0,\sigma^2)\)</div> then <div class="quantml-katex-display inline">\(-X\)</div> has the same distribution as <div class="quantml-katex-display inline">\(X\)</div><br>
+<div class="quantml-katex-display inline">\(\Rightarrow -X \sim \mathcal{N}(0,\sigma^2)\)</div><br>
 <br>
 
 <h3 id="gauss_table">Gaussian Probability Table<a style="color: rgb(20, 57, 168);" href="#gauss_table"><i class="fa fa-link" aria-hidden="true"></i></a></h3>
 So as we know that CDF of a gaussian has no close form, therefore we use tables to get those CDF's.<br>
-The table given below gives us CDF of a Standard Gaussian r.v. \(\mathcal{N}(0,1)\)<br>
-CDF of \(\mathcal{N}(0,1)=\Phi(x)\)<br>
+The table given below gives us CDF of a Standard Gaussian r.v. <div class="quantml-katex-display inline">\(\mathcal{N}(0,1)\)</div><br>
+CDF of <div class="quantml-katex-display inline">\(\mathcal{N}(0,1)=\Phi(x)\)</div><br>
 <div class="math-container">
-\[\Phi(x)=\mathbb{P}(\mathcal{N}(0,1) \leq x)=\frac{1}{\sqrt{2\pi }} \int_{-\infty}^{x}\exp \left(-\frac{t^2}{2}\right)dt\]
+<div class="quantml-katex-display">\[\Phi(x)=\mathbb{P}(\mathcal{N}(0,1) \leq x)=\frac{1}{\sqrt{2\pi }} \int_{-\infty}^{x}\exp \left(-\frac{t^2}{2}\right)dt\]</div>
 </div>
 
-<span  style="font-size: larger; font-family: inherit;">\(\text{Table for }\Phi(x)\)</span>
+<span  style="font-size: larger; font-family: inherit;"><div class="quantml-katex-display inline">\(\text{Table for }\Phi(x)\)</div></span>
     <img class="full-size-img" src="/statistics/img/std-normal.png" width="fit-content" height="fit-content" alt=""><br>
     <div  style="font-family: inherit;" class="table-wrapper">
     <table style="height:20em; overflow-y:scroll; display:block">
@@ -820,8 +820,8 @@ The first 2 digits represent a row and 3rd digit represents a column.<br>
 <ul>
     <li>
         <span id="ex_1"></span>
-        Say that we want to calculate \(\Phi(0.07)\)<br>
-        then first 2 digits "\(0.0\)" of <b>0.0</b>7 gives us row number 1, and 3rd digit "\(7\)" gives us column number 8, so \(\Phi(0.07) = 0.52790\)<br>
+        Say that we want to calculate <div class="quantml-katex-display inline">\(\Phi(0.07)\)</div><br>
+        then first 2 digits "<div class="quantml-katex-display inline">\(0.0\)</div>" of <b>0.0</b>7 gives us row number 1, and 3rd digit "<div class="quantml-katex-display inline">\(7\)</div>" gives us column number 8, so <div class="quantml-katex-display inline">\(\Phi(0.07) = 0.52790\)</div><br>
         <div style="font-family: inherit;" class="table-wrapper">
         <table>
             <tr>
@@ -854,8 +854,8 @@ The first 2 digits represent a row and 3rd digit represents a column.<br>
     </li>
     <li>
         <span id="ex_2"></span>
-        Now say that we want to calculate \(\Phi(1.26)\)<br>
-        then first 2 digits "\(1.2\)" of <b>1.2</b>6 gives us row number 17, and 3rd digit "\(6\)" gives us column number 7, so \(\Phi(1.26) = 0.89617\)<br>
+        Now say that we want to calculate <div class="quantml-katex-display inline">\(\Phi(1.26)\)</div><br>
+        then first 2 digits "<div class="quantml-katex-display inline">\(1.2\)</div>" of <b>1.2</b>6 gives us row number 17, and 3rd digit "<div class="quantml-katex-display inline">\(6\)</div>" gives us column number 7, so <div class="quantml-katex-display inline">\(\Phi(1.26) = 0.89617\)</div><br>
             <div style="font-family: inherit;" class="table-wrapper">
             <table>
             <tr>
@@ -890,30 +890,31 @@ The first 2 digits represent a row and 3rd digit represents a column.<br>
     </li>
     <li>
         <span id="ex_3"></span>
-        Now we can also find \(\mathbb{P}( 0.07 \leq \mathcal{N}(0,1) \leq  1.26)\):
+        Now we can also find <div class="quantml-katex-display inline">\(\mathbb{P}( 0.07 \leq \mathcal{N}(0,1) \leq  1.26)\)</div>:
         <details>
             <summary><span class="bb">See solution</span></summary>
             <div class="math-container">
                 <blockquote class="sidebar"> 
-                    \(\mathbb{P}( 0.07 \leq \mathcal{N}(0,1) \leq  1.26)=\) \(\mathbb{P}(\mathcal{N}(0,1) \leq  1.26)-\mathbb{P}(\mathcal{N}(0,1) \leq  0.07)\) \(=0.89617 - 0.5279=0.36827\)</blockquote>
+                    <div class="quantml-katex-display inline">\(\mathbb{P}( 0.07 \leq \mathcal{N}(0,1) \leq  1.26)=\)</div> <div class="quantml-katex-display inline">\(\mathbb{P}(\mathcal{N}(0,1) \leq  1.26)-\mathbb{P}(\mathcal{N}(0,1) \leq  0.07)\)</div> <div class="quantml-katex-display inline">\(=0.89617 - 0.5279=0.36827\)</div>
+                </blockquote>
             </div>
         </details>
         <br>
     </li>
     <li>
         <span id="ex_4"></span>
-        Now let's calculate \(\Phi(-0.07) = \mathbb{P}(\mathcal{N}(0,1) \leq -0.07)\)<br>
+        Now let's calculate <div class="quantml-katex-display inline">\(\Phi(-0.07) = \mathbb{P}(\mathcal{N}(0,1) \leq -0.07)\)</div><br>
         <details>
             <summary><span class="bb">See solution</span></summary>
             <div class="math-container">
             <blockquote class="sidebar"> 
-                Say \(Z=\mathcal{N}(0,1)\)<br>
-                \(\mathbb{P}(Z \leq -0.07)=\mathbb{P}(-Z \geq 0.07)\)<br>
-                And \(\mathbb{P}(-Z \geq 0.07)=\mathbb{P}(Z \geq 0.07)\) <b>;by symmetry</b><br>
-                \(\mathbb{P}(Z \geq 0.07)= 1- \mathbb{P}(Z \leq 0.07)\)<br>
-                \(\mathbb{P}(Z \geq 0.07)= 1- \Phi(0.07)\)<br>
-                \(\mathbb{P}(Z \geq 0.07)= 1- 0.52790=0.4721\)<br>
-                \(\Rightarrow \Phi(-0.07)=0.4721\)
+                Say <div class="quantml-katex-display inline">\(Z=\mathcal{N}(0,1)\)</div><br>
+                <div class="quantml-katex-display inline">\(\mathbb{P}(Z \leq -0.07)=\mathbb{P}(-Z \geq 0.07)\)</div><br>
+                And <div class="quantml-katex-display inline">\(\mathbb{P}(-Z \geq 0.07)=\mathbb{P}(Z \geq 0.07)\)</div> <b>;by symmetry</b><br>
+                <div class="quantml-katex-display inline">\(\mathbb{P}(Z \geq 0.07)= 1- \mathbb{P}(Z \leq 0.07)\)</div><br>
+                <div class="quantml-katex-display inline">\(\mathbb{P}(Z \geq 0.07)= 1- \Phi(0.07)\)</div><br>
+                <div class="quantml-katex-display inline">\(\mathbb{P}(Z \geq 0.07)= 1- 0.52790=0.4721\)</div><br>
+                <div class="quantml-katex-display inline">\(\Rightarrow \Phi(-0.07)=0.4721\)</div>
             </blockquote>
             </div>
         </details>
@@ -921,26 +922,26 @@ The first 2 digits represent a row and 3rd digit represents a column.<br>
     </li>
     <li>
         <span id="ex_5"></span>
-        Now let's calculate \(\mathbb{P}(|\mathcal{N}(0,1)| \gt 0.07)\)<br>
+        Now let's calculate <div class="quantml-katex-display inline">\(\mathbb{P}(|\mathcal{N}(0,1)| \gt 0.07)\)</div><br>
         <details>
             <summary><span class="bb">See solution</span></summary>
             <blockquote class="sidebar"> 
                 <div class="math-container">
-                Say \(Z=\mathcal{N}(0,1)\)<br>
-                \(\mathbb{P}(|Z| \gt 0.07)=\mathbb{P}(Z \gt 0.07 \cup Z \lt -0.07)=\) &nbsp;\( \mathbb{P}(Z \gt 0.07)+\mathbb{P}(Z\lt -0.07)  \)<br>
+                Say <div class="quantml-katex-display inline">\(Z=\mathcal{N}(0,1)\)</div><br>
+                <div class="quantml-katex-display inline">\(\mathbb{P}(|Z| \gt 0.07)=\mathbb{P}(Z \gt 0.07 \cup Z \lt -0.07)=\)</div> &nbsp;<div class="quantml-katex-display inline">\( \mathbb{P}(Z \gt 0.07)+\mathbb{P}(Z\lt -0.07)  \)</div><br>
                 And
                 <ul>
                     <li>
-                        \(\mathbb{P}(Z \gt 0.07) =1-\mathbb{P}(Z \leq 0.07)=\) &nbsp;\(1-\Phi(0.07)=\) &nbsp;\(1 - 0.5279=0.4721\)
+                        <div class="quantml-katex-display inline">\(\mathbb{P}(Z \gt 0.07) =1-\mathbb{P}(Z \leq 0.07)=\)</div> &nbsp;<div class="quantml-katex-display inline">\(1-\Phi(0.07)=\)</div> &nbsp;<div class="quantml-katex-display inline">\(1 - 0.5279=0.4721\)</div>
                     </li>
                     <li>
-                        \(\mathbb{P}(Z\lt -0.07)=\Phi(-0.07)\) and we calculated above and \(\Phi(-0.07)=0.4721\)
+                        <div class="quantml-katex-display inline">\(\mathbb{P}(Z\lt -0.07)=\Phi(-0.07)\)</div> and we calculated above and <div class="quantml-katex-display inline">\(\Phi(-0.07)=0.4721\)</div>
                     </li>
                 </ul>
                 So:<br>
-                \(\mathbb{P}(|Z| \gt 0.07)=0.4721+0.4721=0.9442\)<br>
+                <div class="quantml-katex-display inline">\(\mathbb{P}(|Z| \gt 0.07)=0.4721+0.4721=0.9442\)</div><br>
                 And we can say that:<br>
-                \(\mathbb{P}(|Z| \gt x)= 2(1-\Phi(x)) \)
+                <div class="quantml-katex-display inline">\(\mathbb{P}(|Z| \gt x)= 2(1-\Phi(x)) \)</div>
                 </div>
             </blockquote>
         </details>
@@ -948,22 +949,22 @@ The first 2 digits represent a row and 3rd digit represents a column.<br>
     </li>
     <li>
         <span id="ex_6"></span>
-        Say \(  X\sim \mathcal{N}(70,36)  \) now calculate \(\mathbb{P}(X>80)\)<br>
+        Say <div class="quantml-katex-display inline">\(  X\sim \mathcal{N}(70,36)  \)</div> now calculate <div class="quantml-katex-display inline">\(\mathbb{P}(X>80)\)</div><br>
         <details>
             <summary><span class="bb">See solution</span></summary>
             <blockquote class="sidebar"> 
                 <div class="math-container">
-                Say \(Z=\mathcal{N}(0,1)\)<br>
-                \(  \mathbb{P}(X\gt 80)  =\mathbb{P}(X-70 \gt 80-70)\)<br>
-                \(\Rightarrow  \mathbb{P}(X\gt 80)  =\mathbb{P}(\frac{X-70}{6} \gt \frac{80-70}{6})\)<br>
-                \(\Rightarrow  \mathbb{P}(X\gt 80)  =\mathbb{P}(       Z       \gt 1.66)\)<br>
+                Say <div class="quantml-katex-display inline">\(Z=\mathcal{N}(0,1)\)</div><br>
+                <div class="quantml-katex-display inline">\(  \mathbb{P}(X\gt 80)  =\mathbb{P}(X-70 \gt 80-70)\)</div><br>
+                <div class="quantml-katex-display inline">\(\Rightarrow  \mathbb{P}(X\gt 80)  =\mathbb{P}(\frac{X-70}{6} \gt \frac{80-70}{6})\)</div><br>
+                <div class="quantml-katex-display inline">\(\Rightarrow  \mathbb{P}(X\gt 80)  =\mathbb{P}(       Z       \gt 1.66)\)</div><br>
                 <ul>
                     <li>
-                        \( \mathbb{P}(Z \gt 1.66)=1 - \mathbb{P}(Z \leq 1.66)  \)<br>
-                        \(\Rightarrow \mathbb{P}(Z \gt 3.33) = 1-0.95154 = 0.04846 \)
+                        <div class="quantml-katex-display inline">\( \mathbb{P}(Z \gt 1.66)=1 - \mathbb{P}(Z \leq 1.66)  \)</div><br>
+                        <div class="quantml-katex-display inline">\(\Rightarrow \mathbb{P}(Z \gt 3.33) = 1-0.95154 = 0.04846 \)</div>
                     </li>
                 </ul>
-                \(\Rightarrow  \mathbb{P}(X\gt 80) = 0.04846 \)
+                <div class="quantml-katex-display inline">\(\Rightarrow  \mathbb{P}(X\gt 80) = 0.04846 \)</div>
                 </div>
             </blockquote>
         </details>
@@ -971,18 +972,18 @@ The first 2 digits represent a row and 3rd digit represents a column.<br>
     </li>
     <li>
         <span id="ex_7"></span>
-        Say \(X\sim \mathcal{N}(70,36)\) now we have to find \(x\) such that \(\mathbb{P}(X\leq x)=80\%\)<br>
+        Say <div class="quantml-katex-display inline">\(X\sim \mathcal{N}(70,36)\)</div> now we have to find <div class="quantml-katex-display inline">\(x\)</div> such that <div class="quantml-katex-display inline">\(\mathbb{P}(X\leq x)=80\%\)</div><br>
         Now we have to read the table backward.
         <details>
             <summary><span class="bb">See solution</span></summary>
             <blockquote class="sidebar"> 
                 <div class="math-container">
-                Say \(Z=\mathcal{N}(0,1)\)<br>
-                \(  \mathbb{P}(X\leq x)  =0.8\)<br>
-                \(\Rightarrow  \mathbb{P}(X-70\leq x-70) =0.8\)<br>
-                \(\Rightarrow  \mathbb{P}\left(\frac{X-70}{6}\leq \frac{x-70}{6}\right) =0.8\)<br>
-                \(\Rightarrow  \mathbb{P}\left(Z \leq \frac{x-70}{6}\right) =0.8\)<br>
-                \(\Rightarrow  \Phi\left( \frac{x-70}{6}\right) =0.8\)<br>
+                Say <div class="quantml-katex-display inline">\(Z=\mathcal{N}(0,1)\)</div><br>
+                <div class="quantml-katex-display inline">\(  \mathbb{P}(X\leq x)  =0.8\)</div><br>
+                <div class="quantml-katex-display inline">\(\Rightarrow  \mathbb{P}(X-70\leq x-70) =0.8\)</div><br>
+                <div class="quantml-katex-display inline">\(\Rightarrow  \mathbb{P}\left(\frac{X-70}{6}\leq \frac{x-70}{6}\right) =0.8\)</div><br>
+                <div class="quantml-katex-display inline">\(\Rightarrow  \mathbb{P}\left(Z \leq \frac{x-70}{6}\right) =0.8\)</div><br>
+                <div class="quantml-katex-display inline">\(\Rightarrow  \Phi\left( \frac{x-70}{6}\right) =0.8\)</div><br>
 
                 <div  style="font-family: inherit;" class="table-wrapper">
                 <table>
@@ -1016,11 +1017,11 @@ The first 2 digits represent a row and 3rd digit represents a column.<br>
 
                 <ul>
                     <li>
-                        \(\Phi(0.85)=0.80\)
+                        <div class="quantml-katex-display inline">\(\Phi(0.85)=0.80\)</div>
                     </li>
                 </ul>
-                \(\Rightarrow \frac{x-70}{6}=0.85\)<br>
-                \(\Rightarrow x=75.1\)
+                <div class="quantml-katex-display inline">\(\Rightarrow \frac{x-70}{6}=0.85\)</div><br>
+                <div class="quantml-katex-display inline">\(\Rightarrow x=75.1\)</div>
                 </div>
             </blockquote>
         </details>
@@ -1029,23 +1030,23 @@ The first 2 digits represent a row and 3rd digit represents a column.<br>
 </ul>
 
 <h3 id="quantile">Quantile<a style="color: rgb(20, 57, 168);" href="#quantile"><i class="fa fa-link" aria-hidden="true"></i></a></h3>
-Here we have to find a number \(q_\alpha\) or say the quantile of order \(1- \alpha\) of a r.v. \(X\) such that the
-CDF of \(X\) at \(q_\alpha\) is:<br>
-\(F(q_\alpha)=\mathbb{P}(X \leq q_\alpha)=1-\alpha\)<br>
-Here we are just reading the table backward, So we are just computing \(F^{-1}(x)\)<br>
+Here we have to find a number <div class="quantml-katex-display inline">\(q_\alpha\)</div> or say the quantile of order <div class="quantml-katex-display inline">\(1- \alpha\)</div> of a r.v. <div class="quantml-katex-display inline">\(X\)</div> such that the
+CDF of <div class="quantml-katex-display inline">\(X\)</div> at <div class="quantml-katex-display inline">\(q_\alpha\)</div> is:<br>
+<div class="quantml-katex-display inline">\(F(q_\alpha)=\mathbb{P}(X \leq q_\alpha)=1-\alpha\)</div><br>
+Here we are just reading the table backward, So we are just computing <div class="quantml-katex-display inline">\(F^{-1}(x)\)</div><br>
 <br>
-Some important quantiles of \(Z\sim \mathcal{N}(0,1)\):
+Some important quantiles of <div class="quantml-katex-display inline">\(Z\sim \mathcal{N}(0,1)\)</div>:
 <span id="imp-quantiles"></span>
 <div  style="font-family: inherit;" class="table-wrapper">
     <table>
     <tr>
-    <th>\(\alpha\)</th>
-    <th>\(2.5\%\)</th>
-    <th>\(5\%\)</th>
-    <th>\(10\%\)</th>
+    <th><div class="quantml-katex-display inline">\(\alpha\)</div></th>
+    <th><div class="quantml-katex-display inline">\(2.5\%\)</div></th>
+    <th><div class="quantml-katex-display inline">\(5\%\)</div></th>
+    <th><div class="quantml-katex-display inline">\(10\%\)</div></th>
     </tr>
     <tr>
-    <th>\(q_\alpha\)</th>
+    <th><div class="quantml-katex-display inline">\(q_\alpha\)</div></th>
     <td>1.96</td>
     <td>1.65</td>
     <td>1.28</td>
@@ -1053,7 +1054,7 @@ Some important quantiles of \(Z\sim \mathcal{N}(0,1)\):
     </table>
 </div>
 <br>
-\(\mathbb{P}(|Z| \gt 1.96)=5\%\)
+<div class="quantml-katex-display inline">\(\mathbb{P}(|Z| \gt 1.96)=5\%\)</div>
 <div class="'new_image">
     <img class="full-size-img" src="../img/gaussian-distribution/2.5.png" width="499" height="fit-content" alt="">
 </div>

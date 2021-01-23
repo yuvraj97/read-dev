@@ -60,34 +60,34 @@
 
 <p>
 <h1>Eigenvalues and Eigenvectors</h1>
-Say that we have a \(n\times n\) matrix \(A\) and a vector \(\vec{v}\in\mathbb{R}^n\).<br>
-When we perform \(A\vec{v}\), think of it as transformation of \(\vec{v}\) into a new 
-coordinate system whose basis vector are defined by matrix \(A\).<br>
+Say that we have a <div class="quantml-katex-display inline">\(n\times n\)</div> matrix <div class="quantml-katex-display inline">\(A\)</div> and a vector <div class="quantml-katex-display inline">\(\vec{v}\in\mathbb{R}^n\)</div>.<br>
+When we perform <div class="quantml-katex-display inline">\(A\vec{v}\)</div>, think of it as transformation of <div class="quantml-katex-display inline">\(\vec{v}\)</div> into a new 
+coordinate system whose basis vector are defined by matrix <div class="quantml-katex-display inline">\(A\)</div>.<br>
 After the transformation most of the vectors changes there orientation, but 
 there are some <b>vectors that do not change there direction</b>(length might has been changed) 
 there vectors are called <b>eigenvectors</b> and the factor by which there length has been 
-changed(say \(\lambda\)) is called <b>eigenvalue</b>.<br>
+changed(say <div class="quantml-katex-display inline">\(\lambda\)</div>) is called <b>eigenvalue</b>.<br>
 <br>
-So we can say that after applying transformation \(A,\) <b>eigenvectors</b> don't changes there direction.<br>
-\[A\vec{x}=\lambda\vec{x};\quad \left\{\begin{matrix}
+So we can say that after applying transformation <div class="quantml-katex-display inline">\(A,\)</div> <b>eigenvectors</b> don't changes there direction.<br>
+<div class="quantml-katex-display">\[A\vec{x}=\lambda\vec{x};\quad \left\{\begin{matrix}
     \vec{x}\text{ is eigenvector}\\
     \lambda\text{ is eigenvalue}
-    \end{matrix}\right.\]<br>
+    \end{matrix}\right.\]</div><br>
 <br>
-<b>Example \(1\)</b>
+<b>Example <div class="quantml-katex-display inline">\(1\)</div></b>
 <blockquote class="noborder">
-Let's say \(P\) is a <a  href="/linear-algebra/projection/">projection matrix</a>.<br>
-What are the eigenvalues and eigenvectors of \(P\)?<br>
-Let's say \(\vec{b}\in\mathbb{R}^n\) and the <a  href="/linear-algebra/matrix-space/">matrix space</a>
-of \(P\) is \(n-1\) dimensional hyper<b>plane</b>.<br>
-Then when we perform \(P\vec{b}\) it project \(\vec{b}\) onto the <b>matrix space</b>
-of \(P\) (here it is obvious that \(\vec{b}\) isn't an eigenvector).<br>
-\(P\) project all vector \(\vec{x}\) onto the <b>matrix space</b> of \(P\) <b>but</b> vectors 
-which are already in the <b>matrix space</b> of \(P\) are unaffected.<br>
-So vectors which are already in the <b>matrix space</b> of \(P\) are <b>eigenvector</b>.<br>
-And they are unaffected by \(P\) so <b>eigenvalue</b> is \(1\).<br>
-There is one more <b>eigenvector</b>, vector that is perpendicular to the <b>matrix space</b> of \(P\) is also an <b>eigenvector</b>.<br>
-And projection of that vecor is \(\vec{0}\) so it's <b>eigenvalue</b> is \(0\).<br>
+Let's say <div class="quantml-katex-display inline">\(P\)</div> is a <a  href="/linear-algebra/projection/">projection matrix</a>.<br>
+What are the eigenvalues and eigenvectors of <div class="quantml-katex-display inline">\(P\)</div>?<br>
+Let's say <div class="quantml-katex-display inline">\(\vec{b}\in\mathbb{R}^n\)</div> and the <a  href="/linear-algebra/matrix-space/">matrix space</a>
+of <div class="quantml-katex-display inline">\(P\)</div> is <div class="quantml-katex-display inline">\(n-1\)</div> dimensional hyper<b>plane</b>.<br>
+Then when we perform <div class="quantml-katex-display inline">\(P\vec{b}\)</div> it project <div class="quantml-katex-display inline">\(\vec{b}\)</div> onto the <b>matrix space</b>
+of <div class="quantml-katex-display inline">\(P\)</div> (here it is obvious that <div class="quantml-katex-display inline">\(\vec{b}\)</div> isn't an eigenvector).<br>
+<div class="quantml-katex-display inline">\(P\)</div> project all vector <div class="quantml-katex-display inline">\(\vec{x}\)</div> onto the <b>matrix space</b> of <div class="quantml-katex-display inline">\(P\)</div> <b>but</b> vectors 
+which are already in the <b>matrix space</b> of <div class="quantml-katex-display inline">\(P\)</div> are unaffected.<br>
+So vectors which are already in the <b>matrix space</b> of <div class="quantml-katex-display inline">\(P\)</div> are <b>eigenvector</b>.<br>
+And they are unaffected by <div class="quantml-katex-display inline">\(P\)</div> so <b>eigenvalue</b> is <div class="quantml-katex-display inline">\(1\)</div>.<br>
+There is one more <b>eigenvector</b>, vector that is perpendicular to the <b>matrix space</b> of <div class="quantml-katex-display inline">\(P\)</div> is also an <b>eigenvector</b>.<br>
+And projection of that vecor is <div class="quantml-katex-display inline">\(\vec{0}\)</div> so it's <b>eigenvalue</b> is <div class="quantml-katex-display inline">\(0\)</div>.<br>
 </blockquote><br>
 
 <hr style="width: 75%;">
@@ -96,127 +96,127 @@ And projection of that vecor is \(\vec{0}\) so it's <b>eigenvalue</b> is \(0\).<
 
 <h2>Facts</h2>
 <blockquote>
-    <li>A \(n\times n\) matrix will have \(n\) <b>eigenvalues</b></li>
+    <li>A <div class="quantml-katex-display inline">\(n\times n\)</div> matrix will have <div class="quantml-katex-display inline">\(n\)</div> <b>eigenvalues</b></li>
 </blockquote>
-Say we have a \(n\times n\) matrix \(A\).
-\[
+Say we have a <div class="quantml-katex-display inline">\(n\times n\)</div> matrix <div class="quantml-katex-display inline">\(A\)</div>.
+<div class="quantml-katex-display">\[
 A=\begin{bmatrix}
  a_{11} & a_{12} & \cdots & a_{1n} \\  
  a_{21} & a_{22} & \cdots &  a_{2n}   \\
  \vdots & \vdots & \ddots & \vdots \\
  a_{n1} & a_{n2} & \cdots & a_{nn} \\
  \end{bmatrix}
-\]
+\]</div>
 Then,<br>
 
 <blockquote>
-<li>Sum of <b>eigenvalues</b> \(=\) Sum of diagonal elements of matrix \(A\) \(= \)
-\(a_{11} + a_{22} + \cdots + a_{nn}\)</li>
+<li>Sum of <b>eigenvalues</b> <div class="quantml-katex-display inline">\(=\)</div> Sum of diagonal elements of matrix <div class="quantml-katex-display inline">\(A\)</div> <div class="quantml-katex-display inline">\(= \)</div>
+<div class="quantml-katex-display inline">\(a_{11} + a_{22} + \cdots + a_{nn}\)</div></li>
 </blockquote>
 <blockquote>
-<li>Product of <b>eigenvalues</b> is the <b>determinant</b> of \(A\)</li>
+<li>Product of <b>eigenvalues</b> is the <b>determinant</b> of <div class="quantml-katex-display inline">\(A\)</div></li>
 </blockquote>
 <br>
 
 <hr style="width: 75%;">
 <br>
 
-<h2 id="solving">Solving \(A\vec{x}=\lambda\vec{x}\)</h2>
-We want to find the <b>eigenvalues</b> and <b>eigenvectors</b> of a matrix \(A\).<br>
-<b>eigenvectors</b> does not change it's direction after applying the transformation \(A\).<br>
-\[A\vec{x}=\lambda\vec{x};\quad \vec{x}\text{ is eigenvector}\]
-\(\Rightarrow A\vec{x} - \lambda\vec{x} = \vec{0}\)<br>
-\(\Rightarrow (A - \lambda\mathcal{I})\vec{x} = \vec{0}\)<br>
-So we have to find \(\lambda\) such that there is <b>some</b> \(\vec{x}\neq\vec{0}\)  in 
-the <b>Null Space</b> of \(A - \lambda\mathcal{I}\).<br>
-So we want <b>some</b> <b>free variables</b> in \(A - \lambda\mathcal{I}\) (or say we want \(\text{Rank}(A - \lambda\mathcal{I})\lt n\) )<br>
-This mean we want \(A - \lambda\mathcal{I}\) to be a singular matrix.<br>
-This mean determinant of \(A - \lambda\mathcal{I}=0\)<br>
+<h2 id="solving">Solving <div class="quantml-katex-display inline">\(A\vec{x}=\lambda\vec{x}\)</div></h2>
+We want to find the <b>eigenvalues</b> and <b>eigenvectors</b> of a matrix <div class="quantml-katex-display inline">\(A\)</div>.<br>
+<b>eigenvectors</b> does not change it's direction after applying the transformation <div class="quantml-katex-display inline">\(A\)</div>.<br>
+<div class="quantml-katex-display">\[A\vec{x}=\lambda\vec{x};\quad \vec{x}\text{ is eigenvector}\]</div>
+<div class="quantml-katex-display inline">\(\Rightarrow A\vec{x} - \lambda\vec{x} = \vec{0}\)</div><br>
+<div class="quantml-katex-display inline">\(\Rightarrow (A - \lambda\mathcal{I})\vec{x} = \vec{0}\)</div><br>
+So we have to find <div class="quantml-katex-display inline">\(\lambda\)</div> such that there is <b>some</b> <div class="quantml-katex-display inline">\(\vec{x}\neq\vec{0}\)</div>  in 
+the <b>Null Space</b> of <div class="quantml-katex-display inline">\(A - \lambda\mathcal{I}\)</div>.<br>
+So we want <b>some</b> <b>free variables</b> in <div class="quantml-katex-display inline">\(A - \lambda\mathcal{I}\)</div> (or say we want <div class="quantml-katex-display inline">\(\text{Rank}(A - \lambda\mathcal{I})\lt n\)</div> )<br>
+This mean we want <div class="quantml-katex-display inline">\(A - \lambda\mathcal{I}\)</div> to be a singular matrix.<br>
+This mean determinant of <div class="quantml-katex-display inline">\(A - \lambda\mathcal{I}=0\)</div><br>
 <blockquote>
-\(\text{det}(A - \lambda\mathcal{I})=0\)
+<div class="quantml-katex-display inline">\(\text{det}(A - \lambda\mathcal{I})=0\)</div>
 </blockquote>
-This will gives us \(\lambda\) so we now get our matrix \(A - \lambda\mathcal{I}\)<br>
+This will gives us <div class="quantml-katex-display inline">\(\lambda\)</div> so we now get our matrix <div class="quantml-katex-display inline">\(A - \lambda\mathcal{I}\)</div><br>
 Now we have to find it's Null space we discussed it <a  href="/linear-algebra/null-space/">HERE</a>.<br>
 <br>
 <b>Example</b><br>
 <blockquote class="noborder">
-\[A=\begin{bmatrix}
+<div class="quantml-katex-display">\[A=\begin{bmatrix}
   0 & 1 \\
   1 & 0 \\
-  \end{bmatrix}\]
-We want to find the <b>eigenvalues</b> and <b>eigenvectors</b> of a matrix \(A\).<br>
-\[A\vec{x}=\lambda\vec{x};\quad \vec{x}\text{ is eigenvector}\]
-\(\text{det}(A - \lambda\mathcal{I})=\begin{vmatrix}
+  \end{bmatrix}\]</div>
+We want to find the <b>eigenvalues</b> and <b>eigenvectors</b> of a matrix <div class="quantml-katex-display inline">\(A\)</div>.<br>
+<div class="quantml-katex-display">\[A\vec{x}=\lambda\vec{x};\quad \vec{x}\text{ is eigenvector}\]</div>
+<div class="quantml-katex-display inline">\(\text{det}(A - \lambda\mathcal{I})=\begin{vmatrix}
     -\lambda & 1 \\
     1 & -\lambda \\
-    \end{vmatrix}\)<br>
-\(\Rightarrow \text{det}(A - \lambda\mathcal{I})= \lambda^2-1\)<br>
-We know that \(\text{det}(A - \lambda\mathcal{I})=0\).<br>
-\(\Rightarrow \lambda^2-1=0\)<br>
-\(\Rightarrow \lambda= \pm 1\)<br>
-So <b>eigenvalues</b> are \(1,-1\).<br>
+    \end{vmatrix}\)</div><br>
+<div class="quantml-katex-display inline">\(\Rightarrow \text{det}(A - \lambda\mathcal{I})= \lambda^2-1\)</div><br>
+We know that <div class="quantml-katex-display inline">\(\text{det}(A - \lambda\mathcal{I})=0\)</div>.<br>
+<div class="quantml-katex-display inline">\(\Rightarrow \lambda^2-1=0\)</div><br>
+<div class="quantml-katex-display inline">\(\Rightarrow \lambda= \pm 1\)</div><br>
+So <b>eigenvalues</b> are <div class="quantml-katex-display inline">\(1,-1\)</div>.<br>
 
-<li>For \(\lambda=1\)</li>
+<li>For <div class="quantml-katex-display inline">\(\lambda=1\)</div></li>
 <dl><dd>
-\((A-\lambda\mathcal{I})\vec{x}=\vec{0}\)<br>
-\(\Rightarrow (A-\mathcal{I})\vec{x}=\vec{0}\)<br>
+<div class="quantml-katex-display inline">\((A-\lambda\mathcal{I})\vec{x}=\vec{0}\)</div><br>
+<div class="quantml-katex-display inline">\(\Rightarrow (A-\mathcal{I})\vec{x}=\vec{0}\)</div><br>
 
-\(A-\mathcal{I}=\begin{bmatrix}
+<div class="quantml-katex-display inline">\(A-\mathcal{I}=\begin{bmatrix}
     -1 &  1 \\
      1 & -1 \\
     \end{bmatrix}
     \begin{bmatrix} x_1\\x_2\\ \end{bmatrix}=
-    \begin{bmatrix} 0\\0\\ \end{bmatrix}\)<br>
+    \begin{bmatrix} 0\\0\\ \end{bmatrix}\)</div><br>
     
-\(\Rightarrow \vec{x} = 
-    \begin{bmatrix} 1\\1\\ \end{bmatrix}\)<br>
+<div class="quantml-katex-display inline">\(\Rightarrow \vec{x} = 
+    \begin{bmatrix} 1\\1\\ \end{bmatrix}\)</div><br>
 </dd></dl>
 
-<li>For \(\lambda=-1\)</li>
+<li>For <div class="quantml-katex-display inline">\(\lambda=-1\)</div></li>
 <dl><dd>
-\((A-\lambda\mathcal{I})\vec{x}=\vec{0}\)<br>
-\(\Rightarrow (A+\mathcal{I})\vec{x}=\vec{0}\)<br>
+<div class="quantml-katex-display inline">\((A-\lambda\mathcal{I})\vec{x}=\vec{0}\)</div><br>
+<div class="quantml-katex-display inline">\(\Rightarrow (A+\mathcal{I})\vec{x}=\vec{0}\)</div><br>
 
-\(A-\mathcal{I}=\begin{bmatrix}
+<div class="quantml-katex-display inline">\(A-\mathcal{I}=\begin{bmatrix}
     1 & 1 \\
     1 & 1 \\
     \end{bmatrix}
     \begin{bmatrix} x_1\\x_2\\ \end{bmatrix}=
-    \begin{bmatrix} 0\\0\\ \end{bmatrix}\)<br>
+    \begin{bmatrix} 0\\0\\ \end{bmatrix}\)</div><br>
     
-\(\Rightarrow \vec{x} = 
-    \begin{bmatrix} 1\\-1\\ \end{bmatrix}\)<br>    
+<div class="quantml-katex-display inline">\(\Rightarrow \vec{x} = 
+    \begin{bmatrix} 1\\-1\\ \end{bmatrix}\)</div><br>    
 </dd></dl>
-eigenvectors of \(A\) are \(\begin{bmatrix} 1\\1\\ \end{bmatrix}\) and \(\begin{bmatrix} 1\\-1\\ \end{bmatrix}\)
+eigenvectors of <div class="quantml-katex-display inline">\(A\)</div> are <div class="quantml-katex-display inline">\(\begin{bmatrix} 1\\1\\ \end{bmatrix}\)</div> and <div class="quantml-katex-display inline">\(\begin{bmatrix} 1\\-1\\ \end{bmatrix}\)</div>
 </blockquote><br>
 
-What if we add a constant \(\alpha\mathcal{I}\) to \(A\) and \(\alpha\in\mathbb{R}\).<br>
-We know that \(A\vec{x}=\lambda\vec{x};\quad \vec{x}\text{ is eigenvector}\).<br>
-\(\Rightarrow A\vec{x} + \alpha\vec{x}=\lambda\vec{x} + \alpha\vec{x}\)
-\(\Rightarrow (A + \alpha\mathcal{I})\vec{x}=(\lambda + \alpha)\vec{x}\)
+What if we add a constant <div class="quantml-katex-display inline">\(\alpha\mathcal{I}\)</div> to <div class="quantml-katex-display inline">\(A\)</div> and <div class="quantml-katex-display inline">\(\alpha\in\mathbb{R}\)</div>.<br>
+We know that <div class="quantml-katex-display inline">\(A\vec{x}=\lambda\vec{x};\quad \vec{x}\text{ is eigenvector}\)</div>.<br>
+<div class="quantml-katex-display inline">\(\Rightarrow A\vec{x} + \alpha\vec{x}=\lambda\vec{x} + \alpha\vec{x}\)</div>
+<div class="quantml-katex-display inline">\(\Rightarrow (A + \alpha\mathcal{I})\vec{x}=(\lambda + \alpha)\vec{x}\)</div>
 So,<br>
 <blockquote>
-If a matrix \(A\) has <b>eigenvalue</b> \(\lambda\).<br>
-Then \(A + \alpha\mathcal{I}\) has <b>eigenvalue</b> \(\lambda+\alpha\).<br>
+If a matrix <div class="quantml-katex-display inline">\(A\)</div> has <b>eigenvalue</b> <div class="quantml-katex-display inline">\(\lambda\)</div>.<br>
+Then <div class="quantml-katex-display inline">\(A + \alpha\mathcal{I}\)</div> has <b>eigenvalue</b> <div class="quantml-katex-display inline">\(\lambda+\alpha\)</div>.<br>
 </blockquote><br>
 
-Example(\(90^o\) Rotation)
+Example(<div class="quantml-katex-display inline">\(90^o\)</div> Rotation)
 <blockquote class="noborder">
-\[A=\begin{bmatrix}
+<div class="quantml-katex-display">\[A=\begin{bmatrix}
     0 & -1 \\
     1 & 0 \\
-    \end{bmatrix}\]
-We want to find the <b>eigenvalues</b> and <b>eigenvectors</b> of a matrix \(A\).<br>
-\[A\vec{x}=\lambda\vec{x};\quad \vec{x}\text{ is eigenvector}\]
-\(\text{det}(A - \lambda\mathcal{I})=\begin{vmatrix}
+    \end{bmatrix}\]</div>
+We want to find the <b>eigenvalues</b> and <b>eigenvectors</b> of a matrix <div class="quantml-katex-display inline">\(A\)</div>.<br>
+<div class="quantml-katex-display">\[A\vec{x}=\lambda\vec{x};\quad \vec{x}\text{ is eigenvector}\]</div>
+<div class="quantml-katex-display inline">\(\text{det}(A - \lambda\mathcal{I})=\begin{vmatrix}
         -\lambda & -1 \\
         1 & -\lambda \\
-        \end{vmatrix}\)<br>
-\(\Rightarrow \text{det}(A - \lambda\mathcal{I})= \lambda^2+1\)<br>
-We know that \(\text{det}(A - \lambda\mathcal{I})=0\).<br>
-\(\Rightarrow \lambda^2+1=0\)<br>
-\(\Rightarrow \lambda= \pm i\)<br>
-So <b>eigenvalues</b> are \(i,-i\).<br>
+        \end{vmatrix}\)</div><br>
+<div class="quantml-katex-display inline">\(\Rightarrow \text{det}(A - \lambda\mathcal{I})= \lambda^2+1\)</div><br>
+We know that <div class="quantml-katex-display inline">\(\text{det}(A - \lambda\mathcal{I})=0\)</div>.<br>
+<div class="quantml-katex-display inline">\(\Rightarrow \lambda^2+1=0\)</div><br>
+<div class="quantml-katex-display inline">\(\Rightarrow \lambda= \pm i\)</div><br>
+So <b>eigenvalues</b> are <div class="quantml-katex-display inline">\(i,-i\)</div>.<br>
 <b>eigenvalues</b> not necessarily need to be <b>real numbers</b>, here <b>eigenvalues</b> are <b>complex numbers</b>.<br>
 </blockquote><br>
 

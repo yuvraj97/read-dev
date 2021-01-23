@@ -61,78 +61,78 @@
 <p>
 <h1>Symmetric Matrices</h1>
 
-Say we have a \(n\times n\) matrix \(A\) and <span class="bb">\(a_{ij}\in\mathbb{R}\)</span>.<br>
-\(A\) is <b>symmetric</b> if <span class="bb">\(A=A^T\)</span><br>
-\[A=\begin{bmatrix}
+Say we have a <div class="quantml-katex-display inline">\(n\times n\)</div> matrix <div class="quantml-katex-display inline">\(A\)</div> and <span class="bb"><div class="quantml-katex-display inline">\(a_{ij}\in\mathbb{R}\)</div></span>.<br>
+<div class="quantml-katex-display inline">\(A\)</div> is <b>symmetric</b> if <span class="bb"><div class="quantml-katex-display inline">\(A=A^T\)</div></span><br>
+<div class="quantml-katex-display">\[A=\begin{bmatrix}
 a_{11} & \color{red}{a_{12}} & \cdots & \color{blue}{a_{1n}} \\  
 \color{red}{a_{21}} & a_{22} & \cdots &  \color{darkgreen}{a_{2n}}   \\
 \vdots & \vdots & \ddots & \vdots \\
 \color{blue}{a_{n1}} & \color{darkgreen}{a_{n2}} & \cdots & a_{nn} \\
 \end{bmatrix}  \\ \quad \\
-a_{ij}=a_{ji}\]
+a_{ij}=a_{ji}\]</div>
 <h2 id="properties">Properties of Symmetric matrices</h2>
-<blockquote>\(1.\quad\) Eigenvalues of symmetric matrices are <b>real</b></blockquote>
+<blockquote><div class="quantml-katex-display inline">\(1.\quad\)</div> Eigenvalues of symmetric matrices are <b>real</b></blockquote>
 <!--<hr style="width:50%;height:3px;border:none;color:#fff;background-color:#d8d8d8;" />-->
 <b>Explanation:</b><br>
 <blockquote class="noborder">
 <dl><dd>
-    Say \(\lambda\in\mathbb{C}\) is the <i>eigenvalues</i> and \(x\in\mathbb{C}^n\) is the <i>eigenvector</i> of matrix \(A\) so,<br>
-    (Here \(\mathbb{C}\) represent <b>Complex numbers</b>)<br>
+    Say <div class="quantml-katex-display inline">\(\lambda\in\mathbb{C}\)</div> is the <i>eigenvalues</i> and <div class="quantml-katex-display inline">\(x\in\mathbb{C}^n\)</div> is the <i>eigenvector</i> of matrix <div class="quantml-katex-display inline">\(A\)</div> so,<br>
+    (Here <div class="quantml-katex-display inline">\(\mathbb{C}\)</div> represent <b>Complex numbers</b>)<br>
     
-    <li>\(Ax=\lambda x\)</li>
-    \(\Rightarrow\) <span class="bb" style="padding-top: 15px; padding-bottom: 15px;">\(\left(\overline{x}\right)^TAx=\lambda\ (\overline{x})^Tx\)</span> <span style="float: right;">\(\color{red}{(1)}\)</span><br>
+    <li><div class="quantml-katex-display inline">\(Ax=\lambda x\)</div></li>
+    <div class="quantml-katex-display inline">\(\Rightarrow\)</div> <span class="bb" style="padding-top: 15px; padding-bottom: 15px;"><div class="quantml-katex-display inline">\(\left(\overline{x}\right)^TAx=\lambda\ (\overline{x})^Tx\)</div></span> <span style="float: right;"><div class="quantml-katex-display inline">\(\color{red}{(1)}\)</div></span><br>
     <br>        
     
-    \((\) And this bar( \(\overline{ \ \  }\) ) means that we are taking conjugate of complex number, like, 
-    \(\overline{a+ib}=a-ib)\)
+    <div class="quantml-katex-display inline">\((\)</div> And this bar( <div class="quantml-katex-display inline">\(\overline{ \ \  }\)</div> ) means that we are taking conjugate of complex number, like, 
+    <div class="quantml-katex-display inline">\(\overline{a+ib}=a-ib)\)</div>
 
     <br><br>
 
-    <li>\(Ax=\lambda x\)</li>
-    \(\Rightarrow \overline{A}\ \overline{x}=\overline{\lambda}\ \overline{x}\)<br>
-    because element of \(A\) are Real numbers so \( \overline{A}=A\)<br>
-    \(\Rightarrow A\ \overline{x}=\overline{\lambda}\ \overline{x}\)<br>
-    \(\Rightarrow (A\ \overline{x})^T=(\overline{\lambda}\ \overline{x})^T\)<br>
-    \(\displaystyle \Rightarrow \left(\overline{x}\right)^TA^T=\overline{\lambda}\ (\overline{x})^T\)<br>
-    because \(A\) is a symmetric matrix so,<br>
-    \(\displaystyle \Rightarrow \left(\overline{x}\right)^TA=\overline{\lambda}\ (\overline{x})^T\)<br>
-    \(\Rightarrow\) <span class="bb" style="padding-top: 15px; padding-bottom: 15px;">\(\left(\overline{x}\right)^TAx=\overline{\lambda}\ (\overline{x})^Tx\)</span> <span style="float: right;">\(\color{red}{(2)}\)</span><br>
+    <li><div class="quantml-katex-display inline">\(Ax=\lambda x\)</div></li>
+    <div class="quantml-katex-display inline">\(\Rightarrow \overline{A}\ \overline{x}=\overline{\lambda}\ \overline{x}\)</div><br>
+    because element of <div class="quantml-katex-display inline">\(A\)</div> are Real numbers so <div class="quantml-katex-display inline">\( \overline{A}=A\)</div><br>
+    <div class="quantml-katex-display inline">\(\Rightarrow A\ \overline{x}=\overline{\lambda}\ \overline{x}\)</div><br>
+    <div class="quantml-katex-display inline">\(\Rightarrow (A\ \overline{x})^T=(\overline{\lambda}\ \overline{x})^T\)</div><br>
+    <div class="quantml-katex-display inline">\(\displaystyle \Rightarrow \left(\overline{x}\right)^TA^T=\overline{\lambda}\ (\overline{x})^T\)</div><br>
+    because <div class="quantml-katex-display inline">\(A\)</div> is a symmetric matrix so,<br>
+    <div class="quantml-katex-display inline">\(\displaystyle \Rightarrow \left(\overline{x}\right)^TA=\overline{\lambda}\ (\overline{x})^T\)</div><br>
+    <div class="quantml-katex-display inline">\(\Rightarrow\)</div> <span class="bb" style="padding-top: 15px; padding-bottom: 15px;"><div class="quantml-katex-display inline">\(\left(\overline{x}\right)^TAx=\overline{\lambda}\ (\overline{x})^Tx\)</div></span> <span style="float: right;"><div class="quantml-katex-display inline">\(\color{red}{(2)}\)</div></span><br>
     
-    Using above equations \(\color{red}{(1)}\) and \(\color{red}{(2)}\) we can say that,<br>
-    \(\lambda\ (\overline{x})^Tx = \overline{\lambda}\ (\overline{x})^Tx\)<br>
-    \(\Rightarrow\)  <span class="bb" style="padding-top: 15px; padding-bottom: 15px;">\(\lambda=\overline{\lambda}\)</span><br>
-    It is only possible if complex part of \(\lambda\) is \(0\) so <i>eigenvalues</i> are indeed Real.  <span style="float: right;">✅</span>
+    Using above equations <div class="quantml-katex-display inline">\(\color{red}{(1)}\)</div> and <div class="quantml-katex-display inline">\(\color{red}{(2)}\)</div> we can say that,<br>
+    <div class="quantml-katex-display inline">\(\lambda\ (\overline{x})^Tx = \overline{\lambda}\ (\overline{x})^Tx\)</div><br>
+    <div class="quantml-katex-display inline">\(\Rightarrow\)</div>  <span class="bb" style="padding-top: 15px; padding-bottom: 15px;"><div class="quantml-katex-display inline">\(\lambda=\overline{\lambda}\)</div></span><br>
+    It is only possible if complex part of <div class="quantml-katex-display inline">\(\lambda\)</div> is <div class="quantml-katex-display inline">\(0\)</div> so <i>eigenvalues</i> are indeed Real.  <span style="float: right;">✅</span>
 </dd><br>
 </blockquote><br>
 
-<blockquote id="p2">\(2.\quad\) For a symmetric matrix we can get <b>orthonormal</b> eigenvectors</blockquote>
+<blockquote id="p2"><div class="quantml-katex-display inline">\(2.\quad\)</div> For a symmetric matrix we can get <b>orthonormal</b> eigenvectors</blockquote>
 <!--<hr style="width:50%;height:3px;border:none;color:#fff;background-color:#d8d8d8;" />-->
 <b>Explanation:</b><br>
 <blockquote class="noborder">
 <dl><dd>
-Say \(\vec{q}_1, \vec{q}_2, \cdots, \vec{q}_n \) are eigenvectors of \(A\)<br>
+Say <div class="quantml-katex-display inline">\(\vec{q}_1, \vec{q}_2, \cdots, \vec{q}_n \)</div> are eigenvectors of <div class="quantml-katex-display inline">\(A\)</div><br>
 Say,
-\[Q=\begin{bmatrix}
+<div class="quantml-katex-display">\[Q=\begin{bmatrix}
 \vdots & \vdots &          & \vdots \\  
 q_1    &  q_2   & \cdots   &  q_n   \\
 \vdots & \vdots &          & \vdots \\
-\end{bmatrix}\]
-So <span class="bb">\(A=Q\Lambda Q^{-1}\)</span> we discussed it <a  href="/linear-algebra/diagonalization/">HERE</a><br>
-And because \(Q\) is an orthonormal matrix so <span class="bb">\(Q^{-1}=Q^T\)</span> we discussed it <a  href="/linear-algebra/orthonormal-vectors/">HERE</a> so,<br>
+\end{bmatrix}\]</div>
+So <span class="bb"><div class="quantml-katex-display inline">\(A=Q\Lambda Q^{-1}\)</div></span> we discussed it <a  href="/linear-algebra/diagonalization/">HERE</a><br>
+And because <div class="quantml-katex-display inline">\(Q\)</div> is an orthonormal matrix so <span class="bb"><div class="quantml-katex-display inline">\(Q^{-1}=Q^T\)</div></span> we discussed it <a  href="/linear-algebra/orthonormal-vectors/">HERE</a> so,<br>
 <h2>
 <div class="l1 border">
-\[  \begin{matrix}
+<div class="quantml-katex-display">\[  \begin{matrix}
 
     % equation
     A=Q\Lambda Q^{T}
     %equation
 
     \end{matrix}
-\]
+\]</div>
 </div></h2>
 So we can write it as,<br>
 <div class="math-container">
-\[A=
+<div class="quantml-katex-display">\[A=
 \begin{bmatrix}
  \vdots & \vdots &  & \vdots \\  
  \vec{q}_{1} & \vec{q}_{2} & \cdots &  \vec{q}_{n}   \\
@@ -151,39 +151,39 @@ So we can write it as,<br>
 \cdots q_n \cdots\\
 \end{bmatrix}
  
- \]
+ \]</div>
 </div>
 So,
 <div class="l1 border math-container">
-\[  \begin{matrix}
+<div class="quantml-katex-display">\[  \begin{matrix}
 
     % equation
     \displaystyle A=\lambda_1q_1q_1^T + \lambda_2q_2q_2^T + \cdots + \lambda_nq_nq_n^T
     %equation
 
     \end{matrix}
-\]
+\]</div>
 </div>
-Here all \(q_i\)'s are <b>orthonormal</b> vectors so \(q_iq_i^T\) is a <b>projection matrix</b> so we can say that,<br>
+Here all <div class="quantml-katex-display inline">\(q_i\)</div>'s are <b>orthonormal</b> vectors so <div class="quantml-katex-display inline">\(q_iq_i^T\)</div> is a <b>projection matrix</b> so we can say that,<br>
 <blockquote>
-    \(A\) is the combination of <b>orthogonal</b> projection matrices.
+    <div class="quantml-katex-display inline">\(A\)</div> is the combination of <b>orthogonal</b> projection matrices.
 </blockquote>
 (we talked about <b>Orthogonal Subspaces</b> <a  href="/linear-algebra/orthogonal-subspaces/">HERE</a>)
 </dd></dl>
 </blockquote><br>
 
-<blockquote>\(3.\quad\) For a symmetric matrix <b>signs</b> of <i>pivots</i> are same as <b>signs</b> of <i>eigenvalues</i> </blockquote>
+<blockquote><div class="quantml-katex-display inline">\(3.\quad\)</div> For a symmetric matrix <b>signs</b> of <i>pivots</i> are same as <b>signs</b> of <i>eigenvalues</i> </blockquote>
 <b>Explanation:</b><br>
 <blockquote class="noborder">
 <dl><dd>
-Say that we have a \(50\times 50\) symmetric matrix and we just want to know there <b>signs</b>.<br>
+Say that we have a <div class="quantml-katex-display inline">\(50\times 50\)</div> symmetric matrix and we just want to know there <b>signs</b>.<br>
 In differential equation we saw that knowing just the <b>signs</b> of <i>eigenvalues</i> are important, it tells us about the state of the system.<br>
-Here we can't go for <span class="bb">\(\text{det}(A-\lambda\mathcal{I})=0\)</span>, because it will give us a \(50\) degree polynomial,
+Here we can't go for <span class="bb"><div class="quantml-katex-display inline">\(\text{det}(A-\lambda\mathcal{I})=0\)</div></span>, because it will give us a <div class="quantml-katex-display inline">\(50\)</div> degree polynomial,
 and we can spend lifetime solving this.<br>
-So what we do instead is we find \(50\) pivots and find number of positive pivots and number of negative pivots.<br>
+So what we do instead is we find <div class="quantml-katex-display inline">\(50\)</div> pivots and find number of positive pivots and number of negative pivots.<br>
 And for a Symmetric matrix,<br>
-<li><b>\(\mathbf{\#}\)</b> of positive <i>pivots</i> \(=\) <b>\(\mathbf{\#}\)</b> of positive <i>eigenvalues</i></li>
-<li><b>\(\mathbf{\#}\)</b> of negative <i>pivots</i> \(=\) <b>\(\mathbf{\#}\)</b> of negative <i>eigenvalues</i></li>
+<li><b><div class="quantml-katex-display inline">\(\mathbf{\#}\)</div></b> of positive <i>pivots</i> <div class="quantml-katex-display inline">\(=\)</div> <b><div class="quantml-katex-display inline">\(\mathbf{\#}\)</div></b> of positive <i>eigenvalues</i></li>
+<li><b><div class="quantml-katex-display inline">\(\mathbf{\#}\)</div></b> of negative <i>pivots</i> <div class="quantml-katex-display inline">\(=\)</div> <b><div class="quantml-katex-display inline">\(\mathbf{\#}\)</div></b> of negative <i>eigenvalues</i></li>
 
 </dd></dl>
 </blockquote><br>

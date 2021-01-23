@@ -61,9 +61,9 @@
 <p>
 <h1>4 fundamental subspaces</h1>
 
-Our \(4\) fundamental subspaces are,<br>
-<li><a  href="/linear-algebra/complete-space/">Column Space\((C(A))\)</a></li>
-<li><a  href="/linear-algebra/null-space/">Null Space\((N(A))\)</a></li>
+Our <div class="quantml-katex-display inline">\(4\)</div> fundamental subspaces are,<br>
+<li><a  href="/linear-algebra/complete-space/">Column Space<div class="quantml-katex-display inline">\((C(A))\)</div></a></li>
+<li><a  href="/linear-algebra/null-space/">Null Space<div class="quantml-katex-display inline">\((N(A))\)</div></a></li>
 <li>Row Space</li>
 <li>Left Null Space</li>
 We discussed about
@@ -73,85 +73,85 @@ what new is <b>Row Space</b> and <b>Left Null Space</b>.<br>
 <br>
 
 <h2 id="row-space">Row Space</h2>
-Say we have a \(m\times n\) matrix \(A\).<br>
-<b>Row Space</b> of \(A\) is all the <b>linear combination</b> of <b>rows</b> of matrix \(A\).<br>
-We can also say that <b>Row space</b> of \(A\) is all the <b>linear combination</b> of <b>columns</b> of matrix \(A^T\).<br>
+Say we have a <div class="quantml-katex-display inline">\(m\times n\)</div> matrix <div class="quantml-katex-display inline">\(A\)</div>.<br>
+<b>Row Space</b> of <div class="quantml-katex-display inline">\(A\)</div> is all the <b>linear combination</b> of <b>rows</b> of matrix <div class="quantml-katex-display inline">\(A\)</div>.<br>
+We can also say that <b>Row space</b> of <div class="quantml-katex-display inline">\(A\)</div> is all the <b>linear combination</b> of <b>columns</b> of matrix <div class="quantml-katex-display inline">\(A^T\)</div>.<br>
 <blockquote>
-So <b>Row space</b> of matrix \(A\) is the Column Space of matrix \(A^T\).<br>
-<b>Row space</b> is \(C(A^T)\)
+So <b>Row space</b> of matrix <div class="quantml-katex-display inline">\(A\)</div> is the Column Space of matrix <div class="quantml-katex-display inline">\(A^T\)</div>.<br>
+<b>Row space</b> is <div class="quantml-katex-display inline">\(C(A^T)\)</div>
 </blockquote><br>
 <br>
 
 <h2 id="left-null-space">Left Null Space</h2>
-Say we have a \(m\times n\) matrix \(A\).<br>
-Then <b>Left Null Space</b> is the Null Space of \(A^T\), so, <br>
-<blockquote>For a matrix \(A\) the <b>Left Null space</b> is the space of all \(\vec{x}\) that solves \(A^T\vec{x}=\vec{0}\)</blockquote><br>
+Say we have a <div class="quantml-katex-display inline">\(m\times n\)</div> matrix <div class="quantml-katex-display inline">\(A\)</div>.<br>
+Then <b>Left Null Space</b> is the Null Space of <div class="quantml-katex-display inline">\(A^T\)</div>, so, <br>
+<blockquote>For a matrix <div class="quantml-katex-display inline">\(A\)</div> the <b>Left Null space</b> is the space of all <div class="quantml-katex-display inline">\(\vec{x}\)</div> that solves <div class="quantml-katex-display inline">\(A^T\vec{x}=\vec{0}\)</div></blockquote><br>
 
 <h1 id="dim">Dimensions of fundamental spaces</h1>
 <br>
 
 <h2 id="dim-column-space">Dimensions of Column space</h2>
-Say we have a \(m\times n\) matrix \(A\) and \(\text{Rank}(A)=r\).<br>
-Here we have \(n\) columns and each column have \(m\) components.<br>
+Say we have a <div class="quantml-katex-display inline">\(m\times n\)</div> matrix <div class="quantml-katex-display inline">\(A\)</div> and <div class="quantml-katex-display inline">\(\text{Rank}(A)=r\)</div>.<br>
+Here we have <div class="quantml-katex-display inline">\(n\)</div> columns and each column have <div class="quantml-katex-display inline">\(m\)</div> components.<br>
 <blockquote>
-So every <b>column vector</b> of matrix \(A\) \(\in\mathbb{R}^m\).<br>
-So the <b>Column space</b> of matrix \(A\) lives in \(\mathbb{R}^m\).<br>
+So every <b>column vector</b> of matrix <div class="quantml-katex-display inline">\(A\)</div> <div class="quantml-katex-display inline">\(\in\mathbb{R}^m\)</div>.<br>
+So the <b>Column space</b> of matrix <div class="quantml-katex-display inline">\(A\)</div> lives in <div class="quantml-katex-display inline">\(\mathbb{R}^m\)</div>.<br>
 </blockquote>
-\(\text{Rank}(A)=r\) so we know that we have \(r\) <b>independent columns</b> in matrix \(A\).<br>
+<div class="quantml-katex-display inline">\(\text{Rank}(A)=r\)</div> so we know that we have <div class="quantml-katex-display inline">\(r\)</div> <b>independent columns</b> in matrix <div class="quantml-katex-display inline">\(A\)</div>.<br>
 <blockquote>
-The <b>Column space</b> of \(A\) is spanned by these \(r\) <b>independent columns vectors</b> of matrix \(A\).<br>
-So then dimension of the <b>column space</b> is \(r\).<br>
-\[\text{dim }C(A)=r\]
+The <b>Column space</b> of <div class="quantml-katex-display inline">\(A\)</div> is spanned by these <div class="quantml-katex-display inline">\(r\)</div> <b>independent columns vectors</b> of matrix <div class="quantml-katex-display inline">\(A\)</div>.<br>
+So then dimension of the <b>column space</b> is <div class="quantml-katex-display inline">\(r\)</div>.<br>
+<div class="quantml-katex-display">\[\text{dim }C(A)=r\]</div>
 </blockquote><br>
 
 <h2 id="dim-null-space">Dimensions of Null space</h2>
-Say we have a \(m\times n\) matrix \(A\) and \(\text{Rank}(A)=r\).<br>
-For matrix \(A\) the <b>Null space</b> is the space of all \(\vec{x}\) that solves \(A\vec{x}=\vec{0}\).<br>
+Say we have a <div class="quantml-katex-display inline">\(m\times n\)</div> matrix <div class="quantml-katex-display inline">\(A\)</div> and <div class="quantml-katex-display inline">\(\text{Rank}(A)=r\)</div>.<br>
+For matrix <div class="quantml-katex-display inline">\(A\)</div> the <b>Null space</b> is the space of all <div class="quantml-katex-display inline">\(\vec{x}\)</div> that solves <div class="quantml-katex-display inline">\(A\vec{x}=\vec{0}\)</div>.<br>
 <blockquote>
-We know that \(A\) is a \(m\times n\) matrix, so \(\vec{x}\in\mathbb{R}^n\).<br>
-So the <b>Null space</b> of matrix \(A\) lives in \(\mathbb{R}^n\).<br>
+We know that <div class="quantml-katex-display inline">\(A\)</div> is a <div class="quantml-katex-display inline">\(m\times n\)</div> matrix, so <div class="quantml-katex-display inline">\(\vec{x}\in\mathbb{R}^n\)</div>.<br>
+So the <b>Null space</b> of matrix <div class="quantml-katex-display inline">\(A\)</div> lives in <div class="quantml-katex-display inline">\(\mathbb{R}^n\)</div>.<br>
 </blockquote>
-\(\text{Rank}(A)=r\) so we know that we have \(r\) <b>independent columns</b> in matrix \(A\).<br>
-So there are \(n-r\) <b>dependent column vector</b>(special solution) in matrix \(A\).<br>
+<div class="quantml-katex-display inline">\(\text{Rank}(A)=r\)</div> so we know that we have <div class="quantml-katex-display inline">\(r\)</div> <b>independent columns</b> in matrix <div class="quantml-katex-display inline">\(A\)</div>.<br>
+So there are <div class="quantml-katex-display inline">\(n-r\)</div> <b>dependent column vector</b>(special solution) in matrix <div class="quantml-katex-display inline">\(A\)</div>.<br>
 <blockquote>
-The <b>Null space</b> is spanned by these \(n-r\) <b>dependent column vector</b> of matrix \(A\).<br>
-So then dimension of the <b>null space</b> of matrix \(A\) is \(n-r\).<br>
-\[\text{dim }N(A)=n-r\]
+The <b>Null space</b> is spanned by these <div class="quantml-katex-display inline">\(n-r\)</div> <b>dependent column vector</b> of matrix <div class="quantml-katex-display inline">\(A\)</div>.<br>
+So then dimension of the <b>null space</b> of matrix <div class="quantml-katex-display inline">\(A\)</div> is <div class="quantml-katex-display inline">\(n-r\)</div>.<br>
+<div class="quantml-katex-display">\[\text{dim }N(A)=n-r\]</div>
 </blockquote><br>
 
 <h2 id="dim-row-space">Dimensions of Row space</h2>
-Say we have a \(m\times n\) matrix \(A\) and \(\text{Rank}(A)=r\).<br>
-Here we have \(m\) rows and each row have \(n\) components.<br>
+Say we have a <div class="quantml-katex-display inline">\(m\times n\)</div> matrix <div class="quantml-katex-display inline">\(A\)</div> and <div class="quantml-katex-display inline">\(\text{Rank}(A)=r\)</div>.<br>
+Here we have <div class="quantml-katex-display inline">\(m\)</div> rows and each row have <div class="quantml-katex-display inline">\(n\)</div> components.<br>
 <blockquote>
-So every <b>row vector</b> of matrix \(A\) \(\in\mathbb{R}^n\).<br>
-So the <b>Row space</b> of matrix \(A\) lives in \(\mathbb{R}^n\).<br>
+So every <b>row vector</b> of matrix <div class="quantml-katex-display inline">\(A\)</div> <div class="quantml-katex-display inline">\(\in\mathbb{R}^n\)</div>.<br>
+So the <b>Row space</b> of matrix <div class="quantml-katex-display inline">\(A\)</div> lives in <div class="quantml-katex-display inline">\(\mathbb{R}^n\)</div>.<br>
 </blockquote>
-\(\text{Rank}(A)=\text{Rank}(A^T)\) <a  href="https://www.khanacademy.org/math/linear-algebra/matrix-transformations/matrix-transpose/v/linear-algebra-rank-a-rank-transpose-of-a">[proof]</a><br>
-\(\text{Rank}(A)=r\Rightarrow\) \(\text{Rank}(A^T)=r\) so we know that we have \(r\) <b>independent columns</b> in matrix \(A^T\).<br>
-OR say that we have \(r\) <b>independent rows</b> in matrix \(A\).<br>
+<div class="quantml-katex-display inline">\(\text{Rank}(A)=\text{Rank}(A^T)\)</div> <a  href="https://www.khanacademy.org/math/linear-algebra/matrix-transformations/matrix-transpose/v/linear-algebra-rank-a-rank-transpose-of-a">[proof]</a><br>
+<div class="quantml-katex-display inline">\(\text{Rank}(A)=r\Rightarrow\)</div> <div class="quantml-katex-display inline">\(\text{Rank}(A^T)=r\)</div> so we know that we have <div class="quantml-katex-display inline">\(r\)</div> <b>independent columns</b> in matrix <div class="quantml-katex-display inline">\(A^T\)</div>.<br>
+OR say that we have <div class="quantml-katex-display inline">\(r\)</div> <b>independent rows</b> in matrix <div class="quantml-katex-display inline">\(A\)</div>.<br>
 <blockquote>
-The <b>Row space</b> of \(A\) is spanned by these \(r\)  <b>independent row vectors</b> of \(A\).<br>
+The <b>Row space</b> of <div class="quantml-katex-display inline">\(A\)</div> is spanned by these <div class="quantml-katex-display inline">\(r\)</div>  <b>independent row vectors</b> of <div class="quantml-katex-display inline">\(A\)</div>.<br>
 <b>OR</b> say that, 
-the <b>Column space</b> of \(A^T\) is spanned by these \(r\) <b>independent columns vectors</b> of \(A^T\).<br>
-So then dimension of the <b>row space</b> of matrix \(A\) is \(r\).<br>
-\[\text{dim }C(A^T)=r\]
+the <b>Column space</b> of <div class="quantml-katex-display inline">\(A^T\)</div> is spanned by these <div class="quantml-katex-display inline">\(r\)</div> <b>independent columns vectors</b> of <div class="quantml-katex-display inline">\(A^T\)</div>.<br>
+So then dimension of the <b>row space</b> of matrix <div class="quantml-katex-display inline">\(A\)</div> is <div class="quantml-katex-display inline">\(r\)</div>.<br>
+<div class="quantml-katex-display">\[\text{dim }C(A^T)=r\]</div>
 </blockquote><br>
 
 <h2 id="dim-left-null-space">Dimensions of Left Null space</h2>
-Say we have a \(m\times n\) matrix \(A\) and \(\text{Rank}(A)=r\).<br>
-For a matrix \(A\) the <b>Left Null space</b> is the space of all \(\vec{x}\) that solves \(A^T\vec{x}=\vec{0}\).<br>
+Say we have a <div class="quantml-katex-display inline">\(m\times n\)</div> matrix <div class="quantml-katex-display inline">\(A\)</div> and <div class="quantml-katex-display inline">\(\text{Rank}(A)=r\)</div>.<br>
+For a matrix <div class="quantml-katex-display inline">\(A\)</div> the <b>Left Null space</b> is the space of all <div class="quantml-katex-display inline">\(\vec{x}\)</div> that solves <div class="quantml-katex-display inline">\(A^T\vec{x}=\vec{0}\)</div>.<br>
 <blockquote>
-We know that \(A^T\) is a \(n\times m\) matrix, so \(\vec{x}\in\mathbb{R}^m\).<br>
-So the <b>Left Null space</b> of matrix \(A\) lives in \(\mathbb{R}^m\).<br>
+We know that <div class="quantml-katex-display inline">\(A^T\)</div> is a <div class="quantml-katex-display inline">\(n\times m\)</div> matrix, so <div class="quantml-katex-display inline">\(\vec{x}\in\mathbb{R}^m\)</div>.<br>
+So the <b>Left Null space</b> of matrix <div class="quantml-katex-display inline">\(A\)</div> lives in <div class="quantml-katex-display inline">\(\mathbb{R}^m\)</div>.<br>
 </blockquote>
-\(\text{Rank}(A)=\text{Rank}(A^T)\) <a  href="https://www.khanacademy.org/math/linear-algebra/matrix-transformations/matrix-transpose/v/linear-algebra-rank-a-rank-transpose-of-a">[proof]</a><br>
-\(\text{Rank}(A)=r\Rightarrow\) \(\text{Rank}(A^T)=r\) so we know that we have \(r\) <b>independent columns</b> in matrix \(A^T\).<br>
-OR say that we have \(r\) <b>independent rows</b> in matrix \(A\).<br>
+<div class="quantml-katex-display inline">\(\text{Rank}(A)=\text{Rank}(A^T)\)</div> <a  href="https://www.khanacademy.org/math/linear-algebra/matrix-transformations/matrix-transpose/v/linear-algebra-rank-a-rank-transpose-of-a">[proof]</a><br>
+<div class="quantml-katex-display inline">\(\text{Rank}(A)=r\Rightarrow\)</div> <div class="quantml-katex-display inline">\(\text{Rank}(A^T)=r\)</div> so we know that we have <div class="quantml-katex-display inline">\(r\)</div> <b>independent columns</b> in matrix <div class="quantml-katex-display inline">\(A^T\)</div>.<br>
+OR say that we have <div class="quantml-katex-display inline">\(r\)</div> <b>independent rows</b> in matrix <div class="quantml-katex-display inline">\(A\)</div>.<br>
 <blockquote>
-So there are \(m-r\) <b>dependent column vector</b>(special solution) in matrix \(A^T\).<br>
-The <b>Left Null space</b> is spanned by these \(m-r\) <b>dependent column vector</b> in matrix \(A\).<br>
-So then dimension of the <b>left null space</b> is \(m-r\).<br>
-\[\text{dim }N(A^T)=m-r\]
+So there are <div class="quantml-katex-display inline">\(m-r\)</div> <b>dependent column vector</b>(special solution) in matrix <div class="quantml-katex-display inline">\(A^T\)</div>.<br>
+The <b>Left Null space</b> is spanned by these <div class="quantml-katex-display inline">\(m-r\)</div> <b>dependent column vector</b> in matrix <div class="quantml-katex-display inline">\(A\)</div>.<br>
+So then dimension of the <b>left null space</b> is <div class="quantml-katex-display inline">\(m-r\)</div>.<br>
+<div class="quantml-katex-display">\[\text{dim }N(A^T)=m-r\]</div>
 </blockquote><br>
 <br><img class="full-size-img" src="/linear-algebra/img/fundamental-subspaces.webp" width="447" height="357" alt=""><br>
 <br>
@@ -160,45 +160,45 @@ So then dimension of the <b>left null space</b> is \(m-r\).<br>
 <br>
 
 <h2 id="basis-column">Basis of Column space</h2>
-Say we have a \(m\times n\) matrix \(A\) and \(\text{Rank}(A)=r\).<br>
+Say we have a <div class="quantml-katex-display inline">\(m\times n\)</div> matrix <div class="quantml-katex-display inline">\(A\)</div> and <div class="quantml-katex-display inline">\(\text{Rank}(A)=r\)</div>.<br>
 <blockquote>
-Here we have \(r\) <b>independent columns</b> in \(A\).<br>
+Here we have <div class="quantml-katex-display inline">\(r\)</div> <b>independent columns</b> in <div class="quantml-katex-display inline">\(A\)</div>.<br>
 And these <b>independent columns</b> are the basis of <b>Column space</b>.
 </blockquote>
 We talked about <b>Basis of Column space</b> <a  href="/linear-algebra/rank/#cs">[HERE]</a><br>
 <br>
 
 <h2 id="basis-null">Basis of Null space</h2>
-Say we have a \(m\times n\) matrix \(A\) and \(\text{Rank}(A)=r\).<br>
+Say we have a <div class="quantml-katex-display inline">\(m\times n\)</div> matrix <div class="quantml-katex-display inline">\(A\)</div> and <div class="quantml-katex-display inline">\(\text{Rank}(A)=r\)</div>.<br>
 <blockquote>
-Here we have \(n-r\) <b>special solutions</b>.<br>
+Here we have <div class="quantml-katex-display inline">\(n-r\)</div> <b>special solutions</b>.<br>
 And these <b>special solutions</b> are the basis of <b>Null space</b>.
 </blockquote>
 We talked about <b>Basis of Null space</b> <a  href="/linear-algebra/rank/#ns">[HERE]</a><br>
 <br>
 
 <h2 id="basis-row">Basis of Row space</h2>
-Say we have a \(m\times n\) matrix \(A\) and \(\text{Rank}(A)=r\).<br>
+Say we have a <div class="quantml-katex-display inline">\(m\times n\)</div> matrix <div class="quantml-katex-display inline">\(A\)</div> and <div class="quantml-katex-display inline">\(\text{Rank}(A)=r\)</div>.<br>
 <blockquote>
-\(\text{Rank}(A)=r\Rightarrow\) \(\text{Rank}(A^T)=r\) so here we have \(r\) 
-<b>independent columns</b> in \(A^T\).<br>
-So we can also say that there are \(r\) <b>independent rows</b> in \(A\).<br>
-And these <b>independent rows</b> of \(A\) are the basis of <b>Row space</b>.
+<div class="quantml-katex-display inline">\(\text{Rank}(A)=r\Rightarrow\)</div> <div class="quantml-katex-display inline">\(\text{Rank}(A^T)=r\)</div> so here we have <div class="quantml-katex-display inline">\(r\)</div> 
+<b>independent columns</b> in <div class="quantml-katex-display inline">\(A^T\)</div>.<br>
+So we can also say that there are <div class="quantml-katex-display inline">\(r\)</div> <b>independent rows</b> in <div class="quantml-katex-display inline">\(A\)</div>.<br>
+And these <b>independent rows</b> of <div class="quantml-katex-display inline">\(A\)</div> are the basis of <b>Row space</b>.
 </blockquote>
 <b>Example,</b><br>
 <dl><dd>
-Say \(A=\begin{bmatrix}
+Say <div class="quantml-katex-display inline">\(A=\begin{bmatrix}
 1 & 2 & 3 & 1\\
 1 & 1 & 2 & 1\\
 1 & 2 & 3 & 1\\
-\end{bmatrix}\)<br>
+\end{bmatrix}\)</div><br>
 It's <b>reduced row echelon form</b> is,<br>
-\(R=\begin{bmatrix}
+<div class="quantml-katex-display inline">\(R=\begin{bmatrix}
 \color{blue}{\fbox{1}} & \color{blue}{0} & \color{red}{1}        & \color{red}{1} \\
 \color{blue}{0}        & \color{blue}{\fbox{1}} & \color{red}{1} & \color{red}{0}  \\
             0         &         0       &           0           &       0          \\
-\end{bmatrix}\)<br>
-Here we can clearly see that rank\((r)\) is \(2\).<br>
+\end{bmatrix}\)</div><br>
+Here we can clearly see that rank<div class="quantml-katex-display inline">\((r)\)</div> is <div class="quantml-katex-display inline">\(2\)</div>.<br>
 <blockquote class="noborder">
     Our row operation preserve the <b>row space</b>.<br>
     It mean our row space is unaffected during row operations while reducing it to reduced row echelon form.<br>
@@ -207,76 +207,76 @@ Here we can clearly see that rank\((r)\) is \(2\).<br>
     <br>
     But column space might changed.
 </blockquote><br>
-Here the basis for <b>Row space</b> is first \(r\) row vectors in \(R\).<br>
+Here the basis for <b>Row space</b> is first <div class="quantml-katex-display inline">\(r\)</div> row vectors in <div class="quantml-katex-display inline">\(R\)</div>.<br>
 So our basis are 
-\(\begin{bmatrix} 1\\0\\1\\1\\ \end{bmatrix}\), 
-\(\begin{bmatrix} 0\\1\\1\\0\\ \end{bmatrix}\)
+<div class="quantml-katex-display inline">\(\begin{bmatrix} 1\\0\\1\\1\\ \end{bmatrix}\)</div>, 
+<div class="quantml-katex-display inline">\(\begin{bmatrix} 0\\1\\1\\0\\ \end{bmatrix}\)</div>
 </dd></dl>
 
 <h2 id="basis-left-null">Basis of Left Null space</h2>
-Say we have a \(m\times n\) matrix \(A\) and \(\text{Rank}(A)=r\).<br>
-For matrix \(A\) the <b>Left Null space</b> is the space of all \(\vec{x}\) that solves \(A^T\vec{x}=\vec{0}\).<br>
-When we reduce \(A\) in <b>reduced row echelon form</b>, then <b># zero</b> rows are \(m-r\).<br>
-So we have \(m-r\) <b>special solutions</b> for our <b>Left null space</b>.<br>
+Say we have a <div class="quantml-katex-display inline">\(m\times n\)</div> matrix <div class="quantml-katex-display inline">\(A\)</div> and <div class="quantml-katex-display inline">\(\text{Rank}(A)=r\)</div>.<br>
+For matrix <div class="quantml-katex-display inline">\(A\)</div> the <b>Left Null space</b> is the space of all <div class="quantml-katex-display inline">\(\vec{x}\)</div> that solves <div class="quantml-katex-display inline">\(A^T\vec{x}=\vec{0}\)</div>.<br>
+When we reduce <div class="quantml-katex-display inline">\(A\)</div> in <b>reduced row echelon form</b>, then <b># zero</b> rows are <div class="quantml-katex-display inline">\(m-r\)</div>.<br>
+So we have <div class="quantml-katex-display inline">\(m-r\)</div> <b>special solutions</b> for our <b>Left null space</b>.<br>
 And these <b>special solutions</b> are the basis of <b>Left Null space</b>.<br>
 <br>
-To find the basis we <b>can</b> take the transpose of \(A\) and find the null space of \(A^T\).<br>
+To find the basis we <b>can</b> take the transpose of <div class="quantml-katex-display inline">\(A\)</div> and find the null space of <div class="quantml-katex-display inline">\(A^T\)</div>.<br>
 But this is not intuitive for <b>row space</b> perspective.<br>
-So what we do is while reducing the matrix \(A\) to the <b>reduced row echelon form</b>\((R)\),
+So what we do is while reducing the matrix <div class="quantml-katex-display inline">\(A\)</div> to the <b>reduced row echelon form</b><div class="quantml-katex-display inline">\((R)\)</div>,
 by using <a  href="http://math.mit.edu/~mckernan/Teaching/08-09/Autumn/18.700/l_5.pdf">Gauss-Jordan elimination</a> technique
 we can keep the track of our action.<br>
-And it will result in a matrix say \(E\).<br>
-\(EA=R\)<br>
-then last \(m-r\) rows of \(E\) will be our <b>basis</b> for <b>Left null space</b>.<br>
+And it will result in a matrix say <div class="quantml-katex-display inline">\(E\)</div>.<br>
+<div class="quantml-katex-display inline">\(EA=R\)</div><br>
+then last <div class="quantml-katex-display inline">\(m-r\)</div> rows of <div class="quantml-katex-display inline">\(E\)</div> will be our <b>basis</b> for <b>Left null space</b>.<br>
 <b>Example,</b>
 
 <dl><dd>
-Say \(A=\begin{bmatrix}
+Say <div class="quantml-katex-display inline">\(A=\begin{bmatrix}
 1 & 2 & 3 & 1\\
 1 & 1 & 2 & 1\\
 1 & 2 & 3 & 1\\
-\end{bmatrix}\)<br>
+\end{bmatrix}\)</div><br>
 Now let's find it's <b>reduced row echelon form</b> Gauss Jordan,<br>
 
-\(\left[  \begin{array}{cccc|ccc}
+<div class="quantml-katex-display inline">\(\left[  \begin{array}{cccc|ccc}
 1 & 2 & 3 & 1   &     1 & 0 & 0 \\
 1 & 1 & 2 & 1   &     0 & 1 & 0 \\
 1 & 2 & 3 & 1   &     0 & 0 & 1 \\
 \end{array}   \right]
-\)<br>
-\(R_2 \leftarrow R_2 - R_1\) and \(R_3 \leftarrow R_3 - R_1\)<br>
+\)</div><br>
+<div class="quantml-katex-display inline">\(R_2 \leftarrow R_2 - R_1\)</div> and <div class="quantml-katex-display inline">\(R_3 \leftarrow R_3 - R_1\)</div><br>
 
-\(\left[  \begin{array}{cccc|ccc}
+<div class="quantml-katex-display inline">\(\left[  \begin{array}{cccc|ccc}
 \color{blue}{\fbox{1}} &  2 &  3 & 1     &    1 & 0 & 0 \\
                      0 & -1 & -1 & 0     &   -1 & 1 & 0 \\
                      0 &  0 &  0 & 0     &   -1 & 0 & 1 \\
 \end{array}   \right]
-\)<br>
+\)</div><br>
 
-\(R_2 \leftarrow -R_2 \)<br>
+<div class="quantml-katex-display inline">\(R_2 \leftarrow -R_2 \)</div><br>
 
-\(\left[  \begin{array}{cccc|ccc}
+<div class="quantml-katex-display inline">\(\left[  \begin{array}{cccc|ccc}
 \color{blue}{\fbox{1}} &                       2 &  3 &  1     &     1 &  0 &  0 \\
                      0 &  \color{blue}{\fbox{1}} &  1 &  0     &     1 & -1 &  0 \\
                      0 &                       0 &  0 &  0     &    -1 &  0 & 1 \\
 \end{array}   \right]
-\)<br>
+\)</div><br>
 
-\(R_1 \leftarrow R_1 -R_2\)<br>
+<div class="quantml-katex-display inline">\(R_1 \leftarrow R_1 -R_2\)</div><br>
 
-\(\left[  \begin{array}{cccc|ccc}
+<div class="quantml-katex-display inline">\(\left[  \begin{array}{cccc|ccc}
 \color{blue}{\fbox{1}} &  \color{blue}{0}        &  \color{red}{1} &  \color{red}{1}     &    -1 &  2 &  0 \\
         \color{blue}{0}&  \color{blue}{\fbox{1}} &  \color{red}{1} &  \color{red}{0}     &     1 & -1 &  0 \\
                      0 &                       0 &               0 &  0                  &    \color{green}{-1} &  \color{green}{0} & \color{green}{1} \\
 \end{array}   \right]
-\)<br>
-What is special in \(\begin{bmatrix} \color{green}{-1}\\\color{green}{0}\\\color{green}{1}\\ \end{bmatrix}\)?<br>
+\)</div><br>
+What is special in <div class="quantml-katex-display inline">\(\begin{bmatrix} \color{green}{-1}\\\color{green}{0}\\\color{green}{1}\\ \end{bmatrix}\)</div>?<br>
 It's suggesting that if we take 
-\(\color{green}{-1}\cdot R_1  +  \color{green}{0}\cdot R_2  + \color{green}{1}\cdot R_3\) &nbsp;&nbsp;
- of \(A\) then we will get \(\vec{0}\).<br>
+<div class="quantml-katex-display inline">\(\color{green}{-1}\cdot R_1  +  \color{green}{0}\cdot R_2  + \color{green}{1}\cdot R_3\)</div> &nbsp;&nbsp;
+ of <div class="quantml-katex-display inline">\(A\)</div> then we will get <div class="quantml-katex-display inline">\(\vec{0}\)</div>.<br>
 So our <b>left null space</b> is,<br>
-\[c\cdot \begin{bmatrix} \color{green}{-1}\\\color{green}{0}\\\color{green}{1}\\ \end{bmatrix};
-\quad c\in\mathbb{R}\]
+<div class="quantml-katex-display">\[c\cdot \begin{bmatrix} \color{green}{-1}\\\color{green}{0}\\\color{green}{1}\\ \end{bmatrix};
+\quad c\in\mathbb{R}\]</div>
 
 </dd></dl>
 </p>

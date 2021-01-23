@@ -64,75 +64,75 @@
 <p>
 
 <h1 id="op">Operation on subspaces</h1>
-Say \(\mathcal{S}\) denotes the space of <b>all</b> \(3\times 3\) <b>symmetric</b> matrices.<br>
-Say \(\mathcal{U}\) denotes the space of <b>all</b> \(3\times 3\) <b>lower triangular</b> matrices.<br>
+Say <div class="quantml-katex-display inline">\(\mathcal{S}\)</div> denotes the space of <b>all</b> <div class="quantml-katex-display inline">\(3\times 3\)</div> <b>symmetric</b> matrices.<br>
+Say <div class="quantml-katex-display inline">\(\mathcal{U}\)</div> denotes the space of <b>all</b> <div class="quantml-katex-display inline">\(3\times 3\)</div> <b>lower triangular</b> matrices.<br>
 <br>
-<li id="intersaction">\(\mathcal{S}\cap\mathcal{U}\)</li>
-What about <b>all</b> \(3\times 3\) matrices who are <b>lower triangular</b> <b>AND</b> <b>symmetric</b>.<br>
-We are asking for space contain by both \(\mathcal{U}\) <b>AND</b> \(\mathcal{S}\), OR <i>say</i> what is the space of \(\mathcal{S}\cap\mathcal{U}\).<br>
-And it's <b>all</b> \(3\times 3\) <b>Diagonal matrices</b>.<br>
-And what is the <b>dimension</b> of <b>all</b> \(3\times 3\) <b>Diagonal matrices</b>.<br>
+<li id="intersaction"><div class="quantml-katex-display inline">\(\mathcal{S}\cap\mathcal{U}\)</div></li>
+What about <b>all</b> <div class="quantml-katex-display inline">\(3\times 3\)</div> matrices who are <b>lower triangular</b> <b>AND</b> <b>symmetric</b>.<br>
+We are asking for space contain by both <div class="quantml-katex-display inline">\(\mathcal{U}\)</div> <b>AND</b> <div class="quantml-katex-display inline">\(\mathcal{S}\)</div>, OR <i>say</i> what is the space of <div class="quantml-katex-display inline">\(\mathcal{S}\cap\mathcal{U}\)</div>.<br>
+And it's <b>all</b> <div class="quantml-katex-display inline">\(3\times 3\)</div> <b>Diagonal matrices</b>.<br>
+And what is the <b>dimension</b> of <b>all</b> <div class="quantml-katex-display inline">\(3\times 3\)</div> <b>Diagonal matrices</b>.<br>
 <blockquote>
-    Space of <b>all</b> \(3\times 3\) <b>diagonal matrices</b> is a <b>subspace</b> of <b>all</b> \(3\times 3\) <b>matrices</b>.<br>
-    It has \(3\) independent entities for a \(3\times 3\) matrix.<br>
-    So it's <b>dimension</b> is \(3\).
+    Space of <b>all</b> <div class="quantml-katex-display inline">\(3\times 3\)</div> <b>diagonal matrices</b> is a <b>subspace</b> of <b>all</b> <div class="quantml-katex-display inline">\(3\times 3\)</div> <b>matrices</b>.<br>
+    It has <div class="quantml-katex-display inline">\(3\)</div> independent entities for a <div class="quantml-katex-display inline">\(3\times 3\)</div> matrix.<br>
+    So it's <b>dimension</b> is <div class="quantml-katex-display inline">\(3\)</div>.
 </blockquote><br>
 
-<li id="union">\(\mathcal{S}\cup\mathcal{U}\)</li>
+<li id="union"><div class="quantml-katex-display inline">\(\mathcal{S}\cup\mathcal{U}\)</div></li>
 What about matrices who are <b>lower triangular</b> <b>OR</b> <b>symmetric</b>.<br>
-We are asking for space contain by both \(\mathcal{U}\) OR \(\mathcal{S}\),<br>
-Or say what is the space of \(\mathcal{S}\cup\mathcal{U}\).<br>
+We are asking for space contain by both <div class="quantml-katex-display inline">\(\mathcal{U}\)</div> OR <div class="quantml-katex-display inline">\(\mathcal{S}\)</div>,<br>
+Or say what is the space of <div class="quantml-katex-display inline">\(\mathcal{S}\cup\mathcal{U}\)</div>.<br>
 <blockquote class="noborder">
-    But <b>all</b> \(3\times 3\) <b>lower triangular</b> <b>OR</b> <b>symmetric</b> matrices <b>do not</b> 
-    form a <b>subspace</b> of <b>all</b> \(3\times 3\) <b>matrices</b>.<br> 
+    But <b>all</b> <div class="quantml-katex-display inline">\(3\times 3\)</div> <b>lower triangular</b> <b>OR</b> <b>symmetric</b> matrices <b>do not</b> 
+    form a <b>subspace</b> of <b>all</b> <div class="quantml-katex-display inline">\(3\times 3\)</div> <b>matrices</b>.<br> 
     <br>
     
     <b>But Why?</b><br>
-    Let's say \(\mathcal{Q}=\mathcal{S}\cup\mathcal{U}\)<br>
+    Let's say <div class="quantml-katex-display inline">\(\mathcal{Q}=\mathcal{S}\cup\mathcal{U}\)</div><br>
     Consider two matrices,<br>
-(symmetric)\(A=
+(symmetric)<div class="quantml-katex-display inline">\(A=
 \begin{bmatrix}
 \color{red}{1}  & \color{red}{1} & 0 \\
 \color{red}{1} & 0 & 0 \\
 0 & 0 & 0 \\
 \end{bmatrix}
-\)
+\)</div>
 and
-(lower triangular)\(B=
+(lower triangular)<div class="quantml-katex-display inline">\(B=
 \begin{bmatrix}
 0 & 0 & 0 \\
 \color{red}{-1} & 0 & 0 \\
 0 & 0 & 0 \\
 \end{bmatrix}
-\)<br>
-\(A\in\mathcal{Q}\) and \(B\in\mathcal{Q}\) so for \(\mathcal{Q}\) to be a <b>vector space</b>, 
-<b>linear combination</b> of \(A\) and \(B\) must \(\in\mathcal{Q}\).<br>
-\(A+B=
+\)</div><br>
+<div class="quantml-katex-display inline">\(A\in\mathcal{Q}\)</div> and <div class="quantml-katex-display inline">\(B\in\mathcal{Q}\)</div> so for <div class="quantml-katex-display inline">\(\mathcal{Q}\)</div> to be a <b>vector space</b>, 
+<b>linear combination</b> of <div class="quantml-katex-display inline">\(A\)</div> and <div class="quantml-katex-display inline">\(B\)</div> must <div class="quantml-katex-display inline">\(\in\mathcal{Q}\)</div>.<br>
+<div class="quantml-katex-display inline">\(A+B=
 \begin{bmatrix}
 \color{red}{1}  & \color{red}{1} & 0 \\
 0 & 0 & 0 \\
 0 & 0 & 0 \\
 \end{bmatrix}
-\)<br>
-And \(A+B\) is <b>neither</b> lower triangular and <b>nor</b> symmetric.<br>
-So \(A+B\notin \mathcal{Q}\).<br>
-So \(\mathcal{Q}\) is not a <b>vector space</b>.
+\)</div><br>
+And <div class="quantml-katex-display inline">\(A+B\)</div> is <b>neither</b> lower triangular and <b>nor</b> symmetric.<br>
+So <div class="quantml-katex-display inline">\(A+B\notin \mathcal{Q}\)</div>.<br>
+So <div class="quantml-katex-display inline">\(\mathcal{Q}\)</div> is not a <b>vector space</b>.
 </blockquote><br>
 
-<li is="addition">\(\mathcal{S} + \mathcal{U}\)</li>
-Here we took any matrix in \(\mathcal{S}\) (say \(A\)) and any matrix in \(\mathcal{U}\) (say\(B\)), and <b>add</b> them.<br>
+<li is="addition"><div class="quantml-katex-display inline">\(\mathcal{S} + \mathcal{U}\)</div></li>
+Here we took any matrix in <div class="quantml-katex-display inline">\(\mathcal{S}\)</div> (say <div class="quantml-katex-display inline">\(A\)</div>) and any matrix in <div class="quantml-katex-display inline">\(\mathcal{U}\)</div> (say<div class="quantml-katex-display inline">\(B\)</div>), and <b>add</b> them.<br>
 <blockquote class="noborder">
-You can say it's some sort to linear combinations of space \(\mathcal{S}\) and space \(\mathcal{U}\).<br>
-Say you have a matrix \(A\in\mathcal{S}\) and a matrix \(B\in\mathcal{U}\).<br>
-<li>If \(A\in\mathcal{S}\Rightarrow \alpha\cdot A\in \mathcal{S}\) because \(\mathcal{S}\) is a <b>vector space</b> </li>
-<li>If \(B\in\mathcal{U}\Rightarrow \beta\cdot B\in \mathcal{U}\) because \(\mathcal{U}\) is a <b>vector space</b> </li>
-And \(\alpha\in\mathbb{R}\) and \(\beta\in\mathbb{R}\)<br>
-And we are looking at \(\alpha\cdot A + \beta \cdot B;\quad\) \(\forall A\in\mathcal{S}\) and \(\forall B\in\mathcal{U}\).<br>
-And it's a linear combinations in between elements of \(\mathcal{S}\) and \(\mathcal{U}\).<br>
+You can say it's some sort to linear combinations of space <div class="quantml-katex-display inline">\(\mathcal{S}\)</div> and space <div class="quantml-katex-display inline">\(\mathcal{U}\)</div>.<br>
+Say you have a matrix <div class="quantml-katex-display inline">\(A\in\mathcal{S}\)</div> and a matrix <div class="quantml-katex-display inline">\(B\in\mathcal{U}\)</div>.<br>
+<li>If <div class="quantml-katex-display inline">\(A\in\mathcal{S}\Rightarrow \alpha\cdot A\in \mathcal{S}\)</div> because <div class="quantml-katex-display inline">\(\mathcal{S}\)</div> is a <b>vector space</b> </li>
+<li>If <div class="quantml-katex-display inline">\(B\in\mathcal{U}\Rightarrow \beta\cdot B\in \mathcal{U}\)</div> because <div class="quantml-katex-display inline">\(\mathcal{U}\)</div> is a <b>vector space</b> </li>
+And <div class="quantml-katex-display inline">\(\alpha\in\mathbb{R}\)</div> and <div class="quantml-katex-display inline">\(\beta\in\mathbb{R}\)</div><br>
+And we are looking at <div class="quantml-katex-display inline">\(\alpha\cdot A + \beta \cdot B;\quad\)</div> <div class="quantml-katex-display inline">\(\forall A\in\mathcal{S}\)</div> and <div class="quantml-katex-display inline">\(\forall B\in\mathcal{U}\)</div>.<br>
+And it's a linear combinations in between elements of <div class="quantml-katex-display inline">\(\mathcal{S}\)</div> and <div class="quantml-katex-display inline">\(\mathcal{U}\)</div>.<br>
 </blockquote>
-\(A\in\mathcal{S}\) and \(B\in\mathcal{U}\) and we are looking for \(A+B\).<br>
+<div class="quantml-katex-display inline">\(A\in\mathcal{S}\)</div> and <div class="quantml-katex-display inline">\(B\in\mathcal{U}\)</div> and we are looking for <div class="quantml-katex-display inline">\(A+B\)</div>.<br>
 <div class="math-container">
-\[
+<div class="quantml-katex-display">\[
 \begin{bmatrix}
             \mathbb{R}   & \color{red}{\mathbb{R}}  & \color{blue}{\mathbb{R}}  \\
 \color{red}{\mathbb{R}}   &             \mathbb{R}  & \color{green}{\mathbb{R}}  \\
@@ -150,13 +150,13 @@ And it's a linear combinations in between elements of \(\mathcal{S}\) and \(\mat
 \color{red}{\mathbb{R}}+            \mathbb{R}   &             2\mathbb{R}                      & \color{green}{\mathbb{R}}  \\
 \color{blue}{\mathbb{R}}+            \mathbb{R}   & \color{green}{\mathbb{R}}+            \mathbb{R}  &             2\mathbb{R} \\
 \end{bmatrix}
-\]
+\]</div>
 </div>
 
 equivalently,<br>
 
 <div class="math-container">
-\[
+<div class="quantml-katex-display">\[
 \begin{bmatrix}
             \mathbb{R}   & \color{red}{\mathbb{R}}  & \color{blue}{\mathbb{R}}  \\
 \color{red}{\mathbb{R}}   &             \mathbb{R}  & \color{green}{\mathbb{R}}  \\
@@ -174,12 +174,12 @@ equivalently,<br>
 \mathbb{R}   & \mathbb{R}               & \color{green}{\mathbb{R}}  \\
 \mathbb{R}   & \mathbb{R}               & \mathbb{R} \\
 \end{bmatrix}
-\]
+\]</div>
 </div>
 
 now there is no boundation so,<br>
 <div class="math-container">
-\[
+<div class="quantml-katex-display">\[
 \begin{bmatrix}
             \mathbb{R}   & \color{red}{\mathbb{R}}  & \color{blue}{\mathbb{R}}  \\
 \color{red}{\mathbb{R}}   &             \mathbb{R}  & \color{green}{\mathbb{R}}  \\
@@ -197,20 +197,20 @@ now there is no boundation so,<br>
 \mathbb{R}   & \mathbb{R}  & \mathbb{R}  \\
 \mathbb{R}   & \mathbb{R}  & \mathbb{R} \\
 \end{bmatrix}
-\]
+\]</div>
 </div>
 
-Here we have \(9\) independent entities for a \(3\times 3\) matrix.<br>
-So it has \(9\) <b>Basis</b> and \(9\) <b>Dimensions</b>.<br>
+Here we have <div class="quantml-katex-display inline">\(9\)</div> independent entities for a <div class="quantml-katex-display inline">\(3\times 3\)</div> matrix.<br>
+So it has <div class="quantml-katex-display inline">\(9\)</div> <b>Basis</b> and <div class="quantml-katex-display inline">\(9\)</div> <b>Dimensions</b>.<br>
 
 We can also see it by a beautiful formula.<br>
 <blockquote>
 <div class="math-container">
-    \( \text{dim}(\mathcal{S}) + \text{dim}(\mathcal{U}) = 
-    \text{dim}(\mathcal{S}\cap\mathcal{U}) + \text{dim}(\mathcal{S} + \mathcal{U})\)
+    <div class="quantml-katex-display inline">\( \text{dim}(\mathcal{S}) + \text{dim}(\mathcal{U}) = 
+    \text{dim}(\mathcal{S}\cap\mathcal{U}) + \text{dim}(\mathcal{S} + \mathcal{U})\)</div>
 </div>
 </blockquote>
-(That is \(6 + 6 = 3 + 9\))<br>
+(That is <div class="quantml-katex-display inline">\(6 + 6 = 3 + 9\)</div>)<br>
 </p>
 
 

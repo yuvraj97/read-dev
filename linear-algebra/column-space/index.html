@@ -67,33 +67,33 @@ We <a href="/linear-algebra/vector-space/">discussed</a> that a space is a <b>ve
 But what is this Column space? We know what is space, but what we meant by <b>Column</b>?<br>
 Here <b>Column</b> is referring to Column of a <b>matrix</b>.<br>
 <br>
-<h2 id="r3">Example in \(\mathbb{R}^3\)</h2>
+<h2 id="r3">Example in <div class="quantml-katex-display inline">\(\mathbb{R}^3\)</div></h2>
 Consider a matrix
-\(A=\begin{bmatrix}
+<div class="quantml-katex-display inline">\(A=\begin{bmatrix}
 1 & 2\\
 1 & 3\\
 5 & 1\\
-\end{bmatrix}\) here each column is considered as a vector.<br>
-Matrix \(A\) has \(2\) columns so we have \(2\) vectors,
-say \(\vec{u}= \begin{bmatrix} 1\\1\\5\\  \end{bmatrix}\in\mathbb{R}^3;\quad\)
-\(\vec{v}= \begin{bmatrix} 2\\3\\1\\  \end{bmatrix}\in\mathbb{R}^3;\quad\)<br>
+\end{bmatrix}\)</div> here each column is considered as a vector.<br>
+Matrix <div class="quantml-katex-display inline">\(A\)</div> has <div class="quantml-katex-display inline">\(2\)</div> columns so we have <div class="quantml-katex-display inline">\(2\)</div> vectors,
+say <div class="quantml-katex-display inline">\(\vec{u}= \begin{bmatrix} 1\\1\\5\\  \end{bmatrix}\in\mathbb{R}^3;\quad\)</div>
+<div class="quantml-katex-display inline">\(\vec{v}= \begin{bmatrix} 2\\3\\1\\  \end{bmatrix}\in\mathbb{R}^3;\quad\)</div><br>
 <img class="full-size-img" src="/linear-algebra/img/2.1.webp" width="600" height="350" alt=""><br>
-So we have \(2\quad\) \(3\)-dimensional vectors.<br>
+So we have <div class="quantml-katex-display inline">\(2\quad\)</div> <div class="quantml-katex-display inline">\(3\)</div>-dimensional vectors.<br>
 So
 <blockquote>
-Column space of matrix \(A\) is defined by the <b>vector space</b> of these vectors \(\vec{u},\vec{v}\) and
-vector space of \(\vec{u},\vec{v}\) is all the <b>linear</b> combinations of
-vectors  \(\vec{u}\) and \(\vec{v}\).
+Column space of matrix <div class="quantml-katex-display inline">\(A\)</div> is defined by the <b>vector space</b> of these vectors <div class="quantml-katex-display inline">\(\vec{u},\vec{v}\)</div> and
+vector space of <div class="quantml-katex-display inline">\(\vec{u},\vec{v}\)</div> is all the <b>linear</b> combinations of
+vectors  <div class="quantml-katex-display inline">\(\vec{u}\)</div> and <div class="quantml-katex-display inline">\(\vec{v}\)</div>.
 </blockquote>
 How does that <b>vector space</b> look like?<br>
 <blockquote class="noborder">
-Here we can see \(\vec{u}\) and \(\vec{v}\) are non-parallel vectors so vector space of \(\vec{u}\) and \(\vec{v}\) is a <b>plane</b>.
+Here we can see <div class="quantml-katex-display inline">\(\vec{u}\)</div> and <div class="quantml-katex-display inline">\(\vec{v}\)</div> are non-parallel vectors so vector space of <div class="quantml-katex-display inline">\(\vec{u}\)</div> and <div class="quantml-katex-display inline">\(\vec{v}\)</div> is a <b>plane</b>.
 </blockquote>
 <details><summary><span class="bb">Equation of plane</span></summary>
 <div class="bb">
-General equation of plane is \(ax+by+cz+d=0\) we know this plane passes through origin so \(d=0\), and
-\(\lt a,b,c \gt\) is normal to plane which we can get by taking cross product between \(\vec{v}\) and \(\vec{u}\).<br>
-\(\vec{u}\times\vec{v} = \lt -14,9,1 \gt\) so equation of plane is, \(-14x+9y+z=0\)<br>
+General equation of plane is <div class="quantml-katex-display inline">\(ax+by+cz+d=0\)</div> we know this plane passes through origin so <div class="quantml-katex-display inline">\(d=0\)</div>, and
+<div class="quantml-katex-display inline">\(\lt a,b,c \gt\)</div> is normal to plane which we can get by taking cross product between <div class="quantml-katex-display inline">\(\vec{v}\)</div> and <div class="quantml-katex-display inline">\(\vec{u}\)</div>.<br>
+<div class="quantml-katex-display inline">\(\vec{u}\times\vec{v} = \lt -14,9,1 \gt\)</div> so equation of plane is, <div class="quantml-katex-display inline">\(-14x+9y+z=0\)</div><br>
 </div>
 </details>
 <br>
@@ -120,28 +120,28 @@ m.setY_limit((-1,3.5))
 <hr>
 </details>
 <br>
-<h2 id="r4">Example in \(\mathbb{R}^4\)</h2>
+<h2 id="r4">Example in <div class="quantml-katex-display inline">\(\mathbb{R}^4\)</div></h2>
 Consider a matrix
-\(A=\begin{bmatrix}
+<div class="quantml-katex-display inline">\(A=\begin{bmatrix}
 1 & 1 & 2\\
 2 & 4 & 6\\
 3 & 6 & 9\\
 4 & 8 & 12\\
-\end{bmatrix}\) here each column is considered as a vector.<br>
-Matrix \(A\) has \(3\) columns so we have \(3\) vectors, say \(\vec{u}= \begin{bmatrix} 1\\2\\3\\4\\  \end{bmatrix}\in\mathbb{R}^4;\quad\) \(\vec{v}= \begin{bmatrix} 1\\4\\6\\8\\  \end{bmatrix}\in\mathbb{R}^4;\quad\) \(\vec{w}= \begin{bmatrix} 2\\6\\9\\12\\  \end{bmatrix}\in\mathbb{R}^4\)<br>
-So we have \(3\quad\) \(4\)-dimensional vectors.<br>
+\end{bmatrix}\)</div> here each column is considered as a vector.<br>
+Matrix <div class="quantml-katex-display inline">\(A\)</div> has <div class="quantml-katex-display inline">\(3\)</div> columns so we have <div class="quantml-katex-display inline">\(3\)</div> vectors, say <div class="quantml-katex-display inline">\(\vec{u}= \begin{bmatrix} 1\\2\\3\\4\\  \end{bmatrix}\in\mathbb{R}^4;\quad\)</div> <div class="quantml-katex-display inline">\(\vec{v}= \begin{bmatrix} 1\\4\\6\\8\\  \end{bmatrix}\in\mathbb{R}^4;\quad\)</div> <div class="quantml-katex-display inline">\(\vec{w}= \begin{bmatrix} 2\\6\\9\\12\\  \end{bmatrix}\in\mathbb{R}^4\)</div><br>
+So we have <div class="quantml-katex-display inline">\(3\quad\)</div> <div class="quantml-katex-display inline">\(4\)</div>-dimensional vectors.<br>
 So
 <blockquote class="noborder">
-Column space of matrix \(A\) is defined by the <b>vector space</b> of these vectors \(\vec{u},\vec{v},\vec{w}\) and
-vector space of \(\vec{u},\vec{v},\vec{w}\) is all the <b>linear</b> combinations of
-vectors  \(\vec{u},\vec{v}\) and \(\vec{w}\).
+Column space of matrix <div class="quantml-katex-display inline">\(A\)</div> is defined by the <b>vector space</b> of these vectors <div class="quantml-katex-display inline">\(\vec{u},\vec{v},\vec{w}\)</div> and
+vector space of <div class="quantml-katex-display inline">\(\vec{u},\vec{v},\vec{w}\)</div> is all the <b>linear</b> combinations of
+vectors  <div class="quantml-katex-display inline">\(\vec{u},\vec{v}\)</div> and <div class="quantml-katex-display inline">\(\vec{w}\)</div>.
 </blockquote>
 How does that <b>vector space</b> look like?<br>
 <details>
-<summary><span class="bb">Does it fill the whole \(4\)-dimensional space?</span></summary>
+<summary><span class="bb">Does it fill the whole <div class="quantml-katex-display inline">\(4\)</div>-dimensional space?</span></summary>
     <dl><dd>
         <div class="bb">
-        We have \(3\) vectors in \(\mathbb{R}^4\) and we can't fill a \(4\) dimensional space with just \(3\) vectors,
+        We have <div class="quantml-katex-display inline">\(3\)</div> vectors in <div class="quantml-katex-display inline">\(\mathbb{R}^4\)</div> and we can't fill a <div class="quantml-katex-display inline">\(4\)</div> dimensional space with just <div class="quantml-katex-display inline">\(3\)</div> vectors,
         doesn't matter how they are oriented.<br>
         So the answer is <b>No</b>
         </div>
@@ -149,60 +149,60 @@ How does that <b>vector space</b> look like?<br>
 </details>
 
 <details>
-<summary><span class="bb">Does it fill a \(3\)-dimensional space?</span></summary>
+<summary><span class="bb">Does it fill a <div class="quantml-katex-display inline">\(3\)</div>-dimensional space?</span></summary>
     <dl><dd>
         <div class="bb">
-        Here you can see that \(\vec{w}=\vec{u}+\vec{v}\), so \(\vec{w}\) lives in vector space of \(\vec{u}\) and \(\vec{v}\)
-        So in total we have just \(2\) vectors \(\vec{u}\) and \(\vec{v}\) and we can't fill a \(3\) dimensional space
-        with just 2 vectors, we at least need \(3\) (non-parallel) vectors to fill a \(3\)-dimensional space.<br>
+        Here you can see that <div class="quantml-katex-display inline">\(\vec{w}=\vec{u}+\vec{v}\)</div>, so <div class="quantml-katex-display inline">\(\vec{w}\)</div> lives in vector space of <div class="quantml-katex-display inline">\(\vec{u}\)</div> and <div class="quantml-katex-display inline">\(\vec{v}\)</div>
+        So in total we have just <div class="quantml-katex-display inline">\(2\)</div> vectors <div class="quantml-katex-display inline">\(\vec{u}\)</div> and <div class="quantml-katex-display inline">\(\vec{v}\)</div> and we can't fill a <div class="quantml-katex-display inline">\(3\)</div> dimensional space
+        with just 2 vectors, we at least need <div class="quantml-katex-display inline">\(3\)</div> (non-parallel) vectors to fill a <div class="quantml-katex-display inline">\(3\)</div>-dimensional space.<br>
         So answer is <b>No</b>
         </div>
     </dd></dl>
 </details>
 <details open>
-<summary><span class="bb">Does it fill a \(2\)-dimensional space?</span></summary>
+<summary><span class="bb">Does it fill a <div class="quantml-katex-display inline">\(2\)</div>-dimensional space?</span></summary>
     <dl><dd>
         <div class="bb">
-        Here you can see that \(\vec{w}=\vec{u}+\vec{v}\), so \(\vec{w}\) lives in vector space of \(\vec{u}\) and \(\vec{v}\)
-        , and, \(\vec{u}\) and \(\vec{v}\) are non-parallel vectors so vector space of \(\vec{u}\) and \(\vec{v}\) is a <b>plane</b>.<br>
-        Combined all of that <b>vector space</b> of \(\vec{u}\), \(\vec{v}\) and \(\vec{w}\) is a <b>plane</b> \(\Rightarrow \) Column space of matrix \(A\) is a <b>plane</b>.<br>
-        So answer is <b>Yes</b> vector space of \(\vec{u},\vec{v}\) and \(\vec{w}\) fills a \(2\)-dimensional space?
+        Here you can see that <div class="quantml-katex-display inline">\(\vec{w}=\vec{u}+\vec{v}\)</div>, so <div class="quantml-katex-display inline">\(\vec{w}\)</div> lives in vector space of <div class="quantml-katex-display inline">\(\vec{u}\)</div> and <div class="quantml-katex-display inline">\(\vec{v}\)</div>
+        , and, <div class="quantml-katex-display inline">\(\vec{u}\)</div> and <div class="quantml-katex-display inline">\(\vec{v}\)</div> are non-parallel vectors so vector space of <div class="quantml-katex-display inline">\(\vec{u}\)</div> and <div class="quantml-katex-display inline">\(\vec{v}\)</div> is a <b>plane</b>.<br>
+        Combined all of that <b>vector space</b> of <div class="quantml-katex-display inline">\(\vec{u}\)</div>, <div class="quantml-katex-display inline">\(\vec{v}\)</div> and <div class="quantml-katex-display inline">\(\vec{w}\)</div> is a <b>plane</b> <div class="quantml-katex-display inline">\(\Rightarrow \)</div> Column space of matrix <div class="quantml-katex-display inline">\(A\)</div> is a <b>plane</b>.<br>
+        So answer is <b>Yes</b> vector space of <div class="quantml-katex-display inline">\(\vec{u},\vec{v}\)</div> and <div class="quantml-katex-display inline">\(\vec{w}\)</div> fills a <div class="quantml-katex-display inline">\(2\)</div>-dimensional space?
     </div>
     </dd></dl>
 </details>
 
-<blockquote>Column space of a matrix \(A\) is defined by all the <b>linear</b> combinations of it's column vectors.</blockquote>
-Here we will denote the column space of matrix \(A\) as \(\mathbf{C}(A)\)<br>
+<blockquote>Column space of a matrix <div class="quantml-katex-display inline">\(A\)</div> is defined by all the <b>linear</b> combinations of it's column vectors.</blockquote>
+Here we will denote the column space of matrix <div class="quantml-katex-display inline">\(A\)</div> as <div class="quantml-katex-display inline">\(\mathbf{C}(A)\)</div><br>
 <br>
 <h2 id="matrix-notation">Matrix Notation</h2>
 We saw how we can find Column space using columns as vectors.
-Now let's find Column space of some matrix \(A\) in matrix notation.<br>
-Say we have a matrix \(A\)<br>
+Now let's find Column space of some matrix <div class="quantml-katex-display inline">\(A\)</div> in matrix notation.<br>
+Say we have a matrix <div class="quantml-katex-display inline">\(A\)</div><br>
 Now answer this,<br>
-<b>Does \(A\vec{x}=\vec{b}\) always have a solution for every \(\vec{b}\)?</b>, and if the answer is No then <b>which \(\vec{b}\) do have a solution?</b><br>
-if \(A\) is a \(n\times m\) matrix, then \(\vec{x}\) is a \(m\times 1\) vector and \(\vec{b}\) is \(n\times 1\) vector.<br>
+<b>Does <div class="quantml-katex-display inline">\(A\vec{x}=\vec{b}\)</div> always have a solution for every <div class="quantml-katex-display inline">\(\vec{b}\)</div>?</b>, and if the answer is No then <b>which <div class="quantml-katex-display inline">\(\vec{b}\)</div> do have a solution?</b><br>
+if <div class="quantml-katex-display inline">\(A\)</div> is a <div class="quantml-katex-display inline">\(n\times m\)</div> matrix, then <div class="quantml-katex-display inline">\(\vec{x}\)</div> is a <div class="quantml-katex-display inline">\(m\times 1\)</div> vector and <div class="quantml-katex-display inline">\(\vec{b}\)</div> is <div class="quantml-katex-display inline">\(n\times 1\)</div> vector.<br>
 <br>
 Say our matrix is
-\(A=\begin{bmatrix}
+<div class="quantml-katex-display inline">\(A=\begin{bmatrix}
 1 & 1 & 2\\
 2 & 4 & 6\\
 3 & 6 & 9\\
 4 & 8 & 12\\
-\end{bmatrix}\) then \(\vec{x}=\begin{bmatrix} x_1 \\ x_2 \\ x_3 \\   \end{bmatrix};\quad\) \(x_i\in\mathbb{R}\)
-and \(\vec{b}=\begin{bmatrix} b_1 \\ b_2 \\ b_3 \\  b_4 \\ \end{bmatrix};\quad\) \(b_i\in\mathbb{R}\)
+\end{bmatrix}\)</div> then <div class="quantml-katex-display inline">\(\vec{x}=\begin{bmatrix} x_1 \\ x_2 \\ x_3 \\   \end{bmatrix};\quad\)</div> <div class="quantml-katex-display inline">\(x_i\in\mathbb{R}\)</div>
+and <div class="quantml-katex-display inline">\(\vec{b}=\begin{bmatrix} b_1 \\ b_2 \\ b_3 \\  b_4 \\ \end{bmatrix};\quad\)</div> <div class="quantml-katex-display inline">\(b_i\in\mathbb{R}\)</div>
 <details id='a'>
-<summary><span class="bb">Does \(A\vec{x}=\vec{b}\) always have a solution for every \(\vec{b}\)?</span></summary>
+<summary><span class="bb">Does <div class="quantml-katex-display inline">\(A\vec{x}=\vec{b}\)</div> always have a solution for every <div class="quantml-katex-display inline">\(\vec{b}\)</div>?</span></summary>
     <dl><dd>
         <div class=bb>
-        Here we have <b>3</b> variables \(x_1,x_2,x_3\) and <b>4</b> equations so, one of the \(b_i\) depends on one of \(b_j\) and \(i\neq j\)
-        So we can't have solution for every \(\vec{b}\), because of this dependency. So it rules out the possibility of \(4\) dimensional column space.<br>
+        Here we have <b>3</b> variables <div class="quantml-katex-display inline">\(x_1,x_2,x_3\)</div> and <b>4</b> equations so, one of the <div class="quantml-katex-display inline">\(b_i\)</div> depends on one of <div class="quantml-katex-display inline">\(b_j\)</div> and <div class="quantml-katex-display inline">\(i\neq j\)</div>
+        So we can't have solution for every <div class="quantml-katex-display inline">\(\vec{b}\)</div>, because of this dependency. So it rules out the possibility of <div class="quantml-katex-display inline">\(4\)</div> dimensional column space.<br>
         Because to be a Column space we must get every vector in that column space by the linear combinations of column vectors.
         </div>
     </dd></dl>
 </details>
 
-What are the \(\vec{b}\) that are possible?<br>
-\(A\vec{x}=
+What are the <div class="quantml-katex-display inline">\(\vec{b}\)</div> that are possible?<br>
+<div class="quantml-katex-display inline">\(A\vec{x}=
 \begin{bmatrix}
 1 & 1 & 2\\
 2 & 4 & 6\\
@@ -211,16 +211,16 @@ What are the \(\vec{b}\) that are possible?<br>
 \end{bmatrix}
 \begin{bmatrix} x_1 \\ x_2 \\ x_3 \\   \end{bmatrix}
  = \begin{bmatrix} b_1 \\ b_2 \\ b_3 \\  b_4 \\ \end{bmatrix}
-\)
+\)</div>
 <br>
-Ok we can't solve it for every \(\vec{b}\) but we can solve it for some \(\vec{b}\).<br>
+Ok we can't solve it for every <div class="quantml-katex-display inline">\(\vec{b}\)</div> but we can solve it for some <div class="quantml-katex-display inline">\(\vec{b}\)</div>.<br>
 For example:<br>
 <details>
-<summary><span class="bb">For \(\vec{b}=\begin{bmatrix} 1 \\ 2 \\ 3 \\  4 \\ \end{bmatrix}  \)</span></summary>
+<summary><span class="bb">For <div class="quantml-katex-display inline">\(\vec{b}=\begin{bmatrix} 1 \\ 2 \\ 3 \\  4 \\ \end{bmatrix}  \)</div></span></summary>
     <dl><dd>
 <div class="bb">
-For \(\vec{b}=\begin{bmatrix} 1 \\ 2 \\ 3 \\  4 \\ \end{bmatrix} \quad \) \(\vec{x}=\begin{bmatrix} 1 \\ 0\\ 0\\   \end{bmatrix}\)<br>
-\(A\vec{x}=
+For <div class="quantml-katex-display inline">\(\vec{b}=\begin{bmatrix} 1 \\ 2 \\ 3 \\  4 \\ \end{bmatrix} \quad \)</div> <div class="quantml-katex-display inline">\(\vec{x}=\begin{bmatrix} 1 \\ 0\\ 0\\   \end{bmatrix}\)</div><br>
+<div class="quantml-katex-display inline">\(A\vec{x}=
 \begin{bmatrix}
 1 & 1 & 2\\
 2 & 4 & 6\\
@@ -229,17 +229,17 @@ For \(\vec{b}=\begin{bmatrix} 1 \\ 2 \\ 3 \\  4 \\ \end{bmatrix} \quad \) \(\vec
 \end{bmatrix}
 \begin{bmatrix} 1\\ 0\\ 0\\   \end{bmatrix}
 = \begin{bmatrix} 1\\ 2\\ 3\\  4\\ \end{bmatrix}
-\)
+\)</div>
 </div>
     </dd></dl>
 </details>
 
 <details>
-<summary><span class="bb">For \(\vec{b}=\begin{bmatrix} 1 \\ 4 \\ 6 \\  8 \\ \end{bmatrix}  \)</span></summary>
+<summary><span class="bb">For <div class="quantml-katex-display inline">\(\vec{b}=\begin{bmatrix} 1 \\ 4 \\ 6 \\  8 \\ \end{bmatrix}  \)</div></span></summary>
     <dl><dd>
 <div class="bb">
-For \(\vec{b}=\begin{bmatrix} 1 \\ 4 \\ 6 \\  8 \\ \end{bmatrix} \quad \) \(\vec{x}=\begin{bmatrix} 0 \\ 1\\ 0\\   \end{bmatrix}\)<br>
-\(A\vec{x}=
+For <div class="quantml-katex-display inline">\(\vec{b}=\begin{bmatrix} 1 \\ 4 \\ 6 \\  8 \\ \end{bmatrix} \quad \)</div> <div class="quantml-katex-display inline">\(\vec{x}=\begin{bmatrix} 0 \\ 1\\ 0\\   \end{bmatrix}\)</div><br>
+<div class="quantml-katex-display inline">\(A\vec{x}=
 \begin{bmatrix}
 1 & 1 & 2\\
 2 & 4 & 6\\
@@ -248,42 +248,42 @@ For \(\vec{b}=\begin{bmatrix} 1 \\ 4 \\ 6 \\  8 \\ \end{bmatrix} \quad \) \(\vec
 \end{bmatrix}
 \begin{bmatrix} 0\\ 1\\ 0\\   \end{bmatrix}
 = \begin{bmatrix} 1\\ 4\\ 6\\  8\\ \end{bmatrix}
-\)
+\)</div>
 </div>
     </dd></dl>
 </details>
-Now you can see that the \(\vec{b}\) that <b>can solve</b> this system of equation is the \(\vec{b}\) that is <b>in the</b> column space of matrix \(A\).<br>
-So \(\vec{b}\) is the linear combination of columns of matrix \(A\)<br>
+Now you can see that the <div class="quantml-katex-display inline">\(\vec{b}\)</div> that <b>can solve</b> this system of equation is the <div class="quantml-katex-display inline">\(\vec{b}\)</div> that is <b>in the</b> column space of matrix <div class="quantml-katex-display inline">\(A\)</div>.<br>
+So <div class="quantml-katex-display inline">\(\vec{b}\)</div> is the linear combination of columns of matrix <div class="quantml-katex-display inline">\(A\)</div><br>
 <br>
 <h2 id="dependency">Dependency</h2>
 You can see that in our matrix
-\(A=\begin{bmatrix}
+<div class="quantml-katex-display inline">\(A=\begin{bmatrix}
 1 & 1 & 2\\
 2 & 4 & 6\\
 3 & 6 & 9\\
 4 & 8 & 12\\
-\end{bmatrix}\)<br>
+\end{bmatrix}\)</div><br>
 there is a column that we can get with linear combination of other columns.<br>
-(here I represent column \(i\) as \(c_i\)) \(c_3=c_1+c_2\)<br>
-So \(c_3\) is in the vector space of \(c_1\) and \(c_2\).<br>
+(here I represent column <div class="quantml-katex-display inline">\(i\)</div> as <div class="quantml-katex-display inline">\(c_i\)</div>) <div class="quantml-katex-display inline">\(c_3=c_1+c_2\)</div><br>
+So <div class="quantml-katex-display inline">\(c_3\)</div> is in the vector space of <div class="quantml-katex-display inline">\(c_1\)</div> and <div class="quantml-katex-display inline">\(c_2\)</div>.<br>
 <blockquote class="noborder">
-If we remove one of the column from matrix \(A\) then the column space of matrix A will still be same.<br>
-say we drop column \(3\) (We can drop column \(1\) or column\(2\))<br>
-So say \(A'=\begin{bmatrix}
+If we remove one of the column from matrix <div class="quantml-katex-display inline">\(A\)</div> then the column space of matrix A will still be same.<br>
+say we drop column <div class="quantml-katex-display inline">\(3\)</div> (We can drop column <div class="quantml-katex-display inline">\(1\)</div> or column<div class="quantml-katex-display inline">\(2\)</div>)<br>
+So say <div class="quantml-katex-display inline">\(A'=\begin{bmatrix}
 1 & 1 \\
 2 & 4 \\
 3 & 6 \\
 4 & 8 \\
-\end{bmatrix}\)<br>
-Then \(A'\vec{x}\) will also give all possible \(\vec{b}\) that \(A\vec{x}\) can.<br>
+\end{bmatrix}\)</div><br>
+Then <div class="quantml-katex-display inline">\(A'\vec{x}\)</div> will also give all possible <div class="quantml-katex-display inline">\(\vec{b}\)</div> that <div class="quantml-katex-display inline">\(A\vec{x}\)</div> can.<br>
 </blockquote>
 So we can say that
 <blockquote>
-    Column space of \(A\) and \(A'\) are same, \(\mathbf{C}(A) = \mathbf{C}(A')\)
+    Column space of <div class="quantml-katex-display inline">\(A\)</div> and <div class="quantml-katex-display inline">\(A'\)</div> are same, <div class="quantml-katex-display inline">\(\mathbf{C}(A) = \mathbf{C}(A')\)</div>
 </blockquote>
 
-But we can't drop two columns from \(A\) because any two columns in our matrix \(A\) are independent of each other.<br>
-So we can say that Column space of matrix \(A\) is a \(2\)-dimensional subspace inside \(4\)-dimensional space.
+But we can't drop two columns from <div class="quantml-katex-display inline">\(A\)</div> because any two columns in our matrix <div class="quantml-katex-display inline">\(A\)</div> are independent of each other.<br>
+So we can say that Column space of matrix <div class="quantml-katex-display inline">\(A\)</div> is a <div class="quantml-katex-display inline">\(2\)</div>-dimensional subspace inside <div class="quantml-katex-display inline">\(4\)</div>-dimensional space.
 
 </p>
 

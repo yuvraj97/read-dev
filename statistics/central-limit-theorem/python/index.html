@@ -67,15 +67,15 @@
 
 <h1 id="single-simulation">Single Simulation <img src="/data/img/python.webp" alt="Python" width="112.5px" height="30px"><a href="#single-simulation" aria-label="single-simulation"><i class="fa fa-link" aria-hidden="true"></i></a></h1>
 
-Assume that there are \(1000\) students in your school and you want to know, what is the average height of \(100\) randomly selected students and how is that average height distributed (or say the distribution of that average height)?<br>
+Assume that there are <div class="quantml-katex-display inline">\(1000\)</div> students in your school and you want to know, what is the average height of <div class="quantml-katex-display inline">\(100\)</div> randomly selected students and how is that average height distributed (or say the distribution of that average height)?<br>
 
 <a href="/statistics/introduction/#dogma">Remember that dogma</a> <br>
 <img id='dogma' class="full-size-img" src="/statistics/img/dogma.png" alt="Central Dogma of Probability and Statistics">
 
 <h2 id="truth">Truth<a href="#truth" aria-label="truth"><i class="fa fa-link" aria-hidden="true"></i></a></h2>
 Now let's define the <b>truth</b>. <br>
-Say that every student's height follows the <a href="https://en.wikipedia.org/wiki/Continuous_uniform_distribution">Uniform distribution</a> with range of \([165\text{ cm },185\text{ cm}]\). <br>
-So \(X_1,\cdots,X_{50}\sim\text{Unif}[165, 185]\) <br>
+Say that every student's height follows the <a href="https://en.wikipedia.org/wiki/Continuous_uniform_distribution">Uniform distribution</a> with range of <div class="quantml-katex-display inline">\([165\text{ cm },185\text{ cm}]\)</div>. <br>
+So <div class="quantml-katex-display inline">\(X_1,\cdots,X_{50}\sim\text{Unif}[165, 185]\)</div> <br>
 <blockquote class="noborder">
 	<b>Note:</b> This information is completely unknown to us.
 </blockquote>
@@ -83,7 +83,7 @@ So \(X_1,\cdots,X_{50}\sim\text{Unif}[165, 185]\) <br>
 
 <h2 id="probability">Probability<a href="#probability" aria-label="probability"><i class="fa fa-link" aria-hidden="true"></i></a></h2>
 Here we apply probability to generate data using the <b>Truth</b> we defined above.<br>
-Now let's create the population of all \(1000\) students. <br>
+Now let's create the population of all <div class="quantml-katex-display inline">\(1000\)</div> students. <br>
 
 <pre data-start="1"><code class="language-python line-numbers">import numpy as np
 import matplotlib.pyplot as plt
@@ -100,27 +100,27 @@ population = distribution.rvs(N)
 <br>
 
 <h2 id="observation">Observation<a href="#observation" aria-label="observation"><i class="fa fa-link" aria-hidden="true"></i></a></h2>
-Now that we have all \(1000\) students, and every student's height follows the <a href="https://en.wikipedia.org/wiki/Continuous_uniform_distribution">Uniform distribution</a>. <br>
-Let's (randomly) take a sample of \(100\) students.
+Now that we have all <div class="quantml-katex-display inline">\(1000\)</div> students, and every student's height follows the <a href="https://en.wikipedia.org/wiki/Continuous_uniform_distribution">Uniform distribution</a>. <br>
+Let's (randomly) take a sample of <div class="quantml-katex-display inline">\(100\)</div> students.
 <pre data-start="11"><code class="language-python line-numbers">n = 100
 sample = np.random.choice(population,n)
 </code></pre>
 <br>
 
 <h2 id="statistics">Statistics<a href="#statistics" aria-label="statistics"><i class="fa fa-link" aria-hidden="true"></i></a></h2>
-So now we have our sample of \(100\) students, let's estimate the average height of those \(100\) students <b>(sample mean)</b>. <br>
+So now we have our sample of <div class="quantml-katex-display inline">\(100\)</div> students, let's estimate the average height of those <div class="quantml-katex-display inline">\(100\)</div> students <b>(sample mean)</b>. <br>
 
 <pre data-start="13"><code class="language-python line-numbers">sample_mean = np.mean(sample)
 </code></pre>
 
-<span class="bb">sample_mean</span> is the average height of \(100\) randomly selected students. <br>
+<span class="bb">sample_mean</span> is the average height of <div class="quantml-katex-display inline">\(100\)</div> randomly selected students. <br>
 
-Now let's see how the distribution of the average height of \(100\) randomly selected students look like. <br>
+Now let's see how the distribution of the average height of <div class="quantml-katex-display inline">\(100\)</div> randomly selected students look like. <br>
 To achieve this we need to perform this simulation multiple times and plot all sample means as a histogram. <br>
 <br>
 
 <h1 id="multiple-simulations">Multiple simulations <img src="/data/img/python.webp" alt="Python" width="112.5px" height="30px"><a href="#multiple-simulations" aria-label="multiple-simulations"><i class="fa fa-link" aria-hidden="true"></i></a></h1>
-The <b>truth</b> is that every student's height follows the <a href="https://en.wikipedia.org/wiki/Continuous_uniform_distribution">Uniform distribution</a> \(\text{Unif}[165, 185]\), so let's start with creating population. <br>
+The <b>truth</b> is that every student's height follows the <a href="https://en.wikipedia.org/wiki/Continuous_uniform_distribution">Uniform distribution</a> <div class="quantml-katex-display inline">\(\text{Unif}[165, 185]\)</div>, so let's start with creating population. <br>
 
 <pre data-start="1"><code class="language-python line-numbers">import numpy as np
 import matplotlib.pyplot as plt
@@ -137,7 +137,7 @@ population = distribution.rvs(N)
 </code></pre>
 <br>
 
-Now let's collect <span class="bb">n_simulations</span> sample means of sample size \((n) = 30\). <br>
+Now let's collect <span class="bb">n_simulations</span> sample means of sample size <div class="quantml-katex-display inline">\((n) = 30\)</div>. <br>
 (say n_simulations = 200)
 <pre data-start="12"><code class="language-python line-numbers">n = 30
 n_simulations = 200
@@ -157,7 +157,7 @@ plt.show()
 <img class="full-size-img" src="/statistics/img/central-limit-theorem/clt-sampeling-distribution.png" alt="">
 
 <div style="text-align: center;">Sample mean seems to be normally distributed.</div>
-Well it's a Central Limit Theorem Simulation right, and the whole point of CLT is to approximate probability distribution of sample mean \(\overline{X}_n\) to it's corresponding Normal distribution, <b>am I correct?</b> <br>
+Well it's a Central Limit Theorem Simulation right, and the whole point of CLT is to approximate probability distribution of sample mean <div class="quantml-katex-display inline">\(\overline{X}_n\)</div> to it's corresponding Normal distribution, <b>am I correct?</b> <br>
 Let's see ourselves. Let's overlay a Normal distribution with true mean and variance of <span class="bb">sample_means</span>. <br>
 
 <pre data-start="17"><code class="language-python line-numbers">from scipy.stats import norm
@@ -193,12 +193,12 @@ The Normal distribution that we plotted have same <b>mean</b> and <b>variance</b
 
 <br>
 <details>
-	<summary><i><span class="bb">Sampling distribution of \(\sqrt{n}\, (\overline{X}_n-\mu)\) is much better fit for Normal distribution</span></i></summary>
+	<summary><i><span class="bb">Sampling distribution of <div class="quantml-katex-display inline">\(\sqrt{n}\, (\overline{X}_n-\mu)\)</div> is much better fit for Normal distribution</span></i></summary>
 <blockquote class="noborder">
 	If you follow the result of the CLT,
-	\[\sqrt{n}\, (\overline{X}_n-\mu) \xrightarrow [n\to \infty ]{(d)} \mathcal{N}(0,\sigma^2) \]
+	<div class="quantml-katex-display">\[\sqrt{n}\, (\overline{X}_n-\mu) \xrightarrow [n\to \infty ]{(d)} \mathcal{N}(0,\sigma^2) \]</div>
 	Then you can see our <b>normally distributed</b> data. <br>
-	We just have to center our observations around \(0\) and then stretch it by a factor of \(\sqrt{n}\). <br>
+	We just have to center our observations around <div class="quantml-katex-display inline">\(0\)</div> and then stretch it by a factor of <div class="quantml-katex-display inline">\(\sqrt{n}\)</div>. <br>
 
 	<pre data-start="17"><code class="language-python line-numbers">from scipy.stats import norm
 mean = np.mean(np.sqrt(n) * (sample_means - distribution.mean()))
@@ -231,7 +231,7 @@ n, bins, patches = ax.hist(sample_means,
 leg = ax.legend();
 </code></pre>
 <img class="full-size-img" src="/statistics/img/central-limit-theorem/clt-centered.png" alt="">
-Now the plot feels much more <b>Normal</b> but here the random variable is \(\sqrt{n}\, (\overline{X}_n-\mu) \) not \(\overline{X}_n\). <br>
+Now the plot feels much more <b>Normal</b> but here the random variable is <div class="quantml-katex-display inline">\(\sqrt{n}\, (\overline{X}_n-\mu) \)</div> not <div class="quantml-katex-display inline">\(\overline{X}_n\)</div>. <br>
 
 <br>
 </blockquote>
@@ -261,14 +261,14 @@ plt.show()
 <img class="full-size-img" src="/statistics/img/central-limit-theorem/clt-sim-cdf.png" alt="">
 Here we can see the beauty of <b>Central limit theorem</b>, we can see how the CDF of our Sampling distribution get closer to the CDF of a Normal distribution. <br>
 
-Now try tweaking <span class="bb">\(n\)</span> and see how it affects the CDF convergence. <br>
+Now try tweaking <span class="bb"><div class="quantml-katex-display inline">\(n\)</div></span> and see how it affects the CDF convergence. <br>
 Also try different distributions form <a href="https://docs.scipy.org/doc/scipy/reference/stats.html">scipy.stats</a> <br>
 
 <blockquote class="noborder align-center">
 	<a href="/statistics/central-limit-theorem/julia/"><img src="/data/img/julia.webp" alt="Julia" width="53px" height="33px"> Simulation</a>
 	<br>
     <a rel="noreferrer" target="_blank" href="https://app.quantml.org/statistics/?ch=Central-Limit-Theorem&dist=Uniform+distribution">Visualize Central Limit Theorem &nbsp;<img src="/data/img/app.webp" alt="launch" width="30px" height="30px"></a> <br>
-    Try different distributions, tweak there parameters, sample size, number of simulations and see how it impacts the convergence of <b>CDF</b> of \(\overline{X}_n\).
+    Try different distributions, tweak there parameters, sample size, number of simulations and see how it impacts the convergence of <b>CDF</b> of <div class="quantml-katex-display inline">\(\overline{X}_n\)</div>.
 </blockquote><br>
 
 

@@ -66,116 +66,116 @@
 		Visualize Law of Large Numbers <img src="/data/img/app.webp" alt="launch" width="30px" height="30px">
 	</a>
 </blockquote>
-Suppose your classroom consists of \(300\) students and you want to know what is the average height of those \(300\) students?<br>
-Now say you measure height of \(50\) students and suppose that the average height of those \(50\) students is somewhat near to the average height of all \(300\) students. <br>
+Suppose your classroom consists of <div class="quantml-katex-display inline">\(300\)</div> students and you want to know what is the average height of those <div class="quantml-katex-display inline">\(300\)</div> students?<br>
+Now say you measure height of <div class="quantml-katex-display inline">\(50\)</div> students and suppose that the average height of those <div class="quantml-katex-display inline">\(50\)</div> students is somewhat near to the average height of all <div class="quantml-katex-display inline">\(300\)</div> students. <br>
 <blockquote class="sidebar">
-	Here all \(300\) students is the <b>population</b> and those \(50\) students is the <b>sample</b> <br>
-	so <b>population size</b> is \(300\) and <b>sample size</b>\((n)\) is \(50\)
+	Here all <div class="quantml-katex-display inline">\(300\)</div> students is the <b>population</b> and those <div class="quantml-katex-display inline">\(50\)</div> students is the <b>sample</b> <br>
+	so <b>population size</b> is <div class="quantml-katex-display inline">\(300\)</div> and <b>sample size</b><div class="quantml-katex-display inline">\((n)\)</div> is <div class="quantml-katex-display inline">\(50\)</div>
 </blockquote>
-So now we have our \(50\) observations \(X_1,X_2,\cdots,X_{50}\), and these observations are <b>random</b>, they are the result of some unknown <b>random process</b>, so we call these random observations as <b>Random variables</b>. <br>
+So now we have our <div class="quantml-katex-display inline">\(50\)</div> observations <div class="quantml-katex-display inline">\(X_1,X_2,\cdots,X_{50}\)</div>, and these observations are <b>random</b>, they are the result of some unknown <b>random process</b>, so we call these random observations as <b>Random variables</b>. <br>
 These random variables are resultant of a common random process therefore they are <b>identically distributed</b> and all of them are independent of each other, so we call then <b>I.I.D.</b>(Independent and Identically Distributed) random variables. <br>
 
-So average height of those \(50\) students <b>(sample mean)</b> is <span style="display: inline-block;"> \(\displaystyle\overline{X}_{50}=\frac{X_1+X_2+\cdots+X_{50}}{50}\)</span>. <br>
+So average height of those <div class="quantml-katex-display inline">\(50\)</div> students <b>(sample mean)</b> is <span style="display: inline-block;"> <div class="quantml-katex-display inline">\(\displaystyle\overline{X}_{50}=\frac{X_1+X_2+\cdots+X_{50}}{50}\)</div></span>. <br>
 
-What we actually strive is to get the average over total population (Average height of all \(300\) students), the <b>True mean</b>. Let's say that the true mean is <span class="bb">\(\mu\left(=\mathbb{E}[X_i]\right)\)</span>.
+What we actually strive is to get the average over total population (Average height of all <div class="quantml-katex-display inline">\(300\)</div> students), the <b>True mean</b>. Let's say that the true mean is <span class="bb"><div class="quantml-katex-display inline">\(\mu\left(=\mathbb{E}[X_i]\right)\)</div></span>.
 <blockquote class="noborder">
 	<b>Note</b> <br>
 	<ul>
-		<li><b>True mean</b> \((\mu)\) is over the entire population. <b>True mean</b> \((\mu)\) is <b>not</b> random, it's a number.</li>
+		<li><b>True mean</b> <div class="quantml-katex-display inline">\((\mu)\)</div> is over the entire population. <b>True mean</b> <div class="quantml-katex-display inline">\((\mu)\)</div> is <b>not</b> random, it's a number.</li>
 
-		<li><b>Sample mean</b> \((\overline{X}_n)\) is over the observed values during an experiment. <b>Sample mean</b> \((\overline{X}_n)\) is a <b>Random variable</b> because \(X_1,\cdots,X_n\) are random.</li>
+		<li><b>Sample mean</b> <div class="quantml-katex-display inline">\((\overline{X}_n)\)</div> is over the observed values during an experiment. <b>Sample mean</b> <div class="quantml-katex-display inline">\((\overline{X}_n)\)</div> is a <b>Random variable</b> because <div class="quantml-katex-display inline">\(X_1,\cdots,X_n\)</div> are random.</li>
 	</ul>
 </blockquote>
 
 
 <blockquote>
 	<!-- <h3>Plain English</h3> -->
-	Weak Law of Large Numbers says, as we increases our <b>sample size</b> \((n)\) then, <b>in probability</b> our <b>sample mean</b> goes toward the <b>True mean</b> (this is  what we referred as <b>Truth</b> in our central <a href="/statistics/introduction/#dogma">dogma</a>). <br>
+	Weak Law of Large Numbers says, as we increases our <b>sample size</b> <div class="quantml-katex-display inline">\((n)\)</div> then, <b>in probability</b> our <b>sample mean</b> goes toward the <b>True mean</b> (this is  what we referred as <b>Truth</b> in our central <a href="/statistics/introduction/#dogma">dogma</a>). <br>
 	<!-- <div class="l2 border">
-		\[\overline{X}_n:=\frac{1}{n}\sum _{i=1}^ n X_ i \xrightarrow [n\to \infty ] {\mathbb{P},\text{ a.s.}} \mu\]
+		<div class="quantml-katex-display">\[\overline{X}_n:=\frac{1}{n}\sum _{i=1}^ n X_ i \xrightarrow [n\to \infty ] {\mathbb{P},\text{ a.s.}} \mu\]</div>
 	</div><br> -->
 		<!-- <h3>Mathematically</h3> -->
-	<!-- So for \(X_1,X_2,\dots,X_n\) <b>I.I.D.</b> random variables with finite mean \(\mu\) and variance \(\sigma^2\).
-	\[\mathbb{P}\left(|\overline{X}_n - \mu| \geq \epsilon\right) \xrightarrow [n\to \infty ] {} 0;\quad\forall\epsilon\gt 0\] -->
+	<!-- So for <div class="quantml-katex-display inline">\(X_1,X_2,\dots,X_n\)</div> <b>I.I.D.</b> random variables with finite mean <div class="quantml-katex-display inline">\(\mu\)</div> and variance <div class="quantml-katex-display inline">\(\sigma^2\)</div>.
+	<div class="quantml-katex-display">\[\mathbb{P}\left(|\overline{X}_n - \mu| \geq \epsilon\right) \xrightarrow [n\to \infty ] {} 0;\quad\forall\epsilon\gt 0\]</div> -->
 </blockquote>
 
 So according to the Weak Law of Large Numbers,
 <div class="l2 border">
-\[\overline{X}_n:=\frac{1}{n}\sum _{i=1}^ n X_ i \xrightarrow [n\to \infty ] {\mathbb{P}} \mu\]
+<div class="quantml-katex-display">\[\overline{X}_n:=\frac{1}{n}\sum _{i=1}^ n X_ i \xrightarrow [n\to \infty ] {\mathbb{P}} \mu\]</div>
 </div><br>
 <blockquote class="sidebar">
-\(:=\quad\) this symbol means <b>"by definition"</b><br>
-\(\mathbb{P}\quad\) it means <b>"in Probability"</b><br>
+<div class="quantml-katex-display inline">\(:=\quad\)</div> this symbol means <b>"by definition"</b><br>
+<div class="quantml-katex-display inline">\(\mathbb{P}\quad\)</div> it means <b>"in Probability"</b><br>
 </blockquote>
-<!-- \(\text{a.s.}\quad\) it means <a href="https://en.wikipedia.org/wiki/Almost_surely">"almost surely"</a>(with probability \(1\))<br> -->
+<!-- <div class="quantml-katex-display inline">\(\text{a.s.}\quad\)</div> it means <a href="https://en.wikipedia.org/wiki/Almost_surely">"almost surely"</a>(with probability <div class="quantml-katex-display inline">\(1\)</div>)<br> -->
 
 <br>
 <H3>Explanation</H3>
 <!-- <details open> -->
 	<!-- <summary><span class="bb">Explanation</span></summary> -->
 	<!-- <blockquote class="sidebar"> -->
-For \(X_1,X_2,\dots,X_n\) <b>I.I.D.</b> random variables with finite mean \(\mu\) and variance \(\sigma^2\). <br>
-<b>Sample mean</b> \(\displaystyle\overline{X}_n=\frac{X_1+\cdots+X_n}{n}\) <br>
+For <div class="quantml-katex-display inline">\(X_1,X_2,\dots,X_n\)</div> <b>I.I.D.</b> random variables with finite mean <div class="quantml-katex-display inline">\(\mu\)</div> and variance <div class="quantml-katex-display inline">\(\sigma^2\)</div>. <br>
+<b>Sample mean</b> <div class="quantml-katex-display inline">\(\displaystyle\overline{X}_n=\frac{X_1+\cdots+X_n}{n}\)</div> <br>
 
 
 <details open>
-	<summary><span class="bb math">\(\displaystyle\mathbb{E}[\overline{X}_n]=\mu\)</span></summary>
+	<summary><span class="bb math"><div class="quantml-katex-display inline">\(\displaystyle\mathbb{E}[\overline{X}_n]=\mu\)</div></span></summary>
 	<blockquote class="sidebar">
-		\(\displaystyle\mathbb{E}[\overline{X}_n]=\mathbb{E}\left[\frac{X_1+\cdots+X_n}{n}\right]\) <br>
+		<div class="quantml-katex-display inline">\(\displaystyle\mathbb{E}[\overline{X}_n]=\mathbb{E}\left[\frac{X_1+\cdots+X_n}{n}\right]\)</div> <br>
 		<br >
-		\(\displaystyle\mathbb{E}[\overline{X}_n]=\frac{\mathbb{E}[X_1]+\cdots+\mathbb{E}[X_n]}{n}\) <br>
+		<div class="quantml-katex-display inline">\(\displaystyle\mathbb{E}[\overline{X}_n]=\frac{\mathbb{E}[X_1]+\cdots+\mathbb{E}[X_n]}{n}\)</div> <br>
 		<br>
-		\(\displaystyle\mathbb{E}[\overline{X}_n]=\frac{n\mu}{n}\)</span> <br>
+		<div class="quantml-katex-display inline">\(\displaystyle\mathbb{E}[\overline{X}_n]=\frac{n\mu}{n}\)</div></span> <br>
 		<br>
 		<span class="bb math">
-		\(\displaystyle\mathbb{E}[\overline{X}_n]=\mu\)</span>
+		<div class="quantml-katex-display inline">\(\displaystyle\mathbb{E}[\overline{X}_n]=\mu\)</div></span>
 	</blockquote><br>
 </details>
 
 <details open>
-	<summary><span class="bb math">\(\displaystyle\text{Var}[\overline{X}_n]=\frac{n\sigma^2}{n^2}=\frac{\sigma^2}{n}\)</span></summary>
+	<summary><span class="bb math"><div class="quantml-katex-display inline">\(\displaystyle\text{Var}[\overline{X}_n]=\frac{n\sigma^2}{n^2}=\frac{\sigma^2}{n}\)</div></span></summary>
 	<blockquote class="sidebar">
-		\(\displaystyle\text{Var}[\overline{X}_n]=\text{Var}\left[\frac{X_1+\cdots+X_n}{n}\right]\) <br>
+		<div class="quantml-katex-display inline">\(\displaystyle\text{Var}[\overline{X}_n]=\text{Var}\left[\frac{X_1+\cdots+X_n}{n}\right]\)</div> <br>
 		<br >
-		\(\displaystyle\text{Var}[\overline{X}_n]=\frac{\text{Var}[X_1]+\cdots+\text{Var}[X_n]}{n^2}\) <br>
+		<div class="quantml-katex-display inline">\(\displaystyle\text{Var}[\overline{X}_n]=\frac{\text{Var}[X_1]+\cdots+\text{Var}[X_n]}{n^2}\)</div> <br>
 		<br>
 		<span class="bb math">
-		\(\displaystyle\text{Var}[\overline{X}_n]=\frac{n\sigma^2}{n^2}=\frac{\sigma^2}{n}\)</span>
+		<div class="quantml-katex-display inline">\(\displaystyle\text{Var}[\overline{X}_n]=\frac{n\sigma^2}{n^2}=\frac{\sigma^2}{n}\)</div></span>
 	</blockquote><br>
 </details>
 
 <details open>
-	<summary><span class="bb math">\(\mathbb{P}\left(|\overline{X}_n - \mu| \geq \epsilon\right) \xrightarrow [n\to \infty ] {} 0;\quad\forall\epsilon\gt 0\)</span></summary>
+	<summary><span class="bb math"><div class="quantml-katex-display inline">\(\mathbb{P}\left(|\overline{X}_n - \mu| \geq \epsilon\right) \xrightarrow [n\to \infty ] {} 0;\quad\forall\epsilon\gt 0\)</div></span></summary>
 	<blockquote class="sidebar">
 
 		By <a href="https://en.wikipedia.org/wiki/Chebyshev%27s_inequality">Chebyshev's inequality</a> <sup></sup>
 
 		<br>
-		\(\displaystyle \mathbb{P}\left(|\overline{X}_n - \mu| \geq \epsilon\right) \leq \frac{\text{Var}(\overline{X}_n)}{\epsilon^2}\) <br>
+		<div class="quantml-katex-display inline">\(\displaystyle \mathbb{P}\left(|\overline{X}_n - \mu| \geq \epsilon\right) \leq \frac{\text{Var}(\overline{X}_n)}{\epsilon^2}\)</div> <br>
 		<br>
-		\(\displaystyle \mathbb{P}\left(|\overline{X}_n - \mu| \geq \epsilon\right) \leq \frac{\sigma^2}{n\epsilon^2}\xrightarrow [n\to \infty ] {} 0;\quad\forall\epsilon\gt 0\) <br>
+		<div class="quantml-katex-display inline">\(\displaystyle \mathbb{P}\left(|\overline{X}_n - \mu| \geq \epsilon\right) \leq \frac{\sigma^2}{n\epsilon^2}\xrightarrow [n\to \infty ] {} 0;\quad\forall\epsilon\gt 0\)</div> <br>
 		<br>
-		So for any \(\epsilon\geq0\),
-		\[\mathbb{P}\left(|\overline{X}_n - \mu|\geq \epsilon\right) \xrightarrow [n\to \infty ]{} 0\]
+		So for any <div class="quantml-katex-display inline">\(\epsilon\geq0\)</div>,
+		<div class="quantml-katex-display">\[\mathbb{P}\left(|\overline{X}_n - \mu|\geq \epsilon\right) \xrightarrow [n\to \infty ]{} 0\]</div>
 		<div style="font-size: smaller; text-align: center;">This is convergence in probability</div>
 
-		Let's assume a very small number, like \(0.00001\).
-		Now convergence in probability says that if \(n\) is large enough
-		then it's highly unlikely for \(\overline{X}_n\) to be more than \(0.00001\) units away from \(\mu\). <br>
-		Or say that, if \(n\) is large then it's extremely likely that \(\overline{X}_n\)
-		is extremely close to \(\mu\).
+		Let's assume a very small number, like <div class="quantml-katex-display inline">\(0.00001\)</div>.
+		Now convergence in probability says that if <div class="quantml-katex-display inline">\(n\)</div> is large enough
+		then it's highly unlikely for <div class="quantml-katex-display inline">\(\overline{X}_n\)</div> to be more than <div class="quantml-katex-display inline">\(0.00001\)</div> units away from <div class="quantml-katex-display inline">\(\mu\)</div>. <br>
+		Or say that, if <div class="quantml-katex-display inline">\(n\)</div> is large then it's extremely likely that <div class="quantml-katex-display inline">\(\overline{X}_n\)</div>
+		is extremely close to <div class="quantml-katex-display inline">\(\mu\)</div>.
 	</blockquote><br>
 </details>
 <h4>Interpretation</h4>
 <blockquote class="sidebar">
-	For any \(\epsilon\gt0\) (it's constant), probability that the <b>sample mean\((\overline{X}_n)\)</b> falls away from the <b>true mean\((\mu)\)</b> by <b>more than</b> \(\epsilon\) goes to \(0\) as our <span style="display: inline-block;">sample size \((n)\to\infty\)</span>. <br>
+	For any <div class="quantml-katex-display inline">\(\epsilon\gt0\)</div> (it's constant), probability that the <b>sample mean<div class="quantml-katex-display inline">\((\overline{X}_n)\)</div></b> falls away from the <b>true mean<div class="quantml-katex-display inline">\((\mu)\)</div></b> by <b>more than</b> <div class="quantml-katex-display inline">\(\epsilon\)</div> goes to <div class="quantml-katex-display inline">\(0\)</div> as our <span style="display: inline-block;">sample size <div class="quantml-katex-display inline">\((n)\to\infty\)</div></span>. <br>
 	<br>
-	In our above example we have a population of \(300\) students, among those \(300\) students we randomly select \(50\) students and measure their heights \(X_1,\cdots,X_{50}\). <br>
-	If the <b>true mean</b> of all \(300\) students is \(\mu(=\mathbb{E}[X_i])\), then we can say that, <br>
+	In our above example we have a population of <div class="quantml-katex-display inline">\(300\)</div> students, among those <div class="quantml-katex-display inline">\(300\)</div> students we randomly select <div class="quantml-katex-display inline">\(50\)</div> students and measure their heights <div class="quantml-katex-display inline">\(X_1,\cdots,X_{50}\)</div>. <br>
+	If the <b>true mean</b> of all <div class="quantml-katex-display inline">\(300\)</div> students is <div class="quantml-katex-display inline">\(\mu(=\mathbb{E}[X_i])\)</div>, then we can say that, <br>
 	<ul><li>
-		Height of the \(i^{th}\) student is <span class="bb">\(X_i = \mu + W_i\)</span>, where \(W_i\) is the measurement noise for the \(i^{th}\) student, and the Weak Law of Large Numbers tells us that as \(n\to\infty\) then <b>in probability</b> the <b>average</b> sample noise \(\to 0\).
+		Height of the <div class="quantml-katex-display inline">\(i^{th}\)</div> student is <span class="bb"><div class="quantml-katex-display inline">\(X_i = \mu + W_i\)</div></span>, where <div class="quantml-katex-display inline">\(W_i\)</div> is the measurement noise for the <div class="quantml-katex-display inline">\(i^{th}\)</div> student, and the Weak Law of Large Numbers tells us that as <div class="quantml-katex-display inline">\(n\to\infty\)</div> then <b>in probability</b> the <b>average</b> sample noise <div class="quantml-katex-display inline">\(\to 0\)</div>.
 	</li></ul>
-	So our <b>sample mean</b> \((\overline{X}_n)\) is <b>unlikely</b> to be far from the <b>true mean</b> \((\mu)\).
+	So our <b>sample mean</b> <div class="quantml-katex-display inline">\((\overline{X}_n)\)</div> is <b>unlikely</b> to be far from the <b>true mean</b> <div class="quantml-katex-display inline">\((\mu)\)</div>.
 
 </blockquote>
 	<!-- </blockquote> -->
@@ -183,33 +183,33 @@ For \(X_1,X_2,\dots,X_n\) <b>I.I.D.</b> random variables with finite mean \(\mu\
 
 
 <br>
-So according to Weak Law of Large Numbers if we increase the number of students in our sample from \(n=50\) to say something like \(n=100\) then we <b>should</b> get a better estimate of the <b>true mean</b>. <br>
+So according to Weak Law of Large Numbers if we increase the number of students in our sample from <div class="quantml-katex-display inline">\(n=50\)</div> to say something like <div class="quantml-katex-display inline">\(n=100\)</div> then we <b>should</b> get a better estimate of the <b>true mean</b>. <br>
 <br>
 
 <h3>There is also a <b>Strong Law of large numbers</b>.</h3>
 <blockquote class="sidebar">
 		Strong Law of Large Numbers,
 		<div class="l2 border">
-		\[\overline{X}_n:=\frac{1}{n}\sum _{i=1}^ n X_ i \xrightarrow [n\to \infty ] {\mathbb{P},\text{ a.s.}} \mu\]
+		<div class="quantml-katex-display">\[\overline{X}_n:=\frac{1}{n}\sum _{i=1}^ n X_ i \xrightarrow [n\to \infty ] {\mathbb{P},\text{ a.s.}} \mu\]</div>
 		</div><br>
-		\(:=\quad\) this symbol means <b>"by definition"</b><br>
-		\(\mathbb{P}\quad\) it means <b>"in Probability"</b><br>
-		\(\text{a.s.}\quad\) it means <a href="https://en.wikipedia.org/wiki/Almost_surely">"almost surely"</a>(with probability \(1\))<br>
+		<div class="quantml-katex-display inline">\(:=\quad\)</div> this symbol means <b>"by definition"</b><br>
+		<div class="quantml-katex-display inline">\(\mathbb{P}\quad\)</div> it means <b>"in Probability"</b><br>
+		<div class="quantml-katex-display inline">\(\text{a.s.}\quad\)</div> it means <a href="https://en.wikipedia.org/wiki/Almost_surely">"almost surely"</a>(with probability <div class="quantml-katex-display inline">\(1\)</div>)<br>
 		<br>
-				<!-- \[\overline{X}_n:=\frac{1}{n}\sum _{i=1}^ n X_ i \xrightarrow [n\to \infty ]{\text{ a.s.}} \mu\] -->
-<b>Note:</b> \(\text{ a.s.}\) implies \(\mathbb{P}\)
+				<!-- <div class="quantml-katex-display">\[\overline{X}_n:=\frac{1}{n}\sum _{i=1}^ n X_ i \xrightarrow [n\to \infty ]{\text{ a.s.}} \mu\]</div> -->
+<b>Note:</b> <div class="quantml-katex-display inline">\(\text{ a.s.}\)</div> implies <div class="quantml-katex-display inline">\(\mathbb{P}\)</div>
 </blockquote><br>
 
 <span id="how-fast"></span>
-Ok now we know that the Law of large numbers says, if we have large enough Sample size then our estimator \(\overline{X}_n\) and real parameter \(\mu\) are close <span class="bb">\(\overline{X}_n \xrightarrow [n\to \infty] {} \mu\)</span>, but how much close, we don't know! We don't know that how fast(at what rate) \(\overline{X}_n\) approaches to \(\mu\). <br>
+Ok now we know that the Law of large numbers says, if we have large enough Sample size then our estimator <div class="quantml-katex-display inline">\(\overline{X}_n\)</div> and real parameter <div class="quantml-katex-display inline">\(\mu\)</div> are close <span class="bb"><div class="quantml-katex-display inline">\(\overline{X}_n \xrightarrow [n\to \infty] {} \mu\)</div></span>, but how much close, we don't know! We don't know that how fast(at what rate) <div class="quantml-katex-display inline">\(\overline{X}_n\)</div> approaches to <div class="quantml-katex-display inline">\(\mu\)</div>. <br>
 <br>
 We can think it as:<br>
-\[ \left|\overline{X}_n -\mu \right| \propto \frac{1}{f(n)} \]
+<div class="quantml-katex-display">\[ \left|\overline{X}_n -\mu \right| \propto \frac{1}{f(n)} \]</div>
 
-where \(f(n)\) is an increasing function <span title="with respect to"><u>w.r.t.</u></span> \(n\).<br>
-As \(f(n)\) increases \(\left|\overline{X}_n -\mu\right| \) decreases, so we want a function \(f(n)\)  that increases rapidly w.r.t. \(n\). <br>
-For example \(log(log(n))\) increases very slowly so function like this are not useful.<br>
-So what is the rate at which \(\overline{X}_n\) approaches \(\mu\) ? <br>
+where <div class="quantml-katex-display inline">\(f(n)\)</div> is an increasing function <span title="with respect to"><u>w.r.t.</u></span> <div class="quantml-katex-display inline">\(n\)</div>.<br>
+As <div class="quantml-katex-display inline">\(f(n)\)</div> increases <div class="quantml-katex-display inline">\(\left|\overline{X}_n -\mu\right| \)</div> decreases, so we want a function <div class="quantml-katex-display inline">\(f(n)\)</div>  that increases rapidly w.r.t. <div class="quantml-katex-display inline">\(n\)</div>. <br>
+For example <div class="quantml-katex-display inline">\(log(log(n))\)</div> increases very slowly so function like this are not useful.<br>
+So what is the rate at which <div class="quantml-katex-display inline">\(\overline{X}_n\)</div> approaches <div class="quantml-katex-display inline">\(\mu\)</div> ? <br>
 The answer is hidden in <a href="/statistics/central-limit-theorem/">Central Limit Theorem</a>. <br>
 <br><br>
 
@@ -222,18 +222,18 @@ If an <b>independent</b> event is occurring <b>more</b> frequently (then it norm
 </blockquote>
 
 <b>Example:</b><br>
-Say you start flipping a <b>fair</b> coin \((p=0.5)\), and you observe that first \(20\) tosses are \(\text{Heads}\). <br>
+Say you start flipping a <b>fair</b> coin <div class="quantml-katex-display inline">\((p=0.5)\)</div>, and you observe that first <div class="quantml-katex-display inline">\(20\)</div> tosses are <div class="quantml-katex-display inline">\(\text{Heads}\)</div>. <br>
 Then some might say that, <br>
-"According to Law of Large Numbers the average proportion of \(\text{Heads}\) shall be \(50\%\) and we got \(20\) \(\text{Heads}\) in a row so there are high chances for our next toss to be \(\text{Tails}\)." <br>
+"According to Law of Large Numbers the average proportion of <div class="quantml-katex-display inline">\(\text{Heads}\)</div> shall be <div class="quantml-katex-display inline">\(50\%\)</div> and we got <div class="quantml-katex-display inline">\(20\)</div> <div class="quantml-katex-display inline">\(\text{Heads}\)</div> in a row so there are high chances for our next toss to be <div class="quantml-katex-display inline">\(\text{Tails}\)</div>." <br>
 <!-- <div class="align-center"> -->
 	<b>But the above statement is <span class="l1">Incorrect</span></b> <br>
 <!-- </div> -->
-Even if you got \(1000\) \(\text{Heads}\) in a row, but the probability of next toss to be \(\text{Tails}\) is still \(50\%\). <br>
+Even if you got <div class="quantml-katex-display inline">\(1000\)</div> <div class="quantml-katex-display inline">\(\text{Heads}\)</div> in a row, but the probability of next toss to be <div class="quantml-katex-display inline">\(\text{Tails}\)</div> is still <div class="quantml-katex-display inline">\(50\%\)</div>. <br>
 <br>
 
 <b style="font-size: large;">But why exactly is above statement False?</b> <br>
-Because <b>Law of Large Numbers</b> says <b>as \(n\to\infty\) our Sample mean \(\to\) True mean</b>. <br>
-So even if we got \(1000\) \(\text{Heads}\) in a row, there is still \(\infty\) tosses are left to make our <b>Sample mean</b> a <b>True mean</b>.<br>
+Because <b>Law of Large Numbers</b> says <b>as <div class="quantml-katex-display inline">\(n\to\infty\)</div> our Sample mean <div class="quantml-katex-display inline">\(\to\)</div> True mean</b>. <br>
+So even if we got <div class="quantml-katex-display inline">\(1000\)</div> <div class="quantml-katex-display inline">\(\text{Heads}\)</div> in a row, there is still <div class="quantml-katex-display inline">\(\infty\)</div> tosses are left to make our <b>Sample mean</b> a <b>True mean</b>.<br>
 
 
 <blockquote class="noborder align-center">

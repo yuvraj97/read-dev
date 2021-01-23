@@ -64,20 +64,20 @@
 <h2 od="vec-proj">(Application of projection)</h2>
 
 Recall our <a  href="/linear-algebra/projection/#example">previous example</a>, here we have a 
-system of equation <span class="bb">\(\mathbb{A}\mathbb{X}=\mathbb{Y}\)</span>.<br>
-let's take an example, suppose we have \(3\) points (in form of \(a_1,a_2\)) \((1,1),(2,2),(3,2)\).<br>
-Our objective is to get a best possible linear function for \(a_2\), say that function be \(f\).<br>
-our function might not give exact \(a_2\) that corresponds to \(a_1\) but it will give us best possible 
-approximation for \(a_2\).<br>
-The simplest linear function is <span class="bb">\(a_2 = f(a_1) = x_1 + a_1 x_2\)</span>.<br>
-here \(x_1, x_2\) are our parameters
+system of equation <span class="bb"><div class="quantml-katex-display inline">\(\mathbb{A}\mathbb{X}=\mathbb{Y}\)</div></span>.<br>
+let's take an example, suppose we have <div class="quantml-katex-display inline">\(3\)</div> points (in form of <div class="quantml-katex-display inline">\(a_1,a_2\)</div>) <div class="quantml-katex-display inline">\((1,1),(2,2),(3,2)\)</div>.<br>
+Our objective is to get a best possible linear function for <div class="quantml-katex-display inline">\(a_2\)</div>, say that function be <div class="quantml-katex-display inline">\(f\)</div>.<br>
+our function might not give exact <div class="quantml-katex-display inline">\(a_2\)</div> that corresponds to <div class="quantml-katex-display inline">\(a_1\)</div> but it will give us best possible 
+approximation for <div class="quantml-katex-display inline">\(a_2\)</div>.<br>
+The simplest linear function is <span class="bb"><div class="quantml-katex-display inline">\(a_2 = f(a_1) = x_1 + a_1 x_2\)</div></span>.<br>
+here <div class="quantml-katex-display inline">\(x_1, x_2\)</div> are our parameters
 (unknown)<br>
 Our observations says,<br>
-\(f=x_1 + 1 x_2 =1\),<br>
-\(f=x_1 + 2 x_2 =2\),<br>
-\(f=x_1 + 3 x_2 =2\),<br>
+<div class="quantml-katex-display inline">\(f=x_1 + 1 x_2 =1\)</div>,<br>
+<div class="quantml-katex-display inline">\(f=x_1 + 2 x_2 =2\)</div>,<br>
+<div class="quantml-katex-display inline">\(f=x_1 + 3 x_2 =2\)</div>,<br>
 We can also write it as,<br>
-\(
+<div class="quantml-katex-display inline">\(
 \underbrace{\begin{bmatrix}
 1 & 1 \\
 1 & 2 \\
@@ -93,36 +93,36 @@ x_2\\
 2\\
 2\\
 \end{bmatrix}}_{\mathbb{Y}}
-\).<br>
-\(\mathbb{A}\mathbb{X}=\mathbb{Y}\)<br>
-So we want to find the <b>linear combinations</b> of column vectors of \(\mathbb{A}\) that gives us
-\(\mathbb{Y}\), but \(\mathbb{Y}\) does not lives in the <b>column space</b> of \(\mathbb{A}\).<br>
-So now we will find a vector \(\widehat{\mathbb{Y}}\) in the <b>column space</b> of \(\mathbb{A}\)
-that is <b>closest</b> to \(\mathbb{Y}\), here closeness is determined by the <b>Euclidean distance</b> between 
-\(\mathbb{Y}\) and \(\widehat{\mathbb{Y}}\).<br>
+\)</div>.<br>
+<div class="quantml-katex-display inline">\(\mathbb{A}\mathbb{X}=\mathbb{Y}\)</div><br>
+So we want to find the <b>linear combinations</b> of column vectors of <div class="quantml-katex-display inline">\(\mathbb{A}\)</div> that gives us
+<div class="quantml-katex-display inline">\(\mathbb{Y}\)</div>, but <div class="quantml-katex-display inline">\(\mathbb{Y}\)</div> does not lives in the <b>column space</b> of <div class="quantml-katex-display inline">\(\mathbb{A}\)</div>.<br>
+So now we will find a vector <div class="quantml-katex-display inline">\(\widehat{\mathbb{Y}}\)</div> in the <b>column space</b> of <div class="quantml-katex-display inline">\(\mathbb{A}\)</div>
+that is <b>closest</b> to <div class="quantml-katex-display inline">\(\mathbb{Y}\)</div>, here closeness is determined by the <b>Euclidean distance</b> between 
+<div class="quantml-katex-display inline">\(\mathbb{Y}\)</div> and <div class="quantml-katex-display inline">\(\widehat{\mathbb{Y}}\)</div>.<br>
 So instead we will solve,<br>
-<span class="bb">\(\mathbb{A}\widehat{\mathbb{X}}=\widehat{\mathbb{Y}}\)</span><br>
-<i>(And \(\widehat{\mathbb{X}}\) is just a way to tell that our solution is an estimate of exact solution)</i>.<br>
-\(\widehat{\mathbb{Y}}\) lives in the <b>column space</b> of \(\mathbb{A}\), <b>and</b> \(\mathbb{Y}\)
-is out of the <b>column space</b> of \(\mathbb{A}\), so<br>
-The vector \(\mathbb{Y} - \widehat{\mathbb{Y}}\) is perpendicular to the <b>column space</b> of \(\mathbb{A}\).<br>
-\(\Rightarrow \mathbb{Y} - \widehat{\mathbb{Y}}\) is in the <b>Null space</b> of \(\mathbb{A}^T\).<br>
-\(\Rightarrow \mathbb{A}^T(\mathbb{Y} - \widehat{\mathbb{Y}})=0\) and we know that \(\widehat{\mathbb{Y}}=\mathbb{A}\widehat{\mathbb{X}}\).<br>
-\(\Rightarrow \mathbb{A}^T(\mathbb{Y} - \mathbb{A}\widehat{\mathbb{X}})=0\)<br>
-\(\Rightarrow \mathbb{A}^T\mathbb{A}\widehat{\mathbb{X}}=\mathbb{A}^T \mathbb{Y}\)<br>
+<span class="bb"><div class="quantml-katex-display inline">\(\mathbb{A}\widehat{\mathbb{X}}=\widehat{\mathbb{Y}}\)</div></span><br>
+<i>(And <div class="quantml-katex-display inline">\(\widehat{\mathbb{X}}\)</div> is just a way to tell that our solution is an estimate of exact solution)</i>.<br>
+<div class="quantml-katex-display inline">\(\widehat{\mathbb{Y}}\)</div> lives in the <b>column space</b> of <div class="quantml-katex-display inline">\(\mathbb{A}\)</div>, <b>and</b> <div class="quantml-katex-display inline">\(\mathbb{Y}\)</div>
+is out of the <b>column space</b> of <div class="quantml-katex-display inline">\(\mathbb{A}\)</div>, so<br>
+The vector <div class="quantml-katex-display inline">\(\mathbb{Y} - \widehat{\mathbb{Y}}\)</div> is perpendicular to the <b>column space</b> of <div class="quantml-katex-display inline">\(\mathbb{A}\)</div>.<br>
+<div class="quantml-katex-display inline">\(\Rightarrow \mathbb{Y} - \widehat{\mathbb{Y}}\)</div> is in the <b>Null space</b> of <div class="quantml-katex-display inline">\(\mathbb{A}^T\)</div>.<br>
+<div class="quantml-katex-display inline">\(\Rightarrow \mathbb{A}^T(\mathbb{Y} - \widehat{\mathbb{Y}})=0\)</div> and we know that <div class="quantml-katex-display inline">\(\widehat{\mathbb{Y}}=\mathbb{A}\widehat{\mathbb{X}}\)</div>.<br>
+<div class="quantml-katex-display inline">\(\Rightarrow \mathbb{A}^T(\mathbb{Y} - \mathbb{A}\widehat{\mathbb{X}})=0\)</div><br>
+<div class="quantml-katex-display inline">\(\Rightarrow \mathbb{A}^T\mathbb{A}\widehat{\mathbb{X}}=\mathbb{A}^T \mathbb{Y}\)</div><br>
 
-\(\mathbb{A}^T\mathbb{A}=
+<div class="quantml-katex-display inline">\(\mathbb{A}^T\mathbb{A}=
 \begin{bmatrix}
 3 &  6 \\
 6 & 14 \\
-\end{bmatrix},\quad\)
-\(\mathbb{A}^T\mathbb{Y}=
+\end{bmatrix},\quad\)</div>
+<div class="quantml-katex-display inline">\(\mathbb{A}^T\mathbb{Y}=
 \begin{bmatrix}
  5\\
 11\\
-\end{bmatrix},\quad\)
+\end{bmatrix},\quad\)</div>
 Now we have so solve,<br>
-\(
+<div class="quantml-katex-display inline">\(
 \begin{bmatrix}
 3 &  6 \\
 6 & 14 \\
@@ -136,43 +136,43 @@ x_2\\
  5\\
 11\\
 \end{bmatrix}
-\)<br>
+\)</div><br>
 We can write it as,<br>
-\(3x_1 +  6x_2 = 5\)<br>
-\(6x_1 + 14x_2 = 11\)<br>
-By solving we get \(x_1=2/3\) and \(x_2=1/2\)<br>
+<div class="quantml-katex-display inline">\(3x_1 +  6x_2 = 5\)</div><br>
+<div class="quantml-katex-display inline">\(6x_1 + 14x_2 = 11\)</div><br>
+By solving we get <div class="quantml-katex-display inline">\(x_1=2/3\)</div> and <div class="quantml-katex-display inline">\(x_2=1/2\)</div><br>
 
-So our function \(f(a_1) = x_1 + a_1 x_2\) becomes, 
-\[f(a_1) = \frac{2}{3} + \frac{1}{2}a_1\]
+So our function <div class="quantml-katex-display inline">\(f(a_1) = x_1 + a_1 x_2\)</div> becomes, 
+<div class="quantml-katex-display">\[f(a_1) = \frac{2}{3} + \frac{1}{2}a_1\]</div>
 
-Let's take a look at our estimate for our \(3\) data points and it's error(which is \(a_2 - \hat{a_2}\)).<br>
-<li>For \((a_1,a_2)=(1,1)\)</li>
+Let's take a look at our estimate for our <div class="quantml-katex-display inline">\(3\)</div> data points and it's error(which is <div class="quantml-katex-display inline">\(a_2 - \hat{a_2}\)</div>).<br>
+<li>For <div class="quantml-katex-display inline">\((a_1,a_2)=(1,1)\)</div></li>
 <dl><dd>
-    \(\hat{a_2} = \frac{2}{3} + \frac{1}{2}(1)=\frac{7}{6}\)<br>
-    \(e_1= 1 - \frac{7}{6} = -\frac{1}{6}\)
+    <div class="quantml-katex-display inline">\(\hat{a_2} = \frac{2}{3} + \frac{1}{2}(1)=\frac{7}{6}\)</div><br>
+    <div class="quantml-katex-display inline">\(e_1= 1 - \frac{7}{6} = -\frac{1}{6}\)</div>
 </dd></dl>
-<li>For \((a_1,a_2)=(2,2)\)</li>
+<li>For <div class="quantml-katex-display inline">\((a_1,a_2)=(2,2)\)</div></li>
 <dl><dd>
-    \(\hat{a_2} = \frac{2}{3} + \frac{1}{2}(2)=\frac{5}{3}\)<br>
-    \(e_2= 2 - \frac{5}{3}= \frac{1}{3}\)
+    <div class="quantml-katex-display inline">\(\hat{a_2} = \frac{2}{3} + \frac{1}{2}(2)=\frac{5}{3}\)</div><br>
+    <div class="quantml-katex-display inline">\(e_2= 2 - \frac{5}{3}= \frac{1}{3}\)</div>
 </dd></dl>
-<li>For \((a_1,a_2)=(3,2)\)</li>
+<li>For <div class="quantml-katex-display inline">\((a_1,a_2)=(3,2)\)</div></li>
 <dl><dd>
-    \(\hat{a_2} = \frac{2}{3} + \frac{1}{2}(3)=\frac{13}{6}\)<br>
-    \(e_3= 2 - \frac{13}{6} = -\frac{1}{6}\)
+    <div class="quantml-katex-display inline">\(\hat{a_2} = \frac{2}{3} + \frac{1}{2}(3)=\frac{13}{6}\)</div><br>
+    <div class="quantml-katex-display inline">\(e_3= 2 - \frac{13}{6} = -\frac{1}{6}\)</div>
 </dd></dl>
 
 Now represent our estimate and errors as vector,<br>
-\( \widehat{\mathbb{Y}} = \begin{bmatrix} \frac{7}{6}\\ \frac{5}{3} \\ \frac{13}{6} \\ \end{bmatrix} ,\quad\)
-\( e=\mathbb{Y}-\widehat{\mathbb{Y}} = \begin{bmatrix} -\frac{1}{6}\\ \frac{1}{3} \\ -\frac{1}{6} \\ \end{bmatrix} \)<br>
-As we discussed above that \( \widehat{\mathbb{Y}} \) is in <b>column space</b> of \(\mathbb{A}\) 
-and \(\mathbb{Y}-\widehat{\mathbb{Y}}\) is <b>perpendicular</b> to that <b>column space</b>.<br>
+<div class="quantml-katex-display inline">\( \widehat{\mathbb{Y}} = \begin{bmatrix} \frac{7}{6}\\ \frac{5}{3} \\ \frac{13}{6} \\ \end{bmatrix} ,\quad\)</div>
+<div class="quantml-katex-display inline">\( e=\mathbb{Y}-\widehat{\mathbb{Y}} = \begin{bmatrix} -\frac{1}{6}\\ \frac{1}{3} \\ -\frac{1}{6} \\ \end{bmatrix} \)</div><br>
+As we discussed above that <div class="quantml-katex-display inline">\( \widehat{\mathbb{Y}} \)</div> is in <b>column space</b> of <div class="quantml-katex-display inline">\(\mathbb{A}\)</div> 
+and <div class="quantml-katex-display inline">\(\mathbb{Y}-\widehat{\mathbb{Y}}\)</div> is <b>perpendicular</b> to that <b>column space</b>.<br>
 We can now see it in this example.<br>
-First notice that dot product of \(\mathbb{Y}\) and \(\mathbb{Y}-\widehat{\mathbb{Y}}\) is \(0\).<br>
-\(\mathbb{Y}\cdot(\mathbb{Y}-\widehat{\mathbb{Y}})=\mathbb{Y}^T(\mathbb{Y}-\widehat{\mathbb{Y}})=0\)<br>
-As we said that <span class="bb">\(\mathbb{Y}-\widehat{\mathbb{Y}}\)</span> is <b>perpendicular</b> to the whole <b>column space</b>,
-you can took any <b>linear combinations</b> of the columns of \(\mathbb{A}\) it will be 
-<b>perpendicular</b> to <span class="bb">\(\mathbb{Y}-\widehat{\mathbb{Y}}\)</span>.<br></p>
+First notice that dot product of <div class="quantml-katex-display inline">\(\mathbb{Y}\)</div> and <div class="quantml-katex-display inline">\(\mathbb{Y}-\widehat{\mathbb{Y}}\)</div> is <div class="quantml-katex-display inline">\(0\)</div>.<br>
+<div class="quantml-katex-display inline">\(\mathbb{Y}\cdot(\mathbb{Y}-\widehat{\mathbb{Y}})=\mathbb{Y}^T(\mathbb{Y}-\widehat{\mathbb{Y}})=0\)</div><br>
+As we said that <span class="bb"><div class="quantml-katex-display inline">\(\mathbb{Y}-\widehat{\mathbb{Y}}\)</div></span> is <b>perpendicular</b> to the whole <b>column space</b>,
+you can took any <b>linear combinations</b> of the columns of <div class="quantml-katex-display inline">\(\mathbb{A}\)</div> it will be 
+<b>perpendicular</b> to <span class="bb"><div class="quantml-katex-display inline">\(\mathbb{Y}-\widehat{\mathbb{Y}}\)</div></span>.<br></p>
 
 
 

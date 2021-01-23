@@ -1,6 +1,11 @@
 window.quantml = {
 	theme: localStorage.getItem("quantmlTheme")
 }
+// Setting Theme
+if(quantml["theme"]==null){
+	localStorage.setItem("quantmlTheme", "light");
+	quantml["theme"] = "light"
+}
 
 function _cacheFile_(name, version, url) {
 	var xmlhttp = new XMLHttpRequest(); // code for IE7+, Firefox, Chrome, Opera, Safari
@@ -89,32 +94,6 @@ function requireScript(name, version, url, callback) {
   }
 }
 
-function getCookie(name) {
-    var nameEQ = name + "=";
-    var ca = document.cookie.split(';');
-    for(var i=0;i < ca.length;i++) {
-        var c = ca[i];
-        while (c.charAt(0)==' ') c = c.substring(1,c.length);
-        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
-    }
-    return null;
-}
-
-function get_loader_img_str(which = "login"){
-	if(window.quantml["theme"]=="light"){
-		var src = `/data/img/loading-${which}.svg`;
-	} else {
-		var src = `/data/img-dark/loading-${which}.svg`;
-	}
-	return `<img style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);" src="${src}" alt="..." width="30px" height="30px"/>`
-}
-
-// Setting Theme
-if(window.quantml["theme"]==null){
-	localStorage.setItem("quantmlTheme", "light");
-	window.quantml["theme"] = "light"
-}
-
 function changeThemeCSS(currentTheme){
 	if(currentTheme == "dark"){
 		e = document.getElementById("main-light-css")
@@ -159,23 +138,6 @@ function setPageWidth(){
 		document.getElementById('nav').style.maxWidth = "72rem";
 		document.getElementById('main').style.maxWidth = "72rem";
 	}
-}
-
-function changePageWidth(size){
-	if(size=="large"){
-		document.getElementById('nav').style.maxWidth="100%"
-		document.getElementById('main').style.maxWidth="100%"
-		localStorage.setItem("page-width", "100%")
-	} else if(size=="medium"){
-		document.getElementById('nav').style.maxWidth="82rem"
-		document.getElementById('main').style.maxWidth="82rem"
-		localStorage.setItem("page-width", "82rem")
-	} else if(size=="small"){
-		document.getElementById('nav').style.maxWidth="72rem"
-		document.getElementById('main').style.maxWidth="72rem"
-		localStorage.setItem("page-width", "72rem")
-	}
-
 }
 
 function loadNavBar(){
@@ -271,16 +233,6 @@ function loadInit(theme){
 	div.appendChild(load); div.appendChild(init);		
   })
 }
-
-async function encryptMessage(message) {
-	msgUint8 = new TextEncoder().encode(message);                           // encode as (utf-8) Uint8Array
-	hashBuffer = await crypto.subtle.digest('SHA-256', msgUint8);           // hash the message
-	hashArray = Array.from(new Uint8Array(hashBuffer));                     // convert buffer to byte array
-	hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join(''); // convert bytes to hex string
-	return hashHex;
-}
-// const encrypted_msg = await encryptMessage("text");
-// console.log(encrypted_msg);
 
 function applyMetaTags(){
 

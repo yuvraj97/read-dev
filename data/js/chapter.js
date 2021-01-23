@@ -808,7 +808,7 @@ window.quantml["chapters"] ={
                     </div>
                     Source: <a rel="noreferrer" target="_blank"  href="https://en.wikipedia.org/wiki/Standard_normal_table#Cumulative">https://en.wikipedia.org/wiki/Standard_normal_table#Cumulative</a>
                     <hr>`
-                    renderMathInElement(document.body);
+                    renderMathInElement(resources_cdf);
                 }
             })
             

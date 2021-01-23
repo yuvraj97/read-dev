@@ -99,8 +99,8 @@ Remember that dogma we showed <a href="/statistics/introduction/#dogma">previous
 
 <h2 id="truth">Truth</h2>
 Let's first define the underlying truth, say that currently the <b>Room</b> is holding
-<span class="l1">\(40\%\)</span> of <span class="l1">Red Balls</span> and
-<span class="l2">\(60\%\)</span> of <span class="l2">Blue Balls</span>. <br>
+<span class="l1"><div class="quantml-katex-display inline">\(40\%\)</div></span> of <span class="l1">Red Balls</span> and
+<span class="l2"><div class="quantml-katex-display inline">\(60\%\)</div></span> of <span class="l2">Blue Balls</span>. <br>
 <blockquote>Note that we do <b>not</b> know this proportion, our intent is to find this proportion</blockquote>
 
 Say we denote
@@ -111,7 +111,7 @@ Say we denote
 <h2 id="probability">Probability</h2>
 We use probability to generate our data using the <b>Truth</b> we defined above. <br>
 Now let's create a <b>Population</b> in this case it's, <i>all the balls in the Room</i>. <br>
-(In this example we are creating \(5000\) Balls and <span class="l1">\(40\%\)</span> of then are <span class="l1">Red balls</span> )
+(In this example we are creating <div class="quantml-katex-display inline">\(5000\)</div> Balls and <span class="l1"><div class="quantml-katex-display inline">\(40\%\)</div></span> of then are <span class="l1">Red balls</span> )
 
 <pre><code class="language-julia line-numbers">using Random
 
@@ -125,45 +125,45 @@ population = shuffle(population)
 </code></pre>
 
 Now we had filled the room with
-<span class="l1">\(40\%\)</span> of <span class="l1">Red Balls</span> and
-<span class="l2">\(60\%\)</span> of <span class="l2">Blue Balls</span>. <br>
+<span class="l1"><div class="quantml-katex-display inline">\(40\%\)</div></span> of <span class="l1">Red Balls</span> and
+<span class="l2"><div class="quantml-katex-display inline">\(60\%\)</div></span> of <span class="l2">Blue Balls</span>. <br>
 <br>
 
 <h2 id="observation">Observation</h2>
-As we can see Room is full of \(5000\) Balls, and we can't count them all to find out the proportion of
+As we can see Room is full of <div class="quantml-katex-display inline">\(5000\)</div> Balls, and we can't count them all to find out the proportion of
 <span class="l1">Red Balls</span> and
 <span class="l2">Blue Balls</span>,
-so we took a sample out of those \(5000\) balls, and then we find the proportion of
+so we took a sample out of those <div class="quantml-katex-display inline">\(5000\)</div> balls, and then we find the proportion of
 <span class="l1">Red Balls</span> and
 <span class="l2">Blue Balls</span>
 in that small sample. <br>
-So let's take a sample of \(n=300\) balls. <br>
+So let's take a sample of <div class="quantml-katex-display inline">\(n=300\)</div> balls. <br>
 <pre data-start="12"><code class="language-julia line-numbers">n=300
 sample = rand(population,n)
 </code></pre>
-Now we got our <b>sample</b> of \(300\) balls. <br>
-These \(300\) observations (\(X_1,\cdots,X_{300}\)) are what we call <b>Random Variables</b>. <br>
+Now we got our <b>sample</b> of <div class="quantml-katex-display inline">\(300\)</div> balls. <br>
+These <div class="quantml-katex-display inline">\(300\)</div> observations (<div class="quantml-katex-display inline">\(X_1,\cdots,X_{300}\)</div>) are what we call <b>Random Variables</b>. <br>
 <br>
 
 <h2 id="statistics">Statistics</h2>
-So now we have our sample of \(300\) balls, let's start finding an estimate for
+So now we have our sample of <div class="quantml-katex-display inline">\(300\)</div> balls, let's start finding an estimate for
 <span class="l1">Red Balls</span> proportion and
 <span class="l2">Blue Balls</span> proportion. <br>
 To find the proportion of <span class="l1">Red Balls</span> we count number of <span class="l1">Red Balls</span>
-then we divide it by total number of balls (i.e. \(300\)). <br>
+then we divide it by total number of balls (i.e. <div class="quantml-katex-display inline">\(300\)</div>). <br>
 
-<span class="l1">\(\hat{p}\)</span>: Our estimate for proportion of <span class="l1">Red Balls</span> denoted by \(1\). <br>
-<span class="l2">\(\hat{q}\)</span>: Our estimate for proportion of <span class="l2">Blue Balls</span> denoted by \(0\). <br>
+<span class="l1"><div class="quantml-katex-display inline">\(\hat{p}\)</div></span>: Our estimate for proportion of <span class="l1">Red Balls</span> denoted by <div class="quantml-katex-display inline">\(1\)</div>. <br>
+<span class="l2"><div class="quantml-katex-display inline">\(\hat{q}\)</div></span>: Our estimate for proportion of <span class="l2">Blue Balls</span> denoted by <div class="quantml-katex-display inline">\(0\)</div>. <br>
 
-\[ \hat{p} = \frac{1}{300}\sum_{i=0}^{300}X_i\]
-\[ \hat{q} = 1-\hat{p} \]
+<div class="quantml-katex-display">\[ \hat{p} = \frac{1}{300}\sum_{i=0}^{300}X_i\]</div>
+<div class="quantml-katex-display">\[ \hat{q} = 1-\hat{p} \]</div>
 
 <pre data-start="14"><code class="language-julia line-numbers">p_hat = sum(sample)/n
 q_hat = 1- p_hat
 </code></pre>
-<span class="bb"><b>p_hat</b></span> is our estimate for proportion of <span class="l1">Red Balls</span> (\(\hat{p}\)).<br>
+<span class="bb"><b>p_hat</b></span> is our estimate for proportion of <span class="l1">Red Balls</span> (<div class="quantml-katex-display inline">\(\hat{p}\)</div>).<br>
 
-This is a single simulation if we perform this simulation multiple times we can get some insights for the <b>distribution</b> of our <b>Random variable</b> \(\hat{p}\). <br>
+This is a single simulation if we perform this simulation multiple times we can get some insights for the <b>distribution</b> of our <b>Random variable</b> <div class="quantml-katex-display inline">\(\hat{p}\)</div>. <br>
 <br>
 
 <h1 id="multiple-simulations">Multiple simulations</h1>

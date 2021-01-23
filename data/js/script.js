@@ -3,12 +3,51 @@ if("chapterID" in window.quantml) requireScript('chapter-js', '0.1.0', '/data/js
 
 // Functions
 
-function prevPageBtn(){
-	window.location.href = prevPage;
+async function encryptMessage(message) {
+	msgUint8 = new TextEncoder().encode(message);                           // encode as (utf-8) Uint8Array
+	hashBuffer = await crypto.subtle.digest('SHA-256', msgUint8);           // hash the message
+	hashArray = Array.from(new Uint8Array(hashBuffer));                     // convert buffer to byte array
+	hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join(''); // convert bytes to hex string
+	return hashHex;
+}
+// const encrypted_msg = await encryptMessage("text");
+// console.log(encrypted_msg);
+
+function changePageWidth(size){
+	if(size=="large"){
+		document.getElementById('nav').style.maxWidth="100%"
+		document.getElementById('main').style.maxWidth="100%"
+		localStorage.setItem("page-width", "100%")
+	} else if(size=="medium"){
+		document.getElementById('nav').style.maxWidth="82rem"
+		document.getElementById('main').style.maxWidth="82rem"
+		localStorage.setItem("page-width", "82rem")
+	} else if(size=="small"){
+		document.getElementById('nav').style.maxWidth="72rem"
+		document.getElementById('main').style.maxWidth="72rem"
+		localStorage.setItem("page-width", "72rem")
+	}
+
 }
 
-function nextPageBtn(){
-	window.location.href = nextPage;
+function getCookie(name) {
+    var nameEQ = name + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0;i < ca.length;i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1,c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+    }
+    return null;
+}
+
+function get_loader_img_str(which = "login"){
+	if(window.quantml["theme"]=="light"){
+		var src = `/data/img/loading-${which}.svg`;
+	} else {
+		var src = `/data/img-dark/loading-${which}.svg`;
+	}
+	return `<img style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);" src="${src}" alt="..." width="30px" height="30px"/>`
 }
 
 // ***************************************************************
@@ -159,9 +198,9 @@ function isInViewport(element) {
 	const rect = element.getBoundingClientRect();
 	if(rect.top == 0 && rect.left == 0 && rect.bottom == 0 && rect.right == 0) return false;
     return (
-        rect.top + 60 >= 0 &&
+        rect.top + 200 >= 0 &&
         rect.left + 60 >= 0 &&
-        rect.bottom - 60 <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.bottom - 200 <= (window.innerHeight || document.documentElement.clientHeight) &&
         rect.right - 60 <= (window.innerWidth || document.documentElement.clientWidth)
     );
 }
@@ -230,8 +269,7 @@ function loadKatex(isKatexImportant, callback){
 	requireScript('katex-css', '0.6.0', '/data/katex/katex.min.css', function(){})
 	requireScript('katex-js', '0.6.0','/data/katex/katex.min.js', function(){
 		requireScript('auto-render-js', '0.6.0','/data/katex/auto-render.min.js', function(){
-			if(!quantml["dont-apply-katex"]) renderMathInElement(document.body);
-			else loadQuantmlKatexDisplay();
+			loadQuantmlKatexDisplay();
 			if(isKatexImportant) katexLoaded();
 			if(callback) callback();
 		})

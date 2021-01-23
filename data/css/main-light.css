@@ -145,7 +145,7 @@ table.alt tbody tr td {
 }
 
 .fa {
-    color: #0033cc;
+    color: black;
 }
 .fa:hover{
     color: #0033cc !important;
@@ -234,5 +234,8 @@ textarea {
 	border-bottom: 1px dotted #0033cc;
 }
 .table-highlighted-cell{
-    background-color: rgb(0, 255, 0, 0.3);
+    background-color: rgb(0, 0, 255, 0.13);
+}
+.fa-link {
+    color: #0033cc;
 }

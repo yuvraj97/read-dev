@@ -60,25 +60,25 @@
 
 <p>
 <h1 id="orthogonal-matrices">Orthonormal Vectors</h1>
-Say we have a \(m\times n\)  matrix \(Q\), ith columns of \(Q\) is denotes as \(q_i\).<br>
-\[
+Say we have a <div class="quantml-katex-display inline">\(m\times n\)</div>  matrix <div class="quantml-katex-display inline">\(Q\)</div>, ith columns of <div class="quantml-katex-display inline">\(Q\)</div> is denotes as <div class="quantml-katex-display inline">\(q_i\)</div>.<br>
+<div class="quantml-katex-display">\[
 Q=\begin{bmatrix}
  \vdots & \vdots &          & \vdots \\  
  q_1    &  q_2   & \cdots   &  q_n   \\
  \vdots & \vdots &          & \vdots \\
  \end{bmatrix}_{m\times n}
-\]
+\]</div>
 And <b>all</b> columns vectors are <b>perpendicular</b> to each other, and <b>all</b> column vectors
 are of <b>unit length</b><br>
-\[
+<div class="quantml-katex-display">\[
 q_i^Tq_j=\left\{\begin{matrix}
     0& \text{if }i\neq j\\
     1& \text{if }i=j \\
     \end{matrix}\right.
-\]
-equivalently we can say that <span class="bb">\(Q^TQ=\mathcal{I}_{n\times n}\)</span>,<br>
+\]</div>
+equivalently we can say that <span class="bb"><div class="quantml-katex-display inline">\(Q^TQ=\mathcal{I}_{n\times n}\)</div></span>,<br>
 <div class="math-container ">
-\[
+<div class="quantml-katex-display">\[
 Q^TQ=
 \begin{bmatrix}
 \cdots q_1 \cdots\\
@@ -92,11 +92,11 @@ Q^TQ=
 q_1    &  q_2   & \cdots   &  q_n   \\
 \vdots & \vdots &          & \vdots 
 \end{bmatrix}
-\]
+\]</div>
 </div>
 
 <div class="math-container ">
-\[
+<div class="quantml-katex-display">\[
 \Rightarrow
 Q^TQ=
 \begin{bmatrix}
@@ -105,11 +105,11 @@ q_2q_1 & q_2q_2 &  \cdots  & q_2q_n \\
 \vdots & \vdots &  \ddots  & \vdots \\  
 q_nq_1 & q_nq_2 &  \cdots  & q_nq_n \\  
 \end{bmatrix}
-\]
+\]</div>
 </div>
 
 <div class="math-container ">
-\[
+<div class="quantml-katex-display">\[
 \Rightarrow
 Q^TQ=
 \begin{bmatrix}
@@ -118,19 +118,19 @@ Q^TQ=
 \vdots  & \vdots  &  \ddots  & 0 \\  
 0       &       0 &  \cdots  & 1 \\  
 \end{bmatrix}
-\]
+\]</div>
 </div>
 
 <blockquote>    
-\(Q\) is an <b>Orthogonal matrix</b> <b>if</b> \(Q\) is a <b>square matrix</b> 
+<div class="quantml-katex-display inline">\(Q\)</div> is an <b>Orthogonal matrix</b> <b>if</b> <div class="quantml-katex-display inline">\(Q\)</div> is a <b>square matrix</b> 
 </blockquote>
-So if \(Q\) is an <b>Orthogonal matrix</b> then,<br>
-<span class="bb">\(Q^TQ=\mathcal{I}\)</span> tells us that <span class="bb">\(Q^T = Q^{-1}\)</span>, So,<br>
+So if <div class="quantml-katex-display inline">\(Q\)</div> is an <b>Orthogonal matrix</b> then,<br>
+<span class="bb"><div class="quantml-katex-display inline">\(Q^TQ=\mathcal{I}\)</div></span> tells us that <span class="bb"><div class="quantml-katex-display inline">\(Q^T = Q^{-1}\)</div></span>, So,<br>
 
-<li>If \(Q\) is an <b>Orthogonal matrix</b> then</li>
+<li>If <div class="quantml-katex-display inline">\(Q\)</div> is an <b>Orthogonal matrix</b> then</li>
 
 <div class="l1 border">
-\[
+<div class="quantml-katex-display">\[
     \begin{matrix}
 
     % equation
@@ -138,40 +138,40 @@ So if \(Q\) is an <b>Orthogonal matrix</b> then,<br>
     %equation
 
     \end{matrix}
-\]
+\]</div>
 </div><b>Examples of matrices with orthogonal vectors,</b><br>
 <blockquote class="noborder">
-\(
+<div class="quantml-katex-display inline">\(
 Q=\begin{bmatrix}
 0 & 0 &  1\\
 1 & 0 &  0\\
 0 & 1 &  0\\
 \end{bmatrix}
-\) here all vectors are orthogonal, unit length and it's an \(3\times 3\) square matrix so it's orthogonal matrix.<br>
+\)</div> here all vectors are orthogonal, unit length and it's an <div class="quantml-katex-display inline">\(3\times 3\)</div> square matrix so it's orthogonal matrix.<br>
 <br>
-\(
+<div class="quantml-katex-display inline">\(
 Q=\begin{bmatrix}
 1 & -2 &  2\\
 2 & -1 & -2\\
 2 &  2 &  1\\
 \end{bmatrix}
-\) here all vectors are orthogonal, unit length and it's an \(3\times 3\) square matrix so it's orthogonal matrix.<br><br>
+\)</div> here all vectors are orthogonal, unit length and it's an <div class="quantml-katex-display inline">\(3\times 3\)</div> square matrix so it's orthogonal matrix.<br><br>
 </blockquote>
 <br>
 
 <h2 id="why-orthogonal">What is the benefit of orthonormal column vector</h2>
-Say we have a \(m\times n\) matrix \(Q\) with <b>orthonormal</b> column vectors .<br>
-Now say we want the projection of a vector (say \(\vec{v}\)) onto the column space of \(Q\).<br>
-Our <b>projection matrix\((P)\)</b> is: <span class="bb">\(P=Q(Q^TQ)^{-1}Q^T\)</span>.<br>
-And projection of vector \(\vec{v}\) onto the column space of \(Q\) is \(P\vec{v}\)<br>
-because \(Q\) has <b>orthonormal</b> column vectors .<br> 
-So <span class="bb">\(Q^TQ=\mathcal{I}\)</span>.<br>
-So our <b>projection matrix\((P)\)</b> becomes \(P=Q\mathcal{I}Q^T\), so.<br>
+Say we have a <div class="quantml-katex-display inline">\(m\times n\)</div> matrix <div class="quantml-katex-display inline">\(Q\)</div> with <b>orthonormal</b> column vectors .<br>
+Now say we want the projection of a vector (say <div class="quantml-katex-display inline">\(\vec{v}\)</div>) onto the column space of <div class="quantml-katex-display inline">\(Q\)</div>.<br>
+Our <b>projection matrix<div class="quantml-katex-display inline">\((P)\)</div></b> is: <span class="bb"><div class="quantml-katex-display inline">\(P=Q(Q^TQ)^{-1}Q^T\)</div></span>.<br>
+And projection of vector <div class="quantml-katex-display inline">\(\vec{v}\)</div> onto the column space of <div class="quantml-katex-display inline">\(Q\)</div> is <div class="quantml-katex-display inline">\(P\vec{v}\)</div><br>
+because <div class="quantml-katex-display inline">\(Q\)</div> has <b>orthonormal</b> column vectors .<br> 
+So <span class="bb"><div class="quantml-katex-display inline">\(Q^TQ=\mathcal{I}\)</div></span>.<br>
+So our <b>projection matrix<div class="quantml-katex-display inline">\((P)\)</div></b> becomes <div class="quantml-katex-display inline">\(P=Q\mathcal{I}Q^T\)</div>, so.<br>
 
-<li><b>Projection Matrix\((P)\):</b></li>
+<li><b>Projection Matrix<div class="quantml-katex-display inline">\((P)\)</div>:</b></li>
 
 <div class="l1 border">
-\[
+<div class="quantml-katex-display">\[
     \begin{matrix}
 
     % equation
@@ -179,27 +179,27 @@ So our <b>projection matrix\((P)\)</b> becomes \(P=Q\mathcal{I}Q^T\), so.<br>
     %equation
 
     \end{matrix}
-\]
+\]</div>
 </div>
 
-<i>(So now we don't have to take the <i>inverse</i>  is \(Q^TQ\))</i><br>We can see the direct benefit of having a matrix with <b>orthonormal column vectors</b> is in <a  href="/linear-algebra/least-squares/">least squares</a>.<br>
+<i>(So now we don't have to take the <i>inverse</i>  is <div class="quantml-katex-display inline">\(Q^TQ\)</div>)</i><br>We can see the direct benefit of having a matrix with <b>orthonormal column vectors</b> is in <a  href="/linear-algebra/least-squares/">least squares</a>.<br>
 <blockquote class="noborder">
-In Least squares we have equation of form \(A^TA\widehat{\mathbb{X}}=A^T\vec{v}\) and if \(A\) has orthonormal column vectors,
-then \(A^TA=\mathcal{I}\) so our equation becomes \(\widehat{\mathbb{X}}=A^T\vec{v}\)<br>
-No need to take \((A^TA)^{-1}\)
+In Least squares we have equation of form <div class="quantml-katex-display inline">\(A^TA\widehat{\mathbb{X}}=A^T\vec{v}\)</div> and if <div class="quantml-katex-display inline">\(A\)</div> has orthonormal column vectors,
+then <div class="quantml-katex-display inline">\(A^TA=\mathcal{I}\)</div> so our equation becomes <div class="quantml-katex-display inline">\(\widehat{\mathbb{X}}=A^T\vec{v}\)</div><br>
+No need to take <div class="quantml-katex-display inline">\((A^TA)^{-1}\)</div>
 </blockquote>
 <br>
 
 Now let's test the properties of a <b>projection matrix</b>,<br>
-<li><span class="bb">\(P=P^T\)</span></li>
+<li><span class="bb"><div class="quantml-katex-display inline">\(P=P^T\)</div></span></li>
     <dl><dd>
-    \(P=QQ^T\)<br>
-    \(P^T=(QQ^T)^T = Q^{T^T}Q^T = QQ^T=P\)
+    <div class="quantml-katex-display inline">\(P=QQ^T\)</div><br>
+    <div class="quantml-katex-display inline">\(P^T=(QQ^T)^T = Q^{T^T}Q^T = QQ^T=P\)</div>
     </dd></dl>
-<li><span class="bb">\(P=P^2\)</span></li>
+<li><span class="bb"><div class="quantml-katex-display inline">\(P=P^2\)</div></span></li>
     <dl><dd>
-    \(P=QQ^T\)<br>
-    \(P^2=Q(Q^TQ)Q^T=Q\mathcal{I}Q^T=QQ^T\)<br>
+    <div class="quantml-katex-display inline">\(P=QQ^T\)</div><br>
+    <div class="quantml-katex-display inline">\(P^2=Q(Q^TQ)Q^T=Q\mathcal{I}Q^T=QQ^T\)</div><br>
     </dd></dl>
 <br>
 
@@ -209,75 +209,75 @@ But if our matrix(with independent column vectors) do not have orthonormal colum
 This is where <b>Gram Schmidt</b> came into picture.<br>
 <br>
 First let's look at the smaller picture,<br>
-Say that we have \(2\)  vectors \(\vec{a}\in\mathbb{R}^n\) and \(\vec{b}\in\mathbb{R}^n\).<br>
-We have just \(2\)(non-parallel) vectors, and <b>span</b> of \(2\)(non-parallel) vectors is just a \(2\) dimensional plane.<br>
+Say that we have <div class="quantml-katex-display inline">\(2\)</div>  vectors <div class="quantml-katex-display inline">\(\vec{a}\in\mathbb{R}^n\)</div> and <div class="quantml-katex-display inline">\(\vec{b}\in\mathbb{R}^n\)</div>.<br>
+We have just <div class="quantml-katex-display inline">\(2\)</div>(non-parallel) vectors, and <b>span</b> of <div class="quantml-katex-display inline">\(2\)</div>(non-parallel) vectors is just a <div class="quantml-katex-display inline">\(2\)</div> dimensional plane.<br>
 <!--Image-->
-What we want is two <b>orthonormal vectors</b>(say \(\vec{q}_a\) and \(\vec{q}_b\)) in this \(2\) dimensional plane.<br>
-Let's took \(\vec{a}\) as our first <b>orthogonal vector</b>, it's easy because it's only one vector.<br>
+What we want is two <b>orthonormal vectors</b>(say <div class="quantml-katex-display inline">\(\vec{q}_a\)</div> and <div class="quantml-katex-display inline">\(\vec{q}_b\)</div>) in this <div class="quantml-katex-display inline">\(2\)</div> dimensional plane.<br>
+Let's took <div class="quantml-katex-display inline">\(\vec{a}\)</div> as our first <b>orthogonal vector</b>, it's easy because it's only one vector.<br>
 So 
 <blockquote>    
-\[\vec{q}_a=\frac{\vec{a}}{\|\vec{a}\|}\]
+<div class="quantml-katex-display">\[\vec{q}_a=\frac{\vec{a}}{\|\vec{a}\|}\]</div>
 </blockquote><br>
 
 Now let's find second <b>orthonormal vectors</b>?<br>
-<b>IDEA</b> is to remove it's direction along \(\vec{q}_a\).<br>
-So first take the projection of \(\vec{b}\) onto the vector space of \(\vec{q}_a\), say this projected 
-\(\vec{b}\) on \(\vec{q}_a\) to be \(\vec{b}_p\).<br>
-Now the vector joining \(\vec{b}\) and \(\vec{b}_p\) is orthogonal to \(\vec{q}_a\), say this vector \(\vec{b}_o\).<br>
-And <span class="bb">\(\vec{b}_p + \vec{b}_o = \vec{b}\)</span> so,<br>
-\(\vec{b}_o = \vec{b}-\vec{b}_p\).<br>
-<a  href="/linear-algebra/projection/#vector-projection-matrix">Recall</a> our projection matrix\((P)\) of a vector,<br>
-\[\displaystyle P=\frac{\vec{v} \vec{v}^T}{\vec{v}^T\vec{v}}\]
-So projection of \(\vec{b}\) onto the vector space of \(\vec{q}_a\) is <span class="bb">\(\vec{b}_p=P\vec{b}\)</span>,<br>
-\(\displaystyle P\vec{b}=\frac{\vec{q}_a \vec{q}_a^T}{\vec{q}_a^T\vec{q}_a}\vec{b}\).<br>
-\(\displaystyle \Rightarrow \vec{b}_p =\frac{\vec{q}_a \vec{q}_a^T}{\vec{q}_a^T\vec{q}_a}\vec{b}\).<br>
-And \(\vec{q}_a^T\vec{q}_a=1\)<br>
-\(\displaystyle \Rightarrow \vec{b}_p =\vec{q}_a \vec{q}_a^T\vec{b} \).<br>
+<b>IDEA</b> is to remove it's direction along <div class="quantml-katex-display inline">\(\vec{q}_a\)</div>.<br>
+So first take the projection of <div class="quantml-katex-display inline">\(\vec{b}\)</div> onto the vector space of <div class="quantml-katex-display inline">\(\vec{q}_a\)</div>, say this projected 
+<div class="quantml-katex-display inline">\(\vec{b}\)</div> on <div class="quantml-katex-display inline">\(\vec{q}_a\)</div> to be <div class="quantml-katex-display inline">\(\vec{b}_p\)</div>.<br>
+Now the vector joining <div class="quantml-katex-display inline">\(\vec{b}\)</div> and <div class="quantml-katex-display inline">\(\vec{b}_p\)</div> is orthogonal to <div class="quantml-katex-display inline">\(\vec{q}_a\)</div>, say this vector <div class="quantml-katex-display inline">\(\vec{b}_o\)</div>.<br>
+And <span class="bb"><div class="quantml-katex-display inline">\(\vec{b}_p + \vec{b}_o = \vec{b}\)</div></span> so,<br>
+<div class="quantml-katex-display inline">\(\vec{b}_o = \vec{b}-\vec{b}_p\)</div>.<br>
+<a  href="/linear-algebra/projection/#vector-projection-matrix">Recall</a> our projection matrix<div class="quantml-katex-display inline">\((P)\)</div> of a vector,<br>
+<div class="quantml-katex-display">\[\displaystyle P=\frac{\vec{v} \vec{v}^T}{\vec{v}^T\vec{v}}\]</div>
+So projection of <div class="quantml-katex-display inline">\(\vec{b}\)</div> onto the vector space of <div class="quantml-katex-display inline">\(\vec{q}_a\)</div> is <span class="bb"><div class="quantml-katex-display inline">\(\vec{b}_p=P\vec{b}\)</div></span>,<br>
+<div class="quantml-katex-display inline">\(\displaystyle P\vec{b}=\frac{\vec{q}_a \vec{q}_a^T}{\vec{q}_a^T\vec{q}_a}\vec{b}\)</div>.<br>
+<div class="quantml-katex-display inline">\(\displaystyle \Rightarrow \vec{b}_p =\frac{\vec{q}_a \vec{q}_a^T}{\vec{q}_a^T\vec{q}_a}\vec{b}\)</div>.<br>
+And <div class="quantml-katex-display inline">\(\vec{q}_a^T\vec{q}_a=1\)</div><br>
+<div class="quantml-katex-display inline">\(\displaystyle \Rightarrow \vec{b}_p =\vec{q}_a \vec{q}_a^T\vec{b} \)</div>.<br>
 <blockquote class="noborder">
-\[\vec{b}_o = \vec{b}-(\vec{q}_a\cdot\vec{b})\vec{q}_a  \]
+<div class="quantml-katex-display">\[\vec{b}_o = \vec{b}-(\vec{q}_a\cdot\vec{b})\vec{q}_a  \]</div>
 And
-\[\vec{q}_b=\frac{\vec{b}_o}{\|\vec{b}_o\|}\]
+<div class="quantml-katex-display">\[\vec{q}_b=\frac{\vec{b}_o}{\|\vec{b}_o\|}\]</div>
 </blockquote><br>
 
-And we know that \(\vec{b}\) is <b>perpendicular</b> to \(\vec{q}_a\), and if we think \(\vec{q}_a\) as 
-a matrix with one column then \(\vec{b}_o\) is <b>perpendicular</b> to the <b>column space</b> of 
-\(\vec{q}_a\).<br>
-So \(\vec{b}_o\) is in the Null space of \(\vec{q}_a ^T\) so,<br>
-\(\vec{q}_a^T \vec{b}_o=0\), let's verify it,<br>
+And we know that <div class="quantml-katex-display inline">\(\vec{b}\)</div> is <b>perpendicular</b> to <div class="quantml-katex-display inline">\(\vec{q}_a\)</div>, and if we think <div class="quantml-katex-display inline">\(\vec{q}_a\)</div> as 
+a matrix with one column then <div class="quantml-katex-display inline">\(\vec{b}_o\)</div> is <b>perpendicular</b> to the <b>column space</b> of 
+<div class="quantml-katex-display inline">\(\vec{q}_a\)</div>.<br>
+So <div class="quantml-katex-display inline">\(\vec{b}_o\)</div> is in the Null space of <div class="quantml-katex-display inline">\(\vec{q}_a ^T\)</div> so,<br>
+<div class="quantml-katex-display inline">\(\vec{q}_a^T \vec{b}_o=0\)</div>, let's verify it,<br>
 <dl><dd>
-    \[\vec{q}_a^T \left(  \vec{b}-\vec{q}_a \vec{q}_a^T\vec{b}  \right) = 0\]
-    \[\Rightarrow \vec{q}_a^T \vec{b}- (\vec{q}_a^T  \vec{q}_a) \vec{q}_a^T\vec{b}   = 0\]
-    \[\Rightarrow \vec{q}_a^T \vec{b}- \vec{q}_a^T \vec{b} = 0\quad \color{green}{&#10003;}\] 
+    <div class="quantml-katex-display">\[\vec{q}_a^T \left(  \vec{b}-\vec{q}_a \vec{q}_a^T\vec{b}  \right) = 0\]</div>
+    <div class="quantml-katex-display">\[\Rightarrow \vec{q}_a^T \vec{b}- (\vec{q}_a^T  \vec{q}_a) \vec{q}_a^T\vec{b}   = 0\]</div>
+    <div class="quantml-katex-display">\[\Rightarrow \vec{q}_a^T \vec{b}- \vec{q}_a^T \vec{b} = 0\quad \color{green}{&#10003;}\]</div> 
 </dd></dl>
-Now let's push ourselves a little further now add another vector \(\vec{c}\).<br>
-We got our two <b>orthogonal</b> vectors \(\vec{q}_a\) and \(\vec{q}_b\) and this vector \(\vec{c}\)
-is <b>not</b> in the <b>vector space</b> of \(\vec{q}_a\) and \(\vec{q}_b\), in other words \(\vec{c}\) is
-<b>out</b> of the plane spanned by vector \(\vec{q}_a\) and \(\vec{q}_b\).<br>
-So \(\vec{c}\) gives us access to the \(3\)rd dimension, using this \(\vec{c}\) we need to find a
-vector <b>orthogonal</b> to the <b>vector space</b> of \(\vec{q}_a\) and \(\vec{q}_b\).<br>
-<b>IDEA</b>: first from \(\vec{c}\) remove it's direction along \(\vec{q}_a\) and then remove it's direction
-along \(\vec{q}_b\).
+Now let's push ourselves a little further now add another vector <div class="quantml-katex-display inline">\(\vec{c}\)</div>.<br>
+We got our two <b>orthogonal</b> vectors <div class="quantml-katex-display inline">\(\vec{q}_a\)</div> and <div class="quantml-katex-display inline">\(\vec{q}_b\)</div> and this vector <div class="quantml-katex-display inline">\(\vec{c}\)</div>
+is <b>not</b> in the <b>vector space</b> of <div class="quantml-katex-display inline">\(\vec{q}_a\)</div> and <div class="quantml-katex-display inline">\(\vec{q}_b\)</div>, in other words <div class="quantml-katex-display inline">\(\vec{c}\)</div> is
+<b>out</b> of the plane spanned by vector <div class="quantml-katex-display inline">\(\vec{q}_a\)</div> and <div class="quantml-katex-display inline">\(\vec{q}_b\)</div>.<br>
+So <div class="quantml-katex-display inline">\(\vec{c}\)</div> gives us access to the <div class="quantml-katex-display inline">\(3\)</div>rd dimension, using this <div class="quantml-katex-display inline">\(\vec{c}\)</div> we need to find a
+vector <b>orthogonal</b> to the <b>vector space</b> of <div class="quantml-katex-display inline">\(\vec{q}_a\)</div> and <div class="quantml-katex-display inline">\(\vec{q}_b\)</div>.<br>
+<b>IDEA</b>: first from <div class="quantml-katex-display inline">\(\vec{c}\)</div> remove it's direction along <div class="quantml-katex-display inline">\(\vec{q}_a\)</div> and then remove it's direction
+along <div class="quantml-katex-display inline">\(\vec{q}_b\)</div>.
 
-<li>First remove it's direction along \(\vec{q}_a\) </li>
-Let's call this vector \(\vec{c}_{o_{a}}\).<br>
-\(\vec{c}_{o_{a}} = \vec{c} - \frac{\vec{q}_a \vec{q}_a^T}{\vec{q}_a^T\vec{q}_a}\vec{c}\)<br>
-\(\vec{q}_a^T\vec{q}_a=1\)<br>
-\(\Rightarrow \vec{c}_{o_{a}} = \vec{c} - \vec{q}_a \vec{q}_a^T \vec{c}\)<br>
-\(\Rightarrow \vec{c}_{o_{a}} = \vec{c} - (\vec{q}_a\cdot\vec{c})\vec{q}_a\)<br>
+<li>First remove it's direction along <div class="quantml-katex-display inline">\(\vec{q}_a\)</div> </li>
+Let's call this vector <div class="quantml-katex-display inline">\(\vec{c}_{o_{a}}\)</div>.<br>
+<div class="quantml-katex-display inline">\(\vec{c}_{o_{a}} = \vec{c} - \frac{\vec{q}_a \vec{q}_a^T}{\vec{q}_a^T\vec{q}_a}\vec{c}\)</div><br>
+<div class="quantml-katex-display inline">\(\vec{q}_a^T\vec{q}_a=1\)</div><br>
+<div class="quantml-katex-display inline">\(\Rightarrow \vec{c}_{o_{a}} = \vec{c} - \vec{q}_a \vec{q}_a^T \vec{c}\)</div><br>
+<div class="quantml-katex-display inline">\(\Rightarrow \vec{c}_{o_{a}} = \vec{c} - (\vec{q}_a\cdot\vec{c})\vec{q}_a\)</div><br>
 
-<li>Now remove it's direction along \(\vec{q}_a\) </li>
-This is our vector \(\vec{c}_{o}\).<br>
-\(\displaystyle \vec{c}_{o} = \left(\vec{c} - (\vec{q}_a\cdot\vec{c})\vec{q}_a\right) - \frac{\vec{q}_b \vec{q}_b^T}{\vec{q}_b^T\vec{q}_b}\vec{c}\)<br>
-\(\vec{q}_b^T\vec{q}_b=1\)<br>
-\(\displaystyle \Rightarrow \vec{c}_{o} = \left( \vec{c} - (\vec{q}_a\cdot\vec{c})\vec{q}_a\right) - (\vec{q}_b\cdot\vec{c})\vec{q}_b\)<br>
-\(\vec{q}_c=\frac{\vec{c}_o}{\|\vec{c}_o\|}\)<br>
+<li>Now remove it's direction along <div class="quantml-katex-display inline">\(\vec{q}_a\)</div> </li>
+This is our vector <div class="quantml-katex-display inline">\(\vec{c}_{o}\)</div>.<br>
+<div class="quantml-katex-display inline">\(\displaystyle \vec{c}_{o} = \left(\vec{c} - (\vec{q}_a\cdot\vec{c})\vec{q}_a\right) - \frac{\vec{q}_b \vec{q}_b^T}{\vec{q}_b^T\vec{q}_b}\vec{c}\)</div><br>
+<div class="quantml-katex-display inline">\(\vec{q}_b^T\vec{q}_b=1\)</div><br>
+<div class="quantml-katex-display inline">\(\displaystyle \Rightarrow \vec{c}_{o} = \left( \vec{c} - (\vec{q}_a\cdot\vec{c})\vec{q}_a\right) - (\vec{q}_b\cdot\vec{c})\vec{q}_b\)</div><br>
+<div class="quantml-katex-display inline">\(\vec{q}_c=\frac{\vec{c}_o}{\|\vec{c}_o\|}\)</div><br>
 <br>
 Now we can see a pattern here.<br>
-Say that we have \(n\)(independent) \(( a_1, a_2, \cdots, a_n )\) vectors and we have to find 
-\(n\) <b>orthonormal vectors</b> \(( q_1, q_2, \cdots, q_n )\)  using these \(n\)(independent) vectors.<br>
+Say that we have <div class="quantml-katex-display inline">\(n\)</div>(independent) <div class="quantml-katex-display inline">\(( a_1, a_2, \cdots, a_n )\)</div> vectors and we have to find 
+<div class="quantml-katex-display inline">\(n\)</div> <b>orthonormal vectors</b> <div class="quantml-katex-display inline">\(( q_1, q_2, \cdots, q_n )\)</div>  using these <div class="quantml-katex-display inline">\(n\)</div>(independent) vectors.<br>
 we can deduce a pattern above,
-\[\vec{a_i}_o=\vec{a_i}-\sum_{k=1}^{i-1} (\vec{q}_k\cdot\vec{a}_i)\vec{q}_k  \]
-\[\vec{q}_i=\frac{\vec{a_i}_o}{\|\vec{a_i}_o\|}\]
+<div class="quantml-katex-display">\[\vec{a_i}_o=\vec{a_i}-\sum_{k=1}^{i-1} (\vec{q}_k\cdot\vec{a}_i)\vec{q}_k  \]</div>
+<div class="quantml-katex-display">\[\vec{q}_i=\frac{\vec{a_i}_o}{\|\vec{a_i}_o\|}\]</div>
 <br>
 So now we can find <b>orthonormal vectors</b> for any set of independent vectors.<br>
 This is <b>The Gram Schmidt Process</b>.<br>

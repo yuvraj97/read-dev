@@ -40,7 +40,7 @@
                     <nav id="nav">
                         <ul class="links">
                             <li class="cover"><a href="/linear-algebra/"><img src="/data/img/linear-algebra-cover.webp" alt="Linear Algebra"></a></li>
-                            <li class="active title">Solving \(A\vec{x}=\vec{b}\)</li>
+                            <li class="active title">Solving <div class="quantml-katex-display inline">\(A\vec{x}=\vec{b}\)</div></li>
                         </ul>
                         <ul id="nav-bar-icons-head" class="icons"></ul>
                     </nav>
@@ -59,140 +59,140 @@
 
 
 <p>
-<h1>Solving \(A\vec{x}=\vec{b}\)</h1>
-Say we have a matrix \(A\) we need to find solution space for \(A\vec{x}=\vec{b}\) for any given \(\vec{b}\).<br>
+<h1>Solving <div class="quantml-katex-display inline">\(A\vec{x}=\vec{b}\)</div></h1>
+Say we have a matrix <div class="quantml-katex-display inline">\(A\)</div> we need to find solution space for <div class="quantml-katex-display inline">\(A\vec{x}=\vec{b}\)</div> for any given <div class="quantml-katex-display inline">\(\vec{b}\)</div>.<br>
 Let's consider same example we took in <a  href="/linear-algebra/null-space/">Null space</a> discussion.<br>
-\(A=\begin{bmatrix}
+<div class="quantml-katex-display inline">\(A=\begin{bmatrix}
 1 & 2 & 2 & 2\\
 2 & 4 & 6 & 8\\
 3 & 6 & 8 & 10\\
-\end{bmatrix}\)<br>
-So \(A\vec{x} = \begin{bmatrix}
+\end{bmatrix}\)</div><br>
+So <div class="quantml-katex-display inline">\(A\vec{x} = \begin{bmatrix}
 1 & 2 & 2 & 2\\
 2 & 4 & 6 & 8\\
 3 & 6 & 8 & 10\\
 \end{bmatrix} \begin{bmatrix} x_1\\x_2\\x_3\\x_4\\ \end{bmatrix} =
-\begin{bmatrix} b_1\\b_2\\b_3\\ \end{bmatrix}\)<br>
+\begin{bmatrix} b_1\\b_2\\b_3\\ \end{bmatrix}\)</div><br>
 It give us a set of equations:<br>
-\(\begin{matrix}
+<div class="quantml-katex-display inline">\(\begin{matrix}
  x_1 & + & 2x_2 & + & 2x_3 & + & 2x_4  & = & b_1 \\
 2x_1 & + & 4x_2 & + & 6x_3 & + & 8x_4  & = & b_2 \\
 3x_1 & + & 6x_2 & + & 8x_3 & + & 10x_4 & = & b_3 \\
-\end{matrix}\)<br>
+\end{matrix}\)</div><br>
 <br>
 
-\(A\vec{x}\) is just a linear combinations of column vector of matrix \(A\), so the resultant of this linear combination
-must lie in the column space of \(A\). So<br>
+<div class="quantml-katex-display inline">\(A\vec{x}\)</div> is just a linear combinations of column vector of matrix <div class="quantml-katex-display inline">\(A\)</div>, so the resultant of this linear combination
+must lie in the column space of <div class="quantml-katex-display inline">\(A\)</div>. So<br>
 <blockquote>
-    \(A\vec{x}=\vec{b}\) is solvable if \(\vec{b}\) lies in the column space of \(A\)
+    <div class="quantml-katex-display inline">\(A\vec{x}=\vec{b}\)</div> is solvable if <div class="quantml-katex-display inline">\(\vec{b}\)</div> lies in the column space of <div class="quantml-katex-display inline">\(A\)</div>
 </blockquote><br>
 
-<h2 id="ax=b">How can we find all the \(\vec{x}\) that solves \(A\vec{x}=\vec{b}\)?</h2>
-Let's find <b>a</b> solution for \(A\vec{x}=\vec{b}\)<br>
-Now we have to find a <b>particular</b> \(\vec{x}\) that solves \(A\vec{x}=\vec{b}\), say this <b>particular</b> solution be \(\vec{x}_p\)<br>
-Our matrix is \(A=\begin{bmatrix}
+<h2 id="ax=b">How can we find all the <div class="quantml-katex-display inline">\(\vec{x}\)</div> that solves <div class="quantml-katex-display inline">\(A\vec{x}=\vec{b}\)</div>?</h2>
+Let's find <b>a</b> solution for <div class="quantml-katex-display inline">\(A\vec{x}=\vec{b}\)</div><br>
+Now we have to find a <b>particular</b> <div class="quantml-katex-display inline">\(\vec{x}\)</div> that solves <div class="quantml-katex-display inline">\(A\vec{x}=\vec{b}\)</div>, say this <b>particular</b> solution be <div class="quantml-katex-display inline">\(\vec{x}_p\)</div><br>
+Our matrix is <div class="quantml-katex-display inline">\(A=\begin{bmatrix}
 1 & 2 & 2 & 2\\
 2 & 4 & 6 & 8\\
 3 & 6 & 8 & 10\\
-\end{bmatrix}\)<br>
-First we convert our matrix in <b>echelon form</b> using Elimination technique, and unlike in <b>null space</b> here we also have \(b_i\)'s so we use Augmented matrix.<br><br>
+\end{bmatrix}\)</div><br>
+First we convert our matrix in <b>echelon form</b> using Elimination technique, and unlike in <b>null space</b> here we also have <div class="quantml-katex-display inline">\(b_i\)</div>'s so we use Augmented matrix.<br><br>
 So our Augmented matrix is:<br>
 <span id="elimination"></span>
-\(  \left[  \begin{array}{cccc|c}
+<div class="quantml-katex-display inline">\(  \left[  \begin{array}{cccc|c}
 
 1 & 2 & 2 & 2  & b_1\\
 2 & 4 & 6 & 8  & b_2\\
 3 & 6 & 8 & 10 & b_3\\
 
-\end{array}   \right]  \)<br>
+\end{array}   \right]  \)</div><br>
 Now let's do elimination.<br>
-<b>Step 1</b>: of elimination method, here we make all element \(0\) in \(c_1\) below the \(1^{st}\) element.<br>
-\(r_2\leftarrow r_2 - 2r_1\)<br>
-\(  \left[  \begin{array}{cccc|c}
+<b>Step 1</b>: of elimination method, here we make all element <div class="quantml-katex-display inline">\(0\)</div> in <div class="quantml-katex-display inline">\(c_1\)</div> below the <div class="quantml-katex-display inline">\(1^{st}\)</div> element.<br>
+<div class="quantml-katex-display inline">\(r_2\leftarrow r_2 - 2r_1\)</div><br>
+<div class="quantml-katex-display inline">\(  \left[  \begin{array}{cccc|c}
 
 1 & 2 & 2 & 2  & b_1\\
 0 & 0 & 2 & 4  & b_2-2b_1\\
 3 & 6 & 8 & 10 & b_3\\
 
-\end{array}   \right]  \)<br>
+\end{array}   \right]  \)</div><br>
 
-\(r_3\leftarrow r_3 - 3r_1\)<br>
-\(  \left[  \begin{array}{cccc|c}
-
-\fbox{1} & 2 & 2 & 2  & b_1\\
-0 & 0 & 2 & 4  & b_2-2b_1\\
-0 & 0 & 2 & 4 & b_3-3b_1\\
-
-\end{array}   \right]  \)<br>
-<br>
-<b>Step 2</b>: of elimination method, here we make all element \(0\) in \(c_2\) below the \(2^{nd}\) element.<br>
-But \(2^{nd}\) element itself is \(0\), and all element below it also \(0\), so we move forward.<br>
-<br>
-<b>Step 3</b>: of elimination method, here we make all element \(0\) in \(c_3\) below the \(2^{nd}\) element.<br>
-\(  \left[  \begin{array}{cccc|c}
+<div class="quantml-katex-display inline">\(r_3\leftarrow r_3 - 3r_1\)</div><br>
+<div class="quantml-katex-display inline">\(  \left[  \begin{array}{cccc|c}
 
 \fbox{1} & 2 & 2 & 2  & b_1\\
 0 & 0 & 2 & 4  & b_2-2b_1\\
 0 & 0 & 2 & 4 & b_3-3b_1\\
 
-\end{array}   \right]  \)<br>
+\end{array}   \right]  \)</div><br>
+<br>
+<b>Step 2</b>: of elimination method, here we make all element <div class="quantml-katex-display inline">\(0\)</div> in <div class="quantml-katex-display inline">\(c_2\)</div> below the <div class="quantml-katex-display inline">\(2^{nd}\)</div> element.<br>
+But <div class="quantml-katex-display inline">\(2^{nd}\)</div> element itself is <div class="quantml-katex-display inline">\(0\)</div>, and all element below it also <div class="quantml-katex-display inline">\(0\)</div>, so we move forward.<br>
+<br>
+<b>Step 3</b>: of elimination method, here we make all element <div class="quantml-katex-display inline">\(0\)</div> in <div class="quantml-katex-display inline">\(c_3\)</div> below the <div class="quantml-katex-display inline">\(2^{nd}\)</div> element.<br>
+<div class="quantml-katex-display inline">\(  \left[  \begin{array}{cccc|c}
 
-\(r_3\leftarrow r_3-r_2\)<br>
-\(  \left[  \begin{array}{cccc|c}
+\fbox{1} & 2 & 2 & 2  & b_1\\
+0 & 0 & 2 & 4  & b_2-2b_1\\
+0 & 0 & 2 & 4 & b_3-3b_1\\
+
+\end{array}   \right]  \)</div><br>
+
+<div class="quantml-katex-display inline">\(r_3\leftarrow r_3-r_2\)</div><br>
+<div class="quantml-katex-display inline">\(  \left[  \begin{array}{cccc|c}
 \fbox{1} & 2 &     2    & 2  & b_1           \\
     0    & 0 & \fbox{2} & 4  & b_2 -2b_1     \\
     0    & 0 &      0   & 0  & b_3 -b_2 - b_1\\
-\end{array}   \right]  \)<br>
+\end{array}   \right]  \)</div><br>
 
-(Notice the last row it indicates that \(b_3 -b_2 - b_1=0\).)<br>
-Here \(c_2,c_4\) are <b>free columns</b>, and \(c_1,c_3\) are <b>pivot columns</b>, we discussed about them in <a  href="/linear-algebra/null-space/">Null space</a> section.<br>
-So \(x_2,x_4\) are free variable we are free to assign any value to them. So say \(x_2=x_4=0\) <br>
-Now say we want to find solution space for \(A\vec{x}_p= \begin{bmatrix} 1\\5\\6\\ \end{bmatrix}\)<br>
-( \(b_3 -b_2 - b_1=6-5-1=0\) so it's a valid question to ask )<br>
+(Notice the last row it indicates that <div class="quantml-katex-display inline">\(b_3 -b_2 - b_1=0\)</div>.)<br>
+Here <div class="quantml-katex-display inline">\(c_2,c_4\)</div> are <b>free columns</b>, and <div class="quantml-katex-display inline">\(c_1,c_3\)</div> are <b>pivot columns</b>, we discussed about them in <a  href="/linear-algebra/null-space/">Null space</a> section.<br>
+So <div class="quantml-katex-display inline">\(x_2,x_4\)</div> are free variable we are free to assign any value to them. So say <div class="quantml-katex-display inline">\(x_2=x_4=0\)</div> <br>
+Now say we want to find solution space for <div class="quantml-katex-display inline">\(A\vec{x}_p= \begin{bmatrix} 1\\5\\6\\ \end{bmatrix}\)</div><br>
+( <div class="quantml-katex-display inline">\(b_3 -b_2 - b_1=6-5-1=0\)</div> so it's a valid question to ask )<br>
 So our system of equation becomes:<br>
 
-\(\begin{matrix}
+<div class="quantml-katex-display inline">\(\begin{matrix}
  x_1 & + & 0 & + & 2x_3 & + & 0 & = & 1 \\
   0  & + & 0 & + & 2x_3 & + & 0 & = & 5-2*1 \\
   0  & + & 0 & + &   0  & + & 0 & = & 6-5-1 \\
-\end{matrix}\)<br>
-by solving them: \(x_3=3/2, x_1=-2\)<br>
-So \(\vec{x}_p=\begin{bmatrix} -2\\0\\3/2\\0\\ \end{bmatrix}\)<br>
+\end{matrix}\)</div><br>
+by solving them: <div class="quantml-katex-display inline">\(x_3=3/2, x_1=-2\)</div><br>
+So <div class="quantml-katex-display inline">\(\vec{x}_p=\begin{bmatrix} -2\\0\\3/2\\0\\ \end{bmatrix}\)</div><br>
 <br>
 <blockquote class="noborder">
 Remember our approach when we are finding Null Space:<br>
-We were finding solution for \(A\vec{x}=0\) and what we did is, we took our free variables,
-and iteratively we set one free variable to \(1\) and all other free variables to \(0\).<br>
+We were finding solution for <div class="quantml-katex-display inline">\(A\vec{x}=0\)</div> and what we did is, we took our free variables,
+and iteratively we set one free variable to <div class="quantml-katex-display inline">\(1\)</div> and all other free variables to <div class="quantml-katex-display inline">\(0\)</div>.<br>
 By this we create multiple special solutions and each special solution consider a particular free column vector.<br>
 Then we took linear combination of all of those <b>special solutions</b>.<br>
 </blockquote>
 
 Now here what we are doing is, we aren't considering any of the free column vector, because our Null space had already considered them for us.<br>
-Now say \(\vec{x}_n\) represent the Null Space of matrix \(A\), so \(A\vec{x}=0;\quad x\in x_n\)<br>
-\(\vec{x}_n\) represents a vector space(it's not a single vector), it's a linear combination of bunch of vectors.<br>
-So complete solution for \(A\vec{x}=\vec{b}\) is:<br>
-<blockquote> \(\vec{x} = \vec{x}_p+\vec{x}_n\)</blockquote>
-So any \(\vec{x}\in\vec{x}_p+\vec{x}_n\) solves \(A\vec{x}=\vec{b}\)<br>
+Now say <div class="quantml-katex-display inline">\(\vec{x}_n\)</div> represent the Null Space of matrix <div class="quantml-katex-display inline">\(A\)</div>, so <div class="quantml-katex-display inline">\(A\vec{x}=0;\quad x\in x_n\)</div><br>
+<div class="quantml-katex-display inline">\(\vec{x}_n\)</div> represents a vector space(it's not a single vector), it's a linear combination of bunch of vectors.<br>
+So complete solution for <div class="quantml-katex-display inline">\(A\vec{x}=\vec{b}\)</div> is:<br>
+<blockquote> <div class="quantml-katex-display inline">\(\vec{x} = \vec{x}_p+\vec{x}_n\)</div></blockquote>
+So any <div class="quantml-katex-display inline">\(\vec{x}\in\vec{x}_p+\vec{x}_n\)</div> solves <div class="quantml-katex-display inline">\(A\vec{x}=\vec{b}\)</div><br>
 
 <blockquote class="noborder">
-But remember that \(\vec{x}_p\) is a <b>vector</b>, and \(\vec{x}_n\) is a <b>vector space</b> it's some \(d\)-dimensional subspace.<br>
-<b>How can we add a vector \(\vec{x}_p\) and a subspace \(\vec{x}_n\)?<br></b>
-Think about a surface in \(3\)-dimensions, let's say that surface is a plane then when we add a vector to a plane,
+But remember that <div class="quantml-katex-display inline">\(\vec{x}_p\)</div> is a <b>vector</b>, and <div class="quantml-katex-display inline">\(\vec{x}_n\)</div> is a <b>vector space</b> it's some <div class="quantml-katex-display inline">\(d\)</div>-dimensional subspace.<br>
+<b>How can we add a vector <div class="quantml-katex-display inline">\(\vec{x}_p\)</div> and a subspace <div class="quantml-katex-display inline">\(\vec{x}_n\)</div>?<br></b>
+Think about a surface in <div class="quantml-katex-display inline">\(3\)</div>-dimensions, let's say that surface is a plane then when we add a vector to a plane,
 we are just shifting that plane in the direction of vector.<br>
-So \(\vec{x}_p\) is just shifting the Null Space in it's direction.<br>
-And when \(\vec{x}_p\) shifts the Null space then the shifted space is no longer in contact with <b>origin</b>, so the
-resultant space \(\vec{x}_p+\vec{x}_n\) is <b>not a subspace</b>.<br>
+So <div class="quantml-katex-display inline">\(\vec{x}_p\)</div> is just shifting the Null Space in it's direction.<br>
+And when <div class="quantml-katex-display inline">\(\vec{x}_p\)</div> shifts the Null space then the shifted space is no longer in contact with <b>origin</b>, so the
+resultant space <div class="quantml-katex-display inline">\(\vec{x}_p+\vec{x}_n\)</div> is <b>not a subspace</b>.<br>
 </blockquote>
 
-As we derived Null space of \(A\) in <a  href="/linear-algebra/null-space/">Null space</a> section.<br>
-\(\vec{x}_n=\alpha \begin{bmatrix} -2\\1\\0\\0\\ \end{bmatrix} + \beta \begin{bmatrix} 2\\0\\-2\\1\\ \end{bmatrix};\quad\) \(\alpha,\beta\in\mathbb{R}\)<br>
+As we derived Null space of <div class="quantml-katex-display inline">\(A\)</div> in <a  href="/linear-algebra/null-space/">Null space</a> section.<br>
+<div class="quantml-katex-display inline">\(\vec{x}_n=\alpha \begin{bmatrix} -2\\1\\0\\0\\ \end{bmatrix} + \beta \begin{bmatrix} 2\\0\\-2\\1\\ \end{bmatrix};\quad\)</div> <div class="quantml-katex-display inline">\(\alpha,\beta\in\mathbb{R}\)</div><br>
 So complete solution for our example is:<br>
-\(\vec{x} =
+<div class="quantml-katex-display inline">\(\vec{x} =
 \begin{bmatrix} -2\\0\\3/2\\0\\ \end{bmatrix} +
 \alpha \begin{bmatrix} -2\\1\\0\\0\\ \end{bmatrix} + \beta \begin{bmatrix} 2\\0\\-2\\1\\ \end{bmatrix}
-;\quad\) \(\alpha,\beta\in\mathbb{R}\)<br>
+;\quad\)</div> <div class="quantml-katex-display inline">\(\alpha,\beta\in\mathbb{R}\)</div><br>
 <blockquote class="noborder">
-So the solution space of \(A\vec{x}_p= \begin{bmatrix} 1\\5\\6\\ \end{bmatrix}\) is a plane in \(\mathbb{R}^4   \).<br>
+So the solution space of <div class="quantml-katex-display inline">\(A\vec{x}_p= \begin{bmatrix} 1\\5\\6\\ \end{bmatrix}\)</div> is a plane in <div class="quantml-katex-display inline">\(\mathbb{R}^4   \)</div>.<br>
 </blockquote>
 </p>
 

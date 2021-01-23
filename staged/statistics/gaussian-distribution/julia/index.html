@@ -68,7 +68,7 @@
 
 <h1>Gaussian Distribution Implementation <img src="/data/img/julia.webp" alt="Julia" width="53px" height="33px"></h1>
 Now let's see a real life example for Gaussian Distribution and implement it in <b><a rel="noreferrer" target="_blank" href="https://julialang.org/">Julia</a></b>. <br>
-Here we use a dataset containing \(25,000\) record of human heights(inches) and weights(pounds). 
+Here we use a dataset containing <div class="quantml-katex-display inline">\(25,000\)</div> record of human heights(inches) and weights(pounds). 
 <a href="../height_weight.csv" download="height_weight.csv">Download ⬇</a> <br>
 (Source <a rel="noreferrer" target="_blank" href="http://wiki.stat.ucla.edu/socr/index.php/SOCR_Data_Dinov_020108_HeightsWeights">http://wiki.stat.ucla.edu/socr/index.php/SOCR_Data_Dinov_020108_HeightsWeights</a>.) <br>
 Here we will study how height(inches) is distributed. And you should try to study the distribution of weights(pounds).<br>
@@ -186,65 +186,65 @@ O/P:
 	Empirical Mean: 67.99311359679979 <br>
 	Empirical Variance: 3.6162374935681028
 </blockquote>
-So \(\quad\widehat{\mu}=67.9931,\quad\) \(\widehat{\sigma^2}=3.6162\quad\) also \(\quad\widehat{\sigma}=1.9016\)
+So <div class="quantml-katex-display inline">\(\quad\widehat{\mu}=67.9931,\quad\)</div> <div class="quantml-katex-display inline">\(\widehat{\sigma^2}=3.6162\quad\)</div> also <div class="quantml-katex-display inline">\(\quad\widehat{\sigma}=1.9016\)</div>
 </blockquote>
 <!-- <div style="margin-top: 20px;"></div> -->
 <br>
-<h4>Question \(1\)</h4>
-What is the probability of randomly selected human is taller then \(67.12\) inches? <br>
-Say \(X\) is a random variable denoting height, then we want to find the probability of \(X\gt 67.12\) or say \(\mathbb{P}(X\gt 67.12)\) <br>
-↪ Finding \(\mathbb{P}(X\gt 67.12)\) using mathematics <br>
+<h4>Question <div class="quantml-katex-display inline">\(1\)</div></h4>
+What is the probability of randomly selected human is taller then <div class="quantml-katex-display inline">\(67.12\)</div> inches? <br>
+Say <div class="quantml-katex-display inline">\(X\)</div> is a random variable denoting height, then we want to find the probability of <div class="quantml-katex-display inline">\(X\gt 67.12\)</div> or say <div class="quantml-katex-display inline">\(\mathbb{P}(X\gt 67.12)\)</div> <br>
+↪ Finding <div class="quantml-katex-display inline">\(\mathbb{P}(X\gt 67.12)\)</div> using mathematics <br>
 <blockquote class="sidebar">
 We are pretty confident that our height data follows a Normal Distribution. <br>
-So we can say that \(X\sim\mathcal{N}(\widehat{\mu},\widehat{\sigma^2})\), where \(\widehat{\mu}\) is empirical mean and \(\widehat{\sigma^2}\) is empirical variance. <br>
-\[X\sim\mathcal{N}(\widehat{\mu},\widehat{\sigma^2})\]
-\[X - \widehat{\mu} \sim\mathcal{N}(0,\widehat{\sigma^2})\] 
+So we can say that <div class="quantml-katex-display inline">\(X\sim\mathcal{N}(\widehat{\mu},\widehat{\sigma^2})\)</div>, where <div class="quantml-katex-display inline">\(\widehat{\mu}\)</div> is empirical mean and <div class="quantml-katex-display inline">\(\widehat{\sigma^2}\)</div> is empirical variance. <br>
+<div class="quantml-katex-display">\[X\sim\mathcal{N}(\widehat{\mu},\widehat{\sigma^2})\]</div>
+<div class="quantml-katex-display">\[X - \widehat{\mu} \sim\mathcal{N}(0,\widehat{\sigma^2})\]</div> 
 <div style="margin-top: 10px;"></div>
-\[\displaystyle\frac{X - \widehat{\mu}}{\widehat{\sigma}} \sim\mathcal{N}(0,1)\]
+<div class="quantml-katex-display">\[\displaystyle\frac{X - \widehat{\mu}}{\widehat{\sigma}} \sim\mathcal{N}(0,1)\]</div>
 So,
-\[\mathbb{P}\left(X\gt 67.12\right) = 1- \mathbb{P}\left(X\leq 67.12\right)\]
-\[\mathbb{P}\left(X\gt 67.12\right) = 1- \mathbb{P}\left(\underbrace{\frac{X - \widehat{\mu}}{\widehat{\sigma}}}_{\sim\mathcal{N}(0,1)} \leq \frac{67.12 - \widehat{\mu}}{\widehat{\sigma}}\right)\]
-\[\mathbb{P}\left(X\gt 67.12\right) = 1- \Phi\left(\frac{67.12 - \widehat{\mu}}{\widehat{\sigma}}\right)\]
-\[\mathbb{P}\left(X\gt 67.12\right) = 1- \Phi\left(\frac{67.12 - 67.9931}{1.9016}\right)\]
-\[\mathbb{P}\left(X\gt 67.12\right) = 1- \underbrace{\Phi\left(-0.4591\right)}_{1-\Phi(0.4591)}\]
-\[\mathbb{P}\left(X\gt 67.12\right) = \Phi(0.4591)\]
-\[\mathbb{P}\left(X\gt 67.12\right) = 0.67724\]
+<div class="quantml-katex-display">\[\mathbb{P}\left(X\gt 67.12\right) = 1- \mathbb{P}\left(X\leq 67.12\right)\]</div>
+<div class="quantml-katex-display">\[\mathbb{P}\left(X\gt 67.12\right) = 1- \mathbb{P}\left(\underbrace{\frac{X - \widehat{\mu}}{\widehat{\sigma}}}_{\sim\mathcal{N}(0,1)} \leq \frac{67.12 - \widehat{\mu}}{\widehat{\sigma}}\right)\]</div>
+<div class="quantml-katex-display">\[\mathbb{P}\left(X\gt 67.12\right) = 1- \Phi\left(\frac{67.12 - \widehat{\mu}}{\widehat{\sigma}}\right)\]</div>
+<div class="quantml-katex-display">\[\mathbb{P}\left(X\gt 67.12\right) = 1- \Phi\left(\frac{67.12 - 67.9931}{1.9016}\right)\]</div>
+<div class="quantml-katex-display">\[\mathbb{P}\left(X\gt 67.12\right) = 1- \underbrace{\Phi\left(-0.4591\right)}_{1-\Phi(0.4591)}\]</div>
+<div class="quantml-katex-display">\[\mathbb{P}\left(X\gt 67.12\right) = \Phi(0.4591)\]</div>
+<div class="quantml-katex-display">\[\mathbb{P}\left(X\gt 67.12\right) = 0.67724\]</div>
 </blockquote>
-↪ Finding \(\mathbb{P}(X\gt 67.12)\) using <img src="/data/img/julia.webp" alt="Julia" width="53px" height="33px"> <br>
+↪ Finding <div class="quantml-katex-display inline">\(\mathbb{P}(X\gt 67.12)\)</div> using <img src="/data/img/julia.webp" alt="Julia" width="53px" height="33px"> <br>
 <blockquote class="sidebar">
 <pre data-start="9"><code class="language-julia line-numbers">result = sum(population_height .> 67.12)/length(population_height)
 print("Proportion of heights greater then 67.12 inches: $result")
 </code></pre>
 O/P:
-<blockquote class="noborder">Proportion of heights greater then \(67.12\) inches: \(0.67784\)</blockquote>
+<blockquote class="noborder">Proportion of heights greater then <div class="quantml-katex-display inline">\(67.12\)</div> inches: <div class="quantml-katex-display inline">\(0.67784\)</div></blockquote>
 </blockquote>
-Both values are pretty close, there's a error of \(\approx 0.9\%\). <br>
+Both values are pretty close, there's a error of <div class="quantml-katex-display inline">\(\approx 0.9\%\)</div>. <br>
 <br>
 
-<h4>Question \(2\)</h4>
-What is the probability that a randomly selected human has a height between \(59.25\) and \(67.12\) inches? <br>
-Say \(X\) is a random variable denoting height, then we want to find the probability of \(59.25 \lt X\lt 67.12\) or say \(\mathbb{P}(59.25 \lt X\lt 67.12)\) <br>
-↪ Finding \(\mathbb{P}(59.25 \lt X\lt 67.12)\) using mathematics <br>
+<h4>Question <div class="quantml-katex-display inline">\(2\)</div></h4>
+What is the probability that a randomly selected human has a height between <div class="quantml-katex-display inline">\(59.25\)</div> and <div class="quantml-katex-display inline">\(67.12\)</div> inches? <br>
+Say <div class="quantml-katex-display inline">\(X\)</div> is a random variable denoting height, then we want to find the probability of <div class="quantml-katex-display inline">\(59.25 \lt X\lt 67.12\)</div> or say <div class="quantml-katex-display inline">\(\mathbb{P}(59.25 \lt X\lt 67.12)\)</div> <br>
+↪ Finding <div class="quantml-katex-display inline">\(\mathbb{P}(59.25 \lt X\lt 67.12)\)</div> using mathematics <br>
 <blockquote class="sidebar">
-\[\mathbb{P}(59.25 \lt X\lt 67.12) = \mathbb{P}\left(\frac{59.25 - \hat{\mu}}{\hat{\sigma}} \lt \frac{X - \hat{\mu}}{\hat{\sigma}}\lt \frac{67.12 - \hat{\mu}}{\hat{\sigma}}\right) \]
-\[\mathbb{P}(59.25 \lt X\lt 67.12) = \mathbb{P}\left(\frac{59.25 - 67.9931}{1.9016} \lt \underbrace{\frac{X - \hat{\mu}}{\hat{\sigma}}}_{\sim\mathcal{N}(0,1)} \lt \frac{67.12 - 67.9931}{1.9016}\right) \]
-\[\mathbb{P}(59.25 \lt X\lt 67.12) = \mathbb{P}\left(-4.6 \lt Z \lt -0.46 \right) \]
-\[\mathbb{P}(59.25 \lt X\lt 67.12) = 1 - \left(\mathbb{P}\left(Z \lt -4.6 \right) + \mathbb{P}\left(Z \gt -0.46 \right)\right) \]
-\[\mathbb{P}(59.25 \lt X\lt 67.12) = 1 - \left(\mathbb{P}\left(Z \lt -4.6 \right) + \mathbb{P}\left(Z \lt 0.46 \right)\right) \]
-\[\mathbb{P}(59.25 \lt X\lt 67.12) = 1 - \left(1 - \mathbb{P}\left(Z \lt 4.6 \right) + \mathbb{P}\left(Z \lt 0.46 \right)\right) \]
-\[\mathbb{P}(59.25 \lt X\lt 67.12) = \mathbb{P}\left(Z \lt 4.6 \right) - \mathbb{P}\left(Z \lt 0.46 \right) \]
-\[\mathbb{P}(59.25 \lt X\lt 67.12) = 0.999998 - 0.677242 = 0.322756 \]
+<div class="quantml-katex-display">\[\mathbb{P}(59.25 \lt X\lt 67.12) = \mathbb{P}\left(\frac{59.25 - \hat{\mu}}{\hat{\sigma}} \lt \frac{X - \hat{\mu}}{\hat{\sigma}}\lt \frac{67.12 - \hat{\mu}}{\hat{\sigma}}\right) \]</div>
+<div class="quantml-katex-display">\[\mathbb{P}(59.25 \lt X\lt 67.12) = \mathbb{P}\left(\frac{59.25 - 67.9931}{1.9016} \lt \underbrace{\frac{X - \hat{\mu}}{\hat{\sigma}}}_{\sim\mathcal{N}(0,1)} \lt \frac{67.12 - 67.9931}{1.9016}\right) \]</div>
+<div class="quantml-katex-display">\[\mathbb{P}(59.25 \lt X\lt 67.12) = \mathbb{P}\left(-4.6 \lt Z \lt -0.46 \right) \]</div>
+<div class="quantml-katex-display">\[\mathbb{P}(59.25 \lt X\lt 67.12) = 1 - \left(\mathbb{P}\left(Z \lt -4.6 \right) + \mathbb{P}\left(Z \gt -0.46 \right)\right) \]</div>
+<div class="quantml-katex-display">\[\mathbb{P}(59.25 \lt X\lt 67.12) = 1 - \left(\mathbb{P}\left(Z \lt -4.6 \right) + \mathbb{P}\left(Z \lt 0.46 \right)\right) \]</div>
+<div class="quantml-katex-display">\[\mathbb{P}(59.25 \lt X\lt 67.12) = 1 - \left(1 - \mathbb{P}\left(Z \lt 4.6 \right) + \mathbb{P}\left(Z \lt 0.46 \right)\right) \]</div>
+<div class="quantml-katex-display">\[\mathbb{P}(59.25 \lt X\lt 67.12) = \mathbb{P}\left(Z \lt 4.6 \right) - \mathbb{P}\left(Z \lt 0.46 \right) \]</div>
+<div class="quantml-katex-display">\[\mathbb{P}(59.25 \lt X\lt 67.12) = 0.999998 - 0.677242 = 0.322756 \]</div>
 </blockquote>
 
-↪ Finding \(\mathbb{P}(59.25 \lt X\lt 67.12)\) using <img src="/data/img/julia.webp" alt="Julia" width="53px" height="33px"> <br>
+↪ Finding <div class="quantml-katex-display inline">\(\mathbb{P}(59.25 \lt X\lt 67.12)\)</div> using <img src="/data/img/julia.webp" alt="Julia" width="53px" height="33px"> <br>
 <blockquote class="sidebar">
 <pre data-start="9"><code class="language-julia line-numbers">result = sum((population_height .&gt; 59.25) .& (population_height .&lt; 67.12))/length(population_height)
 print("Proportion of heights in between 59.25 and 67.12 inches: $result")
 </code></pre>
 O/P:
-<blockquote class="noborder">Proportion of heights in between \(59.25\) and \(67.12\) inches: \(0.32216\)</blockquote>
+<blockquote class="noborder">Proportion of heights in between <div class="quantml-katex-display inline">\(59.25\)</div> and <div class="quantml-katex-display inline">\(67.12\)</div> inches: <div class="quantml-katex-display inline">\(0.32216\)</div></blockquote>
 </blockquote>
-Both values are pretty close, there's a error of \(\approx 0.19\%\). <br>
+Both values are pretty close, there's a error of <div class="quantml-katex-display inline">\(\approx 0.19\%\)</div>. <br>
 <br>
 
 

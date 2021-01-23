@@ -60,270 +60,270 @@
 
 <p>
 <h1 id="properties">Properties of Positive Definite Matrices</h1>
-Say we have a \(n\times n\) matrix \(A\) then \(A\) is <b>Positive Definite Matrix</b> if <b>any</b> 
+Say we have a <div class="quantml-katex-display inline">\(n\times n\)</div> matrix <div class="quantml-katex-display inline">\(A\)</div> then <div class="quantml-katex-display inline">\(A\)</div> is <b>Positive Definite Matrix</b> if <b>any</b> 
 of the below condition is satisfies,<br>
 <blockquote>
-\(1.\) All the <i>eigenvalues</i> are <b>positive</b>.<br>
+<div class="quantml-katex-display inline">\(1.\)</div> All the <i>eigenvalues</i> are <b>positive</b>.<br>
 </blockquote>
 <blockquote class="noborder">
-\(\quad\lambda_1\gt 0,\lambda_2\gt 0,\cdots,\lambda_n\gt 0\)<br>
+<div class="quantml-katex-display inline">\(\quad\lambda_1\gt 0,\lambda_2\gt 0,\cdots,\lambda_n\gt 0\)</div><br>
 </blockquote>
 
 <blockquote>
-\(2.\) All <b>leading</b> determinants are <b>positive</b>.<br>
+<div class="quantml-katex-display inline">\(2.\)</div> All <b>leading</b> determinants are <b>positive</b>.<br>
 </blockquote>
 <blockquote class="noborder">
 For Example:<br>
-Say we have a \(3\times 3\) matrix \(A\)
-\[A=\begin{bmatrix}
+Say we have a <div class="quantml-katex-display inline">\(3\times 3\)</div> matrix <div class="quantml-katex-display inline">\(A\)</div>
+<div class="quantml-katex-display">\[A=\begin{bmatrix}
 a_{11} & a_{12} & a_{13}\\
 a_{21} & a_{22} & a_{23}\\
 a_{31} & a_{32} & a_{33}\\
-\end{bmatrix}\]
-\(A\) is a Positive Definite Matrix if,<br>
-\(\text{det}\left(
+\end{bmatrix}\]</div>
+<div class="quantml-katex-display inline">\(A\)</div> is a Positive Definite Matrix if,<br>
+<div class="quantml-katex-display inline">\(\text{det}\left(
     \begin{bmatrix}
 a_{11}
 \end{bmatrix}
-\right)\gt 0;\quad\)
+\right)\gt 0;\quad\)</div>
 
-\(\text{det}\left(
+<div class="quantml-katex-display inline">\(\text{det}\left(
     \begin{bmatrix}
     a_{11} & a_{12} \\
     a_{21} & a_{22} \\
     \end{bmatrix}
-\right)\gt 0;\quad\)
+\right)\gt 0;\quad\)</div>
 
-\(\text{det}\left(
+<div class="quantml-katex-display inline">\(\text{det}\left(
     \begin{bmatrix}
     a_{11} & a_{12} & a_{13}\\
     a_{21} & a_{22} & a_{23}\\
     a_{31} & a_{32} & a_{33}\\
     \end{bmatrix}  
-\right)\gt 0\)
+\right)\gt 0\)</div>
 </blockquote>
 
 <blockquote>
-\(3.\) All pivots are <b>positive</b>.<br>
+<div class="quantml-katex-display inline">\(3.\)</div> All pivots are <b>positive</b>.<br>
 </blockquote>
 
 <blockquote>
-\(4.\) A \(n\times n\) matrix say \(A\) is Positive Definite Matrix, if
+<div class="quantml-katex-display inline">\(4.\)</div> A <div class="quantml-katex-display inline">\(n\times n\)</div> matrix say <div class="quantml-katex-display inline">\(A\)</div> is Positive Definite Matrix, if
 </blockquote>
 <div class="l1 border">
-\[  \begin{matrix}
+<div class="quantml-katex-display">\[  \begin{matrix}
 
     % equation
     \vec{x}^TA\vec{x}\gt 0;\quad\forall x\in\mathbb{R}^n \char`\\ \vec{0}
     %equation
 
     \end{matrix}
-\]
+\]</div>
 </div>
 <br>
 
 <h2>More interesting properties of positive definite matrices</h2>
-<li>If a \(n\times n\) matrix \(A\) is a <i>positive definite matrix</i> then \(A^{-1}\) is also <i>positive definite matrix</i></li>
+<li>If a <div class="quantml-katex-display inline">\(n\times n\)</div> matrix <div class="quantml-katex-display inline">\(A\)</div> is a <i>positive definite matrix</i> then <div class="quantml-katex-display inline">\(A^{-1}\)</div> is also <i>positive definite matrix</i></li>
 &nbsp;&nbsp;&nbsp;&nbsp;<b>Proof:</b><br>
 <blockquote class="noborder">
-    Here we can use property number \(1\) <i>"A matrix is positive definite matrix if all the eigenvalues are <b>positive</b>."</i><br>
-    Say that the eigenvalues of \(A\) are \(\lambda_1,\lambda_2,\cdots,\lambda_n\)<br>
-    Then the eigenvalues of \(A^{-1}\) are \(1/\lambda_1,1/\lambda_2,\cdots,1/\lambda_n\)<br>
-    \(A\) is a positive definite matrix, it's eigenvalues are positive, so<br>
-    \(\lambda_1\gt 0,\lambda_2\gt 0,\cdots,\lambda_n\gt 0\)<br>
-    \(\Rightarrow \quad1/\lambda_1\gt 0,\quad1/\lambda_2\gt 0,\cdots,1/\lambda_n\gt 0\)<br>
-    So by property \(1\) we can say that <i>"\(A^{-1}\) is a <b>Positive Definite Matrix</b>"</i>
+    Here we can use property number <div class="quantml-katex-display inline">\(1\)</div> <i>"A matrix is positive definite matrix if all the eigenvalues are <b>positive</b>."</i><br>
+    Say that the eigenvalues of <div class="quantml-katex-display inline">\(A\)</div> are <div class="quantml-katex-display inline">\(\lambda_1,\lambda_2,\cdots,\lambda_n\)</div><br>
+    Then the eigenvalues of <div class="quantml-katex-display inline">\(A^{-1}\)</div> are <div class="quantml-katex-display inline">\(1/\lambda_1,1/\lambda_2,\cdots,1/\lambda_n\)</div><br>
+    <div class="quantml-katex-display inline">\(A\)</div> is a positive definite matrix, it's eigenvalues are positive, so<br>
+    <div class="quantml-katex-display inline">\(\lambda_1\gt 0,\lambda_2\gt 0,\cdots,\lambda_n\gt 0\)</div><br>
+    <div class="quantml-katex-display inline">\(\Rightarrow \quad1/\lambda_1\gt 0,\quad1/\lambda_2\gt 0,\cdots,1/\lambda_n\gt 0\)</div><br>
+    So by property <div class="quantml-katex-display inline">\(1\)</div> we can say that <i>"<div class="quantml-katex-display inline">\(A^{-1}\)</div> is a <b>Positive Definite Matrix</b>"</i>
 </blockquote><br>
 
-<li>Say we have <b>two</b> \(n\times n\) <i>positive definite matrix</i> \(A\) and \(B\)  then \(A+B\) is also <i>positive definite matrix</i></li>
+<li>Say we have <b>two</b> <div class="quantml-katex-display inline">\(n\times n\)</div> <i>positive definite matrix</i> <div class="quantml-katex-display inline">\(A\)</div> and <div class="quantml-katex-display inline">\(B\)</div>  then <div class="quantml-katex-display inline">\(A+B\)</div> is also <i>positive definite matrix</i></li>
 &nbsp;&nbsp;&nbsp;&nbsp;<b>Proof:</b><br>
 <blockquote class="noborder">
-    Here we can use property number \(5\) <i>"A matrix (say A) is positive definite matrix if 
-    \(\vec{x}^TA\vec{x}\gt 0;\quad\forall x\in\mathbb{R}^n \char`\\ \vec{0}\)"</i><br>
-    We know that \(A\) is positive definite matrix so \(\vec{x}^TA\vec{x}\gt 0;\quad\forall x\in\mathbb{R}^n \char`\\ \vec{0}\)<br>
-    We know that \(B\) is positive definite matrix so \(\vec{x}^TB\vec{x}\gt 0;\quad\forall x\in\mathbb{R}^n \char`\\ \vec{0}\)<br>
-    For \(A+B\) to be <i>positive definite matrix</i> we need <span class="l2">\(\vec{x}^T(A+B)\vec{x}\gt 0;\quad\forall x\in\mathbb{R}^n \char`\\ \vec{0}\)</span><br>
-    \(\vec{x}^T(A+B)\vec{x}\) = \(\underbrace{\vec{x}^TA\vec{x}}_{(\gt 0;\forall x\in\mathbb{R}^n \char`\\ \vec{0})} + \underbrace{\vec{x}^TB\vec{x}}_{(\gt 0;\forall x\in\mathbb{R}^n \char`\\ \vec{0})}\)<br>
-    \(\Rightarrow \vec{x}^T(A+B)\vec{x}\gt 0;\quad\forall x\in\mathbb{R}^n \char`\\ \vec{0}\)<br>
-    So by property \(5\) we can say that <i>"\(A + B\) is a <b>Positive Definite Matrix</b>"</i>
+    Here we can use property number <div class="quantml-katex-display inline">\(5\)</div> <i>"A matrix (say A) is positive definite matrix if 
+    <div class="quantml-katex-display inline">\(\vec{x}^TA\vec{x}\gt 0;\quad\forall x\in\mathbb{R}^n \char`\\ \vec{0}\)</div>"</i><br>
+    We know that <div class="quantml-katex-display inline">\(A\)</div> is positive definite matrix so <div class="quantml-katex-display inline">\(\vec{x}^TA\vec{x}\gt 0;\quad\forall x\in\mathbb{R}^n \char`\\ \vec{0}\)</div><br>
+    We know that <div class="quantml-katex-display inline">\(B\)</div> is positive definite matrix so <div class="quantml-katex-display inline">\(\vec{x}^TB\vec{x}\gt 0;\quad\forall x\in\mathbb{R}^n \char`\\ \vec{0}\)</div><br>
+    For <div class="quantml-katex-display inline">\(A+B\)</div> to be <i>positive definite matrix</i> we need <span class="l2"><div class="quantml-katex-display inline">\(\vec{x}^T(A+B)\vec{x}\gt 0;\quad\forall x\in\mathbb{R}^n \char`\\ \vec{0}\)</div></span><br>
+    <div class="quantml-katex-display inline">\(\vec{x}^T(A+B)\vec{x}\)</div> = <div class="quantml-katex-display inline">\(\underbrace{\vec{x}^TA\vec{x}}_{(\gt 0;\forall x\in\mathbb{R}^n \char`\\ \vec{0})} + \underbrace{\vec{x}^TB\vec{x}}_{(\gt 0;\forall x\in\mathbb{R}^n \char`\\ \vec{0})}\)</div><br>
+    <div class="quantml-katex-display inline">\(\Rightarrow \vec{x}^T(A+B)\vec{x}\gt 0;\quad\forall x\in\mathbb{R}^n \char`\\ \vec{0}\)</div><br>
+    So by property <div class="quantml-katex-display inline">\(5\)</div> we can say that <i>"<div class="quantml-katex-display inline">\(A + B\)</div> is a <b>Positive Definite Matrix</b>"</i>
 </blockquote><br>
 
-<li>Say we have a \(m\times n\) matrix \(A\) and \(\text{Rank}(A)=n\) then \(A^TA\) is a <i>positive definite matrix</i></li>
+<li>Say we have a <div class="quantml-katex-display inline">\(m\times n\)</div> matrix <div class="quantml-katex-display inline">\(A\)</div> and <div class="quantml-katex-display inline">\(\text{Rank}(A)=n\)</div> then <div class="quantml-katex-display inline">\(A^TA\)</div> is a <i>positive definite matrix</i></li>
 &nbsp;&nbsp;&nbsp;&nbsp;<b>Proof:</b><br>
 <blockquote class="noborder">
-    For \(A^TA\) to be a <i>positive definite matrix</i> we need, <span class="l2">\(\vec{x}^T(A^TA)\vec{x}\gt 0;\quad\forall x\in\mathbb{R}^n \char`\\ \vec{0}\)</span><br>
-    \(\vec{x}^T(A^TA)\vec{x}=(\vec{x}^TA^T)(A\vec{x})\)<br>
-    \(\Rightarrow \vec{x}^T(A^TA)\vec{x}=(A\vec{x})^T(A\vec{x})\)<br>
-    Here \(A\vec{x}\) is a vector in \(\mathbb{R}^n\), so \((A\vec{x})^T(A\vec{x})=\|A\vec{x}\|^2\) <br>
-    \(\|A\vec{x}\|^2\) is the sum of squares so it can't be negative \(\|A\vec{x}\|^2\geq 0\) and \(\|A\vec{x}\|^2\) is \(0\) only for \(\vec{x}=\vec{0}\)<br>
-    because \(\text{Rank}(A)=n\) so columns are independent, so  \(A\vec{x}=\vec{0}\) if \(\vec{x}=\vec{0}\) so it's <b>Null space</b> have only \(\vec{0}\)<br>
-    \(\Rightarrow \vec{x}^T(A^TA)\vec{x}\gt 0;\quad\forall x\in\mathbb{R}^n \char`\\ \vec{0}\)<br>
-    So we can say that <i>"\(A^TA\) is a <b>Positive Definite Matrix</b>"</i>
+    For <div class="quantml-katex-display inline">\(A^TA\)</div> to be a <i>positive definite matrix</i> we need, <span class="l2"><div class="quantml-katex-display inline">\(\vec{x}^T(A^TA)\vec{x}\gt 0;\quad\forall x\in\mathbb{R}^n \char`\\ \vec{0}\)</div></span><br>
+    <div class="quantml-katex-display inline">\(\vec{x}^T(A^TA)\vec{x}=(\vec{x}^TA^T)(A\vec{x})\)</div><br>
+    <div class="quantml-katex-display inline">\(\Rightarrow \vec{x}^T(A^TA)\vec{x}=(A\vec{x})^T(A\vec{x})\)</div><br>
+    Here <div class="quantml-katex-display inline">\(A\vec{x}\)</div> is a vector in <div class="quantml-katex-display inline">\(\mathbb{R}^n\)</div>, so <div class="quantml-katex-display inline">\((A\vec{x})^T(A\vec{x})=\|A\vec{x}\|^2\)</div> <br>
+    <div class="quantml-katex-display inline">\(\|A\vec{x}\|^2\)</div> is the sum of squares so it can't be negative <div class="quantml-katex-display inline">\(\|A\vec{x}\|^2\geq 0\)</div> and <div class="quantml-katex-display inline">\(\|A\vec{x}\|^2\)</div> is <div class="quantml-katex-display inline">\(0\)</div> only for <div class="quantml-katex-display inline">\(\vec{x}=\vec{0}\)</div><br>
+    because <div class="quantml-katex-display inline">\(\text{Rank}(A)=n\)</div> so columns are independent, so  <div class="quantml-katex-display inline">\(A\vec{x}=\vec{0}\)</div> if <div class="quantml-katex-display inline">\(\vec{x}=\vec{0}\)</div> so it's <b>Null space</b> have only <div class="quantml-katex-display inline">\(\vec{0}\)</div><br>
+    <div class="quantml-katex-display inline">\(\Rightarrow \vec{x}^T(A^TA)\vec{x}\gt 0;\quad\forall x\in\mathbb{R}^n \char`\\ \vec{0}\)</div><br>
+    So we can say that <i>"<div class="quantml-katex-display inline">\(A^TA\)</div> is a <b>Positive Definite Matrix</b>"</i>
 </blockquote><br>
 <br><hr id="examples" style="width: 50%"><br>
-<b>Example \(1\):</b><br>
-Say \(A=\begin{bmatrix} 2&6\\6&19 \end{bmatrix}\) check if \(A\) is Positive Definite Matrix or not, using properties described above.<br>
-Let's try using the \(4^{th}\) property and see if <span class="bb" style="padding-top: 15px; padding-bottom: 15px;">\(\vec{x}^TA\vec{x}\gt 0;\quad\forall x\in\mathbb{R}^n \char`\\ \vec{0}\)</span><br>
-Say \(\vec{x}=\begin{bmatrix} x_1\\x_2 \end{bmatrix}\)<br>
-\(\vec{x}^TA\vec{x}=
+<b>Example <div class="quantml-katex-display inline">\(1\)</div>:</b><br>
+Say <div class="quantml-katex-display inline">\(A=\begin{bmatrix} 2&6\\6&19 \end{bmatrix}\)</div> check if <div class="quantml-katex-display inline">\(A\)</div> is Positive Definite Matrix or not, using properties described above.<br>
+Let's try using the <div class="quantml-katex-display inline">\(4^{th}\)</div> property and see if <span class="bb" style="padding-top: 15px; padding-bottom: 15px;"><div class="quantml-katex-display inline">\(\vec{x}^TA\vec{x}\gt 0;\quad\forall x\in\mathbb{R}^n \char`\\ \vec{0}\)</div></span><br>
+Say <div class="quantml-katex-display inline">\(\vec{x}=\begin{bmatrix} x_1\\x_2 \end{bmatrix}\)</div><br>
+<div class="quantml-katex-display inline">\(\vec{x}^TA\vec{x}=
     \begin{bmatrix} x_1&x_2 \end{bmatrix}
     \begin{bmatrix} 2&6\\6&19 \end{bmatrix}
     \begin{bmatrix} x_1\\x_2 \end{bmatrix}
-\)<br>
-\(\vec{x}^TA\vec{x}=2x_1^2+12x_1x_2+19x^2\)<br>
-Now we want to know that <b>is</b> \(2x_1^2+12x_1x_2+19x^2\gt 0\)<br>
+\)</div><br>
+<div class="quantml-katex-display inline">\(\vec{x}^TA\vec{x}=2x_1^2+12x_1x_2+19x^2\)</div><br>
+Now we want to know that <b>is</b> <div class="quantml-katex-display inline">\(2x_1^2+12x_1x_2+19x^2\gt 0\)</div><br>
 Now let's use Calculus.<br>
 <blockquote class="noborder">
-Our function is \(f(x_1,x_2)=2x_1^2+12x_1x_2+19x^2\)<br>
+Our function is <div class="quantml-katex-display inline">\(f(x_1,x_2)=2x_1^2+12x_1x_2+19x^2\)</div><br>
 Let's find the critical points,<br>
-<li>First we take derivative w.r.t. \(x_1\).</li><br>
-\[\begin{matrix} 
+<li>First we take derivative w.r.t. <div class="quantml-katex-display inline">\(x_1\)</div>.</li><br>
+<div class="quantml-katex-display">\[\begin{matrix} 
 \displaystyle \frac{\partial f(x_1,x_2)}{\partial x_1}=& \displaystyle \frac{\partial (2x_1^2+12x_1x_2+19x^2)}{\partial x_1} \\
 \displaystyle \frac{\partial f(x_1,x_2)}{\partial x_1}=&\displaystyle 4x_1+12x_2
-\end{matrix} \]
-Now equate \(\displaystyle \frac{\partial f(x_1,x_2)}{\partial x_1}=0\)<br>
+\end{matrix} \]</div>
+Now equate <div class="quantml-katex-display inline">\(\displaystyle \frac{\partial f(x_1,x_2)}{\partial x_1}=0\)</div><br>
 <div class="l1 border">
-\[
+<div class="quantml-katex-display">\[
     \begin{matrix}
 4x_1+12x_2=0
 
     \end{matrix}
     \quad\tag{\color{red}{1}}
-\]
+\]</div>
 </div>
-<li>Now we take derivative w.r.t. \(x_2\).</li><br>
-\[\begin{matrix} 
+<li>Now we take derivative w.r.t. <div class="quantml-katex-display inline">\(x_2\)</div>.</li><br>
+<div class="quantml-katex-display">\[\begin{matrix} 
 \displaystyle \frac{\partial f(x_1,x_2)}{\partial x_2}=& \displaystyle \frac{\partial (2x_1^2+12x_1x_2+19x^2)}{\partial x_2} \\
 \displaystyle \frac{\partial f(x_1,x_2)}{\partial x_2}=&\displaystyle 12x_1 + 38x_2
-\end{matrix} \]
-Now equate \(\displaystyle \frac{\partial f(x_1,x_2)}{\partial x_1}=0\)<br>
+\end{matrix} \]</div>
+Now equate <div class="quantml-katex-display inline">\(\displaystyle \frac{\partial f(x_1,x_2)}{\partial x_1}=0\)</div><br>
 <div class="l1 border">
-\[
+<div class="quantml-katex-display">\[
     \begin{matrix}
 12x_1 + 38x_2=0
 
     \end{matrix}
     \quad\tag{\color{red}{2}}
-\]
+\]</div>
 </div>
-\(x_1=0\) and \(x_2=0\) satisfies this system of equations \((1)\text{ and }(2)\).<br>
-Now we got a point \((x_1,x_2)=(0,0)\) but we don't know that, <B>Is</B> it minimum, maximum or saddle point.<br>
-To check that, <B>Is</B> it minimum, maximum or saddle point. We need \(2^{nd}\) derivative test<br>
-<li>\(\frac{\partial^2 f(x_1,x_2)}{\partial x_1^2}\)</li>
-\[\begin{matrix} 
+<div class="quantml-katex-display inline">\(x_1=0\)</div> and <div class="quantml-katex-display inline">\(x_2=0\)</div> satisfies this system of equations <div class="quantml-katex-display inline">\((1)\text{ and }(2)\)</div>.<br>
+Now we got a point <div class="quantml-katex-display inline">\((x_1,x_2)=(0,0)\)</div> but we don't know that, <B>Is</B> it minimum, maximum or saddle point.<br>
+To check that, <B>Is</B> it minimum, maximum or saddle point. We need <div class="quantml-katex-display inline">\(2^{nd}\)</div> derivative test<br>
+<li><div class="quantml-katex-display inline">\(\frac{\partial^2 f(x_1,x_2)}{\partial x_1^2}\)</div></li>
+<div class="quantml-katex-display">\[\begin{matrix} 
 \displaystyle \frac{\partial^2 f(x_1,x_2)}{\partial x_1^2}=& \displaystyle \frac{\partial (4x_1+12x_2)}{\partial x_1} \\
 \displaystyle \frac{\partial f(x_1,x_2)}{\partial x_1}=&\displaystyle 4
-\end{matrix} \]<br>
-<li>\(\frac{\partial^2 f(x_1,x_2)}{\partial x_2^2}\)</li>
-\[\begin{matrix} 
+\end{matrix} \]</div><br>
+<li><div class="quantml-katex-display inline">\(\frac{\partial^2 f(x_1,x_2)}{\partial x_2^2}\)</div></li>
+<div class="quantml-katex-display">\[\begin{matrix} 
 \displaystyle \frac{\partial^2 f(x_1,x_2)}{\partial x_2^2}=& \displaystyle \frac{\partial (12x_1 + 38x_2)}{\partial x_2} \\
 \displaystyle \frac{\partial^2 f(x_1,x_2)}{\partial x_2^2}=&\displaystyle 38
-\end{matrix} \]<br>
-<li>\(\frac{\partial^2 f(x_1,x_2)}{\partial x_1x_2}\)</li>
-\[\begin{matrix} 
+\end{matrix} \]</div><br>
+<li><div class="quantml-katex-display inline">\(\frac{\partial^2 f(x_1,x_2)}{\partial x_1x_2}\)</div></li>
+<div class="quantml-katex-display">\[\begin{matrix} 
 \displaystyle \frac{\partial^2 f(x_1,x_2)}{\partial x_1x_2}=& \displaystyle \frac{\partial (4x_1+12x_2)}{\partial x_2} \\
 \displaystyle \frac{\partial^2 f(x_1,x_2)}{\partial x_1x_2}=&\displaystyle 12
-\end{matrix} \]<br>
+\end{matrix} \]</div><br>
 (<a  href="https://www.khanacademy.org/math/multivariable-calculus/applications-of-multivariable-derivatives/optimizing-multivariable-functions/a/second-partial-derivative-test">Recommended reading</a>)<br>
-Now we have our <b>Hessian matrix</b> (say \(H\))<br>
-\[Hf(x_1,x_2)=\begin{bmatrix}
+Now we have our <b>Hessian matrix</b> (say <div class="quantml-katex-display inline">\(H\)</div>)<br>
+<div class="quantml-katex-display">\[Hf(x_1,x_2)=\begin{bmatrix}
 \displaystyle \frac{\partial f}{\partial x_1^2 } & \displaystyle \frac{\partial f}{\partial x_1x_2}\\
 \displaystyle \frac{\partial f}{\partial x_2x_1} & \displaystyle \frac{\partial f}{\partial x_2^2}
-\end{bmatrix}\]<br>
+\end{bmatrix}\]</div><br>
 
-\(Hf(x_1,x_2)=\begin{bmatrix}
+<div class="quantml-katex-display inline">\(Hf(x_1,x_2)=\begin{bmatrix}
  4&12\\
 12&38
-\end{bmatrix}\)<br>
-\(\text{det}(Hf(x_1,x_2))\gt 0\) so it rules out the possibility of being a saddle point, so \(f(x_1,x_2)\) either have a maximum or a minimum.<br>
-And because \(\displaystyle \frac{\partial^2 f(x_1,x_2)}{\partial x_1^2}\gt 0\) so \(f(x_1,x_2)\) 
-have a <b>minimum</b> values at \((0,0)\) and that minimum value is \(0\)
+\end{bmatrix}\)</div><br>
+<div class="quantml-katex-display inline">\(\text{det}(Hf(x_1,x_2))\gt 0\)</div> so it rules out the possibility of being a saddle point, so <div class="quantml-katex-display inline">\(f(x_1,x_2)\)</div> either have a maximum or a minimum.<br>
+And because <div class="quantml-katex-display inline">\(\displaystyle \frac{\partial^2 f(x_1,x_2)}{\partial x_1^2}\gt 0\)</div> so <div class="quantml-katex-display inline">\(f(x_1,x_2)\)</div> 
+have a <b>minimum</b> values at <div class="quantml-katex-display inline">\((0,0)\)</div> and that minimum value is <div class="quantml-katex-display inline">\(0\)</div>
 </blockquote><br>
-So we had seen that the minimum value of \(f(x_1,x_2)=2x_1^2+12x_1x_2+19x^2\) is \(0\)<br>
-\(\vec{x}^TA\vec{x}\gt 0\) except at \(\vec{x}=\vec{0}\), this means that \(A\) is a <b>Positive Definite Matrix</b><br>
+So we had seen that the minimum value of <div class="quantml-katex-display inline">\(f(x_1,x_2)=2x_1^2+12x_1x_2+19x^2\)</div> is <div class="quantml-katex-display inline">\(0\)</div><br>
+<div class="quantml-katex-display inline">\(\vec{x}^TA\vec{x}\gt 0\)</div> except at <div class="quantml-katex-display inline">\(\vec{x}=\vec{0}\)</div>, this means that <div class="quantml-katex-display inline">\(A\)</div> is a <b>Positive Definite Matrix</b><br>
 <br>
 
 <hr><br>
 
-<b>Example \(2\):</b><br>
-Say \(A=\begin{bmatrix} 2&6\\6&7 \end{bmatrix}\) check if \(A\) is Positive Definite Matrix or not, using properties described above.<br>
-Let's try using the \(4^{th}\) property and see if <span class="bb" style="padding-top: 15px; padding-bottom: 15px;">\(\vec{x}^TA\vec{x}\gt 0;\quad\forall x\in\mathbb{R}^n \char`\\ \vec{0}\)</span><br>
-Say \(\vec{x}=\begin{bmatrix} x_1\\x_2 \end{bmatrix}\)<br>
-\(\vec{x}^TA\vec{x}=
+<b>Example <div class="quantml-katex-display inline">\(2\)</div>:</b><br>
+Say <div class="quantml-katex-display inline">\(A=\begin{bmatrix} 2&6\\6&7 \end{bmatrix}\)</div> check if <div class="quantml-katex-display inline">\(A\)</div> is Positive Definite Matrix or not, using properties described above.<br>
+Let's try using the <div class="quantml-katex-display inline">\(4^{th}\)</div> property and see if <span class="bb" style="padding-top: 15px; padding-bottom: 15px;"><div class="quantml-katex-display inline">\(\vec{x}^TA\vec{x}\gt 0;\quad\forall x\in\mathbb{R}^n \char`\\ \vec{0}\)</div></span><br>
+Say <div class="quantml-katex-display inline">\(\vec{x}=\begin{bmatrix} x_1\\x_2 \end{bmatrix}\)</div><br>
+<div class="quantml-katex-display inline">\(\vec{x}^TA\vec{x}=
     \begin{bmatrix} x_1&x_2 \end{bmatrix}
     \begin{bmatrix} 2&6\\6&7 \end{bmatrix}
     \begin{bmatrix} x_1\\x_2 \end{bmatrix}
-\)<br>
-\(\vec{x}^TA\vec{x}=2x_1^2+12x_1x_2+7x^2\)<br>
-Now we want to know that <b>is</b> \(2x_1^2+12x_1x_2+7x^2\gt 0\)<br>
+\)</div><br>
+<div class="quantml-katex-display inline">\(\vec{x}^TA\vec{x}=2x_1^2+12x_1x_2+7x^2\)</div><br>
+Now we want to know that <b>is</b> <div class="quantml-katex-display inline">\(2x_1^2+12x_1x_2+7x^2\gt 0\)</div><br>
 Now let's use Calculus.<br>
 <blockquote class="noborder">
-Our function is \(f(x_1,x_2)=2x_1^2+12x_1x_2+7x^2\)<br>
+Our function is <div class="quantml-katex-display inline">\(f(x_1,x_2)=2x_1^2+12x_1x_2+7x^2\)</div><br>
 Let's find the critical points,<br>
-<li>First we take derivative w.r.t. \(x_1\).</li><br>
-\[\begin{matrix} 
+<li>First we take derivative w.r.t. <div class="quantml-katex-display inline">\(x_1\)</div>.</li><br>
+<div class="quantml-katex-display">\[\begin{matrix} 
 \displaystyle \frac{\partial f(x_1,x_2)}{\partial x_1}=& \displaystyle \frac{\partial (2x_1^2+12x_1x_2+7x^2)}{\partial x_1} \\
 \displaystyle \frac{\partial f(x_1,x_2)}{\partial x_1}=&\displaystyle 4x_1+12x_2
-\end{matrix} \]
-Now equate \(\displaystyle \frac{\partial f(x_1,x_2)}{\partial x_1}=0\)<br>
+\end{matrix} \]</div>
+Now equate <div class="quantml-katex-display inline">\(\displaystyle \frac{\partial f(x_1,x_2)}{\partial x_1}=0\)</div><br>
 <div class="l1 border">
-\[
+<div class="quantml-katex-display">\[
     \begin{matrix}
 4x_1+12x_2=0
 
     \end{matrix}
     \quad\tag{\color{red}{1}}
-\]
+\]</div>
 </div>
-<li>Now we take derivative w.r.t. \(x_2\).</li><br>
-\[\begin{matrix} 
+<li>Now we take derivative w.r.t. <div class="quantml-katex-display inline">\(x_2\)</div>.</li><br>
+<div class="quantml-katex-display">\[\begin{matrix} 
 \displaystyle \frac{\partial f(x_1,x_2)}{\partial x_2}=& \displaystyle \frac{\partial (2x_1^2+12x_1x_2+7x^2)}{\partial x_2} \\
 \displaystyle \frac{\partial f(x_1,x_2)}{\partial x_2}=&\displaystyle 12x_1 + 14x_2
-\end{matrix} \]
-Now equate \(\displaystyle \frac{\partial f(x_1,x_2)}{\partial x_1}=0\)<br>
+\end{matrix} \]</div>
+Now equate <div class="quantml-katex-display inline">\(\displaystyle \frac{\partial f(x_1,x_2)}{\partial x_1}=0\)</div><br>
 <div class="l1 border">
-\[
+<div class="quantml-katex-display">\[
     \begin{matrix}
 12x_1 + 14x_2=0
 
     \end{matrix}
     \quad\tag{\color{red}{2}}
-\]
+\]</div>
 </div>
-\(x_1=0\) and \(x_2=0\) satisfies this system of equations \((1)\text{ and }(2)\).<br>
-Now we got a point \((x_1,x_2)=(0,0)\) but we don't know that, <B>Is</B> it minimum, maximum or saddle point.<br>
-To check that, <B>Is</B> it minimum, maximum or saddle point. We need \(2^{nd}\) derivative test<br>
-<li>\(\frac{\partial^2 f(x_1,x_2)}{\partial x_1^2}\)</li>
-\[\begin{matrix} 
+<div class="quantml-katex-display inline">\(x_1=0\)</div> and <div class="quantml-katex-display inline">\(x_2=0\)</div> satisfies this system of equations <div class="quantml-katex-display inline">\((1)\text{ and }(2)\)</div>.<br>
+Now we got a point <div class="quantml-katex-display inline">\((x_1,x_2)=(0,0)\)</div> but we don't know that, <B>Is</B> it minimum, maximum or saddle point.<br>
+To check that, <B>Is</B> it minimum, maximum or saddle point. We need <div class="quantml-katex-display inline">\(2^{nd}\)</div> derivative test<br>
+<li><div class="quantml-katex-display inline">\(\frac{\partial^2 f(x_1,x_2)}{\partial x_1^2}\)</div></li>
+<div class="quantml-katex-display">\[\begin{matrix} 
 \displaystyle \frac{\partial^2 f(x_1,x_2)}{\partial x_1^2}=& \displaystyle \frac{\partial (4x_1+12x_2)}{\partial x_1} \\
 \displaystyle \frac{\partial f(x_1,x_2)}{\partial x_1}=&\displaystyle 4
-\end{matrix} \]<br>
-<li>\(\frac{\partial^2 f(x_1,x_2)}{\partial x_2^2}\)</li>
-\[\begin{matrix} 
+\end{matrix} \]</div><br>
+<li><div class="quantml-katex-display inline">\(\frac{\partial^2 f(x_1,x_2)}{\partial x_2^2}\)</div></li>
+<div class="quantml-katex-display">\[\begin{matrix} 
 \displaystyle \frac{\partial^2 f(x_1,x_2)}{\partial x_2^2}=& \displaystyle \frac{\partial (12x_1 + 14x_2)}{\partial x_2} \\
 \displaystyle \frac{\partial^2 f(x_1,x_2)}{\partial x_2^2}=&\displaystyle 14
-\end{matrix} \]<br>
-<li>\(\frac{\partial^2 f(x_1,x_2)}{\partial x_1x_2}\)</li>
-\[\begin{matrix} 
+\end{matrix} \]</div><br>
+<li><div class="quantml-katex-display inline">\(\frac{\partial^2 f(x_1,x_2)}{\partial x_1x_2}\)</div></li>
+<div class="quantml-katex-display">\[\begin{matrix} 
 \displaystyle \frac{\partial^2 f(x_1,x_2)}{\partial x_1x_2}=& \displaystyle \frac{\partial (4x_1+12x_2)}{\partial x_2} \\
 \displaystyle \frac{\partial^2 f(x_1,x_2)}{\partial x_1x_2}=&\displaystyle 12
-\end{matrix} \]<br>
+\end{matrix} \]</div><br>
 (<a  href="https://www.khanacademy.org/math/multivariable-calculus/applications-of-multivariable-derivatives/optimizing-multivariable-functions/a/second-partial-derivative-test">Recommended reading</a>)<br>
-Now we have our <b>Hessian matrix</b> (say \(H\))<br>
-\[Hf(x_1,x_2)=\begin{bmatrix}
+Now we have our <b>Hessian matrix</b> (say <div class="quantml-katex-display inline">\(H\)</div>)<br>
+<div class="quantml-katex-display">\[Hf(x_1,x_2)=\begin{bmatrix}
 \displaystyle \frac{\partial f}{\partial x_1^2 } & \displaystyle \frac{\partial f}{\partial x_1x_2}\\
 \displaystyle \frac{\partial f}{\partial x_2x_1} & \displaystyle \frac{\partial f}{\partial x_2^2}
-\end{bmatrix}\]<br>
+\end{bmatrix}\]</div><br>
 
-\(Hf(x_1,x_2)=\begin{bmatrix}
+<div class="quantml-katex-display inline">\(Hf(x_1,x_2)=\begin{bmatrix}
  4&12\\
 12&14
-\end{bmatrix}\)<br>
-\(\text{det}(Hf(x_1,x_2))\lt 0\) so \((0,0)\) is the <b>saddle point</b> and \(f(0,0)=0\).<br>
+\end{bmatrix}\)</div><br>
+<div class="quantml-katex-display inline">\(\text{det}(Hf(x_1,x_2))\lt 0\)</div> so <div class="quantml-katex-display inline">\((0,0)\)</div> is the <b>saddle point</b> and <div class="quantml-katex-display inline">\(f(0,0)=0\)</div>.<br>
 </blockquote><br>
-So we had seen that \(f(x_1,x_2)=2x_1^2+12x_1x_2+19x^2\) has neither maximum nor minimum point.<br>
-\((0,0)\) is a saddle point of \(f(x_1,x_2)\) and \(f(0,0)=0\)<br>
-So \(\vec{x}^TA\vec{x}\ngtr  0 ;\quad\forall x\in\mathbb{R}^n \char`\\ \vec{0}\) , this means that \(A\) is a <b>not a Positive Definite Matrix</b><br>
+So we had seen that <div class="quantml-katex-display inline">\(f(x_1,x_2)=2x_1^2+12x_1x_2+19x^2\)</div> has neither maximum nor minimum point.<br>
+<div class="quantml-katex-display inline">\((0,0)\)</div> is a saddle point of <div class="quantml-katex-display inline">\(f(x_1,x_2)\)</div> and <div class="quantml-katex-display inline">\(f(0,0)=0\)</div><br>
+So <div class="quantml-katex-display inline">\(\vec{x}^TA\vec{x}\ngtr  0 ;\quad\forall x\in\mathbb{R}^n \char`\\ \vec{0}\)</div> , this means that <div class="quantml-katex-display inline">\(A\)</div> is a <b>not a Positive Definite Matrix</b><br>
 <br>
 <!--
 <blockquote style="background-color:#f6f8fa; border-color: royalblue; border-radius: 15px; ">
