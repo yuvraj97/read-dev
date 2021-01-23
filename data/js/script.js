@@ -327,19 +327,19 @@ function paginationButton(){
 	btnContainer = document.querySelectorAll('#btn-container')
 	if(btnContainer.length !=0 && btnContainer[0].innerHTML == '') {
 		btnContainerHTML = ''
-		if(typeof(prevPage) !="undefined") btnContainerHTML += `<a href="${prevPage}"><button id="prev-btn" class="button">&#x25C0;&nbsp;&nbsp; ${prevPageTitle}</button></a>`;
-		if(typeof(nextPage) !="undefined") btnContainerHTML += `<a href="${nextPage}"><button id="next-btn" class="button"  style="float: right;">${nextPageTitle}&nbsp;&nbsp;&#x25B6;</button></a>`;
+		if("prev" in  quantml["pagination"]) btnContainerHTML += `<a href="${quantml["pagination"]["prev"]["path"]}"><button id="prev-btn" class="button">&#x25C0;&nbsp;&nbsp; ${quantml["pagination"]["prev"]["title"]}</button></a>`;
+		if("next" in  quantml["pagination"]) btnContainerHTML += `<a href="${quantml["pagination"]["next"]["path"]}"><button id="next-btn" class="button"  style="float: right;">${quantml["pagination"]["next"]["title"]}&nbsp;&nbsp;&#x25B6;</button></a>`;
 		
 		btnContainer.forEach(function(element, index){
 			element.innerHTML=btnContainerHTML
 		})
 
 		btnContainer = document.querySelectorAll('#btn-container-top')
-		if(typeof(nextPage) !="undefined" && typeof(prevPage) !="undefined" ){
+		if("next" in  quantml["pagination"] && "prev" in  quantml["pagination"]){
 			btnContainer.forEach(function(element, index){
 				element.innerHTML=`
-				<a href="${prevPage}"><button id="prev-btn" class="button">&#x25C0;&nbsp;&nbsp; ${prevPageTitle}</button></a>
-				<a href="${nextPage}"><button id="next-btn" class="button"  style="float: right;">${nextPageTitle}&nbsp;&nbsp;&#x25B6;</button></a>
+				<a href="${quantml["pagination"]["prev"]["path"]}"><button id="prev-btn" class="button">&#x25C0;&nbsp;&nbsp; ${quantml["pagination"]["prev"]["title"]}</button></a>
+				<a href="${quantml["pagination"]["next"]["path"]}"><button id="next-btn" class="button"  style="float: right;">${quantml["pagination"]["next"]["title"]}&nbsp;&nbsp;&#x25B6;</button></a>
 				`
 			})
 		}
@@ -691,10 +691,10 @@ function fullyLoaded(){
 			window.keydowns["ctrl"] = true;
 		} else if(evt.code == "AltLeft" || evt.code == "AltRight"){
 			window.keydowns["alt"] = true;
-		} else if(evt.code == "ArrowRight" && typeof(arrowRightPage) !="undefined" && window.keydowns["alt"] != true){
-			window.location.href = arrowRightPage
-		} else if(evt.code == "ArrowLeft" && typeof(arrowLeftPage) !="undefined" && window.keydowns["alt"] != true){
-			window.location.href = arrowLeftPage
+		} else if(evt.code == "ArrowRight" && "right" in quantml["pagination"] && window.keydowns["alt"] != true){
+			window.location.href = quantml["pagination"]["right"]
+		} else if(evt.code == "ArrowLeft" && "left" in quantml["pagination"] && window.keydowns["alt"] != true){
+			window.location.href = quantml["pagination"]["left"]
 		}
 	})
 
@@ -706,7 +706,7 @@ function fullyLoaded(){
 			!e.target.classList.contains("language-julia") &&
 			!e.target.classList.contains("token")  &&
 			!isClassNamePresent(e.target, ["math-container", "modal", "code-toolbar", "table-wrapper"])  ){
-				if(typeof(arrowRightPage) !="undefined") window.location.href = arrowRightPage;
+				if("right" in quantml["pagination"]) window.location.href = quantml["pagination"]["right"];
 				// console.log("GO LEFT")
 			}
 	});
@@ -718,7 +718,7 @@ function fullyLoaded(){
 			!e.target.classList.contains("language-julia") &&
 			!e.target.classList.contains("token")  &&
 			!isClassNamePresent(e.target,  ["math-container", "modal", "code-toolbar", "table-wrapper"]) ){
-                if(typeof(arrowLeftPage) !="undefined") window.location.href = arrowLeftPage;
+                if("left" in quantml["pagination"]) window.location.href = quantml["pagination"]["left"];
 				// console.log("GO RIGHT")
 			}
 	});
