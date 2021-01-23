@@ -1,4 +1,4 @@
-window.quantml["chapters"] ={
+quantml["chapters"] ={
     "central-limit-theorem": {
         run: function(){
             // IFRAME [START]
@@ -135,7 +135,7 @@ window.quantml["chapters"] ={
 
 				earlyAccessDiv = document.getElementById('early-access-div');
 				if((earlyAccess.offsetWidth + coming_soon.offsetWidth > earlyAccessDiv.offsetWidth) ||
-					(earlyAccessDiv.offsetWidth == 0 && window.quantml["notDesktop"] == true)){
+					(earlyAccessDiv.offsetWidth == 0 && quantml["notDesktop"] == true)){
 					earlyAccess.style.width = "100%";
 					coming_soon.style.width = "100%";
 					earlyAccess.style.marginTop = "12px";
@@ -826,4 +826,4 @@ window.quantml["chapters"] ={
     //     }
     // }
 }
-if(window.quantml["chapterID"] in window.quantml["chapters"]) window.quantml["chapters"][window.quantml["chapterID"]].run();
+if(quantml["chapterID"] in quantml["chapters"]) quantml["chapters"][quantml["chapterID"]].run();

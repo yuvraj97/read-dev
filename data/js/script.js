@@ -1,4 +1,4 @@
-if("chapterID" in window.quantml) requireScript('chapter-js', '0.1.0', '/data/js/chapter.js', function(){});
+if("chapterID" in quantml) requireScript('chapter-js', '0.1.0', '/data/js/chapter.js', function(){});
 
 
 // Functions
@@ -42,7 +42,7 @@ function getCookie(name) {
 }
 
 function get_loader_img_str(which = "login"){
-	if(window.quantml["theme"]=="light"){
+	if(quantml["theme"]=="light"){
 		var src = `/data/img/loading-${which}.svg`;
 	} else {
 		var src = `/data/img-dark/loading-${which}.svg`;
@@ -123,14 +123,14 @@ function clearModelOnBackgroundClick(modal){
 }
 
 function changeTheme() {
-	currentTheme = window.quantml["theme"];
+	currentTheme = quantml["theme"];
 	homeStylesheet = document.getElementById('home-stylesheet')
 	if(currentTheme == "light"){
 		// console.log("Light2Dark");
 		changeThemeCSS("dark")
 		loadCorrectThemeImages("dark")
 		localStorage.setItem("quantmlTheme", "dark");
-		window.quantml["theme"] = "dark";
+		quantml["theme"] = "dark";
 		if(homeStylesheet != null) homeStylesheet.href = "/style-dark.css"
 	}
 	else if (currentTheme == "dark"){
@@ -138,7 +138,7 @@ function changeTheme() {
 		changeThemeCSS("light")
 		loadCorrectThemeImages("light")
 		localStorage.setItem("quantmlTheme", "light");
-		window.quantml["theme"] = "light";
+		quantml["theme"] = "light";
 		if(homeStylesheet != null) homeStylesheet.href = "/style-light.css"
 	}
 }
@@ -188,7 +188,7 @@ function isInputRequires(){
 function katexLoaded(){
 	setDisplay('pre-loading', 'none')
 	setDisplay('pre-initializing', 'none')
-	loadCorrectThemeImages(window.quantml["theme"]);
+	loadCorrectThemeImages(quantml["theme"]);
 	if(localStorage.getItem('paragraph-font-size') == null) resetFontSize();
 	setFontSize()
 	setDisplay('paragraph-content', 'block')
@@ -261,7 +261,7 @@ function loadQuantmlKatexDisplay(){
 }
 
 function loadKatex(isKatexImportant, callback){
-	theme = window.quantml["theme"]
+	theme = quantml["theme"]
 	if(localStorage.hasOwnProperty('katex-js') == false && isKatexImportant == true){
 		setDisplay('pre-loading', 'none')
 		setDisplay('pre-initializing', 'block')
@@ -393,7 +393,7 @@ function fullyLoaded(){
 
 
 	imgsrc = "img"
-	if(window.quantml["theme"] == "dark") imgsrc = "img-dark";
+	if(quantml["theme"] == "dark") imgsrc = "img-dark";
 	document.getElementById('modals-html').innerHTML =`
 	<!--=================== MODELS ===================-->
 
@@ -724,7 +724,7 @@ function fullyLoaded(){
 	});
 
 	// Show Content acc. to Device
-	if(window.quantml["notDesktop"]) {
+	if(quantml["notDesktop"]) {
 		setDisplay('desktop-mode', "none")
 		setDisplay('mobile-mode', "block")
 	} else {
@@ -890,13 +890,13 @@ function auth_identify_email(){
 	// Get User Info
 	email = email_form['login-email'].value;
 	nextButtonText = document.getElementById('login-button-text');
-	if(window.quantml["theme"]=="light"){
+	if(quantml["theme"]=="light"){
 		var src = "/data/img/loading-login.svg";
 	} else {
 		var src = "/data/img-dark/loading-login.svg";
 	}
 	nextButtonText.innerHTML = 'Next &nbsp; <img style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);" src='+ src +' alt="..." width="30px" height="30px"/>'
-	window.quantml["email"] = email.toLowerCase()
+	quantml["email"] = email.toLowerCase()
 	fetching({email: email.toLowerCase()}, "identify-user",
 		callbacks = {
 			"then": function() {nextButtonText.innerHTML = "Next &nbsp; &rarr;";},
@@ -917,13 +917,13 @@ function auth_identify_email(){
 					firstLoginEnterEmailText.innerHTML=`It's your <b>First</b> time logging in.<br>
 					Sending an OTP to ${email}`
 					setDisplay('first-login-enter-email', 'block')
-					fetching({email: window.quantml["email"]}, "send-otp", 
+					fetching({email: quantml["email"]}, "send-otp", 
 						callbacks = {
 							"then": function() {nextButtonText.innerHTML = "Next &nbsp; &rarr;";},
 							"response": function (data) {
 								// console.log(data)
 								if(data["status"] == "Success") {
-									document.getElementById('otp-email-sent-text').innerHTML = `<h4>An OTP is sent over to ${window.quantml["email"]}</h4>`
+									document.getElementById('otp-email-sent-text').innerHTML = `<h4>An OTP is sent over to ${quantml["email"]}</h4>`
 									open_otp_model()
 									firstLoginText = document.getElementById('first-login-otp-model')
 									firstLoginText.innerHTML=`It's your <b>First</b> time logging in, so let's set a password<br>
@@ -958,7 +958,7 @@ async function auth_authenticate(){
 	password = await encryptMessage(email_form['password'].value);
 	loginButtonText = document.getElementById('password-button-text');
 	loginButtonText.innerHTML = `Login &nbsp; ${get_loader_img_str()}`
-	fetching({email: window.quantml["email"], password: password}, "login", 
+	fetching({email: quantml["email"], password: password}, "login", 
 		callbacks = {
 			"then": function() {loginButtonText.innerHTML = "Login &nbsp; &rarr;";},
 			"response": function (data){
@@ -991,13 +991,13 @@ async function auth_createPassword(){
 	newpass = await encryptMessage(loginForm['new-password'].value);
 	confirmpass = await encryptMessage(loginForm['confirm-password'].value);
 	buttonText = document.getElementById('create-password-text');
-	if(window.quantml["theme"]=="light"){
+	if(quantml["theme"]=="light"){
 		var src = "/data/img/loading-login.svg";
 	} else {
 		var src = "/data/img-dark/loading-login.svg";
 	}
 	buttonText.innerHTML = 'Create Password &nbsp; <img style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);" src='+ src +' alt="..." width="30px" height="30px"/>'
-	fetching({email: window.quantml["email"], new_password: newpass, confirm_password: confirmpass, otp: window.quantml["otp"]}, 
+	fetching({email: quantml["email"], new_password: newpass, confirm_password: confirmpass, otp: quantml["otp"]}, 
 			endpoint="create-password",
 			callbacks={
 				"then": function(){buttonText.innerHTML = "Create Password &nbsp; &rarr;";},
@@ -1027,19 +1027,19 @@ async function auth_createPassword(){
 
 function auth_forgotPassword(){
 	forgotButtonText = document.getElementById('forgot-button-text')
-	if(window.quantml["theme"]=="light"){
+	if(quantml["theme"]=="light"){
 		var src = "/data/img/loading-forgot.svg";
 	} else {
 		var src = "/data/img-dark/loading-forgot.svg";
 	}
 	forgotButtonText.innerHTML = 'Forgot Password <img style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);" src='+ src +' alt="..." width="30px" height="30px"/>'
-	fetching({email: window.quantml["email"]}, "send-otp", 
+	fetching({email: quantml["email"]}, "send-otp", 
 		callbacks = {
 			"then": function() {forgotButtonText.innerHTML = "Forgot Password &nbsp; &rarr;";},
 			"response": function (data){
 				// console.log(data)
 				if(data["status"] == "Success") {
-					document.getElementById('otp-email-sent-text').innerHTML = `<h4>An OTP is sent over to ${window.quantml["email"]}</h4>`
+					document.getElementById('otp-email-sent-text').innerHTML = `<h4>An OTP is sent over to ${quantml["email"]}</h4>`
 					open_otp_model()
 				} else if (data["status"] == "Sending OTP"){
 					// PASS
@@ -1060,10 +1060,10 @@ function otp_success(email) {
 	setDisplay('resend-otp', 'none')
 	otp_form = document.querySelector('#otp-form');
 	otp = otp_form['otp'].value;
-	window.quantml["otp"] = otp
+	quantml["otp"] = otp
 	verifyButtonText = document.getElementById('otp-btn-text')
 	verifyButtonText.innerHTML = `Verify ${get_loader_img_str()}`
-	fetching({email: window.quantml["email"], otp: otp}, "verify-otp", 
+	fetching({email: quantml["email"], otp: otp}, "verify-otp", 
 		callbacks = {
 			"then": function() {verifyButtonText.innerHTML = "Verify &nbsp; &rarr;";},
 			"response": function(data){
@@ -1086,7 +1086,7 @@ function otp_not_verified(){
 	resendButtonText = document.getElementById('resend-otp-text')
 	resendButtonText.innerHTML = `Sending OTP &nbsp; ${get_loader_img_str("forgot")}`
 	// console.log("RESENDING OTP")
-	fetching({email: window.quantml["email"]}, "send-otp", 
+	fetching({email: quantml["email"]}, "send-otp", 
 		callbacks = {
 			"then": function(){resendButtonText.innerHTML = "Resend OTP &nbsp; &rarr;";},
 			"response": function (data) {
@@ -1188,7 +1188,7 @@ function auth_patreon_suggestion(){
 	}
 	suggestionButtonText = document.getElementById('submit-patreon-suggestion')
 	suggestionButtonText.innerHTML = `Submit ${get_loader_img_str()}`
-	fetching({token: getCookie("token") ,content: suggestion.value, chapterID: window.quantml["chapterID"]}, "send-suggestion", 
+	fetching({token: getCookie("token") ,content: suggestion.value, chapterID: quantml["chapterID"]}, "send-suggestion", 
 		callbacks = {
 			"then": function() {suggestionButtonText.innerHTML = "Submit &nbsp; &rarr;";},
 			"response": function(data){
@@ -1204,8 +1204,8 @@ function auth_patreon_suggestion(){
 }
 
 function loadContent(){
-	if(!("fetch-chapter" in window.quantml) || window.quantml["fetch-chapter"] == false) return;
-	chapterID = window.quantml["chapterID"]
+	if(!("fetch-chapter" in quantml) || quantml["fetch-chapter"] == false) return;
+	chapterID = quantml["chapterID"]
 	fetching({chapter: chapterID, token: getCookie('token')}, 'get-chapter',
 		callbacks={
 			"response": function(data){
