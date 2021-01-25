@@ -639,7 +639,7 @@ function fullyLoaded(){
 	logout.forEach(function(element,index){
 		element.addEventListener('click',function(e) {
 			e.preventDefault();
-			document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+			document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;SameSite=Lax";
 			fetching({token: getCookie("token")}, "logout", 
 				callbacks = {
 					"then": function(){auth_state_change()},
@@ -964,7 +964,7 @@ async function auth_authenticate(){
 			"response": function (data){
 				// console.log(data);
 				if(data["status"] == "Authenticated") {
-					document.cookie= `token=${data["token"]}` + "; path=/";
+					document.cookie= `token=${data["token"]}` + "; path=/;SameSite=Lax";
 					setDisplay('password-model', 'none');
 					auth_state_change()
 				} else if(data["status"] == "Unregistered") {
@@ -1007,7 +1007,7 @@ async function auth_createPassword(){
 						setDisplay('create-password-model', 'none')
 						setDisplay('password-do-not-match', 'none')
 						setDisplay('password-is-weak', 'none')
-						document.cookie= `token=${data["token"]}` + "; path=/";
+						document.cookie= `token=${data["token"]}` + "; path=/;SameSite=Lax";
 						auth_state_change()
 					} else if(data["status"] == "Dont match") {
 						invalidPassword()
