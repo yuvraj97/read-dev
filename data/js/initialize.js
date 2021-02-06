@@ -168,7 +168,7 @@ function loadNavBar(){
 		linkedin_size = "30px"
 	}
 	ul.innerHTML = `<li class="link size"><a rel="noreferrer" target="_blank" class="${whiteback}" href="https://app.quantml.org/statistics/"><img class="app-img" src="${imgsrc}app.webp" alt="App" width="${app_size}" height="${app_size}"></a></li>
-	<li class="link"><a rel="noreferrer" target="_blank" class="${whiteback}" href="https://discord.gg/8wpzGhfXJR"><img class="discord-img" src="${imgsrc}discord.svg" alt="Discord" width="${discord_size}" height="${discord_size}"></a></li>
+	<li class="link"><a rel="noreferrer" target="_blank" class="${whiteback}" href="https://discord.quantml.org/"><img class="discord-img" src="${imgsrc}discord.svg" alt="Discord" width="${discord_size}" height="${discord_size}"></a></li>
 	<li class="link size"><a rel="noreferrer" target="_blank" href="https://www.linkedin.com/in/yuvraj97/"><img src="${imgsrc}linkedin.webp" alt="LinkedIn" width="${linkedin_size}" height="${linkedin_size}"></a></li>
 	<!--<li class="link size"><a rel="noreferrer" target="_blank" href="https://github.com/yuvraj97/"><img src="${imgsrc}github.webp" alt="GitHub"></a></li>-->
 	${log_in_out}
