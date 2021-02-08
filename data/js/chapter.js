@@ -168,17 +168,14 @@ quantml["chapters"] ={
     "about": {
         run: function(){
             function correctingHeights(){
-				about  = document.getElementById('about');
-				aboutColumn  = document.getElementById('about-column');
-				authorContact = document.getElementById('author-contact');
-				author = document.getElementById('author');
+				author  = document.getElementById('author');
 				contact = document.getElementById('contact');
 				// console.log("about.offsetHeight:", about.offsetHeight, "author.offsetHeight:", author.offsetHeight, "contact.offsetHeight:", contact.offsetHeight)
-				if(about.offsetHeight < author.offsetHeight + contact.offsetHeight){
-					aboutColumn.style.height = String(authorContact.offsetHeight) + "px";
+				if(author.offsetHeight < contact.offsetHeight){
+					author.style.height = String(contact.offsetHeight) + "px";
 					// console.log("about.style.height:", about.style.height)
 				} else {
-					contact.style.marginTop = String(about.offsetHeight - author.offsetHeight - contact.offsetHeight) + "px";
+					contact.style.height = String(author.offsetHeight) + "px";
 					// console.log(String(about.offsetHeight - author.offsetHeight - contact.offsetHeight), "contact.style.marginTop:", contact.style.marginTop )
 				}
             }
