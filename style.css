@@ -124,18 +124,25 @@ h1{
 	font-weight: 600;
 	letter-spacing: unset;
 }
+.launch {
+	float: right ;
+	border: none !important;
+}
+
+.launch,
 #coming-soon,
 #early-access,
 #la-guide-read-now {
 	/* font-size: 16px; */
-	font-weight: 600;
+	font-weight: 600 !important;
 }
 
 @media screen and (max-width: 736px) {
+	.launch,
 	#coming-soon,
 	#early-access,
 	#la-guide-read-now {
-		font-size: 16px;
-		font-weight: 600;
+		font-size: 16px !important;
+		font-weight: 600 !important;
 	}
 }
