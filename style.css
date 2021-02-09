@@ -72,13 +72,13 @@
 }
 
 .btn {
-	border: none;
-	border-radius: 50px;
-	font-size: 16px;
+	border: none !important;
+	border-radius: 50px !important;
+	font-size: 16px !important;
 	/* position: absolute; */
 	/* bottom: 30px;
 	right: 30px; */
-	letter-spacing: 1px;
+	letter-spacing: 1px !important;
 	cursor: pointer;
 }
 
@@ -129,20 +129,18 @@ h1{
 	border: none !important;
 }
 
-.launch,
-#coming-soon,
-#early-access,
-#la-guide-read-now {
+.btn {
 	/* font-size: 16px; */
 	font-weight: 600 !important;
 }
 
 @media screen and (max-width: 736px) {
-	.launch,
-	#coming-soon,
-	#early-access,
-	#la-guide-read-now {
+	.btn {
 		font-size: 16px !important;
 		font-weight: 600 !important;
 	}
+}
+
+.button{
+	border: none;
 }
