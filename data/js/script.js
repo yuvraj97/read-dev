@@ -124,14 +124,12 @@ function clearModelOnBackgroundClick(modal){
 
 function changeTheme() {
 	currentTheme = quantml["theme"];
-	homeStylesheet = document.getElementById('home-stylesheet')
 	if(currentTheme == "light"){
 		// console.log("Light2Dark");
 		changeThemeCSS("dark")
 		loadCorrectThemeImages("dark")
 		localStorage.setItem("quantmlTheme", "dark");
 		quantml["theme"] = "dark";
-		if(homeStylesheet != null) homeStylesheet.href = "/style-dark.css"
 	}
 	else if (currentTheme == "dark"){
 		// console.log("Dark2Light");
@@ -139,7 +137,6 @@ function changeTheme() {
 		loadCorrectThemeImages("light")
 		localStorage.setItem("quantmlTheme", "light");
 		quantml["theme"] = "light";
-		if(homeStylesheet != null) homeStylesheet.href = "/style-light.css"
 	}
 }
 
@@ -988,6 +985,18 @@ async function auth_createPassword(){
 	}
 	loginForm = document.getElementById('create-password')
 	// Get User Info
+	if(loginForm['new-password'].value != loginForm['confirm-password'].value){
+		invalidPassword()
+		setDisplay('password-do-not-match', 'block')
+		setDisplay('password-is-weak', 'none')
+		return
+	}
+	if(loginForm['new-password'].value.length < 8){
+		invalidPassword()
+		setDisplay('password-do-not-match', 'none')
+		setDisplay('password-is-weak', 'block')
+		return
+	}
 	newpass = await encryptMessage(loginForm['new-password'].value);
 	confirmpass = await encryptMessage(loginForm['confirm-password'].value);
 	buttonText = document.getElementById('create-password-text');
@@ -997,6 +1006,7 @@ async function auth_createPassword(){
 		var src = "/data/img-dark/loading-login.svg";
 	}
 	buttonText.innerHTML = 'Create Password &nbsp; <img style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);" src='+ src +' alt="..." width="30px" height="30px"/>'
+	
 	fetching({email: quantml["email"], new_password: newpass, confirm_password: confirmpass, otp: quantml["otp"]}, 
 			endpoint="create-password",
 			callbacks={
