@@ -131,21 +131,43 @@ quantml["chapters"] ={
 
 				laReadNowBtn.style.border = "none";
 				earlyAccess.style.border = "none";
-				coming_soon.style.border = "none";
+                coming_soon.style.border = "none";
+                
+                btnGrp = document.getElementsByClassName("btn-group")[0]
+                buttons = btnGrp.querySelectorAll("button")
 
 				earlyAccessDiv = document.getElementById('early-access-div');
 				if((earlyAccess.offsetWidth + coming_soon.offsetWidth > earlyAccessDiv.offsetWidth) ||
 					(earlyAccessDiv.offsetWidth == 0 && quantml["notDesktop"] == true)){
 					earlyAccess.style.width = "100%";
 					coming_soon.style.width = "100%";
-					earlyAccess.style.marginTop = "12px";
+                    earlyAccess.style.marginTop = "12px";
+                    buttons.forEach(function(element, index){
+                        element.style.marginTop = "12px";
+                    })
+                    buttons[0].style.marginRight = "24px";
+                    w = (earlyAccess.offsetWidth - 30)/2
+                    console.log(earlyAccess.offsetWidth, 2*w+24)
 
 
 					laReadNowBtn = document.getElementById('la-guide-read-now');
 					laReadNowBtn.style.width="80%";
 					laReadNowBtn.style.right = "10%";
 					// laReadNowBtn.style.bottom = "30px";
-				}
+                    console.log("if")
+				} else {
+                    console.log("else")
+                    w = (earlyAccess.offsetWidth - 10)/2
+                }
+
+                earlyAccess.addEventListener("click",function(e){
+                    e.preventDefault();
+                    earlyAccess.style.display = "none"
+                    btnGrp.style.display = "block"
+                    buttons.forEach(function(element, index){
+                        element.style.width = String(w) + "px"
+                    })
+                })
 
 				laGuide = document.getElementById('la-guide');
 				statsGuide = document.getElementById('stats-guide');
@@ -162,7 +184,6 @@ quantml["chapters"] ={
 				}
 			}, 10)
 			
-            
         }
     },
     "about": {
