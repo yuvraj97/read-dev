@@ -145,9 +145,9 @@ quantml["chapters"] ={
                     buttons.forEach(function(element, index){
                         element.style.marginTop = "12px";
                     })
-                    buttons[0].style.marginRight = "24px";
-                    w = (earlyAccess.offsetWidth - 30)/2
-                    console.log(earlyAccess.offsetWidth, 2*w+24)
+                    buttons[0].style.marginRight = "5px";
+                    w = (earlyAccess.offsetWidth - 10)/2
+                    console.log(earlyAccess.offsetWidth, 2*w+15)
 
 
 					laReadNowBtn = document.getElementById('la-guide-read-now');
