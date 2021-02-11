@@ -195,10 +195,10 @@ function isInViewport(element) {
 	const rect = element.getBoundingClientRect();
 	if(rect.top == 0 && rect.left == 0 && rect.bottom == 0 && rect.right == 0) return false;
     return (
-        rect.top + 200 >= 0 &&
-        rect.left + 60 >= 0 &&
-        rect.bottom - 200 <= (window.innerHeight || document.documentElement.clientHeight) &&
-        rect.right - 60 <= (window.innerWidth || document.documentElement.clientWidth)
+        rect.top + 400 >= 0 &&
+        rect.left + 100 >= 0 &&
+        rect.bottom - 400 <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right - 100 <= (window.innerWidth || document.documentElement.clientWidth)
     );
 }
 
