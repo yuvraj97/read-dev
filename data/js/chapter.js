@@ -147,16 +147,16 @@ quantml["chapters"] ={
                     })
                     buttons[0].style.marginRight = "5px";
                     w = (earlyAccess.offsetWidth - 10)/2
-                    console.log(earlyAccess.offsetWidth, 2*w+15)
+                    // console.log(earlyAccess.offsetWidth, 2*w+15)
 
 
 					laReadNowBtn = document.getElementById('la-guide-read-now');
 					laReadNowBtn.style.width="80%";
 					laReadNowBtn.style.right = "10%";
 					// laReadNowBtn.style.bottom = "30px";
-                    console.log("if")
+                    // console.log("if")
 				} else {
-                    console.log("else")
+                    // console.log("else")
                     w = (earlyAccess.offsetWidth - 10)/2
                 }
 
