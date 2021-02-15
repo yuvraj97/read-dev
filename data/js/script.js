@@ -398,7 +398,7 @@ function fullyLoaded(){
 	<div id="password-model" class="modal">
 		<form class="modal-content animate" id="password-form">
 
-			<a class="close" style="float: right; padding-top: 0%; padding-bottom: 0%;" onclick="setDisplay('password-check', 'none')">X</a>
+			<a class="close" style="float: right; padding-top: 0%; padding-bottom: 0%;" onclick="setDisplay('password-model', 'none')">X</a>
 			<div class="container" style="margin: 1rem; margin-bottom: -1rem">
 
 			<label for="psw"><b>Password</b></label>
