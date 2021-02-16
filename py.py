@@ -16,7 +16,8 @@ skip_files = ["py.py", "requirements.txt", ".gitignore"]
 skip_folders = ["tobeadded", "staged", ".vscode", ".git", "notebook-img"]
 remove_files = ["initialize.js", "inline.css",
                 # Don't Count    
-                "style.css", "style-dark.css", "style-light.css", "TODO.txt"
+                "style.css", "style-dark.css", "style-light.css", "TODO.txt",
+                "authStyle-dark.css","authStyle-light.css", "authStyle.css"
                ]
 files_without_ext = ["_redirects"]
 do_not_print_ext = ["png", "webp", "svg", "html", "woff2", "woff", "ttf"]

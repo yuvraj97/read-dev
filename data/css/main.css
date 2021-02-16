@@ -412,3 +412,167 @@ textarea {
 .quantml-katex-display.inline{
 	display: inline-block;
 }
+
+/* ========================  Modals [START]  ===================================== */
+
+	.error-border-bounce{
+	animation-name: error-border-bounce;
+	animation-duration: .5s;
+	animation-delay: 0.25s;
+	}
+
+	@keyframes error-border-bounce {
+	0% {
+		transform: translateX(0px);
+		timing-function: ease-in;
+	}
+	37% {
+		transform: translateX(5px);
+		timing-function: ease-out;
+	}
+	55% {
+		transform: translateX(-5px);
+		timing-function: ease-in;
+	}
+	73% {
+		transform: translateX(4px);
+		timing-function: ease-out;
+	}
+	82% {
+		transform: translateX(-4px);
+		timing-function: ease-in;
+	}
+	91% {
+		transform: translateX(2px);
+		timing-function: ease-out;
+	}
+	96% {
+		transform: translateX(-2px);
+		timing-function: ease-in;
+	}
+	100% {
+		transform: translateX(0px);
+		timing-function: ease-in;
+	}
+	}
+
+
+	.error-msg, .warn-msg, .success-msg{
+	padding: 1rem;
+	border: 2px solid;
+	margin-bottom: 15px;
+	border-radius: 5px;
+	}
+	.error-msg, .warn-msg{
+	padding-bottom: 23px;
+	}
+
+	.container {
+	padding: 16px;
+	}
+
+	/* The Modal (background) */
+	.modal {
+	display: none; /* Hidden by default */
+	position: fixed; /* Stay in place */
+	z-index: 1; /* Sit on top */
+	left: 0;
+	top: 0;
+	width: 100%; /* Full width */
+	height: 100%; /* Full height */
+	overflow: auto; /* Enable scroll if needed */
+	padding-top: 60px;
+	}
+
+	/* Modal Content/Box */
+	.modal-content {
+	margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+	border-radius: 15px;
+	width: 50%; /* Could be more or less, depending on screen size */
+	}
+
+	.image-content {
+	/* top right bottom left*/
+	margin: 10% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+	border-radius: 15px;
+	width: 100%; /* Could be more or less, depending on screen size */
+	height: 100%;
+	}
+	.image-content > img {
+	border-radius: 10px;
+		box-shadow: .05rem .05rem 0.5rem 0.3rem rgb(50, 50, 50);
+	}
+	@media screen and (max-width: 700px) {
+	.image-content {
+		margin: 30% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+	}
+	.image-content > img {
+		border-radius: 5px;
+	}    
+	}
+
+
+	/* The Close Button (x) */
+	.close {
+	margin: 10px;
+	padding-left: 10px;
+	padding-right: 10px; 
+	padding-top: 5px; 
+	padding-bottom: 5px; 
+	border-radius: 6px;
+	cursor: pointer;
+	}
+
+	.close:hover,
+	.close:focus {
+	font-weight: bold;
+	cursor: pointer;
+	}
+
+	/* Add Zoom Animation */
+	.animate {
+	-webkit-animation: animatezoom 0.6s;
+	animation: animatezoom 0.6s
+	}
+
+	@-webkit-keyframes animatezoom {
+	from {-webkit-transform: scale(0)} 
+	to {-webkit-transform: scale(1)}
+	}
+	
+	@keyframes animatezoom {
+	from {transform: scale(0)} 
+	to {transform: scale(1)}
+	}
+
+	/* Change styles for span and cancel button on extra small screens */
+	@media screen and (max-width: 600px) {
+	.modal-content {
+		width: 80%;
+	}
+	}
+	.container > .title {
+	font-size: 18px; 
+	}
+
+	.container > p {
+	line-height: 25px;
+	font-size: 15px;
+	}
+
+	@media screen and (max-width: 600px) {
+	.container > p {
+		line-height: 25px;
+		font-size: 14px;
+	}
+	}
+
+	.container > p > .pad-right {
+	margin-left: 20px; display: inline-block;
+	}
+
+	.container > p > a {
+	cursor: pointer;
+	}
+
+/* ========================   Modals [END]   ===================================== */

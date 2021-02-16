@@ -239,3 +239,78 @@ textarea {
 .fa-link {
     color: #0033cc;
 }
+
+/* ========================  Modals [START]  ===================================== */
+
+    input {
+    color: #121212;
+    background-color: inherit;
+    /* font-weight: 500; */
+    }
+
+    .error-border {
+    border: 2px solid red;
+    }
+
+    .error-msg{
+    border: 2px solid red;
+    background-color: rgba(255, 0, 0, 0.05);
+    }
+
+    .success-msg{
+    border-color: rgba(9, 171, 59, 0.5) !important;
+    background-color: rgba(9, 171, 59, 0.2);
+    color: rgb(23, 108, 54);
+    }
+    .success-msg > b {
+    color: rgb(23, 108, 54);
+    }
+
+    .warn-border {
+    border: 2px solid orange;
+    }
+
+    .warn-msg{
+    border: 2px solid rgba(255, 166, 0);
+    background-color: rgba(255, 166, 0, 0.1);
+    }
+
+    /* The Modal (background) */
+    .modal {
+    background-color: rgba(0, 115, 177,0.2); /* Black w/ opacity */
+    }
+
+    /* Modal Content/Box */
+    .modal-content {
+    background-color: #fefefe;
+    border: 1px solid #888;
+    }
+
+    .image-content > img {
+    background-color: #fefefe;
+        box-shadow: .05rem .05rem 0.5rem 0.1rem rgb(50, 50, 50);
+    }
+
+    /* The Close Button (x) */
+    .close {
+    background-color: rgb(246, 248, 250);
+    border:1px rgb(194, 199, 204) solid;
+    color: #000;
+    }
+
+    .close:hover,
+    .close:focus {
+    color: #0073b1;
+    background-color: rgb(240, 240, 240);
+    border:1px rgb(0, 115, 177, 0.8) solid;
+    }
+
+    .container > p {
+    color: rgb(0, 0, 0, 0.87);
+    }
+
+    .container > .title {
+    border-bottom: 1.5px solid #121212;
+    }
+
+/* ========================   Modals [END]   ===================================== */

@@ -98,21 +98,6 @@ requireScript("auth-css","0.1.2","/data/css/authStyle.css",function(){});var che
 <div id="paragraph-content" data-swipe-threshold="80">
 
 	<div class="row">
-		<div  class="column">
-			<div id="la-guide" class="book">
-				<h1>Linear Algebra</h1>
-				<div style="line-height: 50px; display: inline-table; width: 100%;">
-					<img style="border-radius: 5px;" src="/data/img/theory.webp" alt="Theory" width="65px" height="28px">
-				</div>
-				<p>Inspired by <a rel="noreferrer" target="_blank" href="https://ocw.mit.edu/">MIT OCW</a>'s <br>
-				<a rel="noreferrer" target="_blank" href="https://ocw.mit.edu/courses/mathematics/18-06sc-linear-algebra-fall-2011/">18.06sc Linear Algebra</a><br>
-				[by Professor <a rel="noreferrer" target="_blank" href="http://www-math.mit.edu/~gs/">Gilbert Strang</a>]</p>
-				<br><br>
-				<div class="early-access-div" >
-						<a href="https://read.quantml.org/linear-algebra/"><button style="bottom: 30px;" id="la-guide-read-now" class="button btn jump">Read Now</button></a>
-				</div>
-			</div>
-		</div>
 
 		<div class="column">
 			<div id="stats-guide" class="book">
@@ -127,20 +112,55 @@ requireScript("auth-css","0.1.2","/data/css/authStyle.css",function(){});var che
 					[by Professor <a rel="noreferrer" target="_blank" href="http://www-math.mit.edu/~rigollet/">Philippe Rigollet</a>]</p>
 					<br>
 					<div id="early-access-div" class="early-access-div">
-					<button id="coming-soon" style="float: right; bottom: 30px;" class="button btn disabled">Coming Soon</button>
-					<!-- <button  id="early-access" class="button btn jump">Get early access&nbsp;<img class="patreon-logo" src="/data/img/patreon.webp" alt="Patreon"></button> -->
-					<div style="display: none;" class="btn-group">
+					<!-- <button id="coming-soon" style="float: right; bottom: 30px;" class="button btn disabled">Coming Soon</button> -->
+					
+					<div id="statistics-div">
+						<a rel="noreferrer" target="_blank" style="border-bottom: none;" href="https://app.quantml.org/statistics/">
+							<button style="margin-right: 10px;" id="launch-app" class="button btn jump">
+								Launch <img style="-webkit-transform: translateY(.2rem);transform: translateY(.2rem);" src="/data/img/app.webp" alt="App" width="25px" height="25px">
+							</button>
+						</a>
+
+						<a style="border-bottom: none;" href="https://read.quantml.org/statistics/">
+							<button id="read-statistics" style="float: right; bottom: 30px;" class="button btn jump">
+								Read Now ⏩
+								<!-- ⏳ -->
+							</button>
+						</a>
+					</div>
+					<!-- <div style="display: none;" class="btn-group">
 						<a style="border-bottom: none;" href="https://read.quantml.org/statistics/"><button style="margin-right: 10px;" class="button btn jump"><div class="btn-text">Guide <img class="patreon-logo" src="/data/img/patreon.webp" alt="Patreon"></div></button></a>
 						<a style="border-bottom: none;" href="https://app.quantml.org/statistics/"><button class="button btn jump"><div class="btn-text">App <img class="patreon-logo" src="/data/img/patreon.webp" alt="Patreon"></div></button></a>
+					</div> -->
 					</div>
-					</div>
-					<style>
+					<!-- <style>
 						.btn-group button{
 							padding: 0px 18px;
 						}
-					</style>
+					</style> -->
 				</div>
 		</div>
+
+		<div  class="column">
+			<div id="la-guide" class="book">
+				<h1>Linear Algebra</h1>
+				<div style="line-height: 50px; display: inline-table; width: 100%;">
+					<img style="border-radius: 5px;" src="/data/img/theory.webp" alt="Theory" width="65px" height="28px">
+				</div>
+				<p>Inspired by <a rel="noreferrer" target="_blank" href="https://ocw.mit.edu/">MIT OCW</a>'s <br>
+				<a rel="noreferrer" target="_blank" href="https://ocw.mit.edu/courses/mathematics/18-06sc-linear-algebra-fall-2011/">18.06sc Linear Algebra</a><br>
+				[by Professor <a rel="noreferrer" target="_blank" href="http://www-math.mit.edu/~gs/">Gilbert Strang</a>]</p>
+				<br><br>
+				<div class="early-access-div" >
+						<a href="https://read.quantml.org/linear-algebra/">
+							<button style="bottom: 30px;" id="la-guide-read-now" class="button btn jump">
+								Read Now ✔
+							</button>
+						</a>
+				</div>
+			</div>
+		</div>
+
 	</div>
 
 </div>

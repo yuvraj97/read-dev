@@ -126,49 +126,35 @@ quantml["chapters"] ={
         run: function(){
             function homePageDOM(){
 				laReadNowBtn = document.getElementById('la-guide-read-now');
-				earlyAccess = document.getElementById('early-access');
-				coming_soon = document.getElementById('coming-soon');
+				readStatistics = document.getElementById('read-statistics');
+				launchApp = document.getElementById('launch-app');
 
 				laReadNowBtn.style.border = "none";
-				earlyAccess.style.border = "none";
-                coming_soon.style.border = "none";
+				readStatistics.style.border = "none";
+                launchApp.style.border = "none";
                 
-                btnGrp = document.getElementsByClassName("btn-group")[0]
-                buttons = btnGrp.querySelectorAll("button")
+                statisticsDiv = document.getElementById("statistics-div")
+                // buttons = btnGrp.querySelectorAll("button")
 
-				earlyAccessDiv = document.getElementById('early-access-div');
-				if((earlyAccess.offsetWidth + coming_soon.offsetWidth > earlyAccessDiv.offsetWidth) ||
-					(earlyAccessDiv.offsetWidth == 0 && quantml["notDesktop"] == true)){
-					earlyAccess.style.width = "100%";
-					coming_soon.style.width = "100%";
-                    earlyAccess.style.marginTop = "12px";
-                    buttons.forEach(function(element, index){
-                        element.style.marginTop = "12px";
-                    })
-                    buttons[0].style.marginRight = "5px";
-                    w = (earlyAccess.offsetWidth - 10)/2
-                    // console.log(earlyAccess.offsetWidth, 2*w+15)
+                w = statisticsDiv.offsetWidth * 0.6
+                if(laReadNowBtn.offsetWidth < w){
+                    laReadNowBtn.style.width = String(w) + "px";
+                }
 
-
-					laReadNowBtn = document.getElementById('la-guide-read-now');
-					laReadNowBtn.style.width="80%";
+				// earlyAccessDiv = document.getElementById('early-access-div');
+				if((readStatistics.offsetWidth + launchApp.offsetWidth + 10 > statisticsDiv.offsetWidth) ||
+					(statisticsDiv.offsetWidth == 0 && quantml["notDesktop"] == true)){
+					readStatistics.style.width = "100%";
+					launchApp.style.width = "100%";
+                    readStatistics.style.marginTop = "12px";
+                    readStatistics.style.float = "none"
+                    
+                    laReadNowBtn.style.width="80%";
 					laReadNowBtn.style.right = "10%";
 					// laReadNowBtn.style.bottom = "30px";
                     // console.log("if")
-				} else {
-                    // console.log("else")
-                    w = (earlyAccess.offsetWidth - 10)/2
-                }
-
-                earlyAccess.addEventListener("click",function(e){
-                    e.preventDefault();
-                    earlyAccess.style.display = "none"
-                    btnGrp.style.display = "block"
-                    buttons.forEach(function(element, index){
-                        element.style.width = String(w) + "px"
-                    })
-                })
-
+				}
+                
 				laGuide = document.getElementById('la-guide');
 				statsGuide = document.getElementById('stats-guide');
 				if(laGuide.offsetHeight < statsGuide.offsetHeight && document.querySelector('body').offsetWidth > 736){
@@ -177,8 +163,8 @@ quantml["chapters"] ={
 			}
 
             widthInterval =  setInterval(function(){
-				earlyAccessDiv = document.getElementById('early-access-div');
-				if(earlyAccessDiv.offsetWidth != 0){
+				readStatistics = document.getElementById('read-statistics');
+				if(readStatistics.offsetWidth != 0){
 					homePageDOM()
 					clearInterval(widthInterval)
 				}

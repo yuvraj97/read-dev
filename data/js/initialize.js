@@ -101,11 +101,11 @@ function changeThemeCSS(currentTheme){
 	if(currentTheme == "dark"){
 		e = document.getElementById("main-light-css")
 		if(e!=null) e.remove();
-		e = document.getElementById("auth-light-css")
-		if(e!=null) e.remove();
+		// e = document.getElementById("auth-light-css")
+		// if(e!=null) e.remove();
 	
 		requireScript("main-dark-css", "0.1.2", "/data/css/main-dark.css", function(){})
-		requireScript("auth-dark-css", "0.1.2", "/data/css/authStyle-dark.css", function(){})
+		// requireScript("auth-dark-css", "0.1.2", "/data/css/authStyle-dark.css", function(){})
 		if(homeStylesheet != null) {
 			homeStylesheet.remove()
 			s.innerHTML = ".book{box-shadow:.1rem .1rem 1.2rem .1rem #000}.btn{background-color:#2d2d2d;box-shadow:.05rem .05rem .5rem .1rem rgb(255,255,255,.6)}.btn.disabled,.btn.disabled:focus,.btn.disabled:hover{box-shadow:.05rem .05rem .5rem 0 rgb(255,166,0,.6)}"
@@ -114,11 +114,11 @@ function changeThemeCSS(currentTheme){
 	} else {
 		e = document.getElementById("main-dark-css")
 		if(e!=null) e.remove();
-		e = document.getElementById("auth-dark-css")
-		if(e!=null) e.remove();
+		// e = document.getElementById("auth-dark-css")
+		// if(e!=null) e.remove();
 		
 		requireScript("main-light-css", "0.1.2", "/data/css/main-light.css", function(){})
-		requireScript("auth-light-css", "0.1.2", "/data/css/authStyle-light.css", function(){})
+		// requireScript("auth-light-css", "0.1.2", "/data/css/authStyle-light.css", function(){})
 	
 		if(homeStylesheet != null) {
 			homeStylesheet.remove()
@@ -150,14 +150,6 @@ function loadNavBar(){
 	} else {
 		imgsrc = "/data/img-dark/"
   	}
-	if(typeof(isConcluded) == "undefined" || isConcluded == false){
-		log_in_out = ``
-		// log_in_out += `<li style=" text-align: center;" id="btn-loading"><img class="btn-loading" src="${imgsrc}btn-loading.svg" alt=" "></li>`
-		log_in_out += `<li style="display: none;" id="login-button"><button class="login-logout-join login-btn-width" >Login <img src="${imgsrc}patreon.webp" alt="Patreon"></button></li>
-		<li style="display: none;" id="logout-button"><button class="login-logout-join" >Logout <img src="${imgsrc}patreon.webp" alt="Logout"></button></li>`
-	} else if(isConcluded == true) {
-		log_in_out = ``
-	}
 	whiteback = ""
 	app_size = "30px"
 	if(quantml["theme"]=="dark") app_size = "25px"
@@ -173,24 +165,23 @@ function loadNavBar(){
 	<li class="link"><a rel="noreferrer" target="_blank" class="${whiteback}" href="https://discord.quantml.org/"><img class="discord-img" src="${imgsrc}discord.svg" alt="Discord" width="${discord_size}" height="${discord_size}"></a></li>
 	<li class="link size"><a rel="noreferrer" target="_blank" href="https://www.linkedin.com/in/yuvraj97/"><img src="${imgsrc}linkedin.webp" alt="LinkedIn" width="${linkedin_size}" height="${linkedin_size}"></a></li>
 	<!--<li class="link size"><a rel="noreferrer" target="_blank" href="https://github.com/yuvraj97/"><img src="${imgsrc}github.webp" alt="GitHub"></a></li>-->
-	${log_in_out}
-	<li style="display: none;" id="join-button"><button onclick=" window.open('https://www.patreon.com/quantml','_blank','noopener')" class="login-logout-join join-btn-width" >Join <img src="${imgsrc}patreon.webp" alt="Patreon"></button></li>
+	<li id="join-button"><button onclick=" window.open('https://www.patreon.com/quantml','_blank','noopener')" class="login-logout-join join-btn-width" >Join <img src="${imgsrc}patreon.webp" alt="Patreon"></button></li>
 	<li class="link size" title="Change Theme" ><img onclick="changeTheme()" id="change-theme" src="${imgsrc}change-theme.webp" alt="Change Theme" width="30px" height="30px"></li>
 	<li title="Settings" class="jump link size"><img onclick="showSettings()" src="${imgsrc}settings.webp" alt="Settings" width="30px" height="30px"></li>
 	`
 	nav.appendChild(ul)
-  navPanel = document.createElement('div')
-  navPanel.id="navPanel"
-  navPanel.innerHTML = nav.innerHTML;
-  div = document.createElement('div')
-  div.id="close-navbar";
-  div.classList.add("close")
-  navPanel.appendChild(div)
-  document.getElementsByTagName("body")[0].appendChild(navPanel)
-  // Close Navbar
-  div.addEventListener('click',function(){
-	document.querySelector('body').classList.remove('is-navPanel-visible');
-  })
+	navPanel = document.createElement('div')
+	navPanel.id="navPanel"
+	navPanel.innerHTML = nav.innerHTML;
+	div = document.createElement('div')
+	div.id="close-navbar";
+	div.classList.add("close")
+	navPanel.appendChild(div)
+	document.getElementsByTagName("body")[0].appendChild(navPanel)
+	// Close Navbar
+	div.addEventListener('click',function(){
+		document.querySelector('body').classList.remove('is-navPanel-visible');
+	})
 
 }
 
