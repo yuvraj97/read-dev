@@ -5,9 +5,9 @@ import os
 # a URL-safe format.
 def run():
     js_urls = [
-        "https://bitbucket.org/yuvraj_97/unknown/raw/f1b0840fc290bc9080b33390aafcf4c2d6790129/chapter.js",
-        "https://bitbucket.org/yuvraj_97/unknown/raw/f1b0840fc290bc9080b33390aafcf4c2d6790129/script.js",
-        "https://bitbucket.org/yuvraj_97/unknown/raw/f1b0840fc290bc9080b33390aafcf4c2d6790129/swiped-events.js",
+        "https://bitbucket.org/yuvraj_97/unknown/raw/4f54465a809e758ea33674a8dc36afba214789ad/chapter.js",
+        "https://bitbucket.org/yuvraj_97/unknown/raw/4f54465a809e758ea33674a8dc36afba214789ad/script.js",
+        "https://bitbucket.org/yuvraj_97/unknown/raw/4f54465a809e758ea33674a8dc36afba214789ad/swiped-events.js",
     ]
 
     for js_url in js_urls:

@@ -151,8 +151,9 @@ function loadNavBar(){
 		imgsrc = "/data/img-dark/"
   	}
 	if(typeof(isConcluded) == "undefined" || isConcluded == false){
-		log_in_out = `<li style=" text-align: center;" id="btn-loading"><img class="btn-loading" src="${imgsrc}btn-loading.svg" alt=" "></li>
-		<li style="display: none;" id="login-button"><button class="login-logout-join login-btn-width" >Login <img src="${imgsrc}patreon.webp" alt="Patreon"></button></li>
+		log_in_out = ``
+		// log_in_out += `<li style=" text-align: center;" id="btn-loading"><img class="btn-loading" src="${imgsrc}btn-loading.svg" alt=" "></li>`
+		log_in_out += `<li style="display: none;" id="login-button"><button class="login-logout-join login-btn-width" >Login <img src="${imgsrc}patreon.webp" alt="Patreon"></button></li>
 		<li style="display: none;" id="logout-button"><button class="login-logout-join" >Logout <img src="${imgsrc}patreon.webp" alt="Logout"></button></li>`
 	} else if(isConcluded == true) {
 		log_in_out = ``
