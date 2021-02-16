@@ -343,7 +343,25 @@ function paginationButton(){
 	}
 }
 
+function applyAnalytics(){
+	var s = document.createElement('script');
+	s.async = true
+	s.src = "https://www.googletagmanager.com/gtag/js?id=G-ZYZD5RRP5G"
+	document.getElementsByTagName("head")[0].appendChild(s);
+	
+	script = `window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+	
+	  gtag('config', 'G-ZYZD5RRP5G');`
+	var s = document.createElement('script');
+	var scriptContent = document.createTextNode(script);
+	s.appendChild(scriptContent);
+	document.getElementsByTagName("head")[0].appendChild(s);
+}
+
 function fullyLoaded(){
+	applyAnalytics()
 	paginationButton()
 	createImageModals()
 	
