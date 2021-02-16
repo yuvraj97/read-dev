@@ -409,182 +409,182 @@ function fullyLoaded(){
 
 	imgsrc = "img"
 	if(quantml["theme"] == "dark") imgsrc = "img-dark";
-	// document.getElementById('modals-html').innerHTML =`
-	// <!--=================== MODELS ===================-->
+	document.getElementById('modals-html').innerHTML =`
+	<!--=================== MODELS ===================-->
 
-	// <!--=============== password-check MODEL[START] ===============-->
-	// <div id="password-model" class="modal">
-	// 	<form class="modal-content animate" id="password-form">
+	<!--=============== password-check MODEL[START] ===============-->
+	<div id="password-model" class="modal">
+		<form class="modal-content animate" id="password-form">
 
-	// 		<a class="close" style="float: right; padding-top: 0%; padding-bottom: 0%;" onclick="setDisplay('password-model', 'none')">X</a>
-	// 		<div class="container" style="margin: 1rem; margin-bottom: -1rem">
+			<a class="close" style="float: right; padding-top: 0%; padding-bottom: 0%;" onclick="setDisplay('password-model', 'none')">X</a>
+			<div class="container" style="margin: 1rem; margin-bottom: -1rem">
 
-	// 		<label for="psw"><b>Password</b></label>
-	// 		<input id="password" onkeypress="passwordIsValidated();setDisplay('network-request-failed', 'none');" class="loginInput" type="password" placeholder="Enter Password" name="psw" required>
-	// 		<div style="display:none" id="password-error-msg" class="error-msg">
-	// 			<img style="float: left;" src="/data/${imgsrc}/error.webp" alt="!" width="50px" height="50px">
-	// 			<div style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);">Incorrect Password</div>
-	// 		</div>
+			<label for="psw"><b>Password</b></label>
+			<input id="password" onkeypress="passwordIsValidated();setDisplay('network-request-failed', 'none');" class="loginInput" type="password" placeholder="Enter Password" name="psw" required>
+			<div style="display:none" id="password-error-msg" class="error-msg">
+				<img style="float: left;" src="/data/${imgsrc}/error.webp" alt="!" width="50px" height="50px">
+				<div style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);">Incorrect Password</div>
+			</div>
 
-	// 		<div style="display: none;" id="network-request-failed" class="error-msg">
-	// 			<img style="float: left;" src="/data/${imgsrc}/error.webp" alt="!" width="50px" height="50px">
-	// 			<div style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);">Internet Connection Error</div>
-	// 		</div>
+			<div style="display: none;" id="network-request-failed" class="error-msg">
+				<img style="float: left;" src="/data/${imgsrc}/error.webp" alt="!" width="50px" height="50px">
+				<div style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);">Internet Connection Error</div>
+			</div>
 
-	// 		<div style="display: none;" id="less-then-3-dollar" class="error-msg">
-	// 			<img style="float: left;" src="/data/${imgsrc}/error.webp" alt="!" width="50px" height="50px">
-	// 			<div style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);">Your pledge should be at least <b>$3</b>, <a rel="noreferrer" target="_blank" href="https://www.patreon.com/quantml">Upgrade your pledge</a></div>
-	// 		</div>
+			<div style="display: none;" id="less-then-3-dollar" class="error-msg">
+				<img style="float: left;" src="/data/${imgsrc}/error.webp" alt="!" width="50px" height="50px">
+				<div style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);">Your pledge should be at least <b>$3</b>, <a rel="noreferrer" target="_blank" href="https://www.patreon.com/quantml">Upgrade your pledge</a></div>
+			</div>
 
-	// 		<button class="form-buttons login-button" type="submit">
-	// 			<span id="password-button-text">Login &nbsp; &rarr;</span>
-	// 		</button>
+			<button class="form-buttons login-button" type="submit">
+				<span id="password-button-text">Login &nbsp; &rarr;</span>
+			</button>
 
-	// 		<button id="forgot-password" class="form-buttons forgot-button">
-	// 		<span id="forgot-button-text">Forgot Password &nbsp; &rarr;</span>
-	// 		</button>
+			<button id="forgot-password" class="form-buttons forgot-button">
+			<span id="forgot-button-text">Forgot Password &nbsp; &rarr;</span>
+			</button>
 
-	// 		</div>
-	// 		<br>
-	// 	</form>
-	// 	</div>
-	// <!--=============== password-check MODEL[END] ===============-->
+			</div>
+			<br>
+		</form>
+		</div>
+	<!--=============== password-check MODEL[END] ===============-->
 
-	// <!--=============== LOGIN MODEL[START] ===============-->
-	// <div id="email-model" class="modal">
-	// 	<form class="modal-content animate" id="email-form">
+	<!--=============== LOGIN MODEL[START] ===============-->
+	<div id="email-model" class="modal">
+		<form class="modal-content animate" id="email-form">
 
-	// 		<a class="close" style="float: right; padding-top: 0%; padding-bottom: 0%;" onclick="setDisplay('email-model', 'none')">X</a>
-	// 		<div class="container" style="margin: 1rem; margin-bottom: -1rem">
-	// 		<label for="email"><b>Email Address</b>(<a rel="noreferrer" target="_blank" href="https://www.patreon.com/quantml">patreon</a>)</label>
-	// 		<input id="login-email" onkeypress="emailAddressIsValidated();setDisplay('network-request-failed', 'none');" class="loginInput" ref="emailRef"  type="email" placeholder="Enter Email Address" name="email" required>
-	// 		<div id="login-error-msg" class="error-msg">
-	// 			<img style="float: left;" src="/data/${imgsrc}/error.webp" alt="!" width="50px" height="50px">
-	// 			<div style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);">Invalid Email Address</div>
-	// 		</div>
-	// 		<div id="login-email-user-not-found" class="warn-msg"></div>
+			<a class="close" style="float: right; padding-top: 0%; padding-bottom: 0%;" onclick="setDisplay('email-model', 'none')">X</a>
+			<div class="container" style="margin: 1rem; margin-bottom: -1rem">
+			<label for="email"><b>Email Address</b>(<a rel="noreferrer" target="_blank" href="https://www.patreon.com/quantml">patreon</a>)</label>
+			<input id="login-email" onkeypress="emailAddressIsValidated();setDisplay('network-request-failed', 'none');" class="loginInput" ref="emailRef"  type="email" placeholder="Enter Email Address" name="email" required>
+			<div id="login-error-msg" class="error-msg">
+				<img style="float: left;" src="/data/${imgsrc}/error.webp" alt="!" width="50px" height="50px">
+				<div style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);">Invalid Email Address</div>
+			</div>
+			<div id="login-email-user-not-found" class="warn-msg"></div>
 
-	// 		<div style="display: none;" id="network-request-failed" class="error-msg">
-	// 			<img style="float: left;" src="/data/${imgsrc}/error.webp" alt="!" width="50px" height="50px">
-	// 			<div style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);">Internet Connection Error</div>
-	// 		</div>
+			<div style="display: none;" id="network-request-failed" class="error-msg">
+				<img style="float: left;" src="/data/${imgsrc}/error.webp" alt="!" width="50px" height="50px">
+				<div style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);">Internet Connection Error</div>
+			</div>
 
-	// 		<button class="form-buttons login-button" type="submit">
-	// 			<span id="login-button-text">Next &nbsp; &rarr;</span>
-	// 		</button>
+			<button class="form-buttons login-button" type="submit">
+				<span id="login-button-text">Next &nbsp; &rarr;</span>
+			</button>
 
-	// 		<div style="display: none; margin-top: 10px" id="first-login-enter-email" class="success-msg">
-	// 		</div>
+			<div style="display: none; margin-top: 10px" id="first-login-enter-email" class="success-msg">
+			</div>
 
-	// 		</div>
-	// 		<br>
-	// 	</form>
-	// 	</div>
-	// <!--=============== LOGIN MODEL[END] ===============-->
+			</div>
+			<br>
+		</form>
+		</div>
+	<!--=============== LOGIN MODEL[END] ===============-->
 
-	// <!--=============== Create Password MODEL[START] ===============-->
-	// <div id="create-password-model" class="modal">
-	// 	<form class="modal-content animate" id="create-password">
+	<!--=============== Create Password MODEL[START] ===============-->
+	<div id="create-password-model" class="modal">
+		<form class="modal-content animate" id="create-password">
 
-	// 		<a class="close" style="float: right; padding-top: 0%; padding-bottom: 0%;" onclick="setDisplay('create-password-model', 'none')">X</a>
-	// 		<div class="container" style="margin: 1rem; margin-bottom: -1rem">
-	// 		<label for="psw"><b>New Password</b></label>
-	// 		<input id="new-password" onkeypress="passwordIsValidated();setDisplay('network-request-failed', 'none');" class="loginInput" type="password" placeholder="Enter Password" name="psw" required>
-	// 		<label for="psw"><b>Password</b></label>
-	// 		<input id="confirm-password" onkeypress="passwordIsValidated();setDisplay('network-request-failed', 'none');" class="loginInput" type="password" placeholder="Confirm Password" name="psw" required>
-	// 		<div style="display: none" id="password-do-not-match" class="error-msg">
-	// 			<img style="float: left;" src="/data/${imgsrc}/error.webp" alt="!" width="50px" height="50px">
-	// 			<div style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);">Password does not match</div>
-	// 		</div>
-	// 		<div style="display: none" id="password-is-weak" class="error-msg">
-	// 			<img style="float: left;" src="/data/${imgsrc}/error.webp" alt="!" width="50px" height="50px">
-	// 			<div style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);">Weak Password, password should be at least 8 character long</div>
-	// 		</div>
-	// 		<div style="display: none;" id="network-request-failed" class="error-msg">
-	// 			<img style="float: left;" src="/data/${imgsrc}/error.webp" alt="!" width="50px" height="50px">
-	// 			<div style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);">Internet Connection Error</div>
-	// 		</div>
+			<a class="close" style="float: right; padding-top: 0%; padding-bottom: 0%;" onclick="setDisplay('create-password-model', 'none')">X</a>
+			<div class="container" style="margin: 1rem; margin-bottom: -1rem">
+			<label for="psw"><b>New Password</b></label>
+			<input id="new-password" onkeypress="passwordIsValidated();setDisplay('network-request-failed', 'none');" class="loginInput" type="password" placeholder="Enter Password" name="psw" required>
+			<label for="psw"><b>Password</b></label>
+			<input id="confirm-password" onkeypress="passwordIsValidated();setDisplay('network-request-failed', 'none');" class="loginInput" type="password" placeholder="Confirm Password" name="psw" required>
+			<div style="display: none" id="password-do-not-match" class="error-msg">
+				<img style="float: left;" src="/data/${imgsrc}/error.webp" alt="!" width="50px" height="50px">
+				<div style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);">Password does not match</div>
+			</div>
+			<div style="display: none" id="password-is-weak" class="error-msg">
+				<img style="float: left;" src="/data/${imgsrc}/error.webp" alt="!" width="50px" height="50px">
+				<div style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);">Weak Password, password should be at least 8 character long</div>
+			</div>
+			<div style="display: none;" id="network-request-failed" class="error-msg">
+				<img style="float: left;" src="/data/${imgsrc}/error.webp" alt="!" width="50px" height="50px">
+				<div style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);">Internet Connection Error</div>
+			</div>
 
-	// 		<button class="form-buttons login-button" type="submit">
-	// 			<span id="create-password-text">Create Password &nbsp; &rarr;</span>
-	// 		</button>
-	// 		</div>
-	// 		<br>
-	// 	</form>
-	// 	</div>
-	// <!--=============== Create Password MODEL[END] ===============-->
+			<button class="form-buttons login-button" type="submit">
+				<span id="create-password-text">Create Password &nbsp; &rarr;</span>
+			</button>
+			</div>
+			<br>
+		</form>
+		</div>
+	<!--=============== Create Password MODEL[END] ===============-->
 
-	// <!--=============== OTP MODEL[START] ===============-->
+	<!--=============== OTP MODEL[START] ===============-->
 
-	// <div id="otp-model" class="modal">
-	// 	<form class="modal-content animate" id="otp-form">
-	// 		<a class="close" style="float: right; padding-top: 0%; padding-bottom: 0%;" onclick="setDisplay('otp-model', 'none')">X</a>
-	// 		<div class="container" style="margin: 1rem;">
+	<div id="otp-model" class="modal">
+		<form class="modal-content animate" id="otp-form">
+			<a class="close" style="float: right; padding-top: 0%; padding-bottom: 0%;" onclick="setDisplay('otp-model', 'none')">X</a>
+			<div class="container" style="margin: 1rem;">
 
-	// 		<div style="display: none;" id='first-login-otp-model' class="success-msg">
-	// 		</div>
+			<div style="display: none;" id='first-login-otp-model' class="success-msg">
+			</div>
 
-	// 		<span id='otp-email-sent-text'></span>
-	// 		<label for="otp"><b>OTP</b></label>
-	// 		<input id="otp" onkeypress="otpValidated();setDisplay('network-request-failed', 'none');" class="loginInput" placeholder="Enter OTP" name="otp" required>
+			<span id='otp-email-sent-text'></span>
+			<label for="otp"><b>OTP</b></label>
+			<input id="otp" onkeypress="otpValidated();setDisplay('network-request-failed', 'none');" class="loginInput" placeholder="Enter OTP" name="otp" required>
 
-	// 		<div style="display: none;" id="invalid-otp" class="error-msg">
-	// 			<img style="float: left;" src="/data/${imgsrc}/error.webp" alt="!" width="50px" height="50px">
-	// 			<div style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);">Invalid OTP</div>
-	// 		</div>
+			<div style="display: none;" id="invalid-otp" class="error-msg">
+				<img style="float: left;" src="/data/${imgsrc}/error.webp" alt="!" width="50px" height="50px">
+				<div style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);">Invalid OTP</div>
+			</div>
 
-	// 		<button class="form-buttons login-button" type="submit">
-	// 			<span id="otp-btn-text">Verify &nbsp; &rarr;</span>
-	// 		</button>
+			<button class="form-buttons login-button" type="submit">
+				<span id="otp-btn-text">Verify &nbsp; &rarr;</span>
+			</button>
 
-	// 		<button style="display: none;" class="form-buttons forgot-button" id="resend-otp">
-	// 			<span id="resend-otp-text">Resend OTP &nbsp; &rarr;</span>
-	// 		</button>
+			<button style="display: none;" class="form-buttons forgot-button" id="resend-otp">
+				<span id="resend-otp-text">Resend OTP &nbsp; &rarr;</span>
+			</button>
 
-	// 		</div>
-	// 	</form>
-	// </div>
+			</div>
+		</form>
+	</div>
 
-	// <!--=============== Forgot Password MODEL[END] ===============-->
+	<!--=============== Forgot Password MODEL[END] ===============-->
 
-	// <!--=============== SETTINGS[START] ===============-->
+	<!--=============== SETTINGS[START] ===============-->
 
-	// <div id="settings-model" class="modal">
-	// 	<div class="modal-content animate">
-	// 		<a class="close" style="float: right; padding-top: 0%; padding-bottom: 0%;" onclick="setDisplay('settings-model', 'none')">X</a>
-	// 		<div class="container settings" style="margin: 1rem;">
-	// 			<!--<h2 style="text-align: center; display:block">Settings</h2>-->
-	// 			<b>Font size</b> &nbsp;
-	// 			<button class="button" onclick="incrementFontSize();setFontSize()">+</button>
-	// 			<button class="button" onclick="decrementFontSize();setFontSize()">-</button>
-	// 			<button class="button" onclick="resetFontSize();setFontSize()">Reset</button>
-	// 			<br>
-	// 			<!--<h2 style="text-align: center; display:block">Navigation</h2>-->
-	// 			<!--<span class="bb">Navigation</span>-->
-	// 			<div id="desktop-mode">
-	// 				<b>Page size</b>
-	// 				<button class="button" onclick="changePageWidth('small')">Small</button>
-	// 				<button class="button" onclick="changePageWidth('medium')">Medium</button>
-	// 				<button class="button" onclick="changePageWidth('large')">Large</button>
-	// 			</div>
-	// 			<hr>
-	// 			<div id="desktop-mode">
-	// 				Press <span class="bb">D</span> to change theme. <br>
-	// 				Press <span class="bb">&larr;</span> to go to previous page. <br>
-	// 				Press <span class="bb">&rarr;</span> to go to next page. <br>
-	// 				Press <span class="bb">+</span> to increase font size. <br>
-	// 				Press <span class="bb">-</span> to decrease font size. <br>
-	// 			</div>
-	// 			<div id="mobile-mode">
-	// 				<span class="bb">Swipe Right</span> to go to previous page. <br>
-	// 				<span class="bb">Swipe Left </span> to go to next page. <br>
-	// 			</div>
-	// 		</div>
-	// 	</div>
-	// </div>
+	<div id="settings-model" class="modal">
+		<div class="modal-content animate">
+			<a class="close" style="float: right; padding-top: 0%; padding-bottom: 0%;" onclick="setDisplay('settings-model', 'none')">X</a>
+			<div class="container settings" style="margin: 1rem;">
+				<!--<h2 style="text-align: center; display:block">Settings</h2>-->
+				<b>Font size</b> &nbsp;
+				<button class="button" onclick="incrementFontSize();setFontSize()">+</button>
+				<button class="button" onclick="decrementFontSize();setFontSize()">-</button>
+				<button class="button" onclick="resetFontSize();setFontSize()">Reset</button>
+				<br>
+				<!--<h2 style="text-align: center; display:block">Navigation</h2>-->
+				<!--<span class="bb">Navigation</span>-->
+				<div id="desktop-mode">
+					<b>Page size</b>
+					<button class="button" onclick="changePageWidth('small')">Small</button>
+					<button class="button" onclick="changePageWidth('medium')">Medium</button>
+					<button class="button" onclick="changePageWidth('large')">Large</button>
+				</div>
+				<hr>
+				<div id="desktop-mode">
+					Press <span class="bb">D</span> to change theme. <br>
+					Press <span class="bb">&larr;</span> to go to previous page. <br>
+					Press <span class="bb">&rarr;</span> to go to next page. <br>
+					Press <span class="bb">+</span> to increase font size. <br>
+					Press <span class="bb">-</span> to decrease font size. <br>
+				</div>
+				<div id="mobile-mode">
+					<span class="bb">Swipe Right</span> to go to previous page. <br>
+					<span class="bb">Swipe Left </span> to go to next page. <br>
+				</div>
+			</div>
+		</div>
+	</div>
 
-	// <!--=============== SETTINGS[END] ===============-->
-	// `;
+	<!--=============== SETTINGS[END] ===============-->
+	`;
 
 	var modal = [
 			document.getElementById("password-model"),
@@ -774,7 +774,8 @@ function cssLoaded(isKatexImportant = true, callback){
 	if(callback) callback();
 	// d = new Date();end = d.getTime();  // Remove it
 	// console.log("Fully Loaded:",end-start)  // Remove it
-
+	setDisplay('login-button','none')
+	// setDisplay('join-button','none')
 }
 
 // ***************************************************************
