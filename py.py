@@ -13,7 +13,7 @@ import sys
 from shutil import copyfile
 
 skip_files = ["py.py", "requirements.txt", ".gitignore"]
-skip_folders = ["tobeadded", "staged", ".vscode", ".git"]
+skip_folders = ["tobeadded", "staged", ".vscode", ".git", "notebook-img"]
 remove_files = ["initialize.js", "inline.css",
                 # Don't Count    
                 "style.css", "style-dark.css", "style-light.css", "TODO.txt"
@@ -30,16 +30,16 @@ def ext_in_do_not_print_ext(f):
 
 def get_files_loc(curr_loc, d):
     for f in os.listdir(curr_loc):
-        if not ext_in_do_not_print_ext(f): print(f'"{f}"')
+        # if not ext_in_do_not_print_ext(f): print(f'"{f}"')
         if f in skip_folders or f in skip_files or f in remove_files:
-            if not ext_in_do_not_print_ext(f): print("\t continue")
+            # if not ext_in_do_not_print_ext(f): print("\t continue")
             continue
         if '.' not in f and f not in files_without_ext:
-            if not ext_in_do_not_print_ext(f): print("\t '.' not in f and f not in files_without_ext")
+            # if not ext_in_do_not_print_ext(f): print("\t '.' not in f and f not in files_without_ext")
             get_files_loc(os.path.join(curr_loc, f), d)
         else:
             splited = f.split('.')
-            if not ext_in_do_not_print_ext(f): print("\t else")
+            # if not ext_in_do_not_print_ext(f): print("\t else")
             if("css" in splited and "min" not in splited):
                 d["css"].append(os.path.join(curr_loc, f))
             # elif("js" in splited):
@@ -99,8 +99,6 @@ for css_file in origin["css"]:
     except:
         print("FAILED", css_file)
         failed_css.append(css_file)
-# print()
-# print()
 
 failed = []
 failed.extend(failed_html)
@@ -113,39 +111,5 @@ for input_file in origin["others"]:
     os.makedirs(os.path.dirname(output_file), exist_ok=True)
     copyfile(input_file, output_file)
 
-
-# '''  JS Minification '''
-# js_file = origin["js"][5]
-# input_file  = js_file.replace("\\", "/")
-# output_file = js_file.replace("\\", "/").replace("read-dev","read-dev-deploy") 
-# os.makedirs(os.path.dirname(output_file), exist_ok=True)
-# stream = os.popen('uglify')
-# output = stream.read()
-
-
-# f = open(js_file, "r")
-# js= f.read()
-# f.close()
-
-# params = urlencode([
-#     ('js_code', js),
-#     ('compilation_level', 'ADVANCED_OPTIMIZATIONS'),
-#     ('output_format', 'text'),
-#     ('output_info', 'compiled_code'),
-#   ])
-
-# # Always use the following value for the Content-type header.
-# headers = { "Content-type": "application/x-www-form-urlencoded" }
-# conn = httplib.HTTPSConnection('closure-compiler.appspot.com')
-# conn.request('POST', '/compile', params, headers)
-# response = conn.getresponse()
-# minified = response.read()
-# print(minified)
-
-# output_file = js_file.replace("read-dev","read-dev-deploy")
-# os.makedirs(os.path.dirname(output_file), exist_ok=True)
-# f = open(output_file, "w+")
-# f.write(str(minified))
-# f.close()
-
-# conn.close()
+import js_minifier
+js_minifier.run()

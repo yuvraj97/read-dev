@@ -1,4 +1,4 @@
-if("chapterID" in quantml) requireScript('chapter-js', '0.1.0', '/data/js/chapter.js', function(){});
+if("chapterID" in quantml) requireScript('chapter-js', '0.1.1', '/data/js/chapter.js', function(){});
 
 
 // Functions
@@ -738,8 +738,8 @@ function cssLoaded(isKatexImportant = true, callback){
 	// d = new Date();end = d.getTime();  // Remove it
 	// console.log("CSS Load time:",end-start)  // Remove it
 	setTimeout(function(){
-		requireScript('swiped-events-js', '0.1.0', '/data/js/swiped-events.js', function(){})				
-		if(typeof(importPrism) != "undefined" && importPrism == true) requireScript('prism-js', '0.1.0', '/data/prism/prism.js', function(){})
+		requireScript('swiped-events-js', '0.1.1', '/data/js/swiped-events.js', function(){})				
+		if(typeof(importPrism) != "undefined" && importPrism == true) requireScript('prism-js', '0.1.1', '/data/prism/prism.js', function(){})
 	}, 500)
 	if(isKatexImportant == true){
 		loadKatex(isKatexImportant)
@@ -1119,7 +1119,7 @@ function otp_failed(status) {
 }
 
 function fetching(data, endpoint, callbacks = {}){
-	fetch(`http://127.0.0.1:5000/${endpoint}`, {
+	fetch(`https://app.quantml.org/api/${endpoint}`, {
 		method: 'POST', // *GET, POST, PUT, DELETE, etc.
 		mode: 'cors', // no-cors, *cors, same-origin
 		cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
