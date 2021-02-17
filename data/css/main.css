@@ -576,3 +576,8 @@ textarea {
 	}
 
 /* ========================   Modals [END]   ===================================== */
+@media screen and (max-width: 980px) {
+	#join-button{
+		display: block;
+	}
+}
