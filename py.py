@@ -12,7 +12,7 @@ from urllib.parse import urlencode
 import sys
 from shutil import copyfile
 
-skip_files = ["py.py", "requirements.txt", ".gitignore"]
+skip_files = ["py.py", "requirements.txt", ".gitignore", "js_minifier.py"]
 skip_folders = ["tobeadded", "staged", ".vscode", ".git", "notebook-img"]
 remove_files = ["initialize.js", "inline.css",
                 # Don't Count    
@@ -56,10 +56,11 @@ get_files_loc(os.getcwd(), origin)
 # # stream = os.popen('dir')
 # # output = stream.read()
 
+
 failed_html = []
 for html_file in origin["html"]:
     try:
-        f = open(html_file, "r")#, encoding="utf8")
+        f = open(html_file, "r", encoding="utf8")
         html = f.read()
         html = html.replace("% equation","")
         html = html.replace("%equation","")
@@ -69,9 +70,10 @@ for html_file in origin["html"]:
         minified = htmlmin.minify(html, 
                                   remove_empty_space=True,
                                   remove_comments=True)
+
         output_file = html_file.replace("read-dev","read-dev-deploy")
         os.makedirs(os.path.dirname(output_file), exist_ok=True)
-        f = open(output_file, "w+")
+        f = open(output_file, "w+", encoding="utf-8")
         f.write(minified)
         f.close()
     except Exception as e:

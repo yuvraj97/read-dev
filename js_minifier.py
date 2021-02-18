@@ -12,6 +12,7 @@ def run():
 
     for js_url in js_urls:
         try:
+            print("Minifying:", js_url)
             params = urlencode([
                 ('code_url', js_url),
                 ('compilation_level', 'SIMPLE_OPTIMIZATIONS'),
@@ -34,6 +35,5 @@ def run():
             f = open(output_file, "w+")
             f.write(minified.decode("utf-8"))
             f.close()
-            print("Done:", js_url)
         except:
             print("Failed:", js_url)
