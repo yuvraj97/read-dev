@@ -13,7 +13,7 @@ import sys
 from shutil import copyfile
 
 skip_files = ["py.py", "requirements.txt", ".gitignore", "js_minifier.py"]
-skip_folders = ["tobeadded", "staged", ".vscode", ".git", "notebook-img"]
+skip_folders = ["tobeadded", "staged", ".vscode", ".git", "notebook-img", "__pycache__"]
 remove_files = ["initialize.js", "inline.css",
                 # Don't Count    
                 "style.css", "style-dark.css", "style-light.css", "TODO.txt",
