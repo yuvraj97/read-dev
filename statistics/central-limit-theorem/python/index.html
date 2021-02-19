@@ -104,7 +104,7 @@ Assume that there are <div class="quantml-katex-display inline">\(1000\)</div> s
 
 <h2 id="truth">Truth<a href="#truth" aria-label="truth"><i class="fa fa-link" aria-hidden="true"></i></a></h2>
 Now let's define the <b>truth</b>. <br>
-Say that every student's height follows the <a href="https://en.wikipedia.org/wiki/Continuous_uniform_distribution">Uniform distribution</a> with range of <div class="quantml-katex-display inline">\([165\text{ cm },185\text{ cm}]\)</div>. <br>
+Say that every student's height follows the <a rel="noreferrer" target="_blank" href="https://en.wikipedia.org/wiki/Continuous_uniform_distribution">Uniform distribution</a> with range of <div class="quantml-katex-display inline">\([165\text{ cm },185\text{ cm}]\)</div>. <br>
 So <div class="quantml-katex-display inline">\(X_1,\cdots,X_{50}\sim\text{Unif}[165, 185]\)</div> <br>
 <blockquote class="noborder">
 	<b>Note:</b> This information is completely unknown to us.
@@ -130,7 +130,7 @@ population = distribution.rvs(N)
 <br>
 
 <h2 id="observation">Observation<a href="#observation" aria-label="observation"><i class="fa fa-link" aria-hidden="true"></i></a></h2>
-Now that we have all <div class="quantml-katex-display inline">\(1000\)</div> students, and every student's height follows the <a href="https://en.wikipedia.org/wiki/Continuous_uniform_distribution">Uniform distribution</a>. <br>
+Now that we have all <div class="quantml-katex-display inline">\(1000\)</div> students, and every student's height follows the <a rel="noreferrer" target="_blank" href="https://en.wikipedia.org/wiki/Continuous_uniform_distribution">Uniform distribution</a>. <br>
 Let's (randomly) take a sample of <div class="quantml-katex-display inline">\(100\)</div> students.
 <pre data-start="11"><code class="language-python line-numbers">n = 100
 sample = np.random.choice(population,n)
@@ -150,7 +150,7 @@ To achieve this we need to perform this simulation multiple times and plot all s
 <br>
 
 <h1 id="multiple-simulations">Multiple simulations <img src="/data/img/python.webp" alt="Python" width="112.5px" height="30px"><a href="#multiple-simulations" aria-label="multiple-simulations"><i class="fa fa-link" aria-hidden="true"></i></a></h1>
-The <b>truth</b> is that every student's height follows the <a href="https://en.wikipedia.org/wiki/Continuous_uniform_distribution">Uniform distribution</a> <div class="quantml-katex-display inline">\(\text{Unif}[165, 185]\)</div>, so let's start with creating population. <br>
+The <b>truth</b> is that every student's height follows the <a rel="noreferrer" target="_blank" href="https://en.wikipedia.org/wiki/Continuous_uniform_distribution">Uniform distribution</a> <div class="quantml-katex-display inline">\(\text{Unif}[165, 185]\)</div>, so let's start with creating population. <br>
 
 <pre data-start="1"><code class="language-python line-numbers">import numpy as np
 import matplotlib.pyplot as plt
@@ -292,7 +292,7 @@ plt.show()
 Here we can see the beauty of <b>Central limit theorem</b>, we can see how the CDF of our Sampling distribution get closer to the CDF of a Normal distribution. <br>
 
 Now try tweaking <span class="bb"><div class="quantml-katex-display inline">\(n\)</div></span> and see how it affects the CDF convergence. <br>
-Also try different distributions form <a href="https://docs.scipy.org/doc/scipy/reference/stats.html">scipy.stats</a> <br>
+Also try different distributions form <a rel="noreferrer" target="_blank" href="https://docs.scipy.org/doc/scipy/reference/stats.html">scipy.stats</a> <br>
 
 <blockquote class="noborder align-center">
 	<a href="/statistics/central-limit-theorem/julia/"><img src="/data/img/julia.webp" alt="Julia" width="53px" height="33px"> Simulation</a>

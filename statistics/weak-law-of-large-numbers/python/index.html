@@ -106,7 +106,7 @@ So the <b>population size</b><div class="quantml-katex-display inline">\((N)\)</
 
 <h2 id="truth">Truth</h2>
 Now let's define the <b>truth</b>. <br>
-Say that the each student's height follows the <a href="https://en.wikipedia.org/wiki/Normal_distribution">Normal distribution</a> with <b>mean</b> <div class="quantml-katex-display inline">\((\mu)= 175 \text{cm}\)</div> and <b>variance</b> <div class="quantml-katex-display inline">\((\sigma^2)=(10\text{cm})^2\)</div>. <br>
+Say that the each student's height follows the <a rel="noreferrer" target="_blank" href="https://en.wikipedia.org/wiki/Normal_distribution">Normal distribution</a> with <b>mean</b> <div class="quantml-katex-display inline">\((\mu)= 175 \text{cm}\)</div> and <b>variance</b> <div class="quantml-katex-display inline">\((\sigma^2)=(10\text{cm})^2\)</div>. <br>
 So <div class="quantml-katex-display inline">\(X_1,\cdots,X_{50}\sim\mathcal{N}(175,10^2)\)</div> <br>
 <blockquote class="sidebar">
     Here we can argue that Normal distribution take values between <div class="quantml-katex-display inline">\((-\infty,\infty)\)</div>, but heights aren't negative. <br>
@@ -140,7 +140,7 @@ population = distribution.rvs(N)
 <br>
 
 <h2 id="observation">Observation</h2>
-Now that we have all <div class="quantml-katex-display inline">\(300\)</div> students, and every student's height follows the <a href="https://en.wikipedia.org/wiki/Normal_distribution">Normal distribution</a> with <b>mean</b> <div class="quantml-katex-display inline">\((\mu)= 175 \text{cm}\)</div> and <b>variance</b> <div class="quantml-katex-display inline">\((\sigma^2)=(10\text{cm})^2\)</div>. <br>
+Now that we have all <div class="quantml-katex-display inline">\(300\)</div> students, and every student's height follows the <a rel="noreferrer" target="_blank" href="https://en.wikipedia.org/wiki/Normal_distribution">Normal distribution</a> with <b>mean</b> <div class="quantml-katex-display inline">\((\mu)= 175 \text{cm}\)</div> and <b>variance</b> <div class="quantml-katex-display inline">\((\sigma^2)=(10\text{cm})^2\)</div>. <br>
 Let's (randomly) take a sample of <div class="quantml-katex-display inline">\(50\)</div> students.
 <pre data-start="14"><code class="language-python line-numbers">n = 50
 sample = np.random.choice(population,n)
@@ -161,7 +161,7 @@ So let's dive into it. <br>
 <br>
 
 <h1 id="multiple-simulations">Multiple simulations <img src="/data/img/python.webp" alt="Python" width="112.5px" height="30px"></h1>
-The <b>truth</b> is that every student's height follows the <a href="https://en.wikipedia.org/wiki/Normal_distribution">Normal distribution</a> with <b>mean</b> <div class="quantml-katex-display inline">\((\mu)= 175 \text{cm}\)</div> and <b>variance</b> <div class="quantml-katex-display inline">\((\sigma^2)=(10\text{cm})^2\)</div>. <br>
+The <b>truth</b> is that every student's height follows the <a rel="noreferrer" target="_blank" href="https://en.wikipedia.org/wiki/Normal_distribution">Normal distribution</a> with <b>mean</b> <div class="quantml-katex-display inline">\((\mu)= 175 \text{cm}\)</div> and <b>variance</b> <div class="quantml-katex-display inline">\((\sigma^2)=(10\text{cm})^2\)</div>. <br>
 
 First create a population
 <pre data-start="1"><code class="language-python line-numbers">import numpy as np
