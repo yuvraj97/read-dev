@@ -459,7 +459,7 @@ function fullyLoaded(){
 
 	document.addEventListener('scroll', function(e) {
 		// console.log("scroll List...", window.scrollY)
-		if(window.scrollY > 150){
+		if(window.scrollY > 100){
 			// console.log("ALT")
 			document.getElementById('navPanelToggle').classList.add('alt')
 		} else {
