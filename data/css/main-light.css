@@ -180,22 +180,22 @@ summary span:hover, summary span:focus {
     background-color: #f6f8fa;
     border: 1px rgb(160, 160, 160) solid;
 }
-.login-logout-join {
+.join {
     background-color: #fff;
     /* box-shadow: .0rem .0rem 0.4rem 0.05rem rgb(255, 255, 255, 0.7); */
     color: #212931 !important;
 }
-.login-logout-join:hover, .login-logout-join:focus {
+.join:hover, .join:focus {
     background-color: #fff;
 }
 @media screen and (max-width: 980px) {
-    .login-logout-join {
+    .join {
         /* border: 2.5px solid #0073b1; */
         background-color: rgb(0, 61, 97, 0.1);
         border: none;
         /* box-shadow: unset; */
     }
-    .login-logout-join:hover{
+    .join:hover{
         background-color: rgb(0, 61, 97, 0.25);
     }
 }

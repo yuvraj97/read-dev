@@ -202,10 +202,17 @@ ul.icons.alt li a.icon:hover:before {
 	transform: translateY(-0.2rem);
 }
 
+#nav ul.icons li a.join,
 #nav ul.icons li button {
 	margin-bottom: 20px;
 }
 
+#nav ul.icons li a.join:hover{
+	border: none;
+	color: inherit !important;
+}
+
+#nav ul.icons li a.join img,
 #nav ul.icons li button img {
 	margin-right: -10px;
 	-webkit-transform: translateY(.2rem);
@@ -647,7 +654,7 @@ ul.icons.alt li a.icon:hover:before {
 	width: 131.61px;
 	height: 24px;
 }
-.login-logout-join {
+.join {
 	width: inherit;
 	display: inherit;
 	border-radius: 50px;
@@ -660,12 +667,12 @@ ul.icons.alt li a.icon:hover:before {
 	text-align: center;
 	cursor: pointer;
 }
-.login-logout-join:hover, .login-logout-join:focus {
+.join:hover, .join:focus {
 	-webkit-transform: translateY(-0.2rem);
 	transform: translateY(-0.2rem);
 }
 @media screen and (max-width: 980px) {
-	.login-logout-join {
+	.join {
 		border: 2.5px solid #0073b1; /* Change IT */
 		margin-top: 20px;
 		width: 100%;
@@ -675,7 +682,7 @@ ul.icons.alt li a.icon:hover:before {
 	.login-btn-width{
 		margin-bottom: 3px !important;
 	}
-	.join-btn-width{
+	.join-width{
 		margin-top: 0px !important;
 		margin-bottom: 0px !important;
 	}
