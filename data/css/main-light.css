@@ -195,7 +195,7 @@ summary span:hover, summary span:focus {
         border: none;
         /* box-shadow: unset; */
     }
-    .join:hover{
+    .join:hover, .join:focus{
         background-color: rgb(0, 61, 97, 0.25);
     }
 }

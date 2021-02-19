@@ -482,10 +482,12 @@ ul.icons.alt li a.icon:hover:before {
 	transform: translateY(-0.2rem);
 }
 
+#navPanel ul.icons li a.join,
 #navPanel ul.icons li button {
 	margin-bottom: 20px;
 }
 
+#navPanel ul.icons li a.join img,
 #navPanel ul.icons li button img {
 	margin-right: -10px;
 	-webkit-transform: translateY(.2rem);

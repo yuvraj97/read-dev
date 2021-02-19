@@ -540,6 +540,13 @@ function fullyLoaded(){
 	}
 }
 
+function extraWork(){
+	var s = document.createElement('script');
+	s.async = true
+	s.src = "https://www.dwin2.com/pub.838437.min.js"
+	document.getElementsByTagName("head")[0].appendChild(s);
+}
+
 function cssLoaded(isKatexImportant = true, callback){
 	// d = new Date();end = d.getTime();  // Remove it
 	// console.log("CSS Load time:",end-start)  // Remove it
@@ -557,4 +564,5 @@ function cssLoaded(isKatexImportant = true, callback){
 	if(callback) callback();
 	// d = new Date();end = d.getTime();  // Remove it
 	// console.log("Fully Loaded:",end-start)  // Remove it
+	extraWork()
 }

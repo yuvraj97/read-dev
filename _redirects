@@ -1,2 +1,3 @@
+/app/ https://app.quantml.org/statistics/ 301!
 /la/*  /linear-algebra/:splat
 /stats/*  /statistics/:splat
