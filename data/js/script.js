@@ -437,7 +437,7 @@ function fullyLoaded(){
 					<span class="bb">Swipe Right</span> to go to previous page. <br>
 					<span class="bb">Swipe Left </span> to go to next page. <br>
 				</div>
-				<button style="float: right" class="button" onclick="localStorage.clear();location.reload()">Hard Reset</button>
+				<button style="float: right" class="button" onclick="localStorage.clear();location.reload()">Reinitialize</button>
 				<br>
 			</div>
 		</div>
