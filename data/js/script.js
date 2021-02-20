@@ -1,4 +1,4 @@
-if("chapterID" in quantml) requireScript('chapter-js', '0.1.1', '/data/js/chapter.js', function(){});
+if("chapterID" in quantml) requireScript('chapter-js', '0.1.2', '/data/js/chapter.js', function(){});
 
 
 // Functions
@@ -544,15 +544,15 @@ function fullyLoaded(){
 
 function extraWork(){
 	applyAnalytics()
-	requireScript('dwin-js', '0.1.1', 'https://www.dwin2.com/pub.838437.min.js', function(){})
+	requireScript('dwin-js', '0.1.2', 'https://www.dwin2.com/pub.838437.min.js', function(){})
 }
 
 function cssLoaded(isKatexImportant = true, callback){
 	// d = new Date();end = d.getTime();  // Remove it
 	// console.log("CSS Load time:",end-start)  // Remove it
 	setTimeout(function(){
-		requireScript('swiped-events-js', '0.1.1', '/data/js/swiped-events.js', function(){})				
-		if(typeof(importPrism) != "undefined" && importPrism == true) requireScript('prism-js', '0.1.1', '/data/prism/prism.js', function(){})
+		requireScript('swiped-events-js', '0.1.2', '/data/js/swiped-events.js', function(){})				
+		if(typeof(importPrism) != "undefined" && importPrism == true) requireScript('prism-js', '0.1.2', '/data/prism/prism.js', function(){})
 	}, 500)
 	if(isKatexImportant == true){
 		loadKatex(isKatexImportant)

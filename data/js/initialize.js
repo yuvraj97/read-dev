@@ -104,8 +104,8 @@ function changeThemeCSS(currentTheme){
 		// e = document.getElementById("auth-light-css")
 		// if(e!=null) e.remove();
 	
-		requireScript("main-dark-css", "0.1.1", "/data/css/main-dark.css", function(){})
-		// requireScript("auth-dark-css", "0.1.1", "/data/css/authStyle-dark.css", function(){})
+		requireScript("main-dark-css", "0.1.2", "/data/css/main-dark.css", function(){})
+		// requireScript("auth-dark-css", "0.1.2", "/data/css/authStyle-dark.css", function(){})
 		if(homeStylesheet != null) {
 			homeStylesheet.remove()
 			s.innerHTML = ".book{box-shadow:.1rem .1rem 1.2rem .1rem #000}.btn{background-color:#2d2d2d;box-shadow:.05rem .05rem .5rem .1rem rgb(255,255,255,.6)}.btn.disabled,.btn.disabled:focus,.btn.disabled:hover{box-shadow:.05rem .05rem .5rem 0 rgb(255,166,0,.6)}"
@@ -117,8 +117,8 @@ function changeThemeCSS(currentTheme){
 		// e = document.getElementById("auth-dark-css")
 		// if(e!=null) e.remove();
 		
-		requireScript("main-light-css", "0.1.1", "/data/css/main-light.css", function(){})
-		// requireScript("auth-light-css", "0.1.1", "/data/css/authStyle-light.css", function(){})
+		requireScript("main-light-css", "0.1.2", "/data/css/main-light.css", function(){})
+		// requireScript("auth-light-css", "0.1.2", "/data/css/authStyle-light.css", function(){})
 	
 		if(homeStylesheet != null) {
 			homeStylesheet.remove()
@@ -319,7 +319,7 @@ function applyMetaTags(){
     document.getElementsByTagName("head")[0].appendChild(meta);
 }
 
-if(typeof(importPrism) != "undefined" && importPrism == true) requireScript('prism-css', '0.1.1', '/data/prism/prism.css', function(){});
+if(typeof(importPrism) != "undefined" && importPrism == true) requireScript('prism-css', '0.1.2', '/data/prism/prism.css', function(){});
 changeThemeCSS(quantml["theme"]);
 
 let check = false;
