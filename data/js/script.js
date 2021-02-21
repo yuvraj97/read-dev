@@ -448,6 +448,7 @@ function fullyLoaded(){
 
 	var modal = [
 			document.getElementById("settings-model"),
+			document.getElementById("UPI-QR"),
 		];
 
 	clearModelOnBackgroundClick(modal);

@@ -195,6 +195,13 @@ quantml["chapters"] ={
 			}, 50)
         }
     },
+    "donate": {
+        run: function(){
+            document.getElementById('UPI').addEventListener('click', function(){
+                setDisplay('UPI-QR', 'block')
+            })
+        }
+    },
     "statistics" : {
         run: function(){
             document.getElementById("resources-tab").addEventListener("click", function(){
