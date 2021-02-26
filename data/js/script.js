@@ -320,14 +320,13 @@ function paginationButton(){
 	if(btnContainer.length !=0 && btnContainer[0].innerHTML == '') {
 		btnContainerHTML = ''
 		if("prev" in  quantml["pagination"]) btnContainerHTML += `<a href="${quantml["pagination"]["prev"]["path"]}"><button id="prev-btn" class="button">&#x25C0;&nbsp;&nbsp; ${quantml["pagination"]["prev"]["title"]}</button></a>`;
-		if("next" in  quantml["pagination"]) btnContainerHTML += `<a href="${quantml["pagination"]["next"]["path"]}"><button id="next-btn" class="button"  style="float: right;">${quantml["pagination"]["next"]["title"]}&nbsp;&nbsp;&#x25B6;</button></a>`;
-		
+		if("next" in  quantml["pagination"] && quantml["pagination"]["next"]["path"] != "coming-soon") btnContainerHTML += `<a href="${quantml["pagination"]["next"]["path"]}"><button id="next-btn" class="button"  style="float: right;">${quantml["pagination"]["next"]["title"]}&nbsp;&nbsp;&#x25B6;</button></a>`;
 		btnContainer.forEach(function(element, index){
 			element.innerHTML=btnContainerHTML
 		})
 
 		btnContainer = document.querySelectorAll('#btn-container-top')
-		if("next" in  quantml["pagination"] && "prev" in  quantml["pagination"]){
+		if("next" in  quantml["pagination"] && "prev" in  quantml["pagination"] && quantml["pagination"]["next"]["path"] != "coming-soon"){
 			btnContainer.forEach(function(element, index){
 				element.innerHTML=`
 				<a href="${quantml["pagination"]["prev"]["path"]}"><button id="prev-btn" class="button">&#x25C0;&nbsp;&nbsp; ${quantml["pagination"]["prev"]["title"]}</button></a>

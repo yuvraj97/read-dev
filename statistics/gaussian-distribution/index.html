@@ -1,18 +1,15 @@
+<!--
+    The character encoding of the HTML document was not declared. The document will render with garbled text in some browser configurations if the document contains characters from outside the US-ASCII range. The character encoding of the page must be declared in the document or in the transfer protocol.
+-->
 <!DOCTYPE HTML>
 <html lang="en">
 
 	<head>
 
+        <title>Gaussian Distribution | Fundamentals of Statistics - QuantML</title>
 		<style>a,abbr,acronym,address,applet,audio,b,big,blockquote,body,canvas,caption,center,cite,code,dd,del,details,dfn,div,dl,dt,em,embed,fieldset,figcaption,figure,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,html,i,iframe,img,ins,kbd,label,legend,li,mark,menu,nav,object,ol,output,p,pre,q,ruby,s,samp,section,small,span,strike,strong,sub,summary,sup,table,tbody,td,tfoot,th,thead,time,tr,tt,u,ul,var,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline}details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1;-webkit-text-size-adjust:none;-ms-overflow-style:scrollbar;font-family:Arial,"Helvetica Neue",Helvetica,sans-serif;font-size:1em;line-height:2.375}@-ms-viewport{width:device-width}@media screen and (max-width:480px){body,html{min-width:320px}}html{box-sizing:border-box}*,:after,:before{box-sizing:inherit}html{font-size:16pt}@media screen and (max-width:1680px){html{font-size:12pt}}@media screen and (max-width:1280px){html{font-size:11pt}}@media screen and (max-width:360px){html{font-size:10pt}}body,html{overscroll-behavior-x:none}ol,ul{list-style:none}.image{border:0;display:inline-block;position:relative}ul.icons{cursor:default;list-style:none;padding-left:0}ul.icons li{display:inline-block;padding:0 .5rem 0 0;vertical-align:middle}ul.icons li:last-child{padding-right:0}ul.icons.alt li .icon:before{box-shadow:inset 0 0 0 2px #eee}ul.icons.alt li a.icon:hover:before{box-shadow:inset 0 0 0 2px #00279b}#wrapper{-moz-transition:opacity .5s ease;-webkit-transition:opacity .5s ease;-ms-transition:opacity .5s ease;transition:opacity .5s ease;position:relative;z-index:1;overflow:hidden}#wrapper>.bg{position:absolute;top:0;left:0;width:100%;height:100%;background-size:auto,auto,100% auto;background-position:center,center,top center;background-repeat:repeat,no-repeat,no-repeat;background-attachment:scroll,scroll,scroll;z-index:-1;backface-visibility:hidden;perspective:1000;transform-style:preserve-3d;will-change:transform}#wrapper>.bg.fixed{position:fixed;width:100vw;height:100vh}@media screen and (orientation:portrait){#wrapper>.bg{background-size:auto,auto,auto 175%}}#header{-moz-align-items:center;-webkit-align-items:center;-ms-align-items:center;align-items:center;display:-moz-flex;display:-webkit-flex;display:-ms-flex;display:flex;-moz-flex-direction:column;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;-moz-justify-content:-moz-flex-end;-webkit-justify-content:-webkit-flex-end;-ms-justify-content:-ms-flex-end;justify-content:flex-end;pointer-events:none;-moz-user-select:none;-webkit-user-select:none;-ms-user-select:none;user-select:none;height:16rem;padding-bottom:7.5rem;position:relative;text-align:center;z-index:2}#header .logo{-moz-transition:border-color .2s ease-in-out,color .2s ease-in-out,opacity .5s ease,-moz-transform .5s ease,visibility .5s;-webkit-transition:border-color .2s ease-in-out,color .2s ease-in-out,opacity .5s ease,-webkit-transform .5s ease,visibility .5s;-ms-transition:border-color .2s ease-in-out,color .2s ease-in-out,opacity .5s ease,-ms-transform .5s ease,visibility .5s;transition:border-color .2s ease-in-out,color .2s ease-in-out,opacity .5s ease,transform .5s ease,visibility .5s;pointer-events:auto;visibility:visible}.image img{display:block}@media screen and (max-width:980px){#header{height:8rem;padding-bottom:0;margin-bottom:.5rem}}#nav{display:-moz-flex;display:-webkit-flex;display:-ms-flex;display:flex;-moz-transition:-moz-transform 1s ease,opacity 1s ease;-webkit-transition:-webkit-transform 1s ease,opacity 1s ease;-ms-transition:-ms-transform 1s ease,opacity 1s ease;transition:transform 1s ease,opacity 1s ease;height:4rem;line-height:4rem;margin:-4rem auto 0 auto;overflow:hidden;padding:0 2rem 0 0;position:relative;width:calc(100% - 4rem);max-width:100%;z-index:2;border-top-left-radius:25px;border-top-right-radius:25px}#nav ul.icons li.link img{cursor:pointer;margin-top:15px}#nav ul.icons li.link img:hover{-webkit-transform:translateY(-.2rem);transform:translateY(-.2rem)}#nav ul.icons li a.join,#nav ul.icons li button{margin-bottom:20px}#nav ul.icons li a.join:hover{border:none;color:inherit!important}#nav ul.icons li a.join img,#nav ul.icons li button img{margin-right:-10px;-webkit-transform:translateY(.2rem);transform:translateY(.2rem);width:18px;height:18px}#nav ul.icons li.settings{margin-top:10px;cursor:pointer}#nav ul.links li.cover a{border-bottom:none}#nav ul.links li.cover a img{width:131.61px;height:24px;-webkit-transform:translateY(.5rem);transform:translateY(.5rem);margin-left:10px}#nav ul.links li.title{padding:0 1rem}#nav ul.links li.python a{border-bottom:none;padding:0 1rem}#nav ul.links li.python a img,#nav ul.links li.python img{width:75px;height:20px;-webkit-transform:translateY(.4rem);transform:translateY(.4rem)}@media screen and (max-width:1280px){#nav ul.links li.julia{margin-right:15px}}#nav ul.links li.julia a{border-bottom:none;padding:0 1rem}#nav ul.links li.julia a img,#nav ul.links li.julia img{width:53px;height:33px;-webkit-transform:translateY(.6rem);transform:translateY(.6rem)}#nav ul.links{display:-moz-flex;display:-webkit-flex;display:-ms-flex;display:flex;-moz-flex-grow:1;-webkit-flex-grow:1;-ms-flex-grow:1;flex-grow:1;-moz-flex-shrink:1;-webkit-flex-shrink:1;-ms-flex-shrink:1;flex-shrink:1;font-weight:700;font-size:18px;letter-spacing:.075em;margin-bottom:0;padding-left:0}#nav ul.links li{display:block;padding-left:0}#nav ul.links li a,#nav ul.links li.active{-moz-transition:background-color .2s ease-in-out,color .2s ease-in-out;-webkit-transition:background-color .2s ease-in-out,color .2s ease-in-out;-ms-transition:background-color .2s ease-in-out,color .2s ease-in-out;transition:background-color .2s ease-in-out,color .2s ease-in-out;display:block;letter-spacing:.03em;outline:0;padding:0 1.2rem}#nav ul.links li a:hover{color:rgb(255,255,255,.9)!important;background-color:rgba(255,255,255,.1)}#nav ul.links li.active{padding-left:1rem;padding-right:1rem}#nav ul.icons{-moz-flex-grow:0;-webkit-flex-grow:0;-ms-flex-grow:0;flex-grow:0;-moz-flex-shrink:0;-webkit-flex-shrink:0;-ms-flex-shrink:0;flex-shrink:0;margin-bottom:0}@media screen and (max-width:980px){#nav{display:none}}#main{position:relative;margin:0 auto;width:calc(100% - 4rem);max-width:100%;z-index:2}#main>*{padding:4rem 4rem 2rem 4rem;border-top:solid 2px #eee;margin:0}#main>:first-child{border-top:0}#main>.post{padding:4rem 4rem 4rem 4rem;bottom:0}@media screen and (max-width:1280px){#main>.post{padding:4rem 4rem 4rem 4rem}}@media screen and (max-width:736px){#main>.post{padding:.5rem 2rem 2rem 2rem}}@media screen and (max-width:736px){#main>.post{padding:2rem 2rem .1rem 2rem}}@media screen and (orientation:portrait){#main{width:100%}}#navPanelToggle{text-decoration:none;-moz-transition:color .2s ease-in-out,background-color .2s ease-in-out,box-shadow .2s ease-in-out;-webkit-transition:color .2s ease-in-out,background-color .2s ease-in-out,box-shadow .2s ease-in-out;-ms-transition:color .2s ease-in-out,background-color .2s ease-in-out,box-shadow .2s ease-in-out;transition:color .2s ease-in-out,background-color .2s ease-in-out,box-shadow .2s ease-in-out;display:none;position:fixed;top:.75rem;right:.75rem;border:0;font-size:.9rem;font-weight:900;letter-spacing:.075em;padding:.375rem 1.25rem;text-transform:uppercase;z-index:10001;cursor:pointer}#navPanelToggle:before{-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;font-family:FontAwesome;font-style:normal;font-weight:400;text-transform:none!important}#navPanelToggle:before{content:"\f0c9";margin-right:.5rem}@media screen and (max-width:980px){#navPanelToggle{display:block}}@media screen and (max-width:736px){#navPanelToggle{font-size:.8rem;padding:.25rem 1rem}}#navPanel{-moz-transform:translateX(20rem);-webkit-transform:translateX(20rem);-ms-transform:translateX(20rem);transform:translateX(20rem);-moz-transition:-moz-transform .5s ease,box-shadow .5s ease,visibility .5s;-webkit-transition:-webkit-transform .5s ease,box-shadow .5s ease,visibility .5s;-ms-transition:-ms-transform .5s ease,box-shadow .5s ease,visibility .5s;transition:transform .5s ease,box-shadow .5s ease,visibility .5s;display:none;-webkit-overflow-scrolling:touch;box-shadow:none;height:100%;max-width:80%;overflow-y:auto;padding:3rem 2rem;position:fixed;right:0;top:0;visibility:hidden;width:20rem;z-index:10002}#navPanel .links{list-style:none;padding-left:0}#navPanel .links li{border-radius:50px;text-align:center;margin-top:2.5px}#navPanel .links li a,#navPanel ul.links li.title{border-bottom:0;display:block;font-size:.9rem;font-weight:900;letter-spacing:.075em;padding:.5rem 0}#navPanel .links li.link a{padding:.75rem 0}#navPanel ul.icons li.settings{margin-top:20px}#navPanel ul.icons li.link img{cursor:pointer;margin-top:20px}#navPanel ul.icons li.link img:hover{-webkit-transform:translateY(-.2rem);transform:translateY(-.2rem)}#navPanel ul.icons li a.join,#navPanel ul.icons li button{margin-bottom:20px}#navPanel ul.icons li a.join img,#navPanel ul.icons li button img{margin-right:-10px;-webkit-transform:translateY(.2rem);transform:translateY(.2rem);width:18px;height:18px}#navPanel ul.links li.cover a{padding:.75rem 0}#navPanel ul.links li.cover a img{width:131.61px;height:24px;-webkit-transform:translateY(.5rem);transform:translateY(.5rem)}#navPanel ul.links li.title{padding:.75rem 0}#navPanel ul.links li.python{padding:.7rem 0}#navPanel ul.links li.python a{padding:0}#navPanel ul.links li.python a img,#navPanel ul.links li.python img{width:75px;height:20px;-webkit-transform:translateY(.35rem);transform:translateY(.35rem)}#navPanel ul.links li.julia{padding-top:0;padding-bottom:.5rem}#navPanel ul.links li.julia a{padding:0}#navPanel ul.links li.julia a img,#navPanel ul.links li.julia img{width:53px;height:33px;-webkit-transform:translateY(.6rem);transform:translateY(.6rem)}#navPanel .links li:first-child{border-top:0}#navPanel .close{background-color:transparent;text-decoration:none;-moz-transition:color .2s ease-in-out;-webkit-transition:color .2s ease-in-out;-ms-transition:color .2s ease-in-out;transition:color .2s ease-in-out;-webkit-tap-highlight-color:transparent;border:0;cursor:pointer;display:block;height:3.25rem;padding:0;margin:0;position:absolute;right:0;text-align:center;top:0;width:4rem}#navPanel .close:before{-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;font-family:FontAwesome;font-style:normal;font-weight:400;text-transform:none!important}#navPanel .close:before{content:"\f00d";font-size:1.25rem}@media screen and (max-width:736px){#navPanel .close{height:4rem;line-height:4rem}}@media screen and (max-width:980px){#navPanel{display:block}}@media screen and (max-width:736px){#navPanel{padding:2.5rem 1.75rem}}@media screen and (max-width:980px){body.is-navPanel-visible #wrapper{opacity:.85}body.is-navPanel-visible #navPanel{-moz-transform:translateX(0);-webkit-transform:translateX(0);-ms-transform:translateX(0);transform:translateX(0);box-shadow:0 0 1.5rem 0 rgba(0,0,0,.2);visibility:visible}}#header .logo.image{padding:0;border:none}#header .logo.image img{height:75px;transform:none!important}@media screen and (orientation:portrait){#header .logo.image img{height:60px}}::-webkit-scrollbar{width:5px;height:5px}::-webkit-scrollbar-track{border-radius:20px}::-webkit-scrollbar-thumb{border-radius:10px}@media screen and (max-width:480px){::-webkit-scrollbar{width:2.5px;height:2.5px}}.statistics-cover{width:131.61px;height:24px}.join{width:inherit;display:inherit;border-radius:50px;border:none;font-family:"Source Sans Pro",Helvetica,sans-serif;font-size:.95rem;font-weight:700;line-height:3rem;padding:0 2rem;text-align:center;cursor:pointer}.join:focus,.join:hover{-webkit-transform:translateY(-.2rem);transform:translateY(-.2rem)}@media screen and (max-width:980px){.join{border:2.5px solid #0073b1;margin-top:20px;width:100%;display:block}.login-btn-width{margin-bottom:3px!important}.join-width{margin-top:0!important;margin-bottom:0!important}}.jump:hover{-webkit-transform:translateY(-.2rem);transform:translateY(-.2rem)}.python-logo,.python-logo img{width:75px;height:20px;-webkit-transform:translateY(.2rem);transform:translateY(.2rem);margin-left:5px;margin-right:2px;border-bottom:none}.julia-logo,.julia-logo img{width:53px;height:33px;-webkit-transform:translateY(.3rem);transform:translateY(.3rem);border-bottom:none}.loading{display:block;margin-left:auto;margin-right:auto}.patreon-logo{-webkit-transform:translateY(.2rem);transform:translateY(.2rem);width:18px;height:18px}.settings button{line-height:0;padding:10px;font-weight:400;height:30px}.btn-loading{margin-top:10px;border-radius:15px;width:125px;height:40px}#paragraph-content{display:none}.whiteback>.app-img{border-radius:5px;padding:3px;margin-top:15px}.whiteback>.discord-img{border-radius:5px;padding:0;margin-top:15px}</style>
 		
-		<title>Gaussian Distribution | Fundamentals of Statistics - QuantML</title>
-		<meta charset="utf-8" />
-		<link rel="icon" href="/data/icon.png" type="image/png" sizes="16x16">
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<meta name="robots" content="noindex">
-		<!-- <meta name="robots" content="index, follow"> -->
-
-		<!-- <script>importPrism = true</script> -->
+		<script>var importPrism = true;</script>
 		<script>
 var $jscomp=$jscomp||{};$jscomp.scope={};$jscomp.createTemplateTagFirstArg=function(a){return a.raw=a};$jscomp.createTemplateTagFirstArgWithRaw=function(a,b){a.raw=b;return a};quantml={theme:localStorage.getItem("quantmlTheme")};null==quantml.theme&&(localStorage.setItem("quantmlTheme","light"),quantml.theme="light");
 function _c(a,b,d){var f=new XMLHttpRequest;f.onreadystatechange=function(){4==f.readyState&&(200==f.status?localStorage.setItem(a,JSON.stringify({content:f.responseText,version:b})):console.warn("error loading "+d))};f.open("GET",d,!0);f.send()}function _o(a,b,d,f,c){a.readyState?a.onreadystatechange=function(){if("loaded"==a.readyState||"complete"==a.readyState)a.onreadystatechange=null,_c(d,f,b),c&&c()}:a.onload=function(){_c(d,f,b);c&&c()}}
@@ -37,11 +34,10 @@ a.setAttribute("property","twitter:description"),a.content=quantml.meta.descript
 var check=!1;
 (function(a){if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows ce|xda|xiino/i.test(a)||/1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(a.substr(0,4)))check=
 !0})(navigator.userAgent||navigator.vendor||window.opera);quantml.notDesktop=check;quantml.pagination={};		</script>
-
-		<script>
+        <script>
 			quantml["pagination"] = {
 				"left": "/statistics/central-limit-theorem/julia/",
-				// "right": "",
+				"right": "/statistics/gaussian-distribution/python/",
 				// "next": {
 				// 	"path": "",
 				// 	"title": "",
@@ -51,9 +47,15 @@ var check=!1;
 					"title": "Central Limit Theorem",
 				}
 			}
-			quantml["chapterID"] ="gaussian-distribution";
-			quantml["fetch-chapter"] = true;
-		</script>
+            quantml["chapterID"] ="gaussian-distribution";
+            quantml["fetch-chapter"] = true;
+            quantml["meta"] = {
+                "allow-robots": false,
+                // "description": "",
+                // "image-url": "",
+            }
+            applyMetaTags()
+        </script>
 
 	</head>
 
@@ -77,14 +79,17 @@ var check=!1;
 						<ul class="links">
 							<li class="cover"><a href="/statistics/"><img src="/data/img/STATISTICS-cover.webp" alt="STATISTICS"></a></li>
 							<li class="active title">Gaussian Distribution</li>
-							<li class="python title"><img src="/data/img/python.webp" alt="Python"></li>
-							<li class="julia title"><img src="/data/img/julia.webp" alt="Julia"></li>
-							</ul>
+							<!-- <li class="python title"><img src="/data/img/python.webp" alt="Python"></li>
+							<li class="julia title"><img src="/data/img/julia.webp" alt="Julia"></li>                             -->
+                        	<li class="python"><a href="/statistics/gaussian-distribution/python/"><img src="/data/img/python.webp" alt="Python"></a></li>
+							<li class="julia"><a href="/statistics/gaussian-distribution/julia/"><img src="/data/img/julia.webp" alt="Julia"></a></li>
+                        </ul>
 					</nav>
 
 <!-- Main -->
 <div id="main">
     <section class="post">
+
 <div style="text-align: center;" id="load-init"></div>
 <script>initializeBody();</script>
 
@@ -93,42 +98,1044 @@ var check=!1;
 <div id="desktop-mode">
 	<div id="btn-container"></div>
 </div><br>
-
-<!-- <div style="display: none; text-align: center; width: 20rem; margin-left: auto; margin-right: auto;" id="no-internet" class="error-msg">
-    <img style="float: left;" src="/data/img/error.webp" alt="!" width="50px" height="50px">
-    <div style="-webkit-transform: translateY(.6rem); transform: translateY(.6rem);">Internet Connection Error</div>
-</div> -->
-
-<!-- <div id="secrets">
-	<img id="secrets" class="loading" src="/data/img/loading.svg" alt="">
-</div> -->
-<!-- <script>document.addEventListener("keydown",()=>{console.log(document.activeElement)})</script> -->
-<!-- <div style="display: none;" id="login-require" class="login-require">
-	<div class="login-require-txt">Login is required</div>
-	<button onclick='setDisplay("email-model","block");' class="button">Login &nbsp; <img src="/data/img/patreon.webp" alt="P"></button>
-    <a rel="noreferrer" target="_blank" href="https://www.patreon.com/quantml">
-        <button class="button" style="float: right;" >Join &nbsp; <img src="/data/img/patreon.webp" alt="Join"></button>
-    </a>
-</div> -->
 <h1>Gaussian Distribution</h1>
-<blockquote style="margin-top: 20px;">
-	<br>
-    <h4>Expected date of release: <b style="display: inline-block;">27-Feb-2021</b></h4>
-	
-	<br>
-</blockquote>
-
+<!-- <h4 style="margin-bottom: 1.5rem;">A Quick Recap</h4> -->
+Gaussian Distribution (a.k.a. Normal distribution, Bell curve) is perhaps the most important probability distribution in statistics. We can see it in numerous natural phenomena like: heights, weight, age, measurement error, <a rel="noreferrer" target="_blank" href="https://www.123test.com/interpretation-of-an-iq-score/">IQ score</a>, etc. <br> 
+We had already witnessed it's importance in <a rel="noreferrer" target="_blank" href="/statistics/central-limit-theorem/">Central Limit Theorem</a>. <br>
 <br>
 
-
-
+<h3>Gaussian Distribution</h3>
+<div id="desktop-mode">
+    <div  style="font-family: inherit;" class="table-wrapper">
+        <table style="font-family: Open Sans">
+            <tr>
+                <td>Notation</td>
+                <td><div class="quantml-katex-display">\[\mathcal{N}(\mu,\sigma^2)\]</div></td>
+                <td>Here <div class="quantml-katex-display inline">\(\mu\)</div> and <div class="quantml-katex-display inline">\(\sigma^2\)</div> are parameters<br>Where <div class="quantml-katex-display inline">\(-\infty &lt \mu &lt +\infty\)</div><br>And <div class="quantml-katex-display inline">\(\sigma^2 \gt \infty\)</div></td>
+            </tr>
+            <tr>
+                <td>PDF</td>
+                <td><div class="quantml-katex-display">\[f(x)=\frac{1}{\sigma \sqrt{2\pi }} \exp \left(-\frac{(x-\mu )^2}{2 \sigma ^2}\right)\]</div></td>
+                <td><div class="quantml-katex-display inline">\(-\infty \lt x \lt \infty\)</div></td>
+            </tr>
+            <tr>
+                <td>CDF</td>
+                <td><div class="quantml-katex-display">\[F(x)=\frac{1}{\sigma \sqrt{2\pi }} \int_{-\infty}^{x}\exp \left(-\frac{(t-\mu )^2}{2 \sigma ^2}\right)dt\]</div></td>
+                <td>There is no closed form solution, <br> for CDF of a Normal distribution</td>
+            </tr>
+        </table>
+    </div>
 </div>
+<div id="mobile-mode">
+    <div  style="font-family: inherit;" class="table-wrapper">
+        <table style="font-family: Open Sans">
+            <tr>
+                <td>Notation</td>
+                <td style="text-align: center;"><div class="quantml-katex-display">\[\mathcal{N}(\mu,\sigma^2)\]</div> 
+                Here <div class="quantml-katex-display inline">\(\mu\)</div> and <div class="quantml-katex-display inline">\(\sigma^2\)</div> are parameters<br>Where <div class="quantml-katex-display inline">\(-\infty &lt \mu &lt +\infty\)</div><br>And <div class="quantml-katex-display inline">\(\sigma^2 \gt \infty\)</div></td>
+            </tr>
+            <tr>
+                <td>PDF</td>
+                <td style="text-align: center;"><div class="quantml-katex-display">\[f(x)=\frac{1}{\sigma \sqrt{2\pi }} \exp \left(-\frac{(x-\mu )^2}{2 \sigma ^2}\right)\]</div> 
+                <div class="quantml-katex-display inline">\(-\infty \lt x \lt \infty\)</div></td>
+            </tr>
+            <tr>
+                <td>CDF</td>
+                <td style="text-align: center;"><div class="quantml-katex-display">\[F(x)=\frac{1}{\sigma \sqrt{2\pi }} \int_{-\infty}^{x}\exp \left(-\frac{(t-\mu )^2}{2 \sigma ^2}\right)dt\]</div> 
+                There is no closed form solution, <br> for CDF of a Normal distribution</td>
+            </tr>
+        </table>
+    </div>
+</div>
+<img class="full-size-img" src="/statistics/img/gaussian-distribution/gauss_1_plot.png" width="640" height="fit-content" alt="">
+<details id="py">
+    <summary><span class="bb">Python code to plot this distribution</span></summary>
+<pre data-start="1"><code class="language-python line-numbers">import numpy as np
+import matplotlib.pyplot as plt
+def gaussian_plot(mu: float,
+                  sigma: float,
+                  partitions: int = 1000):
+    rvs = np.linspace(mu - 3 * sigma, mu + 3 * sigma, partitions)
+    pdf = (1/(sigma*np.sqrt(2*np.pi))) * np.exp(-((rvs-mu)**2)/(2*sigma**2))
+    plt.plot(rvs, pdf, label = f"N(μ = {mu}, σ = {sigma})")
+    plt.legend()
+    plt.show()
+
+gaussian_plot(0,1)
+gaussian_plot(10,4)
+</code></pre>
+</details>
+<br>
+
+<h2 id="gauss_properties">Properties of Gaussian<a style="color: rgb(20, 57, 168);" href="#gauss_properties"><i class="fa fa-link" aria-hidden="true"></i></a></h2>
+
+<h3 style="margin-top: 20px;">The Empirical Rule</h3>
+The Empirical Rule <div class="quantml-katex-display inline">\((\text{a.k.a. }68-95-99.7\text{ rule})\)</div> says: <br>
+<img class="full-size-img" src="/statistics/img/gaussian-distribution/68-95-99.7.png" alt="" width="437px" height="430px">
+<ul>
+    <li><div class="quantml-katex-display inline">\(68\%\)</div> of population lies within <div class="quantml-katex-display inline">\(1\)</div> standard deviation<div class="quantml-katex-display inline">\((\sigma)\)</div> from the mean<div class="quantml-katex-display inline">\((\mu)\)</div>.</li>
+    <li><div class="quantml-katex-display inline">\(95\%\)</div> of population lies within <div class="quantml-katex-display inline">\(2\)</div> standard deviation<div class="quantml-katex-display inline">\((\sigma)\)</div> from the mean<div class="quantml-katex-display inline">\((\mu)\)</div>.</li>
+    <li><div class="quantml-katex-display inline">\(99.7\%\)</div> of population lies within <div class="quantml-katex-display inline">\(3\)</div> standard deviation<div class="quantml-katex-display inline">\((\sigma)\)</div> from the mean<div class="quantml-katex-display inline">\((\mu)\)</div>.</li>
+</ul>
+
+<h3 style="margin-top: 20px;" id="linear-function">Linear functions of Normal random variable<a style="color: rgb(20, 57, 168);" href="#linear-function"><i class="fa fa-link" aria-hidden="true"></i></a></h3>
+Gaussians are invariant under affine(linear) transformation, it means when we do a linear transformation of a Gaussian random variable, it remains a Gaussian random variable. <br>
+Like if <span class="bb"><div class="quantml-katex-display inline">\(X\sim\mathcal{N}(\mu,\sigma^2)\)</div></span> and <span class="bb"><div class="quantml-katex-display inline">\(Y=aX+b\)</div></span> then <span class="bb"><div class="quantml-katex-display inline">\(Y\sim\mathcal{N}(a\mu+b,a^2\sigma^2)\)</div></span>
+<details open>
+    <summary><span class="bb">Explanation</span></summary>
+    <blockquote class="sidebar"> 
+        <div class="math-container">
+        <div class="quantml-katex-display inline">\(\mathbb{E}[Y] =\mathbb{E}[aX+b]\)</div> <br>
+        <div class="quantml-katex-display inline">\(\mathbb{E}[Y] =\mathbb{E}[aX]+b  \quad; \text{by linearity of expectation}\)</div> <br>
+        <div class="quantml-katex-display inline">\(\mathbb{E}[Y] =a\mathbb{E}[X] +b\)</div>  <br>
+        <div class="quantml-katex-display inline">\(\mathbb{E}[Y] = a\mu+b\)</div>          <br>
+        <div class="quantml-katex-display inline">\(Var(Y) = Var(aX+b)\)</div>  <br>
+        <div class="quantml-katex-display inline">\(Var(Y) = Var(aX)\)</div> <br>
+        <div class="quantml-katex-display inline">\(Var(Y) =a^2Var(X)\)</div> <br>
+        <div class="quantml-katex-display inline">\(Var(Y) =a^2\sigma^2\)</div>
+        </div>
+    </blockquote>
+</details><br>
+
+<h3 id="standardization">Standardization (a.k.a. Normalization/Z-score)<a style="color: rgb(20, 57, 168);" href="#standardization"><i class="fa fa-link" aria-hidden="true"></i></a></h3>
+As we know that CDF of Gaussian distribution has no close form, so we can't solve it by hand. So we need a computer to do it for us. But the problem is, there are so many Gaussian r.v. with different <div class="quantml-katex-display inline">\(\mu\)</div> and <div class="quantml-katex-display inline">\(\sigma^2\)</div>.<br>
+The solution for this is Standardization. By it we can convert any Gaussian r.v. to a Standard Gaussian r.v <div class="quantml-katex-display inline">\(\mathcal{N}(0,1)\)</div>.<br>
+If <div class="quantml-katex-display inline">\(X\sim\mathcal{N}(\mu,\sigma^2)\)</div> then:<br>
+<div class="math-container">
+<div class="quantml-katex-display">\[X-\mu\sim\mathcal{N}(0,\sigma^2) \]</div>
+<div class="quantml-katex-display">\[\frac{X-\mu}{\sigma}\sim\mathcal{N}(0,1) \]</div>
+<div class="quantml-katex-display">\[\Rightarrow Z=\frac{X-\mu}{\sigma}\sim\mathcal{N}(0,1)\]</div>
+</div>
+
+Now we can compute probabilities for any Gaussian distribution:
+<div class="math-container">
+<div class="quantml-katex-display">\[\mathbb{P}\left(u\lt X\lt v\right)=\mathbb{P}\left(\frac{u-\mu}{\sigma} \lt Z \lt \frac{v-\mu}{\sigma}\right)\]</div>
+</div>
+
+<h3 id="symmetry">Symmetry<a style="color: rgb(20, 57, 168);" href="#symmetry"><i class="fa fa-link" aria-hidden="true"></i></a></h3>
+Any Gaussian r.v. with mean<div class="quantml-katex-display inline">\((\mu)=0\)</div> is symmetric<br>
+If <div class="quantml-katex-display inline">\(X\sim \mathcal{N}(0,\sigma^2)\)</div> then <div class="quantml-katex-display inline">\(-X\)</div> has the same distribution as <div class="quantml-katex-display inline">\(X\)</div><br>
+<div class="quantml-katex-display inline">\(\Rightarrow -X \sim \mathcal{N}(0,\sigma^2)\)</div><br>
+<br>
+
+<h3 id="gauss_table">Gaussian Probability Table<a style="color: rgb(20, 57, 168);" href="#gauss_table"><i class="fa fa-link" aria-hidden="true"></i></a></h3>
+So as we know that CDF of a gaussian has no close form, therefore we use tables to get those CDF's.<br>
+The table given below gives us CDF of a Standard Gaussian r.v. <div class="quantml-katex-display inline">\(\mathcal{N}(0,1)\)</div><br>
+CDF of <div class="quantml-katex-display inline">\(\mathcal{N}(0,1)=\Phi(x)\)</div><br>
+<div class="math-container">
+<div class="quantml-katex-display">\[\Phi(x)=\mathbb{P}(\mathcal{N}(0,1) \leq x)=\frac{1}{\sqrt{2\pi }} \int_{-\infty}^{x}\exp \left(-\frac{t^2}{2}\right)dt\]</div>
+</div>
+
+<span  style="font-size: larger; font-family: inherit;"><div class="quantml-katex-display inline">\(\text{Table for }\Phi(x)\)</div></span>
+    <img class="full-size-img" src="/statistics/img/std-normal.png" width="fit-content" height="fit-content" alt=""><br>
+    <div  style="font-family: inherit;" class="table-wrapper">
+    <table style="height:20em; overflow-y:scroll; display:block">
+    <tr>
+    <th><i>z</i></th>
+    <th>+0.00</th>
+    <th>+0.01</th>
+    <th>+0.02</th>
+    <th>+0.03</th>
+    <th>+0.04</th>
+
+    <th>+0.05</th>
+    <th>+0.06</th>
+    <th>+0.07</th>
+    <th>+0.08</th>
+    <th>+0.09
+    </th></tr>
+    <tr>
+    <th>0.0
+    </th>
+    <td>0.50000</td>
+    <td>0.50399</td>
+    <td>0.50798</td>
+    <td>0.51197</td>
+    <td>0.51595</td>
+    <td>0.51994</td>
+    <td>0.52392</td>
+    <td>0.52790</td>
+    <td>0.53188</td>
+    <td>0.53586</td></tr>
+    <tr>
+    <th>0.1
+    </th>
+    <td>0.53983</td>
+    <td>0.54380</td>
+    <td>0.54776</td>
+    <td>0.55172</td>
+    <td>0.55567</td>
+    <td>0.55966</td>
+    <td>0.56360</td>
+    <td>0.56749</td>
+    <td>0.57142</td>
+    <td>0.57535
+    </td></tr>
+    <tr>
+    <th>0.2
+    </th>
+    <td>0.57926</td>
+    <td>0.58317</td>
+    <td>0.58706</td>
+    <td>0.59095</td>
+    <td>0.59483</td>
+    <td>0.59871</td>
+    <td>0.60257</td>
+    <td>0.60642</td>
+    <td>0.61026</td>
+    <td>0.61409
+    </td></tr>
+    <tr>
+    <th>0.3
+    </th>
+    <td>0.61791</td>
+    <td>0.62172</td>
+    <td>0.62552</td>
+    <td>0.62930</td>
+    <td>0.63307</td>
+    <td>0.63683</td>
+    <td>0.64058</td>
+    <td>0.64431</td>
+    <td>0.64803</td>
+    <td>0.65173
+    </td></tr>
+    <tr>
+    <th>0.4
+    </th>
+    <td>0.65542</td>
+    <td>0.65910</td>
+    <td>0.66276</td>
+    <td>0.66640</td>
+    <td>0.67003</td>
+    <td>0.67364</td>
+    <td>0.67724</td>
+    <td>0.68082</td>
+    <td>0.68439</td>
+    <td>0.68793
+    </td></tr>
+    <tr>
+    </tr>
+    <tr>
+    <th>0.5
+    </th>
+    <td>0.69146</td>
+    <td>0.69497</td>
+    <td>0.69847</td>
+    <td>0.70194</td>
+    <td>0.70540</td>
+    <td>0.70884</td>
+    <td>0.71226</td>
+    <td>0.71566</td>
+    <td>0.71904</td>
+    <td>0.72240
+    </td></tr>
+    <tr>
+    <th>0.6
+    </th>
+    <td>0.72575</td>
+    <td>0.72907</td>
+    <td>0.73237</td>
+    <td>0.73565</td>
+    <td>0.73891</td>
+    <td>0.74215</td>
+    <td>0.74537</td>
+    <td>0.74857</td>
+    <td>0.75175</td>
+    <td>0.75490
+    </td></tr>
+    <tr>
+    <th>0.7
+    </th>
+    <td>0.75804</td>
+    <td>0.76115</td>
+    <td>0.76424</td>
+    <td>0.76730</td>
+    <td>0.77035</td>
+    <td>0.77337</td>
+    <td>0.77637</td>
+    <td>0.77935</td>
+    <td>0.78230</td>
+    <td>0.78524
+    </td></tr>
+    <tr>
+    <th>0.8
+    </th>
+    <td>0.78814</td>
+    <td>0.79103</td>
+    <td>0.79389</td>
+    <td>0.79673</td>
+    <td>0.79955</td>
+    <td>0.80234</td>
+    <td>0.80511</td>
+    <td>0.80785</td>
+    <td>0.81057</td>
+    <td>0.81327
+    </td></tr>
+    <tr>
+    <th>0.9
+    </th>
+    <td>0.81594</td>
+    <td>0.81859</td>
+    <td>0.82121</td>
+    <td>0.82381</td>
+    <td>0.82639</td>
+    <td>0.82894</td>
+    <td>0.83147</td>
+    <td>0.83398</td>
+    <td>0.83646</td>
+    <td>0.83891
+    </td></tr>
+    <tr>
+    </tr>
+    <tr>
+    <th>1.0
+    </th>
+    <td>0.84134</td>
+    <td>0.84375</td>
+    <td>0.84614</td>
+    <td>0.84849</td>
+    <td>0.85083</td>
+    <td>0.85314</td>
+    <td>0.85543</td>
+    <td>0.85769</td>
+    <td>0.85993</td>
+    <td>0.86214
+    </td></tr>
+    <tr>
+    <th>1.1
+    </th>
+    <td>0.86433</td>
+    <td>0.86650</td>
+    <td>0.86864</td>
+    <td>0.87076</td>
+    <td>0.87286</td>
+    <td>0.87493</td>
+    <td>0.87698</td>
+    <td>0.87900</td>
+    <td>0.88100</td>
+    <td>0.88298
+    </td></tr>
+    <tr>
+    <th>1.2
+    </th>
+    <td>0.88493</td>
+    <td>0.88686</td>
+    <td>0.88877</td>
+    <td>0.89065</td>
+    <td>0.89251</td>
+    <td>0.89435</td>
+    <td>0.89617</td>
+    <td>0.89796</td>
+    <td>0.89973</td>
+    <td>0.90147
+    </td></tr>
+    <tr>
+    <th>1.3
+    </th>
+    <td>0.90320</td>
+    <td>0.90490</td>
+    <td>0.90658</td>
+    <td>0.90824</td>
+    <td>0.90988</td>
+    <td>0.91149</td>
+    <td>0.91308</td>
+    <td>0.91466</td>
+    <td>0.91621</td>
+    <td>0.91774
+    </td></tr>
+    <tr>
+    <th>1.4
+    </th>
+    <td>0.91924</td>
+    <td>0.92073</td>
+    <td>0.92220</td>
+    <td>0.92364</td>
+    <td>0.92507</td>
+    <td>0.92647</td>
+    <td>0.92785</td>
+    <td>0.92922</td>
+    <td>0.93056</td>
+    <td>0.93189
+    </td></tr>
+    <tr>
+    </tr>
+    <tr>
+    <th>1.5
+    </th>
+    <td>0.93319</td>
+    <td>0.93448</td>
+    <td>0.93574</td>
+    <td>0.93699</td>
+    <td>0.93822</td>
+    <td>0.93943</td>
+    <td>0.94062</td>
+    <td>0.94179</td>
+    <td>0.94295</td>
+    <td>0.94408
+    </td></tr>
+    <tr>
+    <th>1.6
+    </th>
+    <td>0.94520</td>
+    <td>0.94630</td>
+    <td>0.94738</td>
+    <td>0.94845</td>
+    <td>0.94950</td>
+    <td>0.95053</td>
+    <td>0.95154</td>
+    <td>0.95254</td>
+    <td>0.95352</td>
+    <td>0.95449
+    </td></tr>
+    <tr>
+    <th>1.7
+    </th>
+    <td>0.95543</td>
+    <td>0.95637</td>
+    <td>0.95728</td>
+    <td>0.95818</td>
+    <td>0.95907</td>
+    <td>0.95994</td>
+    <td>0.96080</td>
+    <td>0.96164</td>
+    <td>0.96246</td>
+    <td>0.96327
+    </td></tr>
+    <tr>
+    <th>1.8
+    </th>
+    <td>0.96407</td>
+    <td>0.96485</td>
+    <td>0.96562</td>
+    <td>0.96638</td>
+    <td>0.96712</td>
+    <td>0.96784</td>
+    <td>0.96856</td>
+    <td>0.96926</td>
+    <td>0.96995</td>
+    <td>0.97062
+    </td></tr>
+    <tr>
+    <th>1.9
+    </th>
+    <td>0.97128</td>
+    <td>0.97193</td>
+    <td>0.97257</td>
+    <td>0.97320</td>
+    <td>0.97381</td>
+    <td>0.97441</td>
+    <td>0.97500</td>
+    <td>0.97558</td>
+    <td>0.97615</td>
+    <td>0.97670
+    </td></tr>
+    <tr>
+    </tr>
+    <tr>
+    <th>2.0
+    </th>
+    <td>0.97725</td>
+    <td>0.97778</td>
+    <td>0.97831</td>
+    <td>0.97882</td>
+    <td>0.97932</td>
+    <td>0.97982</td>
+    <td>0.98030</td>
+    <td>0.98077</td>
+    <td>0.98124</td>
+    <td>0.98169
+    </td></tr>
+    <tr>
+    <th>2.1
+    </th>
+    <td>0.98214</td>
+    <td>0.98257</td>
+    <td>0.98300</td>
+    <td>0.98341</td>
+    <td>0.98382</td>
+    <td>0.98422</td>
+    <td>0.98461</td>
+    <td>0.98500</td>
+    <td>0.98537</td>
+    <td>0.98574
+    </td></tr>
+    <tr>
+    <th>2.2
+    </th>
+    <td>0.98610</td>
+    <td>0.98645</td>
+    <td>0.98679</td>
+    <td>0.98713</td>
+    <td>0.98745</td>
+    <td>0.98778</td>
+    <td>0.98809</td>
+    <td>0.98840</td>
+    <td>0.98870</td>
+    <td>0.98899
+    </td></tr>
+    <tr>
+    <th>2.3
+    </th>
+    <td>0.98928</td>
+    <td>0.98956</td>
+    <td>0.98983</td>
+    <td>0.99010</td>
+    <td>0.99036</td>
+    <td>0.99061</td>
+    <td>0.99086</td>
+    <td>0.99111</td>
+    <td>0.99134</td>
+    <td>0.99158
+    </td></tr>
+    <tr>
+    <th>2.4
+    </th>
+    <td>0.99180</td>
+    <td>0.99202</td>
+    <td>0.99224</td>
+    <td>0.99245</td>
+    <td>0.99266</td>
+    <td>0.99286</td>
+    <td>0.99305</td>
+    <td>0.99324</td>
+    <td>0.99343</td>
+    <td>0.99361
+    </td></tr>
+    <tr>
+    </tr>
+    <tr>
+    <th>2.5
+    </th>
+    <td>0.99379</td>
+    <td>0.99396</td>
+    <td>0.99413</td>
+    <td>0.99430</td>
+    <td>0.99446</td>
+    <td>0.99461</td>
+    <td>0.99477</td>
+    <td>0.99492</td>
+    <td>0.99506</td>
+    <td>0.99520
+    </td></tr>
+    <tr>
+    <th>2.6
+    </th>
+    <td>0.99534</td>
+    <td>0.99547</td>
+    <td>0.99560</td>
+    <td>0.99573</td>
+    <td>0.99585</td>
+    <td>0.99598</td>
+    <td>0.99609</td>
+    <td>0.99621</td>
+    <td>0.99632</td>
+    <td>0.99643
+    </td></tr>
+    <tr>
+    <th>2.7
+    </th>
+    <td>0.99653</td>
+    <td>0.99664</td>
+    <td>0.99674</td>
+    <td>0.99683</td>
+    <td>0.99693</td>
+    <td>0.99702</td>
+    <td>0.99711</td>
+    <td>0.99720</td>
+    <td>0.99728</td>
+    <td>0.99736
+    </td></tr>
+    <tr>
+    <th>2.8
+    </th>
+    <td>0.99744</td>
+    <td>0.99752</td>
+    <td>0.99760</td>
+    <td>0.99767</td>
+    <td>0.99774</td>
+    <td>0.99781</td>
+    <td>0.99788</td>
+    <td>0.99795</td>
+    <td>0.99801</td>
+    <td>0.99807
+    </td></tr>
+    <tr>
+    <th>2.9
+    </th>
+    <td>0.99813</td>
+    <td>0.99819</td>
+    <td>0.99825</td>
+    <td>0.99831</td>
+    <td>0.99836</td>
+    <td>0.99841</td>
+    <td>0.99846</td>
+    <td>0.99851</td>
+    <td>0.99856</td>
+    <td>0.99861
+    </td></tr>
+    <tr>
+    </tr>
+    <tr>
+    <th>3.0
+    </th>
+    <td>0.99865</td>
+    <td>0.99869</td>
+    <td>0.99874</td>
+    <td>0.99878</td>
+    <td>0.99882</td>
+    <td>0.99886</td>
+    <td>0.99889</td>
+    <td>0.99893</td>
+    <td>0.99896</td>
+    <td>0.99900
+    </td></tr>
+    <tr>
+    <th>3.1
+    </th>
+    <td>0.99903</td>
+    <td>0.99906</td>
+    <td>0.99910</td>
+    <td>0.99913</td>
+    <td>0.99916</td>
+    <td>0.99918</td>
+    <td>0.99921</td>
+    <td>0.99924</td>
+    <td>0.99926</td>
+    <td>0.99929
+    </td></tr>
+    <tr>
+    <th>3.2
+    </th>
+    <td>0.99931</td>
+    <td>0.99934</td>
+    <td>0.99936</td>
+    <td>0.99938</td>
+    <td>0.99940</td>
+    <td>0.99942</td>
+    <td>0.99944</td>
+    <td>0.99946</td>
+    <td>0.99948</td>
+    <td>0.99950
+    </td></tr>
+    <tr>
+    <th>3.3
+    </th>
+    <td>0.99952</td>
+    <td>0.99953</td>
+    <td>0.99955</td>
+    <td>0.99957</td>
+    <td>0.99958</td>
+    <td>0.99960</td>
+    <td>0.99961</td>
+    <td>0.99962</td>
+    <td>0.99964</td>
+    <td>0.99965
+    </td></tr>
+    <tr>
+    <th>3.4
+    </th>
+    <td>0.99966</td>
+    <td>0.99968</td>
+    <td>0.99969</td>
+    <td>0.99970</td>
+    <td>0.99971</td>
+    <td>0.99972</td>
+    <td>0.99973</td>
+    <td>0.99974</td>
+    <td>0.99975</td>
+    <td>0.99976
+    </td></tr>
+    <tr>
+    </tr>
+    <tr>
+    <th>3.5
+    </th>
+    <td>0.99977</td>
+    <td>0.99978</td>
+    <td>0.99978</td>
+    <td>0.99979</td>
+    <td>0.99980</td>
+    <td>0.99981</td>
+    <td>0.99981</td>
+    <td>0.99982</td>
+    <td>0.99983</td>
+    <td>0.99983
+    </td></tr>
+    <tr>
+    <th>3.6
+    </th>
+    <td>0.99984</td>
+    <td>0.99985</td>
+    <td>0.99985</td>
+    <td>0.99986</td>
+    <td>0.99986</td>
+    <td>0.99987</td>
+    <td>0.99987</td>
+    <td>0.99988</td>
+    <td>0.99988</td>
+    <td>0.99989
+    </td></tr>
+    <tr>
+    <th>3.7
+    </th>
+    <td>0.99989</td>
+    <td>0.99990</td>
+    <td>0.99990</td>
+    <td>0.99990</td>
+    <td>0.99991</td>
+    <td>0.99991</td>
+    <td>0.99992</td>
+    <td>0.99992</td>
+    <td>0.99992</td>
+    <td>0.99992
+    </td></tr>
+    <tr>
+    <th>3.8
+    </th>
+    <td>0.99993</td>
+    <td>0.99993</td>
+    <td>0.99993</td>
+    <td>0.99994</td>
+    <td>0.99994</td>
+    <td>0.99994</td>
+    <td>0.99994</td>
+    <td>0.99995</td>
+    <td>0.99995</td>
+    <td>0.99995
+    </td></tr>
+    <tr>
+    <th>3.9
+    </th>
+    <td>0.99995</td>
+    <td>0.99995</td>
+    <td>0.99996</td>
+    <td>0.99996</td>
+    <td>0.99996</td>
+    <td>0.99996</td>
+    <td>0.99996</td>
+    <td>0.99996</td>
+    <td>0.99997</td>
+    <td>0.99997
+    </td></tr>
+    <tr>
+    </tr>
+    <tr>
+    <th>4.0
+    </th>
+    <td>0.99997</td>
+    <td>0.99997</td>
+    <td>0.99997</td>
+    <td>0.99997</td>
+    <td>0.99997</td>
+    <td>0.99997</td>
+    <td>0.99998</td>
+    <td>0.99998</td>
+    <td>0.99998</td>
+    <td>0.99998
+    </td></tr></table>
+    </div>
+    Source: <a  href="https://en.wikipedia.org/wiki/Standard_normal_table#Cumulative">https://en.wikipedia.org/wiki/Standard_normal_table#Cumulative</a>
+
+<br><br>
+
+<b>How to read the table:</b><br>
+The first 2 digits represent a row and 3rd digit represents a column.<br>
+<br>
+<h4 id="examples">Examples</h4>
+<ul>
+    <li>
+        <span id="ex_1"></span>
+        Say that we want to calculate <div class="quantml-katex-display inline">\(\Phi(0.07)\)</div><br>
+        then first 2 digits "<div class="quantml-katex-display inline">\(0.0\)</div>" of <b>0.0</b>7 gives us row number 1, and 3rd digit "<div class="quantml-katex-display inline">\(7\)</div>" gives us column number 8, so <div class="quantml-katex-display inline">\(\Phi(0.07) = 0.52790\)</div><br>
+        <div style="font-family: inherit;" class="table-wrapper">
+        <table>
+            <tr>
+            <th><i>z</i></th>
+            <th>+0.00</th>
+            <th>+0.01</th>
+            <th>+0.02</th>
+            <th>+0.03</th>
+            <th>+0.04</th>
+
+            <th>+0.05</th>
+            <th>+0.06</th>
+            <th class="table-highlighted-cell">+0.07</th>
+            <th>+0.08</th>
+            <th>+0.09</th></tr>
+            <tr>
+            <th>0.0</th>
+            <td>0.50000</td>
+            <td>0.50399</td>
+            <td>0.50798</td>
+            <td>0.51197</td>
+            <td>0.51595</td>
+            <td>0.51994</td>
+            <td>0.52392</td>
+            <td class="table-highlighted-cell">0.52790</td>
+            <td>0.53188</td>
+            <td>0.53586</td>
+        </tr></table></div>
+        <br>
+    </li>
+    <li>
+        <span id="ex_2"></span>
+        Now say that we want to calculate <div class="quantml-katex-display inline">\(\Phi(1.26)\)</div><br>
+        then first 2 digits "<div class="quantml-katex-display inline">\(1.2\)</div>" of <b>1.2</b>6 gives us row number 17, and 3rd digit "<div class="quantml-katex-display inline">\(6\)</div>" gives us column number 7, so <div class="quantml-katex-display inline">\(\Phi(1.26) = 0.89617\)</div><br>
+            <div style="font-family: inherit;" class="table-wrapper">
+            <table>
+            <tr>
+            <th><i>z</i></th>
+            <th>+0.00</th>
+            <th>+0.01</th>
+            <th>+0.02</th>
+            <th>+0.03</th>
+            <th>+0.04</th>
+
+            <th>+0.05</th>
+            <th class="table-highlighted-cell">+0.06</th>
+            <th>+0.07</th>
+            <th>+0.08</th>
+            <th>+0.09
+            </th></tr>
+            <tr>
+            <th>1.2
+            </th>
+            <td>0.88493</td>
+            <td>0.88686</td>
+            <td>0.88877</td>
+            <td>0.89065</td>
+            <td>0.89251</td>
+            <td>0.89435</td>
+            <td class="table-highlighted-cell">0.89617</td>
+            <td>0.89796</td>
+            <td>0.89973</td>
+            <td>0.90147
+            </td></tr></table></div>
+            <br>
+    </li>
+    <li>
+        <span id="ex_3"></span>
+        Now we can also find <div class="quantml-katex-display inline">\(\mathbb{P}( 0.07 \leq \mathcal{N}(0,1) \leq  1.26)\)</div>:
+        <details>
+            <summary><span class="bb">See solution</span></summary>
+            <div class="math-container">
+                <blockquote class="sidebar"> 
+                    <div class="quantml-katex-display inline">\(\mathbb{P}( 0.07 \leq \mathcal{N}(0,1) \leq  1.26)=\)</div> <div class="quantml-katex-display inline">\(\mathbb{P}(\mathcal{N}(0,1) \leq  1.26)-\mathbb{P}(\mathcal{N}(0,1) \leq  0.07)\)</div> <div class="quantml-katex-display inline">\(=0.89617 - 0.5279=0.36827\)</div>
+                </blockquote>
+            </div>
+        </details>
+        <br>
+    </li>
+    <li>
+        <span id="ex_4"></span>
+        Now let's calculate <div class="quantml-katex-display inline">\(\Phi(-0.07) = \mathbb{P}(\mathcal{N}(0,1) \leq -0.07)\)</div><br>
+        <details>
+            <summary><span class="bb">See solution</span></summary>
+            <div class="math-container">
+            <blockquote class="sidebar"> 
+                Say <div class="quantml-katex-display inline">\(Z=\mathcal{N}(0,1)\)</div><br>
+                <div class="quantml-katex-display inline">\(\mathbb{P}(Z \leq -0.07)=\mathbb{P}(-Z \geq 0.07)\)</div><br>
+                And <div class="quantml-katex-display inline">\(\mathbb{P}(-Z \geq 0.07)=\mathbb{P}(Z \geq 0.07)\)</div> <b>;by symmetry</b><br>
+                <div class="quantml-katex-display inline">\(\mathbb{P}(Z \geq 0.07)= 1- \mathbb{P}(Z \leq 0.07)\)</div><br>
+                <div class="quantml-katex-display inline">\(\mathbb{P}(Z \geq 0.07)= 1- \Phi(0.07)\)</div><br>
+                <div class="quantml-katex-display inline">\(\mathbb{P}(Z \geq 0.07)= 1- 0.52790=0.4721\)</div><br>
+                <div class="quantml-katex-display inline">\(\Rightarrow \Phi(-0.07)=0.4721\)</div>
+            </blockquote>
+            </div>
+        </details>
+        <br>
+    </li>
+    <li>
+        <span id="ex_5"></span>
+        Now let's calculate <div class="quantml-katex-display inline">\(\mathbb{P}(|\mathcal{N}(0,1)| \gt 0.07)\)</div><br>
+        <details>
+            <summary><span class="bb">See solution</span></summary>
+            <blockquote class="sidebar"> 
+                <div class="math-container">
+                Say <div class="quantml-katex-display inline">\(Z=\mathcal{N}(0,1)\)</div><br>
+                <div class="quantml-katex-display inline">\(\mathbb{P}(|Z| \gt 0.07)=\mathbb{P}(Z \gt 0.07 \cup Z \lt -0.07)=\)</div> &nbsp;<div class="quantml-katex-display inline">\( \mathbb{P}(Z \gt 0.07)+\mathbb{P}(Z\lt -0.07)  \)</div><br>
+                And
+                <ul>
+                    <li>
+                        <div class="quantml-katex-display inline">\(\mathbb{P}(Z \gt 0.07) =1-\mathbb{P}(Z \leq 0.07)=\)</div> &nbsp;<div class="quantml-katex-display inline">\(1-\Phi(0.07)=\)</div> &nbsp;<div class="quantml-katex-display inline">\(1 - 0.5279=0.4721\)</div>
+                    </li>
+                    <li>
+                        <div class="quantml-katex-display inline">\(\mathbb{P}(Z\lt -0.07)=\Phi(-0.07)\)</div> and we calculated above and <div class="quantml-katex-display inline">\(\Phi(-0.07)=0.4721\)</div>
+                    </li>
+                </ul>
+                So:<br>
+                <div class="quantml-katex-display inline">\(\mathbb{P}(|Z| \gt 0.07)=0.4721+0.4721=0.9442\)</div><br>
+                And we can say that:<br>
+                <div class="quantml-katex-display inline">\(\mathbb{P}(|Z| \gt x)= 2(1-\Phi(x)) \)</div>
+                </div>
+            </blockquote>
+        </details>
+        <br>
+    </li>
+    <li>
+        <span id="ex_6"></span>
+        Say <div class="quantml-katex-display inline">\(  X\sim \mathcal{N}(70,36)  \)</div> now calculate <div class="quantml-katex-display inline">\(\mathbb{P}(X>80)\)</div><br>
+        <details>
+            <summary><span class="bb">See solution</span></summary>
+            <blockquote class="sidebar"> 
+                <div class="math-container">
+                Say <div class="quantml-katex-display inline">\(Z=\mathcal{N}(0,1)\)</div><br>
+                <div class="quantml-katex-display inline">\(  \mathbb{P}(X\gt 80)  =\mathbb{P}(X-70 \gt 80-70)\)</div><br>
+                <div class="quantml-katex-display inline">\(\Rightarrow  \mathbb{P}(X\gt 80)  =\mathbb{P}(\frac{X-70}{6} \gt \frac{80-70}{6})\)</div><br>
+                <div class="quantml-katex-display inline">\(\Rightarrow  \mathbb{P}(X\gt 80)  =\mathbb{P}(       Z       \gt 1.66)\)</div><br>
+                <ul>
+                    <li>
+                        <div class="quantml-katex-display inline">\( \mathbb{P}(Z \gt 1.66)=1 - \mathbb{P}(Z \leq 1.66)  \)</div><br>
+                        <div class="quantml-katex-display inline">\(\Rightarrow \mathbb{P}(Z \gt 3.33) = 1-0.95154 = 0.04846 \)</div>
+                    </li>
+                </ul>
+                <div class="quantml-katex-display inline">\(\Rightarrow  \mathbb{P}(X\gt 80) = 0.04846 \)</div>
+                </div>
+            </blockquote>
+        </details>
+        <br>
+    </li>
+    <li>
+        <span id="ex_7"></span>
+        Say <div class="quantml-katex-display inline">\(X\sim \mathcal{N}(70,36)\)</div> now we have to find <div class="quantml-katex-display inline">\(x\)</div> such that <div class="quantml-katex-display inline">\(\mathbb{P}(X\leq x)=80\%\)</div><br>
+        Now we have to read the table backward.
+        <details>
+            <summary><span class="bb">See solution</span></summary>
+            <blockquote class="sidebar"> 
+                <div class="math-container">
+                Say <div class="quantml-katex-display inline">\(Z=\mathcal{N}(0,1)\)</div><br>
+                <div class="quantml-katex-display inline">\(  \mathbb{P}(X\leq x)  =0.8\)</div><br>
+                <div class="quantml-katex-display inline">\(\Rightarrow  \mathbb{P}(X-70\leq x-70) =0.8\)</div><br>
+                <div class="quantml-katex-display inline">\(\Rightarrow  \mathbb{P}\left(\frac{X-70}{6}\leq \frac{x-70}{6}\right) =0.8\)</div><br>
+                <div class="quantml-katex-display inline">\(\Rightarrow  \mathbb{P}\left(Z \leq \frac{x-70}{6}\right) =0.8\)</div><br>
+                <div class="quantml-katex-display inline">\(\Rightarrow  \Phi\left( \frac{x-70}{6}\right) =0.8\)</div><br>
+
+                <div  style="font-family: inherit;" class="table-wrapper">
+                <table>
+                <tr>
+                <th><i>z</i></th>
+                <th>+0.00</th>
+                <th>+0.01</th>
+                <th>+0.02</th>
+                <th>+0.03</th>
+                <th>+0.04</th>
+
+                <th class="table-highlighted-cell">+0.05</th>
+                <th>+0.06</th>
+                <th>+0.07</th>
+                <th>+0.08</th>
+                <th>+0.09</th></tr>
+                <tr>
+                <th>0.8
+                </th>
+                <td>0.78814</td>
+                <td>0.79103</td>
+                <td>0.79389</td>
+                <td>0.79673</td>
+                <td>0.79955</td>
+                <td class="table-highlighted-cell">0.80234</td>
+                <td>0.80511</td>
+                <td>0.80785</td>
+                <td>0.81057</td>
+                <td>0.81327</td></tr>
+                </table></div>
+
+                <ul>
+                    <li>
+                        <div class="quantml-katex-display inline">\(\Phi(0.85)=0.80\)</div>
+                    </li>
+                </ul>
+                <div class="quantml-katex-display inline">\(\Rightarrow \frac{x-70}{6}=0.85\)</div><br>
+                <div class="quantml-katex-display inline">\(\Rightarrow x=75.1\)</div>
+                </div>
+            </blockquote>
+        </details>
+        <br>
+    </li>
+</ul>
+
+<h3 id="quantile">Quantile<a style="color: rgb(20, 57, 168);" href="#quantile"><i class="fa fa-link" aria-hidden="true"></i></a></h3>
+Here we have to find a number <div class="quantml-katex-display inline">\(q_\alpha\)</div> or say the quantile of order <div class="quantml-katex-display inline">\(1- \alpha\)</div> of a r.v. <div class="quantml-katex-display inline">\(X\)</div> such that the
+CDF of <div class="quantml-katex-display inline">\(X\)</div> at <div class="quantml-katex-display inline">\(q_\alpha\)</div> is:<br>
+<div class="quantml-katex-display inline">\(F(q_\alpha)=\mathbb{P}(X \leq q_\alpha)=1-\alpha\)</div><br>
+Here we are just reading the table backward, So we are just computing <div class="quantml-katex-display inline">\(F^{-1}(x)\)</div><br>
+<br>
+Some important quantiles of <div class="quantml-katex-display inline">\(Z\sim \mathcal{N}(0,1)\)</div>:
+<span id="imp-quantiles"></span>
+<div  style="font-family: inherit;" class="table-wrapper">
+    <table>
+    <tr>
+    <th><div class="quantml-katex-display inline">\(\alpha\)</div></th>
+    <th><div class="quantml-katex-display inline">\(2.5\%\)</div></th>
+    <th><div class="quantml-katex-display inline">\(5\%\)</div></th>
+    <th><div class="quantml-katex-display inline">\(10\%\)</div></th>
+    </tr>
+    <tr>
+    <th><div class="quantml-katex-display inline">\(q_\alpha\)</div></th>
+    <td>1.96</td>
+    <td>1.65</td>
+    <td>1.28</td>
+    </tr>
+    </table>
+</div>
+<br>
+<div class="quantml-katex-display inline">\(\mathbb{P}(|Z| \gt 1.96)=5\%\)</div>
+<div class="'new_image">
+    <img class="full-size-img" src="/statistics/img/gaussian-distribution/2.5.png" width="499" height="fit-content" alt="">
+</div>
+
+<blockquote class="noborder align-center">
+	Now let's see an implementation, choose your language of choice,<br>
+	<a href="/statistics/gaussian-distribution/python/"><img src="/data/img/python.webp" alt="Python" width="75px" height="20px"></a> &nbsp;,&nbsp;
+	<a href="/statistics/gaussian-distribution/julia/"><img src="/data/img/julia.webp" alt="Julia" width="53px" height="33px"></a>
+	<br>
+	<a rel="noreferrer" target="_blank" href="https://app.quantml.org/statistics/?ch=Gaussian-Distribution">Launch Statistics App <img src="/data/img/app.webp" alt="launch" width="30px" height="30px"></a>
+</blockquote><br>
+
 
 <div id="btn-container"></div><br>
 
+<br>
+<blockquote class="sidebar" style="padding-bottom: 0%;">
+	<h3>Recommended Watching</h3>
+
+	<details style="margin-top: 10px; margin-bottom: 10px;" id="recommended-watchings-1">
+		<summary><i><span style="text-align: center;" class="bb">The Normal Distribution</span> (by Sir Jeremy Balka)</i></summary>
+			<img style="display: none; margin-top: 1rem;" id="loading-iframe-1" class="loading" src="/data/img/loading.svg" alt="">
+			<div id="recommended-watchings-1-iframe" style="text-align: center; margin-top:10px;"></div>
+	</details>
+
+	<details style="margin-top: 10px; margin-bottom: 10px;" id="recommended-watchings-2">
+		<summary><i><span style="text-align: center;" class="bb"> The Normal Distribution</span> (by Sir Josh Starmer)</i></summary>
+			<img style="display: none; margin-top: 1rem;" id="loading-iframe-2" class="loading" src="/data/img/loading.svg" alt="">
+			<div id="recommended-watchings-2-iframe" style="text-align: center; margin-top:10px;"></div>
+	</details>
+
+	<details style="margin-top: 10px; margin-bottom: 10px;" id="recommended-watchings-3">
+		<summary><i><span style="text-align: center;" class="bb">The Normal Distribution</span> (by Simple Learning Pro)</i></summary>
+			<img style="display: none; margin-top: 1rem;" id="loading-iframe-3" class="loading" src="/data/img/loading.svg" alt="">
+			<div id="recommended-watchings-3-iframe" style="text-align: center; margin-top:10px;"></div>
+	</details>
+
+	<!-- <details style="margin-top: 10px; margin-bottom: 10px;" id="recommended-watchings-4">
+		<summary><i><span style="text-align: center;" class="bb">Central Limit Theorem</span> (by Sir Jeremy Balka)</i></summary>
+			<img style="display: none; margin-top: 1rem;" id="loading-iframe-4" class="loading" src="/data/img/loading.svg" alt="">
+			<div id="recommended-watchings-4-iframe" style="text-align: center; margin-top:10px;"></div>
+	</details>
+
+		<details style="margin-top: 10px; margin-bottom: 10px;" id="recommended-watchings-5">
+		<summary><i><span style="text-align: center;" class="bb">Real-world application of the CLT</span> (by 365 Data Science)</i></summary>
+			<img style="display: none; margin-top: 1rem;" id="loading-iframe-5" class="loading" src="/data/img/loading.svg" alt="">
+			<div id="recommended-watchings-5-iframe" style="text-align: center; margin-top:10px;"></div>
+	</details> -->
+
+	<br>
+	</blockquote>
+
+<br><br>
 
 <div id="modals-html"></div>
-
+</div>
 </section>
 </div><!-- Main [END]-->
 </div><!-- Wrapper [END]-->
